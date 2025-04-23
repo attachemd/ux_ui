@@ -24,6 +24,9 @@
     --font-family-headings: "Georgia", serif; /* Example */
 
     --font-size-base: 1rem; /* 16px typically */
+    --font-size-xxxsm: calc(var(--font-size-base) * 0.6875); /* 11px */
+    --font-size-xxsm: calc(var(--font-size-base) * 0.75); /* 12px */
+    --font-size-xsm: calc(var(--font-size-base) * 0.8125); /* 13px */
     --font-size-sm: calc(var(--font-size-base) * 0.875); /* 14px */
     --font-size-lg: calc(var(--font-size-base) * 1.25); /* 20px */
     --font-size-h1: calc(var(--font-size-base) * 2.5); /* 40px */
@@ -228,7 +231,7 @@
   .main-sidenav {
     display: none;
     flex-direction: column;
-    padding: 32px 16px;
+    padding: 32px var(--spacing-md);
     background-color: rgba(var(--color-light), 0.5);
     box-shadow: var(--box-shadow-panel);
   }
@@ -258,7 +261,7 @@
     font-weight: bold;
   }
 
-  .tag {
+  .chip {
     border-radius: var(--border-radius-pill);
     padding: 3px 8px;
     font-size: 12px;
@@ -276,10 +279,10 @@
   .mini-card {
     display: flex;
     flex-direction: column;
-    padding: 16px;
+    padding: var(--spacing-md);
     border-radius: var(--border-radius);
     background: rgba(0, 0, 0, 0.03);
-    gap: 16px;
+    gap: var(--spacing-md);
     width: 100%;
     height: fit-content;
   }
@@ -311,6 +314,30 @@
     box-shadow: var(--box-shadow-panel);
     .ft-text {
       font-size: 13px;
+    }
+  }
+
+  .comment {
+    .comment-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      width: 100%;
+      padding: var(--spacing-md);
+    }
+    .comment-block {
+      /*flex flex-col w-full p-4 gap-2 border-b-2 ft-shade-border*/
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      padding: var(--spacing-md);
+      gap: 8px;
+      border-bottom: 2px solid rgba(var(--color-border), 0.03);
+    }
+
+    .comment-block:last-child {
+      border-bottom: none;
     }
   }
 
