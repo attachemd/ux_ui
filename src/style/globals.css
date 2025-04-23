@@ -238,6 +238,10 @@
     }
   }
 
+button {
+  cursor: pointer;
+}
+
   .main-sidenav {
     display: none;
     flex-direction: column;
@@ -293,7 +297,9 @@
     border-radius: var(--border-radius);
     background: rgba(0, 0, 0, 0.03);
     gap: var(--spacing-md);
-    width: 100%;
+    /*width: 100%;*/
+    width: fit-content;
+    flex-grow: 1;
     height: fit-content;
     .header {
       display: flex;
@@ -325,7 +331,7 @@
     /*flex flex-col p-3 rounded-xl bg-white bg-opacity-50 gap-2 w-fit border border-gray-300*/
     display: flex;
     flex-direction: column;
-    padding: 0.75rem; /* p-3 in Tailwind CSS */
+    padding: 0.6rem 0.75rem; /* p-3 in Tailwind CSS */
     border-radius: 0.75rem; /* rounded-xl in Tailwind CSS */
     background-color: rgba(255, 255, 255, 1); /* bg-white bg-opacity-50 in Tailwind CSS */
     gap: 0.5rem; /* gap-2 in Tailwind CSS */
@@ -335,10 +341,24 @@
     .ft-text {
       font-size: var(--font-size-xsm);
       color: rgba(var(--color-dark), 0.8);
+      padding: 2px 0;
     }
   }
 
   .comment {
+    /* flex flex-col
+              rounded-2xl
+              w-full
+              overflow-hidden
+              h-full
+              border-2
+              ft-shade-border */
+    display: flex;
+    flex-direction: column;
+    border-radius: var(--border-radius);
+    width: 100%;
+    height: 100%;
+    border: 3px solid rgba(var(--color-border), 0.1);
     .comment-header {
       display: flex;
       justify-content: space-between;
@@ -359,6 +379,16 @@
       padding: var(--spacing-md);
       gap: 8px;
       border-bottom: 2px solid rgba(var(--color-border), 0.03);
+      .img-profile {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: var(--border-radius-pill);
+        background-color: rgba(var(--color-border), 0.1);
+        width: var(calc(2*--spacing));
+        height: var(calc(2*--spacing));
+        font-size: var(--text-xl);
+      }
       .ft-sub-title {
         font-size: var(--font-size-xxsm);
         font-weight: 500;
@@ -401,7 +431,7 @@
       align-items: center;
       gap: var(--spacing-sm);
       i {
-        color: rgba(var(--color-text-base), 0.5);
+        /*color: rgba(var(--color-text-base), 0.3);*/
       }
     }
   }
@@ -472,7 +502,7 @@
   /* Backdrop (dark overlay) */
 
   #backdrop {
-    display: none;
+    /*display: none;*/
     position: fixed;
     top: 0;
     left: 0;
@@ -487,7 +517,7 @@
   /* Modal Dialog */
 
   #modal {
-    display: none;
+    /*display: none;*/
     position: fixed;
     top: 50%;
     left: 50%;
@@ -559,8 +589,6 @@
   }
 
   @media (width >= 1280px) {
-    .mini-card {
-      width: fit-content;
-    }
+
   }
 

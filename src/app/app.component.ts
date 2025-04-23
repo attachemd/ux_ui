@@ -23,7 +23,7 @@ interface Comment {
 
 @Component({
   selector: 'app-root',
-  // imports: [RouterOutlet, NgIf],
+  imports: [RouterOutlet, NgIf],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
@@ -31,14 +31,15 @@ interface Comment {
 export class AppComponent {
   title = 'uxui';
 
+  isModalOpen: boolean = false; // Property to control modal visibility
   medicalHistoryEntities: MedicalHistoryEntity[] = [
-    { title: 'Allergique à', blocks:
+    { title: 'Allergies', blocks:
         [
           { title: 'Penicillin', status: 'Severe', class: 'chip-color-level3', note: 'Anaphylaxis' },
           { title: 'Dust Mites', status: 'Mild', class: 'chip-color-level2'  },
         ]
     },
-    { title: 'A été évalué pour le risque de', blocks:
+    { title: 'Risk assessment', blocks:
         [
           { title: 'Cardiovascular Risk', status: 'Severe', class: 'chip-color-level3'  },
           { title: 'Diabetes Risk', status: 'Medium', class: 'chip-color-level2', note: 'parent relation'  },
@@ -57,7 +58,7 @@ export class AppComponent {
           { title: 'Floxin 20mg' , status: 'Done', class: 'chip-color-done'  },
         ]
     },
-    { title: 'Vacciné contre', blocks:
+    { title: 'Vaccinations', blocks:
         [
           { title: 'ImmunoBarrier Plus', status: 'Done', class: 'chip-color-done'  },
           { title: 'HealthShield Proactive', status: 'Ongoing', class: 'chip-color-ongoing', note: 'Next dose due in 2 months'  },
@@ -98,5 +99,17 @@ export class AppComponent {
    */
   getCommentById(id: number): Comment | undefined {
     return this.comments.find(comment => comment.id === id);
+  }
+
+  openModal() {
+    this.isModalOpen = true;
+    // Optional: Add a class to the body to prevent scrolling
+    document.body.classList.add('modal-open');
+  }
+
+  closeModal() {
+    this.isModalOpen = false;
+    // Optional: Remove the class from the body
+    document.body.classList.remove('modal-open');
   }
 }
