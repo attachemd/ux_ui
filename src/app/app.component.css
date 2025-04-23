@@ -1,3 +1,4 @@
 :host {
   display: flex;
+  font-size: var(--font-size-xsm);
 }

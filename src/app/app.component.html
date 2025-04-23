@@ -45,7 +45,7 @@
       <span class="hidden lg:inline-block chip-color-info chip"
         >Première hospitalisation
       </span>
-      <div class="hidden lg:flex flex-grow items-center gap-3">
+      <div class="hidden lg:flex sub-info">
         <div class="flex items-center gap-2">
           <i class="icon-gender2"></i>
           <span class="leading-none">Homme</span>
@@ -208,9 +208,9 @@
         >
           @for (item of medicalHistoryEntities; track item.title) {
           <div class="mini-card">
-            <div class="flex justify-between gap-3 w-full">
+            <div class="header">
               <div class="flex items-center gap-2">
-                <span class="leading-none">{{ item.title }}</span>
+                <span class="leading-none ft-text">{{ item.title }}</span>
               </div>
               <div class="flex items-center gap-2">
                 <i class="icon-plus"></i>
@@ -268,7 +268,7 @@
               "
             >
               <div class="flex items-center gap-2">
-                <span class="text-black">General Notes</span>
+                <span class="ft-text">General Notes</span>
               </div>
               <div class="flex items-center gap-2">
                 <i class="icon-search"></i>
@@ -296,8 +296,8 @@
                         >S</span
                       >
                       <div class="flex flex-col">
-                        <span class="text-black">{{ comment.author }}</span>
-                        <span>{{ comment.date }}</span>
+                        <span class="text-black ft-title">{{ comment.author }}</span>
+                        <span class="ft-sub-title">{{ comment.date }}</span>
                       </div>
                     </div>
                     <div class="flex items-center gap-2">
@@ -308,22 +308,19 @@
                     @if (comment.quoteId) { @if
                     (getCommentById(comment.quoteId); as quotedComment) {
                     <div
-                      class="px-4 py-2 ft-shade-bg ft-shade-border rounded-lg"
+                      class="quoted"
                     >
                       <span>{{ quotedComment.author }}</span>
                       <p
                         class="
                           ft-text
-                          text-[12px]
-                          text-[rgba(var(--color-dark),
-                          0.8)]
                         "
                       >
                         {{ quotedComment.text }}
                       </p>
                     </div>
                     } }
-                    <p class="text-[rgba(var(--color-dark), 0.8)]">
+                    <p>
                       {{ comment.text }}
                     </p>
                   </div>
