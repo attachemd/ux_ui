@@ -47,6 +47,7 @@
 
     /* --- Borders --- */
     --border-width: 1px;
+    --border-radius: 12px;
     --border-radius-sm: 0.2rem; /*3.2px*/
     --border-radius-md: 0.25rem; /*4px*/
     --border-radius-lg: 0.3rem; /*4.8px*/
@@ -92,7 +93,7 @@
     width: 100%;
     height: 100%;
     font-family: Inter, sans-serif;
-    font-size: 14px;
+    font-size: 13px;
   }
 
   html {
@@ -206,8 +207,8 @@
   .secondary-navbar {
     height: 44px;
     min-height: 44px;
-    .ft-inline-text {
-      font-size: 13px;
+    .ft-text {
+      font-size: 12px;
       font-weight: 500;
       color: rgba(var(--color-text-base), 0.8);
       overflow: hidden;
@@ -222,9 +223,10 @@
   }
 
   .tag {
-    border-radius: 1000px;
-    padding: 1px 8px;
+    border-radius: var(--border-radius-pill);
+    padding: 3px 8px;
     font-size: 12px;
+    line-height: 1;
   }
 
   .tab-body-header {
@@ -239,7 +241,7 @@
     display: flex;
     flex-direction: column;
     padding: 16px;
-    border-radius: 16px;
+    border-radius: var(--border-radius);
     background: rgba(0, 0, 0, 0.03);
     gap: 16px;
     width: 100%;
@@ -271,21 +273,30 @@
     width: fit-content; /* w-fit in Tailwind CSS */
     /*border: 1px solid #d1d5db; */
     box-shadow: var(--box-shadow-panel);
+    .ft-text {
+      font-size: 13px;
+    }
   }
 
   .patient-info {
     padding: 8px 12px;
     background-color: rgba(var(--color-background-body), 0.89);
-    border-radius: 16px;
+    border-radius: var(--border-radius);
     gap: 24px;
     box-shadow: var(--box-shadow-panel);
     display: flex;
     align-items: center;
+    .ft-text {
+      font-weight: 400;
+      font-size: 16px;
+      color: #c1c1c1;
+    }
   }
 
   .general-notes {
     width: 100%;
     min-width: 100%;
+
   }
 
   .ft-icon {
@@ -301,7 +312,7 @@
     display: flex;
     align-items: center;
     background: rgba(var(--color-background-body), 0.89);
-    border-radius: 16px;
+    border-radius: var(--border-radius);
     box-shadow: var(--box-shadow-panel);
     overflow: hidden;
   }
@@ -370,7 +381,7 @@
     transform: translate(-50%, -50%);
     background-color: white;
     padding: 20px;
-    border-radius: 5px;
+    border-radius: var(--border-radius);
     box-shadow: var(--box-shadow-dialog);
     z-index: 1001;
     width: 300px;
