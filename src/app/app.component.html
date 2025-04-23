@@ -41,7 +41,7 @@
             Mr. AHMED IBRAHIMI
           </span>
       <span
-        class="truncate hidden lg:inline-block rounded-full bg-[#edfccc] border border-[#e4f2c4] px-2 py-px text-[rgb(76,124,23)]"
+        class="hidden lg:inline-block chip-color-info tag"
       >Première hospitalisation
           </span>
       <div class="hidden lg:flex flex-grow items-center gap-3">
@@ -78,7 +78,7 @@
           class="ft-flex-center flex-grow xxl:justify-center gap-2 w-0 relative"
         >
           <div class="ft-flex-center w-full h-full">
-                <span class="truncate font-normal inline-block text-black">
+                <span class="truncate font-normal inline-block active">
                   Historique Medical
                 </span>
           </div>
@@ -115,20 +115,20 @@
           class="ft-flex-center flex-col flex-grow xxl:justify-center w-0 relative"
         >
           <div
-            class="ft-flex-center w-full h-full border-b border-[#6946d5]"
+            class="ft-flex-center w-full h-full border-b border-[var(--color-primary)]"
           >
-                <span class="ft-text text-[#6946d5]">
+                <span class="ft-text !text-[var(--color-primary)]">
                   Historique Medical
                 </span>
           </div>
           <div
-            class="w-[77%] border-b border-[#6946d5] absolute bottom-0 blur-xl"
+            class="w-[77%] border-b border-[var(--color-primary)] absolute bottom-0 blur-xl"
           ></div>
           <div
-            class="w-full border-b border-[#6946d5] absolute bottom-0 blur-[3px] opacity-20"
+            class="w-full border-b border-[var(--color-primary)] absolute bottom-0 blur-[3px] opacity-20"
           ></div>
           <div
-            class="w-full border-b-2 border-[#6946d5] absolute bottom-0 blur-2xl"
+            class="w-full border-b-2 border-[var(--color-primary)] absolute bottom-0 blur-2xl"
           ></div>
         </div>
         <div class="ft-flex-center flex-grow gap-2 w-0">
@@ -169,7 +169,7 @@
       </div>
 
       <div
-        class="flex flex-col flex-grow lg:flex-row w-full gap-4 overflow-auto pl-4 pr-4 pb-4"
+        class="flex flex-col flex-grow lg:flex-row w-full gap-3 overflow-auto pl-4 pr-4 pb-4"
       >
         <div
           class="flex flex-grow content-start flex-wrap gap-4 overflow-visible hm-container lg:pr-3"
@@ -192,7 +192,7 @@
                 <div class="flex justify-between items-center gap-3 w-full">
                   <div class="flex items-center gap-2">
                         <span
-                          class="flex items-center justify-center tag bg-red-200 text-red-900 border-green-200"
+                          class="tag chip-color-level3"
                         >Severe</span
                         >
                     <i
@@ -215,7 +215,7 @@
                 <div class="flex justify-between items-center gap-3 w-full">
                   <div class="flex items-center gap-2">
                         <span
-                          class="flex items-center justify-center tag bg-orange-200 text-orange-900 border-green-200"
+                          class="tag chip-color-level2"
                         >Mild</span
                         >
                     <i
@@ -254,7 +254,7 @@
                 <div class="flex justify-between items-center gap-3 w-full">
                   <div class="flex items-center gap-2">
                         <span
-                          class="flex items-center justify-center tag bg-red-200 text-red-900 border-green-200"
+                          class="tag chip-color-level3"
                         >Severe</span
                         >
                   </div>
@@ -274,7 +274,7 @@
                 <div class="flex justify-between items-center gap-3 w-full">
                   <div class="flex items-center gap-2">
                         <span
-                          class="flex items-center justify-center tag bg-orange-200 text-orange-900 border-green-200"
+                          class="tag chip-color-level2"
                         >Medium</span
                         >
                   </div>
@@ -294,7 +294,7 @@
                 <div class="flex justify-between items-center gap-3 w-full">
                   <div class="flex items-center gap-2">
                         <span
-                          class="flex items-center justify-center tag bg-green-200 text-green-900 border-green-200"
+                          class="tag chip-color-level1"
                         >Low</span
                         >
                   </div>
@@ -388,7 +388,7 @@
                 <div class="flex justify-between items-center gap-3 w-full">
                   <div class="flex items-center gap-2">
                         <span
-                          class="flex items-center justify-center tag bg-green-200 text-green-900 border-green-200"
+                          class="tag chip-color-ongoing"
                         >En cours</span
                         >
                     <i
@@ -445,7 +445,7 @@
                 <div class="flex justify-between items-center gap-3 w-full">
                   <div class="flex items-center gap-2">
                         <span
-                          class="flex items-center justify-center tag bg-teal-200 text-teal-900 border-green-200"
+                          class="tag chip-color-done"
                         >Terminé</span
                         >
                   </div>
@@ -465,7 +465,7 @@
                 <div class="flex justify-between items-center gap-3 w-full">
                   <div class="flex items-center gap-2">
                         <span
-                          class="flex items-center justify-center tag bg-green-200 text-green-900 border-green-200"
+                          class="tag chip-color-ongoing"
                         >En cours</span
                         >
                   </div>
@@ -486,7 +486,7 @@
                 <div class="flex justify-between items-center gap-3 w-full">
                   <div class="flex items-center gap-2">
                         <span
-                          class="flex items-center justify-center tag bg-teal-200 text-teal-900 border-green-200"
+                          class="tag chip-color-done"
                         >Terminé</span
                         >
                   </div>
@@ -506,7 +506,7 @@
                 <div class="flex justify-between items-center gap-3 w-full">
                   <div class="flex items-center gap-2">
                         <span
-                          class="flex items-center justify-center tag bg-teal-200 text-teal-900 border-green-200"
+                          class="tag chip-color-done"
                         >Terminé</span
                         >
                   </div>
@@ -526,7 +526,7 @@
                 <div class="flex justify-between items-center gap-3 w-full">
                   <div class="flex items-center gap-2">
                         <span
-                          class="flex items-center justify-center tag bg-teal-200 text-teal-900 border-green-200"
+                          class="tag chip-color-done"
                         >Terminé</span
                         >
                   </div>
@@ -546,7 +546,7 @@
                 <div class="flex justify-between items-center gap-3 w-full">
                   <div class="flex items-center gap-2">
                         <span
-                          class="flex items-center justify-center tag bg-teal-200 text-teal-900 border-green-200"
+                          class="tag chip-color-done"
                         >Terminé</span
                         >
                   </div>
@@ -566,7 +566,7 @@
                 <div class="flex justify-between items-center gap-3 w-full">
                   <div class="flex items-center gap-2">
                         <span
-                          class="flex items-center justify-center tag bg-green-200 text-green-900 border-green-200"
+                          class="tag chip-color-ongoing"
                         >En cours</span
                         >
                   </div>
@@ -586,7 +586,7 @@
                 <div class="flex justify-between items-center gap-3 w-full">
                   <div class="flex items-center gap-2">
                         <span
-                          class="flex items-center justify-center tag bg-teal-200 text-teal-900 border-green-200"
+                          class="tag chip-color-done"
                         >Terminé</span
                         >
                   </div>
@@ -606,7 +606,7 @@
                 <div class="flex justify-between items-center gap-3 w-full">
                   <div class="flex items-center gap-2">
                         <span
-                          class="flex items-center justify-center tag bg-teal-200 text-teal-900 border-green-200"
+                          class="tag chip-color-done"
                         >Terminé</span
                         >
                   </div>
@@ -626,7 +626,7 @@
                 <div class="flex justify-between items-center gap-3 w-full">
                   <div class="flex items-center gap-2">
                         <span
-                          class="flex items-center justify-center tag bg-teal-200 text-teal-900 border-green-200"
+                          class="tag chip-color-done"
                         >Terminé</span
                         >
                   </div>
@@ -646,7 +646,7 @@
                 <div class="flex justify-between items-center gap-3 w-full">
                   <div class="flex items-center gap-2">
                         <span
-                          class="flex items-center justify-center tag bg-green-200 text-green-900 border-green-200"
+                          class="tag chip-color-ongoing"
                         >En cours</span
                         >
                   </div>
@@ -666,7 +666,7 @@
                 <div class="flex justify-between items-center gap-3 w-full">
                   <div class="flex items-center gap-2">
                         <span
-                          class="flex items-center justify-center tag bg-teal-200 text-teal-900 border-green-200"
+                          class="tag chip-color-done"
                         >Terminé</span
                         >
                   </div>
@@ -741,10 +741,10 @@
 
         <div class="general-notes">
           <div
-            class="flex flex-col rounded-2xl w-full overflow-hidden h-full border-2 ft-shade-border"
+            class="flex flex-col rounded-2xl w-full overflow-hidden h-full border-2 ft-shade-border comment"
           >
             <div
-              class="flex justify-between items-center gap-3 w-full p-4 ft-shade-bg"
+              class="flex justify-between items-center gap-3 w-full p-4 ft-shade-bg comment-header"
             >
               <div class="flex items-center gap-2">
                 <span class="text-black">General Notes</span>
@@ -755,10 +755,10 @@
                 ></i>
               </div>
             </div>
-            <div class="h-full overflow-auto">
-              <div class="flex flex-col">
+            <div class="h-full overflow-auto comment-body-outer-container">
+              <div class="flex flex-col comment-body-container">
                 <div
-                  class="flex flex-col w-full p-4 gap-2 border-b-2 ft-shade-border"
+                  class="flex flex-col w-full p-4 gap-2 border-b-2 ft-shade-border comment-block"
                 >
                   <div
                     class="flex justify-between items-center gap-3 w-full"
@@ -782,7 +782,7 @@
                     </div>
                   </div>
                   <div class="flex flex-col overflow-hidden">
-                    <p class="text-black/80">
+                    <p class="text-[rgba(var(--color-dark), 0.8)]">
                       Je tiens à laisser une note concernant le service que
                       j'ai reçu ici. J'ai rencontré un problème avec la
                       coordination des rendez-vous, où les horaires
@@ -817,7 +817,7 @@
                     </div>
                   </div>
                   <div class="flex flex-col overflow-hidden">
-                    <p class="text-black/80">
+                    <p class="text-[rgba(var(--color-dark), 0.8)]">
                       J'ai eu des difficultés à joindre le service client
                       par téléphone. Veuillez améliorer la réactivité.
                     </p>
@@ -850,13 +850,13 @@
                     <div
                       class="px-4 py-2 ft-shade-bg ft-shade-border rounded-lg"
                     >
-                      <span class="text-black text-[13px]">Sanna Samar</span>
-                      <p class="m-0 text-xs text-black/80">
+                      <span>Sanna Samar</span>
+                      <p class="m-0 ft-text text-[12px] text-[rgba(var(--color-dark), 0.8)]">
                         J'ai eu des difficultés à joindre le service client
                         par téléphone. Veuillez améliorer la réactivité.
                       </p>
                     </div>
-                    <p class="text-black/80">
+                    <p class="text-[rgba(var(--color-dark), 0.8)]">
                       Nous vous remercions de nous avoir informés de ce
                       problème. Nous allons immédiatement examiner nos
                       processus pour améliorer la réactivité de notre
@@ -868,7 +868,7 @@
               </div>
             </div>
             <div
-              class="flex justify-between items-center gap-3 w-full px-4 py-3 ft-shade-bg"
+              class="flex justify-between items-center gap-3 w-full px-4 py-3 ft-shade-bg comment-send-block"
             >
               <div class="flex items-center gap-2">
                     <span

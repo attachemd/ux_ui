@@ -2,7 +2,7 @@
 
   :root {
     /* --- Colors --- */
-    --color-primary: #007bff;
+    --color-primary: #6946d5;
     --color-secondary: #6c757d;
     --color-success: #28a745;
     --color-danger: #dc3545;
@@ -63,6 +63,42 @@
     /* --- Transitions --- */
     --transition-base: all 0.2s ease-in-out;
   }
+
+.chip-color-info {
+  border: 1px solid #e4f2c4;
+  background-color: #edfccc;
+  color: rgb(76,124,23);
+}
+
+.chip-color-normal {
+  background-color: var(--color-blue-200);
+  color: var(--color-black);
+}
+
+.chip-color-ongoing {
+  background-color: var(--color-green-200);
+  color: var(--color-green-900);
+}
+
+.chip-color-done {
+  background-color: var(--color-teal-200);
+  color: var(--color-teal-900);
+}
+
+.chip-color-level1 {
+  background-color: var(--color-green-200);
+  color: var(--color-green-900);
+}
+
+.chip-color-level2 {
+  background-color: var(--color-orange-200);
+  color: var(--color-orange-900);
+}
+
+.chip-color-level3 {
+  background-color: var(--color-red-200);
+  color: var(--color-red-900);
+}
 
   /* Add this to your CSS */
   body.dark-theme {
