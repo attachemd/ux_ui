@@ -24,11 +24,10 @@
     </div>
     <div class="flex gap-6">
       <button><i class="icon-search"></i></button>
-      <button><i class="icon-theme"></i
-      ></button>
+      <!-- <button><i class="icon-theme"></i></button> -->
+      <ft-theme-switcher></ft-theme-switcher>
       <button><i class="icon-bell"></i></button>
-      <button><i class="icon-setting !hidden lg:!flex"></i
-      ></button>
+      <button><i class="icon-setting !hidden lg:!flex"></i></button>
       <button><i class="icon-user"></i></button>
       <button><i class="icon-logout !hidden lg:!flex"></i></button>
     </div>
@@ -38,19 +37,12 @@
     <div class="patient-info">
       <button><i class="icon-arrow-left !text-4xl"> </i></button>
       <span
-      class="
-          truncate
-          flex-grow
-          justify-start
-          items-center
-          lg:flex-grow-0
-          ft-text
-        "
-    >
+        class="truncate flex-grow justify-start items-center lg:flex-grow-0 ft-text"
+      >
         Mr. AHMED IBRAHIMI
       </span>
       <span class="hidden lg:inline-block chip-color-info chip"
-      >Première hospitalisation
+        >Première hospitalisation
       </span>
       <div class="hidden lg:flex sub-info">
         <div class="flex items-center gap-2">
@@ -77,7 +69,6 @@
       </div>
 
       <button class="ft-icon-button"><i class="icon-vertical-dots"></i></button>
-
     </div>
 
     <div class="lg:!hidden ft-panel secondary-navbar">
@@ -110,57 +101,23 @@
           </div>
         </div>
         <div
-          class="
-            ft-flex-center
-            flex-col flex-grow
-            xxl:justify-center
-            w-0
-            relative
-          "
+          class="ft-flex-center flex-col flex-grow xxl:justify-center w-0 relative"
         >
           <div
-            class="
-              ft-flex-center
-              w-full
-              h-full
-              border-b
-              border-[var(--color-primary)]
-            "
+            class="ft-flex-center w-full h-full border-b border-[var(--color-primary)]"
           >
             <span class="ft-text !text-[var(--color-primary)]">
               Historique Medical
             </span>
           </div>
           <div
-            class="
-              w-[77%]
-              border-b
-              border-[var(--color-primary)]
-              absolute
-              bottom-0
-              blur-xl
-            "
+            class="w-[77%] border-b border-[var(--color-primary)] absolute bottom-0 blur-xl"
           ></div>
           <div
-            class="
-              w-full
-              border-b
-              border-[var(--color-primary)]
-              absolute
-              bottom-0
-              blur-[3px]
-              opacity-20
-            "
+            class="w-full border-b border-[var(--color-primary)] absolute bottom-0 blur-[3px] opacity-20"
           ></div>
           <div
-            class="
-              w-full
-              border-b-2
-              border-[var(--color-primary)]
-              absolute
-              bottom-0
-              blur-2xl
-            "
+            class="w-full border-b-2 border-[var(--color-primary)] absolute bottom-0 blur-2xl"
           ></div>
         </div>
         <div class="ft-flex-center flex-grow gap-2 w-0">
@@ -191,79 +148,54 @@
       </div>
 
       <div
-        class="
-          flex flex-col flex-grow
-          lg:flex-row
-          w-full
-          gap-3
-          overflow-auto
-          pl-4
-          pr-4
-          pb-4
-        "
+        class="flex flex-col flex-grow lg:flex-row w-full gap-3 overflow-auto pl-4 pr-4 pb-4"
       >
-        <div
-          class="
-            hm-container
-            lg:pr-3
-          "
-        >
+        <div class="hm-container lg:pr-3">
           @for (item of medicalHistoryEntities; track item.title) {
-            <div class="mini-card">
-              <div class="header">
-                <div class="flex items-center gap-2">
-                  <span class="leading-none ft-text">{{ item.title }}</span>
-                </div>
-                <div class="flex items-center gap-2">
-                  <button (click)="openModal()"><i class="icon-plus"></i></button>
-                </div>
+          <div class="mini-card">
+            <div class="header">
+              <div class="flex items-center gap-2">
+                <span class="leading-none ft-text">{{ item.title }}</span>
               </div>
-              <div class="mini-card-body">
-                @for (block of item.blocks; track block.title) {
-                  <div class="micro-card">
-                    <div class="flex justify-between items-center gap-3 w-full">
-                      <div class="flex items-center gap-2">
-                        @if (block.status) {
-                          <span class="chip" [class]="block.class">{{
-                              block.status
-                            }}</span>
-                        }
-                        @if (block.surgeon) {
-                          <span class="leading-none text-gray-500"
-                          >Surgeon: {{ block.surgeon }}</span
-                          >
-                        }
-                        @if (block.note) {
-                          <i class="icon-comment"></i>
-                        }
-                      </div>
-                      <div class="flex items-center gap-2">
-                        <button><i class="icon-close"></i></button>
-                      </div>
-                    </div>
-                    <div class="flex flex-col overflow-hidden">
-                      <span class="leading-none ft-text">{{ block.title }}</span>
-                    </div>
-                  </div>
-                }
+              <div class="flex items-center gap-2">
+                <button (click)="openModal()"><i class="icon-plus"></i></button>
               </div>
             </div>
+            <div class="mini-card-body">
+              @for (block of item.blocks; track block.title) {
+              <div class="micro-card">
+                <div class="flex justify-between items-center gap-3 w-full">
+                  <div class="flex items-center gap-2">
+                    @if (block.status) {
+                    <span class="chip" [class]="block.class">{{
+                      block.status
+                    }}</span>
+                    } @if (block.surgeon) {
+                    <span class="leading-none text-gray-500"
+                      >Surgeon: {{ block.surgeon }}</span
+                    >
+                    } @if (block.note) {
+                    <i class="icon-comment"></i>
+                    }
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <button><i class="icon-close"></i></button>
+                  </div>
+                </div>
+                <div class="flex flex-col overflow-hidden">
+                  <span class="leading-none ft-text">{{ block.title }}</span>
+                </div>
+              </div>
+              }
+            </div>
+          </div>
 
           }
         </div>
 
         <div class="general-notes">
-          <div
-            class="
-              comment
-            "
-          >
-            <div
-              class="
-                ft-shade-bg
-                comment-header
-              "
-            >
+          <div class="comment">
+            <div class="comment-header">
               <div class="flex items-center gap-2">
                 <span class="ft-text">General Notes</span>
               </div>
@@ -271,64 +203,50 @@
                 <button><i class="icon-search"></i></button>
               </div>
             </div>
-            <div class="h-full overflow-auto comment-body-outer-container">
-              <div class="flex flex-col comment-body-container">
+            <div class="comment-body-outer-container">
+              <div class="ft-scroll-verlay-container">
+                <div class="ft-scroll-verlay"></div>
+              </div>
+              <div class="comment-body-container">
                 @for (comment of comments; track comment.id) {
-                  <div class="comment-block">
-                    <div class="flex justify-between items-center gap-3 w-full">
-                      <div class="flex items-center gap-2">
-                      <span
-                        class="
-                          ft-img-profile
-                        "
-                      >{{ comment.author?.charAt(0) }}</span
-                      >
-                        <div class="flex flex-col">
-                          <span class="text-black ft-title">{{ comment.author }}</span>
-                          <span class="ft-sub-title">{{ comment.date }}</span>
-                        </div>
-                      </div>
-                      <div class="flex items-center gap-2">
-                        <button><i class="icon-vertical-dots"></i></button>
+                <div class="comment-block">
+                  <div class="flex justify-between items-center gap-3 w-full">
+                    <div class="flex items-center gap-2">
+                      <span class="ft-img-profile">{{
+                        comment.author?.charAt(0)
+                      }}</span>
+                      <div class="flex flex-col">
+                        <span class="text-black ft-title">{{
+                          comment.author
+                        }}</span>
+                        <span class="ft-sub-title">{{ comment.date }}</span>
                       </div>
                     </div>
-                    <div class="flex flex-col overflow-hidden">
-                      @if (comment.quoteId) {
-                        @if (getCommentById(comment.quoteId); as quotedComment) {
-                          <div
-                            class="quoted"
-                          >
-                            <span>{{ quotedComment.author }}</span>
-                            <p
-                              class="
-                          ft-text
-                        "
-                            >
-                              {{ quotedComment.text }}
-                            </p>
-                          </div>
-                        }
-                      }
-                      <p>
-                        {{ comment.text }}
-                      </p>
+                    <div class="flex items-center gap-2">
+                      <button><i class="icon-vertical-dots"></i></button>
                     </div>
                   </div>
+                  <div class="flex flex-col overflow-hidden">
+                    @if (comment.quoteId) { @if
+                    (getCommentById(comment.quoteId); as quotedComment) {
+                    <div class="quoted">
+                      <div class="ft-indicator"></div>
+                      <span>{{ quotedComment.author }}</span>
+                      <p class="ft-text">
+                        {{ quotedComment.text }}
+                      </p>
+                    </div>
+                    } }
+                    <p>
+                      {{ comment.text }}
+                    </p>
+                  </div>
+                </div>
                 }
               </div>
             </div>
             <div
-              class="
-                flex
-                justify-between
-                items-center
-                gap-3
-                w-full
-                px-4
-                py-3
-                ft-shade-bg
-                comment-send-block
-              "
+              class="flex justify-between items-center gap-3 w-full px-4 py-3 ft-shade-bg comment-send-block"
             >
               <div class="flex items-center gap-2">
                 <span>Ajouter une note</span>

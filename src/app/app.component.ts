@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import {NgIf} from '@angular/common';
+import { ThemeSwitcherComponent } from "./components/theme-switcher.component";
 
 interface MedicalHistoryBlock {
   title: string;
@@ -23,7 +24,7 @@ interface Comment {
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, NgIf],
+  imports: [RouterOutlet, NgIf, ThemeSwitcherComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
