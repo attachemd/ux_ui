@@ -240,6 +240,48 @@
 
 button {
   cursor: pointer;
+  /*transition: background-color 0.3s ease, transform 0.1s ease, box-shadow 0.3s ease;*/
+  transition: background-color 0.3s ease, transform 0.1s ease;
+  display: inline-flex;
+  align-items: center;
+  border-radius: var(--border-radius-pill);
+}
+
+/* Hover state */
+button:hover {
+  background-color: rgba(var(--color-dark), 0.03);
+}
+
+/* Active state (when clicked) */
+button:active {
+  background-color: rgba(var(--color-dark), 0.1) !important;
+  /*transform: scale(0.9);*/
+}
+
+/* Focus state */
+button:focus {
+  /*outline: 2px solid #90c3ff;*/
+  /*outline-offset: 2px;*/
+}
+
+/* Disabled state */
+button:disabled {
+  background-color: #cccccc;
+  color: #666666;
+  cursor: not-allowed;
+  opacity: 0.7;
+  transform: none;
+}
+
+/* Optional: Add transition for icon */
+button i {
+  transition: transform 0.2s ease;
+}
+
+/* Optional: Add hover effect to icon */
+button:active i {
+  /*transform: translateX(-2px); !* Adjust for directional icons *!*/
+  transform: scale(0.9);
 }
 
   .main-sidenav {
@@ -260,6 +302,16 @@ button {
   .secondary-navbar {
     height: 44px;
     min-height: 44px;
+    .more {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: calc(var(--spacing));
+      height: 100%;
+      width: calc(var(--spacing)*14);
+      background-color: rgba(var(--color-dark), 0.03);
+      border-radius: 0;
+    }
     .ft-text {
       font-size: var(--font-size-xxsm);
       font-weight: 500;
@@ -328,15 +380,13 @@ button {
   }
 
   .micro-card {
-    /*flex flex-col p-3 rounded-xl bg-white bg-opacity-50 gap-2 w-fit border border-gray-300*/
     display: flex;
     flex-direction: column;
-    padding: 0.6rem 0.75rem; /* p-3 in Tailwind CSS */
-    border-radius: 0.75rem; /* rounded-xl in Tailwind CSS */
-    background-color: rgba(255, 255, 255, 1); /* bg-white bg-opacity-50 in Tailwind CSS */
-    gap: 0.5rem; /* gap-2 in Tailwind CSS */
-    width: fit-content; /* w-fit in Tailwind CSS */
-    /*border: 1px solid #d1d5db; */
+    padding: 0.6rem 0.75rem;
+    border-radius: 0.75rem;
+    background-color: rgba(var(--color-light), 1);
+    gap: 0.5rem;
+    width: fit-content;
     box-shadow: var(--box-shadow-panel);
     .ft-text {
       font-size: var(--font-size-xsm);
@@ -379,15 +429,16 @@ button {
       padding: var(--spacing-md);
       gap: 8px;
       border-bottom: 2px solid rgba(var(--color-border), 0.03);
-      .img-profile {
+      .ft-img-profile {
         display: flex;
         align-items: center;
         justify-content: center;
         border-radius: var(--border-radius-pill);
-        background-color: rgba(var(--color-border), 0.1);
-        width: var(calc(2*--spacing));
-        height: var(calc(2*--spacing));
-        font-size: var(--text-xl);
+        background-color: rgba(var(--color-dark), 0.1);
+        width: calc(var(--spacing)*9);
+        height: calc(var(--spacing)*9);
+        font-size: var(--text-lg);
+        font-weight: bold;
       }
       .ft-sub-title {
         font-size: var(--font-size-xxsm);
@@ -434,6 +485,19 @@ button {
         /*color: rgba(var(--color-text-base), 0.3);*/
       }
     }
+  }
+
+  .hm-container {
+    /*            flex flex-grow
+            content-start
+            flex-wrap
+            gap-4
+            overflow-visible*/
+    display: flex;
+    align-content: flex-start;
+    flex-wrap: wrap;
+    overflow: visible;
+    gap: calc(var(--spacing)*4);
   }
 
   .general-notes {
