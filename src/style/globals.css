@@ -63,6 +63,7 @@
     linear-gradient(-49deg, rgb(255 0 113 / 0%) 0%, rgb(199 0 255 / 0%)),
     #ededed;
 
+
   /* --- Typography --- */
   --font-family-base: "Helvetica Neue", Arial, sans-serif;
   --font-family-headings: "Georgia", serif; /* Example */
@@ -179,35 +180,52 @@ body.dark-theme {
   --color-dark: #000; /* Light becomes dark background */
 
   --color-text-base: var(--color-light); /* Use light color for text */
-  --color-text-base: var(rgba(var(--color-light), 0.8), --color-light);
   --color-text-muted: var(--color-secondary);
 
-  --color-text-primary: #fff;
-  --color-text-secondary: rgba(255,255,255, 0.8);
-  --color-text-tertairy: rgba(255,255,255, 0.5);
+  --color-text-primary: rgba(255,255,255, 0.7);
+  --color-text-secondary: rgba(255,255,255, 0.6);
+  --color-text-tertairy: rgba(255,255,255, 0.4);
 
   --color-background-body: 33, 37, 41; /* Dark background */
 
-  --color-background-primary: rgba(255, 255, 255, 0.26);
+  /* --color-background-primary: rgba(255, 255, 255, 0.2);
   --color-background-secondary: rgba(255, 255, 255, 0.08);
-  --color-background-tertiary: #494848;
+  --color-background-tertiary: #393838;
   --color-background-quaternary: #e3e3e3;
   --color-background-quinary: rgba(255, 255, 255, 0.26);
 
   --color-dark-alpha-primary: rgba(255, 255, 255, 0.03);
-  --color-dark-alpha-secondary: rgba(255, 255, 255, 0.1);
+  --color-dark-alpha-secondary: rgba(255, 255, 255, 0.1); */
+
+  --color-background-primary: rgb(0 0 0 / 88%);
+  --color-background-secondary: rgba(255, 255, 255, 0.08);
+  --color-background-tertiary: #2d2d2d;
+  --color-background-quaternary: #e3e3e3;
+  --color-background-quinary: rgba(255, 255, 255, 0.08);
+  --color-dark-alpha-primary: rgb(255 255 255 / 15%);
+  --color-dark-alpha-secondary: rgb(255 255 255 / 18%);
 
   --color-link: var(--color-primary);
   --color-border: 0, 0, 0; /* Darker border */
 
-  --color-background-image: linear-gradient(
+  /* --color-background-image: linear-gradient(
       129deg,
       rgb(255 0 88 / 3%),
       rgba(255, 255, 255, 0)
     ),
     linear-gradient(-138deg, rgb(0 246 255 / 0%), rgba(255, 255, 255, 0)),
     linear-gradient(28deg, rgb(0 133 255 / 0%) 0%, rgba(255, 255, 255, 0)),
-    linear-gradient(-49deg, rgb(255 0 113 / 0%) 0%, rgb(199 0 255 / 0%)), #000;
+    linear-gradient(-49deg, rgb(255 0 113 / 0%) 0%, rgb(199 0 255 / 0%)), #000; */
+
+    --color-background-image: linear-gradient(
+      129deg,
+      rgb(255 0 88 / 3%),
+      rgba(255, 255, 255, 0)
+    ),
+    linear-gradient(-138deg, rgb(0 246 255 / 0%), rgba(255, 255, 255, 0)),
+    linear-gradient(28deg, rgb(0 133 255 / 0%) 0%, rgba(255, 255, 255, 0)),
+    linear-gradient(-49deg, rgb(255 0 113 / 0%) 0%, rgb(199 0 255 / 0%)),
+    #373737;
 
   --box-shadow-sm: 0 0.125rem 0.25rem rgba(255, 255, 255, 0.075); /* Adjust shadow for dark */
   --box-shadow-md: 0 0.5rem 1rem rgba(255, 255, 255, 0.15);
@@ -373,6 +391,7 @@ button:active i {
 .secondary-navbar {
   height: 44px;
   min-height: 44px;
+  overflow: hidden;
   .more {
     display: flex;
     align-items: center;
@@ -537,7 +556,7 @@ button:active i {
       position: relative;
       overflow: hidden;
       .ft-indicator {
-        background-color: rgb(0 0 0 / 19%);
+        background-color: var(--color-dark-alpha-secondary);
         height: 100%;
         width: 4px;
         position: absolute;
@@ -560,6 +579,17 @@ button:active i {
 
   .comment-block:last-child {
     border-bottom: none;
+  }
+
+  .comment-send-block {
+    /* flex justify-between items-center gap-3 w-full px-4 py-3 ft-shade-bg */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: calc(var(--spacing)*3);
+    width: 100%;
+    padding: calc(var(--spacing)*3) calc(var(--spacing)*4);
+    background-color: var(--color-background-tertiary);
   }
 }
 
@@ -602,15 +632,25 @@ button:active i {
   align-items: center;
 }
 
-.ft-scroll-verlay-container {
-  background-color: green;
+.ft-top-scroll-overlay-container {
   position: sticky;
   top: 0;
   left: 0;
   height: 0;
-  .ft-scroll-verlay {
+  .ft-scroll-overlay {
     background: linear-gradient(var(--color-background-tertiary), #ffffff00);
-    height: 16px;
+    height: calc(var(--spacing)*4);
+  }
+}
+
+.ft-bottom-scroll-overlay-container {
+  position: sticky;
+  bottom: calc(var(--spacing)*4);
+  left: 0;
+  height: 0;
+  .ft-scroll-overlay {
+    background: linear-gradient(#ffffff00, var(--color-background-tertiary));
+    height: calc(var(--spacing)*4);
   }
 }
 
