@@ -19,7 +19,6 @@
 /* ft-panel */
 /* ft-flex-center */
 
-
 :root {
   /* --- Colors --- */
   --color-primary: #6946d5;
@@ -35,9 +34,34 @@
 
   --color-text-base: var(rgba(var(--color-dark), 0.8), --color-dark);
   --color-text-muted: var(--color-secondary);
+
+  --color-text-primary: #000;
+  --color-text-secondary: rgba(0,0,0, 0.8);
+  --color-text-tertairy: rgba(0,0,0, 0.5);
+
   --color-background-body: 255, 255, 255;
+
+  --color-background-primary: rgba(255, 255, 255, 0.89);
+  --color-background-secondary: #fff;
+  --color-background-tertiary: #f5f5f5;
+  --color-background-quaternary: #e3e3e3;
+  --color-background-quinary: rgba(255, 255, 255, 0.5);
+
+  --color-dark-alpha-primary: rgba(0, 0, 0, 0.03);
+  --color-dark-alpha-secondary: rgba(0, 0, 0, 0.1);
+
   --color-link: var(--color-primary);
   --color-border: 0, 0, 0;
+
+  --color-background-image: linear-gradient(
+      129deg,
+      rgb(255 0 88 / 3%),
+      rgba(255, 255, 255, 0)
+    ),
+    linear-gradient(-138deg, rgb(0 246 255 / 0%), rgba(255, 255, 255, 0)),
+    linear-gradient(28deg, rgb(0 133 255 / 0%) 0%, rgba(255, 255, 255, 0)),
+    linear-gradient(-49deg, rgb(255 0 113 / 0%) 0%, rgb(199 0 255 / 0%)),
+    #ededed;
 
   /* --- Typography --- */
   --font-family-base: "Helvetica Neue", Arial, sans-serif;
@@ -147,8 +171,9 @@
 
 /* Add this to your CSS */
 body.dark-theme {
+  color-scheme: dark;
   /* Override variables for the dark theme */
-  --color-primary: #3a9fff; /* Lighter blue for dark background */
+  --color-primary: #bba5ff;
   --color-secondary: #868e96;
   --color-light: #fff; /* Dark becomes light background */
   --color-dark: #000; /* Light becomes dark background */
@@ -156,9 +181,33 @@ body.dark-theme {
   --color-text-base: var(--color-light); /* Use light color for text */
   --color-text-base: var(rgba(var(--color-light), 0.8), --color-light);
   --color-text-muted: var(--color-secondary);
+
+  --color-text-primary: #fff;
+  --color-text-secondary: rgba(255,255,255, 0.8);
+  --color-text-tertairy: rgba(255,255,255, 0.5);
+
   --color-background-body: 33, 37, 41; /* Dark background */
+
+  --color-background-primary: rgba(255, 255, 255, 0.26);
+  --color-background-secondary: rgba(255, 255, 255, 0.08);
+  --color-background-tertiary: #494848;
+  --color-background-quaternary: #e3e3e3;
+  --color-background-quinary: rgba(255, 255, 255, 0.26);
+
+  --color-dark-alpha-primary: rgba(255, 255, 255, 0.03);
+  --color-dark-alpha-secondary: rgba(255, 255, 255, 0.1);
+
   --color-link: var(--color-primary);
   --color-border: 0, 0, 0; /* Darker border */
+
+  --color-background-image: linear-gradient(
+      129deg,
+      rgb(255 0 88 / 3%),
+      rgba(255, 255, 255, 0)
+    ),
+    linear-gradient(-138deg, rgb(0 246 255 / 0%), rgba(255, 255, 255, 0)),
+    linear-gradient(28deg, rgb(0 133 255 / 0%) 0%, rgba(255, 255, 255, 0)),
+    linear-gradient(-49deg, rgb(255 0 113 / 0%) 0%, rgb(199 0 255 / 0%)), #000;
 
   --box-shadow-sm: 0 0.125rem 0.25rem rgba(255, 255, 255, 0.075); /* Adjust shadow for dark */
   --box-shadow-md: 0 0.5rem 1rem rgba(255, 255, 255, 0.15);
@@ -176,7 +225,7 @@ body {
   height: 100%;
   font-family: Inter, sans-serif;
   font-size: var(--font-size-base);
-  color: var(--color-text-base);
+  color: var(--color-text-primary);
 }
 
 html {
@@ -199,15 +248,7 @@ body {
       linear-gradient(28deg, rgba(0, 133, 255, 0.1) 0%, rgba(255, 255, 255, 0)),
       linear-gradient(-49deg, #ebebeb 0%, rgba(255, 255, 255, 0)), #ffffff; */
 
-  background: linear-gradient(
-      129deg,
-      rgb(255 0 88 / 3%),
-      rgba(255, 255, 255, 0)
-    ),
-    linear-gradient(-138deg, rgb(0 246 255 / 0%), rgba(255, 255, 255, 0)),
-    linear-gradient(28deg, rgb(0 133 255 / 0%) 0%, rgba(255, 255, 255, 0)),
-    linear-gradient(-49deg, rgb(255 0 113 / 0%) 0%, rgb(199 0 255 / 0%)),
-    #ededed;
+  background: var(--color-background-image);
 
   /*background: linear-gradient(*/
   /*    129deg,*/
@@ -279,12 +320,12 @@ button {
 
 /* Hover state */
 button:hover {
-  background-color: rgba(var(--color-dark), 0.03);
+  background-color: var(--color-dark-alpha-primary);
 }
 
 /* Active state (when clicked) */
 button:active {
-  background-color: rgba(var(--color-dark), 0.1) !important;
+  background-color: var(--color-dark-alpha-secondary) !important;
   /*transform: scale(0.9);*/
 }
 
@@ -318,7 +359,7 @@ button:active i {
   display: none;
   flex-direction: column;
   padding: 32px var(--spacing-md);
-  background-color: rgba(var(--color-light), 0.5);
+  background-color: var(--color-background-quinary);
   box-shadow: var(--box-shadow-panel);
 }
 
@@ -339,13 +380,13 @@ button:active i {
     padding: calc(var(--spacing));
     height: 100%;
     width: calc(var(--spacing) * 14);
-    background-color: rgba(var(--color-dark), 0.03);
+    background-color: var(--color-dark-alpha-primary);
     border-radius: 0;
   }
   .ft-text {
     font-size: var(--font-size-xxsm);
     font-weight: 500;
-    color: rgba(var(--color-text-base), 0.8);
+    color: var(--color-text-secondary);
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -377,7 +418,7 @@ button:active i {
   flex-direction: column;
   padding: var(--spacing-md);
   border-radius: var(--border-radius);
-  background: rgba(0, 0, 0, 0.03);
+  background-color: var(--color-dark-alpha-primary);
   gap: var(--spacing-md);
   /*width: 100%;*/
   width: fit-content;
@@ -414,31 +455,29 @@ button:active i {
   flex-direction: column;
   padding: 0.6rem 0.75rem;
   border-radius: 0.75rem;
-  background-color: rgba(var(--color-light), 1);
+  background-color: var(--color-background-secondary);
   gap: 0.5rem;
   width: fit-content;
   box-shadow: var(--box-shadow-panel);
+  .ft-sub-title {
+    line-height: 1;
+    color: var(--color-text-tertairy);
+  }
   .ft-text {
     font-size: var(--font-size-xsm);
-    color: rgba(var(--color-dark), 0.8);
+    color: var(--color-text-secondary);
     padding: 2px 0;
   }
 }
 
 .comment {
-  /* flex flex-col
-              rounded-2xl
-              w-full
-              overflow-hidden
-              h-full
-              border-2
-              ft-shade-border */
   display: flex;
   flex-direction: column;
   border-radius: var(--border-radius);
   width: 100%;
   height: 100%;
-  border: 3px solid rgba(var(--color-border), 0.1);
+  border: 3px solid var(--color-dark-alpha-secondary);
+  overflow: hidden;
   .comment-header {
     display: flex;
     justify-content: space-between;
@@ -446,11 +485,11 @@ button:active i {
     gap: var(--spacing-sm);
     width: 100%;
     padding: var(--spacing-md);
-    background-color: rgba(var(--color-dark), 0.03);
+    background-color: var(--color-background-tertiary);
     .ft-text {
       font-size: var(--font-size-sm);
       font-weight: 500;
-      color: rgba(var(--color-text-base), 0.8);
+      color: var(--color-text-secondary);
     }
   }
   .comment-body-outer-container {
@@ -468,13 +507,14 @@ button:active i {
     width: 100%;
     padding: var(--spacing-md);
     gap: 8px;
-    border-bottom: 2px solid rgba(var(--color-border), 0.03);
+    border-bottom: 2px solid var(--color-dark-alpha-primary);
+    color: var(--color-text-primary);
     .ft-img-profile {
       display: flex;
       align-items: center;
       justify-content: center;
       border-radius: var(--border-radius-pill);
-      background-color: rgba(var(--color-dark), 0.1);
+      background-color: var(--color-dark-alpha-secondary);
       width: calc(var(--spacing) * 9);
       height: calc(var(--spacing) * 9);
       font-size: var(--text-lg);
@@ -483,7 +523,7 @@ button:active i {
     .ft-sub-title {
       font-size: var(--font-size-xxsm);
       font-weight: 500;
-      color: rgba(var(--color-text-base), 0.5);
+      color: var(--color-text-tertairy);
     }
     .quoted {
       /* px-4 py-2 ft-shade-bg ft-shade-border rounded-lg */
@@ -491,7 +531,7 @@ button:active i {
       /*font-weight: 400;*/
       /*color: rgba(var(--color-text-base), 0.5);*/
       padding: var(--spacing-sm) var(--spacing-md);
-      background-color: rgba(var(--color-dark), 0.03);
+      background-color: var(--color-dark-alpha-primary);
       border-radius: var(--border-radius);
       margin: 0 0 var(--spacing-sm) var(--spacing-sm);
       position: relative;
@@ -514,7 +554,7 @@ button:active i {
       }
     }
     p {
-      color: rgba(var(--color-text-base), 0.8);
+      color: var(--color-text-secondary);
     }
   }
 
@@ -525,12 +565,7 @@ button:active i {
 
 .patient-info {
   padding: 8px var(--spacing-sm);
-  background-color: rgba(var(--color-background-body), 0.89);
-  border-radius: var(--border-radius);
   gap: 24px;
-  box-shadow: var(--box-shadow-panel);
-  display: flex;
-  align-items: center;
   .ft-text {
     font-weight: 400;
     font-size: var(--font-size-base);
@@ -574,7 +609,7 @@ button:active i {
   left: 0;
   height: 0;
   .ft-scroll-verlay {
-    background: linear-gradient(hsl(0 0% 96% / 1), #ffffff00);
+    background: linear-gradient(var(--color-background-tertiary), #ffffff00);
     height: 16px;
   }
 }
@@ -582,15 +617,14 @@ button:active i {
 .ft-panel {
   display: flex;
   align-items: center;
-  background: rgba(var(--color-background-body), 0.89);
+  background: var(--color-background-primary);
   border-radius: var(--border-radius);
   box-shadow: var(--box-shadow-panel);
-  overflow: hidden;
 }
 
 .ft-icon-button {
   padding: 6px;
-  background: rgba(var(--color-dark), 0.03);
+  background-color: var(--color-dark-alpha-primary);
   border-radius: 8px;
 }
 
@@ -607,11 +641,11 @@ button:active i {
 }
 
 .ft-shade-bg {
-  background-color: rgba(var(--color-dark), 0.03);
+  background-color: var(--color-dark-alpha-primary);
 }
 
 .ft-shade-border {
-  border-color: rgba(var(--color-dark), 0.03);
+  border-color: var(--color-dark-alpha-primary);
 }
 
 /* Clickable Div */

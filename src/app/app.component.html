@@ -1,4 +1,4 @@
-<div class="lg:!flex main-sidenav main-sidenav2">
+<div class="lg:!flex main-sidenav">
   <div class="ft-flex-center">
     <button><i class="icon-menu"></i></button>
   </div>
@@ -34,7 +34,7 @@
   </div>
 
   <div class="flex flex-col flex-grow pr-4 pl-4 pb-4 gap-4 overflow-auto">
-    <div class="patient-info">
+    <div class="patient-info ft-panel">
       <button><i class="icon-arrow-left !text-4xl"> </i></button>
       <span
         class="truncate flex-grow justify-start items-center lg:flex-grow-0 ft-text"
@@ -136,7 +136,7 @@
       </button>
     </div>
 
-    <div class="flex-col flex-grow ft-panel">
+    <div class="flex-col flex-grow ft-panel overflow-hidden">
       <div class="flex justify-end tab-body-header">
         <div class="flex items-center gap-2">
           <span class="font-bold leading-none">Last update</span>
@@ -171,7 +171,7 @@
                       block.status
                     }}</span>
                     } @if (block.surgeon) {
-                    <span class="leading-none text-gray-500"
+                    <span class="ft-sub-title"
                       >Surgeon: {{ block.surgeon }}</span
                     >
                     } @if (block.note) {
@@ -216,7 +216,7 @@
                         comment.author?.charAt(0)
                       }}</span>
                       <div class="flex flex-col">
-                        <span class="text-black ft-title">{{
+                        <span class="ft-title">{{
                           comment.author
                         }}</span>
                         <span class="ft-sub-title">{{ comment.date }}</span>
