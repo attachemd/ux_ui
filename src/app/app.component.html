@@ -33,7 +33,7 @@
     </div>
   </div>
 
-  <div class="flex flex-col flex-grow pr-4 pl-4 pb-4 gap-4 overflow-auto">
+  <div class="flex flex-col flex-grow pr-4 pl-4 pb-4 gap-4 overflow-auto main-content">
     <div class="patient-info ft-panel">
       <button><i class="icon-arrow-left !text-4xl"> </i></button>
       <span
@@ -104,20 +104,20 @@
           class="ft-flex-center flex-col flex-grow xxl:justify-center w-0 relative"
         >
           <div
-            class="ft-flex-center w-full h-full border-b border-[var(--color-primary)]"
+            class="ft-flex-center w-full h-full border-b border-[var(--ft-color-primary)]"
           >
-            <span class="ft-text !text-[var(--color-primary)]">
+            <span class="ft-text !text-[var(--ft-color-primary)]">
               Historique Medical
             </span>
           </div>
           <div
-            class="w-[77%] border-b border-[var(--color-primary)] absolute bottom-0 blur-xl"
+            class="w-[77%] border-b border-[var(--ft-color-primary)] absolute bottom-0 blur-xl"
           ></div>
           <div
-            class="w-full border-b border-[var(--color-primary)] absolute bottom-0 blur-[3px] opacity-20"
+            class="w-full border-b border-[var(--ft-color-primary)] absolute bottom-0 blur-[3px] opacity-20"
           ></div>
           <div
-            class="w-full border-b-2 border-[var(--color-primary)] absolute bottom-0 blur-2xl"
+            class="w-full border-b-2 border-[var(--ft-color-primary)] absolute bottom-0 blur-2xl"
           ></div>
         </div>
         <div class="ft-flex-center flex-grow gap-2 w-0">
@@ -136,7 +136,7 @@
       </button>
     </div>
 
-    <div class="flex-col flex-grow ft-panel overflow-hidden">
+    <div class="flex-col flex-grow ft-panel overflow-visible h-full lg:overflow-hidden lg:h-auto tab-body-container">
       <div class="flex justify-end tab-body-header">
         <div class="flex items-center gap-2">
           <span class="font-bold leading-none">Last update</span>
@@ -203,7 +203,7 @@
                 <button><i class="icon-search"></i></button>
               </div>
             </div>
-            <div class="comment-body-outer-container">
+            <div class="comment-body-outer-container lg:overflow-auto">
               <div class="ft-top-scroll-overlay-container">
                 <div class="ft-scroll-overlay"></div>
               </div>
