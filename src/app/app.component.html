@@ -33,7 +33,7 @@
     </div>
   </div>
 
-  <div class="flex flex-col flex-grow pr-4 pl-4 pb-4 gap-4 overflow-auto main-content">
+  <div #mainContent class="flex flex-col flex-grow pr-4 pl-4 pb-4 gap-4 overflow-auto main-content">
     <div class="patient-info ft-panel">
       <button><i class="icon-arrow-left !text-4xl"> </i></button>
       <span
@@ -42,7 +42,7 @@
         Mr. AHMED IBRAHIMI
       </span>
       <span class="hidden lg:inline-block chip-color-info chip"
-        >Première hospitalisation
+      >Première hospitalisation
       </span>
       <div class="hidden lg:flex sub-info">
         <div class="flex items-center gap-2">
@@ -68,7 +68,7 @@
         </div>
       </div>
 
-      <button class="ft-icon-button"><i class="icon-vertical-dots"></i></button>
+      <button class="ft-icon-button ft-flex-center"><i class="icon-vertical-dots"></i></button>
     </div>
 
     <div class="lg:!hidden ft-panel secondary-navbar">
@@ -136,59 +136,66 @@
       </button>
     </div>
 
-    <div class="flex-col flex-grow ft-panel overflow-visible h-full lg:overflow-hidden lg:h-auto tab-body-container">
+    <div class="ft-panel lg:h-auto lg:!overflow-auto tab-body-container">
       <div class="flex justify-end tab-body-header">
         <div class="flex items-center gap-2">
-          <span class="font-bold leading-none">Last update</span>
+          <!--          <span class="font-bold leading-none">Last update</span>-->
           <div class="flex items-center gap-2">
             <span class="leading-none">29/05/2024</span>
-            <button><i class="icon-arrow-down"></i></button>
+            <button><i class="icon-date"></i></button>
           </div>
         </div>
       </div>
 
       <div
-        class="flex flex-col flex-grow lg:flex-row w-full gap-3 overflow-auto pl-4 pr-4 pb-4"
+        #tabBodyContent class="lg:!flex-row tab-body-content"
       >
         <div class="hm-container lg:pr-3">
           @for (item of medicalHistoryEntities; track item.title) {
-          <div class="mini-card">
-            <div class="header">
-              <div class="flex items-center gap-2">
-                <span class="leading-none ft-text">{{ item.title }}</span>
-              </div>
-              <div class="flex items-center gap-2">
-                <button (click)="openModal()"><i class="icon-plus"></i></button>
-              </div>
-            </div>
-            <div class="mini-card-body">
-              @for (block of item.blocks; track block.title) {
-              <div class="micro-card">
-                <div class="flex justify-between items-center gap-3 w-full">
-                  <div class="flex items-center gap-2">
-                    @if (block.status) {
-                    <span class="chip" [class]="block.class">{{
-                      block.status
-                    }}</span>
-                    } @if (block.surgeon) {
-                    <span class="ft-sub-title"
-                      >Surgeon: {{ block.surgeon }}</span
-                    >
-                    } @if (block.note) {
-                    <i class="icon-comment"></i>
-                    }
-                  </div>
-                  <div class="flex items-center gap-2">
-                    <button><i class="icon-close"></i></button>
-                  </div>
+            <div class="mini-card">
+              <div class="header">
+                <div class="flex items-center gap-2">
+                  <span class="leading-none ft-text">{{ item.title }}</span>
                 </div>
-                <div class="flex flex-col overflow-hidden">
-                  <span class="leading-none ft-text">{{ block.title }}</span>
+                <div class="flex items-center gap-2">
+                  <button (click)="openModal()"><i class="icon-plus"></i></button>
                 </div>
               </div>
-              }
+              <div class="mini-card-body">
+                @for (block of item.blocks; track block.title) {
+                  <div class="micro-card">
+                    <div class="flex justify-between items-center gap-3 w-full">
+                      <div class="flex items-center gap-2">
+                        @if (block.status) {
+                          <span class="chip" [class]="block.class">{{
+                              block.status
+                            }}</span>
+                        }
+                        @if (block.surgeon) {
+                          <span class="ft-sub-title"
+                          >Surgeon: {{ block.surgeon }}</span
+                          >
+                        }
+                        @if (block.date) {
+                          <span class="ft-sub-title"
+                          >{{ block.date }}</span
+                          >
+                        }
+                        @if (block.note) {
+                          <i class="icon-comment"></i>
+                        }
+                      </div>
+<!--                      <div class="flex items-center gap-2">-->
+<!--                        <button><i class="icon-close"></i></button>-->
+<!--                      </div>-->
+                    </div>
+                    <div class="flex flex-col overflow-hidden">
+                      <span class="leading-none ft-text">{{ block.title }}</span>
+                    </div>
+                  </div>
+                }
+              </div>
             </div>
-          </div>
 
           }
         </div>
@@ -197,7 +204,7 @@
           <div class="comment">
             <div class="comment-header">
               <div class="flex items-center gap-2">
-                <span class="ft-text">General Notes</span>
+                <span class="ft-text">Notes générales</span>
               </div>
               <div class="flex items-center gap-2">
                 <button><i class="icon-search"></i></button>
@@ -209,39 +216,40 @@
               </div>
               <div class="comment-body-container">
                 @for (comment of comments; track comment.id) {
-                <div class="comment-block">
-                  <div class="flex justify-between items-center gap-3 w-full">
-                    <div class="flex items-center gap-2">
+                  <div class="comment-block">
+                    <div class="flex justify-between items-center gap-3 w-full">
+                      <div class="flex items-center gap-2">
                       <span class="ft-img-profile">{{
-                        comment.author?.charAt(0)
-                      }}</span>
-                      <div class="flex flex-col">
-                        <span class="ft-title">{{
-                          comment.author
+                          comment.author.charAt(0)
                         }}</span>
-                        <span class="ft-sub-title">{{ comment.date }}</span>
+                        <div class="flex flex-col">
+                        <span class="ft-title">{{
+                            comment.author
+                          }}</span>
+                          <span class="ft-sub-title">{{ comment.date }}</span>
+                        </div>
+                      </div>
+                      <div class="flex items-center gap-2">
+                        <button><i class="icon-vertical-dots"></i></button>
                       </div>
                     </div>
-                    <div class="flex items-center gap-2">
-                      <button><i class="icon-vertical-dots"></i></button>
-                    </div>
-                  </div>
-                  <div class="flex flex-col overflow-hidden">
-                    @if (comment.quoteId) { @if
-                    (getCommentById(comment.quoteId); as quotedComment) {
-                    <div class="quoted">
-                      <div class="ft-indicator"></div>
-                      <span>{{ quotedComment.author }}</span>
-                      <p class="ft-text">
-                        {{ quotedComment.text }}
+                    <div class="flex flex-col overflow-hidden">
+                      @if (comment.quoteId) {
+                        @if (getCommentById(comment.quoteId); as quotedComment) {
+                          <div class="quoted">
+                            <div class="ft-indicator"></div>
+                            <span>{{ quotedComment.author }}</span>
+                            <p class="ft-text">
+                              {{ quotedComment.text }}
+                            </p>
+                          </div>
+                        }
+                      }
+                      <p>
+                        {{ comment.text }}
                       </p>
                     </div>
-                    } }
-                    <p>
-                      {{ comment.text }}
-                    </p>
                   </div>
-                </div>
                 }
               </div>
               <div class="ft-bottom-scroll-overlay-container">
@@ -266,9 +274,105 @@
 </div>
 <div id="modal" *ngIf="isModalOpen">
   <div (click)="$event.stopPropagation()">
-    <h2>Modal Title</h2>
-    <p>This is the content of the dialog.</p>
-    <button (click)="closeModal()">Close</button>
+    <div class="form-container">
+      <div class="success-message" id="successMessage">Enregistrement réussi !</div>
+
+      <form id="medicalHistoryForm">
+        <!-- Antécédent Médical -->
+        <div class="form-group">
+          <label for="condition">Antécédent médical *</label>
+          <div class="input-wrapper">
+            <input type="text" id="condition" list="conditions" required>
+            <datalist id="conditions">
+              <option value="Diabète">
+              <option value="Hypertension">
+              <option value="Asthme">
+              <option value="Cancer">
+              <option value="Maladie cardiaque">
+            </datalist>
+            <button type="button" class="reset-btn">×</button>
+          </div>
+          <div class="error-message">Ce champ est obligatoire</div>
+        </div>
+
+        <div class="form-group">
+          <div class="field-content">
+            <label for="condition">Antécédent médical *</label>
+            <div class="flex flex-col overflow-hidden">
+              <input type="text" id="new-condition" required>
+            </div>
+          </div>
+          <div class="field-actions">
+            <button type="button" class="reset-btn"><i class="icon-close"></i></button>
+          </div>
+        </div>
+
+        <!-- Date de Diagnostic -->
+        <div class="form-group">
+          <label for="diagnosisDate">Date de diagnostic</label>
+          <div class="input-wrapper">
+            <input type="date" id="diagnosisDate" required>
+            <button type="button" class="reset-btn">×</button>
+          </div>
+        </div>
+
+        <!-- Statut -->
+        <div class="form-group">
+          <label for="status">Statut</label>
+          <select id="status">
+            <option value="active" selected>Actif</option>
+            <option value="remission">En rémission</option>
+            <option value="resolved">Résolu</option>
+          </select>
+        </div>
+
+        <!-- Antécédent Familial -->
+        <div class="form-group">
+          <div class="switch-container">
+            <label class="switch">
+              <input type="checkbox" id="familyHistory">
+              <span class="slider"></span>
+            </label>
+            <label for="familyHistory">Antécédent familial</label>
+          </div>
+        </div>
+
+        <!-- Relation -->
+        <div class="form-group hidden" id="relationGroup">
+          <label for="relation">Relation *</label>
+          <select id="relation">
+            <option value="">Sélectionner...</option>
+            <option value="parent">Parent</option>
+            <option value="sibling">Frère/Sœur</option>
+            <option value="child">Enfant</option>
+          </select>
+          <div class="error-message">Ce champ est obligatoire</div>
+        </div>
+
+        <!-- Décédé -->
+        <div class="form-group hidden" id="deceasedGroup">
+          <div class="switch-container">
+            <label class="switch">
+              <input type="checkbox" id="deceased">
+              <span class="slider"></span>
+            </label>
+            <label for="deceased">Décédé</label>
+          </div>
+        </div>
+
+        <!-- Notes -->
+        <div class="form-group">
+          <label for="notes">Notes</label>
+          <textarea id="notes" rows="4"></textarea>
+        </div>
+
+        <div class="button-group">
+          <button type="submit" class="btn-primary" disabled>Enregistrer</button>
+          <button type="button" class="btn-secondary">Annuler</button>
+        </div>
+      </form>
+    </div>
+<!--    <button (click)="closeModal()">Close</button>-->
   </div>
 </div>
 <div id="backdrop" *ngIf="isModalOpen" (click)="closeModal()"></div>

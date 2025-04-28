@@ -1,26 +1,9 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnDestroy, Renderer2, ViewChild } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import {NgIf} from '@angular/common';
 import { ThemeSwitcherComponent } from "./components/theme-switcher.component";
-
-interface MedicalHistoryBlock {
-  title: string;
-  class?: string;
-  status?: string;
-  surgeon?: string;
-  note?: string;
-}
-interface MedicalHistoryEntity {
-  title: string;
-  blocks: MedicalHistoryBlock[];
-}
-interface Comment {
-  id: number;
-  author: string;
-  text: string;
-  quoteId?: number;
-  date?: string;
-}
+import { MedicalHistoryEntity, Note } from './types/medical-history.type';
+import { medicalHistoryEntities, notes } from './fake-data/medical-history.fake';
 
 @Component({
   selector: 'app-root',
@@ -29,76 +12,104 @@ interface Comment {
   styleUrl: './app.component.css',
 })
 
-export class AppComponent {
+export class AppComponent implements AfterViewInit, OnDestroy {
   title = 'uxui';
 
-  isModalOpen: boolean = false; // Property to control modal visibility
-  medicalHistoryEntities: MedicalHistoryEntity[] = [
-    { title: 'Allergies', blocks:
-        [
-          { title: 'Penicillin', status: 'Severe', class: 'chip-color-level3', note: 'Anaphylaxis' },
-          { title: 'Dust Mites', status: 'Mild', class: 'chip-color-level2'  },
-        ]
-    },
-    { title: 'Risk assessment', blocks:
-        [
-          { title: 'Cardiovascular Risk', status: 'Severe', class: 'chip-color-level3'  },
-          { title: 'Diabetes Risk', status: 'Medium', class: 'chip-color-level2', note: 'parent relation'  },
-          { title: 'Fall Risk (Elderly)', status: 'Low', class: 'chip-color-level1'  },
-        ]
-    },
-    { title: 'Medical conditions', blocks:
-        [
-          { title: 'Hypertension', status: 'Active', class: 'chip-color-normal'  },
-          { title: 'class 2 Diabetes', status: 'Active', class: 'chip-color-normal'  },
-        ]
-    },
-    { title: 'Treatments', blocks:
-        [
-          { title: 'Amoxicilline 500mg', status: 'Ongoing', class: 'chip-color-ongoing'  },
-          { title: 'Floxin 20mg' , status: 'Done', class: 'chip-color-done'  },
-        ]
-    },
-    { title: 'Vaccinations', blocks:
-        [
-          { title: 'ImmunoBarrier Plus', status: 'Done', class: 'chip-color-done'  },
-          { title: 'HealthShield Proactive', status: 'Ongoing', class: 'chip-color-ongoing', note: 'Next dose due in 2 months'  },
-          { title: 'VitaProtect Advanced', status: 'Done', class: 'chip-color-done'  },
-          { title: 'SafeGuard Elite', status: 'Done', class: 'chip-color-done'  },
-          { title: 'ProtectGuard Max', status: 'Done', class: 'chip-color-done'  },
-          { title: 'CureShield Ultra', status: 'Ongoing', class: 'chip-color-ongoing'  },
-          { title: 'DefendGuard Supreme', status: 'Done', class:'chip-color-done', note: 'complication' },
-          { title:'ShieldGuard' ,status:'Done' ,class:'chip-color-done'},
-          {title:'VitaDefender' ,status:'Done' ,class:'chip-color-done'},
-          {title:'ImmunoDefend Pro' ,status:'Ongoing' ,class:'chip-color-ongoing'},
-          {title:'DefendPlus' ,status:'Done' ,class:'chip-color-done'},
-          {title:'SafeProtect Advanced' ,status:'Done' ,class:'chip-color-done'}
-        ]
-    },
-    { title:'Chirurgical history' ,blocks:[
-        {
-          title:'Appendectomy',
-          surgeon:'Dr. Johnson'
-        },
-        {
-          title:'Knee Replacement',
-          surgeon:'Dr. Martinez'
-        }
-      ]}
-  ]
+  @ViewChild('mainContent') parent!: ElementRef<HTMLElement>;
+  @ViewChild('tabBodyContent') child!: ElementRef<HTMLElement>;
 
-  comments: Comment[] = [
-    { id: 1, author: 'Sanna Samar', text: 'Je tiens à laisser une note concernant le service que j\'ai reçu ici. J\'ai rencontré un problème avec la coordination des rendez-vous, où les horaires n\'étaient pas toujours respectés. J\'apprécierais une meilleure gestion de l\'emploi du temps pour une expérience plus fluide à l\'avenir.', date: 'il y a 23 minutes' },
-    { id: 2, author: 'Sanna Samar', text: 'J\'ai eu des difficultés à joindre le service client par téléphone. Veuillez améliorer la réactivité.', date: 'il y a 10 minutes' },
-    { id: 3, quoteId: 2, author: 'Dr.Hicham El Youbi', text: 'Nous vous remercions de nous avoir informés de ce problème. Nous allons immédiatement examiner nos processus pour améliorer la réactivité de notre service client par téléphone. Votre retour est précieux pour nous.', date: 'il y a 18 secondes' },
-  ];
+  private touchStartY = 0;
+  private previousTouchY = 0;
+  private listeners: (() => void)[] = [];
+
+  isModalOpen: boolean = false; // Property to control modal visibility
+  medicalHistoryEntities: MedicalHistoryEntity[] = medicalHistoryEntities
+
+  comments: Note[] = notes;
+
+  constructor(private renderer: Renderer2) {}
+
+  ngAfterViewInit(): void {
+    this.setupEventListeners();
+  }
+
+  ngOnDestroy(): void {
+    this.removeEventListeners();
+  }
+
+  private setupEventListeners(): void {
+    // Wheel event for desktop
+    const wheelListener = this.renderer.listen(
+      this.child?.nativeElement,
+      'wheel',
+      (e: WheelEvent) => this.handleWheel(e)
+    );
+    this.listeners.push(wheelListener);
+
+    // Touch events for mobile
+    const touchStartListener = this.renderer.listen(
+      this.child.nativeElement,
+      'touchstart',
+      (e: TouchEvent) => this.handleTouchStart(e)
+    );
+    this.listeners.push(touchStartListener);
+
+    const touchMoveListener = this.renderer.listen(
+      this.child.nativeElement,
+      'touchmove',
+      (e: TouchEvent) => this.handleTouchMove(e)
+    );
+    this.listeners.push(touchMoveListener);
+  }
+
+  private removeEventListeners(): void {
+    this.listeners.forEach(removeListener => removeListener());
+  }
+
+  private handleWheel(e: WheelEvent): void {
+    const delta = e.deltaY;
+    const direction = delta > 0 ? 'down' : 'up';
+    if (this.shouldScrollParent(direction)) {
+      e.preventDefault();
+      this.parent.nativeElement.scrollTop += delta;
+    }
+  }
+
+  private handleTouchStart(e: TouchEvent): void {
+    this.touchStartY = e.touches[0].clientY;
+    this.previousTouchY = this.touchStartY;
+  }
+
+  private handleTouchMove(e: TouchEvent): void {
+    const currentY = e.touches[0].clientY;
+    const delta = this.previousTouchY - currentY;
+    this.previousTouchY = currentY;
+    const direction = delta > 0 ? 'down' : 'up';
+
+    if (this.shouldScrollParent(direction)) {
+      e.preventDefault();
+      this.parent.nativeElement.scrollTop += delta;
+    }
+  }
+
+  private shouldScrollParent(direction: 'up' | 'down'): boolean {
+    const parent = this.parent.nativeElement;
+    const isAtTop = parent.scrollTop <= 0;
+    const isAtBottom = parent.scrollTop + parent.clientHeight >= parent.scrollHeight;
+
+    if (direction === 'down') {
+      return !isAtBottom; // Scroll parent if not at bottom
+    } else {
+      return !isAtTop; // Scroll parent if not at top
+    }
+  }
 
   /**
    * Finds a comment by its ID.
    * @param id The ID of the comment to find.
    * @returns The comment object if found, otherwise undefined.
    */
-  getCommentById(id: number): Comment | undefined {
+  getCommentById(id: number): Note | undefined {
     return this.comments.find(comment => comment.id === id);
   }
 
