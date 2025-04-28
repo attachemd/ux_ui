@@ -122,6 +122,7 @@
 
   /* --- Transitions --- */
   --transition-base: all 0.2s ease-in-out;
+
 }
 
 /* Override variables for the dark theme */
