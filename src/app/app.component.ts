@@ -4,10 +4,15 @@ import {NgIf} from '@angular/common';
 import { ThemeSwitcherComponent } from "./components/theme-switcher.component";
 import { MedicalHistoryEntity, Note } from './types/medical-history.type';
 import { medicalHistoryEntities, notes } from './fake-data/medical-history.fake';
+import {ButtonModule} from 'primeng/button';
+import {FloatLabel} from 'primeng/floatlabel';
+import {FormsModule} from '@angular/forms';
+import {InputTextModule} from 'primeng/inputtext';
+import { DialogModule } from 'primeng/dialog';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, NgIf, ThemeSwitcherComponent],
+  imports: [RouterOutlet, NgIf, ThemeSwitcherComponent, ButtonModule, FloatLabel, FormsModule, InputTextModule, DialogModule ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
@@ -18,6 +23,12 @@ export class AppComponent implements AfterViewInit, OnDestroy {
   @ViewChild('mainContent') parent!: ElementRef<HTMLElement>;
   @ViewChild('tabBodyContent') child!: ElementRef<HTMLElement>;
 
+  visible: boolean = false;
+
+  showDialog() {
+    this.visible = true;
+  }
+
   private touchStartY = 0;
   private previousTouchY = 0;
   private listeners: (() => void)[] = [];
@@ -26,6 +37,7 @@ export class AppComponent implements AfterViewInit, OnDestroy {
   medicalHistoryEntities: MedicalHistoryEntity[] = medicalHistoryEntities
 
   comments: Note[] = notes;
+  value2: any;
 
   constructor(private renderer: Renderer2) {}
 
