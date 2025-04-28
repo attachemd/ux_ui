@@ -102,6 +102,8 @@
   --ft-spacing-5xl: calc(var(--spacing) * 10);
   /* 44px */
   --ft-spacing-6xl: calc(var(--spacing) * 11);
+  /* 48px */
+  --ft-spacing-7xl: calc(var(--spacing) * 12);
 
   /* --- Borders --- */
   --ft-border-primary: 1px;
@@ -379,7 +381,14 @@ button:active i {
 }
 
 .main-content {
+  /* flex flex-col flex-grow pr-4 pl-4 pb-4 gap-4 overflow-auto*/
   scrollbar-width: none;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding: 0 var(--ft-spacing-md) var(--ft-spacing-md);
+  gap: var(--ft-spacing-md);
+  overflow: auto;
 }
 
 .secondary-navbar {
@@ -432,7 +441,7 @@ button:active i {
     width: 100%;
     gap: var(--ft-spacing-sm);
     overflow: auto;
-    padding: 0 var(--ft-spacing-md) var(--ft-spacing-md) var(--ft-spacing-md);
+    padding: 0 var(--ft-spacing-md) var(--ft-spacing-md);
   }
 }
 
@@ -518,7 +527,9 @@ button:active i {
     align-items: center;
     gap: var(--ft-spacing-sm);
     width: 100%;
-    padding: var(--ft-spacing-xs) var(--ft-spacing-md);
+    padding: 0 var(--ft-spacing-md);
+    height: var(--ft-spacing-7xl);
+    min-height: var(--ft-spacing-7xl);
     background-color: var(--ft-color-background-tertiary);
     .ft-text {
       font-size: var(--text-sm);
@@ -603,8 +614,10 @@ button:active i {
     align-items: center;
     gap: var(--ft-spacing-sm);
     width: 100%;
-    padding: var(--ft-spacing-sm) var(--ft-spacing-md);
+    padding: 0 var(--ft-spacing-md);
     background-color: var(--ft-color-background-tertiary);
+    height: var(--ft-spacing-7xl);
+    min-height: var(--ft-spacing-7xl);
   }
 }
 
@@ -660,7 +673,7 @@ button:active i {
 
 .ft-bottom-scroll-overlay-container {
   position: sticky;
-  bottom: var(--ft-spacing-md);
+  bottom: calc(var(--ft-spacing-md) + var(--ft-spacing-7xl));
   left: 0;
   height: 0;
   .ft-scroll-overlay {
@@ -756,6 +769,11 @@ button:active i {
   padding: var(--ft-spacing-sm);
   .field-content {
     flex-grow: 1;
+    label {
+      font-size: var(--ft-text-2xs);
+      font-weight: 500;
+      color: var(--ft-color-text-tertairy);
+    }
   }
 }
 
