@@ -34,6 +34,11 @@ export const FTThemePreset = definePreset(Aura, {
     },
     colorScheme: {
       root: {
+        overlay: {
+          modal: {
+            background: 'transparent',
+          }
+        },
         formField: {
           hoverBorderColor: '{primary.color}',
           filled: {
@@ -140,6 +145,52 @@ export const FTThemePreset = definePreset(Aura, {
 
   // inputtext.filled.background
   components: {
+    overlay: {
+      modal: {
+        padding: 'var(--ft-spacing-md)',
+        color: 'var(--ft-color-text-primary)',
+      }
+    },
+    dialog: {
+      // root: {
+        // borderRadius: 'var(--radius-xl)',
+        // header: {
+        //   borderRadius: 'var(--radius-xl) var(--radius-xl) 0 0',
+        // },
+        // content: {
+        //   padding: {
+        //     x: 'var(--ft-spacing-lg)',
+        //     y: 'var(--ft-spacing-lg)',
+        //   }
+        // }
+        title: {
+          fontSize: 'var(--text-base)',
+          fontWeight: 'var(--font-weight-normal)',
+          // color: 'var(--ft-color-text-primary)',
+        }
+      // }
+    },
+    select: {
+      root: {
+        borderRadius: 'var(--radius-xl)',
+      }
+    },
+    button: {
+      root: {
+        borderRadius: 'var(--radius-lg)',
+        sm: {
+          padding: {
+            x: 'var(--ft-spacing-md)',
+          },
+          fontSize: 'var(--ft-text-xs)',
+        }
+      }
+    },
+    formField: {
+      root: {
+        borderRadius: 'var(--radius-xl)',
+      },
+    },
     inputtext: {
       root: {
         borderRadius: 'var(--radius-xl)', // Example: Using a semantic token
