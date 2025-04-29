@@ -123,6 +123,8 @@
   /* --- Transitions --- */
   --transition-base: all 0.2s ease-in-out;
 
+  --p-form-field-sm-font-size: var(--ft-text-2xs);
+
 }
 
 /* Override variables for the dark theme */

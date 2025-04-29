@@ -3,6 +3,10 @@
   border-width: 0 !important;
 }
 
+.p-button {
+  border-width: 0 !important;
+}
+
 .p-dialog-content {
   gap: var(--ft-spacing-md);
   display: flex;
@@ -11,6 +15,27 @@
 }
 
 .p-inputtext {
-  font-size: var(--ft-text-xs) !important;
+  font-size: var(--text-sm) !important;
   width: 100%;
+}
+
+.p-select {
+  min-width: 100px;
+}
+
+.p-select-label {
+  font-size: var(--text-sm) !important;}
+
+.p-datepicker {
+  width: 100%;
+}
+
+
+@media (min-width: 1024px) {
+  .p-datepicker {
+    width: 170px;
+  }
+}
+
+@media (width >= 1280px) {
 }

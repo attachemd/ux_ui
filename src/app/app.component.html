@@ -402,14 +402,14 @@
           [modal]="true" [(visible)]="visible">
 
   <div class="form-group">
-    <div class="field-container bg-amber-500 flex-grow">
+    <div class="field-container flex-grow">
       <p-floatlabel variant="in">
         <input pInputText id="in_label1" [(ngModel)]="value2" autocomplete="off" variant="filled"/>
         <label for="in_label">Valeur</label>
       </p-floatlabel>
     </div>
 
-    <div class="field-container bg-blue-500" style="width: 170px;">
+    <div class="field-container">
       <p-floatlabel variant="in">
         <p-datepicker [(ngModel)]="value3" inputId="in_label2" showIcon iconDisplay="input"
                       variant="filled"></p-datepicker>
@@ -417,7 +417,7 @@
       </p-floatlabel>
     </div>
 
-    <div class="field-container bg-emerald-500">
+    <div class="field-container">
       <p-floatlabel class="w-full" variant="in">
         <p-select [(ngModel)]="medicalConditionStatus" inputId="in_label3" [options]="medicalConditionStatuses"
                   optionLabel="name" styleClass="w-full" variant="filled"/>
@@ -439,7 +439,7 @@
   <!--    <input pInputText id="email" class="flex-auto" autocomplete="off" />-->
   <!--  </div>-->
   <div class="flex justify-end gap-2">
-    <p-button label="Cancel" severity="secondary" (click)="visible = false"/>
-    <p-button label="Save" (click)="visible = false"/>
+    <p-button label="Cancel" severity="secondary" (click)="visible = false" size="small"/>
+    <p-button label="Save" (click)="visible = false" size="small"/>
   </div>
 </p-dialog>

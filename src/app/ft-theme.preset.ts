@@ -3,7 +3,35 @@ import Aura from '@primeng/themes/aura';
 
 export const FTThemePreset = definePreset(Aura, {
   //Your customizations, see the following sections for examples
+  tokens: { // Or a similar top-level key for custom tokens
+    mauve: {
+      50: '#F2EFFC',  // Very light
+      100: '#E6E0F9',
+      200: '#D1C1F3',
+      300: '#BD9EEA',
+      400: '#A87EE2',
+      500: '#945ED8',
+      600: '#814DCF', // Close to your base color #6946d5
+      700: '#6E3DB6',
+      800: '#5B2D9E',
+      900: '#491D85',
+      950: '#370D6D'   // Very dark
+    }
+  },
   semantic: {
+    primary: {
+      50: '#F2EFFC',  // Very light
+      100: '#E6E0F9',
+      200: '#D1C1F3',
+      300: '#BD9EEA',
+      400: '#A87EE2',
+      500: '#945ED8',
+      600: '#814DCF', // Close to your base color #6946d5
+      700: '#6E3DB6',
+      800: '#5B2D9E',
+      900: '#491D85',
+      950: '#370D6D'   // Very dark
+    },
     colorScheme: {
       root: {
         formField: {
@@ -17,11 +45,17 @@ export const FTThemePreset = definePreset(Aura, {
               background: 'var(--ft-color-background-quaternary)',
             },
           },
-          color: 'var(--ft-color-text-base)',
+          color: 'var(--ft-color-text-primary)',
+          icon: {
+            color: 'var(--ft-color-text-primary)',
+          },
           float: {
             label: {
-              color: 'var(--ft-color-text-base)',
+              color: 'var(--ft-color-text-secondary)',
               focus: {
+                color: 'var(--ft-color-text-tertairy)',
+              },
+              active: {
                 color: 'var(--ft-color-text-tertairy)',
               }
             },
@@ -40,32 +74,63 @@ export const FTThemePreset = definePreset(Aura, {
             focus: {
               background: 'var(--ft-color-background-quaternary)',
             },
-          }
+          },
+          color: 'red',
         },
       },
+      light: {
+        surface: {
+          0: '#ffffff',
+          50: '{neutral.50}',
+          100: '{neutral.100}',
+          200: '{neutral.200}',
+          300: '{neutral.300}',
+          400: '{neutral.400}',
+          500: '{neutral.500}',
+          600: '{neutral.600}',
+          700: '{neutral.700}',
+          800: '{neutral.800}',
+          900: '{neutral.900}',
+          950: '{neutral.950}'
+        }
+      },
       dark: {
-        formField: {
-          hoverBorderColor: '{primary.color}',
-          filled: {
-            background: 'var(--ft-color-background-tertiary)',
-            hover: {
-              background: 'var(--ft-color-background-quaternary)',
-            },
-            focus: {
-              background: 'var(--ft-color-background-quaternary)',
-            },
-          }
-        },
-        inputtext: {
-          filled: {
-            background: 'var(--ft-color-background-tertiary)',
-            hover: {
-              background: 'var(--ft-color-background-quaternary)',
-            },
-            focus: {
-              background: 'var(--ft-color-background-quaternary)',
-            },
-          }
+        // formField: {
+        //   hoverBorderColor: '{primary.color}',
+        //   filled: {
+        //     background: 'var(--ft-color-background-tertiary)',
+        //     hover: {
+        //       background: 'var(--ft-color-background-quaternary)',
+        //     },
+        //     focus: {
+        //       background: 'var(--ft-color-background-quaternary)',
+        //     },
+        //   }
+        // },
+        // inputtext: {
+        //   filled: {
+        //     background: 'var(--ft-color-background-tertiary)',
+        //     hover: {
+        //       background: 'var(--ft-color-background-quaternary)',
+        //     },
+        //     focus: {
+        //       background: 'var(--ft-color-background-quaternary)',
+        //     },
+        //   }
+        // }
+        surface: {
+          0: '#ffffff',
+          50: '{neutral.50}',
+          100: '{neutral.100}',
+          200: '{neutral.200}',
+          300: '{neutral.300}',
+          400: '{neutral.400}',
+          500: '{neutral.500}',
+          600: '{neutral.600}',
+          700: '{neutral.700}',
+          800: '{neutral.800}',
+          900: '{neutral.900}',
+          950: '{neutral.950}'
         }
       }
     }
