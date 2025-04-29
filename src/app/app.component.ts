@@ -1,23 +1,25 @@
-import { AfterViewInit, Component, ElementRef, OnDestroy, Renderer2, ViewChild } from '@angular/core';
+import {AfterViewInit, Component, ElementRef, OnDestroy, OnInit, Renderer2, ViewChild} from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import {NgIf} from '@angular/common';
 import { ThemeSwitcherComponent } from "./components/theme-switcher.component";
-import { MedicalHistoryEntity, Note } from './types/medical-history.type';
+import {MedicalConditionStatus, MedicalHistoryEntity, Note} from './types/medical-history.type';
 import { medicalHistoryEntities, notes } from './fake-data/medical-history.fake';
 import {ButtonModule} from 'primeng/button';
 import {FloatLabel} from 'primeng/floatlabel';
 import {FormsModule} from '@angular/forms';
 import {InputTextModule} from 'primeng/inputtext';
 import { DialogModule } from 'primeng/dialog';
+import {DatePicker} from 'primeng/datepicker';
+import {Select} from 'primeng/select';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, NgIf, ThemeSwitcherComponent, ButtonModule, FloatLabel, FormsModule, InputTextModule, DialogModule ],
+  imports: [RouterOutlet, NgIf, ThemeSwitcherComponent, ButtonModule, FloatLabel, FormsModule, InputTextModule, DialogModule, DatePicker, Select],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
 
-export class AppComponent implements AfterViewInit, OnDestroy {
+export class AppComponent implements AfterViewInit, OnDestroy, OnInit {
   title = 'uxui';
 
   @ViewChild('mainContent') parent!: ElementRef<HTMLElement>;
@@ -35,11 +37,21 @@ export class AppComponent implements AfterViewInit, OnDestroy {
 
   isModalOpen: boolean = false; // Property to control modal visibility
   medicalHistoryEntities: MedicalHistoryEntity[] = medicalHistoryEntities
-
+  medicalConditionStatuses: MedicalConditionStatus[] | undefined;
   comments: Note[] = notes;
   value2: any;
+  value3: Date | undefined;
+  medicalConditionStatus: MedicalConditionStatus | undefined;
 
   constructor(private renderer: Renderer2) {}
+
+  ngOnInit() {
+    this.medicalConditionStatuses = [
+      { name: 'Actif'},
+      { name: 'En rémission'},
+      { name: 'Résolu'},
+    ];
+  }
 
   ngAfterViewInit(): void {
     this.setupEventListeners();

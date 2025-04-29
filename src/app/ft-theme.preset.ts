@@ -7,64 +7,71 @@ export const FTThemePreset = definePreset(Aura, {
     colorScheme: {
       root: {
         formField: {
-          hoverBorderColor: '{primary.color}'
+          hoverBorderColor: '{primary.color}',
+          filled: {
+            background: 'var(--ft-color-background-tertiary)',
+            hover: {
+              background: 'var(--ft-color-background-quaternary)',
+            },
+            focus: {
+              background: 'var(--ft-color-background-quaternary)',
+            },
+          },
+          color: 'var(--ft-color-text-base)',
+          float: {
+            label: {
+              color: 'var(--ft-color-text-base)',
+              focus: {
+                color: 'var(--ft-color-text-tertairy)',
+              }
+            },
+          },
+          padding: {
+            x: 'var(--ft-spacing-md)',
+            y: 'var(--ft-spacing-sm)',
+          }
         },
         inputtext: {
           filled: {
-            background: 'green'
+            background: 'var(--ft-color-background-tertiary)',
+            hover: {
+              background: 'var(--ft-color-background-quaternary)',
+            },
+            focus: {
+              background: 'var(--ft-color-background-quaternary)',
+            },
           }
-        }
+        },
       },
-      // light: {
-      //   formField: {
-      //     hoverBorderColor: '{primary.color}'
-      //   },
-      //   inputtext: {
-      //     filled: {
-      //       background: 'green'
-      //     }
-      //   }
-      // },
       dark: {
         formField: {
-          hoverBorderColor: '{primary.color}'
+          hoverBorderColor: '{primary.color}',
+          filled: {
+            background: 'var(--ft-color-background-tertiary)',
+            hover: {
+              background: 'var(--ft-color-background-quaternary)',
+            },
+            focus: {
+              background: 'var(--ft-color-background-quaternary)',
+            },
+          }
         },
         inputtext: {
           filled: {
-            background: 'red'
+            background: 'var(--ft-color-background-tertiary)',
+            hover: {
+              background: 'var(--ft-color-background-quaternary)',
+            },
+            focus: {
+              background: 'var(--ft-color-background-quaternary)',
+            },
           }
         }
       }
     }
+
   },
 
-  // Define color scheme specific tokens or component styles
-  // colorScheme: {
-  //   light: {
-  //     components: {
-  //       inputtext: {
-  //         filled: {
-  //           background: 'red' // Example light mode background using a surface token
-  //         }
-  //       }
-  //     }
-  //   },
-  //   dark: {
-  //     components: {
-  //       inputtext: {
-  //         filled: {
-  //           background: 'green' // Example dark mode background using a darker surface token
-  //         }
-  //       }
-  //     }
-  //   }
-  // },
-
-    // components: {
-    //   inputtext: {
-    //     borderRadius: '800px' // Your custom border radius
-    //   }
-    // }
 
   // inputtext.filled.background
   components: {

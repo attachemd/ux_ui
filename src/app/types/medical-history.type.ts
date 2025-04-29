@@ -19,3 +19,7 @@ export interface Note {
   quoteId?: number;
   date?: string;
 }
+
+export interface MedicalConditionStatus {
+  name: string;
+}

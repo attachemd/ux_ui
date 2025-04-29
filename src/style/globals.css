@@ -540,7 +540,7 @@ button:active i {
   }
   .comment-body-outer-container {
     height: 100%;
-    overflow: visible;
+    overflow: hidden;
     position: relative;
     .comment-body-container {
       display: flex;
@@ -674,7 +674,7 @@ button:active i {
 
 .ft-bottom-scroll-overlay-container {
   position: sticky;
-  bottom: calc(var(--ft-spacing-md) + var(--ft-spacing-7xl));
+  bottom: var(--ft-spacing-md);
   left: 0;
   height: 0;
   .ft-scroll-overlay {
@@ -759,6 +759,11 @@ button:active i {
   border-radius: var(--radius-2xl);
   box-shadow: var(--box-shadow-dialog);
   z-index: 1001;
+  max-width: 600px;
+  width: 90vw;
+}
+
+.dialog-md {
   max-width: 600px;
   width: 90vw;
 }

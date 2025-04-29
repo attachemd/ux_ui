@@ -42,7 +42,7 @@
         Mr. AHMED IBRAHIMI
       </span>
       <span class="hidden lg:inline-block chip-color-info chip"
-        >Première hospitalisation
+      >Première hospitalisation
       </span>
       <div class="hidden lg:flex sub-info">
         <div class="flex items-center gap-2">
@@ -152,45 +152,48 @@
       <div #tabBodyContent class="lg:!flex-row tab-body-content">
         <div class="hm-container lg:pr-3">
           @for (item of medicalHistoryEntities; track item.title) {
-          <div class="mini-card">
-            <div class="header">
-              <div class="flex items-center gap-2">
-                <span class="leading-none ft-text">{{ item.title }}</span>
+            <div class="mini-card">
+              <div class="header">
+                <div class="flex items-center gap-2">
+                  <span class="leading-none ft-text">{{ item.title }}</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <button (click)="showDialog()"><i class="icon-plus"></i></button>
+                </div>
               </div>
-              <div class="flex items-center gap-2">
-                <button (click)="showDialog()"><i class="icon-plus"></i></button>
-              </div>
-            </div>
-            <div class="mini-card-body">
-              @for (block of item.blocks; track block.title) {
-              <div class="micro-card">
-                <div class="flex justify-between items-center gap-3 w-full">
-                  <div class="flex items-center gap-2">
-                    @if (block.status) {
-                    <span class="chip" [class]="block.class">{{
-                      block.status
-                    }}</span>
-                    } @if (block.surgeon) {
-                    <span class="ft-sub-title"
-                      >Surgeon: {{ block.surgeon }}</span
-                    >
-                    } @if (block.date) {
-                    <span class="ft-sub-title">{{ block.date }}</span>
-                    } @if (block.note) {
-                    <i class="icon-comment"></i>
-                    }
+              <div class="mini-card-body">
+                @for (block of item.blocks; track block.title) {
+                  <div class="micro-card">
+                    <div class="flex justify-between items-center gap-3 w-full">
+                      <div class="flex items-center gap-2">
+                        @if (block.status) {
+                          <span class="chip" [class]="block.class">{{
+                              block.status
+                            }}</span>
+                        }
+                        @if (block.surgeon) {
+                          <span class="ft-sub-title"
+                          >Surgeon: {{ block.surgeon }}</span
+                          >
+                        }
+                        @if (block.date) {
+                          <span class="ft-sub-title">{{ block.date }}</span>
+                        }
+                        @if (block.note) {
+                          <i class="icon-comment"></i>
+                        }
+                      </div>
+                      <!--                      <div class="flex items-center gap-2">-->
+                      <!--                        <button><i class="icon-close"></i></button>-->
+                      <!--                      </div>-->
+                    </div>
+                    <div class="flex flex-col overflow-hidden">
+                      <span class="leading-none ft-text">{{ block.title }}</span>
+                    </div>
                   </div>
-                  <!--                      <div class="flex items-center gap-2">-->
-                  <!--                        <button><i class="icon-close"></i></button>-->
-                  <!--                      </div>-->
-                </div>
-                <div class="flex flex-col overflow-hidden">
-                  <span class="leading-none ft-text">{{ block.title }}</span>
-                </div>
+                }
               </div>
-              }
             </div>
-          </div>
 
           }
         </div>
@@ -211,37 +214,38 @@
               </div>
               <div class="comment-body-container">
                 @for (comment of comments; track comment.id) {
-                <div class="comment-block">
-                  <div class="flex justify-between items-center gap-3 w-full">
-                    <div class="flex items-center gap-2">
+                  <div class="comment-block">
+                    <div class="flex justify-between items-center gap-3 w-full">
+                      <div class="flex items-center gap-2">
                       <span class="ft-img-profile">{{
-                        comment.author.charAt(0)
-                      }}</span>
-                      <div class="flex flex-col">
-                        <span class="ft-title">{{ comment.author }}</span>
-                        <span class="ft-sub-title">{{ comment.date }}</span>
+                          comment.author.charAt(0)
+                        }}</span>
+                        <div class="flex flex-col">
+                          <span class="ft-title">{{ comment.author }}</span>
+                          <span class="ft-sub-title">{{ comment.date }}</span>
+                        </div>
+                      </div>
+                      <div class="flex items-center gap-2">
+                        <button><i class="icon-vertical-dots"></i></button>
                       </div>
                     </div>
-                    <div class="flex items-center gap-2">
-                      <button><i class="icon-vertical-dots"></i></button>
-                    </div>
-                  </div>
-                  <div class="flex flex-col overflow-hidden">
-                    @if (comment.quoteId) { @if
-                    (getCommentById(comment.quoteId); as quotedComment) {
-                    <div class="quoted">
-                      <div class="ft-indicator"></div>
-                      <span>{{ quotedComment.author }}</span>
-                      <p class="ft-text">
-                        {{ quotedComment.text }}
+                    <div class="flex flex-col overflow-hidden">
+                      @if (comment.quoteId) {
+                        @if (getCommentById(comment.quoteId); as quotedComment) {
+                          <div class="quoted">
+                            <div class="ft-indicator"></div>
+                            <span>{{ quotedComment.author }}</span>
+                            <p class="ft-text">
+                              {{ quotedComment.text }}
+                            </p>
+                          </div>
+                        }
+                      }
+                      <p>
+                        {{ comment.text }}
                       </p>
                     </div>
-                    } }
-                    <p>
-                      {{ comment.text }}
-                    </p>
                   </div>
-                </div>
                 }
               </div>
               <div class="ft-bottom-scroll-overlay-container">
@@ -274,7 +278,7 @@
         <div class="form-group">
           <label for="condition">Antécédent médical *</label>
           <div class="input-wrapper">
-            <input type="text" id="condition" list="conditions" required />
+            <input type="text" id="condition" list="conditions" required/>
             <datalist id="conditions">
               <option value="Diabète"></option>
               <option value="Hypertension"></option>
@@ -293,7 +297,7 @@
           <div class="form-field">
             <div class="field-content">
               <label for="condition">Antécédent médical *</label>
-              <input type="text" id="new-condition" required />
+              <input type="text" id="new-condition" required/>
             </div>
             <div class="field-actions">
               <button type="button" class="reset-btn">
@@ -302,24 +306,29 @@
             </div>
           </div>
           <!-- Date de Diagnostic -->
-<!--          <div class="form-field">-->
-<!--            <div class="field-content">-->
-<!--              <label for="diagnosisDate">Date de diagnostic</label>-->
-<!--              <input type="date" id="diagnosisDate" required />-->
-<!--            </div>-->
+          <!--          <div class="form-field">-->
+          <!--            <div class="field-content">-->
+          <!--              <label for="diagnosisDate">Date de diagnostic</label>-->
+          <!--              <input type="date" id="diagnosisDate" required />-->
+          <!--            </div>-->
 
-<!--            <div class="field-actions">-->
-<!--              <button type="button">-->
-<!--                <i class="icon-date"></i>-->
-<!--              </button>-->
-<!--              <button type="button" class="reset-btn">-->
-<!--                <i class="icon-close"></i>-->
-<!--              </button>-->
-<!--            </div>-->
-<!--          </div>-->
+          <!--            <div class="field-actions">-->
+          <!--              <button type="button">-->
+          <!--                <i class="icon-date"></i>-->
+          <!--              </button>-->
+          <!--              <button type="button" class="reset-btn">-->
+          <!--                <i class="icon-close"></i>-->
+          <!--              </button>-->
+          <!--            </div>-->
+          <!--          </div>-->
 
           <p-floatlabel variant="in">
-            <input pInputText id="in_label" [(ngModel)]="value2" autocomplete="off" />
+            <input pInputText id="in_label" [(ngModel)]="value2" autocomplete="off"/>
+            <label for="in_label">In Label</label>
+          </p-floatlabel>
+
+          <p-floatlabel variant="in">
+            <p-datepicker [(ngModel)]="value2" inputId="in_label" showIcon iconDisplay="input"/>
             <label for="in_label">In Label</label>
           </p-floatlabel>
         </div>
@@ -338,7 +347,7 @@
         <div class="form-group">
           <div class="switch-container">
             <label class="switch">
-              <input type="checkbox" id="familyHistory" />
+              <input type="checkbox" id="familyHistory"/>
               <span class="slider"></span>
             </label>
             <label for="familyHistory">Antécédent familial</label>
@@ -361,7 +370,7 @@
         <div class="form-group hidden" id="deceasedGroup">
           <div class="switch-container">
             <label class="switch">
-              <input type="checkbox" id="deceased" />
+              <input type="checkbox" id="deceased"/>
               <span class="slider"></span>
             </label>
             <label for="deceased">Décédé</label>
@@ -379,7 +388,7 @@
             Enregistrer
           </button>
           <button type="button" class="btn-secondary">Annuler</button>
-          <p-button label="Check" />
+          <p-button label="Check"/>
         </div>
       </form>
     </div>
@@ -388,22 +397,49 @@
 </div>
 <div id="backdrop" *ngIf="isModalOpen" (click)="closeModal()"></div>
 
-<p-dialog maskStyleClass="backdrop-blur-xs" styleClass="!border-0" header="Edit Profile" [modal]="true" [(visible)]="visible" [style]="{ width: '25rem' }">
-  <span class="p-text-secondary block mb-8">Update your information.</span>
-  <div class="flex items-center gap-4 mb-4">
-    <label for="username" class="font-semibold w-24">Username</label>
-    <input pInputText id="username" class="flex-auto" autocomplete="off" />
+<!--<p-dialog maskStyleClass="backdrop-blur-xs" styleClass="!border-0 dialog-md" header="Edit Profile" [modal]="true" [(visible)]="visible" [style]="{ width: '25rem' }">-->
+<p-dialog maskStyleClass="backdrop-blur-xs" styleClass="!border-0 dialog-md" header="Ajouter un antécédent médical"
+          [modal]="true" [(visible)]="visible">
+
+  <div class="form-group">
+    <div class="field-container bg-amber-500 flex-grow">
+      <p-floatlabel variant="in">
+        <input pInputText id="in_label1" [(ngModel)]="value2" autocomplete="off" variant="filled"/>
+        <label for="in_label">Valeur</label>
+      </p-floatlabel>
+    </div>
+
+    <div class="field-container bg-blue-500" style="width: 170px;">
+      <p-floatlabel variant="in">
+        <p-datepicker [(ngModel)]="value3" inputId="in_label2" showIcon iconDisplay="input"
+                      variant="filled"></p-datepicker>
+        <label for="in_label">Date de diagnostic</label>
+      </p-floatlabel>
+    </div>
+
+    <div class="field-container bg-emerald-500">
+      <p-floatlabel class="w-full" variant="in">
+        <p-select [(ngModel)]="medicalConditionStatus" inputId="in_label3" [options]="medicalConditionStatuses"
+                  optionLabel="name" styleClass="w-full" variant="filled"/>
+        <label for="in_label">Status</label>
+      </p-floatlabel>
+    </div>
+
   </div>
-  <p-floatlabel variant="in">
-    <input pInputText id="in_label" [(ngModel)]="value2" autocomplete="off" variant="filled" />
-    <label for="in_label">In Label</label>
-  </p-floatlabel>
-  <div class="flex items-center gap-4 mb-8">
-    <label for="email" class="font-semibold w-24">Email</label>
-    <input pInputText id="email" class="flex-auto" autocomplete="off" />
-  </div>
+
+
+  <!--  <div class="flex items-center gap-4 mb-4">-->
+  <!--    <label for="username" class="font-semibold w-24">Username</label>-->
+  <!--    <input pInputText id="username" class="flex-auto" autocomplete="off" />-->
+  <!--  </div>-->
+
+
+  <!--  <div class="flex items-center gap-4 mb-8">-->
+  <!--    <label for="email" class="font-semibold w-24">Email</label>-->
+  <!--    <input pInputText id="email" class="flex-auto" autocomplete="off" />-->
+  <!--  </div>-->
   <div class="flex justify-end gap-2">
-    <p-button label="Cancel" severity="secondary" (click)="visible = false" />
-    <p-button label="Save" (click)="visible = false" />
+    <p-button label="Cancel" severity="secondary" (click)="visible = false"/>
+    <p-button label="Save" (click)="visible = false"/>
   </div>
 </p-dialog>

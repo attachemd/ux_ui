@@ -1,0 +1,16 @@
+
+.p-variant-filled {
+  border-width: 0 !important;
+}
+
+.p-dialog-content {
+  gap: var(--ft-spacing-md);
+  display: flex;
+  flex-direction: column;
+  overflow: visible !important;
+}
+
+.p-inputtext {
+  font-size: var(--ft-text-xs) !important;
+  width: 100%;
+}
