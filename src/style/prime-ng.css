@@ -61,6 +61,10 @@
     width: 100%;
   }
 
+  .p-datepicker-day-view {
+    font-size: var(--ft-text-xs);
+  }
+
   .p-textarea {
     font-size: var(--text-sm) !important;
   }
@@ -78,9 +82,9 @@
   }
 
   @media (min-width: 1024px) {
-    .p-datepicker {
-      width: 190px;
-    }
+    /*.p-datepicker {*/
+    /*  width: 190px;*/
+    /*}*/
   }
 
   @media (width >= 1280px) {

@@ -41,12 +41,14 @@ export class AppComponent implements AfterViewInit, OnDestroy, OnInit {
   isModalOpen: boolean = false; // Property to control modal visibility
   medicalHistoryEntities: MedicalHistoryEntity[] = medicalHistoryEntities
   medicalConditionStatuses: MedicalConditionStatus[] | undefined;
+  relations: any;
   comments: Note[] = notes;
   value2: any;
   value3: Date | undefined;
   checked = false;
   checked2 = false;
   medicalConditionStatus: MedicalConditionStatus | undefined;
+  relation: any;
   value5: any;
 
   constructor(private renderer: Renderer2) {}
@@ -59,6 +61,11 @@ export class AppComponent implements AfterViewInit, OnDestroy, OnInit {
       { name: 'Actif'},
       { name: 'En rémission'},
       { name: 'Résolu'},
+    ];
+    this.relations = [
+      { name: 'Parent'},
+      { name: 'Frère/Sœur'},
+      { name: 'Enfant'},
     ];
   }
 

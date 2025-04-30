@@ -23,10 +23,10 @@ export const appConfig: ApplicationConfig = {
         preset: FTThemePreset,
         options: {
           darkModeSelector: '.dark-theme',
-          // cssLayer: {
-          //   name: 'primeng',
-          //   order: 'primeng, app-styles, another-css-library'
-          // }
+          cssLayer: {
+            name: 'primeng',
+            order: 'properties, theme, base, components, utilities, app-variables, app-styles, primeng, primeng2, prime-ng-variables'
+          }
         }
       }
     }),

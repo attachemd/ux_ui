@@ -39,70 +39,70 @@ export const FTThemePreset = definePreset(Aura, {
         //     background: 'red',
         //   }
         // },
-        overlay: {
-          modal: {
-            background: 'transparent',
-          }
-        },
-        formField: {
-          hoverBorderColor: '{primary.color}',
-          filled: {
-            background: 'var(--ft-color-background-tertiary)',
-            hover: {
-              background: 'var(--ft-color-background-quaternary)',
-            },
-            focus: {
-              background: 'var(--ft-color-background-quaternary)',
-            },
-          },
-          color: 'var(--ft-color-text-primary)',
-          icon: {
-            color: 'var(--ft-color-text-primary)',
-          },
-          float: {
-            label: {
-              color: 'var(--ft-color-text-secondary)',
-              focus: {
-                color: 'var(--ft-color-text-tertairy)',
-              },
-              active: {
-                color: 'var(--ft-color-text-tertairy)',
-              }
-            },
-          },
-          padding: {
-            x: 'var(--ft-spacing-md)',
-            y: 'var(--ft-spacing-sm)',
-          }
-        },
-        inputtext: {
-          filled: {
-            background: 'var(--ft-color-background-tertiary)',
-            hover: {
-              background: 'var(--ft-color-background-quaternary)',
-            },
-            focus: {
-              background: 'var(--ft-color-background-quaternary)',
-            },
-          },
-          color: 'red',
-        },
+        // overlay: {
+        //   modal: {
+        //     background: 'transparent',
+        //   }
+        // },
+        // formField: {
+        //   hoverBorderColor: '{primary.color}',
+        //   filled: {
+        //     background: 'var(--ft-color-background-tertiary)',
+        //     hover: {
+        //       background: 'var(--ft-color-background-quaternary)',
+        //     },
+        //     focus: {
+        //       background: 'var(--ft-color-background-quaternary)',
+        //     },
+        //   },
+        //   color: 'var(--ft-color-text-primary)',
+        //   icon: {
+        //     color: 'var(--ft-color-text-primary)',
+        //   },
+        //   float: {
+        //     label: {
+        //       color: 'var(--ft-color-text-secondary)',
+        //       focus: {
+        //         color: 'var(--ft-color-text-tertairy)',
+        //       },
+        //       active: {
+        //         color: 'var(--ft-color-text-tertairy)',
+        //       }
+        //     },
+        //   },
+        //   padding: {
+        //     x: 'var(--ft-spacing-md)',
+        //     y: 'var(--ft-spacing-sm)',
+        //   }
+        // },
+        // inputtext: {
+        //   filled: {
+        //     background: 'var(--ft-color-background-tertiary)',
+        //     hover: {
+        //       background: 'var(--ft-color-background-quaternary)',
+        //     },
+        //     focus: {
+        //       background: 'var(--ft-color-background-quaternary)',
+        //     },
+        //   },
+        //   color: 'red',
+        // },
       },
       light: {
-        surface: {
-          0: '#ffffff',
-          50: '{neutral.50}',
-          100: '{neutral.100}',
-          200: '{neutral.200}',
-          300: '{neutral.300}',
-          400: '{neutral.400}',
-          500: '{neutral.500}',
-          600: '{neutral.600}',
-          700: '{neutral.700}',
-          800: '{neutral.800}',
-          900: '{neutral.900}',
-          950: '{neutral.950}'
-        }
+        // surface: {
+        //   0: '#ffffff',
+        //   50: '{neutral.50}',
+        //   100: '{neutral.100}',
+        //   200: '{neutral.200}',
+        //   300: '{neutral.300}',
+        //   400: '{neutral.400}',
+        //   500: '{neutral.500}',
+        //   600: '{neutral.600}',
+        //   700: '{neutral.700}',
+        //   800: '{neutral.800}',
+        //   900: '{neutral.900}',
+        //   950: '{neutral.950}'
+        // }
       },
       dark: {
         // formField: {
@@ -172,12 +172,12 @@ export const FTThemePreset = definePreset(Aura, {
       //   }
       // }
     },
-    overlay: {
-      modal: {
-        padding: 'var(--ft-spacing-md)',
-        color: 'var(--ft-color-text-primary)',
-      }
-    },
+    // overlay: {
+    //   modal: {
+    //     padding: 'var(--ft-spacing-md)',
+    //     color: 'var(--ft-color-text-primary)',
+    //   }
+    // },
     dialog: {
       // root: {
         // borderRadius: 'var(--radius-xl)',
@@ -190,41 +190,46 @@ export const FTThemePreset = definePreset(Aura, {
         //     y: 'var(--ft-spacing-lg)',
         //   }
         // }
-        title: {
-          fontSize: 'var(--text-base)',
-          fontWeight: 'var(--font-weight-normal)',
-          // color: 'var(--ft-color-text-primary)',
-        }
+        // title: {
+        //   fontSize: 'var(--text-base)',
+        //   fontWeight: 'var(--font-weight-normal)',
+        //   // color: 'var(--ft-color-text-primary)',
+        // }
       // }
     },
-    select: {
-      root: {
-        borderRadius: 'var(--radius-xl)',
-      }
-    },
+    // select: {
+    //   root: {
+    //     borderRadius: 'var(--radius-xl)',
+    //   }
+    // },
+    // textarea: {
+    //   root: {
+    //     borderRadius: 'var(--radius-xl)',
+    //   }
+    // },
     button: {
-      root: {
-        borderRadius: 'var(--radius-lg)',
-        sm: {
-          padding: {
-            x: 'var(--ft-spacing-md)',
-          },
-          fontSize: 'var(--ft-text-xs)',
-        }
-      }
+    //   root: {
+    //     borderRadius: 'var(--radius-lg)',
+    //     sm: {
+    //       padding: {
+    //         x: 'var(--ft-spacing-md)',
+    //       },
+    //       fontSize: 'var(--ft-text-xs)',
+    //     }
+    //   }
     },
-    formField: {
-      root: {
-        borderRadius: 'var(--radius-xl)',
-      },
-    },
-    inputtext: {
-      root: {
-        borderRadius: 'var(--radius-xl)', // Example: Using a semantic token
-        // Or a specific value:
-        // borderRadius: '10px'
-      },
-    }
+    // formField: {
+    //   root: {
+    //     borderRadius: 'var(--radius-xl)',
+    //   },
+    // },
+    // inputtext: {
+    //   root: {
+    //     borderRadius: 'var(--radius-xl)', // Example: Using a semantic token
+    //     // Or a specific value:
+    //     // borderRadius: '10px'
+    //   },
+    // }
   }
 
 

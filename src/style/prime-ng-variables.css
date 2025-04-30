@@ -1,0 +1,70 @@
+@layer prime-ng-variables {
+  :root {
+
+    /* Surface properties */
+    --p-surface-0: #ffffff;
+    --p-surface-50: var(--p-neutral-50);
+    --p-surface-100: var(--p-neutral-100);
+    --p-surface-200: var(--p-neutral-200);
+    --p-surface-300: var(--p-neutral-300);
+    --p-surface-400: var(--p-neutral-400);
+    --p-surface-500: var(--p-neutral-500);
+    --p-surface-600: var(--p-neutral-600);
+    --p-surface-700: var(--p-neutral-700);
+    --p-surface-800: var(--p-neutral-800);
+    --p-surface-900: var(--p-neutral-900);
+    --p-surface-950: var(--p-neutral-950);
+
+    /* Toggle Switch */
+    --p-toggleswitch-handle-size: 18px;
+    --p-toggleswitch-height: 20px;
+    --p-toggleswitch-gap: 1px;
+
+    /* Form Field */
+    --p-form-field-border-radius: var(--radius-xl);
+
+    --p-content-border-radius: var(--radius-xl);
+
+    /* Dialog */
+    --p-dialog-title-font-size: var(--text-base);
+    --p-dialog-title-font-weight: var(--font-weight-normal);
+
+    /* Overlay*/
+    --p-overlay-modal-padding: var(--ft-spacing-md);
+    --p-overlay-modal-color: var(--ft-color-text-primary);
+
+    /* button */
+    --p-button-border-radius: var(--radius-lg);
+    --p-button-sm-padding-x: var(--ft-spacing-md);
+    --p-button-sm-font-size: var(--ft-text-xs);
+
+    /* Overlay properties */
+    --p-overlay-modal-background: transparent;
+
+    /* FormField properties */
+    /*--p-formfield-hover-border-color: var(--primary-color);*/
+    --p-form-field-filled-background: var(--ft-color-background-tertiary);
+    --p-form-field-filled-hover-background: var(--ft-color-background-quaternary);
+    --p-form-field-filled-focus-background: var(--ft-color-background-quaternary);
+    --p-form-field-color: var(--ft-color-text-primary);
+    --p-form-field-icon-color: var(--ft-color-text-primary);
+    --p-form-field-float-label-color: var(--ft-color-text-secondary);
+    --p-form-field-float-label-focus-color: var(--ft-color-text-tertairy);
+    --p-form-field-float-label-active-color: var(--ft-color-text-tertairy);
+    --p-form-field-padding-x: var(--ft-spacing-md);
+    --p-form-field-padding-y: var(--ft-spacing-sm);
+
+    /* InputText properties */
+    --p-inputtext-filled-background: var(--ft-color-background-tertiary);
+    --p-inputtext-filled-hover-background: var(--ft-color-background-quaternary);
+    --p-inputtext-filled-focus-background: var(--ft-color-background-quaternary);
+    /*--p-inputtext-color: red;*/
+  }
+  body.dark-theme {
+  }
+  @media (min-width: 1024px) {
+    :root {
+      /*--p-form-field-border-radius: var(--ft-border-radius-pill)*/
+    }
+  }
+}
