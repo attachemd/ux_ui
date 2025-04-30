@@ -34,6 +34,11 @@ export const FTThemePreset = definePreset(Aura, {
     },
     colorScheme: {
       root: {
+        // toggleswitch: {
+        //   checked: {
+        //     background: 'red',
+        //   }
+        // },
         overlay: {
           modal: {
             background: 'transparent',
@@ -145,6 +150,28 @@ export const FTThemePreset = definePreset(Aura, {
 
   // inputtext.filled.background
   components: {
+
+    togglswitch: { // Target the ToggleSwitch component
+      root: {
+        // Default background for unchecked state can be set here if needed
+        // background: '{surface.400}',
+
+        // // Define styles for the checked state
+        // checked: { // Use _checked to target the checked state
+        //   background: 'red' // Set the background when checked (e.g., to your primary color)
+        //   // Or use a specific color value:
+        //   // background: '#007bff'
+        // }
+
+      }
+      // You might also be able to target the slider specifically if needed,
+      // but often the background is applied to the root in the checked state.
+      // slider: {
+      //   _checked: {
+      //      background: '{primary.500}'
+      //   }
+      // }
+    },
     overlay: {
       modal: {
         padding: 'var(--ft-spacing-md)',

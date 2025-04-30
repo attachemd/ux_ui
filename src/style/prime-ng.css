@@ -27,7 +27,10 @@
     /*border-top: var(--ft-border-primary) solid var(--ft-color-dark-alpha-tertiary);*/
     /*border-bottom: var(--ft-border-primary) solid var(--ft-color-dark-alpha-tertiary);*/
     .dialog-form-body {
+      display: flex;
+      flex-direction: column;
       padding: var(--ft-spacing-md);
+      gap: var(--ft-spacing-md);
     }
   }
   .dialog-footer {
@@ -55,10 +58,13 @@
   width: 100%;
 }
 
+.p-textarea {
+  font-size: var(--text-sm) !important;
+}
 
 @media (min-width: 1024px) {
   .p-datepicker {
-    width: 170px;
+    width: 190px;
   }
 }
 

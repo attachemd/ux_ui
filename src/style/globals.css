@@ -31,6 +31,7 @@
   --ft-color-dark: 0, 0, 0;
   /*--ft-color-global-shadow: 1, 93, 231;*/
   --ft-color-global-shadow: 0, 0, 0;
+  --color-electric-primary: #34C759;
 
   --ft-color-text-base: var(rgba(var(--ft-color-dark), 0.8), --ft-color-dark);
   --ft-color-text-muted: var(--ft-color-secondary);
@@ -502,7 +503,7 @@ button:active i {
   padding: var(--ft-spacing-xs) var(--ft-spacing-sm);
   border-radius: var(--ft-spacing-sm);
   background-color: var(--ft-color-background-secondary);
-  gap: var(--ft-spacing-xs);
+  gap: var(--spacing);
   width: fit-content;
   box-shadow: var(--box-shadow-panel);
   > div {
@@ -782,6 +783,16 @@ button:active i {
   display: flex;
   flex-direction: column;
   gap: var(--ft-spacing-md);
+  .form-sub-group {
+    padding: var(--ft-spacing-sm);
+    border: var(--ft-border-primary) solid var(--ft-color-background-quaternary);
+    border-radius: var(--radius-xl);
+  }
+  .field-container {
+    display: flex;
+    align-items: center;
+    gap: var(--ft-spacing-md);
+  }
   .form-field {
     background-color: var(--ft-color-dark-alpha-primary);
     border-radius: var(--radius-xl);

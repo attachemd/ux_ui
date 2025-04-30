@@ -6,15 +6,17 @@ import {MedicalConditionStatus, MedicalHistoryEntity, Note} from './types/medica
 import { medicalHistoryEntities, notes } from './fake-data/medical-history.fake';
 import {ButtonModule} from 'primeng/button';
 import {FloatLabel} from 'primeng/floatlabel';
-import {FormsModule} from '@angular/forms';
+import {FormControl, FormGroup, FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {InputTextModule} from 'primeng/inputtext';
 import { DialogModule } from 'primeng/dialog';
 import {DatePicker} from 'primeng/datepicker';
 import {Select} from 'primeng/select';
+import {ToggleSwitch} from 'primeng/toggleswitch';
+import {Textarea} from 'primeng/textarea';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, NgIf, ThemeSwitcherComponent, ButtonModule, FloatLabel, FormsModule, InputTextModule, DialogModule, DatePicker, Select],
+  imports: [RouterOutlet, NgIf, ThemeSwitcherComponent, ButtonModule, FloatLabel, FormsModule, InputTextModule, DialogModule, DatePicker, Select, ToggleSwitch, ReactiveFormsModule, Textarea],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
@@ -25,7 +27,8 @@ export class AppComponent implements AfterViewInit, OnDestroy, OnInit {
   @ViewChild('mainContent') parent!: ElementRef<HTMLElement>;
   @ViewChild('tabBodyContent') child!: ElementRef<HTMLElement>;
 
-  visible: boolean = false;
+  visible = false;
+  // formGroup: FormGroup | undefined;
 
   showDialog() {
     this.visible = true;
@@ -41,11 +44,17 @@ export class AppComponent implements AfterViewInit, OnDestroy, OnInit {
   comments: Note[] = notes;
   value2: any;
   value3: Date | undefined;
+  checked = false;
+  checked2 = false;
   medicalConditionStatus: MedicalConditionStatus | undefined;
+  value5: any;
 
   constructor(private renderer: Renderer2) {}
 
   ngOnInit() {
+    // this.formGroup = new FormGroup({
+    //   checked: new FormControl<boolean>(false)
+    // });
     this.medicalConditionStatuses = [
       { name: 'Actif'},
       { name: 'En rémission'},

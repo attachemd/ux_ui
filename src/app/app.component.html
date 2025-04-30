@@ -398,6 +398,7 @@
 <div id="backdrop" *ngIf="isModalOpen" (click)="closeModal()"></div>
 
 <!--<p-dialog maskStyleClass="backdrop-blur-xs" styleClass="!border-0 dialog-md" header="Edit Profile" [modal]="true" [(visible)]="visible" [style]="{ width: '25rem' }">-->
+
 <p-dialog maskStyleClass="backdrop-blur-xs" styleClass="!border-0 dialog-md" header="Ajouter un antécédent médical"
           [modal]="true" [(visible)]="visible">
 
@@ -405,17 +406,17 @@
     <div class="dialog-form-body">
       <div class="form-group">
         <div class="field-container flex-grow">
-          <p-floatlabel variant="in">
-            <input pInputText id="in_label1" [(ngModel)]="value2" autocomplete="off" variant="filled"/>
-            <label for="in_label">Valeur</label>
+          <p-floatlabel variant="in" class="w-full">
+            <input pInputText id="value" [(ngModel)]="value2" autocomplete="off" variant="filled"/>
+            <label for="value">Valeur</label>
           </p-floatlabel>
         </div>
 
         <div class="field-container">
           <p-floatlabel variant="in">
-            <p-datepicker [(ngModel)]="value3" inputId="in_label2" showIcon iconDisplay="input"
+            <p-datepicker [(ngModel)]="value3" inputId="diagnostic_date" showIcon iconDisplay="input"
                           variant="filled"></p-datepicker>
-            <label for="in_label">Date de diagnostic</label>
+            <label for="diagnostic_date">Date de diagnostic</label>
           </p-floatlabel>
         </div>
 
@@ -423,10 +424,35 @@
           <p-floatlabel class="w-full" variant="in">
             <p-select [(ngModel)]="medicalConditionStatus" inputId="in_label3" [options]="medicalConditionStatuses"
                       optionLabel="name" styleClass="w-full" variant="filled"/>
-            <label for="in_label">Status</label>
+            <label for="in_label3">Status</label>
           </p-floatlabel>
         </div>
 
+      </div>
+      <div class="form-group !flex-col">
+        <div class="field-container">
+          <label for="switch1">Remember Me</label>
+          <p-toggleswitch class="flex" [(ngModel)]="checked" inputId="switch1" />
+        </div>
+        <div class="form-sub-group flex align-center gap-4">
+          <div class="field-container">
+            <p-floatlabel class="w-full" variant="in">
+              <p-select [(ngModel)]="medicalConditionStatus" inputId="in_label4" [options]="medicalConditionStatuses"
+                        optionLabel="name" styleClass="w-[200px]" variant="filled"/>
+              <label for="in_label4">Antécédent familial</label>
+            </p-floatlabel>
+          </div>
+          <div class="field-container">
+            <label for="switch2">Décédé</label>
+            <p-toggleswitch class="flex" [(ngModel)]="checked2" inputId="switch2" />
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <p-floatlabel variant="in" class="w-full">
+          <textarea pTextarea id="over_label" [(ngModel)]="value5" rows="2" cols="30" style="resize: none" class="w-full" variant="filled"></textarea>
+          <label for="over_label">Note</label>
+        </p-floatlabel>
       </div>
     </div>
   </div>
