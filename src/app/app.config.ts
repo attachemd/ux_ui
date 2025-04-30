@@ -22,7 +22,11 @@ export const appConfig: ApplicationConfig = {
       theme: {
         preset: FTThemePreset,
         options: {
-          darkModeSelector: '.dark-theme'
+          darkModeSelector: '.dark-theme',
+          // cssLayer: {
+          //   name: 'primeng',
+          //   order: 'primeng, app-styles, another-css-library'
+          // }
         }
       }
     }),

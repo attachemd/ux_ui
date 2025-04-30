@@ -1,72 +1,89 @@
+/* PrimeNG's internal styles, placed in the 'primeng' layer */
+@layer primeng2 {
 
-.p-variant-filled {
-  border-width: 0 !important;
-}
+  .p-variant-filled {
+    border-width: 0 !important;
+  }
 
-.p-button {
-  border-width: 0 !important;
-}
+  .p-button {
+    border-width: 0 !important;
+  }
 
-.p-dialog {
-  /*padding: var(--ft-spacing-md);*/
-}
+  .p-dialog {
+    /*padding: var(--ft-spacing-md);*/
+  }
 
-.p-dialog-header {
-  /*padding: 0 !important;*/
-  background-color: var(--ft-color-background-senary);
-  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
-}
+  .p-dialog-header {
+    /*padding: 0 !important;*/
+    background-color: var(--ft-color-background-senary);
+    border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+    padding: var(--ft-spacing-md) var(--ft-spacing-xl) !important;
+  }
 
-.p-dialog-content {
-  display: flex;
-  flex-direction: column;
-  overflow: visible !important;
-  padding: 0 !important;
-  .dialog-form-body-container {
-    background-color: var(--ft-color-background-secondary);
-    /*border-top: var(--ft-border-primary) solid var(--ft-color-dark-alpha-tertiary);*/
-    /*border-bottom: var(--ft-border-primary) solid var(--ft-color-dark-alpha-tertiary);*/
-    .dialog-form-body {
+  .p-dialog-content {
+    display: flex;
+    flex-direction: column;
+    overflow: visible !important;
+    padding: 0 !important;
+    .dialog-form-body-container {
+      background-color: var(--ft-color-background-secondary);
+      /*border-top: var(--ft-border-primary) solid var(--ft-color-dark-alpha-tertiary);*/
+      /*border-bottom: var(--ft-border-primary) solid var(--ft-color-dark-alpha-tertiary);*/
+      .dialog-form-body {
+        display: flex;
+        flex-direction: column;
+        padding: var(--ft-spacing-xl);
+        gap: var(--ft-spacing-md);
+      }
+    }
+    .dialog-footer {
+      padding: var(--ft-spacing-xl);
       display: flex;
-      flex-direction: column;
-      padding: var(--ft-spacing-md);
-      gap: var(--ft-spacing-md);
+      justify-content: flex-end;
+      background-color: var(--ft-color-background-senary);
+      border-radius: 0 0 var(--radius-xl) var(--radius-xl);
     }
   }
-  .dialog-footer {
-    padding: var(--ft-spacing-md);
-    display: flex;
-    justify-content: flex-end;
-    background-color: var(--ft-color-background-senary);
-    border-radius: 0 0 var(--radius-xl) var(--radius-xl);
+
+  .p-inputtext {
+    font-size: var(--text-sm) !important;
+    width: 100%;
   }
-}
 
-.p-inputtext {
-  font-size: var(--text-sm) !important;
-  width: 100%;
-}
+  .p-select {
+    min-width: 100px;
+  }
 
-.p-select {
-  min-width: 100px;
-}
+  .p-select-label {
+    font-size: var(--text-sm) !important;}
 
-.p-select-label {
-  font-size: var(--text-sm) !important;}
-
-.p-datepicker {
-  width: 100%;
-}
-
-.p-textarea {
-  font-size: var(--text-sm) !important;
-}
-
-@media (min-width: 1024px) {
   .p-datepicker {
-    width: 190px;
+    width: 100%;
   }
-}
 
-@media (width >= 1280px) {
+  .p-textarea {
+    font-size: var(--text-sm) !important;
+  }
+
+  .p-toggleswitch.p-toggleswitch-checked .p-toggleswitch-slider {
+    background-color: var(--color-electric-primary) !important; /* Your desired color */
+  }
+
+  .p-toggleswitch {
+    /*height: 16px !important;*/
+  }
+
+  .p-toggleswitch-handle {
+
+  }
+
+  @media (min-width: 1024px) {
+    .p-datepicker {
+      width: 190px;
+    }
+  }
+
+  @media (width >= 1280px) {
+  }
+
 }

@@ -5,32 +5,32 @@ export const FTThemePreset = definePreset(Aura, {
   //Your customizations, see the following sections for examples
   tokens: { // Or a similar top-level key for custom tokens
     mauve: {
-      50: '#F2EFFC',  // Very light
-      100: '#E6E0F9',
-      200: '#D1C1F3',
-      300: '#BD9EEA',
-      400: '#A87EE2',
-      500: '#945ED8',
-      600: '#814DCF', // Close to your base color #6946d5
-      700: '#6E3DB6',
-      800: '#5B2D9E',
-      900: '#491D85',
-      950: '#370D6D'   // Very dark
+      50: "#F2EEFB",
+      100: "#E1DAF7",
+      200: "#C3B4EE",
+      300: "#A48FE6",
+      400: "#8669DD",
+      500: "#6946D5",
+      600: "#4D2AB7",
+      700: "#3A1F89",
+      800: "#26155B",
+      900: "#130A2E",
+      950: "#0A0619"
     }
   },
   semantic: {
     primary: {
-      50: '#F2EFFC',  // Very light
-      100: '#E6E0F9',
-      200: '#D1C1F3',
-      300: '#BD9EEA',
-      400: '#A87EE2',
-      500: '#945ED8',
-      600: '#814DCF', // Close to your base color #6946d5
-      700: '#6E3DB6',
-      800: '#5B2D9E',
-      900: '#491D85',
-      950: '#370D6D'   // Very dark
+      50: "#F2EEFB",
+      100: "#E1DAF7",
+      200: "#C3B4EE",
+      300: "#A48FE6",
+      400: "#8669DD",
+      500: "#6946D5",
+      600: "#4D2AB7",
+      700: "#3A1F89",
+      800: "#26155B",
+      900: "#130A2E",
+      950: "#0A0619"
     },
     colorScheme: {
       root: {
@@ -152,7 +152,7 @@ export const FTThemePreset = definePreset(Aura, {
   components: {
 
     togglswitch: { // Target the ToggleSwitch component
-      root: {
+      // root: {
         // Default background for unchecked state can be set here if needed
         // background: '{surface.400}',
 
@@ -162,8 +162,8 @@ export const FTThemePreset = definePreset(Aura, {
         //   // Or use a specific color value:
         //   // background: '#007bff'
         // }
-
-      }
+        // height: '16px',
+      // }
       // You might also be able to target the slider specifically if needed,
       // but often the background is applied to the root in the checked state.
       // slider: {
