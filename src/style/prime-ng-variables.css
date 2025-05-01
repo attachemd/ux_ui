@@ -16,8 +16,8 @@
     --p-surface-950: var(--p-neutral-950);
 
     /* Toggle Switch */
-    --p-toggleswitch-handle-size: 18px;
-    --p-toggleswitch-height: 20px;
+    --p-toggleswitch-handle-size: var(--ft-spacing-lg);
+    --p-toggleswitch-height: var(--ft-spacing-xl);
     --p-toggleswitch-gap: 1px;
 
     /* Form Field */

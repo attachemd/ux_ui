@@ -20,15 +20,20 @@
     padding: var(--ft-spacing-md) var(--ft-spacing-xl) !important;
   }
 
+  .p-dialog-title {
+    font-size: var(--text-sm);
+  }
+
   .p-dialog-content {
     display: flex;
     flex-direction: column;
-    overflow: visible !important;
+    /*overflow: visible !important;*/
     padding: 0 !important;
     .dialog-form-body-container {
+      overflow: auto;
       background-color: var(--ft-color-background-secondary);
-      /*border-top: var(--ft-border-primary) solid var(--ft-color-dark-alpha-tertiary);*/
-      /*border-bottom: var(--ft-border-primary) solid var(--ft-color-dark-alpha-tertiary);*/
+      border-top: var(--ft-border-primary) solid var(--ft-color-dark-alpha-tertiary);
+      border-bottom: var(--ft-border-primary) solid var(--ft-color-dark-alpha-tertiary);
       .dialog-form-body {
         display: flex;
         flex-direction: column;
@@ -45,9 +50,58 @@
     }
   }
 
-  p-floatlabel {
+  .p-floatlabel {
     display: flex;
+    label {
+      z-index: 2;
+    }
+    .ft-top-scroll-overlay-container {
+      width: 100%;
+      position: absolute;
+      z-index: 1;
+      .ft-scroll-overlay {
+        width: 100%;
+        background: var(--p-form-field-filled-background);
+        height: var(--ft-spacing-xl);
+        border-radius: var(--p-textarea-border-radius) var(--p-textarea-border-radius) 0 0;
+      }
+    }
   }
+
+  /*.p-floatlabel:has(.p-textarea):after {*/
+  /*  content: "";*/
+  /*  width: 100%;*/
+  /*  height: calc(var(--ft-spacing-xl) + 4px);*/
+  /*  border-radius: var(--p-textarea-border-radius) var(--p-textarea-border-radius) 0 0;*/
+  /*  background: linear-gradient(*/
+  /*    129deg,*/
+  /*    var(--p-form-field-filled-background),*/
+  /*    rgba(255, 255, 255, 0)*/
+  /*  );*/
+  /*  position: absolute !important;*/
+  /*  z-index: 1;*/
+  /*  top: 0;*/
+  /*  left: 0;*/
+  /*  display: block;*/
+  /*  pointer-events: none;*/
+  /*  transition: background var(--p-textarea-transition-duration),color var(--p-textarea-transition-duration),border-color var(--p-textarea-transition-duration),outline-color var(--p-textarea-transition-duration),box-shadow var(--p-textarea-transition-duration);*/
+  /*}*/
+
+  /*.p-floatlabel:has(.p-textarea):hover::after {*/
+  /*  background: linear-gradient(*/
+  /*    129deg,*/
+  /*    var(--p-form-field-filled-hover-background) 10%,*/
+  /*    rgba(255, 255, 255, 0)*/
+  /*  );*/
+  /*}*/
+
+  /*.p-floatlabel:has(.p-textarea:focus)::after {*/
+  /*  background: linear-gradient(*/
+  /*    129deg,*/
+  /*    var(--p-form-field-filled-focus-background) 10%,*/
+  /*    rgba(255, 255, 255, 0)*/
+  /*  );*/
+  /*}*/
 
   .p-inputtext {
     font-size: var(--text-sm) !important;
@@ -61,6 +115,9 @@
   .p-select-label {
     font-size: var(--text-sm) !important;}
 
+  p-datepicker {
+    width: 100%;
+  }
   .p-datepicker {
     width: 100%;
   }
@@ -71,6 +128,21 @@
 
   .p-textarea {
     font-size: var(--text-sm) !important;
+    position: relative;
+    padding: 30px 20px 20px 60px;
+    /*overflow: visible !important;*/
+  }
+
+  .p-textarea:before {
+    content: "g";
+    background: red;
+    height: 24px;
+    width: 24px;
+    position: absolute !important;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    display: block;
   }
 
   .p-toggleswitch.p-toggleswitch-checked .p-toggleswitch-slider {
