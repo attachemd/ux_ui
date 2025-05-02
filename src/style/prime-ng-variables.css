@@ -15,10 +15,13 @@
     --p-surface-900: var(--p-neutral-900);
     --p-surface-950: var(--p-neutral-950);
 
+    /* Icon properties */
+    --p-icon-size: var(--ft-text-xs);
+
     /* Toggle Switch */
     --p-toggleswitch-handle-size: var(--ft-spacing-lg);
     --p-toggleswitch-height: var(--ft-spacing-xl);
-    --p-toggleswitch-gap: 1px;
+    --p-toggleswitch-gap: var(--ft-border-primary);
 
     /* Form Field */
     --p-form-field-border-radius: var(--radius-xl);
@@ -38,6 +41,8 @@
     --p-button-sm-padding-x: var(--ft-spacing-md);
     --p-button-sm-font-size: var(--ft-text-xs);
 
+    --p-button-icon-only-width: var(--ft-spacing-3xl);
+
     /* Overlay properties */
     --p-overlay-modal-background: transparent;
 
@@ -53,6 +58,7 @@
     --p-form-field-float-label-active-color: var(--ft-color-text-tertairy);
     --p-form-field-padding-x: var(--ft-spacing-md);
     --p-form-field-padding-y: var(--ft-spacing-sm);
+    --p-form-field-shadow: none;
 
     /* InputText properties */
     --p-inputtext-filled-background: var(--ft-color-background-tertiary);

@@ -808,27 +808,31 @@
       border: var(--ft-border-primary) solid var(--ft-color-background-quaternary);
       border-radius: var(--radius-xl);
     }
-    .field-container {
+  }
+
+  .field-container {
+    display: flex;
+    align-items: center;
+    gap: var(--ft-spacing-md);
+    flex-grow: 1;
+    overflow: visible;
+    width: 100%;
+  }
+  .form-field {
+    background-color: var(--ft-color-dark-alpha-primary);
+    border-radius: var(--radius-xl);
+    display: flex;
+    align-items: center;
+    padding: var(--ft-spacing-sm);
+    .field-content {
       display: flex;
-      align-items: center;
-      gap: var(--ft-spacing-md);
-    }
-    .form-field {
-      background-color: var(--ft-color-dark-alpha-primary);
-      border-radius: var(--radius-xl);
-      display: flex;
-      align-items: center;
-      padding: var(--ft-spacing-sm);
-      .field-content {
-        display: flex;
-        flex-direction: column;
-        flex-grow: 1;
-        /*label {*/
-        /*  font-size: var(--ft-text-2xs);*/
-        /*  font-weight: 500;*/
-        /*  color: var(--ft-color-text-tertairy);*/
-        /*}*/
-      }
+      flex-direction: column;
+      flex-grow: 1;
+      /*label {*/
+      /*  font-size: var(--ft-text-2xs);*/
+      /*  font-weight: 500;*/
+      /*  color: var(--ft-color-text-tertairy);*/
+      /*}*/
     }
   }
 

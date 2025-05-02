@@ -13,10 +13,13 @@ import {DatePicker} from 'primeng/datepicker';
 import {Select} from 'primeng/select';
 import {ToggleSwitch} from 'primeng/toggleswitch';
 import {Textarea} from 'primeng/textarea';
+import {AutoComplete, AutoCompleteCompleteEvent} from 'primeng/autocomplete';
+import {IconField} from 'primeng/iconfield';
+import {InputIcon} from 'primeng/inputicon';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, NgIf, ThemeSwitcherComponent, ButtonModule, FloatLabel, FormsModule, InputTextModule, DialogModule, DatePicker, Select, ToggleSwitch, ReactiveFormsModule, Textarea],
+  imports: [RouterOutlet, NgIf, ThemeSwitcherComponent, ButtonModule, FloatLabel, FormsModule, InputTextModule, DialogModule, DatePicker, Select, ToggleSwitch, ReactiveFormsModule, Textarea, AutoComplete, IconField, InputIcon],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
@@ -50,6 +53,7 @@ export class AppComponent implements AfterViewInit, OnDestroy, OnInit {
   medicalConditionStatus: MedicalConditionStatus | undefined;
   relation: any;
   value5: any;
+  items: any[] = [];
 
   constructor(private renderer: Renderer2) {}
 
@@ -67,6 +71,10 @@ export class AppComponent implements AfterViewInit, OnDestroy, OnInit {
       { name: 'Frère/Sœur'},
       { name: 'Enfant'},
     ];
+  }
+
+  search(event: AutoCompleteCompleteEvent) {
+    this.items = [...Array(10).keys()].map((item) => event.query + '-' + item);
   }
 
   ngAfterViewInit(): void {
@@ -163,5 +171,9 @@ export class AppComponent implements AfterViewInit, OnDestroy, OnInit {
     this.isModalOpen = false;
     // Optional: Remove the class from the body
     document.body.classList.remove('modal-open');
+  }
+
+  clearTextarea() {
+    this.value5 = null; // Set the model value to null or '' to clear the textarea
   }
 }

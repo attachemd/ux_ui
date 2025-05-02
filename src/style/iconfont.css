@@ -1,4 +1,5 @@
 
+@layer icon-font {
   @font-face {
     font-family: 'icomoon';
     src:  url('assets/fonts/icomoon/icomoon.eot?c9f24a');
@@ -378,4 +379,6 @@
   .icon-yes:before {
     content: "\e96d";
   }
+
+}
 

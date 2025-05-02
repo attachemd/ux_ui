@@ -7,6 +7,16 @@
 
   .p-button {
     border-width: 0 !important;
+    height: var(--ft-spacing-3xl);
+  }
+
+  .p-iconwrapper {
+    display: flex;
+  }
+
+  .p-autocomplete-clear-icon, .p-datepicker-clear-icon, .p-select-clear-icon {
+    margin-top: 0;
+    transform: translateY(-50%);
   }
 
   .p-dialog {
@@ -29,11 +39,13 @@
     flex-direction: column;
     /*overflow: visible !important;*/
     padding: 0 !important;
+
     .dialog-form-body-container {
       overflow: auto;
       background-color: var(--ft-color-background-secondary);
       border-top: var(--ft-border-primary) solid var(--ft-color-dark-alpha-tertiary);
       border-bottom: var(--ft-border-primary) solid var(--ft-color-dark-alpha-tertiary);
+
       .dialog-form-body {
         display: flex;
         flex-direction: column;
@@ -41,7 +53,9 @@
         gap: var(--ft-spacing-md);
       }
     }
+
     .dialog-footer {
+      /*padding: var(--ft-spacing-md) var(--ft-spacing-xl);*/
       padding: var(--ft-spacing-xl);
       display: flex;
       justify-content: flex-end;
@@ -52,13 +66,16 @@
 
   .p-floatlabel {
     display: flex;
+
     label {
       z-index: 2;
     }
+
     .ft-top-scroll-overlay-container {
       width: 100%;
       position: absolute;
       z-index: 1;
+
       .ft-scroll-overlay {
         width: 100%;
         background: var(--p-form-field-filled-background);
@@ -86,7 +103,6 @@
   /*  pointer-events: none;*/
   /*  transition: background var(--p-textarea-transition-duration),color var(--p-textarea-transition-duration),border-color var(--p-textarea-transition-duration),outline-color var(--p-textarea-transition-duration),box-shadow var(--p-textarea-transition-duration);*/
   /*}*/
-
   /*.p-floatlabel:has(.p-textarea):hover::after {*/
   /*  background: linear-gradient(*/
   /*    129deg,*/
@@ -94,7 +110,6 @@
   /*    rgba(255, 255, 255, 0)*/
   /*  );*/
   /*}*/
-
   /*.p-floatlabel:has(.p-textarea:focus)::after {*/
   /*  background: linear-gradient(*/
   /*    129deg,*/
@@ -102,6 +117,10 @@
   /*    rgba(255, 255, 255, 0)*/
   /*  );*/
   /*}*/
+
+  .p-autocomplete {
+    width: 100%;
+  }
 
   .p-inputtext {
     font-size: var(--text-sm) !important;
@@ -113,17 +132,29 @@
   }
 
   .p-select-label {
-    font-size: var(--text-sm) !important;}
+    font-size: var(--text-sm) !important;
+  }
 
   p-datepicker {
     width: 100%;
   }
+
   .p-datepicker {
     width: 100%;
   }
 
   .p-datepicker-day-view {
     font-size: var(--ft-text-xs);
+  }
+
+  .p-inputgroup:has(.p-textarea) {
+    position: relative;
+
+    p-button {
+      position: absolute;
+      top: var(--ft-spacing-xs);
+      right: var(--ft-spacing-xs);
+    }
   }
 
   .p-textarea {
