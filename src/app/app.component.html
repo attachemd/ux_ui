@@ -42,7 +42,7 @@
         Mr. AHMED IBRAHIMI
       </span>
       <span class="hidden lg:inline-block chip-color-info chip"
-      >Première hospitalisation
+        >Première hospitalisation
       </span>
       <div class="hidden lg:flex sub-info">
         <div class="flex items-center gap-2">
@@ -152,48 +152,47 @@
       <div #tabBodyContent class="lg:!flex-row tab-body-content">
         <div class="hm-container lg:pr-3">
           @for (item of medicalHistoryEntities; track item.title) {
-            <div class="mini-card">
-              <div class="header">
-                <div class="flex items-center gap-2">
-                  <span class="leading-none ft-text">{{ item.title }}</span>
-                </div>
-                <div class="flex items-center gap-2">
-                  <button (click)="showDialog()"><i class="icon-plus"></i></button>
-                </div>
+          <div class="mini-card">
+            <div class="header">
+              <div class="flex items-center gap-2">
+                <span class="leading-none ft-text">{{ item.title }}</span>
               </div>
-              <div class="mini-card-body">
-                @for (block of item.blocks; track block.title) {
-                  <div class="micro-card">
-                    <div class="flex justify-between items-center gap-3 w-full">
-                      <div class="flex items-center gap-2">
-                        @if (block.status) {
-                          <span class="chip" [class]="block.class">{{
-                              block.status
-                            }}</span>
-                        }
-                        @if (block.surgeon) {
-                          <span class="ft-sub-title"
-                          >Surgeon: {{ block.surgeon }}</span
-                          >
-                        }
-                        @if (block.date) {
-                          <span class="ft-sub-title">{{ block.date }}</span>
-                        }
-                        @if (block.note) {
-                          <i class="icon-comment"></i>
-                        }
-                      </div>
-                      <!--                      <div class="flex items-center gap-2">-->
-                      <!--                        <button><i class="icon-close"></i></button>-->
-                      <!--                      </div>-->
-                    </div>
-                    <div class="flex flex-col overflow-hidden">
-                      <span class="leading-none ft-text">{{ block.title }}</span>
-                    </div>
-                  </div>
-                }
+              <div class="flex items-center gap-2">
+                <button (click)="showDialog()">
+                  <i class="icon-plus"></i>
+                </button>
               </div>
             </div>
+            <div class="mini-card-body">
+              @for (block of item.blocks; track block.title) {
+              <div class="micro-card">
+                <div class="flex justify-between items-center gap-3 w-full">
+                  <div class="flex items-center gap-2">
+                    @if (block.status) {
+                    <span class="chip" [class]="block.class">{{
+                      block.status
+                    }}</span>
+                    } @if (block.surgeon) {
+                    <span class="ft-sub-title"
+                      >Surgeon: {{ block.surgeon }}</span
+                    >
+                    } @if (block.date) {
+                    <span class="ft-sub-title">{{ block.date }}</span>
+                    } @if (block.note) {
+                    <i class="icon-comment"></i>
+                    }
+                  </div>
+                  <!--                      <div class="flex items-center gap-2">-->
+                  <!--                        <button><i class="icon-close"></i></button>-->
+                  <!--                      </div>-->
+                </div>
+                <div class="flex flex-col overflow-hidden">
+                  <span class="leading-none ft-text">{{ block.title }}</span>
+                </div>
+              </div>
+              }
+            </div>
+          </div>
 
           }
         </div>
@@ -214,38 +213,37 @@
               </div>
               <div class="comment-body-container">
                 @for (comment of comments; track comment.id) {
-                  <div class="comment-block">
-                    <div class="flex justify-between items-center gap-3 w-full">
-                      <div class="flex items-center gap-2">
+                <div class="comment-block">
+                  <div class="flex justify-between items-center gap-3 w-full">
+                    <div class="flex items-center gap-2">
                       <span class="ft-img-profile">{{
-                          comment.author.charAt(0)
-                        }}</span>
-                        <div class="flex flex-col">
-                          <span class="ft-title">{{ comment.author }}</span>
-                          <span class="ft-sub-title">{{ comment.date }}</span>
-                        </div>
-                      </div>
-                      <div class="flex items-center gap-2">
-                        <button><i class="icon-vertical-dots"></i></button>
+                        comment.author.charAt(0)
+                      }}</span>
+                      <div class="flex flex-col">
+                        <span class="ft-title">{{ comment.author }}</span>
+                        <span class="ft-sub-title">{{ comment.date }}</span>
                       </div>
                     </div>
-                    <div class="flex flex-col overflow-hidden">
-                      @if (comment.quoteId) {
-                        @if (getCommentById(comment.quoteId); as quotedComment) {
-                          <div class="quoted">
-                            <div class="ft-indicator"></div>
-                            <span>{{ quotedComment.author }}</span>
-                            <p class="ft-text">
-                              {{ quotedComment.text }}
-                            </p>
-                          </div>
-                        }
-                      }
-                      <p>
-                        {{ comment.text }}
-                      </p>
+                    <div class="flex items-center gap-2">
+                      <button><i class="icon-vertical-dots"></i></button>
                     </div>
                   </div>
+                  <div class="flex flex-col overflow-hidden">
+                    @if (comment.quoteId) { @if
+                    (getCommentById(comment.quoteId); as quotedComment) {
+                    <div class="quoted">
+                      <div class="ft-indicator"></div>
+                      <span>{{ quotedComment.author }}</span>
+                      <p class="ft-text">
+                        {{ quotedComment.text }}
+                      </p>
+                    </div>
+                    } }
+                    <p>
+                      {{ comment.text }}
+                    </p>
+                  </div>
+                </div>
                 }
               </div>
               <div class="ft-bottom-scroll-overlay-container">
@@ -278,7 +276,7 @@
         <div class="form-group">
           <label for="condition">Antécédent médical *</label>
           <div class="input-wrapper">
-            <input type="text" id="condition" list="conditions" required/>
+            <input type="text" id="condition" list="conditions" required />
             <datalist id="conditions">
               <option value="Diabète"></option>
               <option value="Hypertension"></option>
@@ -297,7 +295,7 @@
           <div class="form-field">
             <div class="field-content">
               <label for="condition">Antécédent médical *</label>
-              <input type="text" id="new-condition" required/>
+              <input type="text" id="new-condition" required />
             </div>
             <div class="field-actions">
               <button type="button" class="reset-btn">
@@ -323,12 +321,22 @@
           <!--          </div>-->
 
           <p-floatlabel variant="in">
-            <input pInputText id="in_label" [(ngModel)]="value2" autocomplete="off"/>
+            <input
+              pInputText
+              id="in_label"
+              [(ngModel)]="value2"
+              autocomplete="off"
+            />
             <label for="in_label">In Label</label>
           </p-floatlabel>
 
           <p-floatlabel variant="in">
-            <p-datepicker [(ngModel)]="value2" id="in_label" showIcon iconDisplay="input"/>
+            <p-datepicker
+              [(ngModel)]="value2"
+              id="in_label"
+              showIcon
+              iconDisplay="input"
+            />
             <label for="in_label">In Label</label>
           </p-floatlabel>
         </div>
@@ -347,7 +355,7 @@
         <div class="form-group">
           <div class="switch-container">
             <label class="switch">
-              <input type="checkbox" id="familyHistory"/>
+              <input type="checkbox" id="familyHistory" />
               <span class="slider"></span>
             </label>
             <label for="familyHistory">Antécédent familial</label>
@@ -370,7 +378,7 @@
         <div class="form-group hidden" id="deceasedGroup">
           <div class="switch-container">
             <label class="switch">
-              <input type="checkbox" id="deceased"/>
+              <input type="checkbox" id="deceased" />
               <span class="slider"></span>
             </label>
             <label for="deceased">Décédé</label>
@@ -388,7 +396,7 @@
             Enregistrer
           </button>
           <button type="button" class="btn-secondary">Annuler</button>
-          <p-button label="Check"/>
+          <p-button label="Check" />
         </div>
       </form>
     </div>
@@ -399,7 +407,7 @@
 
 <!--<p-dialog maskStyleClass="backdrop-blur-xs" styleClass="!border-0 dialog-md" header="Edit Profile" [modal]="true" [(visible)]="visible" [style]="{ width: '25rem' }">-->
 
-<p-dialog maskStyleClass="backdrop-blur-xl" styleClass="border-0 dialog-md" header="Ajouter un antécédent médical"
+<!-- <p-dialog maskStyleClass="backdrop-blur-xl" styleClass="border-0 dialog-md" header="Ajouter un antécédent médical"
           [modal]="true" [(visible)]="visible">
 
   <div class="dialog-form-body-container">
@@ -440,10 +448,6 @@
       </div>
       <div class="form-group flex-col">
         <div class="field-container w-auto">
-<!--          <div class="flex items-center gap-2">-->
-<!--            <label for="switch1">Antécédent familial</label>-->
-<!--            <p-toggleswitch class="flex" [(ngModel)]="checked" id="switch1" />-->
-<!--          </div>-->
           <label for="switch1">Antécédent familial</label>
           <p-toggleswitch class="flex" [(ngModel)]="checked" id="switch1" />
         </div>
@@ -461,13 +465,6 @@
           </div>
         </div>
       </div>
-<!--      <div class="form-group">-->
-<!--        <p-floatlabel variant="in" class="w-full">-->
-<!--          <textarea pTextarea id="over_label" [(ngModel)]="value5" rows="5" cols="30" style="resize: none"-->
-<!--                    class="w-full" variant="filled"></textarea>-->
-<!--          <label for="over_label">Note</label>-->
-<!--        </p-floatlabel>-->
-<!--      </div>-->
       <div class="form-container">
         <p-floatlabel variant="in">
           <div class="p-inputgroup w-full">
@@ -489,18 +486,151 @@
     </div>
   </div>
 
-  <!--  <div class="flex items-center gap-4 mb-4">-->
-  <!--    <label for="username" class="font-semibold w-24">Username</label>-->
-  <!--    <input pInputText id="username" class="flex-auto" autocomplete="off" />-->
-  <!--  </div>-->
-
-
-  <!--  <div class="flex items-center gap-4 mb-8">-->
-  <!--    <label for="email" class="font-semibold w-24">Email</label>-->
-  <!--    <input pInputText id="email" class="flex-auto" autocomplete="off" />-->
-  <!--  </div>-->
   <div class="flex justify-end gap-2 dialog-footer">
     <p-button label="Cancel" severity="secondary" (click)="visible = false" size="small"/>
     <p-button label="Save" (click)="visible = false" size="small"/>
   </div>
+</p-dialog> -->
+
+<p-dialog
+  maskStyleClass="backdrop-blur-xl"
+  styleClass="border-0 dialog-md"
+  header="Ajouter un antécédent médical"
+  [modal]="true"
+  [(visible)]="visible"
+>
+  <form [formGroup]="medicalAntecedentForm">
+    <div class="dialog-form-body-container">
+      <div class="dialog-form-body">
+        <div class="field-container">
+          <p-floatlabel variant="in" class="w-full">
+            <p-autocomplete
+              [required]="true"
+              formControlName="medicalConditionName"
+              [suggestions]="medicalConditionSuggestions"
+              (completeMethod)="searchMedicalConditions($event)"
+              [showClear]="true"
+              class="flex-grow"
+              id="medicalConditionName"
+              variant="filled"
+            >
+            </p-autocomplete>
+            <label for="medicalConditionName">Valeur *</label>
+          </p-floatlabel>
+          <small
+            class="p-error"
+            *ngIf="shouldShowError(medicalConditionNameControl)"
+          >
+            <span *ngIf="medicalConditionNameControl?.errors?.['required']"
+              >La valeur est obligatoire.</span
+            >
+          </small>
+        </div>
+
+        <div class="form-group">
+          <div class="field-container">
+            <p-floatlabel variant="in" class="w-full">
+              <p-datepicker
+                formControlName="diagnosticDate"
+                [showClear]="true"
+                id="diagnosticDate"
+                showIcon
+                iconDisplay="input"
+                variant="filled"
+              ></p-datepicker>
+              <label for="diagnosticDate">Date de diagnostic</label>
+            </p-floatlabel>
+          </div>
+
+          <div class="field-container">
+            <p-floatlabel class="w-full" variant="in">
+              <p-select
+                formControlName="status"
+                [showClear]="true"
+                id="status"
+                [options]="statusOptions"
+                optionLabel="name"
+                styleClass="w-full"
+                variant="filled"
+              />
+              <label for="status">Status</label>
+            </p-floatlabel>
+          </div>
+        </div>
+
+        <div class="form-group flex-col">
+          <div class="field-container w-auto">
+            <label for="isFamilial">Antécédent familial</label>
+            <p-toggleswitch
+              class="flex"
+              formControlName="isFamilial"
+              id="isFamilial"
+            />
+          </div>
+          <div
+            class="form-sub-group flex flex-col lg:flex-row align-center gap-4"
+          >
+            <div class="field-container w-auto">
+              <p-floatlabel class="w-full" variant="in">
+                <p-select
+                  formControlName="relation"
+                  [showClear]="true"
+                  id="relation"
+                  [options]="relationOptions"
+                  optionLabel="name"
+                  class="w-full lg:w-[170px]"
+                  variant="filled"
+                />
+                <label for="relation">Relation</label>
+              </p-floatlabel>
+            </div>
+            <div class="field-container">
+              <label for="isDeceased">Décédé</label>
+              <p-toggleswitch
+                class="flex"
+                formControlName="isDeceased"
+                id="isDeceased"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="form-container">
+          <p-floatlabel variant="in">
+            <div class="p-inputgroup w-full">
+              <textarea
+                pTextarea
+                id="note"
+                formControlName="note"
+                rows="5"
+                cols="30"
+                style="resize: none"
+                class="w-full"
+                variant="filled"
+              ></textarea>
+              <p-button
+                icon="pi pi-times"
+                severity="secondary"
+                [rounded]="true"
+                [text]="true"
+                (click)="clearNoteTextarea()"
+                *ngIf="noteControl?.value"
+              />
+            </div>
+            <label for="note">Note</label>
+          </p-floatlabel>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex justify-end gap-2 dialog-footer">
+      <p-button
+        label="Cancel"
+        severity="secondary"
+        (click)="visible = false"
+        size="small"
+      />
+      <p-button label="Save" (click)="saveMedicalAntecedent()" size="small" />
+    </div>
+  </form>
 </p-dialog>

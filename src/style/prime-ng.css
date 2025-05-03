@@ -21,6 +21,11 @@
 
   .p-dialog {
     /*padding: var(--ft-spacing-md);*/
+    form {
+      overflow: auto;
+      display: flex;
+      flex-direction: column;
+    }
   }
 
   .p-dialog-header {

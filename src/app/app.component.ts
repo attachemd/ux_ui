@@ -1,29 +1,68 @@
-import {AfterViewInit, Component, ElementRef, OnDestroy, OnInit, Renderer2, ViewChild} from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  OnDestroy,
+  OnInit,
+  Renderer2,
+  ViewChild,
+} from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import {NgIf} from '@angular/common';
-import { ThemeSwitcherComponent } from "./components/theme-switcher.component";
-import {MedicalConditionStatus, MedicalHistoryEntity, Note} from './types/medical-history.type';
-import { medicalHistoryEntities, notes } from './fake-data/medical-history.fake';
-import {ButtonModule} from 'primeng/button';
-import {FloatLabel} from 'primeng/floatlabel';
-import {FormControl, FormGroup, FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {InputTextModule} from 'primeng/inputtext';
+import { NgIf } from '@angular/common';
+import { ThemeSwitcherComponent } from './components/theme-switcher.component';
+import {
+  MedicalConditionStatus,
+  MedicalHistoryEntity,
+  Note,
+} from './types/medical-history.type';
+import {
+  medicalHistoryEntities,
+  notes,
+} from './fake-data/medical-history.fake';
+import { ButtonModule } from 'primeng/button';
+import { FloatLabel } from 'primeng/floatlabel';
+import {
+  AbstractControl,
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  FormsModule,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
+import { InputTextModule } from 'primeng/inputtext';
 import { DialogModule } from 'primeng/dialog';
-import {DatePicker} from 'primeng/datepicker';
-import {Select} from 'primeng/select';
-import {ToggleSwitch} from 'primeng/toggleswitch';
-import {Textarea} from 'primeng/textarea';
-import {AutoComplete, AutoCompleteCompleteEvent} from 'primeng/autocomplete';
-import {IconField} from 'primeng/iconfield';
-import {InputIcon} from 'primeng/inputicon';
+import { DatePicker } from 'primeng/datepicker';
+import { Select } from 'primeng/select';
+import { ToggleSwitch } from 'primeng/toggleswitch';
+import { Textarea } from 'primeng/textarea';
+import { AutoComplete, AutoCompleteCompleteEvent } from 'primeng/autocomplete';
+import { IconField } from 'primeng/iconfield';
+import { InputIcon } from 'primeng/inputicon';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, NgIf, ThemeSwitcherComponent, ButtonModule, FloatLabel, FormsModule, InputTextModule, DialogModule, DatePicker, Select, ToggleSwitch, ReactiveFormsModule, Textarea, AutoComplete, IconField, InputIcon],
+  imports: [
+    RouterOutlet,
+    NgIf,
+    ThemeSwitcherComponent,
+    ButtonModule,
+    FloatLabel,
+    FormsModule,
+    InputTextModule,
+    DialogModule,
+    DatePicker,
+    Select,
+    ToggleSwitch,
+    ReactiveFormsModule,
+    Textarea,
+    AutoComplete,
+    IconField,
+    InputIcon,
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
-
 export class AppComponent implements AfterViewInit, OnDestroy, OnInit {
   title = 'uxui';
 
@@ -42,7 +81,7 @@ export class AppComponent implements AfterViewInit, OnDestroy, OnInit {
   private listeners: (() => void)[] = [];
 
   isModalOpen: boolean = false; // Property to control modal visibility
-  medicalHistoryEntities: MedicalHistoryEntity[] = medicalHistoryEntities
+  medicalHistoryEntities: MedicalHistoryEntity[] = medicalHistoryEntities;
   medicalConditionStatuses: MedicalConditionStatus[] | undefined;
   relations: any;
   comments: Note[] = notes;
@@ -55,22 +94,133 @@ export class AppComponent implements AfterViewInit, OnDestroy, OnInit {
   value5: any;
   items: any[] = [];
 
-  constructor(private renderer: Renderer2) {}
+  medicalAntecedentForm: FormGroup; // Declare your FormGroup
 
-  ngOnInit() {
-    // this.formGroup = new FormGroup({
-    //   checked: new FormControl<boolean>(false)
-    // });
-    this.medicalConditionStatuses = [
-      { name: 'Actif'},
-      { name: 'En rémission'},
-      { name: 'Résolu'},
-    ];
-    this.relations = [
-      { name: 'Parent'},
-      { name: 'Frère/Sœur'},
-      { name: 'Enfant'},
-    ];
+  // Properties for dropdown/autocomplete options
+  medicalConditionSuggestions: any[] = []; // Suggestions for the autocomplete
+  statusOptions: any[] = []; // Options for the status select
+  relationOptions: any[] = []; // Options for the relation select
+
+  constructor(private renderer: Renderer2, private fb: FormBuilder) {
+    // Initialize the form with more descriptive control names
+    this.medicalAntecedentForm = this.fb.group({
+      medicalConditionName: ['', Validators.required], // 'Valeur' is the medical condition name
+      diagnosticDate: [null], // 'Date de diagnostic'
+      status: [null], // 'Status'
+      isFamilial: [false], // 'Antécédent familial' toggleswitch
+      relation: [{ value: null, disabled: true }], // 'Relation', disabled initially if not familial
+      isDeceased: [{ value: false, disabled: true }], // 'Décédé' toggleswitch, disabled initially
+      note: [''], // 'Note' textarea
+    });
+  }
+
+  // ngOnInit() {
+  //   // this.formGroup = new FormGroup({
+  //   //   checked: new FormControl<boolean>(false)
+  //   // });
+  //   // this.medicalConditionStatuses = [
+  //   //   { name: 'Actif'},
+  //   //   { name: 'En rémission'},
+  //   //   { name: 'Résolu'},
+  //   // ];
+  //   // this.relations = [
+  //   //   { name: 'Parent'},
+  //   //   { name: 'Frère/Sœur'},
+  //   //   { name: 'Enfant'},
+  //   // ];
+  // }
+
+  ngOnInit(): void {
+    // You can fetch data for autocomplete, selects, etc. here
+    // Example:
+    this.medicalConditionSuggestions = [
+      'Hypertension',
+      'Diabète',
+      'Asthme',
+      'Allergie',
+    ]; // Sample data
+    this.statusOptions = [
+      { name: 'Actif' },
+      { name: 'Inactif' },
+      { name: 'Guéri' },
+    ]; // Sample data
+    this.relationOptions = [
+      { name: 'Père' },
+      { name: 'Mère' },
+      { name: 'Frère' },
+      { name: 'Sœur' },
+      { name: 'Enfant' },
+    ]; // Sample data
+
+    // Subscribe to changes in the 'isFamilial' control to enable/disable related fields
+    this.medicalAntecedentForm
+      .get('isFamilial')
+      ?.valueChanges.subscribe((isFamilial) => {
+        const relationControl = this.medicalAntecedentForm.get('relation');
+        const isDeceasedControl = this.medicalAntecedentForm.get('isDeceased');
+
+        if (isFamilial) {
+          relationControl?.enable();
+          isDeceasedControl?.enable();
+        } else {
+          relationControl?.disable();
+          isDeceasedControl?.disable();
+          // Optionally reset values when disabled
+          relationControl?.reset(null);
+          isDeceasedControl?.reset(false);
+        }
+      });
+  }
+
+  searchMedicalConditions(event: any) {
+    // Method for autocomplete suggestions, renamed for clarity
+    let query = event.query;
+    // In a real application, you would filter 'medicalConditionSuggestions' based on the query
+    this.medicalConditionSuggestions = [
+      'Hypertension',
+      'Diabète',
+      'Asthme',
+      'Allergie',
+      'Migraine',
+      'Cancer',
+    ].filter((item) => item.toLowerCase().includes(query.toLowerCase()));
+  }
+
+  clearNoteTextarea() {
+    // Method to clear the note textarea using the form control, renamed
+    this.medicalAntecedentForm.get('note')?.setValue('');
+  }
+
+  saveMedicalAntecedent() {
+    // Mark all fields as touched to show validation errors on save attempt
+    this.medicalAntecedentForm.markAllAsTouched();
+
+    if (this.medicalAntecedentForm.valid) {
+      console.log(
+        'Form is valid. Saving data:',
+        this.medicalAntecedentForm.value
+      );
+      // Perform save operation here, using this.medicalAntecedentForm.value
+      this.visible = false; // Close dialog on successful save
+    } else {
+      console.log('Form is invalid. Cannot save.');
+      // Optionally, highlight fields with errors or show a general message
+    }
+  }
+
+  // Helper getter to easily access the 'medicalConditionName' form control in the template
+  get medicalConditionNameControl() {
+    return this.medicalAntecedentForm.get('medicalConditionName');
+  }
+
+  // Helper getter for the note control to check its value in the template
+  get noteControl() {
+    return this.medicalAntecedentForm.get('note');
+  }
+
+  // Helper method to check if a control should show validation errors
+  shouldShowError(control: AbstractControl | null): boolean {
+    return !!(control?.invalid && (control?.dirty || control?.touched));
   }
 
   search(event: AutoCompleteCompleteEvent) {
@@ -111,7 +261,7 @@ export class AppComponent implements AfterViewInit, OnDestroy, OnInit {
   }
 
   private removeEventListeners(): void {
-    this.listeners.forEach(removeListener => removeListener());
+    this.listeners.forEach((removeListener) => removeListener());
   }
 
   private handleWheel(e: WheelEvent): void {
@@ -143,7 +293,8 @@ export class AppComponent implements AfterViewInit, OnDestroy, OnInit {
   private shouldScrollParent(direction: 'up' | 'down'): boolean {
     const parent = this.parent.nativeElement;
     const isAtTop = parent.scrollTop <= 0;
-    const isAtBottom = parent.scrollTop + parent.clientHeight >= parent.scrollHeight;
+    const isAtBottom =
+      parent.scrollTop + parent.clientHeight >= parent.scrollHeight;
 
     if (direction === 'down') {
       return !isAtBottom; // Scroll parent if not at bottom
@@ -158,7 +309,7 @@ export class AppComponent implements AfterViewInit, OnDestroy, OnInit {
    * @returns The comment object if found, otherwise undefined.
    */
   getCommentById(id: number): Note | undefined {
-    return this.comments.find(comment => comment.id === id);
+    return this.comments.find((comment) => comment.id === id);
   }
 
   openModal() {
