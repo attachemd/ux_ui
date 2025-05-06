@@ -70,8 +70,8 @@ export class AppComponent implements AfterViewInit, OnDestroy {
       this.messageService.add({ severity: 'error', summary: 'Error', detail: `Could not open dialog for ${entity.title}` });
       return;
     }
-    this.ref = this.dialogService.open(MedicalConditionDialogComponent , {
-      header: 'Ajouter un antécédent médical',
+    this.ref = this.dialogService.open(entity.dialogComponent , {
+      header: `Ajouter - ${entity.title}`,
       modal: true,
       dismissableMask: true,
       transitionOptions: 'ease',

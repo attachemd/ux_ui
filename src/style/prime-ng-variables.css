@@ -16,6 +16,7 @@
     --p-surface-950: var(--p-neutral-950);
 
     --p-select-dropdown-width: var(--ft-spacing-7xl);
+    --p-multiselect-dropdown-width: var(--ft-spacing-7xl);
 
     /* Icon properties */
     --p-icon-size: var(--ft-text-xs);
@@ -65,6 +66,13 @@
     --p-form-field-border-color: transparent;
     --p-form-field-disabled-background: var(--ft-color-background-muted);
     --p-form-field-disabled-color: var(--ft-color-text-muted);
+
+    /* chip */
+    --p-chip-background: var(--p-primary-100);
+    --p-chip-color: var(--p-primary-800);
+    --p-chip-remove-icon-color: var(--p-primary-800);
+    --p-multiselect-chip-border-radius: var(--ft-border-radius-pill);
+    --p-checkbox-filled-background: var(--ft-color-background-quaternary)
 
     /* InputText properties */
     /*--p-inputtext-filled-background: var(--ft-color-background-tertiary);*/

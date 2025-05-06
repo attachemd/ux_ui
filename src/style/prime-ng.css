@@ -67,6 +67,7 @@
   }
 
   .p-dialog-content {
+    overflow: auto;
     display: flex;
     flex-direction: column;
     /*overflow: visible !important;*/
@@ -184,8 +185,30 @@
     border-width: var(--ft-border-secondary);
   }
 
+  .p-multiselect {
+    /*border-width: var(--ft-border-secondary);*/
+    border-color: var(--ft-color-background-quaternary);
+    background-color: #fff;
+  }
+
+  .p-multiselect-filter-container {
+    input {
+      padding: var(--ft-spacing-2xs) var(--ft-spacing-md);
+      border-radius: var(--ft-border-radius-pill);
+    }
+  }
+
   .p-select.p-variant-filled.p-focus {
     background: var(--ft-form-field-filled-focus-background);
+  }
+
+  .p-multiselect.p-variant-filled.p-focus {
+    background: var(--ft-form-field-filled-focus-background);
+  }
+
+  .p-multiselect-label .p-chip {
+    padding-top: var(--ft-spacing-2xs);
+    padding-bottom: var(--ft-spacing-2xs);
   }
 
   .p-select-label {

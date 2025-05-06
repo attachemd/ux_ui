@@ -1,1 +1,138 @@
-<p>allergy-dialog works!</p>
+<form [formGroup]="allergyForm">
+  <div class="dialog-form-body-container">
+    <div class="dialog-form-body">
+      <div class="form-group">
+        <div class="field-container">
+          <p-floatlabel variant="in" class="w-full">
+            <p-select
+              formControlName="allergyType"
+              [options]="allergyTypes"
+              optionLabel="name"
+              [showClear]="true"
+              id="allergyType"
+              styleClass="w-full"
+              variant="filled"
+              (onChange)="onAllergyTypeChange()"
+            />
+            <label for="allergyType">Type d'allergie</label>
+          </p-floatlabel>
+        </div>
+
+        <div class="field-container">
+          <p-floatlabel variant="in" class="w-full">
+            <p-autocomplete
+              [required]="true"
+              formControlName="allergen"
+              [suggestions]="allergenSuggestions"
+              field="name"
+              (completeMethod)="searchAllergens($event)"
+              (onSelect)="onAllergenSelect($event)"
+              [showClear]="true"
+              class="flex-grow"
+              id="allergen"
+              variant="filled"
+            >
+            </p-autocomplete>
+            <label
+              for="allergen">Allergène {{ (allergyTypeControl?.value ? '(Filtré par ' + allergyTypeControl?.value.name + ') ' : ' ') }}
+              <span>*</span></label>
+          </p-floatlabel>
+          <small
+            class="p-error"
+            *ngIf="shouldShowError(allergenControl)"
+          >
+            <span *ngIf="allergenControl?.errors?.['required']"
+            >L'allergène est obligatoire.</span
+            >
+          </small>
+        </div>
+      </div>
+
+
+      <div class="field-container">
+        <p-floatlabel variant="in" class="w-full">
+          <p-multiSelect
+            formControlName="reactions"
+            [options]="reactions"
+            display="chip"
+            optionLabel="name"
+            [showClear]="true"
+            id="reactions"
+            styleClass="w-full"
+            variant="filled"
+          />
+          <label for="reactions">Réaction(s)</label>
+        </p-floatlabel>
+      </div>
+
+      <div class="form-group">
+
+        <div class="field-container">
+          <p-floatlabel variant="in" class="w-full">
+            <p-select
+              formControlName="severity"
+              [options]="severities"
+              optionLabel="name"
+              [showClear]="true"
+              id="severity"
+              styleClass="w-full"
+              variant="filled"
+            />
+            <label for="severity">Sévérité</label>
+          </p-floatlabel>
+        </div>
+
+        <div class="field-container">
+          <p-floatlabel variant="in" class="w-full">
+            <p-datepicker
+              formControlName="diagnosticDate"
+              [showClear]="true"
+              id="diagnosticDate"
+              showIcon
+              iconDisplay="input"
+              variant="filled"
+              dateFormat="dd/mm/yy"
+            ></p-datepicker>
+            <label for="diagnosticDate">Date de diagnostic</label>
+          </p-floatlabel>
+        </div>
+      </div>
+
+
+      <div class="form-container">
+        <p-floatlabel variant="in">
+          <div class="p-inputgroup w-full">
+              <textarea
+                pTextarea
+                id="note"
+                formControlName="note"
+                rows="3"
+                cols="30"
+                style="resize: none"
+                class="w-full"
+                variant="filled"
+              ></textarea>
+            <p-button icon="pi pi-times" severity="secondary"
+                      [rounded]="true"
+                      [text]="true"
+                      (click)="clearField('note')"
+                      *ngIf="noteControl?.value"></p-button>
+          </div>
+          <label for="note">Note</label>
+        </p-floatlabel>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="flex justify-end gap-2 dialog-footer">
+    <p-button
+      label="Annuler"
+      severity="secondary"
+      (click)="closeDialog(null)"
+      size="small"
+    />
+    <p-button label="Enregistrer" (click)="saveAllergy()" size="small"
+              [disabled]="!allergyForm.valid"/>
+  </div>
+</form>
