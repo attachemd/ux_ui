@@ -25,8 +25,6 @@
     --p-toggleswitch-height: var(--ft-spacing-xl);
     --p-toggleswitch-gap: var(--ft-border-primary);
 
-    /* Form Field */
-    --p-form-field-border-radius: var(--radius-xl);
 
     --p-content-border-radius: var(--radius-xl);
 
@@ -49,10 +47,12 @@
     --p-overlay-modal-background: transparent;
 
     /* FormField properties */
-    /*--p-formfield-hover-border-color: var(--primary-color);*/
     --p-form-field-filled-background: var(--ft-color-background-tertiary);
     --p-form-field-filled-hover-background: var(--ft-color-background-quaternary);
-    --p-form-field-filled-focus-background: var(--ft-color-background-quaternary);
+    --p-form-field-hover-border-color: transparent;
+    /*--p-form-field-filled-focus-background: var(--ft-color-background-tertiary);*/
+    --p-form-field-filled-focus-background: var(--ft-form-field-filled-focus-background);
+    --p-form-field-focus-border-color: var(--ft-color-border);
     --p-form-field-color: var(--ft-color-text-primary);
     --p-form-field-icon-color: var(--ft-color-text-primary);
     --p-form-field-float-label-color: var(--ft-color-text-secondary);
@@ -61,11 +61,15 @@
     --p-form-field-padding-x: var(--ft-spacing-md);
     --p-form-field-padding-y: var(--ft-spacing-sm);
     --p-form-field-shadow: none;
+    --p-form-field-border-radius: var(--radius-xl);
+    --p-form-field-border-color: transparent;
+    --p-form-field-disabled-background: var(--ft-color-background-muted);
+    --p-form-field-disabled-color: var(--ft-color-text-muted);
 
     /* InputText properties */
-    --p-inputtext-filled-background: var(--ft-color-background-tertiary);
-    --p-inputtext-filled-hover-background: var(--ft-color-background-quaternary);
-    --p-inputtext-filled-focus-background: var(--ft-color-background-quaternary);
+    /*--p-inputtext-filled-background: var(--ft-color-background-tertiary);*/
+    /*--p-inputtext-filled-hover-background: var(--ft-color-background-quaternary);*/
+    /*--p-inputtext-filled-focus-background: var(--ft-color-background-tertiary);*/
     /*--p-inputtext-color: red;*/
   }
   body.dark-theme {

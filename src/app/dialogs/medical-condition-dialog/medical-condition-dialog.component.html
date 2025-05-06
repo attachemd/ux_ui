@@ -1,0 +1,143 @@
+<form [formGroup]="medicalAntecedentForm">
+  <div class="dialog-form-body-container">
+    <div class="dialog-form-body">
+      <div class="field-container">
+        <p-floatlabel variant="in" class="w-full">
+          <p-autocomplete
+            [required]="true"
+            formControlName="medicalConditionName"
+            [suggestions]="medicalConditionSuggestions"
+            (completeMethod)="searchMedicalConditions($event)"
+            [showClear]="true"
+            class="flex-grow"
+            id="medicalConditionName"
+            variant="filled"
+          >
+          </p-autocomplete>
+          <label for="medicalConditionName">Valeur *</label>
+        </p-floatlabel>
+        <small
+          class="p-error"
+          *ngIf="shouldShowError(medicalConditionNameControl)"
+        >
+            <span *ngIf="medicalConditionNameControl?.errors?.['required']"
+            >La valeur est obligatoire.</span
+            >
+        </small>
+      </div>
+
+      <div class="form-group">
+        <div class="field-container">
+          <p-floatlabel variant="in" class="w-full">
+            <p-datepicker
+              formControlName="diagnosticDate"
+              [showClear]="true"
+              id="diagnosticDate"
+              showIcon
+              iconDisplay="input"
+              variant="filled"
+            ></p-datepicker>
+            <label for="diagnosticDate">Date de diagnostic</label>
+          </p-floatlabel>
+        </div>
+
+        <div class="field-container">
+          <p-floatlabel class="w-full" variant="in">
+            <p-select
+              formControlName="status"
+              [showClear]="true"
+              id="status"
+              [options]="statusOptions"
+              optionLabel="name"
+              styleClass="w-full"
+              variant="filled"
+            />
+            <label for="status">Status</label>
+          </p-floatlabel>
+        </div>
+      </div>
+
+      <div class="form-group flex-col">
+        <div class="field-container w-auto">
+          <label for="isFamilial">Antécédent familial</label>
+          <p-toggleswitch
+            class="flex"
+            formControlName="isFamilial"
+            id="isFamilial"
+          />
+        </div>
+        <div
+          class="form-sub-group flex flex-col lg:flex-row align-center gap-4"
+        >
+          <div class="field-container w-full">
+            <p-floatlabel class="w-full" variant="in">
+              <p-select
+                formControlName="relation"
+                [showClear]="true"
+                id="relation"
+                [options]="relationOptions"
+                optionLabel="name"
+                class="w-full"
+                variant="filled"
+              />
+              <label for="relation">Relation <span *ngIf="isFamilialControl?.value">*</span></label>
+            </p-floatlabel>
+            <small
+              class="p-error"
+              *ngIf="shouldShowError(relationControl)"
+            >
+              <span *ngIf="relationControl?.errors?.['required']"
+              >La relation est obligatoire lorsque Antécédent familial est coché.</span
+              >
+            </small>
+          </div>
+          <div class="field-container w-auto">
+            <label for="isDeceased">Décédé</label>
+            <p-toggleswitch
+              class="flex"
+              formControlName="isDeceased"
+              id="isDeceased"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="form-container">
+        <p-floatlabel variant="in">
+          <div class="p-inputgroup w-full">
+              <textarea
+                pTextarea
+                id="note"
+                formControlName="note"
+                rows="5"
+                cols="30"
+                style="resize: none"
+                class="w-full"
+                variant="filled"
+              ></textarea>
+            <p-button
+              icon="pi pi-times"
+              severity="secondary"
+              [rounded]="true"
+              [text]="true"
+              (click)="clearNoteTextarea()"
+              *ngIf="noteControl?.value"
+            />
+          </div>
+          <label for="note">Note</label>
+        </p-floatlabel>
+      </div>
+    </div>
+  </div>
+
+  <div class="flex justify-end gap-2 dialog-footer">
+    <p-button
+      label="Cancel"
+      severity="secondary"
+      (click)="closeDialog({ buttonType: 'Cancel', summary: 'No Product Selected' })"
+      size="small"
+    />
+    <p-button label="Save" (click)="saveMedicalAntecedent()" size="small"
+              [disabled]="!medicalAntecedentForm.valid" />
+  </div>
+</form>

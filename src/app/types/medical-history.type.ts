@@ -10,6 +10,7 @@ export interface MedicalHistoryBlock {
 export interface MedicalHistoryEntity {
   title: string;
   blocks: MedicalHistoryBlock[];
+  dialogComponent: any;
 }
 
 export interface Note {
