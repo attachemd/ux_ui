@@ -1,1 +1,154 @@
-<p>treatment-dialog works!</p>
+<form [formGroup]="treatmentForm">
+  <div class="dialog-form-body-container">
+    <div class="dialog-form-body">
+
+      <div class="field-container flex flex-col gap-2">
+        <label>Type de saisie :</label>
+        <p-selectButton formControlName="entryType" [options]="entryTypes" optionLabel="name" optionValue="value" />
+      </div>
+
+      <div class="form-group">
+        <div class="field-container">
+          <p-floatlabel variant="in" class="w-full">
+            <p-autocomplete
+              [required]="true"
+              formControlName="treatmentName"
+              [suggestions]="treatmentSuggestions"
+              field="name"
+              (completeMethod)="searchTreatments($event)"
+              [showClear]="true"
+              class="flex-grow"
+              id="treatmentName"
+              variant="filled"
+            >
+            </p-autocomplete>
+            <label for="treatmentName">{{ treatmentNameLabel }} <span>*</span></label>
+          </p-floatlabel>
+          <small
+            class="p-error"
+            *ngIf="shouldShowError(treatmentNameControl)"
+          >
+            <span *ngIf="treatmentNameControl?.errors?.['required']"
+            >Ce champ est obligatoire.</span
+            >
+          </small>
+        </div>
+
+        <div class="field-container lg:w-[200px] w-full">
+          <p-floatlabel variant="in" class="w-full">
+            <p-dropdown
+              formControlName="status"
+              [options]="statuses"
+              optionLabel="name"
+              [showClear]="true"
+              id="status"
+              styleClass="w-full"
+              variant="filled"
+            />
+            <label for="status">Statut</label>
+          </p-floatlabel>
+        </div>
+      </div>
+
+      <div class="form-group flex-col">
+        <div class="field-container">
+          <p-floatlabel variant="in" class="w-full">
+            <p-calendar
+              formControlName="startDate"
+              [showClear]="true"
+              id="startDate"
+              showIcon
+              iconDisplay="input"
+              variant="filled"
+              dateFormat="dd/mm/yy"
+            ></p-calendar>
+            <label for="startDate">Date de début</label>
+          </p-floatlabel>
+          <small class="p-error" *ngIf="shouldShowError(treatmentForm) && treatmentForm.errors?.['dateRangeInvalid']">
+            La date de début doit être antérieure à la date de fin.
+          </small>
+          <small class="p-error" *ngIf="shouldShowError(startDateControl) && startDateControl?.errors?.['futureDate']">
+            La date ne peut pas être dans le futur.
+          </small>
+        </div>
+
+        <div class="field-container">
+          <p-floatlabel variant="in" class="w-full">
+            <p-calendar
+              formControlName="endDate"
+              [showClear]="true"
+              id="endDate"
+              showIcon
+              iconDisplay="input"
+              variant="filled"
+              dateFormat="dd/mm/yy"
+            ></p-calendar>
+            <label for="endDate">Date de fin</label>
+          </p-floatlabel>
+          <small class="p-error" *ngIf="shouldShowError(treatmentForm) && treatmentForm.errors?.['dateRangeInvalid']">
+            La date de fin doit être postérieure à la date de début.
+          </small>
+          <small class="p-error" *ngIf="shouldShowError(endDateControl) && endDateControl?.errors?.['futureDate']">
+            La date ne peut pas être dans le futur.
+          </small>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="field-container">
+          <p-floatlabel variant="in" class="w-full">
+            <input pInputText id="dosage" formControlName="dosage" class="w-full" variant="filled"/>
+            <label for="dosage">Posologie</label>
+          </p-floatlabel>
+        </div>
+
+        <div class="field-container">
+          <p-floatlabel variant="in" class="w-full">
+            <input pInputText id="indication" formControlName="indication" class="w-full" variant="filled"/>
+            <label for="indication">Indication</label>
+          </p-floatlabel>
+        </div>
+
+        <div class="field-container">
+          <p-floatlabel variant="in" class="w-full">
+            <input pInputText id="prescriber" formControlName="prescriber" class="w-full" variant="filled"/>
+            <label for="prescriber">Prescripteur</label>
+          </p-floatlabel>
+        </div>
+      </div>
+
+
+
+
+      <div class="form-container">
+        <p-floatlabel variant="in">
+          <div class="p-inputgroup w-full">
+              <textarea
+                pTextarea
+                id="note"
+                formControlName="note"
+                rows="3"
+                cols="30"
+                style="resize: none"
+                class="w-full"
+                variant="filled"
+              ></textarea>
+          </div>
+          <label for="note">Note</label>
+        </p-floatlabel>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="flex justify-end gap-2 dialog-footer">
+    <p-button
+      label="Annuler"
+      severity="secondary"
+      (click)="closeDialog(null)"
+      size="small"
+    />
+    <p-button label="Enregistrer" (click)="saveTreatment()" size="small"
+              [disabled]="!treatmentForm.valid"/>
+  </div>
+</form>

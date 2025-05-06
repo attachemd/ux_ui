@@ -191,6 +191,10 @@
     background-color: #fff;
   }
 
+  .p-multiselect-overlay {
+    /*position: fixed;*/
+  }
+
   .p-multiselect-filter-container {
     input {
       padding: var(--ft-spacing-2xs) var(--ft-spacing-md);
@@ -204,6 +208,21 @@
 
   .p-multiselect.p-variant-filled.p-focus {
     background: var(--ft-form-field-filled-focus-background);
+  }
+
+  .p-multiselect-label {
+    flex-wrap: wrap;
+    padding: var(--ft-spacing-xs);
+    gap: var(--ft-spacing-xs);
+    min-height: var(--ft-spacing-7xl);
+    align-items: center;
+    .p-multiselect-chip-item {
+      height: fit-content;
+    }
+  }
+
+  .p-multiselect-label:has(.p-chip) {
+    /*min-height: 48px;*/
   }
 
   .p-multiselect-label .p-chip {
@@ -225,6 +244,10 @@
 
   .p-datepicker-day-view {
     font-size: var(--ft-text-xs);
+  }
+
+  p-calendar {
+    width: 100%;
   }
 
   .p-inputgroup:has(.p-textarea) {
@@ -255,6 +278,10 @@
     top: 0;
     left: 0;
     display: block;
+  }
+
+  .p-togglebutton {
+    font-size: var(--ft-text-xs);
   }
 
   .p-toggleswitch.p-toggleswitch-checked .p-toggleswitch-slider {
