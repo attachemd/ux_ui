@@ -72,6 +72,7 @@ export class AppComponent implements AfterViewInit, OnDestroy {
     }
     this.ref = this.dialogService.open(entity.dialogComponent , {
       header: `Ajouter - ${entity.title}`,
+      focusOnShow: entity.focusOnShow ?? true,
       modal: true,
       dismissableMask: true,
       transitionOptions: 'ease',

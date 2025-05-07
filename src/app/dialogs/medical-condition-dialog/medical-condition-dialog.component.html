@@ -59,7 +59,7 @@
       </div>
 
       <div class="form-group flex-col">
-        <div class="field-container w-auto">
+        <div class="field-container flex-row w-auto items-center gap-4">
           <label for="isFamilial">Antécédent familial</label>
           <p-toggleswitch
             class="flex"
@@ -88,11 +88,11 @@
               *ngIf="shouldShowError(relationControl)"
             >
               <span *ngIf="relationControl?.errors?.['required']"
-              >La relation est obligatoire lorsque Antécédent familial est coché.</span
+              >La relation est obligatoire.</span
               >
             </small>
           </div>
-          <div class="field-container w-auto">
+          <div class="field-container w-auto flex-row items-center gap-4">
             <label for="isDeceased">Décédé</label>
             <p-toggleswitch
               class="flex"

@@ -44,6 +44,8 @@
 
     --p-button-icon-only-width: var(--ft-spacing-3xl);
 
+    --p-selectbutton-border-radius: var(--ft-border-radius-pill);
+
     /* Overlay properties */
     --p-overlay-modal-background: transparent;
 
@@ -51,8 +53,8 @@
     --p-form-field-filled-background: var(--ft-color-background-tertiary);
     --p-form-field-filled-hover-background: var(--ft-color-background-quaternary);
     --p-form-field-hover-border-color: transparent;
-    /*--p-form-field-filled-focus-background: var(--ft-color-background-tertiary);*/
-    --p-form-field-filled-focus-background: var(--ft-form-field-filled-focus-background);
+    --p-form-field-filled-focus-background: var(--ft-color-background-tertiary);
+    /*--p-form-field-filled-focus-background: var(--ft-form-field-filled-focus-background);*/
     --p-form-field-focus-border-color: var(--ft-color-border);
     --p-form-field-color: var(--ft-color-text-primary);
     --p-form-field-icon-color: var(--ft-color-text-primary);
@@ -67,10 +69,12 @@
     --p-form-field-disabled-background: var(--ft-color-background-muted);
     --p-form-field-disabled-color: var(--ft-color-text-muted);
 
+    --p-autocomplete-dropdown-color: var(--ft-color-text-primary);
+
     /* chip */
-    --p-chip-background: var(--p-primary-100);
-    --p-chip-color: var(--p-primary-800);
-    --p-chip-remove-icon-color: var(--p-primary-800);
+    --p-chip-background: var(--ft-color-background-secondary);
+    /*--p-chip-color: var(--p-primary-800);*/
+    /*--p-chip-remove-icon-color: var(--p-primary-800);*/
     --p-multiselect-chip-border-radius: var(--ft-border-radius-pill);
     --p-checkbox-filled-background: var(--ft-color-background-quaternary)
 

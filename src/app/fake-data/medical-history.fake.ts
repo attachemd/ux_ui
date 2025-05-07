@@ -12,7 +12,7 @@ export let medicalHistoryEntities: MedicalHistoryEntity[] = [
       [
         {title: 'Penicillin', status: 'Severe', class: 'chip-color-level3', note: 'Anaphylaxis'},
         {title: 'Dust Mites', status: 'Mild', class: 'chip-color-level2'},
-      ], dialogComponent: AllergyDialogComponent
+      ], dialogComponent: AllergyDialogComponent, focusOnShow: false
   },
   {
     title: 'Facteurs de risque', blocks:

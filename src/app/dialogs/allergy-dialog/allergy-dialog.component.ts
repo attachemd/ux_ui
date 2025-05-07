@@ -14,7 +14,8 @@ import { CommonModule, NgIf } from '@angular/common'; // Import CommonModule for
 import { MessageService } from 'primeng/api';
 import {TextareaModule} from 'primeng/textarea';
 import {Select} from 'primeng/select';
-import {DatePicker} from 'primeng/datepicker'; // Import MessageService
+import {DatePicker} from 'primeng/datepicker';
+import {AutoFocus} from 'primeng/autofocus'; // Import MessageService
 
 // Define interfaces for dropdown options if needed for stricter typing
 interface Option {

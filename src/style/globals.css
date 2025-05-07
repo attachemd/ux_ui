@@ -802,18 +802,21 @@
   .form-group{
     display: flex;
     flex-direction: column;
-    gap: var(--ft-spacing-md);
+    column-gap: var(--ft-spacing-md);
     .form-sub-group {
-      padding: var(--ft-spacing-sm);
+      padding: var(--ft-spacing-md) var(--ft-spacing-md) 0;
+      margin-bottom: var(--ft-spacing-md);
       border: var(--ft-border-primary) solid var(--ft-color-background-quaternary);
       border-radius: var(--radius-xl);
     }
   }
 
   .field-container {
+    position: relative;
     display: flex;
-    align-items: center;
-    gap: var(--ft-spacing-md);
+    flex-direction: column;
+    padding-bottom: var(--ft-spacing-md);
+    /*gap: var(--ft-spacing-md);*/
     flex-grow: 1;
     overflow: visible;
     width: 100%;

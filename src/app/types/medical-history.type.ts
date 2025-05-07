@@ -9,6 +9,7 @@ export interface MedicalHistoryBlock {
 
 export interface MedicalHistoryEntity {
   title: string;
+  focusOnShow?: boolean;
   blocks: MedicalHistoryBlock[];
   dialogComponent: any;
 }
