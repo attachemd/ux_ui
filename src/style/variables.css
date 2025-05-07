@@ -141,7 +141,8 @@
     /* --- Transitions --- */
     --transition-base: all 0.2s ease-in-out;
 
-    --ft-blur: 24px;
+    --ft-blur-sm: 4px;
+    --ft-blur-lg: 24px;
 
     /*--p-form-field-sm-font-size: var(--ft-text-2xs);*/
 

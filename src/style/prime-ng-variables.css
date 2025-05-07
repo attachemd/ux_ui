@@ -42,6 +42,8 @@
     --p-button-sm-padding-x: var(--ft-spacing-md);
     --p-button-sm-font-size: var(--ft-text-xs);
 
+    --p-button-text-secondary-color: var(--ft-color-text-primary);
+
     --p-button-icon-only-width: var(--ft-spacing-3xl);
 
     --p-selectbutton-border-radius: var(--ft-border-radius-pill);
@@ -76,7 +78,7 @@
     /*--p-chip-color: var(--p-primary-800);*/
     /*--p-chip-remove-icon-color: var(--p-primary-800);*/
     --p-multiselect-chip-border-radius: var(--ft-border-radius-pill);
-    --p-checkbox-filled-background: var(--ft-color-background-quaternary)
+    --p-checkbox-filled-background: var(--ft-color-background-secondary)
 
     /* InputText properties */
     /*--p-inputtext-filled-background: var(--ft-color-background-tertiary);*/

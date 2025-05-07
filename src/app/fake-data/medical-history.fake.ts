@@ -20,7 +20,7 @@ export let medicalHistoryEntities: MedicalHistoryEntity[] = [
         {title: 'Cardiovascular Risk', status: 'Severe', class: 'chip-color-level3'},
         {title: 'Diabetes Risk', status: 'Medium', class: 'chip-color-level2', note: 'parent relation'},
         {title: 'Fall Risk (Elderly)', status: 'Low', class: 'chip-color-level1'},
-      ], dialogComponent: RiskAssessmentDialogComponent
+      ], dialogComponent: RiskAssessmentDialogComponent, focusOnShow: false
   },
   {
     title: 'Antécédents médicaux', blocks:

@@ -1,1 +1,83 @@
-<p>vaccination-dialog works!</p>
+<form [formGroup]="vaccinationForm">
+  <div class="dialog-form-body-container">
+    <div class="dialog-form-body">
+
+      <div class="field-container">
+        <p-floatlabel variant="in" class="w-full">
+          <p-autocomplete
+            [required]="true"
+            formControlName="vaccineName"
+            [suggestions]="vaccineSuggestions"
+            (completeMethod)="searchVaccines($event)"
+            field="name"
+            [showClear]="true"
+            class="flex-grow"
+            id="vaccineName"
+            variant="filled"
+          >
+          </p-autocomplete>
+          <label for="vaccineName">Vaccin <span>*</span></label>
+        </p-floatlabel>
+        <small
+          class="p-error"
+          *ngIf="shouldShowError(vaccineNameControl)"
+        >
+            <span *ngIf="vaccineNameControl?.errors?.['required']"
+            >Le nom du vaccin est obligatoire.</span
+            >
+        </small>
+      </div>
+
+      <div class="field-container">
+        <p-floatlabel variant="in" class="w-full">
+          <p-datepicker
+            formControlName="administrationDate"
+            [showClear]="true"
+            id="administrationDate"
+            showIcon
+            iconDisplay="input"
+            variant="filled"
+            dateFormat="dd/mm/yy"
+            [inputStyle]="{'width': '100%'}"
+          ></p-datepicker>
+          <label for="administrationDate">Date d'administration</label>
+        </p-floatlabel>
+      </div>
+
+      <div class="form-container">
+        <p-floatlabel variant="in">
+          <div class="p-inputgroup w-full">
+              <textarea
+                pTextarea
+                id="notes"
+                formControlName="notes"
+                rows="3"
+                cols="30"
+                style="resize: none"
+                class="w-full"
+                variant="filled"
+              ></textarea>
+            <p-button type="button" pButton icon="pi pi-times" severity="secondary"
+                    [rounded]="true"
+                    [text]="true"
+                    (click)="clearField('notes')"
+                    *ngIf="notesControl?.value"></p-button>
+          </div>
+          <label for="notes">Notes</label>
+        </p-floatlabel>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="flex justify-end gap-2 dialog-footer">
+    <p-button
+      label="Annuler"
+      severity="secondary"
+      (click)="closeDialog(null)"
+      size="small"
+    />
+    <p-button label="Enregistrer" (click)="saveVaccination()" size="small"
+              [disabled]="!vaccinationForm.valid"/>
+  </div>
+</form>
