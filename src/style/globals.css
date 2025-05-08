@@ -362,7 +362,7 @@
 
   /* Active state (when clicked) */
   button:active {
-    background-color: var(--ft-color-dark-alpha-secondary) !important;
+    background-color: var(--ft-color-dark-alpha-secondary);
     /*transform: scale(0.9);*/
   }
 

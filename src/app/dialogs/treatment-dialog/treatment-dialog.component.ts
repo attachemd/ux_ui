@@ -13,7 +13,8 @@ import { InputGroupModule } from 'primeng/inputgroup';
 import { CommonModule, NgIf } from '@angular/common';
 import { MessageService } from 'primeng/api';
 import { SelectButtonModule } from 'primeng/selectbutton';
-import {Textarea} from 'primeng/textarea'; // Import SelectButtonModule
+import {Textarea} from 'primeng/textarea';
+import {DatePicker} from 'primeng/datepicker'; // Import SelectButtonModule
 
 // Define interfaces for options
 interface Option {
@@ -84,6 +85,7 @@ const futureDateValidator: ValidatorFn = (control: AbstractControl): ValidationE
     SelectButtonModule, // Added SelectButtonModule
     NgIf,
     Textarea,
+    DatePicker,
   ],
   providers: [MessageService],
   templateUrl: './treatment-dialog.component.html',

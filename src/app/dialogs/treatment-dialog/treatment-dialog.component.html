@@ -53,7 +53,7 @@
       <div class="form-group flex-col">
         <div class="field-container">
           <p-floatlabel variant="in" class="w-full">
-            <p-calendar
+            <p-datepicker
               formControlName="startDate"
               [showClear]="true"
               id="startDate"
@@ -61,7 +61,7 @@
               iconDisplay="input"
               variant="filled"
               dateFormat="dd/mm/yy"
-            ></p-calendar>
+            ></p-datepicker>
             <label for="startDate">Date de début</label>
           </p-floatlabel>
           <small class="p-error" *ngIf="shouldShowError(treatmentForm) && treatmentForm.errors?.['dateRangeInvalid']">
@@ -74,7 +74,7 @@
 
         <div class="field-container">
           <p-floatlabel variant="in" class="w-full">
-            <p-calendar
+            <p-datepicker
               formControlName="endDate"
               [showClear]="true"
               id="endDate"
@@ -82,7 +82,7 @@
               iconDisplay="input"
               variant="filled"
               dateFormat="dd/mm/yy"
-            ></p-calendar>
+            ></p-datepicker>
             <label for="endDate">Date de fin</label>
           </p-floatlabel>
           <small class="p-error" *ngIf="shouldShowError(treatmentForm) && treatmentForm.errors?.['dateRangeInvalid']">
@@ -97,21 +97,43 @@
       <div class="form-group">
         <div class="field-container">
           <p-floatlabel variant="in" class="w-full">
-            <input pInputText id="dosage" formControlName="dosage" class="w-full" variant="filled"/>
+            <div class="p-inputgroup w-full">
+              <input pInputText id="dosage" formControlName="dosage" class="w-full" variant="filled"/>
+              <p-button icon="pi pi-times" severity="secondary"
+                        [rounded]="true"
+                        [text]="true"
+                        (click)="clearField('dosage')"
+                        *ngIf="dosageControl?.value"></p-button>
+            </div>
             <label for="dosage">Posologie</label>
           </p-floatlabel>
         </div>
 
         <div class="field-container">
           <p-floatlabel variant="in" class="w-full">
-            <input pInputText id="indication" formControlName="indication" class="w-full" variant="filled"/>
+            <div class="p-inputgroup w-full">
+              <input pInputText id="indication" formControlName="indication" class="w-full" variant="filled"/>
+              <p-button icon="pi pi-times" severity="secondary"
+                        [rounded]="true"
+                        [text]="true"
+                        (click)="clearField('indication')"
+                        *ngIf="indicationControl?.value"></p-button>
+            </div>
             <label for="indication">Indication</label>
           </p-floatlabel>
         </div>
 
         <div class="field-container">
           <p-floatlabel variant="in" class="w-full">
-            <input pInputText id="prescriber" formControlName="prescriber" class="w-full" variant="filled"/>
+            <div class="p-inputgroup w-full">
+              <input pInputText id="prescriber" formControlName="prescriber" class="w-full" variant="filled"/>
+              <p-button icon="pi pi-times" severity="secondary"
+                        [rounded]="true"
+                        [text]="true"
+                        (click)="clearField('prescriber')"
+                        *ngIf="prescriberControl?.value"></p-button>
+            </div>
+
             <label for="prescriber">Prescripteur</label>
           </p-floatlabel>
         </div>
