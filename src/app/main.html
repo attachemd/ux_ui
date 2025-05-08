@@ -1,0 +1,532 @@
+<div class="lg:!flex main-sidenav">
+  <div class="ft-flex-center">
+    <button><i class="icon-menu"></i></button>
+  </div>
+  <div class="ft-flex-center flex-grow">
+    <div class="ft-flex-center">
+      <div class="ft-flex-center flex-col flex-grow">
+        <i class="icon-users"></i>
+        <div class="ft-flex-center">
+          <span class="ft-flex-center">Patients</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ft-flex-center">
+    <button><i class="icon-help2"></i></button>
+  </div>
+</div>
+<div class="flex flex-col w-full">
+  <div class="main-toolbar">
+    <div class="flex items-center gap-3">
+      <i class="icon-menu lg:!hidden"></i
+      ><span class="ft-flex-center logo">Logo</span>
+    </div>
+    <div class="flex gap-6">
+      <button><i class="icon-search"></i></button>
+      <!-- <button><i class="icon-theme"></i></button> -->
+      <ft-theme-switcher></ft-theme-switcher>
+      <button><i class="icon-bell"></i></button>
+      <button class="!hidden lg:!flex"><i class="icon-setting"></i></button>
+      <button><i class="icon-user"></i></button>
+      <button class="!hidden lg:!flex"><i class="icon-logout"></i></button>
+    </div>
+  </div>
+
+  <div #mainContent class="main-content">
+    <div class="patient-info ft-panel">
+      <button><i class="icon-arrow-left !text-4xl"> </i></button>
+      <span
+        class="truncate flex-grow justify-start items-center lg:flex-grow-0 ft-text"
+      >
+        Mr. AHMED IBRAHIMI
+      </span>
+      <span class="hidden lg:inline-block chip-color-info chip"
+      >Première hospitalisation
+      </span>
+      <div class="hidden lg:flex sub-info">
+        <div class="flex items-center gap-2">
+          <i class="icon-gender2"></i>
+          <span class="leading-none">Homme</span>
+        </div>
+        <div class="ft-vdivider h-5"></div>
+        <div class="flex flex-grow items-center gap-2 w-0 max-w-fit">
+          <i class="icon-birthday"></i>
+          <span class="truncate leading-none flex-grow">
+            24 ans et 4 mois
+          </span>
+        </div>
+        <div class="ft-vdivider h-5"></div>
+        <div class="flex items-center gap-2">
+          <span class="font-bold leading-none">Chambre:</span>
+          <span class="leading-none">305</span>
+        </div>
+        <div class="ft-vdivider h-5"></div>
+        <div class="flex items-center gap-2">
+          <span class="font-bold leading-none">Lit:</span>
+          <span class="leading-none">A</span>
+        </div>
+      </div>
+
+      <button class="ft-icon-button ft-flex-center">
+        <i class="icon-vertical-dots"></i>
+      </button>
+    </div>
+
+    <div class="lg:!hidden ft-panel secondary-navbar">
+      <div class="flex flex-grow gap-1 h-full">
+        <div
+          class="ft-flex-center flex-grow xxl:justify-center gap-2 w-0 relative"
+        >
+          <div class="ft-flex-center w-full h-full">
+            <span class="truncate font-normal inline-block active">
+              Historique Medical
+            </span>
+          </div>
+        </div>
+      </div>
+      <button class="more">
+        <i class="icon-arrow-down"></i>
+      </button>
+    </div>
+
+    <div class="!hidden lg:!flex ft-panel gap-1 secondary-navbar">
+      <div class="flex flex-grow gap-1 h-full">
+        <div class="ft-flex-center flex-grow gap-2 w-0">
+          <div class="ft-flex-center w-full h-full">
+            <span class="ft-text"> Détails du patient </span>
+          </div>
+        </div>
+        <div class="ft-flex-center flex-grow gap-2 w-0">
+          <div class="ft-flex-center w-full h-full">
+            <span class="ft-text"> Assurance </span>
+          </div>
+        </div>
+        <div
+          class="ft-flex-center flex-col flex-grow xxl:justify-center w-0 relative"
+        >
+          <div
+            class="ft-flex-center w-full h-full border-b border-[var(--ft-color-primary)]"
+          >
+            <span class="ft-text !text-[var(--ft-color-primary)]">
+              Historique Medical
+            </span>
+          </div>
+          <div
+            class="w-[77%] border-b border-[var(--ft-color-primary)] absolute bottom-0 blur-xl"
+          ></div>
+          <div
+            class="w-full border-b border-[var(--ft-color-primary)] absolute bottom-0 blur-[3px] opacity-20"
+          ></div>
+          <div
+            class="w-full border-b-2 border-[var(--ft-color-primary)] absolute bottom-0 blur-2xl"
+          ></div>
+        </div>
+        <div class="ft-flex-center flex-grow gap-2 w-0">
+          <div class="ft-flex-center w-full h-full">
+            <span class="ft-text"> Biométrie </span>
+          </div>
+        </div>
+        <div class="ft-flex-center flex-grow gap-2 w-0">
+          <div class="ft-flex-center w-full h-full">
+            <span class="ft-text"> Pièces jointes </span>
+          </div>
+        </div>
+      </div>
+      <button class="more">
+        <i class="icon-arrow-down"></i>
+      </button>
+    </div>
+
+    <div class="ft-panel lg:h-auto lg:!overflow-auto tab-body-container">
+      <div class="flex justify-end tab-body-header">
+        <div class="flex items-center gap-2">
+          <!--          <span class="font-bold leading-none">Last update</span>-->
+          <div class="flex items-center gap-2">
+            <span class="leading-none">29/05/2024</span>
+            <button><i class="icon-date"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <div #tabBodyContent class="lg:!flex-row tab-body-content">
+        <div class="hm-container lg:pr-3">
+          @for (entity of medicalHistoryEntities; track entity.title) {
+            <div class="mini-card">
+              <div class="header">
+                <div class="flex items-center gap-2">
+                  <span class="leading-none ft-text">{{ entity.title }}</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <button (click)="showDialog(entity)">
+                    <i class="icon-plus"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="mini-card-body">
+                @for (block of entity.blocks; track block.title) {
+                  <div class="micro-card">
+                    <div class="flex justify-between items-center gap-3 w-full">
+                      <div class="flex items-center gap-2">
+                        @if (block.status) {
+                          <span class="chip" [class]="block.class">{{
+                              block.status
+                            }}</span>
+                        } @if (block.surgeon) {
+                        <span class="ft-sub-title"
+                        >Surgeon: {{ block.surgeon }}</span
+                        >
+                      } @if (block.date) {
+                        <span class="ft-sub-title">{{ block.date }}</span>
+                      } @if (block.note) {
+                        <i class="icon-comment"></i>
+                      }
+                      </div>
+                      <!--                      <div class="flex items-center gap-2">-->
+                      <!--                        <button><i class="icon-close"></i></button>-->
+                      <!--                      </div>-->
+                    </div>
+                    <div class="flex flex-col overflow-hidden">
+                      <span class="leading-none ft-text">{{ block.title }}</span>
+                    </div>
+                  </div>
+                }
+              </div>
+            </div>
+
+          }
+        </div>
+
+        <div class="general-notes">
+          <div class="comment">
+            <div class="comment-header">
+              <div class="flex items-center gap-2">
+                <span class="ft-text">Notes générales</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <button><i class="icon-search"></i></button>
+              </div>
+            </div>
+            <div class="comment-body-outer-container lg:!overflow-auto">
+              <div class="ft-top-scroll-overlay-container">
+                <div class="ft-scroll-overlay"></div>
+              </div>
+              <div class="comment-body-container">
+                @for (comment of comments; track comment.id) {
+                  <div class="comment-block">
+                    <div class="flex justify-between items-center gap-3 w-full">
+                      <div class="flex items-center gap-2">
+                      <span class="ft-img-profile">{{
+                          comment.author.charAt(0)
+                        }}</span>
+                        <div class="flex flex-col">
+                          <span class="ft-title">{{ comment.author }}</span>
+                          <span class="ft-sub-title">{{ comment.date }}</span>
+                        </div>
+                      </div>
+                      <div class="flex items-center gap-2">
+                        <button><i class="icon-vertical-dots"></i></button>
+                      </div>
+                    </div>
+                    <div class="flex flex-col overflow-hidden">
+                      @if (comment.quoteId) { @if
+                      (getCommentById(comment.quoteId); as quotedComment) {
+                        <div class="quoted">
+                          <div class="ft-indicator"></div>
+                          <span>{{ quotedComment.author }}</span>
+                          <p class="ft-text">
+                            {{ quotedComment.text }}
+                          </p>
+                        </div>
+                      } }
+                      <p>
+                        {{ comment.text }}
+                      </p>
+                    </div>
+                  </div>
+                }
+              </div>
+              <div class="ft-bottom-scroll-overlay-container">
+                <div class="ft-scroll-overlay"></div>
+              </div>
+            </div>
+            <div class="comment-send-block">
+              <div class="flex items-center gap-2">
+                <span>Ajouter une note</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <button><i class="icon-sent"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="lg:!flex main-sidenav">
+  <div class="ft-flex-center">
+    <button><i class="icon-menu"></i></button>
+  </div>
+  <div class="ft-flex-center flex-grow">
+    <div class="ft-flex-center">
+      <div class="ft-flex-center flex-col flex-grow">
+        <i class="icon-users"></i>
+        <div class="ft-flex-center">
+          <span class="ft-flex-center">Patients</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ft-flex-center">
+    <button><i class="icon-help2"></i></button>
+  </div>
+</div>
+<div class="flex flex-col w-full">
+  <div class="main-toolbar">
+    <div class="flex items-center gap-3">
+      <i class="icon-menu lg:!hidden"></i
+      ><span class="ft-flex-center logo">Logo</span>
+    </div>
+    <div class="flex gap-6">
+      <button><i class="icon-search"></i></button>
+      <!-- <button><i class="icon-theme"></i></button> -->
+      <ft-theme-switcher></ft-theme-switcher>
+      <button><i class="icon-bell"></i></button>
+      <button class="!hidden lg:!flex"><i class="icon-setting"></i></button>
+      <button><i class="icon-user"></i></button>
+      <button class="!hidden lg:!flex"><i class="icon-logout"></i></button>
+    </div>
+  </div>
+
+  <div #mainContent class="main-content">
+    <div class="patient-info ft-panel">
+      <button><i class="icon-arrow-left !text-4xl"> </i></button>
+      <span
+        class="truncate flex-grow justify-start items-center lg:flex-grow-0 ft-text"
+      >
+        Mr. AHMED IBRAHIMI
+      </span>
+      <span class="hidden lg:inline-block chip-color-info chip"
+      >Première hospitalisation
+      </span>
+      <div class="hidden lg:flex sub-info">
+        <div class="flex items-center gap-2">
+          <i class="icon-gender2"></i>
+          <span class="leading-none">Homme</span>
+        </div>
+        <div class="ft-vdivider h-5"></div>
+        <div class="flex flex-grow items-center gap-2 w-0 max-w-fit">
+          <i class="icon-birthday"></i>
+          <span class="truncate leading-none flex-grow">
+            24 ans et 4 mois
+          </span>
+        </div>
+        <div class="ft-vdivider h-5"></div>
+        <div class="flex items-center gap-2">
+          <span class="font-bold leading-none">Chambre:</span>
+          <span class="leading-none">305</span>
+        </div>
+        <div class="ft-vdivider h-5"></div>
+        <div class="flex items-center gap-2">
+          <span class="font-bold leading-none">Lit:</span>
+          <span class="leading-none">A</span>
+        </div>
+      </div>
+
+      <button class="ft-icon-button ft-flex-center">
+        <i class="icon-vertical-dots"></i>
+      </button>
+    </div>
+
+    <div class="lg:!hidden ft-panel secondary-navbar">
+      <div class="flex flex-grow gap-1 h-full">
+        <div
+          class="ft-flex-center flex-grow xxl:justify-center gap-2 w-0 relative"
+        >
+          <div class="ft-flex-center w-full h-full">
+            <span class="truncate font-normal inline-block active">
+              Historique Medical
+            </span>
+          </div>
+        </div>
+      </div>
+      <button class="more">
+        <i class="icon-arrow-down"></i>
+      </button>
+    </div>
+
+    <div class="!hidden lg:!flex ft-panel gap-1 secondary-navbar">
+      <div class="flex flex-grow gap-1 h-full">
+        <div class="ft-flex-center flex-grow gap-2 w-0">
+          <div class="ft-flex-center w-full h-full">
+            <span class="ft-text"> Détails du patient </span>
+          </div>
+        </div>
+        <div class="ft-flex-center flex-grow gap-2 w-0">
+          <div class="ft-flex-center w-full h-full">
+            <span class="ft-text"> Assurance </span>
+          </div>
+        </div>
+        <div
+          class="ft-flex-center flex-col flex-grow xxl:justify-center w-0 relative"
+        >
+          <div
+            class="ft-flex-center w-full h-full border-b border-[var(--ft-color-primary)]"
+          >
+            <span class="ft-text !text-[var(--ft-color-primary)]">
+              Historique Medical
+            </span>
+          </div>
+          <div
+            class="w-[77%] border-b border-[var(--ft-color-primary)] absolute bottom-0 blur-xl"
+          ></div>
+          <div
+            class="w-full border-b border-[var(--ft-color-primary)] absolute bottom-0 blur-[3px] opacity-20"
+          ></div>
+          <div
+            class="w-full border-b-2 border-[var(--ft-color-primary)] absolute bottom-0 blur-2xl"
+          ></div>
+        </div>
+        <div class="ft-flex-center flex-grow gap-2 w-0">
+          <div class="ft-flex-center w-full h-full">
+            <span class="ft-text"> Biométrie </span>
+          </div>
+        </div>
+        <div class="ft-flex-center flex-grow gap-2 w-0">
+          <div class="ft-flex-center w-full h-full">
+            <span class="ft-text"> Pièces jointes </span>
+          </div>
+        </div>
+      </div>
+      <button class="more">
+        <i class="icon-arrow-down"></i>
+      </button>
+    </div>
+
+    <div class="ft-panel lg:h-auto lg:!overflow-auto tab-body-container">
+      <div class="flex justify-end tab-body-header">
+        <div class="flex items-center gap-2">
+          <!--          <span class="font-bold leading-none">Last update</span>-->
+          <div class="flex items-center gap-2">
+            <span class="leading-none">29/05/2024</span>
+            <button><i class="icon-date"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <div #tabBodyContent class="lg:!flex-row tab-body-content">
+        <div class="hm-container lg:pr-3">
+          @for (entity of medicalHistoryEntities; track entity.title) {
+            <div class="mini-card">
+              <div class="header">
+                <div class="flex items-center gap-2">
+                  <span class="leading-none ft-text">{{ entity.title }}</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <button (click)="showDialog(entity)">
+                    <i class="icon-plus"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="mini-card-body">
+                @for (block of entity.blocks; track block.title) {
+                  <div class="micro-card">
+                    <div class="flex justify-between items-center gap-3 w-full">
+                      <div class="flex items-center gap-2">
+                        @if (block.status) {
+                          <span class="chip" [class]="block.class">{{
+                              block.status
+                            }}</span>
+                        } @if (block.surgeon) {
+                        <span class="ft-sub-title"
+                        >Surgeon: {{ block.surgeon }}</span
+                        >
+                      } @if (block.date) {
+                        <span class="ft-sub-title">{{ block.date }}</span>
+                      } @if (block.note) {
+                        <i class="icon-comment"></i>
+                      }
+                      </div>
+                      <!--                      <div class="flex items-center gap-2">-->
+                      <!--                        <button><i class="icon-close"></i></button>-->
+                      <!--                      </div>-->
+                    </div>
+                    <div class="flex flex-col overflow-hidden">
+                      <span class="leading-none ft-text">{{ block.title }}</span>
+                    </div>
+                  </div>
+                }
+              </div>
+            </div>
+
+          }
+        </div>
+
+        <div class="general-notes">
+          <div class="comment">
+            <div class="comment-header">
+              <div class="flex items-center gap-2">
+                <span class="ft-text">Notes générales</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <button><i class="icon-search"></i></button>
+              </div>
+            </div>
+            <div class="comment-body-outer-container lg:!overflow-auto">
+              <div class="ft-top-scroll-overlay-container">
+                <div class="ft-scroll-overlay"></div>
+              </div>
+              <div class="comment-body-container">
+                @for (comment of comments; track comment.id) {
+                  <div class="comment-block">
+                    <div class="flex justify-between items-center gap-3 w-full">
+                      <div class="flex items-center gap-2">
+                      <span class="ft-img-profile">{{
+                          comment.author.charAt(0)
+                        }}</span>
+                        <div class="flex flex-col">
+                          <span class="ft-title">{{ comment.author }}</span>
+                          <span class="ft-sub-title">{{ comment.date }}</span>
+                        </div>
+                      </div>
+                      <div class="flex items-center gap-2">
+                        <button><i class="icon-vertical-dots"></i></button>
+                      </div>
+                    </div>
+                    <div class="flex flex-col overflow-hidden">
+                      @if (comment.quoteId) { @if
+                      (getCommentById(comment.quoteId); as quotedComment) {
+                        <div class="quoted">
+                          <div class="ft-indicator"></div>
+                          <span>{{ quotedComment.author }}</span>
+                          <p class="ft-text">
+                            {{ quotedComment.text }}
+                          </p>
+                        </div>
+                      } }
+                      <p>
+                        {{ comment.text }}
+                      </p>
+                    </div>
+                  </div>
+                }
+              </div>
+              <div class="ft-bottom-scroll-overlay-container">
+                <div class="ft-scroll-overlay"></div>
+              </div>
+            </div>
+            <div class="comment-send-block">
+              <div class="flex items-center gap-2">
+                <span>Ajouter une note</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <button><i class="icon-sent"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

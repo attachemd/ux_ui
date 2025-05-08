@@ -1,0 +1,53 @@
+@layer material-variables {
+  :root {
+
+    /* Surface properties */
+
+    --mdc-theme-surface: #ffffff;
+    --mdc-theme-on-surface: #000000;
+    --mdc-theme-background: #ffffff;
+    --mdc-theme-on-background: #000000;
+    --mdc-theme-primary: #6200ee;
+    --mdc-theme-on-primary: #ffffff;
+    --mdc-theme-secondary: #03dac6;
+    --mdc-theme-on-secondary: #000000;
+
+    /* SideNav */
+    --mat-sidenav-container-width: 80px;
+    --mat-sidenav-content-text-color: var(--ft-color-text-primary)
+
+    /* Icon properties */
+
+
+    /* Toggle Switch */
+
+
+    /* Dialog */
+
+
+    /* Overlay*/
+
+
+    /* button */
+
+
+    /* Overlay properties */
+
+
+    /* FormField properties */
+
+
+    /* chip */
+
+
+    /* InputText properties */
+
+  }
+  body.dark-theme {
+  }
+  @media (min-width: 1024px) {
+    :root {
+      /*--p-form-field-border-radius: var(--ft-border-radius-pill)*/
+    }
+  }
+}

@@ -1,10 +1,10 @@
 import {
   AfterViewInit,
   Component,
-  ElementRef,
+  ElementRef, inject,
   OnDestroy,
   OnInit,
-  Renderer2,
+  Renderer2, signal,
   ViewChild,
 } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
@@ -28,6 +28,9 @@ import { InputTextModule } from 'primeng/inputtext';
 import {DialogService, DynamicDialogModule, DynamicDialogRef} from 'primeng/dynamicdialog';
 import {MessageService} from 'primeng/api';
 import {MedicalConditionDialogComponent} from './dialogs/medical-condition-dialog/medical-condition-dialog.component';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatNavList} from '@angular/material/list';
+import {MediaMatcher} from '@angular/cdk/layout';
 @Component({
   selector: 'app-root',
   imports: [
@@ -39,6 +42,8 @@ import {MedicalConditionDialogComponent} from './dialogs/medical-condition-dialo
     FormsModule,
     InputTextModule,
     ReactiveFormsModule,
+    MatSidenavModule,
+    MatNavList,
   ],
   providers: [DialogService, MessageService],
   templateUrl: './app.component.html',
@@ -61,7 +66,31 @@ export class AppComponent implements AfterViewInit, OnDestroy {
 
   ref: DynamicDialogRef | undefined;
 
-  constructor(private renderer: Renderer2, public dialogService: DialogService, public messageService: MessageService) {}
+  protected readonly fillerNav = Array.from({length: 50}, (_, i) => `Nav Item ${i + 1}`);
+
+  protected readonly fillerContent = Array.from(
+    {length: 50},
+    () =>
+      `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+       labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+       laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+       voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+       cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`,
+  );
+
+  protected readonly isMobile = signal(true);
+
+  private readonly _mobileQuery: MediaQueryList;
+  private readonly _mobileQueryListener: () => void;
+
+  constructor(private renderer: Renderer2, public dialogService: DialogService, public messageService: MessageService) {
+    const media = inject(MediaMatcher);
+
+    this._mobileQuery = media.matchMedia('(max-width: 600px)');
+    this.isMobile.set(this._mobileQuery.matches);
+    this._mobileQueryListener = () => this.isMobile.set(this._mobileQuery.matches);
+    this._mobileQuery.addEventListener('change', this._mobileQueryListener);
+  }
 
   showDialog(entity: MedicalHistoryEntity) {
     // Use the dialogComponent property from the entity to open the correct component
@@ -100,6 +129,7 @@ export class AppComponent implements AfterViewInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.removeEventListeners();
+    this._mobileQuery.removeEventListener('change', this._mobileQueryListener);
   }
 
   private setupEventListeners(): void {

@@ -133,12 +133,12 @@
 
   <div class="flex justify-end gap-2 dialog-footer">
     <p-button
-      label="Cancel"
+      label="Annuler"
       severity="secondary"
       (click)="closeDialog({ buttonType: 'Cancel', summary: 'No Product Selected' })"
       size="small"
     />
-    <p-button label="Save" (click)="saveMedicalAntecedent()" size="small"
+    <p-button label="Enregistrer" (click)="saveMedicalAntecedent()" size="small"
               [disabled]="!medicalAntecedentForm.valid" />
   </div>
 </form>
