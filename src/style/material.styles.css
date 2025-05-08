@@ -1,0 +1,14 @@
+@layer material-styles {
+  .main-sidenav-container {
+    background-color: transparent !important;
+  }
+  .main-sidenav {
+    background-color: var(--ft-color-background-primary) !important;
+    backdrop-filter: blur(8px);
+    > .mat-drawer-inner-container {
+      overflow: visible !important;
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}

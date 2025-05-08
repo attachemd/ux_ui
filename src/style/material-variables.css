@@ -14,7 +14,9 @@
 
     /* SideNav */
     --mat-sidenav-container-width: 80px;
-    --mat-sidenav-content-text-color: var(--ft-color-text-primary)
+    --mat-sidenav-content-text-color: var(--ft-color-text-primary);
+    --mat-sidenav-content-background-color: var(--ft-color-background-secondary);
+    --mat-sidenav-container-text-color: var(--ft-color-text-primary);
 
     /* Icon properties */
 
