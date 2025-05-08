@@ -133,6 +133,14 @@
                 class="w-full"
                 variant="filled"
               ></textarea>
+            <p-button
+              icon="pi pi-times"
+              severity="secondary"
+              [rounded]="true"
+              [text]="true"
+              (click)="clearField('note')"
+              *ngIf="noteControl?.value"
+            />
           </div>
           <label for="note">Note</label>
         </p-floatlabel>

@@ -31,7 +31,7 @@
 
     /* Dialog */
     --p-dialog-title-font-size: var(--text-base);
-    --p-dialog-title-font-weight: var(--font-weight-normal);
+    --p-dialog-title-font-weight: var(--font-weight-medium);
 
     /* Overlay*/
     --p-overlay-modal-padding: var(--ft-spacing-md);
