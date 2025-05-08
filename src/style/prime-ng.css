@@ -24,6 +24,12 @@
     height: var(--ft-spacing-3xl);
   }
 
+  .p-button:disabled {
+    background-color: #CCCCCC;
+    opacity: 1;
+    color: #848484;
+  }
+
   .p-iconwrapper {
     display: flex;
   }

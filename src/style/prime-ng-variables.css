@@ -29,6 +29,8 @@
 
     --p-content-border-radius: var(--radius-xl);
 
+    --p-togglebutton-content-border-radius: var(--ft-border-radius-pill);
+
     /* Dialog */
     --p-dialog-title-font-size: var(--text-base);
     --p-dialog-title-font-weight: var(--font-weight-medium);
