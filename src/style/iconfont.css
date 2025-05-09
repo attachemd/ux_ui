@@ -34,6 +34,15 @@
     align-items: center;
   }
 
+  .icon-admission:before {
+    content: "\e973";
+  }
+  .icon-hospitalization:before {
+    content: "\e974";
+  }
+  .icon-visit:before {
+    content: "\e975";
+  }
   .icon-gender2:before {
     content: "\e972";
   }

@@ -8,26 +8,50 @@
 <!--        <a mat-list-item>{{nav}}</a>-->
 <!--      }-->
 <!--    </mat-nav-list>-->
-    <div class="ft-flex-center">
-      <button (click)="snav.toggle()" *ngIf="snav.opened"><i class="icon-menu"></i></button>
+    <div class="ft-flex-center main-sidenav-header">
+      <span class="ft-flex-center logo" *ngIf="isMobile()">Logo</span>
+      <button (click)="snav.toggle()" *ngIf="snav.opened"><i class="icon-close"></i></button>
     </div>
-    <div class="ft-flex-center flex-grow">
-      <div class="ft-flex-center">
-        <div class="ft-flex-center flex-col flex-grow">
+    <div class="flex-grow main-sidenav-body">
+
+        <div class="main-sidenav-nav-item active">
           <i class="icon-users"></i>
-          <div class="ft-flex-center">
+          <div class="ft-flex-center" *ngIf="isMobile()">
             <span class="ft-flex-center">Patients</span>
           </div>
         </div>
-      </div>
+      <div class="main-sidenav-nav-item">
+          <i class="icon-visit"></i>
+          <div class="ft-flex-center" *ngIf="isMobile()">
+            <span class="ft-flex-center">Visites</span>
+          </div>
+        </div>
+      <div class="main-sidenav-nav-item">
+          <i class="icon-admission"></i>
+          <div class="ft-flex-center" *ngIf="isMobile()">
+            <span class="ft-flex-center">Admissions</span>
+          </div>
+        </div>
+      <div class="main-sidenav-nav-item">
+          <i class="icon-hospitalization"></i>
+          <div class="ft-flex-center" *ngIf="isMobile()">
+            <span class="ft-flex-center">Hospitalisations</span>
+          </div>
+        </div>
+
     </div>
-    <div class="ft-flex-center">
-      <button><i class="icon-help2"></i></button>
+    <div class="main-sidenav-footer">
+      <div class="main-sidenav-nav-item">
+        <i class="icon-help2"></i>
+        <div class="ft-flex-center" *ngIf="isMobile()">
+          <span class="ft-flex-center">Support</span>
+        </div>
+      </div>
     </div>
   </mat-sidenav>
 
   <mat-sidenav-content>
-    <div class="flex flex-col w-full">
+    <div class="flex flex-col w-full h-full">
       <div class="main-toolbar">
         <div class="flex items-center gap-3">
           <button (click)="snav.toggle()" *ngIf="!snav.opened"><i class="icon-menu"></i></button>

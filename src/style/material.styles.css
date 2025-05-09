@@ -2,13 +2,90 @@
   .main-sidenav-container {
     background-color: transparent !important;
   }
+
   .main-sidenav {
+
+    /*padding: 0 var(--ft-spacing-md);*/
+    /*background-color: var(--ft-color-background-quinary);*/
+    box-shadow: var(--box-shadow-panel);
     background-color: var(--ft-color-background-primary) !important;
     backdrop-filter: blur(8px);
+
     > .mat-drawer-inner-container {
       overflow: visible !important;
       display: flex;
       flex-direction: column;
+      gap: var(--ft-spacing-3xl);
+    }
+
+    .main-sidenav-header {
+      height: 54px;
+      padding: 0 var(--ft-spacing-md);
+      .logo {
+        justify-content: flex-start;
+        flex-grow: 1;
+      }
+    }
+
+    .main-sidenav-body {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .main-sidenav-nav-item {
+      display: flex;
+      width: auto;
+      height: var(--ft-spacing-7xl);
+      flex-direction: row;
+      align-items: center;
+      gap: var(--ft-spacing-sm);
+      margin-left: var(--ft-spacing-md);
+      padding-right: var(--ft-spacing-md);
+      padding-left: var(--ft-spacing-md);
+      border-radius: var(--ft-border-radius-pill) 0 0 var(--ft-border-radius-pill);
+      &.active {
+        /*background-color: var(--ft-color-background-secondary);*/
+        background-color: var(--ft-color-dark-alpha-tertiary);
+        color: var(--ft-color-text-primary);
+      }
+    }
+
+    .main-sidenav-footer {
+      height: 54px;
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  /*.main-sidenav {*/
+  /*  background-color: var(--ft-color-background-primary) !important;*/
+  /*  backdrop-filter: blur(8px);*/
+  /*  > .mat-drawer-inner-container {*/
+  /*    overflow: visible !important;*/
+  /*    display: flex;*/
+  /*    flex-direction: column;*/
+  /*  }*/
+  /*}*/
+  @media (width >= 40rem) {
+    .main-sidenav {
+      flex-direction: column;
+      padding: var(--ft-spacing-3xl) var(--ft-spacing-md);
+      .main-sidenav-nav-item {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        border-radius: var(--radius-xl);
+        gap: 0;
+        margin-left: 0;
+        padding-right: 0;
+        padding-left: 0;
+
+        /*&.active {*/
+        /*  background-color: var(--ft-color-dark-alpha-primary);*/
+        /*}*/
+      }
     }
   }
 }
