@@ -1,4 +1,5 @@
 :host {
   display: flex;
+  flex-grow: 1;
   font-size: var(--ft-text-xs);
 }

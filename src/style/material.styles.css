@@ -1,6 +1,7 @@
 @layer material-styles {
   .main-sidenav-container {
     background-color: transparent !important;
+    flex-grow: 1;
   }
 
   :root {

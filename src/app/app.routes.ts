@@ -1,7 +1,23 @@
 import { Routes } from '@angular/router';
-import {MedicalHistoryComponent} from './components/medical-history/medical-history.component';
-import {MainComponent} from './components/main/main.component';
+import {PatientComponent} from './components/patient/patient.component';
+import {PatientListComponent} from './components/patient/patient-list/patient-list.component';
+import {PatientItemComponent} from './components/patient/patient-item/patient-item.component';
+import {PatientDetailsComponent} from './components/patient/patient-item/patient-details/patient-details.component';
+import {MedicalHistoryComponent} from './components/patient/patient-item/medical-history/medical-history.component';
 
 export const routes: Routes = [
-  { path: '', component: MainComponent }, // Default route
+  { path: '', pathMatch: 'full', redirectTo: 'patient' }, // Default route
+  { path: 'patient', component: PatientComponent,
+    children: [
+      { path: '', pathMatch: 'full', redirectTo: 'list' },
+      { path: 'list', component: PatientListComponent },
+      { path: ':id', component: PatientItemComponent,
+        children: [
+          { path: '', pathMatch: 'full', redirectTo: 'details' },
+          { path: 'details', component: PatientDetailsComponent },
+          { path: 'medical-history', component: MedicalHistoryComponent },
+        ],
+      },
+    ],
+  }
 ];
