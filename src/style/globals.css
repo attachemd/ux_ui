@@ -190,12 +190,12 @@
 
   .main-content {
     /* flex flex-col flex-grow pr-4 pl-4 pb-4 gap-4 overflow-auto*/
-    scrollbar-width: none;
+    /*scrollbar-width: none;*/
     display: flex;
     flex-direction: column;
     flex-grow: 1;
-    padding: 0 var(--ft-spacing-md) var(--ft-spacing-md);
-    gap: var(--ft-spacing-md);
+    /*padding: 0 var(--ft-spacing-md) var(--ft-spacing-md);*/
+    /*gap: var(--ft-spacing-md);*/
     overflow: auto;
   }
 

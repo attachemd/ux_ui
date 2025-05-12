@@ -1,0 +1,10 @@
+:host {
+  scrollbar-width: none;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  height: 100%;
+  padding: 0 var(--ft-spacing-md) var(--ft-spacing-md);
+  gap: var(--ft-spacing-md);
+  overflow: auto;
+}
