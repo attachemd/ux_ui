@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, ViewChild} from '@angular/core';
 import {
   MatTableDataSource, MatTableModule
 } from '@angular/material/table';
@@ -6,6 +6,9 @@ import {MatSort, MatSortModule} from '@angular/material/sort';
 import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
+import {MatIconModule} from '@angular/material/icon';
+import {NgIf} from '@angular/common';
+import {MatButton, MatIconButton} from '@angular/material/button';
 export interface UserData {
   id: string;
   name: string;
@@ -48,7 +51,7 @@ const NAMES: string[] = [
 @Component({
   selector: 'app-patient-list',
   imports: [
-    MatFormFieldModule, MatInputModule, MatTableModule, MatSortModule, MatPaginatorModule
+    MatFormFieldModule, MatInputModule, MatTableModule, MatSortModule, MatPaginatorModule, MatIconModule, NgIf, MatIconButton, MatButton
 
   ],
   templateUrl: './patient-list.component.html',
@@ -60,6 +63,7 @@ export class PatientListComponent implements AfterViewInit {
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
+  @ViewChild('input') input!: ElementRef<HTMLInputElement>;
 
   constructor() {
     // Create 100 users
@@ -81,6 +85,11 @@ export class PatientListComponent implements AfterViewInit {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+
+  clearInput() {
+    this.input.nativeElement.value = '';
+    this.applyFilter({ target: this.input.nativeElement } as unknown as Event); // Trigger filter after clearing
   }
 }
 

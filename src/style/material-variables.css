@@ -20,6 +20,8 @@
 
     /* Icon properties */
 
+    --mat-icon-color: var(--ft-color-text-primary);
+
 
     /* Toggle Switch */
 
@@ -32,12 +34,33 @@
 
     /* button */
 
+    --mdc-filled-button-container-color: var(--ft-color-primary);
+    --mdc-filled-button-label-text-color: var(--ft-color-on-primary);
+    --mdc-filled-button-container-height: var(--ft-spacing-3xl);
+    --mdc-filled-button-label-text-font: var(--ft-font-family-base);
+    --mdc-filled-button-container-shape: var(--radius-lg);
+    --mdc-filled-button-label-text-size: var(--ft-text-xs);
+    --mat-filled-button-horizontal-padding: var(--ft-spacing-md);
+
+    /* Button icons */
+
+    --mdc-icon-button-state-layer-size: var(--ft-spacing-3xl);
 
     /* Overlay properties */
 
 
     /* FormField properties */
-
+    --mat-form-field-container-height: var(--ft-spacing-3xl);
+    --mat-form-field-container-vertical-padding: var(--ft-spacing-xs);
+    /*--mdc-filled-text-field-container-color: var(--ft-color-background-tertiary);*/
+    --mdc-filled-text-field-container-color: transparent;
+    --mdc-filled-text-field-container-shape: var(--ft-border-radius-pill);
+    --mdc-filled-text-field-active-indicator-height: 0;
+    --mdc-filled-text-field-focus-active-indicator-height: 0;
+    --mat-form-field-leading-icon-color: var(--ft-color-text-primary);
+    --mat-form-field-trailing-icon-color: var(--ft-color-text-primary);
+    --mdc-filled-text-field-input-text-color: var(--ft-color-text-primary);
+    --mdc-filled-text-field-caret-color: var(--ft-color-text-primary);
 
     /* chip */
 
@@ -45,12 +68,14 @@
     /* InputText properties */
 
     /* Table */
+    --mat-table-header-container-height: var(--ft-spacing-7xl);
     --mat-table-header-headline-color: var(--ft-color-text-tertairy);
     --mat-table-header-headline-font: var(--ft-font-family-base);
 
     --mat-table-background-color: var(--ft-color-background-secondary);
     --mat-table-row-item-label-text-color: var(--ft-color-text-primary);
     --mat-table-row-item-label-text-font: var(--ft-font-family-base);
+    --mat-table-row-item-label-text-weight: var(--font-weight-medium);
     --mat-table-row-item-outline-width: 0;
 
     /* paginator */

@@ -36,6 +36,7 @@
   :root {
     /* --- Colors --- */
     --ft-color-primary: var(--color-mauve-500);
+    --ft-color-on-primary: #fff;
     --ft-color-secondary: #6c757d;
     --ft-color-success: #28a745;
     --ft-color-danger: #dc3545;

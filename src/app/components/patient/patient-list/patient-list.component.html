@@ -1,7 +1,25 @@
 <div class="list-container ft-panel">
-  <div>
-    <div>
-      <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+  <div class="list-header">
+<!--    <div>-->
+<!--      <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>-->
+<!--    </div>-->
+    <mat-form-field class="table-search">
+      <mat-icon matPrefix><i class="icon-search"></i></mat-icon>
+<!--      <i matPrefix class="icon-close"></i>-->
+      <input matInput placeholder="Rechercher les patients" (keyup)="applyFilter($event)" #input />
+      <button *ngIf="input.value" matSuffix mat-icon-button aria-label="Clear" (click)="clearInput()">
+        <mat-icon><i class="icon-close"></i></mat-icon>
+      </button>
+    </mat-form-field>
+    <div class="table-actions-container">
+      <button mat-flat-button>
+<!--        <i class="icon-plus"></i>-->
+        <mat-icon><i class="icon-plus"></i></mat-icon>
+        <span>Nouveau patient</span>
+      </button>
+      <button mat-icon-button aria-label="Example icon button with a vertical three dot icon">
+        <mat-icon><i class="icon-vertical-dots"></i></mat-icon>
+      </button>
     </div>
   </div>
   <div class="w-full">
@@ -43,4 +61,3 @@
     <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
   </div>
 </div>
-
