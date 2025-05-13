@@ -1,0 +1,13 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 0 var(--ft-spacing-md) var(--ft-spacing-md);
+  .list-container {
+    background-color: var(--ft-color-background-primary);
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    align-items: start;
+  }
+}

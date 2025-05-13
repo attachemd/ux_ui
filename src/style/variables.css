@@ -83,7 +83,7 @@
     --ft-color-link: var(--ft-color-primary);
 
     /* --- Typography --- */
-    --ft-font-family-base: "Helvetica Neue", Arial, sans-serif;
+    --ft-font-family-base: Inter, "Helvetica Neue", Arial, sans-serif;
     --ft-font-family-headings: "Georgia", serif; /* Example */
 
     /* 10px */

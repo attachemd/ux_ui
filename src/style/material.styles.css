@@ -16,7 +16,7 @@
 
     /*padding: 0 var(--ft-spacing-md);*/
     /*background-color: var(--ft-color-background-quinary);*/
-    box-shadow: var(--box-shadow-panel);
+    box-shadow: var(--box-shadow-panel) !important;
     background-color: var(--ft-color-background-primary) !important;
     backdrop-filter: blur(8px);
     overflow: hidden;
@@ -95,6 +95,24 @@
   /*    flex-direction: column;*/
   /*  }*/
   /*}*/
+
+  /*.mat-mdc-header-row,*/
+  /*.mat-mdc-row {*/
+  /*  min-width: 100%;*/
+  /*}*/
+
+  .mat-mdc-cell {
+    background-color: unset;
+  }
+
+  .mat-mdc-row:nth-child(odd){
+    background-color: var(--ft-color-background-tertiary) !important;
+  }
+
+  .mat-mdc-row:nth-child(even){
+    background-color: transparent !important;
+  }
+
   @media (width >= 40rem) {
     :root {
       --mat-sidenav-container-width: 80px;

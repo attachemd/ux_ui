@@ -44,6 +44,26 @@
 
     /* InputText properties */
 
+    /* Table */
+    --mat-table-header-headline-color: var(--ft-color-text-tertairy);
+    --mat-table-header-headline-font: var(--ft-font-family-base);
+
+    --mat-table-background-color: var(--ft-color-background-secondary);
+    --mat-table-row-item-label-text-color: var(--ft-color-text-primary);
+    --mat-table-row-item-label-text-font: var(--ft-font-family-base);
+    --mat-table-row-item-outline-width: 0;
+
+    /* paginator */
+    --mat-paginator-container-background-color: var(--ft-color-background-secondary);
+    --mat-paginator-container-text-color: var(--ft-color-text-primary);
+    --mat-paginator-container-text-font: var(--ft-font-family-base);
+    --mat-select-enabled-trigger-text-color: var(--ft-color-text-primary);
+    --mat-select-trigger-text-font: var(--ft-font-family-base);
+    --mat-paginator-enabled-icon-color: var(--ft-color-text-primary);
+    --mat-paginator-disabled-icon-color: var(--ft-color-text-muted);
+    --mdc-outlined-text-field-outline-width: 0;
+    --mat-select-enabled-arrow-color: var(--ft-color-text-primary);
+
   }
   body.dark-theme {
   }
