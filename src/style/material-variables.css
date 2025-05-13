@@ -34,8 +34,8 @@
 
     /* button */
 
-    --mdc-filled-button-container-color: var(--ft-color-primary);
-    --mdc-filled-button-label-text-color: var(--ft-color-on-primary);
+    --mdc-filled-button-container-color: var(--ft-color-background-secondary);
+    --mdc-filled-button-label-text-color: var(--ft-color-text-primary);
     --mdc-filled-button-container-height: var(--ft-spacing-3xl);
     --mdc-filled-button-label-text-font: var(--ft-font-family-base);
     --mdc-filled-button-container-shape: var(--radius-lg);
@@ -51,7 +51,7 @@
 
     /* FormField properties */
     --mat-form-field-container-height: var(--ft-spacing-3xl);
-    --mat-form-field-container-vertical-padding: var(--ft-spacing-xs);
+    --mat-form-field-container-vertical-padding: var(--ft-spacing-2xs);
     /*--mdc-filled-text-field-container-color: var(--ft-color-background-tertiary);*/
     --mdc-filled-text-field-container-color: transparent;
     --mdc-filled-text-field-container-shape: var(--ft-border-radius-pill);
