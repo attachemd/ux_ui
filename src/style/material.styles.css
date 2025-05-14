@@ -71,8 +71,9 @@
 
       &.active {
         /*background-color: var(--ft-color-background-secondary);*/
-        background-color: var(--ft-color-dark-alpha-tertiary);
+        background-color: var(--ft-color-dark-alpha-primary);
         color: var(--ft-color-text-primary);
+        border-right: var(--ft-border-tertiary) solid var(--ft-color-primary);
       }
     }
 
@@ -314,6 +315,9 @@
       width: 80% !important;
       transform: translate(-50%, -50%) !important;
     }
+    .mdc-checkbox__mixedmark {
+      width: 52% !important;
+    }
   }
 
 
@@ -340,9 +344,9 @@
         padding-right: var(--ft-spacing-md);
         padding-left: var(--ft-spacing-md);
 
-        /*&.active {*/
-        /*  background-color: var(--ft-color-dark-alpha-primary);*/
-        /*}*/
+        &.active {
+            border-right-width: 0;
+        }
       }
 
     }
@@ -358,6 +362,9 @@
         padding-right: var(--ft-spacing-md);
         padding-left: var(--ft-spacing-md);
         border-radius: var(--ft-radius-pill) 0 0 var(--ft-radius-pill);
+        &.active {
+          border-right-width: var(--ft-border-tertiary);
+        }
       }
     }
 

@@ -234,6 +234,14 @@ border-radius: var(--ft-radius-pill);
     height: var(--ft-spacing-6xl);
     min-height: var(--ft-spacing-6xl);
     overflow: hidden;
+    .tab-border {
+      position: absolute;
+      bottom: 0;
+      background-color: var(--ft-color-primary);
+      height: var(--ft-border-tertiary);
+      border-radius: var(--ft-radius-pill);
+      width: 30%;
+    }
     .more {
       display: flex;
       align-items: center;
