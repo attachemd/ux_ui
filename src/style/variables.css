@@ -53,7 +53,7 @@
 
     --ft-color-text-primary: #000;
     --ft-color-text-secondary: rgba(0, 0, 0, 0.8);
-    --ft-color-text-tertairy: rgba(0, 0, 0, 0.5);
+    --ft-color-text-tertairy: rgba(0, 0, 0, 0.4);
     --ft-color-background-muted: #f7f7f7;
 
     --ft-color-background-body: 255, 255, 255;
@@ -132,7 +132,7 @@
     --ft-border-tertiary: 3px;
 
     /*800px*/
-    --ft-border-radius-pill: 50rem;
+    --ft-radius-pill: 50rem;
 
     /* --- Shadows --- */
     --box-shadow-panel: 0px 3px 5px rgba(var(--ft-color-global-shadow), 0.02);
@@ -150,6 +150,9 @@
     /*--p-form-field-sm-font-size: var(--ft-text-2xs);*/
 
     --ft-form-field-filled-focus-background: #fff;
+
+    /* table */
+    --ft-color-table-alternate-row: rgba(0, 0, 0, 0.02);
   }
 
   /* Override variables for the dark theme */

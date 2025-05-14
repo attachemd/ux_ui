@@ -29,7 +29,7 @@
 
     --p-content-border-radius: var(--radius-xl);
 
-    --p-togglebutton-content-border-radius: var(--ft-border-radius-pill);
+    --p-togglebutton-content-border-radius: var(--ft-radius-pill);
 
     /* Dialog */
     --p-dialog-title-font-size: var(--text-base);
@@ -48,7 +48,7 @@
 
     --p-button-icon-only-width: var(--ft-spacing-3xl);
 
-    --p-selectbutton-border-radius: var(--ft-border-radius-pill);
+    --p-selectbutton-border-radius: var(--ft-radius-pill);
 
     /* Overlay properties */
     --p-overlay-modal-background: transparent;
@@ -79,7 +79,7 @@
     --p-chip-background: var(--ft-color-background-secondary);
     /*--p-chip-color: var(--p-primary-800);*/
     /*--p-chip-remove-icon-color: var(--p-primary-800);*/
-    --p-multiselect-chip-border-radius: var(--ft-border-radius-pill);
+    --p-multiselect-chip-border-radius: var(--ft-radius-pill);
     --p-checkbox-filled-background: var(--ft-color-background-secondary)
 
     /* InputText properties */
@@ -92,7 +92,7 @@
   }
   @media (min-width: 1024px) {
     :root {
-      /*--p-form-field-border-radius: var(--ft-border-radius-pill)*/
+      /*--p-form-field-border-radius: var(--ft-radius-pill)*/
     }
   }
 }

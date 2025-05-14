@@ -216,7 +216,7 @@
   .p-multiselect-filter-container {
     input {
       padding: var(--ft-spacing-2xs) var(--ft-spacing-md);
-      border-radius: var(--ft-border-radius-pill);
+      border-radius: var(--ft-radius-pill);
       border-width: var(--ft-border-secondary);
       border-color: var(--ft-color-background-quaternary);
       background-color: var(--ft-color-background-secondary);
