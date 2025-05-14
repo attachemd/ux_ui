@@ -41,6 +41,9 @@
     --mdc-filled-button-container-shape: var(--radius-lg);
     --mdc-filled-button-label-text-size: var(--ft-text-xs);
     --mat-filled-button-horizontal-padding: var(--ft-spacing-md);
+    --mat-filled-button-state-layer-color: var(--ft-color-primary);
+    --mat-filled-button-hover-state-layer-opacity: 8%;
+    --mat-filled-button-pressed-state-layer-opacity: 8%;
 
     /* Button icons */
 

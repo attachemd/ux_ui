@@ -166,7 +166,11 @@
     transition: background-color 0.3s ease, transform 0.1s ease;
     display: inline-flex;
     align-items: center;
-    border-radius: var(--ft-border-radius-pill);
+    overflow: hidden;
+  }
+
+  button:has(>i) {
+border-radius: var(--ft-border-radius-pill);
   }
 
   /* Hover state */

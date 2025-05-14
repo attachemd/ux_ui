@@ -140,6 +140,7 @@
   /* Buttons */
   .mdc-button {
     line-height: 1 !important;
+    overflow: hidden !important;
 
     &.mat-mdc-unelevated-button {
 
@@ -152,6 +153,10 @@
     &.mat-mdc-unelevated-button:not(:disabled) {
       border: var(--ft-border-secondary) solid var(--ft-color-dark-alpha-secondary) !important;
     }
+  }
+  /* ripple */
+  [class*="-ripple"] {
+    border-radius: 0 !important;
   }
 
   /* Button icons */
