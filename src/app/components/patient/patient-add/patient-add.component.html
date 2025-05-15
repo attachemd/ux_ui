@@ -1,0 +1,519 @@
+<p-toast></p-toast>
+<p-confirmDialog></p-confirmDialog>
+
+<div class="add-patient-container">
+  <div class="page-header">
+    <h2>Ajouter un nouveau patient</h2>
+    <div class="header-actions">
+      <p-button
+        label="Annuler"
+        severity="secondary"
+        (click)="cancel()"
+        size="small"
+      />
+      <p-button
+        label="Enregistrer"
+        (click)="savePatient()"
+        size="small"
+        [disabled]="!patientForm.valid || isSaving"
+        [loading]="isSaving"
+      />
+    </div>
+  </div>
+
+  <form [formGroup]="patientForm" class="p-fluid patient-form">
+
+    <mat-accordion class="section-accordion">
+
+      <div class="section-container"> <mat-expansion-panel expanded> <mat-expansion-panel-header>
+        <mat-panel-title>
+          Entête
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+        <div class="p-grid p-nogutter p-align-center">
+          <div class="p-col-12 p-md-2 p-lg-1 flex justify-content-center">
+            <div class="photo-upload-container text-center">
+<!--              <img-->
+<!--                [src]="uploadedPhoto ? (uploadedPhoto | blobToUrl) : 'assets/images/default-avatar.png'"-->
+<!--                alt="Patient Photo"-->
+<!--                class="patient-photo"-->
+<!--                (error)="handleImageError($event)"-->
+<!--              >-->
+<!--              <p-fileUpload-->
+<!--                #photoUploader-->
+<!--                mode="basic"-->
+<!--                accept="image/*"-->
+<!--                [maxFileSize]="maxFileSize"-->
+<!--                (onSelect)="onPhotoSelect($event)"-->
+<!--                (onClear)="onPhotoRemove()"-->
+<!--                [auto]="false"-->
+<!--                [showUploadButton]="false"-->
+<!--                [showCancelButton]="false"-->
+<!--                chooseLabel="Choisir une photo"-->
+<!--              ></p-fileUpload>-->
+              <small class="p-text-secondary">Max {{ maxFileSize / (1024 * 1024) }} Mo</small>
+            </div>
+          </div>
+          <div class="p-col-12 p-md-10 p-lg-11">
+            <div class="field-container">
+              <p-floatlabel variant="in">
+                <p-multiSelect
+                  formControlName="mentions"
+                  [options]="mentionsOptions"
+                  optionLabel="name"
+                  display="chip"
+                  [showClear]="true"
+                  id="mentions"
+                  styleClass="w-full"
+                  variant="filled"
+                ></p-multiSelect>
+                <label for="mentions">Mentions</label>
+              </p-floatlabel>
+            </div>
+          </div>
+        </div>
+
+      </mat-expansion-panel>
+      </div>
+
+
+      <div class="section-container"> <mat-expansion-panel expanded>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Informations générales
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <div class="p-fluid p-formgrid p-grid">
+          <div class="p-field p-col-12 p-md-6">
+            <div class="field-container">
+              <p-floatlabel variant="in">
+                <input pInputText formControlName="lastName" id="lastName" type="text" variant="filled" />
+                <label for="lastName">Nom <span>*</span></label>
+              </p-floatlabel>
+              <small
+                class="p-error"
+                *ngIf="shouldShowError(lastNameControl)">
+                <span *ngIf="lastNameControl?.errors?.['required']">Le nom est obligatoire.</span>
+                <span *ngIf="lastNameControl?.errors?.['leadingTrailingSpaces']">Les espaces au début/fin ne sont pas autorisés.</span>
+                <span *ngIf="lastNameControl?.errors?.['pattern']">Caractères autorisés: a-z, A-Z, -, &, `, _, ´</span>
+              </small>
+            </div>
+          </div>
+          <div class="p-field p-col-12 p-md-6">
+            <div class="field-container">
+              <p-floatlabel variant="in">
+                <input pInputText formControlName="firstName" id="firstName" type="text" variant="filled" />
+                <label for="firstName">Prénom <span>*</span></label>
+              </p-floatlabel>
+              <small
+                class="p-error"
+                *ngIf="shouldShowError(firstNameControl)">
+                <span *ngIf="firstNameControl?.errors?.['required']">Le prénom est obligatoire.</span>
+                <span *ngIf="firstNameControl?.errors?.['leadingTrailingSpaces']">Les espaces au début/fin ne sont pas autorisés.</span>
+                <span *ngIf="firstNameControl?.errors?.['pattern']">Caractères autorisés: a-z, A-Z, -, &, `, _, ´</span>
+              </small>
+            </div>
+          </div>
+          <div class="p-field p-col-12 p-md-6">
+            <div class="field-container">
+              <p-floatlabel variant="in">
+                <p-calendar
+                  formControlName="dateOfBirth"
+                  id="dateOfBirth"
+                  showIcon="true"
+                  iconDisplay="input"
+                  dateFormat="dd/mm/yy"
+                  [showButtonBar]="true"
+                  [showClear]="true"
+                  variant="filled"
+                  appendTo="body"
+                ></p-calendar>
+                <label for="dateOfBirth">Date de naissance <span>*</span></label>
+              </p-floatlabel>
+              <small class="p-error" *ngIf="shouldShowError(dateOfBirthControl)">
+                <span *ngIf="dateOfBirthControl?.errors?.['required']">La date de naissance est obligatoire.</span>
+              </small>
+            </div>
+          </div>
+          <div class="p-field p-col-12 p-md-6">
+            <div class="field-container">
+              <p-floatlabel variant="in">
+                <p-inputNumber
+                  formControlName="age"
+                  id="age"
+                  mode="decimal"
+                  [useGrouping]="false"
+                  [min]="0"
+                  [max]="150"
+                  variant="filled"
+                  suffix=" ans"
+                ></p-inputNumber>
+                <label for="age">Age</label>
+              </p-floatlabel>
+            </div>
+          </div>
+          <div class="p-field p-col-12 p-md-6">
+            <div class="field-container">
+              <p-floatlabel variant="in">
+                <p-dropdown
+                  formControlName="gender"
+                  [options]="genders"
+                  optionLabel="name"
+                  [showClear]="true"
+                  id="gender"
+                  styleClass="w-full"
+                  variant="filled"
+                ></p-dropdown>
+                <label for="gender">Genre</label>
+              </p-floatlabel>
+            </div>
+          </div>
+          <div class="p-field p-col-12 p-md-6">
+            <div class="field-container">
+              <p-floatlabel variant="in">
+                <p-autocomplete
+                  formControlName="nationality"
+                  [suggestions]="filteredNationalities"
+                  (completeMethod)="searchNationalities($event)"
+                  field="name"
+                  [dropdown]="true"
+                  [showClear]="true"
+                  id="nationality"
+                  styleClass="w-full"
+                  variant="filled"
+                ></p-autocomplete>
+                <label for="nationality">Nationalité</label>
+              </p-floatlabel>
+            </div>
+          </div>
+          <div class="p-field p-col-12 p-md-6">
+            <div class="field-container">
+              <p-floatlabel variant="in">
+                <input pInputText formControlName="placeOfBirth" id="placeOfBirth" type="text" variant="filled" />
+                <label for="placeOfBirth">Lieu de naissance</label>
+              </p-floatlabel>
+            </div>
+          </div>
+          <div class="p-field p-col-12 p-md-6">
+            <div class="field-container">
+              <p-floatlabel variant="in">
+                <p-dropdown
+                  formControlName="maritalStatus"
+                  [options]="maritalStatuses"
+                  optionLabel="name"
+                  [showClear]="true"
+                  id="maritalStatus"
+                  styleClass="w-full"
+                  variant="filled"
+                ></p-dropdown>
+                <label for="maritalStatus">Situation familiale</label>
+              </p-floatlabel>
+            </div>
+          </div>
+          <div class="p-field p-col-12">
+            <div class="field-container">
+              <p-floatlabel variant="in">
+                <p-multiSelect
+                  formControlName="spokenLanguages"
+                  [options]="spokenLanguagesOptions"
+                  display="chip"
+                  optionLabel="name"
+                  [maxSelectedLabels]="5"
+                  [showClear]="true"
+                  id="spokenLanguages"
+                  styleClass="w-full"
+                  variant="filled"
+                ></p-multiSelect>
+                <label for="spokenLanguages">Langues parlées</label>
+              </p-floatlabel>
+            </div>
+          </div>
+          <div class="p-field p-col-12 p-md-6">
+            <div class="field-container">
+              <p-floatlabel variant="in">
+                <input pInputText formControlName="occupation" id="occupation" type="text" variant="filled" />
+                <label for="occupation">Profession</label>
+              </p-floatlabel>
+            </div>
+          </div>
+          <div class="p-field p-col-12 p-md-6">
+            <div class="field-container">
+              <p-floatlabel variant="in">
+                <input pInputText formControlName="employer" id="employer" type="text" variant="filled" />
+                <label for="employer">Employeur</label>
+              </p-floatlabel>
+            </div>
+          </div>
+        </div>
+
+      </mat-expansion-panel>
+      </div>
+
+
+      <div class="section-container"> <mat-expansion-panel expanded>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Données administratives
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <div class="p-fluid p-formgrid p-grid">
+          <div class="p-field p-col-12 p-md-6">
+            <div class="field-container">
+              <p-floatlabel variant="in">
+                <input pInputText formControlName="nationalId" id="nationalId" type="text" variant="filled" />
+                <label for="nationalId">Numéro national</label>
+              </p-floatlabel>
+              <small class="p-error" *ngIf="shouldShowError(nationalIdControl)">
+                <span *ngIf="nationalIdControl?.errors?.['leadingTrailingSpaces']">Les espaces au début/fin ne sont pas autorisés.</span>
+              </small>
+            </div>
+          </div>
+          <div class="p-field p-col-12 p-md-6">
+            <div class="field-container">
+              <p-floatlabel variant="in">
+                <input pInputText formControlName="passportNumber" id="passportNumber" type="text" variant="filled" />
+                <label for="passportNumber">Numéro de passeport</label>
+              </p-floatlabel>
+              <small class="p-error" *ngIf="shouldShowError(passportNumberControl)">
+                <span *ngIf="passportNumberControl?.errors?.['invalidPassport']">Doit être alphanumérique et en majuscule.</span>
+              </small>
+            </div>
+          </div>
+          <div class="p-field p-col-12 p-md-6">
+            <div class="field-container">
+              <p-floatlabel variant="in">
+                <input pInputText formControlName="socialSecurityNumber" id="socialSecurityNumber" type="text" variant="filled" />
+                <label for="socialSecurityNumber">Numéro sécurité sociale</label>
+              </p-floatlabel>
+            </div>
+          </div>
+          <div class="p-field p-col-12 p-md-6">
+            <div class="field-container">
+              <p-floatlabel variant="in">
+                <input pInputText formControlName="insuranceProvider" id="insuranceProvider" type="text" variant="filled" />
+                <label for="insuranceProvider">Mutuelle</label>
+              </p-floatlabel>
+            </div>
+          </div>
+          <div class="p-field p-col-12 p-md-6">
+            <div class="field-container">
+              <p-floatlabel variant="in">
+                <input pInputText formControlName="insuranceNumber" id="insuranceNumber" type="text" variant="filled" />
+                <label for="insuranceNumber">Numéro mutuelle</label>
+              </p-floatlabel>
+            </div>
+          </div>
+        </div>
+
+      </mat-expansion-panel>
+      </div>
+
+      <div class="section-container"> <mat-expansion-panel expanded>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Contacts et Relations
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <div class="p-fluid p-formgrid p-grid">
+          <div class="p-field p-col-12 p-md-6">
+            <div class="field-container">
+              <p-floatlabel variant="in">
+                <input pInputText formControlName="email" id="email" type="text" variant="filled" />
+                <label for="email">Email</label>
+              </p-floatlabel>
+              <small class="p-error" *ngIf="shouldShowError(emailControl)">
+                <span *ngIf="emailControl?.errors?.['invalidEmail']">Ce champ est invalide (format email).</span>
+              </small>
+            </div>
+          </div>
+          <div class="p-field p-col-12 p-md-6">
+            <div class="field-container">
+              <p-floatlabel variant="in">
+                <input pInputText formControlName="primaryPhoneNumber" id="primaryPhoneNumber" type="text" variant="filled" />
+                <label for="primaryPhoneNumber">Téléphone principal</label>
+              </p-floatlabel>
+              <small class="p-error" *ngIf="shouldShowError(primaryPhoneNumberControl)">
+                <span *ngIf="primaryPhoneNumberControl?.errors?.['invalidPhone']">Ce champ est invalide (format téléphone).</span>
+              </small>
+            </div>
+          </div>
+          <div class="p-field p-col-12 p-md-6">
+            <div class="field-container">
+              <p-floatlabel variant="in">
+                <input pInputText formControlName="secondaryPhoneNumber" id="secondaryPhoneNumber" type="text" variant="filled" />
+                <label for="secondaryPhoneNumber">Téléphone secondaire</label>
+              </p-floatlabel>
+              <small class="p-error" *ngIf="shouldShowError(secondaryPhoneNumberControl)">
+                <span *ngIf="secondaryPhoneNumberControl?.errors?.['invalidPhone']">Ce champ est invalide (format téléphone).</span>
+              </small>
+            </div>
+          </div>
+          <div class="p-field p-col-12">
+            <div class="field-container">
+              <p-floatlabel variant="in">
+                <textarea pInputTextarea formControlName="address" id="address" rows="3" cols="30" variant="filled" style="resize: none;"></textarea>
+                <label for="address">Adresse</label>
+              </p-floatlabel>
+            </div>
+          </div>
+
+          <div class="p-col-12">
+            <h4>Relations</h4>
+            <p-button label="Ajouter une relation" icon="pi pi-plus" size="small" (click)="openAddRelationDialog()"></p-button>
+
+            <p-table [value]="patientRelations" [tableStyle]="{'margin-top':'15px'}">
+              <ng-template pTemplate="header">
+                <tr>
+                  <th>Type de lien</th>
+                  <th>Patient lié</th>
+                  <th style="width: 5rem"></th>
+                </tr>
+              </ng-template>
+              <ng-template pTemplate="body" let-relation let-rowIndex="rowIndex">
+                <tr>
+                  <td>{{ getRelationTypeName(relation) }}</td>
+                  <td>{{ getRelatedPatientName(relation) }}</td>
+                  <td>
+                    <p-button icon="pi pi-trash" severity="danger" [text]="true" [rounded]="true" (click)="removeRelation(rowIndex)"></p-button>
+                  </td>
+                </tr>
+              </ng-template>
+              <ng-template pTemplate="emptyMessage">
+                <tr>
+                  <td colspan="3" class="text-center">Aucune relation ajoutée.</td>
+                </tr>
+              </ng-template>
+            </p-table>
+          </div>
+        </div>
+
+      </mat-expansion-panel>
+      </div>
+
+      <div class="section-container"> <mat-expansion-panel expanded>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Autres
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <div class="p-fluid p-formgrid p-grid">
+          <div class="p-field p-col-12 p-md-6">
+            <div class="field-container">
+              <p-floatlabel variant="in">
+                <input pInputText formControlName="otherField1" id="otherField1" type="text" variant="filled" />
+                <label for="otherField1">Champ autre 1 (Texte)</label>
+              </p-floatlabel>
+            </div>
+          </div>
+          <div class="p-field p-col-12 p-md-6">
+            <div class="field-container">
+              <p-floatlabel variant="in">
+                <p-dropdown
+                  formControlName="otherField2"
+                  [options]="maritalStatuses" optionLabel="name"
+                  [showClear]="true"
+                  id="otherField2"
+                  styleClass="w-full"
+                  variant="filled"
+                ></p-dropdown>
+                <label for="otherField2">Champ autre 2 (Liste)</label>
+              </p-floatlabel>
+            </div>
+          </div>
+        </div>
+
+      </mat-expansion-panel>
+      </div>
+
+    </mat-accordion>
+
+
+    <p-dialog header="Ajouter une relation" [(visible)]="displayAddRelationDialog" [modal]="true" [style]="{width: '50vw'}" [breakpoints]="{'1199px': '75vw', '575px': '90vw'}">
+      <form [formGroup]="newRelationForm" class="p-fluid">
+        <div class="p-field">
+          <div class="field-container">
+            <p-floatlabel variant="in">
+              <p-dropdown
+                formControlName="type"
+                [options]="relationTypes"
+                optionLabel="name"
+                [showClear]="true"
+                id="relationType"
+                styleClass="w-full"
+                variant="filled"
+              ></p-dropdown>
+              <label for="relationType">Type de lien <span>*</span></label>
+            </p-floatlabel>
+            <small class="p-error" *ngIf="shouldShowRelationError(getRelationControl('type'))">
+              Ce champ est obligatoire.
+            </small>
+          </div>
+        </div>
+        <div class="p-field">
+          <div class="field-container">
+            <p-floatlabel variant="in">
+              <p-autocomplete
+                formControlName="relatedPatient"
+                [suggestions]="filteredExistingPatients"
+                (completeMethod)="searchExistingPatients($event)"
+                field="lastName" [forceSelection]="true"
+                [dropdown]="true"
+                [showClear]="true"
+                id="relatedPatient"
+                styleClass="w-full"
+                variant="filled"
+              >
+                <ng-template let-patient pTemplate="item">
+                  <div>{{ patient.lastName }} {{ patient.firstName }} <span *ngIf="isDateInstance(patient.dateOfBirth)">({{ patient.dateOfBirth | date:'dd/MM/yyyy' }})</span></div>
+                </ng-template>
+              </p-autocomplete>
+              <label for="relatedPatient">Rechercher un patient <span>*</span></label>
+            </p-floatlabel>
+            <small class="p-error" *ngIf="shouldShowRelationError(getRelationControl('relatedPatient'))">
+              Ce champ est obligatoire.
+            </small>
+            <small class="p-text-secondary">Commencez à saisir le nom ou prénom.</small>
+          </div>
+        </div>
+      </form>
+      <ng-template pTemplate="footer">
+        <p-button label="Annuler" icon="pi pi-times" severity="secondary" (click)="displayAddRelationDialog=false" size="small"></p-button>
+        <p-button label="Ajouter" icon="pi pi-check" (click)="addRelation()" [disabled]="!newRelationForm.valid" size="small"></p-button>
+      </ng-template>
+    </p-dialog>
+
+
+  </form>
+
+  <div class="page-footer flex justify-content-end gap-2">
+    <p-button
+      label="Annuler"
+      severity="secondary"
+      (click)="cancel()"
+      size="small"
+    />
+    <p-button
+      label="Enregistrer"
+      (click)="savePatient()"
+      size="small"
+      [disabled]="!patientForm.valid || isSaving"
+      [loading]="isSaving"
+    />
+  </div>
+
+</div>
+
+<ng-template #safeUrl let-file>
+  {{ file | blobToUrl }}
+</ng-template>
+
+<style>
+  .section-container {
+    margin-bottom: 20px; /* Add space between Material expansion panels */
+  }
+</style>

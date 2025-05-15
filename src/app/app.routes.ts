@@ -4,6 +4,7 @@ import {PatientListComponent} from './components/patient/patient-list/patient-li
 import {PatientItemComponent} from './components/patient/patient-item/patient-item.component';
 import {PatientDetailsComponent} from './components/patient/patient-item/patient-details/patient-details.component';
 import {MedicalHistoryComponent} from './components/patient/patient-item/medical-history/medical-history.component';
+import {PatientAddComponent} from './components/patient/patient-add/patient-add.component';
 
 export const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'patient' }, // Default route
@@ -11,6 +12,7 @@ export const routes: Routes = [
     children: [
       { path: '', pathMatch: 'full', redirectTo: 'list' },
       { path: 'list', component: PatientListComponent },
+      { path: 'add', component: PatientAddComponent },
       { path: ':id', component: PatientItemComponent,
         children: [
           { path: '', pathMatch: 'full', redirectTo: 'details' },

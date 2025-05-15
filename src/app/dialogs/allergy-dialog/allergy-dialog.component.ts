@@ -2,20 +2,18 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
-import { Subject, takeUntil } from 'rxjs';
+import { Subject } from 'rxjs';
 import { AutoCompleteModule } from 'primeng/autocomplete';
 import { ButtonModule } from 'primeng/button';
 import { CalendarModule } from 'primeng/calendar'; // Use p-calendar
 import { FloatLabelModule } from 'primeng/floatlabel';
-import { DropdownModule } from 'primeng/dropdown'; // Use p-dropdown
 import { MultiSelectModule } from 'primeng/multiselect';
 import { InputGroupModule } from 'primeng/inputgroup';
 import { CommonModule, NgIf } from '@angular/common'; // Import CommonModule for NgIf
 import { MessageService } from 'primeng/api';
 import {TextareaModule} from 'primeng/textarea';
 import {Select} from 'primeng/select';
-import {DatePicker} from 'primeng/datepicker';
-import {AutoFocus} from 'primeng/autofocus'; // Import MessageService
+import {DatePickerModule} from 'primeng/datepicker';
 
 // Define interfaces for dropdown options if needed for stricter typing
 interface Option {
@@ -44,7 +42,7 @@ interface AllergenOption {
     InputGroupModule,
     NgIf,
     Select,
-    DatePicker,
+    DatePickerModule,
     // Explicitly imported if standalone
   ],
   providers: [MessageService], // Provide MessageService if not provided globally
@@ -103,7 +101,6 @@ export class AllergyDialogComponent implements OnInit, OnDestroy {
   constructor(
     private fb: FormBuilder,
     public ref: DynamicDialogRef,
-    public config: DynamicDialogConfig, // To potentially receive data like patient ID
     private messageService: MessageService // For toast messages
   ) {
     // Initialize the form
