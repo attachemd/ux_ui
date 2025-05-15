@@ -119,9 +119,9 @@
   /* Apply to BOTH header and data cells in the second last column */
   .mat-mdc-header-row mat-header-cell:nth-last-child(2),
   .mat-mdc-row mat-cell:nth-last-child(2) {
-  //background-color: #f0f0f0;
-  //font-weight: bold;
-  //flex: 0 0 100%;
+  /*background-color: #f0f0f0;*/
+  /*font-weight: bold;*/
+  /*flex: 0 0 100%;*/
     flex-grow: 1;
     max-width: 100%;
   }
