@@ -105,6 +105,17 @@
     --mdc-checkbox-unselected-hover-state-layer-color: var(--ft-color-primary);
     --mdc-checkbox-unselected-pressed-state-layer-color: var(--ft-color-primary);
 
+    /*  Expansion Panel */
+    --mat-expansion-container-background-color: transparent;
+    --mat-expansion-container-text-color: var(--ft-color-text-primary);
+    --mat-expansion-container-shape: 0;
+    --mat-expansion-container-text-font: var(--ft-font-family-base);
+    --mat-expansion-container-text-size: var(--ft-text-xs);
+    --mat-expansion-header-text-color: var(--ft-color-text-primary);
+    --mat-expansion-header-text-font: var(--ft-font-family-base);
+    --mat-expansion-header-indicator-color: var(--ft-color-text-primary);
+    --mat-expansion-header-text-size: var(--text-sm);
+    --mat-expansion-header-disabled-state-text-color: var(--ft-color-text-primary);
   }
 
   body.dark-theme {

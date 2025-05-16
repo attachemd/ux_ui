@@ -4,11 +4,40 @@
   height: 100%;
   padding: 0 var(--ft-spacing-md) var(--ft-spacing-md);
   .add-patient-container {
-    background-color: var(--ft-color-background-primary);
+    /*background-color: var(--ft-color-background-primary);*/
     display: flex;
     flex-direction: column;
     flex-grow: 1;
     align-items: start;
     overflow: auto;
+    .page-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      padding: var(--ft-spacing-md);
+      .header-actions {
+        display: flex;
+        gap: var(--ft-spacing-sm);
+        align-items: center;
+      }
+    }
+    .patient-form {
+      width: 100%;
+      overflow: auto;
+      container-name: sidebar;
+      container-type: inline-size;
+    }
+
+    @container sidebar (width > 800px) {
+      .back-to-top-link {
+        visibility: visible;
+      }
+      mat-panel-title {
+        background-color: red !important;
+      }
+    }
   }
 }
+
+

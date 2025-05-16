@@ -320,6 +320,13 @@
     }
   }
 
+  /* Expansion Panel */
+  .mat-expansion-panel:not([class*=mat-elevation-z]) {
+    box-shadow: none !important;
+  }
+  .mat-accordion .section-container:not(:last-child) .mat-expansion-panel:not([class*=mat-elevation-z]){
+    border-bottom: var(--ft-border-primary) solid var(--ft-color-dark-alpha-secondary);
+  }
 
 
 

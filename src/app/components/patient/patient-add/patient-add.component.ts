@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import {Component, HostBinding, OnDestroy, OnInit} from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule, NgIf, NgFor } from '@angular/common';
 import { Subject, takeUntil } from 'rxjs'; // Import takeUntil
@@ -25,6 +25,7 @@ import {BlobToUrlPipe} from '../../../pipes/blob-to-url.pipe';
 import {DialogModule} from 'primeng/dialog';
 import {SelectModule} from 'primeng/select';
 import {MatExpansionModule} from '@angular/material/expansion';
+import {MatIconModule} from '@angular/material/icon';
 // --- Custom Validators ---
 // Basic pattern validator (allows letters, numbers, space, and specified special chars)
 const allowedCharsPattern = /^[a-zA-Z0-9\s\-&`_´]*$/;
@@ -132,14 +133,14 @@ interface PatientRelation {
     BlobToUrlPipe,
     DialogModule,
     SelectModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatIconModule
   ],
   providers: [MessageService, ConfirmationService, DialogService], // Provide services
   templateUrl: './patient-add.component.html',
   styleUrl: './patient-add.component.css'
 })
 export class PatientAddComponent implements OnInit, OnDestroy {
-
   patientForm!: FormGroup; // Use definite assignment assertion
   isSaving: boolean = false; // To disable save button during async ops
 
