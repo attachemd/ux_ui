@@ -11,6 +11,12 @@ import {NgIf} from '@angular/common';
 import {MatButton, MatIconButton} from '@angular/material/button';
 import {MatCheckbox} from '@angular/material/checkbox';
 import {SelectionModel} from '@angular/cdk/collections';
+import {SelectModule} from 'primeng/select';
+import {FormControl, FormsModule, ReactiveFormsModule} from '@angular/forms';
+interface View {
+  name: string;
+  id: string;
+}
 export interface UserData {
   id: string;
   name: string;
@@ -53,7 +59,8 @@ const NAMES: string[] = [
 @Component({
   selector: 'app-patient-list',
   imports: [
-    MatFormFieldModule, MatInputModule, MatTableModule, MatSortModule, MatPaginatorModule, MatIconModule, NgIf, MatIconButton, MatButton, MatCheckbox
+    MatFormFieldModule, MatInputModule, MatTableModule, MatSortModule, MatPaginatorModule, MatIconModule, NgIf, MatIconButton, MatButton,
+    MatCheckbox, SelectModule, FormsModule, ReactiveFormsModule
 
   ],
   templateUrl: './patient-list.component.html',
@@ -68,12 +75,23 @@ export class PatientListComponent implements AfterViewInit {
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild('input') input!: ElementRef<HTMLInputElement>;
 
+  // selectedCity = new FormControl('');
+  cities: View[] | undefined;
+  selectedView = new FormControl<View | null>(null);
+
   constructor() {
     // Create 100 users
     const users = Array.from({length: 100}, (_, k) => createNewUser(k + 1));
 
     // Assign the data to the data source for the table to render
     this.dataSource = new MatTableDataSource(users);
+    this.selectedView.setValue({ name: 'New York', id: 'NY' });
+    this.cities = [
+      { name: 'Vue standard', id: '1' },
+      { name: 'Compact', id: '2' },
+      { name: 'Date de naissance en premier', id: '3'},
+      { name: 'Filtrer par ville', id: '11'},
+    ];
   }
 
   ngAfterViewInit() {

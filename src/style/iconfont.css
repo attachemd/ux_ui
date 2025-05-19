@@ -1,9 +1,8 @@
-
 @layer icon-font {
   @font-face {
     font-family: 'icomoon';
-    src:  url('assets/fonts/icomoon/icomoon.eot?c9f24a');
-    src:  url('assets/fonts/icomoon/icomoon.eot?c9f24a#iefix') format('embedded-opentype'),
+    src: url('assets/fonts/icomoon/icomoon.eot?c9f24a');
+    src: url('assets/fonts/icomoon/icomoon.eot?c9f24a#iefix') format('embedded-opentype'),
     url('assets/fonts/icomoon/icomoon.ttf?c9f24a') format('truetype'),
     url('assets/fonts/icomoon/icomoon.woff?c9f24a') format('woff'),
     url('assets/fonts/icomoon/icomoon.svg?c9f24a#icomoon') format('svg');
@@ -32,359 +31,486 @@
     font-size: 20px;
     justify-content: center;
     align-items: center;
+    position: relative;
+  }
+
+  [class^="icon-"]:before, [class*=" icon-"]:before {
+    /*height: 100%;*/
+    /*width: 100%;*/
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 
   .icon-admission:before {
     content: "\e973";
   }
+
   .icon-hospitalization:before {
     content: "\e974";
   }
+
   .icon-visit:before {
     content: "\e975";
   }
+
   .icon-gender2:before {
     content: "\e972";
   }
+
   .icon-birthday:before {
     content: "\e90d";
   }
+
   .icon-user:before {
     content: "\e971";
   }
+
   .icon-help2:before {
     content: "\e970";
   }
+
   .icon-users:before {
     content: "\e96f";
   }
+
   .icon-bell:before {
     content: "\e90c";
   }
+
   .icon-theme:before {
     content: "\e96e";
   }
+
   .icon-add-comment:before {
     content: "\e900";
   }
+
   .icon-add-document:before {
     content: "\e901";
   }
+
   .icon-add-tag:before {
     content: "\e902";
   }
+
   .icon-arrow-down:before {
     content: "\e903";
   }
+
   .icon-arrow-left:before {
     content: "\e904";
   }
+
   .icon-arrow-next:before {
     content: "\e905";
   }
+
   .icon-arrow-prev:before {
     content: "\e906";
   }
+
   .icon-arrow-right:before {
     content: "\e907";
   }
+
   .icon-arrow-up:before {
     content: "\e908";
   }
+
   .icon-attach:before {
     content: "\e909";
   }
+
   .icon-back:before {
     content: "\e90a";
   }
+
   .icon-barcode:before {
     content: "\e90b";
   }
+
   .icon-bold:before {
     content: "\e90e";
   }
+
   .icon-check:before {
     content: "\e90f";
   }
+
   .icon-close:before {
     content: "\e910";
   }
+
   .icon-code:before {
     content: "\e911";
   }
+
   .icon-comment:before {
     content: "\e912";
   }
+
   .icon-corner-resize:before {
     content: "\e913";
   }
+
   .icon-cream:before {
     content: "\e914";
   }
+
   .icon-csv:before {
     content: "\e915";
   }
+
   .icon-current-edit:before {
     content: "\e916";
   }
+
   .icon-date:before {
     content: "\e917";
   }
+
   .icon-delete:before {
     content: "\e918";
   }
+
   .icon-document-2:before {
     content: "\e919";
   }
+
   .icon-document:before {
     content: "\e91a";
   }
+
   .icon-document-added:before {
     content: "\e91b";
   }
+
   .icon-drag:before {
     content: "\e91c";
   }
+
   .icon-drag-vertical:before {
     content: "\e91d";
   }
+
   .icon-drag-vertical-2:before {
     content: "\e91e";
   }
+
   .icon-duplicate:before {
     content: "\e91f";
   }
+
   .icon-edit:before {
     content: "\e920";
   }
+
   .icon-edit-full:before {
     content: "\e921";
   }
+
   .icon-email-tag:before {
     content: "\e922";
   }
+
   .icon-enter:before {
     content: "\e923";
   }
+
   .icon-exclamation:before {
     content: "\e924";
   }
+
   .icon-export:before {
     content: "\e925";
   }
+
   .icon-filter:before {
     content: "\e926";
   }
+
   .icon-filter-reset:before {
     content: "\e927";
   }
+
   .icon-gender:before {
     content: "\e928";
   }
+
   .icon-graph:before {
     content: "\e929";
   }
+
   .icon-grid:before {
     content: "\e92a";
   }
+
   .icon-help:before {
     content: "\e92b";
   }
+
   .icon-hide:before {
     content: "\e92c";
   }
+
   .icon-history:before {
     content: "\e92d";
   }
+
   .icon-history-add:before {
     content: "\e92e";
   }
+
   .icon-import:before {
     content: "\e92f";
   }
+
   .icon-inbox:before {
     content: "\e930";
   }
+
   .icon-injection:before {
     content: "\e931";
   }
+
   .icon-italic:before {
     content: "\e932";
   }
+
   .icon-kanban-2:before {
     content: "\e933";
   }
+
   .icon-kanban:before {
     content: "\e934";
   }
+
   .icon-lab:before {
     content: "\e935";
   }
+
   .icon-list:before {
     content: "\e936";
   }
+
   .icon-location:before {
     content: "\e937";
   }
+
   .icon-logout:before {
     content: "\e938";
   }
+
   .icon-mail:before {
     content: "\e939";
   }
+
   .icon-menu:before {
     content: "\e93a";
   }
+
   .icon-minus:before {
     content: "\e93b";
   }
+
   .icon-more:before {
     content: "\e93c";
   }
+
   .icon-network:before {
     content: "\e93d";
   }
+
   .icon-network-ip:before {
     content: "\e93e";
   }
+
   .icon-new-form:before {
     content: "\e93f";
   }
+
   .icon-no:before {
     content: "\e940";
   }
+
   .icon-number:before {
     content: "\e941";
   }
+
   .icon-off:before {
     content: "\e942";
   }
+
   .icon-on:before {
     content: "\e943";
   }
+
   .icon-panier:before {
     content: "\e944";
   }
+
   .icon-phone:before {
     content: "\e945";
   }
+
   .icon-pill:before {
     content: "\e946";
   }
+
   .icon-pills:before {
     content: "\e947";
   }
+
   .icon-plug:before {
     content: "\e948";
   }
+
   .icon-plus-circle:before {
     content: "\e949";
   }
+
   .icon-plus:before {
     content: "\e94a";
   }
+
   .icon-prescription-libre:before {
     content: "\e94b";
   }
+
   .icon-prescription:before {
     content: "\e94c";
   }
+
   .icon-print:before {
     content: "\e94d";
   }
+
   .icon-priority:before {
     content: "\e94e";
   }
+
   .icon-procedure:before {
     content: "\e94f";
   }
+
   .icon-profile:before {
     content: "\e950";
   }
+
   .icon-record:before {
     content: "\e951";
   }
+
   .icon-redo:before {
     content: "\e952";
   }
+
   .icon-request:before {
     content: "\e953";
   }
+
   .icon-rx:before {
     content: "\e954";
   }
+
   .icon-save:before {
     content: "\e955";
   }
+
   .icon-scan:before {
     content: "\e956";
   }
+
   .icon-scan-barcode:before {
     content: "\e957";
   }
+
   .icon-search:before {
     content: "\e958";
   }
+
   .icon-select:before {
     content: "\e959";
   }
+
   .icon-sent:before {
     content: "\e95a";
   }
+
   .icon-setting:before {
     content: "\e95b";
   }
+
   .icon-sms:before {
     content: "\e95c";
   }
+
   .icon-sms-tag:before {
     content: "\e95d";
   }
+
   .icon-star:before {
     content: "\e95e";
   }
+
   .icon-start:before {
     content: "\e95f";
   }
+
   .icon-status:before {
     content: "\e960";
   }
+
   .icon-syrup:before {
     content: "\e961";
   }
+
   .icon-table-2:before {
     content: "\e962";
   }
+
   .icon-table:before {
     content: "\e963";
   }
+
   .icon-tag:before {
     content: "\e964";
   }
+
   .icon-template:before {
     content: "\e965";
   }
+
   .icon-ticket:before {
     content: "\e966";
   }
+
   .icon-time:before {
     content: "\e967";
   }
+
   .icon-time-slot:before {
     content: "\e968";
   }
+
   .icon-today:before {
     content: "\e969";
   }
+
   .icon-tree:before {
     content: "\e96a";
   }
+
   .icon-underline:before {
     content: "\e96b";
   }
+
   .icon-vertical-dots:before {
     content: "\e96c";
   }
+
   .icon-yes:before {
     content: "\e96d";
   }

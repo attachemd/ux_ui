@@ -81,6 +81,7 @@
     --mat-table-row-item-label-text-font: var(--ft-font-family-base);
     --mat-table-row-item-label-text-weight: var(--font-weight-medium);
     --mat-table-row-item-outline-width: 0;
+    --mat-table-row-item-container-height: 52px;
 
     /* paginator */
     --mat-paginator-container-background-color: transparent;
