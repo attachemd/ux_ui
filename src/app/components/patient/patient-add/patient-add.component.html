@@ -94,169 +94,425 @@
             </button>
           </mat-expansion-panel-header>
 
-          <div class="p-fluid p-formgrid p-grid">
-            <div class="p-field p-col-12 p-md-6">
-              <div class="field-container">
-                <p-floatlabel variant="in">
-                  <input pInputText formControlName="lastName" id="lastName" type="text" variant="filled"/>
-                  <label for="lastName">Nom <span>*</span></label>
-                </p-floatlabel>
-                <small
-                  class="p-error"
-                  *ngIf="shouldShowError(lastNameControl)">
-                  <span *ngIf="lastNameControl?.errors?.['required']">Le nom est obligatoire.</span>
-                  <span *ngIf="lastNameControl?.errors?.['leadingTrailingSpaces']">Les espaces au début/fin ne sont pas autorisés.</span>
-                  <span
-                    *ngIf="lastNameControl?.errors?.['pattern']">Caractères autorisés: a-z, A-Z, -, &, `, _, ´</span>
-                </small>
-              </div>
+          <div class="fluid-form">
+
+<!--              <div class="field-container">-->
+<!--                <p-floatlabel variant="in">-->
+<!--                  <input pInputText formControlName="lastName" id="lastName" type="text" variant="filled"/>-->
+<!--                  <label for="lastName">Nom <span>*</span></label>-->
+<!--                </p-floatlabel>-->
+<!--                <small-->
+<!--                  class="p-error"-->
+<!--                  *ngIf="shouldShowError(lastNameControl)">-->
+<!--                  <span *ngIf="lastNameControl?.errors?.['required']">Le nom est obligatoire.</span>-->
+<!--                  <span *ngIf="lastNameControl?.errors?.['leadingTrailingSpaces']">Les espaces au début/fin ne sont pas autorisés.</span>-->
+<!--                  <span-->
+<!--                    *ngIf="lastNameControl?.errors?.['pattern']">Caractères autorisés: a-z, A-Z, -, &, `, _, ´</span>-->
+<!--                </small>-->
+<!--              </div>-->
+
+
+<!--              <div class="field-container">-->
+<!--                <p-floatlabel variant="in">-->
+<!--                  <input pInputText formControlName="firstName" id="firstName" type="text" variant="filled"/>-->
+<!--                  <label for="firstName">Prénom <span>*</span></label>-->
+<!--                </p-floatlabel>-->
+<!--                <small-->
+<!--                  class="p-error"-->
+<!--                  *ngIf="shouldShowError(firstNameControl)">-->
+<!--                  <span *ngIf="firstNameControl?.errors?.['required']">Le prénom est obligatoire.</span>-->
+<!--                  <span *ngIf="firstNameControl?.errors?.['leadingTrailingSpaces']">Les espaces au début/fin ne sont pas autorisés.</span>-->
+<!--                  <span-->
+<!--                    *ngIf="firstNameControl?.errors?.['pattern']">Caractères autorisés: a-z, A-Z, -, &, `, _, ´</span>-->
+<!--                </small>-->
+<!--              </div>-->
+
+
+<!--              <div class="field-container">-->
+<!--                <p-floatlabel variant="in">-->
+<!--                  <p-calendar-->
+<!--                    formControlName="dateOfBirth"-->
+<!--                    id="dateOfBirth"-->
+<!--                    showIcon="true"-->
+<!--                    iconDisplay="input"-->
+<!--                    dateFormat="dd/mm/yy"-->
+<!--                    [showButtonBar]="true"-->
+<!--                    [showClear]="true"-->
+<!--                    variant="filled"-->
+<!--                    appendTo="body"-->
+<!--                  ></p-calendar>-->
+<!--                  <label for="dateOfBirth">Date de naissance <span>*</span></label>-->
+<!--                </p-floatlabel>-->
+<!--                <small class="p-error" *ngIf="shouldShowError(dateOfBirthControl)">-->
+<!--                  <span *ngIf="dateOfBirthControl?.errors?.['required']">La date de naissance est obligatoire.</span>-->
+<!--                </small>-->
+<!--              </div>-->
+
+
+<!--              <div class="field-container">-->
+<!--                <p-floatlabel variant="in">-->
+<!--                  <p-inputNumber-->
+<!--                    formControlName="age"-->
+<!--                    id="age"-->
+<!--                    mode="decimal"-->
+<!--                    [useGrouping]="false"-->
+<!--                    [min]="0"-->
+<!--                    [max]="150"-->
+<!--                    variant="filled"-->
+<!--                    suffix=" ans"-->
+<!--                  ></p-inputNumber>-->
+<!--                  <label for="age">Age</label>-->
+<!--                </p-floatlabel>-->
+<!--              </div>-->
+
+
+<!--              <div class="field-container">-->
+<!--                <p-floatlabel variant="in">-->
+<!--                  <p-dropdown-->
+<!--                    formControlName="gender"-->
+<!--                    [options]="genders"-->
+<!--                    optionLabel="name"-->
+<!--                    [showClear]="true"-->
+<!--                    id="gender"-->
+<!--                    styleClass="w-full"-->
+<!--                    variant="filled"-->
+<!--                  ></p-dropdown>-->
+<!--                  <label for="gender">Genre</label>-->
+<!--                </p-floatlabel>-->
+<!--              </div>-->
+
+
+<!--              <div class="field-container">-->
+<!--                <p-floatlabel variant="in">-->
+<!--                  <p-autocomplete-->
+<!--                    formControlName="nationality"-->
+<!--                    [suggestions]="filteredNationalities"-->
+<!--                    (completeMethod)="searchNationalities($event)"-->
+<!--                    field="name"-->
+<!--                    [dropdown]="true"-->
+<!--                    [showClear]="true"-->
+<!--                    id="nationality"-->
+
+<!--                    variant="filled"-->
+<!--                  ></p-autocomplete>-->
+<!--                  <label for="nationality">Nationalité</label>-->
+<!--                </p-floatlabel>-->
+<!--              </div>-->
+
+
+<!--              <div class="field-container">-->
+<!--                <p-floatlabel variant="in">-->
+<!--                  <input pInputText formControlName="placeOfBirth" id="placeOfBirth" type="text" variant="filled"/>-->
+<!--                  <label for="placeOfBirth">Lieu de naissance</label>-->
+<!--                </p-floatlabel>-->
+<!--              </div>-->
+
+
+<!--              <div class="field-container">-->
+<!--                <p-floatlabel variant="in">-->
+<!--                  <p-dropdown-->
+<!--                    formControlName="maritalStatus"-->
+<!--                    [options]="maritalStatuses"-->
+<!--                    optionLabel="name"-->
+<!--                    [showClear]="true"-->
+<!--                    id="maritalStatus"-->
+<!--                    styleClass="w-full"-->
+<!--                    variant="filled"-->
+<!--                  ></p-dropdown>-->
+<!--                  <label for="maritalStatus">Situation familiale</label>-->
+<!--                </p-floatlabel>-->
+<!--              </div>-->
+
+
+<!--              <div class="field-container">-->
+<!--                <p-floatlabel variant="in">-->
+<!--                  <p-multiSelect-->
+<!--                    formControlName="spokenLanguages"-->
+<!--                    [options]="spokenLanguagesOptions"-->
+<!--                    display="chip"-->
+<!--                    optionLabel="name"-->
+<!--                    [maxSelectedLabels]="5"-->
+<!--                    [showClear]="true"-->
+<!--                    id="spokenLanguages"-->
+<!--                    styleClass="w-full"-->
+<!--                    variant="filled"-->
+<!--                  ></p-multiSelect>-->
+<!--                  <label for="spokenLanguages">Langues parlées</label>-->
+<!--                </p-floatlabel>-->
+<!--              </div>-->
+
+
+<!--              <div class="field-container">-->
+<!--                <p-floatlabel variant="in">-->
+<!--                  <input pInputText formControlName="occupation" id="occupation" type="text" variant="filled"/>-->
+<!--                  <label for="occupation">Profession</label>-->
+<!--                </p-floatlabel>-->
+<!--              </div>-->
+
+
+<!--              <div class="field-container">-->
+<!--                <p-floatlabel variant="in">-->
+<!--                  <input pInputText formControlName="employer" id="employer" type="text" variant="filled"/>-->
+<!--                  <label for="employer">Employeur</label>-->
+<!--                </p-floatlabel>-->
+<!--              </div>-->
+
+
+            <div class="field-container">
+              <p-floatlabel variant="in" class="w-full">
+                <p-dropdown
+                  [options]="titles"
+                  formControlName="title"
+                  inputId="title"
+                  styleClass="w-full"
+                  variant="filled"
+                  [showClear]="true">
+                </p-dropdown>
+                <label for="title">Civilité</label>
+              </p-floatlabel>
             </div>
-            <div class="p-field p-col-12 p-md-6">
-              <div class="field-container">
-                <p-floatlabel variant="in">
-                  <input pInputText formControlName="firstName" id="firstName" type="text" variant="filled"/>
-                  <label for="firstName">Prénom <span>*</span></label>
-                </p-floatlabel>
-                <small
-                  class="p-error"
-                  *ngIf="shouldShowError(firstNameControl)">
-                  <span *ngIf="firstNameControl?.errors?.['required']">Le prénom est obligatoire.</span>
-                  <span *ngIf="firstNameControl?.errors?.['leadingTrailingSpaces']">Les espaces au début/fin ne sont pas autorisés.</span>
-                  <span
-                    *ngIf="firstNameControl?.errors?.['pattern']">Caractères autorisés: a-z, A-Z, -, &, `, _, ´</span>
-                </small>
-              </div>
+
+            <div class="field-container">
+              <p-floatlabel variant="in">
+                <input
+                  pInputText
+                  formControlName="firstName"
+                  id="firstName"
+                  type="text"
+                  variant="filled"/>
+                <label for="firstName">Prénom <span>*</span></label>
+              </p-floatlabel>
+              <small
+                class="p-error"
+                *ngIf="shouldShowError(firstNameControl)">
+                <span *ngIf="firstNameControl?.errors?.['required']">Le prénom est obligatoire.</span>
+                <span *ngIf="firstNameControl?.errors?.['leadingTrailingSpaces']">Les espaces au début/fin ne sont pas autorisés.</span>
+                <span
+                  *ngIf="firstNameControl?.errors?.['pattern']">Caractères autorisés: a-z, A-Z, -, &, `, _, ´</span>
+              </small>
             </div>
-            <div class="p-field p-col-12 p-md-6">
-              <div class="field-container">
-                <p-floatlabel variant="in">
-                  <p-calendar
-                    formControlName="dateOfBirth"
-                    id="dateOfBirth"
-                    showIcon="true"
-                    iconDisplay="input"
-                    dateFormat="dd/mm/yy"
-                    [showButtonBar]="true"
-                    [showClear]="true"
-                    variant="filled"
-                    appendTo="body"
-                  ></p-calendar>
-                  <label for="dateOfBirth">Date de naissance <span>*</span></label>
-                </p-floatlabel>
-                <small class="p-error" *ngIf="shouldShowError(dateOfBirthControl)">
-                  <span *ngIf="dateOfBirthControl?.errors?.['required']">La date de naissance est obligatoire.</span>
-                </small>
-              </div>
+
+            <div class="field-container">
+              <p-floatlabel variant="in">
+                <input
+                  pInputText
+                  formControlName="lastName"
+                  id="lastName"
+                  type="text"
+                  variant="filled"/>
+                <label for="lastName">Nom <span>*</span></label>
+              </p-floatlabel>
+              <small
+                class="p-error"
+                *ngIf="shouldShowError(lastNameControl)">
+                <span *ngIf="lastNameControl?.errors?.['required']">Le nom est obligatoire.</span>
+                <span *ngIf="lastNameControl?.errors?.['leadingTrailingSpaces']">Les espaces au début/fin ne sont pas autorisés.</span>
+                <span
+                  *ngIf="lastNameControl?.errors?.['pattern']">Caractères autorisés: a-z, A-Z, -, &, `, _, ´</span>
+              </small>
             </div>
-            <div class="p-field p-col-12 p-md-6">
-              <div class="field-container">
-                <p-floatlabel variant="in">
-                  <p-inputNumber
-                    formControlName="age"
-                    id="age"
-                    mode="decimal"
-                    [useGrouping]="false"
-                    [min]="0"
-                    [max]="150"
-                    variant="filled"
-                    suffix=" ans"
-                  ></p-inputNumber>
-                  <label for="age">Age</label>
-                </p-floatlabel>
-              </div>
+
+            <div class="field-container">
+              <p-floatlabel variant="in">
+                <input
+                  pInputText
+                  formControlName="alias"
+                  id="alias"
+                  type="text"
+                  variant="filled"/>
+                <label for="alias">Pseudonyme</label>
+              </p-floatlabel>
             </div>
-            <div class="p-field p-col-12 p-md-6">
-              <div class="field-container">
-                <p-floatlabel variant="in">
-                  <p-dropdown
-                    formControlName="gender"
-                    [options]="genders"
-                    optionLabel="name"
-                    [showClear]="true"
-                    id="gender"
-                    styleClass="w-full"
-                    variant="filled"
-                  ></p-dropdown>
-                  <label for="gender">Genre</label>
-                </p-floatlabel>
-              </div>
+
+
+            <div class="field-container">
+              <p-floatlabel variant="in">
+                <p-dropdown
+                  [options]="genders"
+                  formControlName="gender"
+                  id="gender">
+                </p-dropdown>
+                <label for="gender">Sexe</label>
+              </p-floatlabel>
             </div>
-            <div class="p-field p-col-12 p-md-6">
-              <div class="field-container">
-                <p-floatlabel variant="in">
-                  <p-autocomplete
-                    formControlName="nationality"
-                    [suggestions]="filteredNationalities"
-                    (completeMethod)="searchNationalities($event)"
-                    field="name"
-                    [dropdown]="true"
-                    [showClear]="true"
-                    id="nationality"
-                    styleClass="w-full"
-                    variant="filled"
-                  ></p-autocomplete>
-                  <label for="nationality">Nationalité</label>
-                </p-floatlabel>
-              </div>
+
+            <div class="field-container">
+              <p-floatlabel variant="in">
+                <p-calendar
+                  formControlName="dateOfBirth"
+                  inputId="dateOfBirth"
+                  dateFormat="dd/mm/yy"
+                  [showIcon]="true"
+                  [readonlyInput]="true">
+                </p-calendar>
+                <label for="dateOfBirth">Date de naissance <span>*</span></label>
+              </p-floatlabel>
+              <small
+                class="p-error"
+                *ngIf="shouldShowError(dateOfBirthControl)">
+                <span *ngIf="dateOfBirthControl?.errors?.['required']">La date de naissance est obligatoire.</span>
+              </small>
             </div>
-            <div class="p-field p-col-12 p-md-6">
-              <div class="field-container">
-                <p-floatlabel variant="in">
-                  <input pInputText formControlName="placeOfBirth" id="placeOfBirth" type="text" variant="filled"/>
-                  <label for="placeOfBirth">Lieu de naissance</label>
-                </p-floatlabel>
-              </div>
+
+            <div class="field-container">
+              <p-floatlabel variant="in">
+                <input
+                  pInputText
+                  formControlName="age"
+                  id="age"
+                  type="number"
+                  variant="filled"/>
+                <label for="age">Age (Années)</label>
+              </p-floatlabel>
             </div>
-            <div class="p-field p-col-12 p-md-6">
-              <div class="field-container">
-                <p-floatlabel variant="in">
-                  <p-dropdown
-                    formControlName="maritalStatus"
-                    [options]="maritalStatuses"
-                    optionLabel="name"
-                    [showClear]="true"
-                    id="maritalStatus"
-                    styleClass="w-full"
-                    variant="filled"
-                  ></p-dropdown>
-                  <label for="maritalStatus">Situation familiale</label>
-                </p-floatlabel>
-              </div>
+
+            <div class="field-container">
+              <p-floatlabel variant="in">
+          <textarea
+            pTextarea
+            formControlName="address"
+            id="address"
+            rows="3"
+            variant="filled"></textarea>
+                <label for="address">Adresse</label>
+              </p-floatlabel>
+              <small
+                class="p-error"
+                *ngIf="shouldShowError(addressControl)">
+                <span *ngIf="addressControl?.errors?.['minlength']">L'adresse doit contenir au moins {{ addressControl?.errors?.['minlength']?.requiredLength }} caractères.</span>
+                <span *ngIf="addressControl?.errors?.['addressSpecialCharacters']">L'adresse ne doit pas contenir de séquences de caractères spéciaux identiques (ex: //, ###).</span>
+                <span *ngIf="addressControl?.errors?.['pattern']">L'adresse doit contenir au moins une lettre (A-Z).</span>
+              </small>
             </div>
-            <div class="p-field p-col-12">
-              <div class="field-container">
-                <p-floatlabel variant="in">
-                  <p-multiSelect
-                    formControlName="spokenLanguages"
-                    [options]="spokenLanguagesOptions"
-                    display="chip"
-                    optionLabel="name"
-                    [maxSelectedLabels]="5"
-                    [showClear]="true"
-                    id="spokenLanguages"
-                    styleClass="w-full"
-                    variant="filled"
-                  ></p-multiSelect>
-                  <label for="spokenLanguages">Langues parlées</label>
-                </p-floatlabel>
-              </div>
+
+
+            <div class="field-container">
+              <p-floatlabel variant="in">
+                <input
+                  pInputText
+                  formControlName="postalCode"
+                  id="postalCode"
+                  type="text"
+                  variant="filled"/>
+                <label for="postalCode">Code postal</label>
+              </p-floatlabel>
+              <small
+                class="p-error"
+                *ngIf="shouldShowError(postalCodeControl)">
+                <span *ngIf="postalCodeControl?.errors?.['minlength']">Le code postal doit contenir au moins {{ postalCodeControl?.errors?.['minlength']?.requiredLength }} caractères.</span>
+                <span *ngIf="postalCodeControl?.errors?.['maxlength']">Le code postal ne doit pas dépasser {{ postalCodeControl?.errors?.['maxlength']?.requiredLength }} caractères.</span>
+                <span *ngIf="postalCodeControl?.errors?.['pattern']">Caractères autorisés pour le code postal: a-z, A-Z, 0-9.</span>
+              </small>
             </div>
-            <div class="p-field p-col-12 p-md-6">
-              <div class="field-container">
-                <p-floatlabel variant="in">
-                  <input pInputText formControlName="occupation" id="occupation" type="text" variant="filled"/>
-                  <label for="occupation">Profession</label>
-                </p-floatlabel>
-              </div>
+
+
+            <div class="field-container">
+              <p-floatlabel variant="in">
+                <p-dropdown
+                  [options]="countries"
+                  formControlName="country"
+                  inputId="country"
+                  [showClear]="true">
+                </p-dropdown>
+                <label for="country">Pays</label>
+              </p-floatlabel>
             </div>
-            <div class="p-field p-col-12 p-md-6">
-              <div class="field-container">
-                <p-floatlabel variant="in">
-                  <input pInputText formControlName="employer" id="employer" type="text" variant="filled"/>
-                  <label for="employer">Employeur</label>
-                </p-floatlabel>
-              </div>
+
+
+            <div class="field-container">
+              <p-floatlabel variant="in">
+                <p-dropdown
+                  [options]="filteredCities"
+                  formControlName="city"
+                  inputId="city"
+                  [showClear]="true">
+                </p-dropdown>
+                <label for="city">Ville</label>
+              </p-floatlabel>
+              <small class="p-info" *ngIf="!cityControl?.value && countryControl?.value">
+                Sélectionnez un pays pour filtrer les villes.
+              </small>
             </div>
+
+            <div class="field-container">
+              <p-floatlabel variant="in">
+                <p-dropdown
+                  [options]="filteredNationalities"
+                  formControlName="nationality"
+                  inputId="nationality"
+                  [showClear]="true">
+                </p-dropdown>
+                <label for="nationality">Nationalité</label>
+              </p-floatlabel>
+            </div>
+
+            <div class="field-container">
+              <p-floatlabel variant="in">
+                <p-dropdown
+                  [options]="maritalStatuses"
+                  formControlName="maritalStatus"
+                  inputId="maritalStatus"
+                  >
+                </p-dropdown>
+                <label for="maritalStatus">Etat civil</label>
+              </p-floatlabel>
+            </div>
+
+            <div class="field-container">
+              <p-floatlabel variant="in">
+                <p-dropdown
+                  [options]="ethnicities"
+                  formControlName="ethnicity"
+                  inputId="ethnicity"
+                  [showClear]="true">
+                </p-dropdown>
+                <label for="ethnicity">Ethnie</label>
+              </p-floatlabel>
+            </div>
+
+            <div class="field-container">
+              <p-floatlabel variant="in">
+                <p-dropdown
+                  [options]="occupations"
+                  formControlName="occupation"
+                  id="occupation"
+                  [showClear]="true">
+                </p-dropdown>
+                <label for="occupation">Profession</label>
+              </p-floatlabel>
+            </div>
+
+<!--            <div class="field-container">-->
+<!--              <p-floatlabel variant="in">-->
+<!--                <p-chips-->
+<!--                  formControlName="spokenLanguages"-->
+<!--                  inputId="spokenLanguages"-->
+<!--                  [allowDuplicate]="false"-->
+<!--                  [autocomplete]="true"-->
+<!--                  [suggestions]="filteredLanguages"-->
+<!--                  (completeMethod)="filteredLanguages = filteredLanguages"> </p-chips>-->
+<!--                <label for="spokenLanguages">Langues parlées</label>-->
+<!--              </p-floatlabel>-->
+<!--              <small class="p-info">-->
+<!--                Tapez pour chercher et ajouter des langues.-->
+<!--              </small>-->
+<!--            </div>-->
+
+            <div class="field-container">
+              <p-floatlabel variant="in" class="w-full">
+                <p-multiSelect
+                  [options]="languages"
+                  formControlName="spokenLanguages"
+                  id="spokenLanguages"
+                  display="chip"
+                  [filter]="true"
+                  variant="filled"
+                  styleClass="w-full"
+                />
+                <label for="spokenLanguages">Langues parlées</label>
+              </p-floatlabel>
+            </div>
+
           </div>
 
         </mat-expansion-panel>
@@ -374,15 +630,6 @@
                 <small class="p-error" *ngIf="shouldShowError(secondaryPhoneNumberControl)">
                   <span *ngIf="secondaryPhoneNumberControl?.errors?.['invalidPhone']">Ce champ est invalide (format téléphone).</span>
                 </small>
-              </div>
-            </div>
-            <div class="p-field p-col-12">
-              <div class="field-container">
-                <p-floatlabel variant="in">
-                  <textarea pInputTextarea formControlName="address" id="address" rows="3" cols="30" variant="filled"
-                            style="resize: none;"></textarea>
-                  <label for="address">Adresse</label>
-                </p-floatlabel>
               </div>
             </div>
 

@@ -188,12 +188,20 @@
     width: 100%;
   }
 
+  p-autocomplete {
+    width: 100%;
+  }
+
   .p-inputtext {
     font-size: var(--text-sm) !important;
     width: 100%;
     /*border-width: var(--ft-border-secondary);*/
     border-width: 0;
     /*border-color: transparent;*/
+  }
+
+  .p-inputnumber {
+    width: 100%;
   }
 
   .p-select {

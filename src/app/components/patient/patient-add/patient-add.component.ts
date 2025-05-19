@@ -1,7 +1,14 @@
 import {Component, HostBinding, OnDestroy, OnInit} from '@angular/core';
-import { AbstractControl, FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import {
+  AbstractControl,
+  FormBuilder,
+  FormGroup,
+  ReactiveFormsModule,
+  ValidationErrors,
+  Validators
+} from '@angular/forms';
 import { CommonModule, NgIf, NgFor } from '@angular/common';
-import { Subject, takeUntil } from 'rxjs'; // Import takeUntil
+import {debounceTime, distinctUntilChanged, filter, map, startWith, Subject, takeUntil} from 'rxjs'; // Import takeUntil
 import { MessageService, ConfirmationService } from 'primeng/api'; // Import ConfirmationService
 import { ToastModule } from 'primeng/toast';
 import { ButtonModule } from 'primeng/button';
@@ -26,6 +33,9 @@ import {DialogModule} from 'primeng/dialog';
 import {SelectModule} from 'primeng/select';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatIconModule} from '@angular/material/icon';
+import {ChipsModule} from 'primeng/chips';
+import {MatFormField} from '@angular/material/form-field';
+import {MatChipsModule} from '@angular/material/chips';
 // --- Custom Validators ---
 // Basic pattern validator (allows letters, numbers, space, and specified special chars)
 const allowedCharsPattern = /^[a-zA-Z0-9\s\-&`_´]*$/;
@@ -106,6 +116,37 @@ interface PatientRelation {
   relatedPatient: Patient | null; // The related patient object
 }
 
+// Custom Validators
+export function leadingTrailingSpacesValidator(control: AbstractControl): ValidationErrors | null {
+  if (typeof control.value === 'string' && (control.value.startsWith(' ') || control.value.endsWith(' '))) {
+    return { leadingTrailingSpaces: true };
+  }
+  return null;
+}
+
+export function allowedCharactersValidator(allowedChars: string): Validators {
+  return (control: AbstractControl): ValidationErrors | null => {
+    if (typeof control.value === 'string' && control.value.length > 0) {
+      const pattern = new RegExp(`^[a-zA-Z${allowedChars}]*$`);
+      if (!pattern.test(control.value)) {
+        return { pattern: { requiredPattern: `^[a-zA-Z${allowedChars}]*$` } };
+      }
+    }
+    return null;
+  };
+}
+
+export function addressSpecialCharactersValidator(control: AbstractControl): ValidationErrors | null {
+  if (typeof control.value === 'string' && control.value.length > 0) {
+    // Checks for sequences of identical special characters like //, ###, --- etc.
+    const specialCharPattern = /([^\w\s])\1+/;
+    if (specialCharPattern.test(control.value)) {
+      return { addressSpecialCharacters: true };
+    }
+  }
+  return null;
+}
+
 
 @Component({
   selector: 'app-patient-add',
@@ -134,7 +175,10 @@ interface PatientRelation {
     DialogModule,
     SelectModule,
     MatExpansionModule,
-    MatIconModule
+    MatIconModule,
+    ChipsModule,
+    MatFormField,
+    MatChipsModule
   ],
   providers: [MessageService, ConfirmationService, DialogService], // Provide services
   templateUrl: './patient-add.component.html',
@@ -151,33 +195,33 @@ export class PatientAddComponent implements OnInit, OnDestroy {
     { name: 'VIP', value: 'VIP' },
   ];
 
-  genders: Option[] = [
-    { name: 'Homme', value: 'MALE' },
-    { name: 'Femme', value: 'FEMALE' },
-    { name: 'Non-binaire', value: 'NON_BINARY' },
-    { name: 'Autre', value: 'OTHER' },
-  ];
+  // genders: Option[] = [
+  //   { name: 'Homme', value: 'MALE' },
+  //   { name: 'Femme', value: 'FEMALE' },
+  //   { name: 'Non-binaire', value: 'NON_BINARY' },
+  //   { name: 'Autre', value: 'OTHER' },
+  // ];
 
-  maritalStatuses: Option[] = [
-    { name: 'Célibataire', value: 'SINGLE' },
-    { name: 'Marié(e)', value: 'MARRIED' },
-    { name: 'Divorcé(e)', value: 'DIVORCED' },
-    { name: 'Veuf(ve)', value: 'WIDOWED' },
-  ];
+  // maritalStatuses: Option[] = [
+  //   { name: 'Célibataire', value: 'SINGLE' },
+  //   { name: 'Marié(e)', value: 'MARRIED' },
+  //   { name: 'Divorcé(e)', value: 'DIVORCED' },
+  //   { name: 'Veuf(ve)', value: 'WIDOWED' },
+  // ];
 
   // Simulate a larger list for autocomplete
-  nationalities: Option[] = [
-    { name: 'Afghane', value: 'AF' }, { name: 'Albanaise', value: 'AL' },
-    { name: 'Algérienne', value: 'DZ' }, { name: 'Allemande', value: 'DE' },
-    { name: 'Andorrane', value: 'AD' }, { name: 'Angolaise', value: 'AO' },
-    { name: 'Argentine', value: 'AR' }, { name: 'Arménienne', value: 'AM' },
-    { name: 'Australienne', value: 'AU' }, { name: 'Autrichienne', value: 'AT' },
-    { name: 'Azérie', value: 'AZ' }, { name: 'Bahaméenne', value: 'BS' },
-    // ... add many more nationalities
-    { name: 'Française', value: 'FR' }, { name: 'Marocaine', value: 'MA' },
-    { name: 'Espagnole', value: 'ES' },
-  ];
-  filteredNationalities: Option[] = [];
+  // nationalities: Option[] = [
+  //   { name: 'Afghane', value: 'AF' }, { name: 'Albanaise', value: 'AL' },
+  //   { name: 'Algérienne', value: 'DZ' }, { name: 'Allemande', value: 'DE' },
+  //   { name: 'Andorrane', value: 'AD' }, { name: 'Angolaise', value: 'AO' },
+  //   { name: 'Argentine', value: 'AR' }, { name: 'Arménienne', value: 'AM' },
+  //   { name: 'Australienne', value: 'AU' }, { name: 'Autrichienne', value: 'AT' },
+  //   { name: 'Azérie', value: 'AZ' }, { name: 'Bahaméenne', value: 'BS' },
+  //   // ... add many more nationalities
+  //   { name: 'Française', value: 'FR' }, { name: 'Marocaine', value: 'MA' },
+  //   { name: 'Espagnole', value: 'ES' },
+  // ];
+  // filteredNationalities: Option[] = [];
 
   // Simulate a larger list for autocomplete/multi-select
   spokenLanguagesOptions: Option[] = [
@@ -219,6 +263,25 @@ export class PatientAddComponent implements OnInit, OnDestroy {
   displayAddRelationDialog: boolean = false; // To show/hide the add relation form/dialog
   newRelationForm!: FormGroup; // Form for adding a single relation
 
+
+
+  // Reference Data (Simulated)
+  titles: string[] = ['Mr.', 'Mme', 'Mlle'];
+  genders: string[] = ['Homme', 'Femme'];
+  maritalStatuses: string[] = ['Célibataire', 'Marié(e)'];
+  countries: string[] = ['Maroc', 'France', 'Spain', 'Germany']; // Example countries
+  cities: string[] = ['Rabat', 'Casablanca', 'Marrakech', 'Paris', 'Lyon', 'Marseille', 'Madrid', 'Barcelona', 'Berlin', 'Munich']; // Example cities
+  nationalities: string[] = ['Marocaine', 'Française', 'Espagnole', 'Allemande']; // Example nationalities
+  ethnicities: string[] = ['Caucasien', 'Africain', 'Asiatique']; // Example ethnicities
+  occupations: string[] = ['Ingénieur', 'Médecin', 'Enseignant', 'Étudiant']; // Example occupations
+  languages: string[] = ['Français', 'Anglais', 'Espagnol', 'Arabe']; // Example languages for autocomplete
+
+  filteredCities: string[] = [];
+  filteredNationalities: string[] = [];
+  filteredLanguages: string[] = [];
+
+
+
   private destroy$ = new Subject<void>(); // Subject for managing subscriptions
 
   constructor(
@@ -233,39 +296,42 @@ export class PatientAddComponent implements OnInit, OnDestroy {
     this.initPatientForm();
     this.initNewRelationForm(); // Initialize the relation form
 
+    this.setupValueChangeListeners();
+    this.setupAutocompleteFilters();
+
     // Subscribe to dateOfBirth and age changes to sync them
-    this.patientForm.get('dateOfBirth')?.valueChanges.pipe(takeUntil(this.destroy$)).subscribe(value => {
-      if (value instanceof Date && !isNaN(value.getTime())) {
-        // Only update age if dateOfBirth is a valid Date object
-        this.updateAgeFromDob(value);
-      } else if (typeof value === 'string' && value) {
-        // Handle 'YYYY' or 'MMYYYY' input strings
-        const parsedDate = this.parseDateString(value);
-        if (parsedDate) {
-          this.updateAgeFromDob(parsedDate);
-        } else {
-          // Clear age if date string is invalid
-          this.patientForm.get('age')?.setValue(null, { emitEvent: false });
-        }
-      } else {
-        // Clear age if dateOfBirth is null or invalid
-        this.patientForm.get('age')?.setValue(null, { emitEvent: false });
-      }
-    });
+    // this.patientForm.get('dateOfBirth')?.valueChanges.pipe(takeUntil(this.destroy$)).subscribe(value => {
+    //   if (value instanceof Date && !isNaN(value.getTime())) {
+    //     // Only update age if dateOfBirth is a valid Date object
+    //     this.updateAgeFromDob(value);
+    //   } else if (typeof value === 'string' && value) {
+    //     // Handle 'YYYY' or 'MMYYYY' input strings
+    //     const parsedDate = this.parseDateString(value);
+    //     if (parsedDate) {
+    //       this.updateAgeFromDob(parsedDate);
+    //     } else {
+    //       // Clear age if date string is invalid
+    //       this.patientForm.get('age')?.setValue(null, { emitEvent: false });
+    //     }
+    //   } else {
+    //     // Clear age if dateOfBirth is null or invalid
+    //     this.patientForm.get('age')?.setValue(null, { emitEvent: false });
+    //   }
+    // });
 
-    this.patientForm.get('age')?.valueChanges.pipe(takeUntil(this.destroy$)).subscribe(value => {
-      // Only update dateOfBirth if age is a valid number
-      if (typeof value === 'number' && value > 0) {
-        this.updateDobFromAge(value);
-      } else {
-        // Clear dateOfBirth if age is null or invalid
-        this.patientForm.get('dateOfBirth')?.setValue(null, { emitEvent: false });
-      }
-    });
+    // this.patientForm.get('age')?.valueChanges.pipe(takeUntil(this.destroy$)).subscribe(value => {
+    //   // Only update dateOfBirth if age is a valid number
+    //   if (typeof value === 'number' && value > 0) {
+    //     this.updateDobFromAge(value);
+    //   } else {
+    //     // Clear dateOfBirth if age is null or invalid
+    //     this.patientForm.get('dateOfBirth')?.setValue(null, { emitEvent: false });
+    //   }
+    // });
 
-    // Set initial filter for nationalities and languages (all of them)
-    this.filteredNationalities = [...this.nationalities];
-    this.filteredSpokenLanguages = [...this.spokenLanguagesOptions];
+    // // Set initial filter for nationalities and languages (all of them)
+    // this.filteredNationalities = [...this.nationalities];
+    // this.filteredSpokenLanguages = [...this.spokenLanguagesOptions];
   }
 
   ngOnDestroy(): void {
@@ -280,17 +346,51 @@ export class PatientAddComponent implements OnInit, OnDestroy {
       photo: [null], // To hold the uploaded file object or path
 
       // Informations générales
-      firstName: ['', [Validators.required, noLeadingTrailingSpacesValidator, Validators.pattern(namePattern)]],
-      lastName: ['', [Validators.required, noLeadingTrailingSpacesValidator, Validators.pattern(namePattern)]],
-      dateOfBirth: [null, Validators.required], // Can be Date object or string ('YYYY', 'MMYYYY') initially
-      age: [null], // Will be a number (years)
-      gender: [null],
-      nationality: [null], // Option object or string
-      placeOfBirth: [''],
-      maritalStatus: [null], // Option object
-      spokenLanguages: [[]], // Array of Option objects
-      occupation: [''],
-      employer: [''],
+      // firstName: ['', [Validators.required, noLeadingTrailingSpacesValidator, Validators.pattern(namePattern)]],
+      // lastName: ['', [Validators.required, noLeadingTrailingSpacesValidator, Validators.pattern(namePattern)]],
+      // dateOfBirth: [null, Validators.required], // Can be Date object or string ('YYYY', 'MMYYYY') initially
+      // age: [null], // Will be a number (years)
+      // gender: [null],
+      // nationality: [null], // Option object or string
+      // placeOfBirth: [''],
+      // maritalStatus: [null], // Option object
+      // spokenLanguages: [[]], // Array of Option objects
+      // occupation: [''],
+      // employer: [''],
+
+      // Informations générales 02
+      title: [null],
+      firstName: ['', [
+        Validators.required,
+        leadingTrailingSpacesValidator,
+        allowedCharactersValidator('-&`_´')
+      ]],
+      lastName: ['', [
+        Validators.required,
+        leadingTrailingSpacesValidator,
+        allowedCharactersValidator('-&`_´')
+      ]],
+      alias: [''],
+      gender: [{ value: null, disabled: true }], // Disabled as it's calculated
+      dateOfBirth: [null, Validators.required],
+      age: [{ value: null, disabled: true }], // Disabled initially, enabled for year input if needed
+      address: ['', [
+        Validators.minLength(5),
+        addressSpecialCharactersValidator,
+        Validators.pattern('.*[a-zA-Z].*') // Must contain at least one letter
+      ]],
+      postalCode: ['', [
+        Validators.minLength(5),
+        Validators.maxLength(10),
+        Validators.pattern('^[a-zA-Z0-9]*$') // Assuming alphanumeric
+      ]],
+      country: [null],
+      city: [{ value: null, disabled: true }], // Disabled initially, enabled and filtered by country
+      nationality: [{ value: null, disabled: true }], // Disabled initially, potentially set by country
+      maritalStatus: [{ value: null, disabled: true }], // Disabled as it's calculated
+      ethnicity: [null],
+      occupation: [null],
+      spokenLanguages: [[]], // Array for chip select
 
       // Données administratives
       nationalId: ['', [noLeadingTrailingSpacesValidator]], // Optional, but validate format if entered
@@ -303,13 +403,140 @@ export class PatientAddComponent implements OnInit, OnDestroy {
       email: ['', [emailValidator]], // Optional, but validate format if entered
       primaryPhoneNumber: ['', [phoneValidator]], // Optional, but validate format
       secondaryPhoneNumber: ['', [phoneValidator]], // Optional, but validate format
-      address: [''],
+      // address: [''],
       // relations are managed in a separate array and added to the form value on save
 
       // Autres (Example fields)
       otherField1: [''],
       otherField2: [null], // Example: another dropdown
 
+    });
+  }
+
+  setupValueChangeListeners(): void {
+    // Title changes -> Update Gender and Marital Status
+    this.patientForm.get('title')?.valueChanges.subscribe(value => {
+      let gender = null;
+      let maritalStatus = null;
+      if (value === 'Mr.') {
+        gender = 'Homme';
+        maritalStatus = 'Marié(e)'; // Assuming Mr. is typically Marié(e) based on provided info context
+      } else if (value === 'Mme') {
+        gender = 'Femme';
+        maritalStatus = 'Marié(e)'; // Assuming Mme is typically Marié(e)
+      } else if (value === 'Mlle') {
+        gender = 'Femme';
+        maritalStatus = 'Célibataire'; // Assuming Mlle is typically Célibataire
+      }
+      this.patientForm.get('gender')?.setValue(gender);
+      this.patientForm.get('maritalStatus')?.setValue(maritalStatus);
+    });
+
+    // Date of Birth changes -> Calculate Age
+    this.patientForm.get('dateOfBirth')?.valueChanges.subscribe((value: Date | null) => {
+      if (value) {
+        const today = new Date();
+        const birthDate = new Date(value);
+        let age = today.getFullYear() - birthDate.getFullYear();
+        const m = today.getMonth() - birthDate.getMonth();
+        if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+          age--;
+        }
+        this.patientForm.get('age')?.setValue(age);
+        // Disable age input when date of birth is entered
+        this.patientForm.get('age')?.disable();
+      } else {
+        this.patientForm.get('age')?.setValue(null);
+        // Enable age input when date of birth is cleared
+        this.patientForm.get('age')?.enable();
+      }
+    });
+
+    // Age changes -> Calculate Date of Birth (as 01/01/YYYY)
+    // Debounce and filter to avoid infinite loops with dateOfBirth changes
+    this.patientForm.get('age')?.valueChanges.pipe(
+      debounceTime(300), // Wait for user to finish typing age
+      distinctUntilChanged(),
+      filter(age => age !== null && age !== undefined && age !== '') // Only proceed if age has a value
+    ).subscribe(age => {
+      // Only update date of birth if the age field is currently enabled (meaning date of birth was not entered)
+      if (this.patientForm.get('age')?.enabled) {
+        const currentYear = new Date().getFullYear();
+        const birthYear = currentYear - age;
+        const date = new Date(birthYear, 0, 1); // Month is 0-indexed
+        // Set value only if it's a valid date
+        if (!isNaN(date.getTime())) {
+          this.patientForm.get('dateOfBirth')?.setValue(date);
+        } else {
+          this.patientForm.get('dateOfBirth')?.setValue(null);
+        }
+      }
+    });
+
+
+    // Country changes -> Filter Cities and potentially set Nationality
+    this.patientForm.get('country')?.valueChanges.subscribe(country => {
+      this.patientForm.get('city')?.setValue(null); // Clear city when country changes
+      if (country) {
+        this.patientForm.get('city')?.enable();
+        // Simulate filtering cities based on country
+        this.filteredCities = this.cities.filter(city =>
+          (country === 'Maroc' && ['Rabat', 'Casablanca', 'Marrakech'].includes(city)) ||
+          (country === 'France' && ['Paris', 'Lyon', 'Marseille'].includes(city)) ||
+          (country === 'Spain' && ['Madrid', 'Barcelona'].includes(city)) ||
+          (country === 'Germany' && ['Berlin', 'Munich'].includes(city))
+        );
+
+        // Set nationality to "Marocaine" if country is "Maroc", otherwise enable nationality selection
+        if (country === 'Maroc') {
+          this.patientForm.get('nationality')?.setValue('Marocaine');
+          this.patientForm.get('nationality')?.disable();
+        } else {
+          this.patientForm.get('nationality')?.setValue(null);
+          this.patientForm.get('nationality')?.enable();
+          // Simulate filtering nationalities (can be more complex based on actual data)
+          this.filteredNationalities = this.nationalities.filter(nat =>
+              (country === 'Maroc' && nat === 'Marocaine') || // If country is Morocco, only Moroccan is suggested/set
+              (country !== 'Maroc' && nat !== 'Marocaine') // If country is not Morocco, Moroccan is not suggested/set
+            // More realistic filtering would involve mapping countries to nationalities
+          );
+          // For simplicity, let's just use all nationalities when country is not Morocco
+          this.filteredNationalities = this.nationalities;
+        }
+
+      } else {
+        this.patientForm.get('city')?.disable();
+        this.filteredCities = [];
+        this.patientForm.get('nationality')?.disable();
+        this.patientForm.get('nationality')?.setValue(null);
+        this.filteredNationalities = [];
+      }
+    });
+
+    // Initialize filtered cities and nationalities based on initial country value if any
+    const initialCountry = this.patientForm.get('country')?.value;
+    if (initialCountry) {
+      // Manually trigger the country change logic on init if there's an initial value
+      this.patientForm.get('country')?.updateValueAndValidity({ emitEvent: true });
+    } else {
+      // If no initial country, ensure city and nationality are disabled
+      this.patientForm.get('city')?.disable();
+      this.patientForm.get('nationality')?.disable();
+    }
+  }
+
+  setupAutocompleteFilters(): void {
+    // Filter languages for Chip select autocomplete
+    this.patientForm.get('spokenLanguages')?.valueChanges.pipe(
+      startWith(this.patientForm.get('spokenLanguages')?.value || []),
+      debounceTime(200),
+      distinctUntilChanged(),
+      map(selectedLanguages => {
+        // Filter available languages based on what hasn't been selected yet
+        return this.languages.filter(lang => !selectedLanguages.includes(lang));
+      })
+    ).subscribe(filteredLanguages => {
+      this.filteredLanguages = filteredLanguages;
     });
   }
 
@@ -321,17 +548,36 @@ export class PatientAddComponent implements OnInit, OnDestroy {
   }
 
   // --- Form Control Getters ---
-  get firstNameControl(): AbstractControl | null { return this.patientForm.get('firstName'); }
-  get lastNameControl(): AbstractControl | null { return this.patientForm.get('lastName'); }
-  get dateOfBirthControl(): AbstractControl | null { return this.patientForm.get('dateOfBirth'); }
-  get ageControl(): AbstractControl | null { return this.patientForm.get('age'); }
-  get nationalityControl(): AbstractControl | null { return this.patientForm.get('nationality'); }
+  // get firstNameControl(): AbstractControl | null { return this.patientForm.get('firstName'); }
+  // get lastNameControl(): AbstractControl | null { return this.patientForm.get('lastName'); }
+  // get dateOfBirthControl(): AbstractControl | null { return this.patientForm.get('dateOfBirth'); }
+  // get ageControl(): AbstractControl | null { return this.patientForm.get('age'); }
+  // get nationalityControl(): AbstractControl | null { return this.patientForm.get('nationality'); }
   get emailControl(): AbstractControl | null { return this.patientForm.get('email'); }
   get primaryPhoneNumberControl(): AbstractControl | null { return this.patientForm.get('primaryPhoneNumber'); }
   get secondaryPhoneNumberControl(): AbstractControl | null { return this.patientForm.get('secondaryPhoneNumber'); }
   get nationalIdControl(): AbstractControl | null { return this.patientForm.get('nationalId'); }
   get passportNumberControl(): AbstractControl | null { return this.patientForm.get('passportNumber'); }
   get photoControl(): AbstractControl | null { return this.patientForm.get('photo'); }
+
+
+  // Helper to get individual control for easier access in template
+  get titleControl(): AbstractControl | null { return this.patientForm.get('title'); }
+  get firstNameControl(): AbstractControl | null { return this.patientForm.get('firstName'); }
+  get lastNameControl(): AbstractControl | null { return this.patientForm.get('lastName'); }
+  get aliasControl(): AbstractControl | null { return this.patientForm.get('alias'); }
+  get genderControl(): AbstractControl | null { return this.patientForm.get('gender'); }
+  get dateOfBirthControl(): AbstractControl | null { return this.patientForm.get('dateOfBirth'); }
+  get ageControl(): AbstractControl | null { return this.patientForm.get('age'); }
+  get addressControl(): AbstractControl | null { return this.patientForm.get('address'); }
+  get postalCodeControl(): AbstractControl | null { return this.patientForm.get('postalCode'); }
+  get countryControl(): AbstractControl | null { return this.patientForm.get('country'); }
+  get cityControl(): AbstractControl | null { return this.patientForm.get('city'); }
+  get nationalityControl(): AbstractControl | null { return this.patientForm.get('nationality'); }
+  get maritalStatusControl(): AbstractControl | null { return this.patientForm.get('maritalStatus'); }
+  get ethnicityControl(): AbstractControl | null { return this.patientForm.get('ethnicity'); }
+  get occupationControl(): AbstractControl | null { return this.patientForm.get('occupation'); }
+  get spokenLanguagesControl(): AbstractControl | null { return this.patientForm.get('spokenLanguages'); }
 
 
   // --- Date/Age Sync Logic ---
@@ -383,7 +629,7 @@ export class PatientAddComponent implements OnInit, OnDestroy {
   searchNationalities(event: any): void {
     const query = event.query.toLowerCase();
     this.filteredNationalities = this.nationalities.filter(nat =>
-      nat.name.toLowerCase().includes(query)
+      nat.toLowerCase().includes(query)
     );
   }
 

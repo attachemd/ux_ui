@@ -38,6 +38,19 @@
       }
     }
   }
+
+  .fluid-form {
+    display: flex;
+    column-gap: 16px;
+    flex-wrap: wrap;
+    .field-container {
+      width: fit-content;
+      min-width: 200px;
+      .p-floatlabel {
+        /*width: fit-content;*/
+      }
+    }
+  }
 }
 
 
