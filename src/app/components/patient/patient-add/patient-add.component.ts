@@ -34,7 +34,6 @@ import {SelectModule} from 'primeng/select';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatIconModule} from '@angular/material/icon';
 import {ChipsModule} from 'primeng/chips';
-import {MatFormField} from '@angular/material/form-field';
 import {MatChipsModule} from '@angular/material/chips';
 // --- Custom Validators ---
 // Basic pattern validator (allows letters, numbers, space, and specified special chars)
@@ -177,7 +176,6 @@ export function addressSpecialCharactersValidator(control: AbstractControl): Val
     MatExpansionModule,
     MatIconModule,
     ChipsModule,
-    MatFormField,
     MatChipsModule
   ],
   providers: [MessageService, ConfirmationService, DialogService], // Provide services

@@ -13,6 +13,8 @@ import {MatCheckbox} from '@angular/material/checkbox';
 import {SelectionModel} from '@angular/cdk/collections';
 import {SelectModule} from 'primeng/select';
 import {FormControl, FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {InputGroupModule} from 'primeng/inputgroup';
+import {ButtonModule} from 'primeng/button';
 interface View {
   name: string;
   id: string;
@@ -60,7 +62,7 @@ const NAMES: string[] = [
   selector: 'app-patient-list',
   imports: [
     MatFormFieldModule, MatInputModule, MatTableModule, MatSortModule, MatPaginatorModule, MatIconModule, NgIf, MatIconButton, MatButton,
-    MatCheckbox, SelectModule, FormsModule, ReactiveFormsModule
+    MatCheckbox, SelectModule, FormsModule, ReactiveFormsModule, InputGroupModule, ButtonModule
 
   ],
   templateUrl: './patient-list.component.html',

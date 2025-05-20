@@ -20,36 +20,43 @@
   /*display: inline-block; !* Keep button and menu together *!*/
 }
 
-#menuButton1 {
-  anchor-name: --menu-button-1;
-}
+/*#menuButton1 {*/
+/*  anchor-name: --menu-button-1;*/
+/*}*/
 
-#myMenu1 {
-  /*position: relative;*/
-  top: anchor(--menu-button-1 bottom);
-  /*left: anchor(--menu-button-1 left);*/
-  margin: 0;
-  margin-right: 10px;
-  justify-self: anchor-center;
-  /*position-area: bottom;*/
-  /*position: fixed;*/
-  /*inset: 0;*/
-}
+/*#myMenu1 {*/
+/*  !*position: relative;*!*/
+/*  top: anchor(--menu-button-1 bottom);*/
+/*  !*left: anchor(--menu-button-1 left);*!*/
+/*  margin: 0;*/
+/*  margin-right: 10px;*/
+/*  justify-self: anchor-center;*/
+/*  !*position-area: bottom;*!*/
+/*  !*position: fixed;*!*/
+/*  !*inset: 0;*!*/
+/*}*/
 
-#menuButton2 {
-  --anchor-name: --menu-button-2;
-}
+/*.myMenu {*/
+/*  top: anchor( bottom);*/
+/*  margin: 0;*/
+/*  margin-right: 10px;*/
+/*  justify-self: anchor-center;*/
+/*}*/
+
+/*#menuButton2 {*/
+/*  --anchor-name: --menu-button-2;*/
+/*}*/
 
 /* Style the button */
-button {
-  /*background-color: #007bff;*/
-  /*color: white;*/
-  /*border: none;*/
-  /*border-radius: 5px;*/
-  /*cursor: pointer;*/
-  transition: background-color 0.3s ease;
-  /*position: relative;*/
-}
+/*button {*/
+/*  !*background-color: #007bff;*!*/
+/*  !*color: white;*!*/
+/*  !*border: none;*!*/
+/*  !*border-radius: 5px;*!*/
+/*  !*cursor: pointer;*!*/
+/*  transition: background-color 0.3s ease;*/
+/*  !*position: relative;*!*/
+/*}*/
 
 /*button:hover {*/
 /*  background-color: #0056b3;*/
@@ -78,6 +85,11 @@ button {
   padding: 8px;
   min-width: 150px;
   max-width: 250px;
+
+  top: anchor( bottom);
+  margin: 0;
+  margin-right: 10px;
+  justify-self: anchor-center;
 
 
   /* Important for anchor positioning */
