@@ -168,7 +168,7 @@
 
 <!--              <div class="field-container">-->
 <!--                <p-floatlabel variant="in">-->
-<!--                  <p-dropdown-->
+<!--                  <p-select-->
 <!--                    formControlName="gender"-->
 <!--                    [options]="genders"-->
 <!--                    optionLabel="name"-->
@@ -176,7 +176,7 @@
 <!--                    id="gender"-->
 <!--                    styleClass="w-full"-->
 <!--                    variant="filled"-->
-<!--                  ></p-dropdown>-->
+<!--                  ></p-select>-->
 <!--                  <label for="gender">Genre</label>-->
 <!--                </p-floatlabel>-->
 <!--              </div>-->
@@ -210,7 +210,7 @@
 
 <!--              <div class="field-container">-->
 <!--                <p-floatlabel variant="in">-->
-<!--                  <p-dropdown-->
+<!--                  <p-select-->
 <!--                    formControlName="maritalStatus"-->
 <!--                    [options]="maritalStatuses"-->
 <!--                    optionLabel="name"-->
@@ -218,7 +218,7 @@
 <!--                    id="maritalStatus"-->
 <!--                    styleClass="w-full"-->
 <!--                    variant="filled"-->
-<!--                  ></p-dropdown>-->
+<!--                  ></p-select>-->
 <!--                  <label for="maritalStatus">Situation familiale</label>-->
 <!--                </p-floatlabel>-->
 <!--              </div>-->
@@ -260,26 +260,28 @@
 
             <div class="field-container">
               <p-floatlabel variant="in" class="w-full">
-                <p-dropdown
+                <p-select
                   [options]="titles"
                   formControlName="title"
                   inputId="title"
-                  styleClass="w-full"
+                  class="w-full"
                   variant="filled"
                   [showClear]="true">
-                </p-dropdown>
+                </p-select>
                 <label for="title">Civilité</label>
               </p-floatlabel>
             </div>
 
             <div class="field-container">
               <p-floatlabel variant="in">
-                <input
-                  pInputText
-                  formControlName="firstName"
-                  id="firstName"
-                  type="text"
-                  variant="filled"/>
+                <div class="p-inputgroup w-full">
+                  <input pInputText id="firstName" formControlName="firstName" class="w-full" variant="filled"/>
+                  <p-button icon="pi pi-times" severity="secondary"
+                            [rounded]="true"
+                            [text]="true"
+                            (click)="clearField('firstName')"
+                            *ngIf="firstNameControl?.value"></p-button>
+                </div>
                 <label for="firstName">Prénom <span>*</span></label>
               </p-floatlabel>
               <small
@@ -294,12 +296,14 @@
 
             <div class="field-container">
               <p-floatlabel variant="in">
-                <input
-                  pInputText
-                  formControlName="lastName"
-                  id="lastName"
-                  type="text"
-                  variant="filled"/>
+                <div class="p-inputgroup w-full">
+                  <input pInputText id="lastName" formControlName="lastName" class="w-full" variant="filled"/>
+                  <p-button icon="pi pi-times" severity="secondary"
+                            [rounded]="true"
+                            [text]="true"
+                            (click)="clearField('lastName')"
+                            *ngIf="lastNameControl?.value"></p-button>
+                </div>
                 <label for="lastName">Nom <span>*</span></label>
               </p-floatlabel>
               <small
@@ -312,26 +316,26 @@
               </small>
             </div>
 
-            <div class="field-container">
-              <p-floatlabel variant="in">
-                <input
-                  pInputText
-                  formControlName="alias"
-                  id="alias"
-                  type="text"
-                  variant="filled"/>
-                <label for="alias">Pseudonyme</label>
-              </p-floatlabel>
-            </div>
+<!--            <div class="field-container">-->
+<!--              <p-floatlabel variant="in">-->
+<!--                <input-->
+<!--                  pInputText-->
+<!--                  formControlName="alias"-->
+<!--                  id="alias"-->
+<!--                  type="text"-->
+<!--                  variant="filled"/>-->
+<!--                <label for="alias">Pseudonyme</label>-->
+<!--              </p-floatlabel>-->
+<!--            </div>-->
 
 
             <div class="field-container">
               <p-floatlabel variant="in">
-                <p-dropdown
+                <p-select
                   [options]="genders"
                   formControlName="gender"
                   id="gender">
-                </p-dropdown>
+                </p-select>
                 <label for="gender">Sexe</label>
               </p-floatlabel>
             </div>
@@ -408,12 +412,12 @@
 
             <div class="field-container">
               <p-floatlabel variant="in">
-                <p-dropdown
+                <p-select
                   [options]="countries"
                   formControlName="country"
                   inputId="country"
                   [showClear]="true">
-                </p-dropdown>
+                </p-select>
                 <label for="country">Pays</label>
               </p-floatlabel>
             </div>
@@ -421,12 +425,12 @@
 
             <div class="field-container">
               <p-floatlabel variant="in">
-                <p-dropdown
+                <p-select
                   [options]="filteredCities"
                   formControlName="city"
                   inputId="city"
                   [showClear]="true">
-                </p-dropdown>
+                </p-select>
                 <label for="city">Ville</label>
               </p-floatlabel>
               <small class="p-info" *ngIf="!cityControl?.value && countryControl?.value">
@@ -436,48 +440,48 @@
 
             <div class="field-container">
               <p-floatlabel variant="in">
-                <p-dropdown
+                <p-select
                   [options]="filteredNationalities"
                   formControlName="nationality"
                   inputId="nationality"
                   [showClear]="true">
-                </p-dropdown>
+                </p-select>
                 <label for="nationality">Nationalité</label>
               </p-floatlabel>
             </div>
 
             <div class="field-container">
               <p-floatlabel variant="in">
-                <p-dropdown
+                <p-select
                   [options]="maritalStatuses"
                   formControlName="maritalStatus"
                   inputId="maritalStatus"
                   >
-                </p-dropdown>
+                </p-select>
                 <label for="maritalStatus">Etat civil</label>
               </p-floatlabel>
             </div>
 
             <div class="field-container">
               <p-floatlabel variant="in">
-                <p-dropdown
+                <p-select
                   [options]="ethnicities"
                   formControlName="ethnicity"
                   inputId="ethnicity"
                   [showClear]="true">
-                </p-dropdown>
+                </p-select>
                 <label for="ethnicity">Ethnie</label>
               </p-floatlabel>
             </div>
 
             <div class="field-container">
               <p-floatlabel variant="in">
-                <p-dropdown
+                <p-select
                   [options]="occupations"
                   formControlName="occupation"
                   id="occupation"
                   [showClear]="true">
-                </p-dropdown>
+                </p-select>
                 <label for="occupation">Profession</label>
               </p-floatlabel>
             </div>
@@ -691,14 +695,14 @@
             <div class="p-field p-col-12 p-md-6">
               <div class="field-container">
                 <p-floatlabel variant="in">
-                  <p-dropdown
+                  <p-select
                     formControlName="otherField2"
                     [options]="maritalStatuses" optionLabel="name"
                     [showClear]="true"
                     id="otherField2"
                     styleClass="w-full"
                     variant="filled"
-                  ></p-dropdown>
+                  ></p-select>
                   <label for="otherField2">Champ autre 2 (Liste)</label>
                 </p-floatlabel>
               </div>
@@ -717,7 +721,7 @@
         <div class="p-field">
           <div class="field-container">
             <p-floatlabel variant="in">
-              <p-dropdown
+              <p-select
                 formControlName="type"
                 [options]="relationTypes"
                 optionLabel="name"
@@ -725,7 +729,7 @@
                 id="relationType"
                 styleClass="w-full"
                 variant="filled"
-              ></p-dropdown>
+              ></p-select>
               <label for="relationType">Type de lien <span>*</span></label>
             </p-floatlabel>
             <small class="p-error" *ngIf="shouldShowRelationError(getRelationControl('type'))">

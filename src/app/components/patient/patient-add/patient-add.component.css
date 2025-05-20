@@ -37,6 +37,9 @@
         background-color: red !important;
       }
     }
+    .mat-expansion-panel {
+      overflow: visible;
+    }
   }
 
   .fluid-form {

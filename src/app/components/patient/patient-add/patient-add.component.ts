@@ -337,6 +337,23 @@ export class PatientAddComponent implements OnInit, OnDestroy {
     this.destroy$.complete();
   }
 
+  // --- Reset Field Logic ---
+  clearField(controlName: string) {
+    const control = this.patientForm.get(controlName);
+    if (control) {
+      // Reset based on expected value type (Date, object from dropdown, string)
+      if (controlName === 'startDate' || controlName === 'endDate') {
+        control.reset(null); // Reset date to null
+      } else if (controlName === 'status' || controlName === 'treatmentName') {
+        control.reset(null); // Reset dropdown/autocomplete object to null
+      }
+      else {
+        control.reset(''); // Reset text fields
+      }
+      // Note: entryType is a selectButton, typically doesn't need a clear button
+    }
+  }
+
   initPatientForm(): void {
     this.patientForm = this.fb.group({
       // Entête

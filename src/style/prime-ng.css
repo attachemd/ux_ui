@@ -275,6 +275,9 @@
 
   .p-datepicker {
     width: 100%;
+    .p-datepicker-panel {
+      z-index: 999999999;
+    }
   }
 
   .p-datepicker-day-view {

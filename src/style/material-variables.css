@@ -46,6 +46,17 @@
     --mat-filled-button-pressed-state-layer-opacity: 8%;
     --mdc-filled-button-disabled-label-text-color: var(--ft-color-text-muted);
 
+    --mdc-text-button-label-text-color: var(--ft-color-primary);
+    --mdc-text-button-label-text-font: var(--ft-font-family-base);
+    --mdc-text-button-label-text-size: var(--ft-text-xs);
+    --mat-text-button-state-layer-color: var(--ft-color-primary);
+    /*--mat-text-button-focus-state-layer-opacity: 8%;*/
+    /*--mat-text-button-pressed-state-layer-opacity: 8%;*/
+    --mdc-text-button-container-height: var(--ft-spacing-3xl);
+    --mat-text-button-ripple-color: var(--ft-color-background-quinary);
+
+
+
     /* Button icons */
 
     --mdc-icon-button-state-layer-size: var(--ft-spacing-3xl);

@@ -78,7 +78,7 @@ export class PatientListComponent implements AfterViewInit {
   @ViewChild('input') input!: ElementRef<HTMLInputElement>;
 
   // selectedCity = new FormControl('');
-  cities: View[] | undefined;
+  views: View[] | undefined;
   selectedView = new FormControl<View | null>(null);
 
   constructor() {
@@ -88,7 +88,7 @@ export class PatientListComponent implements AfterViewInit {
     // Assign the data to the data source for the table to render
     this.dataSource = new MatTableDataSource(users);
     this.selectedView.setValue({ name: 'New York', id: 'NY' });
-    this.cities = [
+    this.views = [
       { name: 'Vue standard', id: '1' },
       { name: 'Compact', id: '2' },
       { name: 'Date de naissance en premier', id: '3'},

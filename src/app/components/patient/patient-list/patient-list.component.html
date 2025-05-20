@@ -49,8 +49,8 @@
           </ul>
         </div>
         <!--        [showClear]="true"-->
-        <p-select formControlName="selectedCity"
-                  [options]="cities"
+        <p-select formControlName="selectedView"
+                  [options]="views"
 
                   optionLabel="name"
                   variant="filled"/>
@@ -70,11 +70,15 @@
     </div>
 
     <div class="table-actions-container">
-      <button mat-flat-button class="filter-button">
-        <mat-icon><i matSuffix class="icon-filter"></i></mat-icon>
-        <span>Filtrer</span>
-        <span class="filter-number">2</span>
-      </button>
+      <div class="flex gap-2 items-center">
+        <button mat-button>Réinitialiser filters</button>
+        <button mat-flat-button class="filter-button">
+          <mat-icon><i matSuffix class="icon-filter"></i></mat-icon>
+          <span>Filtrer</span>
+          <span class="filter-number">2</span>
+        </button>
+      </div>
+
       <button mat-flat-button>
         <mat-icon><i class="icon-plus"></i></mat-icon>
         <span>Nouveau patient</span>
