@@ -35,6 +35,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatIconModule} from '@angular/material/icon';
 import {ChipsModule} from 'primeng/chips';
 import {MatChipsModule} from '@angular/material/chips';
+import {DatePickerModule} from 'primeng/datepicker';
 // --- Custom Validators ---
 // Basic pattern validator (allows letters, numbers, space, and specified special chars)
 const allowedCharsPattern = /^[a-zA-Z0-9\s\-&`_´]*$/;
@@ -176,7 +177,8 @@ export function addressSpecialCharactersValidator(control: AbstractControl): Val
     MatExpansionModule,
     MatIconModule,
     ChipsModule,
-    MatChipsModule
+    MatChipsModule,
+    DatePickerModule
   ],
   providers: [MessageService, ConfirmationService, DialogService], // Provide services
   templateUrl: './patient-add.component.html',
@@ -386,9 +388,9 @@ export class PatientAddComponent implements OnInit, OnDestroy {
         allowedCharactersValidator('-&`_´')
       ]],
       alias: [''],
-      gender: [{ value: null, disabled: true }], // Disabled as it's calculated
+      gender: [{ value: null, disabled: false }], // Disabled as it's calculated
       dateOfBirth: [null, Validators.required],
-      age: [{ value: null, disabled: true }], // Disabled initially, enabled for year input if needed
+      age: [{ value: null, disabled: false }], // Disabled initially, enabled for year input if needed
       address: ['', [
         Validators.minLength(5),
         addressSpecialCharactersValidator,
@@ -400,9 +402,9 @@ export class PatientAddComponent implements OnInit, OnDestroy {
         Validators.pattern('^[a-zA-Z0-9]*$') // Assuming alphanumeric
       ]],
       country: [null],
-      city: [{ value: null, disabled: true }], // Disabled initially, enabled and filtered by country
-      nationality: [{ value: null, disabled: true }], // Disabled initially, potentially set by country
-      maritalStatus: [{ value: null, disabled: true }], // Disabled as it's calculated
+      city: [{ value: null, disabled: false }], // Disabled initially, enabled and filtered by country
+      nationality: [{ value: null, disabled: false }], // Disabled initially, potentially set by country
+      maritalStatus: [{ value: null, disabled: false }], // Disabled as it's calculated
       ethnicity: [null],
       occupation: [null],
       spokenLanguages: [[]], // Array for chip select
@@ -431,20 +433,17 @@ export class PatientAddComponent implements OnInit, OnDestroy {
   setupValueChangeListeners(): void {
     // Title changes -> Update Gender and Marital Status
     this.patientForm.get('title')?.valueChanges.subscribe(value => {
+      console.log('value')
       let gender = null;
       let maritalStatus = null;
       if (value === 'Mr.') {
         gender = 'Homme';
-        maritalStatus = 'Marié(e)'; // Assuming Mr. is typically Marié(e) based on provided info context
       } else if (value === 'Mme') {
         gender = 'Femme';
-        maritalStatus = 'Marié(e)'; // Assuming Mme is typically Marié(e)
       } else if (value === 'Mlle') {
         gender = 'Femme';
-        maritalStatus = 'Célibataire'; // Assuming Mlle is typically Célibataire
       }
       this.patientForm.get('gender')?.setValue(gender);
-      this.patientForm.get('maritalStatus')?.setValue(maritalStatus);
     });
 
     // Date of Birth changes -> Calculate Age
@@ -459,11 +458,11 @@ export class PatientAddComponent implements OnInit, OnDestroy {
         }
         this.patientForm.get('age')?.setValue(age);
         // Disable age input when date of birth is entered
-        this.patientForm.get('age')?.disable();
+        // this.patientForm.get('age')?.disable();
       } else {
         this.patientForm.get('age')?.setValue(null);
         // Enable age input when date of birth is cleared
-        this.patientForm.get('age')?.enable();
+        // this.patientForm.get('age')?.enable();
       }
     });
 
@@ -493,7 +492,9 @@ export class PatientAddComponent implements OnInit, OnDestroy {
     this.patientForm.get('country')?.valueChanges.subscribe(country => {
       this.patientForm.get('city')?.setValue(null); // Clear city when country changes
       if (country) {
-        this.patientForm.get('city')?.enable();
+        // this.patientForm.get('nationality')?.setValue('Marocaine');
+        // return;
+        // this.patientForm.get('city')?.enable();
         // Simulate filtering cities based on country
         this.filteredCities = this.cities.filter(city =>
           (country === 'Maroc' && ['Rabat', 'Casablanca', 'Marrakech'].includes(city)) ||
@@ -504,11 +505,13 @@ export class PatientAddComponent implements OnInit, OnDestroy {
 
         // Set nationality to "Marocaine" if country is "Maroc", otherwise enable nationality selection
         if (country === 'Maroc') {
+          console.log("this.patientForm.get('nationality')?.setValue('Marocaine');")
           this.patientForm.get('nationality')?.setValue('Marocaine');
-          this.patientForm.get('nationality')?.disable();
+          return;
+          // this.patientForm.get('nationality')?.disable();
         } else {
           this.patientForm.get('nationality')?.setValue(null);
-          this.patientForm.get('nationality')?.enable();
+          // this.patientForm.get('nationality')?.enable();
           // Simulate filtering nationalities (can be more complex based on actual data)
           this.filteredNationalities = this.nationalities.filter(nat =>
               (country === 'Maroc' && nat === 'Marocaine') || // If country is Morocco, only Moroccan is suggested/set
@@ -520,24 +523,24 @@ export class PatientAddComponent implements OnInit, OnDestroy {
         }
 
       } else {
-        this.patientForm.get('city')?.disable();
+        // this.patientForm.get('city')?.disable();
         this.filteredCities = [];
-        this.patientForm.get('nationality')?.disable();
+        // this.patientForm.get('nationality')?.disable();
         this.patientForm.get('nationality')?.setValue(null);
         this.filteredNationalities = [];
       }
     });
 
-    // Initialize filtered cities and nationalities based on initial country value if any
-    const initialCountry = this.patientForm.get('country')?.value;
-    if (initialCountry) {
-      // Manually trigger the country change logic on init if there's an initial value
-      this.patientForm.get('country')?.updateValueAndValidity({ emitEvent: true });
-    } else {
-      // If no initial country, ensure city and nationality are disabled
-      this.patientForm.get('city')?.disable();
-      this.patientForm.get('nationality')?.disable();
-    }
+    // // Initialize filtered cities and nationalities based on initial country value if any
+    // const initialCountry = this.patientForm.get('country')?.value;
+    // if (initialCountry) {
+    //   // Manually trigger the country change logic on init if there's an initial value
+    //   this.patientForm.get('country')?.updateValueAndValidity({ emitEvent: true });
+    // } else {
+    //   // If no initial country, ensure city and nationality are disabled
+    //   // this.patientForm.get('city')?.disable();
+    //   // this.patientForm.get('nationality')?.disable();
+    // }
   }
 
   setupAutocompleteFilters(): void {

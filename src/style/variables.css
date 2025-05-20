@@ -47,6 +47,7 @@
     /*--ft-color-global-shadow: 1, 93, 231;*/
     --ft-color-global-shadow: 0, 0, 0;
     --color-electric-primary: #34C759;
+    --color-electric-secondary: #ff00ae;
 
     --ft-color-text-base: var(rgba(var(--ft-color-dark), 0.8), --ft-color-dark);
     --ft-color-text-muted: #b3b3b3;

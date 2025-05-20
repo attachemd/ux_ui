@@ -129,6 +129,7 @@
     --mat-expansion-header-indicator-color: var(--ft-color-text-primary);
     --mat-expansion-header-text-size: var(--text-sm);
     --mat-expansion-header-disabled-state-text-color: var(--ft-color-text-primary);
+    /*--mat-expansion-header-text-weight: var(--font-weight-normal)*/
   }
 
   body.dark-theme {

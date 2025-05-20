@@ -439,7 +439,12 @@
     box-shadow: none !important;
   }
   .mat-accordion .section-container:not(:last-child) .mat-expansion-panel:not([class*=mat-elevation-z]){
-    border-bottom: var(--ft-border-primary) solid var(--ft-color-dark-alpha-secondary);
+    border-bottom: var(--ft-border-primary) solid var(--ft-color-dark-alpha-tertiary);
+  }
+
+  .mat-expansion-panel-header-title {
+    /*font-style: italic;*/
+    /*text-transform: uppercase;*/
   }
 
 
