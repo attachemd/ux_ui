@@ -25,9 +25,80 @@
         <mat-icon><i class="icon-plus"></i></mat-icon>
         <span>Nouveau patient</span>
       </button>
-      <button mat-icon-button aria-label="Example icon button with a vertical three dot icon">
+      <button id="menuButton1" popovertarget="myMenu1" popovertargetaction="toggle" mat-icon-button aria-label="Example icon button with a vertical three dot icon">
         <mat-icon><i class="icon-vertical-dots"></i></mat-icon>
       </button>
+      <div id="myMenu1" popover class="popover-menu">
+        <ul>
+<!--          <li><a href="#"><i class="icon-setting"></i><span>Configurer la vue</span></a></li>-->
+<!--          <li><a href="#"><i class="icon-table"></i><span>Modifier les colonnes</span></a></li>-->
+<!--          <li><a href="#"><i class="icon-save"></i><span>Enregistrer</span></a></li>-->
+<!--          <li><a href="#"><i class="icon-save"></i><span>Enregistrer sous</span></a></li>-->
+<!--          <li><a href="#"><i class="icon-export"></i><span>Exporter</span></a></li>-->
+<!--          <li><a href="#"><i class="icon-delete"></i><span>Supprimer</span></a></li>-->
+          <li>
+            <button mat-flat-button>
+            <mat-icon><i class="icon-setting"></i></mat-icon>
+            <span>Configurer la vue</span>
+          </button>
+            <li>
+              <button mat-flat-button>
+                <mat-icon><i class="icon-table"></i></mat-icon>
+                <span>Modifier les colonnes</span>
+              </button>
+            </li>
+          <li>
+            <button mat-flat-button>
+              <mat-icon><i class="icon-save"></i></mat-icon>
+              <span>Enregistrer</span>
+            </button>
+          </li>
+          <li>
+            <button mat-flat-button>
+              <mat-icon><i class="icon-save"></i></mat-icon>
+              <span>Enregistrer sous</span>
+            </button>
+          </li>
+        <li>
+          <button mat-flat-button>
+            <mat-icon><i class="icon-export"></i></mat-icon>
+            <span>Exporter</span>
+          </button>
+        </li>
+      <li>
+        <button mat-flat-button>
+          <mat-icon><i class="icon-delete"></i></mat-icon>
+          <span>Supprimer</span>
+        </button>
+      </li>
+        </ul>
+      </div>
+
+<!--      <div class="menu-container">-->
+<!--        <button id="menuButton1" popovertarget="myMenu1" popovertargetaction="toggle" style="font-size: 1.2em; padding: 10px 15px;">-->
+<!--          Open Menu 1-->
+<!--        </button>-->
+<!--        <div id="myMenu1" popover class="popover-menu">-->
+<!--          <ul>-->
+<!--            <li><a href="#">Item 1</a></li>-->
+<!--            <li><a href="#">Item 2</a></li>-->
+<!--            <li><a href="#">Item 3 is a bit longer</a></li>-->
+<!--            <li><a href="#">Item 4</a></li>-->
+<!--          </ul>-->
+<!--        </div>-->
+<!--        <button id="menuButton2" popovertarget="myMenu2" popovertargetaction="toggle" style="font-size: 1.2em; padding: 10px 15px;">-->
+<!--          Open Menu 2 (Near Edge)-->
+<!--        </button>-->
+<!--        <div id="myMenu2" popover class="popover-menu">-->
+<!--          <ul>-->
+<!--            <li><a href="#">Option A</a></li>-->
+<!--            <li><a href="#">Option B</a></li>-->
+<!--            <li><a href="#">Option C is very long</a></li>-->
+<!--            <li><a href="#">Option D</a></li>-->
+<!--          </ul>-->
+<!--        </div>-->
+<!--      </div>-->
+
     </div>
   </div>
   <div class="list-body">

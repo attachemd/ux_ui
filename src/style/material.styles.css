@@ -262,6 +262,26 @@
             }
           }
         }
+
+        .popover-menu li button {
+          padding: 4px 8px;
+          text-decoration: none;
+          color: #333;
+          border-radius: 6px;
+          white-space: nowrap; /* Prevent menu items from wrapping */
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          border: 0 solid red !important;
+          width: 100%;
+          > * {
+            line-height: 1;
+          }
+          .mdc-button__label {
+            flex-grow: 1;
+            text-align: justify;
+          }
+        }
       }
     }
     .list-body {

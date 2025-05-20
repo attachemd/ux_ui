@@ -14,3 +14,135 @@
   /*flex: 0 0 60px;*/
   width: 60px;
 }
+
+.menu-container {
+  /*position: relative; !* Needed for --anchor-name on the button to work implicitly, or you can explicitly set it on the button *!*/
+  /*display: inline-block; !* Keep button and menu together *!*/
+}
+
+#menuButton1 {
+  anchor-name: --menu-button-1;
+}
+
+#myMenu1 {
+  /*position: relative;*/
+  top: anchor(--menu-button-1 bottom);
+  /*left: anchor(--menu-button-1 left);*/
+  margin: 0;
+  margin-right: 10px;
+  justify-self: anchor-center;
+  /*position-area: bottom;*/
+  /*position: fixed;*/
+  /*inset: 0;*/
+}
+
+#menuButton2 {
+  --anchor-name: --menu-button-2;
+}
+
+/* Style the button */
+button {
+  /*background-color: #007bff;*/
+  /*color: white;*/
+  /*border: none;*/
+  /*border-radius: 5px;*/
+  /*cursor: pointer;*/
+  transition: background-color 0.3s ease;
+  /*position: relative;*/
+}
+
+/*button:hover {*/
+/*  background-color: #0056b3;*/
+/*}*/
+
+/*:popover-open {*/
+/*  width: 200px;*/
+/*  height: 100px;*/
+/*  position: absolute;*/
+/*  inset: unset;*/
+/*  bottom: 5px;*/
+/*  right: 5px;*/
+/*  margin: 0;*/
+/*}*/
+
+/*
+   POPover Menu Styling
+   Note: The `popover` attribute automatically promotes the element to the top layer,
+   so you don't need z-index.
+*/
+.popover-menu {
+  border: 1px solid #e3e3e3;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  padding: 8px;
+  min-width: 150px;
+  max-width: 250px;
+
+
+  /* Important for anchor positioning */
+  /*position: absolute; !* Required for anchor() to work *!*/
+  /*inset: auto; !* Reset default popover positioning *!*/
+
+  /* Implicit anchor association:
+     When a popover is controlled by a button using `popovertarget`,
+     the button becomes an implicit anchor. We can name it using --anchor-name.
+     This is implicitly linked if the popover is controlled by the button via popovertarget.
+     If you want to explicitly declare an anchor, you'd use `anchor="id-of-anchor"` on the popover.
+  */
+  /*position-anchor: var(--anchor-name); !* Link to the anchor defined on the button's style *!*/
+
+  /* Positioning rules with fallbacks */
+  /* Try to place the top of the popover at the bottom of the anchor */
+  /*top: anchor(bottom);*/
+  /* Try to place the left of the popover at the left of the anchor */
+  /*left: anchor(left);*/
+
+  /* Fallback positioning if it goes off-screen: */
+  /* If the primary position doesn't fit, try to place it at the top of the anchor */
+  /* (This example prioritizes bottom-placement, but if not enough space, it will try top) */
+  /* You can list multiple anchor() values. The browser will pick the first one that fits. */
+  /* Example: top: anchor(bottom) anchor(top, 100%); will try bottom, then top if bottom doesn't fit */
+  /* For horizontal, if left goes off-screen, try placing right edge of menu at right edge of anchor */
+  /*right: anchor(right); !* This will be a fallback if left goes off-screen *!*/
+
+  /* Optional: Add some offset */
+  /*margin-top: 8px; !* Space between button and menu *!*/
+}
+
+.popover-menu ul {
+  list-style: none;
+  padding: 8px 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/*::ng-deep .mdc-button.mat-mdc-unelevated-button:not(:disabled) {*/
+/*  border: var(--ft-border-secondary) solid red !important;*/
+/*}*/
+
+/*::ng-deep .popover-menu li button {*/
+/*  padding: 4px 8px;*/
+/*  text-decoration: none;*/
+/*  color: #333;*/
+/*  border-radius: 6px;*/
+/*  white-space: nowrap; !* Prevent menu items from wrapping *!*/
+/*  display: flex;*/
+/*  align-items: center;*/
+/*  gap: 8px;*/
+/*  border: 0 solid red !important;*/
+/*  > * {*/
+/*    line-height: 1;*/
+/*  }*/
+/*}*/
+
+/*.popover-menu li a:hover {*/
+/*  background-color: #f0f0f0;*/
+/*}*/
+
+/* Hide the popover by default. The `popover` attribute handles toggling. */
+.popover-menu:not(:popover-open) {
+  display: none;
+}
