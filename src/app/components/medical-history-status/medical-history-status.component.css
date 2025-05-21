@@ -1,0 +1,129 @@
+.body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  padding: 20px;
+  /*background-color: #ededed;*/
+  color: #333;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.container {
+  background-color: white;
+  border-radius: 8px;
+  padding: 25px;
+}
+
+h2 {
+  margin-top: 30px;
+  color: #2c3e50;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.tag-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 16px;
+  border-radius: 16px;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.tag:hover {
+  transform: translateY(-2px);
+}
+
+.section-description {
+  color: #555;
+  margin-bottom: 20px;
+  font-size: 15px;
+}
+
+/* Risk Level Tags */
+.risk-critical {
+  background-color: #fde8e8;
+  color: #e53e3e;
+}
+
+.risk-high {
+  background-color: #feebc8;
+  color: #dd6b20;
+}
+
+.risk-medium {
+  background-color: #fefcbf;
+  color: #b7791f;
+}
+
+.risk-low {
+  background-color: #c6f6d5;
+  color: #2f855a;
+}
+
+/* Allergy Severity Tags */
+.allergy-severe {
+  background-color: #fed7d7;
+  color: #c53030;
+}
+
+.allergy-moderate {
+  background-color: #fed7aa;
+  color: #c05621;
+}
+
+.allergy-low {
+  background-color: #fefcbf;
+  color: #975a16;
+}
+
+/* Medical Condition Status Tags */
+.condition-active {
+  background-color: #bee3f8;
+  color: #2b6cb0;
+}
+
+.condition-in-remission {
+  background-color: #b2f5ea;
+  color: #2c7a7b;
+}
+
+.condition-resolved {
+  /*background-color: #c3dafe;*/
+  /*color: #4c51bf;*/
+  background-color: #C8E6C9;
+  color: #1B5E20;
+}
+
+/* Treatment Status Tags */
+.treatment-in-progress {
+  background-color: #9decf9;
+  color: #0987a0;
+}
+
+.treatment-stopped {
+  /*background-color: #feb2b2;*/
+  /*color: #c53030;*/
+  background-color: #D9C6FC;
+  color: #4B0082;
+}
+
+.treatment-finished {
+  background-color: #9ae6b4;
+  color: #276749;
+}
+
+.treatment-not-taken {
+  background-color: #e2e8f0;
+  color: #4a5568;
+}
