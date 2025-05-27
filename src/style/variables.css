@@ -86,7 +86,7 @@
 
     /* --- Typography --- */
     --ft-font-family-base: Inter, "Helvetica Neue", Arial, sans-serif;
-    --ft-font-family-headings: "Georgia", serif; /* Example */
+    --ft-font-family-headings: "Georgia", serif;
 
     /* 10px */
     --ft-text-4xs: calc(var(--text-base) * 10 / 16);
