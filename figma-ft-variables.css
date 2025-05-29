@@ -204,4 +204,6 @@
   --ft-color-border-200: var(--ft-color-n-on-surface-10);
   --ft-color-border-300: var(--ft-color-n-on-surface-40);
 
+  --ft-color-shadow-200: var(--ft-color-n-on-surface-10);
+
 }
