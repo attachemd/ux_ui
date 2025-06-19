@@ -98,6 +98,7 @@
             "configDir": ".storybook",
             "browserTarget": "uxui:build",
             "compodoc": true,
+            "styles": ["src/styles.css"],
             "compodocArgs": [
               "-e",
               "json",
@@ -113,6 +114,7 @@
             "configDir": ".storybook",
             "browserTarget": "uxui:build",
             "compodoc": true,
+            "styles": ["src/styles.css"],
             "compodocArgs": [
               "-e",
               "json",
