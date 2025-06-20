@@ -1892,7 +1892,7 @@
         },
         {
             "name": "ButtonComponent",
-            "id": "component-ButtonComponent-ba1fe5bcd4571e91ebefa1414cd63c884ba4e71bd557a783a002dc828cacdc21923f2fd72520eaaa179ff4b3a975421b167f0a87f1944aab8e5767cf56e1e07d",
+            "id": "component-ButtonComponent-ca03861e0e6d780810d3af5422719e19c68a379ea5645b07ab866404f8e880f693d927ae800496396cde48cb3e0a70a82a40b67212bf9b5b3243da6ac188d105",
             "file": "src/stories/button.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1904,7 +1904,7 @@
                 "./button.css"
             ],
             "styles": [],
-            "template": " <button  type=\"button\"\n  (click)=\"onClick.emit($event)\"\n  [ngClass]=\"classes\"\n  [ngStyle]=\"{ 'background-color': backgroundColor }\"\n>\n  {{ label }}\n</button>",
+            "template": " <button    clas=\"bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded\"\n  type=\"button\"\n  (click)=\"onClick.emit($event)\"\n  [ngClass]=\"classes\"\n  [ngStyle]=\"{ 'background-color': backgroundColor }\"\n>\n  {{ label }}\n</button>",
             "templateUrl": [],
             "viewProviders": [],
             "hostDirectives": [],
@@ -1915,7 +1915,7 @@
                     "deprecationMessage": "",
                     "rawdescription": "\nWhat background color to use",
                     "description": "<p>What background color to use</p>\n",
-                    "line": 25,
+                    "line": 26,
                     "type": "string",
                     "decorators": []
                 },
@@ -1926,16 +1926,16 @@
                     "deprecationMessage": "",
                     "jsdoctags": [
                         {
-                            "pos": 769,
-                            "end": 782,
+                            "pos": 849,
+                            "end": 862,
                             "kind": 327,
                             "id": 0,
                             "flags": 16842752,
                             "modifierFlagsCache": 0,
                             "transformFlags": 0,
                             "tagName": {
-                                "pos": 770,
-                                "end": 778,
+                                "pos": 850,
+                                "end": 858,
                                 "kind": 80,
                                 "id": 0,
                                 "flags": 16842752,
@@ -1947,7 +1947,7 @@
                     ],
                     "rawdescription": "\n\nButton contents\n\n",
                     "description": "<p>Button contents</p>\n",
-                    "line": 37,
+                    "line": 38,
                     "type": "string",
                     "decorators": []
                 },
@@ -1958,7 +1958,7 @@
                     "deprecationMessage": "",
                     "rawdescription": "\nIs this the principal call to action on the page?",
                     "description": "<p>Is this the principal call to action on the page?</p>\n",
-                    "line": 21,
+                    "line": 22,
                     "type": "boolean",
                     "decorators": []
                 },
@@ -1969,7 +1969,7 @@
                     "deprecationMessage": "",
                     "rawdescription": "\nHow large should the button be?",
                     "description": "<p>How large should the button be?</p>\n",
-                    "line": 29,
+                    "line": 30,
                     "type": "\"small\" | \"medium\" | \"large\" | \"lolo\"",
                     "decorators": []
                 }
@@ -1982,7 +1982,7 @@
                     "deprecationMessage": "",
                     "rawdescription": "\nOptional click handler",
                     "description": "<p>Optional click handler</p>\n",
-                    "line": 41,
+                    "line": 42,
                     "type": "EventEmitter"
                 }
             ],
@@ -2002,7 +2002,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { CommonModule } from '@angular/common';\nimport { Component, Input, Output, EventEmitter } from '@angular/core';\n\n@Component({\n  selector: 'storybook-button',\n  standalone: true,\n  imports: [CommonModule],\n  template: ` <button\n  type=\"button\"\n  (click)=\"onClick.emit($event)\"\n  [ngClass]=\"classes\"\n  [ngStyle]=\"{ 'background-color': backgroundColor }\"\n>\n  {{ label }}\n</button>`,\n  styleUrls: ['./button.css'],\n})\nexport class ButtonComponent {\n  /** Is this the principal call to action on the page? */\n  @Input()\n  primary = false;\n\n  /** What background color to use */\n  @Input()\n  backgroundColor?: string;\n\n  /** How large should the button be? */\n  @Input()\n  size: 'small' | 'medium' | 'large' | 'lolo' = 'medium';\n\n  /**\n   * Button contents\n   *\n   * @required\n   */\n  @Input()\n  label = 'Button';\n\n  /** Optional click handler */\n  @Output()\n  onClick = new EventEmitter<Event>();\n\n  public get classes(): string[] {\n    const mode = this.primary ? 'storybook-button--primary' : 'storybook-button--secondary';\n\n    return ['storybook-button', `storybook-button--${this.size}`, mode];\n  }\n}\n",
+            "sourceCode": "import { CommonModule } from '@angular/common';\nimport { Component, Input, Output, EventEmitter } from '@angular/core';\n\n@Component({\n  selector: 'storybook-button',\n  standalone: true,\n  imports: [CommonModule],\n  template: ` <button\n    clas=\"bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded\"\n  type=\"button\"\n  (click)=\"onClick.emit($event)\"\n  [ngClass]=\"classes\"\n  [ngStyle]=\"{ 'background-color': backgroundColor }\"\n>\n  {{ label }}\n</button>`,\n  styleUrls: ['./button.css'],\n})\nexport class ButtonComponent {\n  /** Is this the principal call to action on the page? */\n  @Input()\n  primary = false;\n\n  /** What background color to use */\n  @Input()\n  backgroundColor?: string;\n\n  /** How large should the button be? */\n  @Input()\n  size: 'small' | 'medium' | 'large' | 'lolo' = 'medium';\n\n  /**\n   * Button contents\n   *\n   * @required\n   */\n  @Input()\n  label = 'Button';\n\n  /** Optional click handler */\n  @Output()\n  onClick = new EventEmitter<Event>();\n\n  public get classes(): string[] {\n    const mode = this.primary ? 'storybook-button--primary' : 'storybook-button--secondary';\n\n    return ['storybook-button', `storybook-button--${this.size}`, mode];\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -2019,7 +2019,7 @@
                         "name": "classes",
                         "type": "[]",
                         "returnType": "string[]",
-                        "line": 43
+                        "line": 44
                     }
                 }
             }
