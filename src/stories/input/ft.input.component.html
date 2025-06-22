@@ -1,0 +1,48 @@
+<!--<label [class.disabled]="disabled">-->
+<!--  <span *ngIf="label">{{ label }} <span *ngIf="required">*</span></span>-->
+<!--  <div class="input-wrapper"-->
+<!--       [ngClass]="[size, color, variant, radius, {'invalid': invalid}]">-->
+<!--    <input [(ngModel)]="value"-->
+<!--           [placeholder]="placeholder"-->
+<!--           [disabled]="disabled"-->
+<!--           [readonly]="readonly"-->
+<!--    />-->
+<!--    <button *ngIf="isClearable && value" (click)="clear()">✕</button>-->
+<!--  </div>-->
+<!--  <small *ngIf="invalid">{{ errorMessage }}</small>-->
+<!--  <small *ngIf="!invalid && description">{{ description }}</small>-->
+<!--</label>-->
+
+
+
+<div class="field-container">
+  <div class="input-wrapper">
+    <div *ngIf="prefixIconClass" class="prefix">
+      <i [class]="prefixIconClass"></i>
+    </div>
+    <div class="content-section">
+      <div *ngIf="label" class="label-row">
+        <span class="label form-field-label">{{ label }} <span *ngIf="required">*</span></span>
+      </div>
+      <div *ngIf="content" class="content-row">
+        <p class="content form-field-content">{{ content }}</p>
+      </div>
+      <div *ngIf="placeholder" class="placeholder-row">
+        <p class="placeholder content-xs--normal">{{placeholder}}</p>
+      </div>
+    </div>
+    <div *ngIf="suffix1IconClass" class="suffix1">
+      <i [class]="suffix1IconClass"></i>
+    </div>
+    <div *ngIf="suffix2IconClass" class="suffix2">
+      <i [class]="suffix2IconClass"></i>
+    </div>
+  </div>
+  <div *ngIf="invalid && errorMessage" class="error-message">
+    <p class="error-text content-2xs--normal">{{errorMessage}}</p>
+  </div>
+  <div *ngIf="description" class="description">
+    <p class="highlight content-2xs--normal">{{ description }}</p>
+  </div>
+</div>
+

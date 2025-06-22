@@ -1,6 +1,44 @@
 /* styles.css or design-system-vars.css */
 @layer app-styles {
 
+  .form-field-label { font-size: var(--ft-text-2xs); line-height: var(--ft-text-2xs); font-weight: 400; }
+  .form-field-content { font-size: var(--text-sm); line-height: var(--text-sm); font-weight: 400; }
+  .content-4xs--light { font-size: var(--ft-text-4xs); line-height: var(--ft-text-4xs--line-height); font-weight: 300; }
+  .content-4xs--normal { font-size: var(--ft-text-4xs); line-height: var(--ft-text-4xs--line-height); font-weight: 400; }
+  .content-4xs--medium { font-size: var(--ft-text-4xs); line-height: var(--ft-text-4xs--line-height); font-weight: 500; }
+  .content-4xs--semibold { font-size: var(--ft-text-4xs); line-height: var(--ft-text-4xs--line-height); font-weight: 600; }
+  .content-4xs--bold { font-size: var(--ft-text-4xs); line-height: var(--ft-text-4xs--line-height); font-weight: 700; }
+  .content-3xs--light { font-size: var(--ft-text-3xs); line-height: var(--ft-text-3xs--line-height); font-weight: 300; }
+  .content-3xs--normal { font-size: var(--ft-text-3xs); line-height: var(--ft-text-3xs--line-height); font-weight: 400; }
+  .content-3xs--medium { font-size: var(--ft-text-3xs); line-height: var(--ft-text-3xs--line-height); font-weight: 500; }
+  .content-3xs--semibold { font-size: var(--ft-text-3xs); line-height: var(--ft-text-3xs--line-height); font-weight: 600; }
+  .content-3xs--bold { font-size: var(--ft-text-3xs); line-height: var(--ft-text-3xs--line-height); font-weight: 700; }
+  .content-2xs--light { font-size: var(--ft-text-2xs); line-height: var(--ft-text-2xs--line-height); font-weight: 300; }
+  .content-2xs--normal { font-size: var(--ft-text-2xs); line-height: var(--ft-text-2xs--line-height); font-weight: 400; }
+  .content-2xs--medium { font-size: var(--ft-text-2xs); line-height: var(--ft-text-2xs--line-height); font-weight: 500; }
+  .content-2xs--semibold { font-size: var(--ft-text-2xs); line-height: var(--ft-text-2xs--line-height); font-weight: 600; }
+  .content-2xs--bold { font-size: var(--ft-text-2xs); line-height: var(--ft-text-2xs--line-height); font-weight: 700; }
+  .content-xs--light { font-size: var(--ft-text-xs); line-height: var(--ft-text-xs--line-height); font-weight: 300; }
+  .content-xs--normal { font-size: var(--ft-text-xs); line-height: var(--ft-text-xs--line-height); font-weight: 400; }
+  .content-xs--medium { font-size: var(--ft-text-xs); line-height: var(--ft-text-xs--line-height); font-weight: 500; }
+  .content-xs--semibold { font-size: var(--ft-text-xs); line-height: var(--ft-text-xs--line-height); font-weight: 600; }
+  .content-xs--bold { font-size: var(--ft-text-xs); line-height: var(--ft-text-xs--line-height); font-weight: 700; }
+  .content-sm--light { font-size: var(--text-sm); line-height: var(--text-sm--line-height); font-weight: 300; }
+  .content-sm--normal { font-size: var(--text-sm); line-height: var(--text-sm--line-height); font-weight: 400; }
+  .content-sm--medium { font-size: var(--text-sm); line-height: var(--text-sm--line-height); font-weight: 500; }
+  .content-sm--semibold { font-size: var(--text-sm); line-height: var(--text-sm--line-height); font-weight: 600; }
+  .content-sm--bold { font-size: var(--text-sm); line-height: var(--text-sm--line-height); font-weight: 700; }
+  .content-md--light { font-size: var(--text-base); line-height: var(--text-base--line-height); font-weight: 300; }
+  .content-md--normal { font-size: var(--text-base); line-height: var(--text-base--line-height); font-weight: 400; }
+  .content-md--medium { font-size: var(--text-base); line-height: var(--text-base--line-height); font-weight: 500; }
+  .content-md--semibold { font-size: var(--text-base); line-height: var(--text-base--line-height); font-weight: 600; }
+  .content-md--bold { font-size: var(--text-base); line-height: var(--text-base--line-height); font-weight: 700; }
+  .content-lg--light { font-size: var(--text-lg); line-height: var(--text-lg--line-height); font-weight: 300; }
+  .content-lg--normal { font-size: var(--text-lg); line-height: var(--text-lg--line-height); font-weight: 400; }
+  .content-lg--medium { font-size: var(--text-lg); line-height: var(--text-lg--line-height); font-weight: 500; }
+  .content-lg--semibold { font-size: var(--text-lg); line-height: var(--text-lg--line-height); font-weight: 600; }
+  .content-lg--bold { font-size: var(--text-lg); line-height: var(--text-lg--line-height); font-weight: 700; }
+
   router-outlet {
     display: contents;
   }
