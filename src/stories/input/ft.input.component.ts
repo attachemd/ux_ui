@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, ViewEncapsulation} from '@angular/core';
 import {NgClass, NgIf} from '@angular/common';
 import {FormsModule} from '@angular/forms';
 
@@ -10,7 +10,8 @@ import {FormsModule} from '@angular/forms';
     FormsModule,
     NgIf
   ],
-  styleUrls: ['./ft.input.component.css']
+  styleUrls: ['./ft.input.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class FTInputComponent {
   // @Input() isLabel = false;
@@ -35,4 +36,15 @@ export class FTInputComponent {
   @Input() isClearable = false;
   value = '';
   clear() { this.value = ''; }
+
+  get radiusClasses(): string {
+    const classes = {
+      'none': 'rounded-none',
+      'sm': 'rounded-sm',
+      'md': 'rounded-md',
+      'lg': 'rounded-lg',
+      'full': 'rounded-full'
+    };
+    return classes[this.radius] || 'rounded-md';
+  }
 }

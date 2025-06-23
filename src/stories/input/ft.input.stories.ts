@@ -2,8 +2,24 @@ import {FTInputComponent} from './ft.input.component';
 import type {Meta, StoryObj} from '@storybook/angular';
 
 const meta: Meta<FTInputComponent> = {
-  title: 'Form/flat/Input',
+  title: 'Form/Input',
   component: FTInputComponent,
+  // globals: {
+  //   // 👇 Set background value for all component stories
+  //   backgrounds: { value: 'black', grid: false },
+  // },
+  // parameters: {
+  //   backgrounds: {
+  //     default: 'gray', // Set a default for this component
+  //     values: [
+  //       {
+  //         name: 'gray',
+  //         value: '#CCC',
+  //       },
+  //       // You can also override global values or add new ones here
+  //     ],
+  //   },
+  // },
   tags: ['autodocs'],
   argTypes: {
     prefixIconClass: {

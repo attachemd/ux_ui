@@ -2,6 +2,9 @@
   width: var(--container-3xs);
 }
 
+body:has(.input-wrapper) {
+  background: #fff;
+}
 .input-wrapper {
   display: flex;
   align-items: center;
@@ -10,6 +13,9 @@
   gap: var(--ft-unit-400);
   height: var(--ft-unit-1400);
   background-color: var(--ft-form-field-100);
+  .full {
+
+  }
   border-radius: var(--ft-radius-500);
   .content-section {
     display: flex;
