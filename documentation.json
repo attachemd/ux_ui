@@ -2026,7 +2026,7 @@
         },
         {
             "name": "FTInputComponent",
-            "id": "component-FTInputComponent-d7c61d0235b40b8f4fef9049ba276762c9d5163f0b86ad1ff5f256312802f8c8cfbf67d4f1b634828525c4f0c1f7bb83c67a12b2eca6d43cc7c9b17acd4e55fa",
+            "id": "component-FTInputComponent-162365247f550eb1e439f410fc4626a9a58fc83901f085bcc51098709b48b7fa55ba31d29a136da922846cecdcdc177db6b145a35601f89e81923b898e889b21",
             "file": "src/stories/input/ft.input.component.ts",
             "encapsulation": [
                 "ViewEncapsulation.None"
@@ -2051,7 +2051,7 @@
                     "defaultValue": "'default'",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 20,
+                    "line": 21,
                     "type": "\"default\" | \"primary\" | \"secondary\"",
                     "decorators": []
                 },
@@ -2059,7 +2059,7 @@
                     "name": "content",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 30,
+                    "line": 31,
                     "type": "string",
                     "decorators": []
                 },
@@ -2067,7 +2067,7 @@
                     "name": "description",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 28,
+                    "line": 29,
                     "type": "string",
                     "decorators": []
                 },
@@ -2076,7 +2076,7 @@
                     "defaultValue": "false",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 23,
+                    "line": 24,
                     "type": "boolean",
                     "decorators": []
                 },
@@ -2084,7 +2084,7 @@
                     "name": "errorMessage",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 29,
+                    "line": 30,
                     "type": "string",
                     "decorators": []
                 },
@@ -2093,7 +2093,7 @@
                     "defaultValue": "false",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 26,
+                    "line": 27,
                     "type": "boolean",
                     "decorators": []
                 },
@@ -2102,7 +2102,43 @@
                     "defaultValue": "false",
                     "deprecated": false,
                     "deprecationMessage": "",
+                    "line": 43,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "isLabel",
+                    "defaultValue": "true",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 18,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "isPrefixIconClass",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 34,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "isSuffix1IconClass",
+                    "defaultValue": "true",
+                    "deprecated": false,
+                    "deprecationMessage": "",
                     "line": 37,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "isSuffix2IconClass",
+                    "defaultValue": "true",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 40,
                     "type": "boolean",
                     "decorators": []
                 },
@@ -2110,24 +2146,24 @@
                     "name": "label",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 18,
+                    "line": 19,
                     "type": "string",
                     "decorators": []
                 },
                 {
                     "name": "labelPlacement",
-                    "defaultValue": "'inside'",
+                    "defaultValue": "'label-inside'",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 31,
-                    "type": "\"inside\" | \"outside\" | \"outside-left\"",
+                    "line": 32,
+                    "type": "\"label-inside\" | \"label-outside\" | \"label-outside-left\"",
                     "decorators": []
                 },
                 {
                     "name": "placeholder",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 27,
+                    "line": 28,
                     "type": "string",
                     "decorators": []
                 },
@@ -2136,30 +2172,21 @@
                     "defaultValue": "''",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 33,
+                    "line": 35,
                     "type": "string",
                     "decorators": []
                 },
                 {
                     "name": "radius",
-                    "defaultValue": "'md'",
+                    "defaultValue": "'md-radius'",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 22,
-                    "type": "\"none\" | \"sm\" | \"md\" | \"lg\" | \"full\"",
+                    "line": 23,
+                    "type": "\"none-radius\" | \"sm-radius\" | \"md-radius\" | \"lg-radius\" | \"full-radius\"",
                     "decorators": []
                 },
                 {
                     "name": "readonly",
-                    "defaultValue": "false",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 24,
-                    "type": "boolean",
-                    "decorators": []
-                },
-                {
-                    "name": "required",
                     "defaultValue": "false",
                     "deprecated": false,
                     "deprecationMessage": "",
@@ -2168,12 +2195,21 @@
                     "decorators": []
                 },
                 {
-                    "name": "size",
-                    "defaultValue": "'md'",
+                    "name": "required",
+                    "defaultValue": "false",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 19,
-                    "type": "\"sm\" | \"md\" | \"lg\"",
+                    "line": 26,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "size",
+                    "defaultValue": "'md-size'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 20,
+                    "type": "\"sm-size\" | \"md-size\" | \"lg-size\"",
                     "decorators": []
                 },
                 {
@@ -2181,7 +2217,7 @@
                     "defaultValue": "'icon-close'",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 34,
+                    "line": 38,
                     "type": "string",
                     "decorators": []
                 },
@@ -2190,7 +2226,7 @@
                     "defaultValue": "'icon-arrow-down'",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 35,
+                    "line": 41,
                     "type": "string",
                     "decorators": []
                 },
@@ -2199,7 +2235,7 @@
                     "defaultValue": "'bordered'",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 21,
+                    "line": 22,
                     "type": "\"flat\" | \"bordered\" | \"faded\" | \"underlined\"",
                     "decorators": []
                 }
@@ -2215,7 +2251,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 38
+                    "line": 44
                 }
             ],
             "methodsClass": [
@@ -2225,7 +2261,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 39,
+                    "line": 45,
                     "deprecated": false,
                     "deprecationMessage": ""
                 }
@@ -2250,11 +2286,11 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import {Component, Input, ViewEncapsulation} from '@angular/core';\r\nimport {NgClass, NgIf} from '@angular/common';\r\nimport {FormsModule} from '@angular/forms';\r\n\r\n@Component({\r\n  selector: 'ft-input',\r\n  templateUrl: './ft.input.component.html',\r\n  imports: [\r\n    NgClass,\r\n    FormsModule,\r\n    NgIf\r\n  ],\r\n  styleUrls: ['./ft.input.component.css'],\r\n  encapsulation: ViewEncapsulation.None\r\n})\r\nexport class FTInputComponent {\r\n  // @Input() isLabel = false;\r\n  @Input() label?: string;\r\n  @Input() size: 'sm'|'md'|'lg' = 'md';\r\n  @Input() color: 'default'|'primary'|'secondary' = 'default';\r\n  @Input() variant: 'flat'|'bordered'|'faded'|'underlined' = 'bordered';\r\n  @Input() radius: 'none'|'sm'|'md'|'lg'|'full' = 'md';\r\n  @Input() disabled = false;\r\n  @Input() readonly = false;\r\n  @Input() required = false;\r\n  @Input() invalid = false;\r\n  @Input() placeholder?: string;\r\n  @Input() description?: string;\r\n  @Input() errorMessage?: string;\r\n  @Input() content?: string;\r\n  @Input() labelPlacement: 'inside' | 'outside' | 'outside-left' = 'inside';\r\n\r\n  @Input() prefixIconClass = ''; // For icon libraries that use classes\r\n  @Input() suffix1IconClass = 'icon-close';\r\n  @Input() suffix2IconClass = 'icon-arrow-down';\r\n\r\n  @Input() isClearable = false;\r\n  value = '';\r\n  clear() { this.value = ''; }\r\n\r\n  get radiusClasses(): string {\r\n    const classes = {\r\n      'none': 'rounded-none',\r\n      'sm': 'rounded-sm',\r\n      'md': 'rounded-md',\r\n      'lg': 'rounded-lg',\r\n      'full': 'rounded-full'\r\n    };\r\n    return classes[this.radius] || 'rounded-md';\r\n  }\r\n}\r\n",
+            "sourceCode": "import {Component, Input, ViewEncapsulation} from '@angular/core';\r\nimport {NgClass, NgIf} from '@angular/common';\r\nimport {FormsModule} from '@angular/forms';\r\n\r\n@Component({\r\n  selector: 'ft-input',\r\n  templateUrl: './ft.input.component.html',\r\n  imports: [\r\n    NgClass,\r\n    FormsModule,\r\n    NgIf\r\n  ],\r\n  styleUrls: ['./ft.input.component.css'],\r\n  encapsulation: ViewEncapsulation.None\r\n})\r\nexport class FTInputComponent {\r\n  // @Input() isLabel = false;\r\n  @Input() isLabel = true;\r\n  @Input() label?: string;\r\n  @Input() size: 'sm-size'|'md-size'|'lg-size' = 'md-size';\r\n  @Input() color: 'default'|'primary'|'secondary' = 'default';\r\n  @Input() variant: 'flat'|'bordered'|'faded'|'underlined' = 'bordered';\r\n  @Input() radius: 'none-radius'|'sm-radius'|'md-radius'|'lg-radius'|'full-radius' = 'md-radius';\r\n  @Input() disabled = false;\r\n  @Input() readonly = false;\r\n  @Input() required = false;\r\n  @Input() invalid = false;\r\n  @Input() placeholder?: string;\r\n  @Input() description?: string;\r\n  @Input() errorMessage?: string;\r\n  @Input() content?: string;\r\n  @Input() labelPlacement: 'label-inside' | 'label-outside' | 'label-outside-left' = 'label-inside';\r\n\r\n  @Input() isPrefixIconClass = false;\r\n  @Input() prefixIconClass = ''; // For icon libraries that use classes\r\n\r\n  @Input() isSuffix1IconClass = true;\r\n  @Input() suffix1IconClass = 'icon-close';\r\n\r\n  @Input() isSuffix2IconClass = true;\r\n  @Input() suffix2IconClass = 'icon-arrow-down';\r\n\r\n  @Input() isClearable = false;\r\n  value = '';\r\n  clear() { this.value = ''; }\r\n\r\n  get radiusClasses(): string {\r\n    const classes = {\r\n      'none-radius': 'rounded-none',\r\n      'sm-radius': 'rounded-sm',\r\n      'md-radius': 'rounded-lg',\r\n      'lg-radius': 'rounded-xl',\r\n      'full-radius': 'rounded-full'\r\n    };\r\n    return classes[this.radius] || 'rounded-md';\r\n  }\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "\r\n\r\n  .field-container {\r\n    width: var(--container-3xs);\r\n    .input-wrapper {\r\n      display: flex;\r\n      align-items: center;\r\n      /*border: 1px solid var(--ft-color-border-200);*/\r\n      padding: 0 var(--ft-unit-400);\r\n      gap: var(--ft-unit-400);\r\n      height: var(--ft-unit-1400);\r\n      background-color: var(--ft-form-field-100);\r\n      .full {\r\n\r\n      }\r\n      /*border-radius: var(--ft-radius-500);*/\r\n      .content-section {\r\n        display: flex;\r\n        flex-direction: column;\r\n        flex-grow: 1;\r\n        gap: var(--ft-unit-100);\r\n        .label-row {\r\n          display: flex;\r\n          height: fit-content;\r\n        }\r\n        .placeholder {\r\n          color: var(--ft-color-on-surface-level-200);\r\n        }\r\n      }\r\n    }\r\n  }\r\n\r\n  body:has(.input-wrapper) {\r\n    background: #fff;\r\n  }\r\n\r\n\r\n  .error-text {\r\n    color: var(--ft-color-danger);\r\n    padding: 0 var(--ft-unit-200);\r\n  }\r\n  .input-wrapper.flat { border: none; background-color: var(--ft-color-surface-muted); }\r\n  .input-wrapper.bordered { border: 1px solid var(--ft-color-border-200); }\r\n  /* Add more variant/size/color CSS as needed */\r\n  .input-wrapper.invalid { border-color: var(--ft-color-danger-500); }\r\n  button { background: none; border: none; cursor: pointer; }\r\n  label.disabled input { opacity: 0.5; }\r\n  /* ... */\r\n\r\n\r\n",
+                    "data": "\r\n\r\n  .field-container {\r\n    width: var(--container-xs);\r\n    .input-wrapper {\r\n      display: flex;\r\n      align-items: center;\r\n      /*border: 1px solid var(--ft-color-border-200);*/\r\n      padding: 0 var(--ft-unit-400);\r\n      /*gap: var(--ft-unit-400);*/\r\n      /*height: var(--ft-unit-800);*/\r\n      background-color: var(--ft-form-field-100);\r\n\r\n      .content-section {\r\n        display: flex;\r\n        flex-direction: column;\r\n        flex-grow: 1;\r\n        gap: var(--ft-unit-100);\r\n        .label-row {\r\n          display: flex;\r\n          height: fit-content;\r\n        }\r\n        .content {\r\n\r\n        }\r\n        .placeholder {\r\n          color: var(--ft-color-on-surface-level-200);\r\n        }\r\n      }\r\n\r\n      .suffix-icon {\r\n        gap: var(--ft-unit-100);\r\n      }\r\n\r\n    }\r\n\r\n    &.label-inside {\r\n      .input-wrapper {\r\n        /*padding: 0 var(--ft-unit-200);*/\r\n      }\r\n    }\r\n\r\n    &.label-outside {\r\n\r\n      .input-wrapper {\r\n\r\n      }\r\n    }\r\n\r\n    &.label-outside-left {\r\n      flex-direction: row;\r\n      align-items: center;\r\n      .input-wrapper {\r\n\r\n      }\r\n    }\r\n\r\n\r\n    &.sm-size {\r\n      gap: var(--ft-unit-100);\r\n      .input-wrapper {\r\n        padding: 0 var(--ft-unit-200);\r\n        height: var(--ft-unit-600);\r\n        gap: var(--ft-unit-200);\r\n        [class^=\"icon-\"], [class*=\" icon-\"] {\r\n          width: 16px;\r\n          height: 16px;\r\n          font-size: 18px;\r\n        }\r\n      }\r\n\r\n      &.label-inside {\r\n        .input-wrapper {\r\n          padding: 0 var(--ft-unit-300);\r\n          height: var(--ft-unit-1200);\r\n        }\r\n      }\r\n\r\n      &.label-outside {\r\n        .input-wrapper {\r\n        }\r\n      }\r\n\r\n      &.label-outside-left {\r\n        gap: var(--ft-unit-100);\r\n        .input-wrapper {\r\n\r\n        }\r\n      }\r\n    }\r\n\r\n    &.md-size {\r\n      gap: var(--ft-unit-200);\r\n      .input-wrapper {\r\n        height: var(--ft-unit-800);\r\n        gap: var(--ft-unit-300);\r\n      }\r\n\r\n      &.label-inside {\r\n        .input-wrapper {\r\n          height: var(--ft-unit-1400);\r\n        }\r\n      }\r\n\r\n      &.label-outside {\r\n        .input-wrapper {\r\n        }\r\n      }\r\n\r\n      &.label-outside-left {\r\n        gap: var(--ft-unit-300);\r\n        .input-wrapper {\r\n\r\n        }\r\n      }\r\n    }\r\n\r\n    &.lg-size {\r\n      gap: var(--ft-unit-100);\r\n      .input-wrapper {\r\n        height: var(--ft-unit-900);\r\n        gap: var(--ft-unit-400);\r\n      }\r\n\r\n      &.label-inside {\r\n        .input-wrapper {\r\n          height: var(--ft-unit-1600);\r\n        }\r\n      }\r\n\r\n      &.label-outside {\r\n        .input-wrapper {\r\n        }\r\n      }\r\n\r\n      &.label-outside-left {\r\n        gap: var(--ft-unit-400);\r\n        .input-wrapper {\r\n\r\n        }\r\n      }\r\n    }\r\n  }\r\n\r\n  body:has(.input-wrapper) {\r\n    background: #fff;\r\n  }\r\n\r\n\r\n  .error-text {\r\n    color: var(--ft-color-danger);\r\n    padding: 0 var(--ft-unit-200);\r\n  }\r\n  .input-wrapper.flat { border: none; background-color: var(--ft-color-surface-muted); }\r\n  .input-wrapper.bordered { border: 1px solid var(--ft-color-border-200); }\r\n  /* Add more variant/size/color CSS as needed */\r\n  .input-wrapper.invalid { border-color: var(--ft-color-danger-500); }\r\n  button { background: none; border: none; cursor: pointer; }\r\n  label.disabled input { opacity: 0.5; }\r\n  /* ... */\r\n\r\n\r\n",
                     "styleUrl": "./ft.input.component.css"
                 }
             ],
@@ -2267,11 +2303,11 @@
                         "name": "radiusClasses",
                         "type": "string",
                         "returnType": "string",
-                        "line": 41
+                        "line": 47
                     }
                 }
             },
-            "templateData": "<!--<label [class.disabled]=\"disabled\">-->\r\n<!--  <span *ngIf=\"label\">{{ label }} <span *ngIf=\"required\">*</span></span>-->\r\n<!--  <div class=\"input-wrapper\"-->\r\n<!--       [ngClass]=\"[size, color, variant, radius, {'invalid': invalid}]\">-->\r\n<!--    <input [(ngModel)]=\"value\"-->\r\n<!--           [placeholder]=\"placeholder\"-->\r\n<!--           [disabled]=\"disabled\"-->\r\n<!--           [readonly]=\"readonly\"-->\r\n<!--    />-->\r\n<!--    <button *ngIf=\"isClearable && value\" (click)=\"clear()\">✕</button>-->\r\n<!--  </div>-->\r\n<!--  <small *ngIf=\"invalid\">{{ errorMessage }}</small>-->\r\n<!--  <small *ngIf=\"!invalid && description\">{{ description }}</small>-->\r\n<!--</label>-->\r\n\r\n\r\n\r\n<div class=\"field-container\" [class]=\"labelPlacement\">\r\n  <div *ngIf=\"label && labelPlacement === 'outside-left'\" class=\"label-row\">\r\n    <span class=\"label form-field-label\">{{ label }} <span *ngIf=\"required\">*</span></span>\r\n  </div>\r\n  <div class=\"input-wrapper\" [class]=\"radiusClasses\">\r\n    <div *ngIf=\"prefixIconClass\" class=\"prefix\">\r\n      <i [class]=\"prefixIconClass\"></i>\r\n    </div>\r\n    <div class=\"content-section\">\r\n      <div *ngIf=\"label && labelPlacement !== 'outside-left'\" class=\"label-row\">\r\n        <span class=\"label form-field-label\">{{ label }} <span *ngIf=\"required\">*</span></span>\r\n      </div>\r\n      <div *ngIf=\"content\" class=\"content-row\">\r\n        <p class=\"content form-field-content\">{{ content }}</p>\r\n      </div>\r\n      <div *ngIf=\"placeholder\" class=\"placeholder-row\">\r\n        <p class=\"placeholder content-xs--normal\">{{placeholder}}</p>\r\n      </div>\r\n    </div>\r\n    <div *ngIf=\"suffix1IconClass\" class=\"suffix1\">\r\n      <i [class]=\"suffix1IconClass\"></i>\r\n    </div>\r\n    <div *ngIf=\"suffix2IconClass\" class=\"suffix2\">\r\n      <i [class]=\"suffix2IconClass\"></i>\r\n    </div>\r\n  </div>\r\n  <div *ngIf=\"invalid && errorMessage\" class=\"error-message\">\r\n    <p class=\"error-text content-2xs--normal\">{{errorMessage}}</p>\r\n  </div>\r\n  <div *ngIf=\"description\" class=\"description\">\r\n    <p class=\"highlight content-2xs--normal\">{{ description }}</p>\r\n  </div>\r\n</div>\r\n\r\n"
+            "templateData": "<!--<label [class.disabled]=\"disabled\">-->\r\n<!--  <span *ngIf=\"label\">{{ label }} <span *ngIf=\"required\">*</span></span>-->\r\n<!--  <div class=\"input-wrapper\"-->\r\n<!--       [ngClass]=\"[size, color, variant, radius, {'invalid': invalid}]\">-->\r\n<!--    <input [(ngModel)]=\"value\"-->\r\n<!--           [placeholder]=\"placeholder\"-->\r\n<!--           [disabled]=\"disabled\"-->\r\n<!--           [readonly]=\"readonly\"-->\r\n<!--    />-->\r\n<!--    <button *ngIf=\"isClearable && value\" (click)=\"clear()\">✕</button>-->\r\n<!--  </div>-->\r\n<!--  <small *ngIf=\"invalid\">{{ errorMessage }}</small>-->\r\n<!--  <small *ngIf=\"!invalid && description\">{{ description }}</small>-->\r\n<!--</label>-->\r\n\r\n\r\n\r\n<div class=\"field-container\" [class]=\"labelPlacement + ' ' + size\">\r\n  <div *ngIf=\"isLabel && labelPlacement !== 'label-inside'\" class=\"label-row\">\r\n    <span class=\"label leading-none\"\r\n          [ngClass]=\"{\r\n           'content-2xs--normal': size === 'sm-size' || size === 'md-size',\r\n           'content-xs--normal': size === 'lg-size',\r\n           }\"\r\n    >{{ label }} <span *ngIf=\"required\">*</span></span>\r\n  </div>\r\n  <div class=\"input-wrapper\" [class]=\"radiusClasses\">\r\n    <div *ngIf=\"isPrefixIconClass && prefixIconClass\" class=\"prefix\">\r\n      <i [class]=\"prefixIconClass\"></i>\r\n    </div>\r\n    <div class=\"content-section\">\r\n      <div *ngIf=\"isLabel && labelPlacement === 'label-inside'\" class=\"label-row\">\r\n        <span class=\"label leading-none\"\r\n              [ngClass]=\"{\r\n           'content-2xs--normal': size === 'sm-size' || size === 'md-size',\r\n           'content-xs--normal': size === 'lg-size',\r\n           }\"\r\n        >{{ label }} <span *ngIf=\"required\">*</span></span>\r\n      </div>\r\n      <div *ngIf=\"content\" class=\"content-row\">\r\n        <p class=\"content leading-none\"\r\n           [ngClass]=\"{\r\n           'content-sm--normal': size === 'sm-size' || size === 'md-size',\r\n           'content-md--normal': size === 'lg-size',\r\n           }\"\r\n        >{{ content }}</p>\r\n      </div>\r\n      <div *ngIf=\"placeholder\" class=\"placeholder-row\">\r\n        <p class=\"placeholder content-xs--normal\">{{placeholder}}</p>\r\n      </div>\r\n    </div>\r\n    <div class=\"suffix-icon flex\">\r\n      <div *ngIf=\"isSuffix1IconClass && suffix1IconClass\" class=\"suffix1\">\r\n        <i [class]=\"suffix1IconClass\"></i>\r\n      </div>\r\n      <div *ngIf=\"isSuffix2IconClass && suffix2IconClass\" class=\"suffix2\">\r\n        <i [class]=\"suffix2IconClass\"></i>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <div *ngIf=\"invalid && errorMessage\" class=\"error-message\">\r\n    <p class=\"error-text content-2xs--normal\">{{errorMessage}}</p>\r\n  </div>\r\n  <div *ngIf=\"description\" class=\"description\">\r\n    <p class=\"highlight content-2xs--normal\">{{ description }}</p>\r\n  </div>\r\n</div>\r\n\r\n"
         },
         {
             "name": "HeaderComponent",
@@ -8553,7 +8589,7 @@
                 "linktype": "component",
                 "name": "FTInputComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/21",
+                "coverageCount": "0/25",
                 "status": "low"
             },
             {

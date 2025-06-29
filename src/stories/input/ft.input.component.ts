@@ -15,11 +15,12 @@ import {FormsModule} from '@angular/forms';
 })
 export class FTInputComponent {
   // @Input() isLabel = false;
+  @Input() isLabel = true;
   @Input() label?: string;
-  @Input() size: 'sm'|'md'|'lg' = 'md';
+  @Input() size: 'sm-size'|'md-size'|'lg-size' = 'md-size';
   @Input() color: 'default'|'primary'|'secondary' = 'default';
   @Input() variant: 'flat'|'bordered'|'faded'|'underlined' = 'bordered';
-  @Input() radius: 'none'|'sm'|'md'|'lg'|'full' = 'md';
+  @Input() radius: 'none-radius'|'sm-radius'|'md-radius'|'lg-radius'|'full-radius' = 'md-radius';
   @Input() disabled = false;
   @Input() readonly = false;
   @Input() required = false;
@@ -28,10 +29,15 @@ export class FTInputComponent {
   @Input() description?: string;
   @Input() errorMessage?: string;
   @Input() content?: string;
-  @Input() labelPlacement: 'inside' | 'outside' | 'outside-left' = 'inside';
+  @Input() labelPlacement: 'label-inside' | 'label-outside' | 'label-outside-left' = 'label-inside';
 
+  @Input() isPrefixIconClass = false;
   @Input() prefixIconClass = ''; // For icon libraries that use classes
+
+  @Input() isSuffix1IconClass = true;
   @Input() suffix1IconClass = 'icon-close';
+
+  @Input() isSuffix2IconClass = true;
   @Input() suffix2IconClass = 'icon-arrow-down';
 
   @Input() isClearable = false;
@@ -40,11 +46,11 @@ export class FTInputComponent {
 
   get radiusClasses(): string {
     const classes = {
-      'none': 'rounded-none',
-      'sm': 'rounded-sm',
-      'md': 'rounded-md',
-      'lg': 'rounded-lg',
-      'full': 'rounded-full'
+      'none-radius': 'rounded-none',
+      'sm-radius': 'rounded-sm',
+      'md-radius': 'rounded-lg',
+      'lg-radius': 'rounded-xl',
+      'full-radius': 'rounded-full'
     };
     return classes[this.radius] || 'rounded-md';
   }

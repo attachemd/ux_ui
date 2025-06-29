@@ -15,30 +15,47 @@
 
 
 
-<div class="field-container" [class]="labelPlacement">
-  <div *ngIf="label && labelPlacement !== 'inside'" class="label-row">
-    <span class="label form-field-label">{{ label }} <span *ngIf="required">*</span></span>
+<div class="field-container" [class]="labelPlacement + ' ' + size">
+  <div *ngIf="isLabel && labelPlacement !== 'label-inside'" class="label-row">
+    <span class="label leading-none"
+          [ngClass]="{
+           'content-2xs--normal': size === 'sm-size' || size === 'md-size',
+           'content-xs--normal': size === 'lg-size',
+           }"
+    >{{ label }} <span *ngIf="required">*</span></span>
   </div>
   <div class="input-wrapper" [class]="radiusClasses">
-    <div *ngIf="prefixIconClass" class="prefix">
+    <div *ngIf="isPrefixIconClass && prefixIconClass" class="prefix">
       <i [class]="prefixIconClass"></i>
     </div>
     <div class="content-section">
-      <div *ngIf="label && labelPlacement === 'inside'" class="label-row">
-        <span class="label form-field-label">{{ label }} <span *ngIf="required">*</span></span>
+      <div *ngIf="isLabel && labelPlacement === 'label-inside'" class="label-row">
+        <span class="label leading-none"
+              [ngClass]="{
+           'content-2xs--normal': size === 'sm-size' || size === 'md-size',
+           'content-xs--normal': size === 'lg-size',
+           }"
+        >{{ label }} <span *ngIf="required">*</span></span>
       </div>
       <div *ngIf="content" class="content-row">
-        <p class="content form-field-content">{{ content }}</p>
+        <p class="content leading-none"
+           [ngClass]="{
+           'content-sm--normal': size === 'sm-size' || size === 'md-size',
+           'content-md--normal': size === 'lg-size',
+           }"
+        >{{ content }}</p>
       </div>
       <div *ngIf="placeholder" class="placeholder-row">
         <p class="placeholder content-xs--normal">{{placeholder}}</p>
       </div>
     </div>
-    <div *ngIf="suffix1IconClass" class="suffix1">
-      <i [class]="suffix1IconClass"></i>
-    </div>
-    <div *ngIf="suffix2IconClass" class="suffix2">
-      <i [class]="suffix2IconClass"></i>
+    <div class="suffix-icon flex">
+      <div *ngIf="isSuffix1IconClass && suffix1IconClass" class="suffix1">
+        <i [class]="suffix1IconClass"></i>
+      </div>
+      <div *ngIf="isSuffix2IconClass && suffix2IconClass" class="suffix2">
+        <i [class]="suffix2IconClass"></i>
+      </div>
     </div>
   </div>
   <div *ngIf="invalid && errorMessage" class="error-message">

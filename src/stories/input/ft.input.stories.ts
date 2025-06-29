@@ -1,5 +1,6 @@
 import {FTInputComponent} from './ft.input.component';
 import type {Meta, StoryObj} from '@storybook/angular';
+import {Input} from '@angular/core';
 
 const meta: Meta<FTInputComponent> = {
   title: 'Form/Input',
@@ -25,6 +26,7 @@ const meta: Meta<FTInputComponent> = {
     prefixIconClass: {
       control: 'select',
       options: [
+        'icon-search',
         'icon-menu',
         'icon-export'
       ],
@@ -55,13 +57,26 @@ const meta: Meta<FTInputComponent> = {
     },
   },
   args: {
-    // isLabel: false,
-    // label: 'Email',
-    // iconClass: 'icon-export',
-    labelPlacement: 'inside',
-    radius: 'md',
+    isLabel: true,
+    label: 'Label',
+    labelPlacement: 'label-inside',
+
     content: 'content',
+
+    size: 'md-size',
+    radius: 'md-radius',
+
+    isPrefixIconClass: false,
+    prefixIconClass: 'icon-search',
+
+    isSuffix1IconClass: true,
+    suffix1IconClass: 'icon-close',
+
+    isSuffix2IconClass: true,
+    suffix2IconClass: 'icon-arrow-down',
+
     invalid: false,
+    errorMessage: 'error',
   }
 };
 
