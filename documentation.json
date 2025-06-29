@@ -2026,7 +2026,7 @@
         },
         {
             "name": "FTInputComponent",
-            "id": "component-FTInputComponent-ac13fddb9abf63d56953ac2a3d1f80f4dfc2ed1544b4282ce4bc7a00c372ec9da5b8c49083180792c961ed31feb301701f767be965f5068d7b212ac994e74911",
+            "id": "component-FTInputComponent-d7c61d0235b40b8f4fef9049ba276762c9d5163f0b86ad1ff5f256312802f8c8cfbf67d4f1b634828525c4f0c1f7bb83c67a12b2eca6d43cc7c9b17acd4e55fa",
             "file": "src/stories/input/ft.input.component.ts",
             "encapsulation": [
                 "ViewEncapsulation.None"
@@ -2102,7 +2102,7 @@
                     "defaultValue": "false",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 36,
+                    "line": 37,
                     "type": "boolean",
                     "decorators": []
                 },
@@ -2112,6 +2112,15 @@
                     "deprecationMessage": "",
                     "line": 18,
                     "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "labelPlacement",
+                    "defaultValue": "'inside'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 31,
+                    "type": "\"inside\" | \"outside\" | \"outside-left\"",
                     "decorators": []
                 },
                 {
@@ -2127,7 +2136,7 @@
                     "defaultValue": "''",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 32,
+                    "line": 33,
                     "type": "string",
                     "decorators": []
                 },
@@ -2172,7 +2181,7 @@
                     "defaultValue": "'icon-close'",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 33,
+                    "line": 34,
                     "type": "string",
                     "decorators": []
                 },
@@ -2181,7 +2190,7 @@
                     "defaultValue": "'icon-arrow-down'",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 34,
+                    "line": 35,
                     "type": "string",
                     "decorators": []
                 },
@@ -2206,7 +2215,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 37
+                    "line": 38
                 }
             ],
             "methodsClass": [
@@ -2216,7 +2225,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 38,
+                    "line": 39,
                     "deprecated": false,
                     "deprecationMessage": ""
                 }
@@ -2241,11 +2250,11 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import {Component, Input, ViewEncapsulation} from '@angular/core';\r\nimport {NgClass, NgIf} from '@angular/common';\r\nimport {FormsModule} from '@angular/forms';\r\n\r\n@Component({\r\n  selector: 'ft-input',\r\n  templateUrl: './ft.input.component.html',\r\n  imports: [\r\n    NgClass,\r\n    FormsModule,\r\n    NgIf\r\n  ],\r\n  styleUrls: ['./ft.input.component.css'],\r\n  encapsulation: ViewEncapsulation.None\r\n})\r\nexport class FTInputComponent {\r\n  // @Input() isLabel = false;\r\n  @Input() label?: string;\r\n  @Input() size: 'sm'|'md'|'lg' = 'md';\r\n  @Input() color: 'default'|'primary'|'secondary' = 'default';\r\n  @Input() variant: 'flat'|'bordered'|'faded'|'underlined' = 'bordered';\r\n  @Input() radius: 'none'|'sm'|'md'|'lg'|'full' = 'md';\r\n  @Input() disabled = false;\r\n  @Input() readonly = false;\r\n  @Input() required = false;\r\n  @Input() invalid = false;\r\n  @Input() placeholder?: string;\r\n  @Input() description?: string;\r\n  @Input() errorMessage?: string;\r\n  @Input() content?: string;\r\n\r\n  @Input() prefixIconClass = ''; // For icon libraries that use classes\r\n  @Input() suffix1IconClass = 'icon-close';\r\n  @Input() suffix2IconClass = 'icon-arrow-down';\r\n\r\n  @Input() isClearable = false;\r\n  value = '';\r\n  clear() { this.value = ''; }\r\n\r\n  get radiusClasses(): string {\r\n    const classes = {\r\n      'none': 'rounded-none',\r\n      'sm': 'rounded-sm',\r\n      'md': 'rounded-md',\r\n      'lg': 'rounded-lg',\r\n      'full': 'rounded-full'\r\n    };\r\n    return classes[this.radius] || 'rounded-md';\r\n  }\r\n}\r\n",
+            "sourceCode": "import {Component, Input, ViewEncapsulation} from '@angular/core';\r\nimport {NgClass, NgIf} from '@angular/common';\r\nimport {FormsModule} from '@angular/forms';\r\n\r\n@Component({\r\n  selector: 'ft-input',\r\n  templateUrl: './ft.input.component.html',\r\n  imports: [\r\n    NgClass,\r\n    FormsModule,\r\n    NgIf\r\n  ],\r\n  styleUrls: ['./ft.input.component.css'],\r\n  encapsulation: ViewEncapsulation.None\r\n})\r\nexport class FTInputComponent {\r\n  // @Input() isLabel = false;\r\n  @Input() label?: string;\r\n  @Input() size: 'sm'|'md'|'lg' = 'md';\r\n  @Input() color: 'default'|'primary'|'secondary' = 'default';\r\n  @Input() variant: 'flat'|'bordered'|'faded'|'underlined' = 'bordered';\r\n  @Input() radius: 'none'|'sm'|'md'|'lg'|'full' = 'md';\r\n  @Input() disabled = false;\r\n  @Input() readonly = false;\r\n  @Input() required = false;\r\n  @Input() invalid = false;\r\n  @Input() placeholder?: string;\r\n  @Input() description?: string;\r\n  @Input() errorMessage?: string;\r\n  @Input() content?: string;\r\n  @Input() labelPlacement: 'inside' | 'outside' | 'outside-left' = 'inside';\r\n\r\n  @Input() prefixIconClass = ''; // For icon libraries that use classes\r\n  @Input() suffix1IconClass = 'icon-close';\r\n  @Input() suffix2IconClass = 'icon-arrow-down';\r\n\r\n  @Input() isClearable = false;\r\n  value = '';\r\n  clear() { this.value = ''; }\r\n\r\n  get radiusClasses(): string {\r\n    const classes = {\r\n      'none': 'rounded-none',\r\n      'sm': 'rounded-sm',\r\n      'md': 'rounded-md',\r\n      'lg': 'rounded-lg',\r\n      'full': 'rounded-full'\r\n    };\r\n    return classes[this.radius] || 'rounded-md';\r\n  }\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": ".field-container {\r\n  width: var(--container-3xs);\r\n}\r\n\r\nbody:has(.input-wrapper) {\r\n  background: #fff;\r\n}\r\n.input-wrapper {\r\n  display: flex;\r\n  align-items: center;\r\n  /*border: 1px solid var(--ft-color-border-200);*/\r\n  padding: 0 var(--ft-unit-400);\r\n  gap: var(--ft-unit-400);\r\n  height: var(--ft-unit-1400);\r\n  background-color: var(--ft-form-field-100);\r\n  .full {\r\n\r\n  }\r\n  border-radius: var(--ft-radius-500);\r\n  .content-section {\r\n    display: flex;\r\n    flex-direction: column;\r\n    flex-grow: 1;\r\n    gap: var(--ft-unit-100);\r\n    .label-row {\r\n      display: flex;\r\n      height: fit-content;\r\n    }\r\n    .placeholder {\r\n      color: var(--ft-color-on-surface-level-200);\r\n    }\r\n  }\r\n}\r\n\r\n.error-text {\r\n  color: var(--ft-color-danger);\r\n  padding: 0 var(--ft-unit-200);\r\n}\r\n.input-wrapper.flat { border: none; background-color: var(--ft-color-surface-muted); }\r\n.input-wrapper.bordered { border: 1px solid var(--ft-color-border-200); }\r\n/* Add more variant/size/color CSS as needed */\r\n.input-wrapper.invalid { border-color: var(--ft-color-danger-500); }\r\nbutton { background: none; border: none; cursor: pointer; }\r\nlabel.disabled input { opacity: 0.5; }\r\n/* ... */\r\n",
+                    "data": "\r\n\r\n  .field-container {\r\n    width: var(--container-3xs);\r\n    .input-wrapper {\r\n      display: flex;\r\n      align-items: center;\r\n      /*border: 1px solid var(--ft-color-border-200);*/\r\n      padding: 0 var(--ft-unit-400);\r\n      gap: var(--ft-unit-400);\r\n      height: var(--ft-unit-1400);\r\n      background-color: var(--ft-form-field-100);\r\n      .full {\r\n\r\n      }\r\n      /*border-radius: var(--ft-radius-500);*/\r\n      .content-section {\r\n        display: flex;\r\n        flex-direction: column;\r\n        flex-grow: 1;\r\n        gap: var(--ft-unit-100);\r\n        .label-row {\r\n          display: flex;\r\n          height: fit-content;\r\n        }\r\n        .placeholder {\r\n          color: var(--ft-color-on-surface-level-200);\r\n        }\r\n      }\r\n    }\r\n  }\r\n\r\n  body:has(.input-wrapper) {\r\n    background: #fff;\r\n  }\r\n\r\n\r\n  .error-text {\r\n    color: var(--ft-color-danger);\r\n    padding: 0 var(--ft-unit-200);\r\n  }\r\n  .input-wrapper.flat { border: none; background-color: var(--ft-color-surface-muted); }\r\n  .input-wrapper.bordered { border: 1px solid var(--ft-color-border-200); }\r\n  /* Add more variant/size/color CSS as needed */\r\n  .input-wrapper.invalid { border-color: var(--ft-color-danger-500); }\r\n  button { background: none; border: none; cursor: pointer; }\r\n  label.disabled input { opacity: 0.5; }\r\n  /* ... */\r\n\r\n\r\n",
                     "styleUrl": "./ft.input.component.css"
                 }
             ],
@@ -2258,11 +2267,11 @@
                         "name": "radiusClasses",
                         "type": "string",
                         "returnType": "string",
-                        "line": 40
+                        "line": 41
                     }
                 }
             },
-            "templateData": "<!--<label [class.disabled]=\"disabled\">-->\r\n<!--  <span *ngIf=\"label\">{{ label }} <span *ngIf=\"required\">*</span></span>-->\r\n<!--  <div class=\"input-wrapper\"-->\r\n<!--       [ngClass]=\"[size, color, variant, radius, {'invalid': invalid}]\">-->\r\n<!--    <input [(ngModel)]=\"value\"-->\r\n<!--           [placeholder]=\"placeholder\"-->\r\n<!--           [disabled]=\"disabled\"-->\r\n<!--           [readonly]=\"readonly\"-->\r\n<!--    />-->\r\n<!--    <button *ngIf=\"isClearable && value\" (click)=\"clear()\">✕</button>-->\r\n<!--  </div>-->\r\n<!--  <small *ngIf=\"invalid\">{{ errorMessage }}</small>-->\r\n<!--  <small *ngIf=\"!invalid && description\">{{ description }}</small>-->\r\n<!--</label>-->\r\n\r\n\r\n\r\n<div class=\"field-container\">\r\n  <div class=\"input-wrapper\" [class]=\"radiusClasses\">\r\n    <div *ngIf=\"prefixIconClass\" class=\"prefix\">\r\n      <i [class]=\"prefixIconClass\"></i>\r\n    </div>\r\n    <div class=\"content-section\">\r\n      <div *ngIf=\"label\" class=\"label-row\">\r\n        <span class=\"label form-field-label\">{{ label }} <span *ngIf=\"required\">*</span></span>\r\n      </div>\r\n      <div *ngIf=\"content\" class=\"content-row\">\r\n        <p class=\"content form-field-content\">{{ content }}</p>\r\n      </div>\r\n      <div *ngIf=\"placeholder\" class=\"placeholder-row\">\r\n        <p class=\"placeholder content-xs--normal\">{{placeholder}}</p>\r\n      </div>\r\n    </div>\r\n    <div *ngIf=\"suffix1IconClass\" class=\"suffix1\">\r\n      <i [class]=\"suffix1IconClass\"></i>\r\n    </div>\r\n    <div *ngIf=\"suffix2IconClass\" class=\"suffix2\">\r\n      <i [class]=\"suffix2IconClass\"></i>\r\n    </div>\r\n  </div>\r\n  <div *ngIf=\"invalid && errorMessage\" class=\"error-message\">\r\n    <p class=\"error-text content-2xs--normal\">{{errorMessage}}</p>\r\n  </div>\r\n  <div *ngIf=\"description\" class=\"description\">\r\n    <p class=\"highlight content-2xs--normal\">{{ description }}</p>\r\n  </div>\r\n</div>\r\n\r\n"
+            "templateData": "<!--<label [class.disabled]=\"disabled\">-->\r\n<!--  <span *ngIf=\"label\">{{ label }} <span *ngIf=\"required\">*</span></span>-->\r\n<!--  <div class=\"input-wrapper\"-->\r\n<!--       [ngClass]=\"[size, color, variant, radius, {'invalid': invalid}]\">-->\r\n<!--    <input [(ngModel)]=\"value\"-->\r\n<!--           [placeholder]=\"placeholder\"-->\r\n<!--           [disabled]=\"disabled\"-->\r\n<!--           [readonly]=\"readonly\"-->\r\n<!--    />-->\r\n<!--    <button *ngIf=\"isClearable && value\" (click)=\"clear()\">✕</button>-->\r\n<!--  </div>-->\r\n<!--  <small *ngIf=\"invalid\">{{ errorMessage }}</small>-->\r\n<!--  <small *ngIf=\"!invalid && description\">{{ description }}</small>-->\r\n<!--</label>-->\r\n\r\n\r\n\r\n<div class=\"field-container\" [class]=\"labelPlacement\">\r\n  <div *ngIf=\"label && labelPlacement === 'outside-left'\" class=\"label-row\">\r\n    <span class=\"label form-field-label\">{{ label }} <span *ngIf=\"required\">*</span></span>\r\n  </div>\r\n  <div class=\"input-wrapper\" [class]=\"radiusClasses\">\r\n    <div *ngIf=\"prefixIconClass\" class=\"prefix\">\r\n      <i [class]=\"prefixIconClass\"></i>\r\n    </div>\r\n    <div class=\"content-section\">\r\n      <div *ngIf=\"label && labelPlacement !== 'outside-left'\" class=\"label-row\">\r\n        <span class=\"label form-field-label\">{{ label }} <span *ngIf=\"required\">*</span></span>\r\n      </div>\r\n      <div *ngIf=\"content\" class=\"content-row\">\r\n        <p class=\"content form-field-content\">{{ content }}</p>\r\n      </div>\r\n      <div *ngIf=\"placeholder\" class=\"placeholder-row\">\r\n        <p class=\"placeholder content-xs--normal\">{{placeholder}}</p>\r\n      </div>\r\n    </div>\r\n    <div *ngIf=\"suffix1IconClass\" class=\"suffix1\">\r\n      <i [class]=\"suffix1IconClass\"></i>\r\n    </div>\r\n    <div *ngIf=\"suffix2IconClass\" class=\"suffix2\">\r\n      <i [class]=\"suffix2IconClass\"></i>\r\n    </div>\r\n  </div>\r\n  <div *ngIf=\"invalid && errorMessage\" class=\"error-message\">\r\n    <p class=\"error-text content-2xs--normal\">{{errorMessage}}</p>\r\n  </div>\r\n  <div *ngIf=\"description\" class=\"description\">\r\n    <p class=\"highlight content-2xs--normal\">{{ description }}</p>\r\n  </div>\r\n</div>\r\n\r\n"
         },
         {
             "name": "HeaderComponent",
@@ -8544,7 +8553,7 @@
                 "linktype": "component",
                 "name": "FTInputComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/20",
+                "coverageCount": "0/21",
                 "status": "low"
             },
             {

@@ -58,6 +58,8 @@ const meta: Meta<FTInputComponent> = {
     // isLabel: false,
     // label: 'Email',
     // iconClass: 'icon-export',
+    labelPlacement: 'inside',
+    radius: 'md',
     content: 'content',
     invalid: false,
   }

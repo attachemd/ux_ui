@@ -28,6 +28,7 @@ export class FTInputComponent {
   @Input() description?: string;
   @Input() errorMessage?: string;
   @Input() content?: string;
+  @Input() labelPlacement: 'inside' | 'outside' | 'outside-left' = 'inside';
 
   @Input() prefixIconClass = ''; // For icon libraries that use classes
   @Input() suffix1IconClass = 'icon-close';

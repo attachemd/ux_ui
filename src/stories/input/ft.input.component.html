@@ -15,13 +15,16 @@
 
 
 
-<div class="field-container">
+<div class="field-container" [class]="labelPlacement">
+  <div *ngIf="label && labelPlacement !== 'inside'" class="label-row">
+    <span class="label form-field-label">{{ label }} <span *ngIf="required">*</span></span>
+  </div>
   <div class="input-wrapper" [class]="radiusClasses">
     <div *ngIf="prefixIconClass" class="prefix">
       <i [class]="prefixIconClass"></i>
     </div>
     <div class="content-section">
-      <div *ngIf="label" class="label-row">
+      <div *ngIf="label && labelPlacement === 'inside'" class="label-row">
         <span class="label form-field-label">{{ label }} <span *ngIf="required">*</span></span>
       </div>
       <div *ngIf="content" class="content-row">

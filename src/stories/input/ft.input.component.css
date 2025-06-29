@@ -1,45 +1,65 @@
-.field-container {
-  width: var(--container-3xs);
-}
 
-body:has(.input-wrapper) {
-  background: #fff;
-}
-.input-wrapper {
-  display: flex;
-  align-items: center;
-  /*border: 1px solid var(--ft-color-border-200);*/
-  padding: 0 var(--ft-unit-400);
-  gap: var(--ft-unit-400);
-  height: var(--ft-unit-1400);
-  background-color: var(--ft-form-field-100);
-  .full {
 
-  }
-  border-radius: var(--ft-radius-500);
-  .content-section {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    gap: var(--ft-unit-100);
-    .label-row {
+  .field-container {
+    width: var(--container-3xs);
+    .input-wrapper {
       display: flex;
-      height: fit-content;
+      align-items: center;
+      /*border: 1px solid var(--ft-color-border-200);*/
+      padding: 0 var(--ft-unit-400);
+      gap: var(--ft-unit-400);
+      height: var(--ft-unit-1400);
+      background-color: var(--ft-form-field-100);
+
+      .content-section {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        gap: var(--ft-unit-100);
+        .label-row {
+          display: flex;
+          height: fit-content;
+        }
+        .placeholder {
+          color: var(--ft-color-on-surface-level-200);
+        }
+      }
     }
-    .placeholder {
-      color: var(--ft-color-on-surface-level-200);
+    &.inside {
+      .input-wrapper {
+
+      }
+    }
+
+    &.outside {
+      gap: var(--container-3xs);
+      .input-wrapper {
+        height: var(--ft-unit-800);
+      }
+    }
+
+    &.outside-left {
+      .input-wrapper {
+        color: var(--ft-border-primary);
+      }
     }
   }
-}
 
-.error-text {
-  color: var(--ft-color-danger);
-  padding: 0 var(--ft-unit-200);
-}
-.input-wrapper.flat { border: none; background-color: var(--ft-color-surface-muted); }
-.input-wrapper.bordered { border: 1px solid var(--ft-color-border-200); }
-/* Add more variant/size/color CSS as needed */
-.input-wrapper.invalid { border-color: var(--ft-color-danger-500); }
-button { background: none; border: none; cursor: pointer; }
-label.disabled input { opacity: 0.5; }
-/* ... */
+  body:has(.input-wrapper) {
+    background: #fff;
+  }
+
+
+  .error-text {
+    color: var(--ft-color-danger);
+    padding: 0 var(--ft-unit-200);
+  }
+  .input-wrapper.flat { border: none; background-color: var(--ft-color-surface-muted); }
+  .input-wrapper.bordered { border: 1px solid var(--ft-color-border-200); }
+  /* Add more variant/size/color CSS as needed */
+  .input-wrapper.invalid { border-color: var(--ft-color-danger-500); }
+  button { background: none; border: none; cursor: pointer; }
+  label.disabled input { opacity: 0.5; }
+  /* ... */
+
+
