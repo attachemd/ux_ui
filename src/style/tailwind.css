@@ -428,10 +428,6 @@
     font-size: var(--text-xl);
     line-height: var(--tw-leading, var(--text-xl--line-height));
   }
-  .leading-\[1\] {
-    --tw-leading: 1;
-    line-height: 1;
-  }
   .leading-none {
     --tw-leading: 1;
     line-height: 1;
