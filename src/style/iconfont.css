@@ -44,377 +44,380 @@
   }
 
   .icon-add-comment:before {
-    content: "\e900";
-  }
-  .icon-add-document:before {
-    content: "\e901";
-  }
-  .icon-add-tag:before {
-    content: "\e902";
-  }
-  .icon-admission:before {
-    content: "\e903";
-  }
-  .icon-arrow-down:before {
-    content: "\e904";
-  }
-  .icon-arrow-down2:before {
-    content: "\e905";
-  }
-  .icon-arrow-left:before {
-    content: "\e906";
-  }
-  .icon-arrow-next:before {
-    content: "\e907";
-  }
-  .icon-arrow-prev:before {
-    content: "\e908";
-  }
-  .icon-arrow-right:before {
-    content: "\e909";
-  }
-  .icon-arrow-up:before {
-    content: "\e90a";
-  }
-  .icon-arrow-up2:before {
-    content: "\e90b";
-  }
-  .icon-attach:before {
-    content: "\e90c";
-  }
-  .icon-back:before {
-    content: "\e90d";
-  }
-  .icon-barcode:before {
-    content: "\e90e";
-  }
-  .icon-bell:before {
-    content: "\e90f";
-  }
-  .icon-birthday:before {
-    content: "\e910";
-  }
-  .icon-bold:before {
-    content: "\e911";
-  }
-  .icon-check:before {
-    content: "\e912";
-  }
-  .icon-close:before {
-    content: "\e913";
-  }
-  .icon-code:before {
-    content: "\e914";
-  }
-  .icon-comment:before {
-    content: "\e915";
-  }
-  .icon-corner-resize:before {
-    content: "\e916";
-  }
-  .icon-cream:before {
-    content: "\e917";
-  }
-  .icon-csv:before {
-    content: "\e918";
-  }
-  .icon-current-edit:before {
-    content: "\e919";
-  }
-  .icon-date:before {
-    content: "\e91a";
-  }
-  .icon-date-add:before {
-    content: "\e91b";
-  }
-  .icon-delete:before {
-    content: "\e91c";
-  }
-  .icon-document:before {
-    content: "\e91d";
-  }
-  .icon-document2:before {
-    content: "\e91e";
-  }
-  .icon-document-added:before {
-    content: "\e91f";
-  }
-  .icon-drag:before {
-    content: "\e920";
-  }
-  .icon-drag-vertical:before {
-    content: "\e921";
-  }
-  .icon-drag-vertical2:before {
-    content: "\e922";
-  }
-  .icon-duplicate:before {
-    content: "\e923";
-  }
-  .icon-edit:before {
-    content: "\e924";
-  }
-  .icon-edit-full:before {
-    content: "\e925";
-  }
-  .icon-email-tag:before {
-    content: "\e926";
-  }
-  .icon-enter:before {
-    content: "\e927";
-  }
-  .icon-exclamation:before {
-    content: "\e928";
-  }
-  .icon-expand:before {
-    content: "\e929";
-  }
-  .icon-export:before {
-    content: "\e92a";
-  }
-  .icon-filter:before {
-    content: "\e92b";
-  }
-  .icon-filter-reset:before {
-    content: "\e92c";
-  }
-  .icon-gender:before {
-    content: "\e92d";
-  }
-  .icon-gender2:before {
-    content: "\e92e";
-  }
-  .icon-graph:before {
-    content: "\e92f";
-  }
-  .icon-grid:before {
-    content: "\e930";
-  }
-  .icon-hand:before {
-    content: "\e931";
-  }
-  .icon-help:before {
-    content: "\e932";
-  }
-  .icon-help2:before {
-    content: "\e933";
-  }
-  .icon-hide:before {
-    content: "\e934";
-  }
-  .icon-history:before {
-    content: "\e935";
-  }
-  .icon-history-add:before {
-    content: "\e936";
-  }
-  .icon-hospitalization:before {
-    content: "\e937";
-  }
-  .icon-import:before {
-    content: "\e938";
-  }
-  .icon-import2:before {
-    content: "\e939";
-  }
-  .icon-inbox:before {
-    content: "\e93a";
-  }
-  .icon-injection:before {
-    content: "\e93b";
-  }
-  .icon-italic:before {
-    content: "\e93c";
-  }
-  .icon-kanban:before {
-    content: "\e93d";
-  }
-  .icon-kanban2:before {
-    content: "\e93e";
-  }
-  .icon-lab:before {
-    content: "\e93f";
-  }
-  .icon-list:before {
-    content: "\e940";
-  }
-  .icon-location:before {
-    content: "\e941";
-  }
-  .icon-logout:before {
-    content: "\e942";
-  }
-  .icon-mail:before {
-    content: "\e943";
-  }
-  .icon-menu:before {
-    content: "\e944";
-  }
-  .icon-minus:before {
-    content: "\e945";
-  }
-  .icon-more:before {
-    content: "\e946";
-  }
-  .icon-network:before {
-    content: "\e947";
-  }
-  .icon-network-ip:before {
-    content: "\e948";
-  }
-  .icon-new-form:before {
-    content: "\e949";
-  }
-  .icon-no:before {
-    content: "\e94a";
-  }
-  .icon-number:before {
-    content: "\e94b";
-  }
-  .icon-off:before {
-    content: "\e94c";
-  }
-  .icon-on:before {
-    content: "\e94d";
-  }
-  .icon-panier:before {
-    content: "\e94e";
-  }
-  .icon-phone:before {
-    content: "\e94f";
-  }
-  .icon-pill:before {
-    content: "\e950";
-  }
-  .icon-pills:before {
-    content: "\e951";
-  }
-  .icon-plug:before {
-    content: "\e952";
-  }
-  .icon-plus-circle:before {
-    content: "\e953";
-  }
-  .icon-plus:before {
-    content: "\e954";
-  }
-  .icon-prescription-libre:before {
-    content: "\e955";
-  }
-  .icon-prescription:before {
-    content: "\e956";
-  }
-  .icon-print:before {
-    content: "\e957";
-  }
-  .icon-priority:before {
-    content: "\e958";
-  }
-  .icon-procedure:before {
-    content: "\e959";
-  }
-  .icon-profile:before {
-    content: "\e95a";
-  }
-  .icon-record:before {
-    content: "\e95b";
-  }
-  .icon-redo:before {
-    content: "\e95c";
-  }
-  .icon-request:before {
-    content: "\e95d";
-  }
-  .icon-rx:before {
-    content: "\e95e";
-  }
-  .icon-save:before {
-    content: "\e95f";
-  }
-  .icon-scan:before {
-    content: "\e960";
-  }
-  .icon-scan-barcode:before {
-    content: "\e961";
-  }
-  .icon-search:before {
-    content: "\e962";
-  }
-  .icon-select:before {
-    content: "\e963";
-  }
-  .icon-sent:before {
-    content: "\e964";
-  }
-  .icon-setting:before {
-    content: "\e965";
-  }
-  .icon-sms:before {
-    content: "\e966";
-  }
-  .icon-sms-tag:before {
-    content: "\e967";
-  }
-  .icon-star:before {
-    content: "\e968";
-  }
-  .icon-start:before {
-    content: "\e969";
-  }
-  .icon-status:before {
-    content: "\e96a";
-  }
-  .icon-syrup:before {
-    content: "\e96b";
-  }
-  .icon-table:before {
-    content: "\e96c";
-  }
-  .icon-table2:before {
-    content: "\e96d";
-  }
-  .icon-tag:before {
-    content: "\e96e";
-  }
-  .icon-template:before {
-    content: "\e96f";
-  }
-  .icon-theme:before {
-    content: "\e970";
-  }
-  .icon-ticket:before {
-    content: "\e971";
-  }
-  .icon-time:before {
-    content: "\e972";
-  }
-  .icon-time-slot:before {
-    content: "\e973";
-  }
-  .icon-today:before {
-    content: "\e974";
-  }
-  .icon-tree:before {
-    content: "\e975";
-  }
-  .icon-underline:before {
-    content: "\e976";
-  }
-  .icon-user:before {
-    content: "\e977";
-  }
-  .icon-users:before {
-    content: "\e978";
-  }
-  .icon-vertical-dots:before {
-    content: "\e979";
-  }
-  .icon-visit:before {
-    content: "\e97a";
-  }
-  .icon-yes:before {
-    content: "\e97b";
-  }
+  content: "\e900";
+}
+.icon-add-document:before {
+  content: "\e901";
+}
+.icon-add-tag:before {
+  content: "\e902";
+}
+.icon-admission:before {
+  content: "\e903";
+}
+.icon-arrow-down:before {
+  content: "\e904";
+}
+.icon-arrow-down2:before {
+  content: "\e905";
+}
+.icon-arrow-left:before {
+  content: "\e906";
+}
+.icon-arrow-next:before {
+  content: "\e907";
+}
+.icon-arrow-prev:before {
+  content: "\e908";
+}
+.icon-arrow-right:before {
+  content: "\e909";
+}
+.icon-arrow-up:before {
+  content: "\e90a";
+}
+.icon-arrow-up2:before {
+  content: "\e90b";
+}
+.icon-attach:before {
+  content: "\e90c";
+}
+.icon-back:before {
+  content: "\e90d";
+}
+.icon-barcode:before {
+  content: "\e90e";
+}
+.icon-bell:before {
+  content: "\e90f";
+}
+.icon-birthday:before {
+  content: "\e910";
+}
+.icon-bold:before {
+  content: "\e911";
+}
+.icon-check:before {
+  content: "\e912";
+}
+.icon-close:before {
+  content: "\e913";
+}
+.icon-code:before {
+  content: "\e914";
+}
+.icon-comment:before {
+  content: "\e915";
+}
+.icon-corner-resize:before {
+  content: "\e916";
+}
+.icon-cream:before {
+  content: "\e917";
+}
+.icon-csv:before {
+  content: "\e918";
+}
+.icon-current-edit:before {
+  content: "\e919";
+}
+.icon-date:before {
+  content: "\e91a";
+}
+.icon-date2:before {
+  content: "\e91b";
+}
+.icon-date-add:before {
+  content: "\e91c";
+}
+.icon-delete:before {
+  content: "\e91d";
+}
+.icon-document:before {
+  content: "\e91e";
+}
+.icon-document2:before {
+  content: "\e91f";
+}
+.icon-document-added:before {
+  content: "\e920";
+}
+.icon-drag:before {
+  content: "\e921";
+}
+.icon-drag-vertical:before {
+  content: "\e922";
+}
+.icon-drag-vertical2:before {
+  content: "\e923";
+}
+.icon-duplicate:before {
+  content: "\e924";
+}
+.icon-edit:before {
+  content: "\e925";
+}
+.icon-edit-full:before {
+  content: "\e926";
+}
+.icon-email-tag:before {
+  content: "\e927";
+}
+.icon-enter:before {
+  content: "\e928";
+}
+.icon-exclamation:before {
+  content: "\e929";
+}
+.icon-expand:before {
+  content: "\e92a";
+}
+.icon-export:before {
+  content: "\e92b";
+}
+.icon-filter:before {
+  content: "\e92c";
+}
+.icon-filter-reset:before {
+  content: "\e92d";
+}
+.icon-gender:before {
+  content: "\e92e";
+}
+.icon-gender2:before {
+  content: "\e92f";
+}
+.icon-graph:before {
+  content: "\e930";
+}
+.icon-grid:before {
+  content: "\e931";
+}
+.icon-hand:before {
+  content: "\e932";
+}
+.icon-help:before {
+  content: "\e933";
+}
+.icon-help2:before {
+  content: "\e934";
+}
+.icon-hide:before {
+  content: "\e935";
+}
+.icon-history:before {
+  content: "\e936";
+}
+.icon-history-add:before {
+  content: "\e937";
+}
+.icon-hospitalization:before {
+  content: "\e938";
+}
+.icon-import:before {
+  content: "\e939";
+}
+.icon-import2:before {
+  content: "\e93a";
+}
+.icon-inbox:before {
+  content: "\e93b";
+}
+.icon-injection:before {
+  content: "\e93c";
+}
+.icon-italic:before {
+  content: "\e93d";
+}
+.icon-kanban:before {
+  content: "\e93e";
+}
+.icon-kanban2:before {
+  content: "\e93f";
+}
+.icon-lab:before {
+  content: "\e940";
+}
+.icon-list:before {
+  content: "\e941";
+}
+.icon-location:before {
+  content: "\e942";
+}
+.icon-logout:before {
+  content: "\e943";
+}
+.icon-mail:before {
+  content: "\e944";
+}
+.icon-menu:before {
+  content: "\e945";
+}
+.icon-minus:before {
+  content: "\e946";
+}
+.icon-more:before {
+  content: "\e947";
+}
+.icon-network:before {
+  content: "\e948";
+}
+.icon-network-ip:before {
+  content: "\e949";
+}
+.icon-new-form:before {
+  content: "\e94a";
+}
+.icon-no:before {
+  content: "\e94b";
+}
+.icon-number:before {
+  content: "\e94c";
+}
+.icon-off:before {
+  content: "\e94d";
+}
+.icon-on:before {
+  content: "\e94e";
+}
+.icon-panier:before {
+  content: "\e94f";
+}
+.icon-phone:before {
+  content: "\e950";
+}
+.icon-pill:before {
+  content: "\e951";
+}
+.icon-pills:before {
+  content: "\e952";
+}
+.icon-plug:before {
+  content: "\e953";
+}
+.icon-plus-circle:before {
+  content: "\e954";
+}
+.icon-plus:before {
+  content: "\e955";
+}
+.icon-prescription-libre:before {
+  content: "\e956";
+}
+.icon-prescription:before {
+  content: "\e957";
+}
+.icon-print:before {
+  content: "\e958";
+}
+.icon-priority:before {
+  content: "\e959";
+}
+.icon-procedure:before {
+  content: "\e95a";
+}
+.icon-profile:before {
+  content: "\e95b";
+}
+.icon-record:before {
+  content: "\e95c";
+}
+.icon-redo:before {
+  content: "\e95d";
+}
+.icon-request:before {
+  content: "\e95e";
+}
+.icon-rx:before {
+  content: "\e95f";
+}
+.icon-save:before {
+  content: "\e960";
+}
+.icon-scan:before {
+  content: "\e961";
+}
+.icon-scan-barcode:before {
+  content: "\e962";
+}
+.icon-search:before {
+  content: "\e963";
+}
+.icon-select:before {
+  content: "\e964";
+}
+.icon-sent:before {
+  content: "\e965";
+}
+.icon-setting:before {
+  content: "\e966";
+}
+.icon-sms:before {
+  content: "\e967";
+}
+.icon-sms-tag:before {
+  content: "\e968";
+}
+.icon-star:before {
+  content: "\e969";
+}
+.icon-start:before {
+  content: "\e96a";
+}
+.icon-status:before {
+  content: "\e96b";
+}
+.icon-syrup:before {
+  content: "\e96c";
+}
+.icon-table:before {
+  content: "\e96d";
+}
+.icon-table2:before {
+  content: "\e96e";
+}
+.icon-tag:before {
+  content: "\e96f";
+}
+.icon-template:before {
+  content: "\e970";
+}
+.icon-theme:before {
+  content: "\e971";
+}
+.icon-ticket:before {
+  content: "\e972";
+}
+.icon-time:before {
+  content: "\e973";
+}
+.icon-time-slot:before {
+  content: "\e974";
+}
+.icon-today:before {
+  content: "\e975";
+}
+.icon-tree:before {
+  content: "\e976";
+}
+.icon-underline:before {
+  content: "\e977";
+}
+.icon-user:before {
+  content: "\e978";
+}
+.icon-users:before {
+  content: "\e979";
+}
+.icon-vertical-dots:before {
+  content: "\e97a";
+}
+.icon-visit:before {
+  content: "\e97b";
+}
+.icon-yes:before {
+  content: "\e97c";
+}
 
 }
 
