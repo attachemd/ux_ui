@@ -673,9 +673,13 @@ border-radius: var(--ft-radius-pill);
 
   .field-container {
     position: relative;
-    display: flex;
-    flex-direction: column;
-    padding-bottom: var(--ft-spacing-md);
+    /*display: flex;*/
+    /*flex-direction: column;*/
+    display: grid;
+    align-items: center;
+    grid-template-columns: auto 1fr;
+    gap: 0;
+    /*padding-bottom: var(--ft-spacing-md);*/
     /*gap: var(--ft-spacing-md);*/
     flex-grow: 1;
     overflow: visible;

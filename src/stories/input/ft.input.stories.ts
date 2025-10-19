@@ -37,7 +37,7 @@ const meta: Meta<FTInputComponent> = {
     },
     size: {
       control: 'select',
-      options: ['sm-size', 'md-size', 'lg-size'],
+      options: ['xs-size', 'sm-size', 'md-size', 'lg-size'],
     },
     color: {
       control: 'select',
