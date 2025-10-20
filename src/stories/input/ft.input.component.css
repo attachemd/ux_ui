@@ -36,28 +36,117 @@
 
     &.label-inside {
       .input-wrapper {
-        /*padding: 0 var(--ft-unit-200);*/
+        grid-column: 1;
+        grid-row: 1;
+        /* B will take the remaining space */
+        min-width: min-content; /* Prevents B from shrinking too much */
+      }
+      .error-message {
+        grid-column: 1;
+        grid-row: 2;
+        /* C automatically matches B's column width */
+        /*width: 100%;*/
+        /*box-sizing: border-box;*/
+      }
+      .description {
+        grid-column: 1;
+        grid-row: 3;
+        /* C automatically matches B's column width */
+        /*width: 100%;*/
+        /*box-sizing: border-box;*/
       }
     }
 
     &.label-outside {
 
+      .label-row {
+        grid-column: 1;
+        grid-row: 1;
+      }
       .input-wrapper {
-
+        grid-column: 1;
+        grid-row: 2;
+        min-width: min-content; /* Prevents B from shrinking too much */
+      }
+      .error-message {
+        grid-column: 1;
+        grid-row: 3;
+      }
+      .description {
+        grid-column: 1;
+        grid-row: 4;
       }
     }
 
     &.label-outside-left {
-      flex-direction: row;
-      align-items: center;
+      /*flex-direction: row;*/
+      /*align-items: center;*/
+      .label-row {
+        grid-column: 1;
+        grid-row: 1;
+      }
       .input-wrapper {
-
+        grid-column: 2;
+        grid-row: 1;
+        min-width: min-content; /* Prevents B from shrinking too much */
+      }
+      .error-message {
+        grid-column: 2;
+        grid-row: 2;
+      }
+      .description {
+        grid-column: 2;
+        grid-row: 3;
       }
     }
 
+    &.xs-size {
+      .input-wrapper {
+        padding: 0 var(--ft-unit-200);
+        /*height: var(--ft-unit-600);*/
+        height: var(--ft-unit-500);
+        gap: var(--ft-unit-200);
+        [class^="icon-"], [class*=" icon-"] {
+          width: 16px;
+          height: 16px;
+          font-size: 18px;
+        }
+
+        .content-section {
+          gap: 0;
+          .label-row {
+
+          }
+          .content {
+
+          }
+          .placeholder {
+            color: var(--ft-color-on-surface-level-200);
+          }
+        }
+      }
+
+      &.label-inside {
+        .input-wrapper {
+          padding: 0 var(--ft-unit-200);
+          height: var(--ft-unit-1000);
+        }
+      }
+
+      &.label-outside {
+        .input-wrapper {
+        }
+      }
+
+      &.label-outside-left {
+        column-gap: var(--ft-unit-100);
+        .input-wrapper {
+
+        }
+      }
+    }
 
     &.sm-size {
-      gap: var(--ft-unit-100);
       .input-wrapper {
         padding: 0 var(--ft-unit-200);
         height: var(--ft-unit-600);
@@ -82,7 +171,7 @@
       }
 
       &.label-outside-left {
-        gap: var(--ft-unit-100);
+        column-gap: var(--ft-unit-200);
         .input-wrapper {
 
         }
@@ -90,7 +179,6 @@
     }
 
     &.md-size {
-      gap: var(--ft-unit-200);
       .input-wrapper {
         height: var(--ft-unit-800);
         gap: var(--ft-unit-300);
@@ -108,7 +196,8 @@
       }
 
       &.label-outside-left {
-        gap: var(--ft-unit-300);
+        /*gap: var(--ft-unit-300);*/
+        column-gap: var(--ft-unit-300);
         .input-wrapper {
 
         }
@@ -149,7 +238,7 @@
 
   .error-text {
     color: var(--ft-color-danger);
-    padding: 0 var(--ft-unit-200);
+    /*padding: 0 var(--ft-unit-200);*/
   }
   .input-wrapper.flat { border: none; background-color: var(--ft-color-surface-muted); }
   .input-wrapper.bordered { border: 1px solid var(--ft-color-border-200); }

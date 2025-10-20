@@ -14,12 +14,11 @@
 <!--</label>-->
 
 
-
 <div class="field-container" [class]="labelPlacement + ' ' + size">
   <div *ngIf="isLabel && labelPlacement !== 'label-inside'" class="label-row">
     <span class="label leading-none"
           [ngClass]="{
-           'content-2xs--normal': size === 'sm-size' || size === 'md-size',
+           'content-2xs--normal': size === 'sm-size' || size === 'md-size' || size === 'xs-size',
            'content-xs--normal': size === 'lg-size',
            }"
     >{{ label }} <span *ngIf="required">*</span></span>
@@ -32,7 +31,7 @@
       <div *ngIf="isLabel && labelPlacement === 'label-inside'" class="label-row">
         <span class="label leading-none"
               [ngClass]="{
-           'content-2xs--normal': size === 'sm-size' || size === 'md-size',
+           'content-2xs--normal': size === 'sm-size' || size === 'md-size' || size === 'xs-size',
            'content-xs--normal': size === 'lg-size',
            }"
         >{{ label }} <span *ngIf="required">*</span></span>
@@ -40,13 +39,14 @@
       <div *ngIf="content" class="content-row">
         <p class="content leading-none"
            [ngClass]="{
+           'content-xs--normal': size === 'xs-size',
            'content-sm--normal': size === 'sm-size' || size === 'md-size',
            'content-md--normal': size === 'lg-size',
            }"
         >{{ content }}</p>
       </div>
       <div *ngIf="placeholder" class="placeholder-row">
-        <p class="placeholder content-xs--normal">{{placeholder}}</p>
+        <p class="placeholder content-xs--normal">{{ placeholder }}</p>
       </div>
     </div>
     <div class="suffix-icon flex">
@@ -59,10 +59,9 @@
     </div>
   </div>
   <div *ngIf="invalid && errorMessage" class="error-message">
-    <p class="error-text content-2xs--normal">{{errorMessage}}</p>
+    <p class="error-text content-2xs--normal">{{ errorMessage }}</p>
   </div>
   <div *ngIf="description" class="description">
     <p class="highlight content-2xs--normal">{{ description }}</p>
   </div>
 </div>
-
