@@ -2290,7 +2290,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "\r\n\r\n  .field-container {\r\n    width: var(--container-xs);\r\n    .input-wrapper {\r\n      display: flex;\r\n      align-items: center;\r\n      /*border: 1px solid var(--ft-color-border-200);*/\r\n      padding: 0 var(--ft-unit-400);\r\n      /*gap: var(--ft-unit-400);*/\r\n      /*height: var(--ft-unit-800);*/\r\n      background-color: var(--ft-form-field-100);\r\n\r\n      .content-section {\r\n        display: flex;\r\n        flex-direction: column;\r\n        flex-grow: 1;\r\n        gap: var(--ft-unit-100);\r\n        .label-row {\r\n          display: flex;\r\n          height: fit-content;\r\n        }\r\n        .content {\r\n\r\n        }\r\n        .placeholder {\r\n          color: var(--ft-color-on-surface-level-200);\r\n        }\r\n      }\r\n\r\n      .suffix-icon {\r\n        gap: var(--ft-unit-100);\r\n      }\r\n\r\n    }\r\n\r\n    &.label-inside {\r\n      .input-wrapper {\r\n        grid-column: 1;\r\n        grid-row: 1;\r\n        /* B will take the remaining space */\r\n        min-width: min-content; /* Prevents B from shrinking too much */\r\n      }\r\n      .error-message {\r\n        grid-column: 1;\r\n        grid-row: 2;\r\n        /* C automatically matches B's column width */\r\n        /*width: 100%;*/\r\n        /*box-sizing: border-box;*/\r\n      }\r\n      .description {\r\n        grid-column: 1;\r\n        grid-row: 3;\r\n        /* C automatically matches B's column width */\r\n        /*width: 100%;*/\r\n        /*box-sizing: border-box;*/\r\n      }\r\n    }\r\n\r\n    &.label-outside {\r\n\r\n      .label-row {\r\n        grid-column: 1;\r\n        grid-row: 1;\r\n      }\r\n      .input-wrapper {\r\n        grid-column: 1;\r\n        grid-row: 2;\r\n        min-width: min-content; /* Prevents B from shrinking too much */\r\n      }\r\n      .error-message {\r\n        grid-column: 1;\r\n        grid-row: 3;\r\n      }\r\n      .description {\r\n        grid-column: 1;\r\n        grid-row: 4;\r\n      }\r\n    }\r\n\r\n    &.label-outside-left {\r\n      /*flex-direction: row;*/\r\n      /*align-items: center;*/\r\n      .label-row {\r\n        grid-column: 1;\r\n        grid-row: 1;\r\n      }\r\n      .input-wrapper {\r\n        grid-column: 2;\r\n        grid-row: 1;\r\n        min-width: min-content; /* Prevents B from shrinking too much */\r\n      }\r\n      .error-message {\r\n        grid-column: 2;\r\n        grid-row: 2;\r\n      }\r\n      .description {\r\n        grid-column: 2;\r\n        grid-row: 3;\r\n      }\r\n    }\r\n\r\n\r\n    &.sm-size {\r\n      .input-wrapper {\r\n        padding: 0 var(--ft-unit-200);\r\n        height: var(--ft-unit-600);\r\n        gap: var(--ft-unit-200);\r\n        [class^=\"icon-\"], [class*=\" icon-\"] {\r\n          width: 16px;\r\n          height: 16px;\r\n          font-size: 18px;\r\n        }\r\n      }\r\n\r\n      &.label-inside {\r\n        .input-wrapper {\r\n          padding: 0 var(--ft-unit-300);\r\n          height: var(--ft-unit-1200);\r\n        }\r\n      }\r\n\r\n      &.label-outside {\r\n        .input-wrapper {\r\n        }\r\n      }\r\n\r\n      &.label-outside-left {\r\n        column-gap: var(--ft-unit-100);\r\n        .input-wrapper {\r\n\r\n        }\r\n      }\r\n    }\r\n\r\n    &.md-size {\r\n      .input-wrapper {\r\n        height: var(--ft-unit-800);\r\n        gap: var(--ft-unit-300);\r\n      }\r\n\r\n      &.label-inside {\r\n        .input-wrapper {\r\n          height: var(--ft-unit-1400);\r\n        }\r\n      }\r\n\r\n      &.label-outside {\r\n        .input-wrapper {\r\n        }\r\n      }\r\n\r\n      &.label-outside-left {\r\n        /*gap: var(--ft-unit-300);*/\r\n        column-gap: var(--ft-unit-300);\r\n        .input-wrapper {\r\n\r\n        }\r\n      }\r\n    }\r\n\r\n    &.lg-size {\r\n      gap: var(--ft-unit-100);\r\n      .input-wrapper {\r\n        height: var(--ft-unit-900);\r\n        gap: var(--ft-unit-400);\r\n      }\r\n\r\n      &.label-inside {\r\n        .input-wrapper {\r\n          height: var(--ft-unit-1600);\r\n        }\r\n      }\r\n\r\n      &.label-outside {\r\n        .input-wrapper {\r\n        }\r\n      }\r\n\r\n      &.label-outside-left {\r\n        gap: var(--ft-unit-400);\r\n        .input-wrapper {\r\n\r\n        }\r\n      }\r\n    }\r\n  }\r\n\r\n  body:has(.input-wrapper) {\r\n    background: #fff;\r\n  }\r\n\r\n\r\n  .error-text {\r\n    color: var(--ft-color-danger);\r\n    /*padding: 0 var(--ft-unit-200);*/\r\n  }\r\n  .input-wrapper.flat { border: none; background-color: var(--ft-color-surface-muted); }\r\n  .input-wrapper.bordered { border: 1px solid var(--ft-color-border-200); }\r\n  /* Add more variant/size/color CSS as needed */\r\n  .input-wrapper.invalid { border-color: var(--ft-color-danger-500); }\r\n  button { background: none; border: none; cursor: pointer; }\r\n  label.disabled input { opacity: 0.5; }\r\n  /* ... */\r\n\r\n\r\n",
+                    "data": "\r\n\r\n  .field-container {\r\n    width: var(--container-xs);\r\n    .input-wrapper {\r\n      display: flex;\r\n      align-items: center;\r\n      /*border: 1px solid var(--ft-color-border-200);*/\r\n      padding: 0 var(--ft-unit-400);\r\n      /*gap: var(--ft-unit-400);*/\r\n      /*height: var(--ft-unit-800);*/\r\n      background-color: var(--ft-form-field-100);\r\n\r\n      .content-section {\r\n        display: flex;\r\n        flex-direction: column;\r\n        flex-grow: 1;\r\n        gap: var(--ft-unit-100);\r\n        .label-row {\r\n          display: flex;\r\n          height: fit-content;\r\n        }\r\n        .content {\r\n\r\n        }\r\n        .placeholder {\r\n          color: var(--ft-color-on-surface-level-200);\r\n        }\r\n      }\r\n\r\n      .suffix-icon {\r\n        gap: var(--ft-unit-100);\r\n      }\r\n\r\n    }\r\n\r\n    &.label-inside {\r\n      .input-wrapper {\r\n        grid-column: 1;\r\n        grid-row: 1;\r\n        /* B will take the remaining space */\r\n        min-width: min-content; /* Prevents B from shrinking too much */\r\n      }\r\n      .error-message {\r\n        grid-column: 1;\r\n        grid-row: 2;\r\n        /* C automatically matches B's column width */\r\n        /*width: 100%;*/\r\n        /*box-sizing: border-box;*/\r\n      }\r\n      .description {\r\n        grid-column: 1;\r\n        grid-row: 3;\r\n        /* C automatically matches B's column width */\r\n        /*width: 100%;*/\r\n        /*box-sizing: border-box;*/\r\n      }\r\n    }\r\n\r\n    &.label-outside {\r\n\r\n      .label-row {\r\n        grid-column: 1;\r\n        grid-row: 1;\r\n      }\r\n      .input-wrapper {\r\n        grid-column: 1;\r\n        grid-row: 2;\r\n        min-width: min-content; /* Prevents B from shrinking too much */\r\n      }\r\n      .error-message {\r\n        grid-column: 1;\r\n        grid-row: 3;\r\n      }\r\n      .description {\r\n        grid-column: 1;\r\n        grid-row: 4;\r\n      }\r\n    }\r\n\r\n    &.label-outside-left {\r\n      /*flex-direction: row;*/\r\n      /*align-items: center;*/\r\n      .label-row {\r\n        grid-column: 1;\r\n        grid-row: 1;\r\n      }\r\n      .input-wrapper {\r\n        grid-column: 2;\r\n        grid-row: 1;\r\n        min-width: min-content; /* Prevents B from shrinking too much */\r\n      }\r\n      .error-message {\r\n        grid-column: 2;\r\n        grid-row: 2;\r\n      }\r\n      .description {\r\n        grid-column: 2;\r\n        grid-row: 3;\r\n      }\r\n    }\r\n\r\n    &.xs-size {\r\n      .input-wrapper {\r\n        padding: 0 var(--ft-unit-200);\r\n        /*height: var(--ft-unit-600);*/\r\n        height: var(--ft-unit-500);\r\n        gap: var(--ft-unit-200);\r\n        [class^=\"icon-\"], [class*=\" icon-\"] {\r\n          width: 16px;\r\n          height: 16px;\r\n          font-size: 18px;\r\n        }\r\n\r\n        .content-section {\r\n          gap: 0;\r\n          .label-row {\r\n\r\n          }\r\n          .content {\r\n\r\n          }\r\n          .placeholder {\r\n            color: var(--ft-color-on-surface-level-200);\r\n          }\r\n        }\r\n      }\r\n\r\n      &.label-inside {\r\n        .input-wrapper {\r\n          padding: 0 var(--ft-unit-200);\r\n          height: var(--ft-unit-1000);\r\n        }\r\n      }\r\n\r\n      &.label-outside {\r\n        .input-wrapper {\r\n        }\r\n      }\r\n\r\n      &.label-outside-left {\r\n        column-gap: var(--ft-unit-100);\r\n        .input-wrapper {\r\n\r\n        }\r\n      }\r\n    }\r\n\r\n    &.sm-size {\r\n      .input-wrapper {\r\n        padding: 0 var(--ft-unit-200);\r\n        height: var(--ft-unit-600);\r\n        gap: var(--ft-unit-200);\r\n        [class^=\"icon-\"], [class*=\" icon-\"] {\r\n          width: 16px;\r\n          height: 16px;\r\n          font-size: 18px;\r\n        }\r\n      }\r\n\r\n      &.label-inside {\r\n        .input-wrapper {\r\n          padding: 0 var(--ft-unit-300);\r\n          height: var(--ft-unit-1200);\r\n        }\r\n      }\r\n\r\n      &.label-outside {\r\n        .input-wrapper {\r\n        }\r\n      }\r\n\r\n      &.label-outside-left {\r\n        column-gap: var(--ft-unit-200);\r\n        .input-wrapper {\r\n\r\n        }\r\n      }\r\n    }\r\n\r\n    &.md-size {\r\n      .input-wrapper {\r\n        height: var(--ft-unit-800);\r\n        gap: var(--ft-unit-300);\r\n      }\r\n\r\n      &.label-inside {\r\n        .input-wrapper {\r\n          height: var(--ft-unit-1400);\r\n        }\r\n      }\r\n\r\n      &.label-outside {\r\n        .input-wrapper {\r\n        }\r\n      }\r\n\r\n      &.label-outside-left {\r\n        /*gap: var(--ft-unit-300);*/\r\n        column-gap: var(--ft-unit-300);\r\n        .input-wrapper {\r\n\r\n        }\r\n      }\r\n    }\r\n\r\n    &.lg-size {\r\n      gap: var(--ft-unit-100);\r\n      .input-wrapper {\r\n        height: var(--ft-unit-900);\r\n        gap: var(--ft-unit-400);\r\n      }\r\n\r\n      &.label-inside {\r\n        .input-wrapper {\r\n          height: var(--ft-unit-1600);\r\n        }\r\n      }\r\n\r\n      &.label-outside {\r\n        .input-wrapper {\r\n        }\r\n      }\r\n\r\n      &.label-outside-left {\r\n        gap: var(--ft-unit-400);\r\n        .input-wrapper {\r\n\r\n        }\r\n      }\r\n    }\r\n  }\r\n\r\n  body:has(.input-wrapper) {\r\n    background: #fff;\r\n  }\r\n\r\n\r\n  .error-text {\r\n    color: var(--ft-color-danger);\r\n    /*padding: 0 var(--ft-unit-200);*/\r\n  }\r\n  .input-wrapper.flat { border: none; background-color: var(--ft-color-surface-muted); }\r\n  .input-wrapper.bordered { border: 1px solid var(--ft-color-border-200); }\r\n  /* Add more variant/size/color CSS as needed */\r\n  .input-wrapper.invalid { border-color: var(--ft-color-danger-500); }\r\n  button { background: none; border: none; cursor: pointer; }\r\n  label.disabled input { opacity: 0.5; }\r\n  /* ... */\r\n\r\n\r\n",
                     "styleUrl": "./ft.input.component.css"
                 }
             ],
@@ -2394,6 +2394,262 @@
             ],
             "stylesData": "",
             "extends": []
+        },
+        {
+            "name": "InputShowcaseComponent",
+            "id": "component-InputShowcaseComponent-44fc11d43002797f882b88816a0de354d195f29a921d3dd50b910022bd6775bd602f3a0f5cb45dee7daa93751f0e8ac3f5d744b384356015bd67e18e307d211b",
+            "file": "src/stories/input-showcase/input-showcase.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-input-showcase",
+            "styleUrls": [
+                "./input-showcase.component.css"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./input-showcase.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "basicValue",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 16
+                },
+                {
+                    "name": "clearableText",
+                    "defaultValue": "'Try clearing me!'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 39
+                },
+                {
+                    "name": "disabledValue",
+                    "defaultValue": "'Cannot edit this'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 17
+                },
+                {
+                    "name": "email",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 35
+                },
+                {
+                    "name": "emailErrorMessage",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 43
+                },
+                {
+                    "name": "errorField",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 30
+                },
+                {
+                    "name": "isEmailValid",
+                    "defaultValue": "true",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 42
+                },
+                {
+                    "name": "phone",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 36
+                },
+                {
+                    "name": "readonlyValue",
+                    "defaultValue": "'Read only content'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 18
+                },
+                {
+                    "name": "searchQuery",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 29
+                },
+                {
+                    "name": "searchTerm",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 34
+                },
+                {
+                    "name": "successField",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 31
+                },
+                {
+                    "name": "user",
+                    "defaultValue": "{\n    username: '',\n    email: '',\n    password: '',\n    bio: ''\n  }",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "object",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 21
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "onEmailChange",
+                    "args": [
+                        {
+                            "name": "value",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 45,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "value",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "onSearch",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 51,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "onSubmit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 57,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "resetForm",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 67,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "CommonModule",
+                    "type": "module"
+                },
+                {
+                    "name": "FTInputComponent",
+                    "type": "component"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\n\nimport { CommonModule } from '@angular/common';\nimport {FTInputComponent} from '../input/ft.input.component';\n\n@Component({\n  selector: 'app-input-showcase',\n  templateUrl: './input-showcase.component.html',\n  styleUrls: ['./input-showcase.component.css'],\n  standalone: true,\n  imports: [CommonModule, FTInputComponent]\n})\nexport class InputShowcaseComponent {\n  // Basic Examples\n  basicValue = '';\n  disabledValue = 'Cannot edit this';\n  readonlyValue = 'Read only content';\n\n  // Form Examples\n  user = {\n    username: '',\n    email: '',\n    password: '',\n    bio: ''\n  };\n\n  // State Examples\n  searchQuery = '';\n  errorField = '';\n  successField = '';\n\n  // Icon Examples\n  searchTerm = '';\n  email = '';\n  phone = '';\n\n  // Clearable Examples\n  clearableText = 'Try clearing me!';\n\n  // Validation states\n  isEmailValid = true;\n  emailErrorMessage = '';\n\n  onEmailChange(value: string) {\n    const emailRegex = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;\n    this.isEmailValid = emailRegex.test(value) || value === '';\n    this.emailErrorMessage = this.isEmailValid ? '' : 'Please enter a valid email address';\n  }\n\n  onSearch() {\n    if (this.searchQuery) {\n      alert(`Searching for: ${this.searchQuery}`);\n    }\n  }\n\n  onSubmit() {\n    const formData = {\n      username: this.user.username,\n      email: this.user.email,\n      bio: this.user.bio\n    };\n    console.log('Form submitted:', formData);\n    alert('Form submitted! Check console for details.');\n  }\n\n  resetForm() {\n    this.user = {\n      username: '',\n      email: '',\n      password: '',\n      bio: ''\n    };\n    this.basicValue = '';\n    this.searchQuery = '';\n    this.errorField = '';\n    this.successField = '';\n    this.searchTerm = '';\n    this.email = '';\n    this.phone = '';\n    this.clearableText = '';\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "/* input-showcase.component.css */\n.showcase-container {\n  max-width: 1200px;\n  margin: 0 auto;\n  padding: 2rem;\n  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;\n}\n\n.showcase-container h1 {\n  color: #1a202c;\n  margin-bottom: 2rem;\n  text-align: center;\n  font-size: 2.5rem;\n  font-weight: 700;\n}\n\n.showcase-section {\n  margin-bottom: 3rem;\n  padding: 2rem;\n  background: white;\n  border-radius: 12px;\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);\n  border: 1px solid #e2e8f0;\n}\n\n.showcase-section h2 {\n  color: #2d3748;\n  margin-bottom: 1.5rem;\n  font-size: 1.5rem;\n  font-weight: 600;\n  border-bottom: 2px solid #edf2f7;\n  padding-bottom: 0.5rem;\n}\n\n.examples-grid {\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));\n  gap: 2rem;\n  margin-bottom: 1rem;\n}\n\n.example-item {\n  display: flex;\n  flex-direction: column;\n  gap: 0.75rem;\n}\n\n.example-item h3 {\n  color: #4a5568;\n  font-size: 1rem;\n  font-weight: 600;\n  margin: 0;\n}\n\n.value-display {\n  font-size: 0.875rem;\n  color: #718096;\n  background: #f7fafc;\n  padding: 0.5rem;\n  border-radius: 4px;\n  margin: 0;\n  font-family: 'Monaco', 'Consolas', monospace;\n}\n\n/* Form Example Styles */\n.form-example {\n  display: flex;\n  flex-direction: column;\n  gap: 1.5rem;\n}\n\n.form-grid {\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));\n  gap: 1.5rem;\n}\n\n.form-actions {\n  display: flex;\n  gap: 1rem;\n  justify-content: flex-start;\n  margin-top: 1rem;\n}\n\n.btn {\n  padding: 0.75rem 1.5rem;\n  border: none;\n  border-radius: 8px;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  font-size: 0.875rem;\n}\n\n.btn-primary {\n  background: #4299e1;\n  color: white;\n}\n\n.btn-primary:hover {\n  background: #3182ce;\n  transform: translateY(-1px);\n}\n\n.btn-secondary {\n  background: #e2e8f0;\n  color: #4a5568;\n}\n\n.btn-secondary:hover {\n  background: #cbd5e0;\n  transform: translateY(-1px);\n}\n\n/* Responsive Design */\n@media (max-width: 768px) {\n  .showcase-container {\n    padding: 1rem;\n  }\n\n  .examples-grid {\n    grid-template-columns: 1fr;\n    gap: 1.5rem;\n  }\n\n  .showcase-section {\n    padding: 1.5rem;\n    margin-bottom: 2rem;\n  }\n\n  .form-grid {\n    grid-template-columns: 1fr;\n  }\n\n  .form-actions {\n    flex-direction: column;\n  }\n}\n\n/* Dark mode support */\n@media (prefers-color-scheme: dark) {\n  .showcase-section {\n    background: #2d3748;\n    border-color: #4a5568;\n  }\n\n  .showcase-container h1,\n  .showcase-section h2,\n  .example-item h3 {\n    color: #e2e8f0;\n  }\n\n  .value-display {\n    background: #4a5568;\n    color: #cbd5e0;\n  }\n}",
+                    "styleUrl": "./input-showcase.component.css"
+                }
+            ],
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<!-- input-showcase.component.html -->\n<div class=\"showcase-container\">\n  <h1>FT-Input Component Showcase</h1>\n  \n  <!-- Basic Examples Section -->\n  <section class=\"showcase-section\">\n    <h2>Basic Examples</h2>\n    <div class=\"examples-grid\">\n      <div class=\"example-item\">\n        <h3>Default Input</h3>\n        <ft-input\n          label=\"Full Name\"\n          placeholder=\"Enter your full name\"\n          [(value)]=\"basicValue\"\n          description=\"This is a basic input field\">\n        </ft-input>\n        <p class=\"value-display\">Value: {{ basicValue }}</p>\n      </div>\n\n      <div class=\"example-item\">\n        <h3>Disabled Input</h3>\n        <ft-input\n          label=\"Disabled Field\"\n          [value]=\"disabledValue\"\n          [disabled]=\"true\"\n          description=\"This field is disabled\">\n        </ft-input>\n      </div>\n\n      <div class=\"example-item\">\n        <h3>Readonly Input</h3>\n        <ft-input\n          label=\"Readonly Field\"\n          [value]=\"readonlyValue\"\n          [readonly]=\"true\"\n          description=\"This field is read only\">\n        </ft-input>\n      </div>\n    </div>\n  </section>\n\n  <!-- Size Variations -->\n  <section class=\"showcase-section\">\n    <h2>Size Variations</h2>\n    <div class=\"examples-grid\">\n      <div class=\"example-item\">\n        <ft-input\n          label=\"Extra Small\"\n          size=\"xs-size\"\n          placeholder=\"xs-size input\">\n        </ft-input>\n      </div>\n\n      <div class=\"example-item\">\n        <ft-input\n          label=\"Small\"\n          size=\"sm-size\"\n          placeholder=\"sm-size input\">\n        </ft-input>\n      </div>\n\n      <div class=\"example-item\">\n        <ft-input\n          label=\"Medium\"\n          size=\"md-size\"\n          placeholder=\"md-size input\">\n        </ft-input>\n      </div>\n\n      <div class=\"example-item\">\n        <ft-input\n          label=\"Large\"\n          size=\"lg-size\"\n          placeholder=\"lg-size input\">\n        </ft-input>\n      </div>\n    </div>\n  </section>\n\n  <!-- Variant Styles -->\n  <section class=\"showcase-section\">\n    <h2>Variant Styles</h2>\n    <div class=\"examples-grid\">\n      <div class=\"example-item\">\n        <ft-input\n          label=\"Flat Variant\"\n          variant=\"flat\"\n          placeholder=\"flat style\">\n        </ft-input>\n      </div>\n\n      <div class=\"example-item\">\n        <ft-input\n          label=\"Bordered Variant\"\n          variant=\"bordered\"\n          placeholder=\"bordered style\">\n        </ft-input>\n      </div>\n\n      <div class=\"example-item\">\n        <ft-input\n          label=\"Faded Variant\"\n          variant=\"faded\"\n          placeholder=\"faded style\">\n        </ft-input>\n      </div>\n\n      <div class=\"example-item\">\n        <ft-input\n          label=\"Underlined Variant\"\n          variant=\"underlined\"\n          placeholder=\"underlined style\">\n        </ft-input>\n      </div>\n    </div>\n  </section>\n\n  <!-- Color Variations -->\n  <section class=\"showcase-section\">\n    <h2>Color Variations</h2>\n    <div class=\"examples-grid\">\n      <div class=\"example-item\">\n        <ft-input\n          label=\"Default Color\"\n          color=\"default\"\n          placeholder=\"default color\">\n        </ft-input>\n      </div>\n\n      <div class=\"example-item\">\n        <ft-input\n          label=\"Primary Color\"\n          color=\"primary\"\n          placeholder=\"primary color\">\n        </ft-input>\n      </div>\n\n      <div class=\"example-item\">\n        <ft-input\n          label=\"Secondary Color\"\n          color=\"secondary\"\n          placeholder=\"secondary color\">\n        </ft-input>\n      </div>\n    </div>\n  </section>\n\n  <!-- Form Example -->\n  <section class=\"showcase-section\">\n    <h2>Form Example</h2>\n    <div class=\"form-example\">\n      <div class=\"form-grid\">\n        <ft-input\n          label=\"Username *\"\n          placeholder=\"Enter username\"\n          [(value)]=\"user.username\"\n          [required]=\"true\"\n          description=\"Your public username\">\n        </ft-input>\n\n        <ft-input\n          label=\"Email Address *\"\n          placeholder=\"your@email.com\"\n          [(value)]=\"user.email\"\n          [required]=\"true\"\n          [invalid]=\"!isEmailValid && user.email !== ''\"\n          [errorMessage]=\"emailErrorMessage\"\n          (valueChange)=\"onEmailChange($event)\">\n        </ft-input>\n\n        <ft-input\n          label=\"Password *\"\n          placeholder=\"Enter password\"\n          type=\"password\"\n          [(value)]=\"user.password\"\n          [required]=\"true\"\n          description=\"Minimum 8 characters\">\n        </ft-input>\n\n        <ft-input\n          label=\"Bio\"\n          placeholder=\"Tell us about yourself...\"\n          [(value)]=\"user.bio\"\n          description=\"Optional bio information\">\n        </ft-input>\n      </div>\n      \n      <div class=\"form-actions\">\n        <button class=\"btn btn-primary\" (click)=\"onSubmit()\">Submit Form</button>\n        <button class=\"btn btn-secondary\" (click)=\"resetForm()\">Reset All</button>\n      </div>\n    </div>\n  </section>\n\n  <!-- Icon Examples -->\n  <section class=\"showcase-section\">\n    <h2>Input with Icons</h2>\n    <div class=\"examples-grid\">\n      <div class=\"example-item\">\n        <ft-input\n          label=\"Search\"\n          [(value)]=\"searchTerm\"\n          [isPrefixIconClass]=\"true\"\n          prefixIconClass=\"icon-search\"\n          [isClearable]=\"true\"\n          placeholder=\"Search...\">\n        </ft-input>\n      </div>\n\n      <div class=\"example-item\">\n        <ft-input\n          label=\"Email with Icons\"\n          [(value)]=\"email\"\n          [isPrefixIconClass]=\"true\"\n          prefixIconClass=\"icon-email\"\n          [isSuffix1IconClass]=\"true\"\n          suffix1IconClass=\"icon-close\"\n          placeholder=\"email@example.com\">\n        </ft-input>\n      </div>\n\n      <div class=\"example-item\">\n        <ft-input\n          label=\"Phone Number\"\n          [(value)]=\"phone\"\n          [isPrefixIconClass]=\"true\"\n          prefixIconClass=\"icon-phone\"\n          [isSuffix2IconClass]=\"true\"\n          suffix2IconClass=\"icon-arrow-down\"\n          placeholder=\"+1 (555) 000-0000\">\n        </ft-input>\n      </div>\n    </div>\n  </section>\n\n  <!-- Validation States -->\n  <section class=\"showcase-section\">\n    <h2>Validation States</h2>\n    <div class=\"examples-grid\">\n      <div class=\"example-item\">\n        <ft-input\n          label=\"Valid Field\"\n          [(value)]=\"successField\"\n          color=\"primary\"\n          description=\"This field is valid\">\n        </ft-input>\n      </div>\n\n      <div class=\"example-item\">\n        <ft-input\n          label=\"Error Field\"\n          [(value)]=\"errorField\"\n          [invalid]=\"true\"\n          errorMessage=\"This field has an error\"\n          placeholder=\"This field shows error\">\n        </ft-input>\n      </div>\n\n      <div class=\"example-item\">\n        <ft-input\n          label=\"Required Field\"\n          [required]=\"true\"\n          placeholder=\"This field is required\"\n          description=\"* indicates required field\">\n        </ft-input>\n      </div>\n    </div>\n  </section>\n\n  <!-- Clearable Input -->\n  <section class=\"showcase-section\">\n    <h2>Clearable Input</h2>\n    <div class=\"examples-grid\">\n      <div class=\"example-item\">\n        <ft-input\n          label=\"Clearable Field\"\n          [(value)]=\"clearableText\"\n          [isClearable]=\"true\"\n          placeholder=\"Type something and clear it\"\n          description=\"Click the X to clear the field\">\n        </ft-input>\n        <p class=\"value-display\">Current value: {{ clearableText }}</p>\n      </div>\n    </div>\n  </section>\n</div>"
         },
         {
             "name": "MedicalConditionDialogComponent",
@@ -8581,6 +8837,15 @@
                 "name": "HeaderComponent",
                 "coveragePercent": 0,
                 "coverageCount": "0/5",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/input-showcase/input-showcase.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "InputShowcaseComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/18",
                 "status": "low"
             },
             {
