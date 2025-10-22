@@ -1,7 +1,7 @@
 <!-- input-showcase.component.html -->
 <div class="showcase-container">
   <h1>FT-Input Component Showcase</h1>
-  
+
   <!-- Basic Examples Section -->
   <section class="showcase-section">
     <h2>Basic Examples</h2>
@@ -31,7 +31,6 @@
         <h3>Readonly Input</h3>
         <ft-input
           label="Readonly Field"
-          [value]="readonlyValue"
           [readonly]="true"
           description="This field is read only">
         </ft-input>
@@ -71,6 +70,90 @@
         <ft-input
           label="Large"
           size="lg-size"
+          placeholder="lg-size input">
+        </ft-input>
+      </div>
+    </div>
+  </section>
+
+  <!-- label-outside Variations -->
+  <section class="showcase-section">
+    <h2>label-outside Variations</h2>
+    <div class="examples-grid">
+      <div class="example-item">
+        <ft-input
+          label="Extra Small"
+          size="xs-size"
+          labelPlacement="label-outside"
+          placeholder="xs-size input">
+        </ft-input>
+      </div>
+
+      <div class="example-item">
+        <ft-input
+          label="Small"
+          size="sm-size"
+          labelPlacement="label-outside"
+          placeholder="sm-size input">
+        </ft-input>
+      </div>
+
+      <div class="example-item">
+        <ft-input
+          label="Medium"
+          size="md-size"
+          labelPlacement="label-outside"
+          placeholder="md-size input">
+        </ft-input>
+      </div>
+
+      <div class="example-item">
+        <ft-input
+          label="Large"
+          size="lg-size"
+          labelPlacement="label-outside"
+          placeholder="lg-size input">
+        </ft-input>
+      </div>
+    </div>
+  </section>
+
+  <!-- label-outside-left Variations -->
+  <section class="showcase-section">
+    <h2>label-outside-left Variations</h2>
+    <div class="examples-grid">
+      <div class="example-item">
+        <ft-input
+          label="Extra Small"
+          size="xs-size"
+          labelPlacement="label-outside-left"
+          placeholder="xs-size input">
+        </ft-input>
+      </div>
+
+      <div class="example-item">
+        <ft-input
+          label="Small"
+          size="sm-size"
+          labelPlacement="label-outside-left"
+          placeholder="sm-size input">
+        </ft-input>
+      </div>
+
+      <div class="example-item">
+        <ft-input
+          label="Medium"
+          size="md-size"
+          labelPlacement="label-outside-left"
+          placeholder="md-size input">
+        </ft-input>
+      </div>
+
+      <div class="example-item">
+        <ft-input
+          label="Large"
+          size="lg-size"
+          labelPlacement="label-outside-left"
           placeholder="lg-size input">
         </ft-input>
       </div>
@@ -184,7 +267,7 @@
           description="Optional bio information">
         </ft-input>
       </div>
-      
+
       <div class="form-actions">
         <button class="btn btn-primary" (click)="onSubmit()">Submit Form</button>
         <button class="btn btn-secondary" (click)="resetForm()">Reset All</button>
