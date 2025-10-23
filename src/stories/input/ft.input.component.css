@@ -50,7 +50,7 @@
       }
       .description {
         grid-column: 1;
-        grid-row: 3;
+        grid-row: 2;
         /* C automatically matches B's column width */
         /*width: 100%;*/
         /*box-sizing: border-box;*/
@@ -74,7 +74,7 @@
       }
       .description {
         grid-column: 1;
-        grid-row: 4;
+        grid-row: 3;
       }
     }
 
@@ -96,7 +96,7 @@
       }
       .description {
         grid-column: 2;
-        grid-row: 3;
+        grid-row: 2;
       }
     }
 
@@ -223,7 +223,7 @@
       }
 
       &.label-outside-left {
-        gap: var(--ft-unit-400);
+        column-gap: var(--ft-unit-400);
         .input-wrapper {
 
         }

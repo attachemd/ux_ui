@@ -677,7 +677,7 @@ border-radius: var(--ft-radius-pill);
     /*flex-direction: column;*/
     display: grid;
     align-items: center;
-    grid-template-columns: auto 1fr;
+    grid-template-columns: auto;
     gap: 0;
     /*padding-bottom: var(--ft-spacing-md);*/
     /*gap: var(--ft-spacing-md);*/
