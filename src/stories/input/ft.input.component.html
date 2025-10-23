@@ -45,7 +45,7 @@
            }"
         >{{ content }}</p>
       </div>
-      <div *ngIf="placeholder" class="placeholder-row">
+      <div *ngIf="placeholder && !content" class="placeholder-row">
         <p class="placeholder content-xs--normal">{{ placeholder }}</p>
       </div>
     </div>

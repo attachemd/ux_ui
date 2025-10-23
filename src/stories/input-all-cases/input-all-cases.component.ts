@@ -42,6 +42,8 @@ export class InputAllCasesComponent {
   isEmailValid = true;
   emailErrorMessage = '';
 
+  isSuffix1IconClass: boolean = false;
+
   onEmailChange(value: string) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     this.isEmailValid = emailRegex.test(value) || value === '';
