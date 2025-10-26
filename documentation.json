@@ -2307,7 +2307,7 @@
                     }
                 }
             },
-            "templateData": "<!--<label [class.disabled]=\"disabled\">-->\r\n<!--  <span *ngIf=\"label\">{{ label }} <span *ngIf=\"required\">*</span></span>-->\r\n<!--  <div class=\"input-wrapper\"-->\r\n<!--       [ngClass]=\"[size, color, variant, radius, {'invalid': invalid}]\">-->\r\n<!--    <input [(ngModel)]=\"value\"-->\r\n<!--           [placeholder]=\"placeholder\"-->\r\n<!--           [disabled]=\"disabled\"-->\r\n<!--           [readonly]=\"readonly\"-->\r\n<!--    />-->\r\n<!--    <button *ngIf=\"isClearable && value\" (click)=\"clear()\">✕</button>-->\r\n<!--  </div>-->\r\n<!--  <small *ngIf=\"invalid\">{{ errorMessage }}</small>-->\r\n<!--  <small *ngIf=\"!invalid && description\">{{ description }}</small>-->\r\n<!--</label>-->\r\n\r\n\r\n<div class=\"field-container\" [class]=\"labelPlacement + ' ' + size\">\r\n  <div *ngIf=\"isLabel && labelPlacement !== 'label-inside'\" class=\"label-row\">\r\n    <span class=\"label leading-none\"\r\n          [ngClass]=\"{\r\n           'content-2xs--normal': size === 'sm-size' || size === 'md-size' || size === 'xs-size',\r\n           'content-xs--normal': size === 'lg-size',\r\n           }\"\r\n    >{{ label }} <span *ngIf=\"required\">*</span></span>\r\n  </div>\r\n  <div class=\"input-wrapper\" [class]=\"radiusClasses\">\r\n    <div *ngIf=\"isPrefixIconClass && prefixIconClass\" class=\"prefix\">\r\n      <i [class]=\"prefixIconClass\"></i>\r\n    </div>\r\n    <div class=\"content-section\">\r\n      <div *ngIf=\"isLabel && labelPlacement === 'label-inside'\" class=\"label-row\">\r\n        <span class=\"label leading-none\"\r\n              [ngClass]=\"{\r\n           'content-2xs--normal': size === 'sm-size' || size === 'md-size' || size === 'xs-size',\r\n           'content-xs--normal': size === 'lg-size',\r\n           }\"\r\n        >{{ label }} <span *ngIf=\"required\">*</span></span>\r\n      </div>\r\n      <div *ngIf=\"content\" class=\"content-row\">\r\n        <p class=\"content leading-none\"\r\n           [ngClass]=\"{\r\n           'content-xs--normal': size === 'xs-size',\r\n           'content-sm--normal': size === 'sm-size' || size === 'md-size',\r\n           'content-md--normal': size === 'lg-size',\r\n           }\"\r\n        >{{ content }}</p>\r\n      </div>\r\n      <div *ngIf=\"placeholder\" class=\"placeholder-row\">\r\n        <p class=\"placeholder content-xs--normal\">{{ placeholder }}</p>\r\n      </div>\r\n    </div>\r\n    <div class=\"suffix-icon flex\">\r\n      <div *ngIf=\"isSuffix1IconClass && suffix1IconClass\" class=\"suffix1\">\r\n        <i [class]=\"suffix1IconClass\"></i>\r\n      </div>\r\n      <div *ngIf=\"isSuffix2IconClass && suffix2IconClass\" class=\"suffix2\">\r\n        <i [class]=\"suffix2IconClass\"></i>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <div *ngIf=\"invalid && errorMessage\" class=\"error-message\">\r\n    <p class=\"error-text content-2xs--normal\">{{ errorMessage }}</p>\r\n  </div>\r\n  <div *ngIf=\"description\" class=\"description\">\r\n    <p class=\"highlight content-2xs--normal\">{{ description }}</p>\r\n  </div>\r\n</div>\r\n"
+            "templateData": "<!--<label [class.disabled]=\"disabled\">-->\r\n<!--  <span *ngIf=\"label\">{{ label }} <span *ngIf=\"required\">*</span></span>-->\r\n<!--  <div class=\"input-wrapper\"-->\r\n<!--       [ngClass]=\"[size, color, variant, radius, {'invalid': invalid}]\">-->\r\n<!--    <input [(ngModel)]=\"value\"-->\r\n<!--           [placeholder]=\"placeholder\"-->\r\n<!--           [disabled]=\"disabled\"-->\r\n<!--           [readonly]=\"readonly\"-->\r\n<!--    />-->\r\n<!--    <button *ngIf=\"isClearable && value\" (click)=\"clear()\">✕</button>-->\r\n<!--  </div>-->\r\n<!--  <small *ngIf=\"invalid\">{{ errorMessage }}</small>-->\r\n<!--  <small *ngIf=\"!invalid && description\">{{ description }}</small>-->\r\n<!--</label>-->\r\n\r\n\r\n<div class=\"field-container\" [class]=\"labelPlacement + ' ' + size\">\r\n  <div *ngIf=\"isLabel && labelPlacement !== 'label-inside'\" class=\"label-row\">\r\n    <span class=\"label leading-none\"\r\n          [ngClass]=\"{\r\n           'content-2xs--normal': size === 'sm-size' || size === 'md-size' || size === 'xs-size',\r\n           'content-xs--normal': size === 'lg-size',\r\n           }\"\r\n    >{{ label }} <span *ngIf=\"required\">*</span></span>\r\n  </div>\r\n  <div class=\"input-wrapper\" [class]=\"radiusClasses\">\r\n    <div *ngIf=\"isPrefixIconClass && prefixIconClass\" class=\"prefix\">\r\n      <i [class]=\"prefixIconClass\"></i>\r\n    </div>\r\n    <div class=\"content-section\">\r\n      <div *ngIf=\"isLabel && labelPlacement === 'label-inside'\" class=\"label-row\">\r\n        <span class=\"label leading-none\"\r\n              [ngClass]=\"{\r\n           'content-2xs--normal': size === 'sm-size' || size === 'md-size' || size === 'xs-size',\r\n           'content-xs--normal': size === 'lg-size',\r\n           }\"\r\n        >{{ label }} <span *ngIf=\"required\">*</span></span>\r\n      </div>\r\n      <div *ngIf=\"content\" class=\"content-row\">\r\n        <p class=\"content leading-none\"\r\n           [ngClass]=\"{\r\n           'content-xs--normal': size === 'xs-size',\r\n           'content-sm--normal': size === 'sm-size' || size === 'md-size',\r\n           'content-md--normal': size === 'lg-size',\r\n           }\"\r\n        >{{ content }}</p>\r\n      </div>\r\n      <div *ngIf=\"placeholder && !content\" class=\"placeholder-row\">\r\n        <p class=\"placeholder content-xs--normal\">{{ placeholder }}</p>\r\n      </div>\r\n    </div>\r\n    <div class=\"suffix-icon flex\">\r\n      <div *ngIf=\"isSuffix1IconClass && suffix1IconClass\" class=\"suffix1\">\r\n        <i [class]=\"suffix1IconClass\"></i>\r\n      </div>\r\n      <div *ngIf=\"isSuffix2IconClass && suffix2IconClass\" class=\"suffix2\">\r\n        <i [class]=\"suffix2IconClass\"></i>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <div *ngIf=\"invalid && errorMessage\" class=\"error-message\">\r\n    <p class=\"error-text content-2xs--normal\">{{ errorMessage }}</p>\r\n  </div>\r\n  <div *ngIf=\"description\" class=\"description\">\r\n    <p class=\"highlight content-2xs--normal\">{{ description }}</p>\r\n  </div>\r\n</div>\r\n"
         },
         {
             "name": "HeaderComponent",
@@ -2397,7 +2397,7 @@
         },
         {
             "name": "InputAllCasesComponent",
-            "id": "component-InputAllCasesComponent-305ac67b02bed0946e8319a37f344f885df0fe905b72a911f6cb3aa2276219131b2ed27e6836a13c69e6d660c22868e92f214ec97237c6496324e984133864a0",
+            "id": "component-InputAllCasesComponent-7bce0edb7bc854c8b191aa16b774c233e79dae95f90639dfcbda7d38301f3b3f996e3846ca6f6ae980da19042d59e481c4e39d6d1fc40faa4ee907685a4648b2",
             "file": "src/stories/input-all-cases/input-all-cases.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -2418,209 +2418,40 @@
             "outputsClass": [],
             "propertiesClass": [
                 {
-                    "name": "basicValue",
-                    "defaultValue": "''",
+                    "name": "isPrefixIconClass",
+                    "defaultValue": "true",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "string",
+                    "type": "boolean",
                     "indexKey": "",
                     "optional": false,
                     "description": "",
                     "line": 16
                 },
                 {
-                    "name": "clearableText",
-                    "defaultValue": "'Try clearing me!'",
+                    "name": "radius",
+                    "defaultValue": "'md-radius'",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "string",
-                    "indexKey": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 39
-                },
-                {
-                    "name": "disabledValue",
-                    "defaultValue": "'Cannot edit this'",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "string",
+                    "type": "\"none-radius\" | \"sm-radius\" | \"md-radius\" | \"lg-radius\" | \"full-radius\"",
                     "indexKey": "",
                     "optional": false,
                     "description": "",
                     "line": 17
                 },
                 {
-                    "name": "email",
-                    "defaultValue": "''",
+                    "name": "size",
+                    "defaultValue": "'md-size'",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "string",
-                    "indexKey": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 35
-                },
-                {
-                    "name": "emailErrorMessage",
-                    "defaultValue": "''",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "string",
-                    "indexKey": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 43
-                },
-                {
-                    "name": "errorField",
-                    "defaultValue": "''",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "string",
-                    "indexKey": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 30
-                },
-                {
-                    "name": "isEmailValid",
-                    "defaultValue": "true",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "indexKey": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 42
-                },
-                {
-                    "name": "phone",
-                    "defaultValue": "''",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "string",
-                    "indexKey": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 36
-                },
-                {
-                    "name": "readonlyValue",
-                    "defaultValue": "'Read only content'",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "string",
+                    "type": "\"xs-size\" | \"sm-size\" | \"md-size\" | \"lg-size\"",
                     "indexKey": "",
                     "optional": false,
                     "description": "",
                     "line": 18
-                },
-                {
-                    "name": "searchQuery",
-                    "defaultValue": "''",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "string",
-                    "indexKey": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 29
-                },
-                {
-                    "name": "searchTerm",
-                    "defaultValue": "''",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "string",
-                    "indexKey": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 34
-                },
-                {
-                    "name": "successField",
-                    "defaultValue": "''",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "string",
-                    "indexKey": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 31
-                },
-                {
-                    "name": "user",
-                    "defaultValue": "{\r\n    username: '',\r\n    email: '',\r\n    password: '',\r\n    bio: ''\r\n  }",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "object",
-                    "indexKey": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 21
                 }
             ],
-            "methodsClass": [
-                {
-                    "name": "onEmailChange",
-                    "args": [
-                        {
-                            "name": "value",
-                            "type": "string",
-                            "deprecated": false,
-                            "deprecationMessage": ""
-                        }
-                    ],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 45,
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "jsdoctags": [
-                        {
-                            "name": "value",
-                            "type": "string",
-                            "deprecated": false,
-                            "deprecationMessage": "",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ]
-                },
-                {
-                    "name": "onSearch",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 51,
-                    "deprecated": false,
-                    "deprecationMessage": ""
-                },
-                {
-                    "name": "onSubmit",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 57,
-                    "deprecated": false,
-                    "deprecationMessage": ""
-                },
-                {
-                    "name": "resetForm",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 67,
-                    "deprecated": false,
-                    "deprecationMessage": ""
-                }
-            ],
+            "methodsClass": [],
             "deprecated": false,
             "deprecationMessage": "",
             "hostBindings": [],
@@ -2639,17 +2470,17 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\r\n\r\nimport { CommonModule } from '@angular/common';\r\nimport {FTInputComponent} from '../input/ft.input.component';\r\n\r\n@Component({\r\n  selector: 'app-input-showcase',\r\n  templateUrl: './input-all-cases.component.html',\r\n  styleUrls: ['./input-all-cases.component.css'],\r\n  standalone: true,\r\n  imports: [CommonModule, FTInputComponent]\r\n})\r\nexport class InputAllCasesComponent {\r\n  // Basic Examples\r\n  basicValue = '';\r\n  disabledValue = 'Cannot edit this';\r\n  readonlyValue = 'Read only content';\r\n\r\n  // Form Examples\r\n  user = {\r\n    username: '',\r\n    email: '',\r\n    password: '',\r\n    bio: ''\r\n  };\r\n\r\n  // State Examples\r\n  searchQuery = '';\r\n  errorField = '';\r\n  successField = '';\r\n\r\n  // Icon Examples\r\n  searchTerm = '';\r\n  email = '';\r\n  phone = '';\r\n\r\n  // Clearable Examples\r\n  clearableText = 'Try clearing me!';\r\n\r\n  // Validation states\r\n  isEmailValid = true;\r\n  emailErrorMessage = '';\r\n\r\n  onEmailChange(value: string) {\r\n    const emailRegex = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;\r\n    this.isEmailValid = emailRegex.test(value) || value === '';\r\n    this.emailErrorMessage = this.isEmailValid ? '' : 'Please enter a valid email address';\r\n  }\r\n\r\n  onSearch() {\r\n    if (this.searchQuery) {\r\n      alert(`Searching for: ${this.searchQuery}`);\r\n    }\r\n  }\r\n\r\n  onSubmit() {\r\n    const formData = {\r\n      username: this.user.username,\r\n      email: this.user.email,\r\n      bio: this.user.bio\r\n    };\r\n    console.log('Form submitted:', formData);\r\n    alert('Form submitted! Check console for details.');\r\n  }\r\n\r\n  resetForm() {\r\n    this.user = {\r\n      username: '',\r\n      email: '',\r\n      password: '',\r\n      bio: ''\r\n    };\r\n    this.basicValue = '';\r\n    this.searchQuery = '';\r\n    this.errorField = '';\r\n    this.successField = '';\r\n    this.searchTerm = '';\r\n    this.email = '';\r\n    this.phone = '';\r\n    this.clearableText = '';\r\n  }\r\n}\r\n",
+            "sourceCode": "import {Component, Input} from '@angular/core';\r\n\r\nimport { CommonModule } from '@angular/common';\r\nimport {FTInputComponent} from '../input/ft.input.component';\r\n\r\n@Component({\r\n  selector: 'app-input-showcase',\r\n  templateUrl: './input-all-cases.component.html',\r\n  styleUrls: ['./input-all-cases.component.css'],\r\n  standalone: true,\r\n  imports: [CommonModule, FTInputComponent]\r\n})\r\nexport class InputAllCasesComponent {\r\n\r\n  isPrefixIconClass: boolean = true;\r\n  radius: 'none-radius'|'sm-radius'|'md-radius'|'lg-radius'|'full-radius' = 'md-radius';\r\n  size: 'xs-size'|'sm-size'|'md-size'|'lg-size' = 'md-size';\r\n\r\n\r\n\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "/* input-showcase.component.css */\r\n.all-case-container {\r\n  /*height: 100%;*/\r\n  /*max-height: 100%;*/\r\n  width: 100%;\r\n  max-width: 100%;\r\n  margin: 0;\r\n  background-color: #ffffff;\r\n  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;\r\n  h1 {\r\n    color: #1a202c;\r\n    margin-bottom: 2rem;\r\n    text-align: center;\r\n    font-size: 2.5rem;\r\n    font-weight: 700;\r\n  }\r\n  .cases-container {\r\n    width: 100%;\r\n    max-width: 100%;\r\n    overflow: auto;\r\n    .case-row {\r\n      display: flex;\r\n      width: fit-content;\r\n      .case-item {\r\n        width: fit-content;\r\n        height: 300px;\r\n        border-right: 1px solid black;\r\n        padding: var(--ft-unit-400);\r\n      }\r\n    }\r\n  }\r\n}\r\n\r\n\r\n.showcase-section {\r\n  margin-bottom: 3rem;\r\n  padding: 2rem;\r\n  background: white;\r\n  border-radius: 12px;\r\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);\r\n  border: 1px solid #e2e8f0;\r\n}\r\n\r\n.showcase-section h2 {\r\n  color: #2d3748;\r\n  margin-bottom: 1.5rem;\r\n  font-size: 1.5rem;\r\n  font-weight: 600;\r\n  border-bottom: 2px solid #edf2f7;\r\n  padding-bottom: 0.5rem;\r\n}\r\n\r\n.examples-grid {\r\n  display: grid;\r\n  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));\r\n  gap: 2rem;\r\n  margin-bottom: 1rem;\r\n}\r\n\r\n.example-item {\r\n  display: flex;\r\n  flex-direction: column;\r\n  gap: 0.75rem;\r\n}\r\n\r\n.example-item h3 {\r\n  color: #4a5568;\r\n  font-size: 1rem;\r\n  font-weight: 600;\r\n  margin: 0;\r\n}\r\n\r\n.value-display {\r\n  font-size: 0.875rem;\r\n  color: #718096;\r\n  background: #f7fafc;\r\n  padding: 0.5rem;\r\n  border-radius: 4px;\r\n  margin: 0;\r\n  font-family: 'Monaco', 'Consolas', monospace;\r\n}\r\n\r\n/* Form Example Styles */\r\n.form-example {\r\n  display: flex;\r\n  flex-direction: column;\r\n  gap: 1.5rem;\r\n}\r\n\r\n.form-grid {\r\n  display: grid;\r\n  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));\r\n  gap: 1.5rem;\r\n}\r\n\r\n.form-actions {\r\n  display: flex;\r\n  gap: 1rem;\r\n  justify-content: flex-start;\r\n  margin-top: 1rem;\r\n}\r\n\r\n.btn {\r\n  padding: 0.75rem 1.5rem;\r\n  border: none;\r\n  border-radius: 8px;\r\n  font-weight: 600;\r\n  cursor: pointer;\r\n  transition: all 0.2s ease;\r\n  font-size: 0.875rem;\r\n}\r\n\r\n.btn-primary {\r\n  background: #4299e1;\r\n  color: white;\r\n}\r\n\r\n.btn-primary:hover {\r\n  background: #3182ce;\r\n  transform: translateY(-1px);\r\n}\r\n\r\n.btn-secondary {\r\n  background: #e2e8f0;\r\n  color: #4a5568;\r\n}\r\n\r\n.btn-secondary:hover {\r\n  background: #cbd5e0;\r\n  transform: translateY(-1px);\r\n}\r\n\r\n/* Responsive Design */\r\n@media (max-width: 768px) {\r\n  .showcase-container {\r\n    padding: 1rem;\r\n  }\r\n\r\n  .examples-grid {\r\n    grid-template-columns: 1fr;\r\n    gap: 1.5rem;\r\n  }\r\n\r\n  .showcase-section {\r\n    padding: 1.5rem;\r\n    margin-bottom: 2rem;\r\n  }\r\n\r\n  .form-grid {\r\n    grid-template-columns: 1fr;\r\n  }\r\n\r\n  .form-actions {\r\n    flex-direction: column;\r\n  }\r\n}\r\n\r\n/* Dark mode support */\r\n@media (prefers-color-scheme: dark) {\r\n  .showcase-section {\r\n    background: #2d3748;\r\n    border-color: #4a5568;\r\n  }\r\n\r\n  .showcase-container h1,\r\n  .showcase-section h2,\r\n  .example-item h3 {\r\n    color: #e2e8f0;\r\n  }\r\n\r\n  .value-display {\r\n    background: #4a5568;\r\n    color: #cbd5e0;\r\n  }\r\n}\r\n",
+                    "data": "/* input-showcase.component.css */\r\n.all-case-container {\r\n  /*height: 100%;*/\r\n  /*max-height: 100%;*/\r\n  width: 100%;\r\n  max-width: 100%;\r\n  margin: 0;\r\n  background-color: #ffffff;\r\n  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;\r\n  h1 {\r\n    color: #1a202c;\r\n    margin-bottom: 2rem;\r\n    text-align: center;\r\n    font-size: 2.5rem;\r\n    font-weight: 700;\r\n  }\r\n  .cases-container {\r\n    width: 100%;\r\n    max-width: 100%;\r\n    /*overflow: auto;*/\r\n    .case-row {\r\n      display: flex;\r\n      width: fit-content;\r\n      .case-item {\r\n        /*width: fit-content;*/\r\n        width: 500px;\r\n        height: 300px;\r\n        border-right: 1px solid black;\r\n        padding: var(--ft-unit-400);\r\n        display: flex;\r\n        justify-content: center;\r\n        align-items: center;\r\n        &.case-item-heading {\r\n          width: var(--ft-unit-800);\r\n          background-color: var(--ft-color-secondary);\r\n          padding: 0;\r\n          &.vertical-text {\r\n            writing-mode: vertical-rl; /* Right to left */\r\n          }\r\n        }\r\n      }\r\n      &.case-row-heading {\r\n        height: var(--ft-unit-800);\r\n        background-color: var(--ft-color-primary);\r\n        padding: 0;\r\n        .case-item {\r\n          padding-inline: var(--ft-unit-400);\r\n          padding-block: 0;\r\n          height: 100%;\r\n        }\r\n      }\r\n    }\r\n  }\r\n}\r\n\r\n\r\n.showcase-section {\r\n  margin-bottom: 3rem;\r\n  padding: 2rem;\r\n  background: white;\r\n  border-radius: 12px;\r\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);\r\n  border: 1px solid #e2e8f0;\r\n}\r\n\r\n.showcase-section h2 {\r\n  color: #2d3748;\r\n  margin-bottom: 1.5rem;\r\n  font-size: 1.5rem;\r\n  font-weight: 600;\r\n  border-bottom: 2px solid #edf2f7;\r\n  padding-bottom: 0.5rem;\r\n}\r\n\r\n.examples-grid {\r\n  display: grid;\r\n  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));\r\n  gap: 2rem;\r\n  margin-bottom: 1rem;\r\n}\r\n\r\n.example-item {\r\n  display: flex;\r\n  flex-direction: column;\r\n  gap: 0.75rem;\r\n}\r\n\r\n.example-item h3 {\r\n  color: #4a5568;\r\n  font-size: 1rem;\r\n  font-weight: 600;\r\n  margin: 0;\r\n}\r\n\r\n.value-display {\r\n  font-size: 0.875rem;\r\n  color: #718096;\r\n  background: #f7fafc;\r\n  padding: 0.5rem;\r\n  border-radius: 4px;\r\n  margin: 0;\r\n  font-family: 'Monaco', 'Consolas', monospace;\r\n}\r\n\r\n/* Form Example Styles */\r\n.form-example {\r\n  display: flex;\r\n  flex-direction: column;\r\n  gap: 1.5rem;\r\n}\r\n\r\n.form-grid {\r\n  display: grid;\r\n  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));\r\n  gap: 1.5rem;\r\n}\r\n\r\n.form-actions {\r\n  display: flex;\r\n  gap: 1rem;\r\n  justify-content: flex-start;\r\n  margin-top: 1rem;\r\n}\r\n\r\n.btn {\r\n  padding: 0.75rem 1.5rem;\r\n  border: none;\r\n  border-radius: 8px;\r\n  font-weight: 600;\r\n  cursor: pointer;\r\n  transition: all 0.2s ease;\r\n  font-size: 0.875rem;\r\n}\r\n\r\n.btn-primary {\r\n  background: #4299e1;\r\n  color: white;\r\n}\r\n\r\n.btn-primary:hover {\r\n  background: #3182ce;\r\n  transform: translateY(-1px);\r\n}\r\n\r\n.btn-secondary {\r\n  background: #e2e8f0;\r\n  color: #4a5568;\r\n}\r\n\r\n.btn-secondary:hover {\r\n  background: #cbd5e0;\r\n  transform: translateY(-1px);\r\n}\r\n\r\n/* Responsive Design */\r\n@media (max-width: 768px) {\r\n  .showcase-container {\r\n    padding: 1rem;\r\n  }\r\n\r\n  .examples-grid {\r\n    grid-template-columns: 1fr;\r\n    gap: 1.5rem;\r\n  }\r\n\r\n  .showcase-section {\r\n    padding: 1.5rem;\r\n    margin-bottom: 2rem;\r\n  }\r\n\r\n  .form-grid {\r\n    grid-template-columns: 1fr;\r\n  }\r\n\r\n  .form-actions {\r\n    flex-direction: column;\r\n  }\r\n}\r\n\r\n/* Dark mode support */\r\n@media (prefers-color-scheme: dark) {\r\n  .showcase-section {\r\n    background: #2d3748;\r\n    border-color: #4a5568;\r\n  }\r\n\r\n  .showcase-container h1,\r\n  .showcase-section h2,\r\n  .example-item h3 {\r\n    color: #e2e8f0;\r\n  }\r\n\r\n  .value-display {\r\n    background: #4a5568;\r\n    color: #cbd5e0;\r\n  }\r\n}\r\n",
                     "styleUrl": "./input-all-cases.component.css"
                 }
             ],
             "stylesData": "",
             "extends": [],
-            "templateData": "<!-- input-showcase.component.html -->\r\n<div class=\"all-case-container\">\r\n  <h1>FT-Input Component All cases</h1>\r\n<div class=\"cases-container\">\r\n  <div class=\"case-row\">\r\n    <div class=\"case-item\">\r\n      <ft-input\r\n        [isLabel]=\"true\"\r\n        [label]=\"'Username'\"\r\n        [size]=\"'lg-size'\"\r\n        [color]=\"'primary'\"\r\n        [variant]=\"'bordered'\"\r\n        [radius]=\"'md-radius'\"\r\n        [disabled]=\"false\"\r\n        [readonly]=\"false\"\r\n        [required]=\"true\"\r\n        [invalid]=\"false\"\r\n        [placeholder]=\"'Enter your username'\"\r\n        [description]=\"'This is your public display name.'\"\r\n        [errorMessage]=\"'Username is required.'\"\r\n        [content]=\"'default value'\"\r\n        [labelPlacement]=\"'label-inside'\"\r\n        [isPrefixIconClass]=\"true\"\r\n        [prefixIconClass]=\"'icon-user'\"\r\n        [isSuffix1IconClass]=\"true\"\r\n        [suffix1IconClass]=\"'icon-close'\"\r\n        [isSuffix2IconClass]=\"true\"\r\n        [suffix2IconClass]=\"'icon-arrow-down'\"\r\n        [isClearable]=\"true\"\r\n      >\r\n      </ft-input>\r\n\r\n    </div>\r\n    <div class=\"case-item\">\r\n      <ft-input\r\n        [isLabel]=\"true\"\r\n        [label]=\"'Username'\"\r\n        [size]=\"'lg-size'\"\r\n        [color]=\"'primary'\"\r\n        [variant]=\"'bordered'\"\r\n        [radius]=\"'md-radius'\"\r\n        [disabled]=\"false\"\r\n        [readonly]=\"false\"\r\n        [required]=\"true\"\r\n        [invalid]=\"false\"\r\n        [placeholder]=\"'Enter your username'\"\r\n        [description]=\"'This is your public display name.'\"\r\n        [errorMessage]=\"'Username is required.'\"\r\n        [content]=\"'default value'\"\r\n        [labelPlacement]=\"'label-outside'\"\r\n        [isPrefixIconClass]=\"true\"\r\n        [prefixIconClass]=\"'icon-user'\"\r\n        [isSuffix1IconClass]=\"true\"\r\n        [suffix1IconClass]=\"'icon-close'\"\r\n        [isSuffix2IconClass]=\"true\"\r\n        [suffix2IconClass]=\"'icon-arrow-down'\"\r\n        [isClearable]=\"true\"\r\n      >\r\n      </ft-input>\r\n\r\n    </div>\r\n    <div class=\"case-item\">\r\n      <ft-input\r\n        [isLabel]=\"true\"\r\n        [label]=\"'Username'\"\r\n        [size]=\"'lg-size'\"\r\n        [color]=\"'primary'\"\r\n        [variant]=\"'bordered'\"\r\n        [radius]=\"'md-radius'\"\r\n        [disabled]=\"false\"\r\n        [readonly]=\"false\"\r\n        [required]=\"true\"\r\n        [invalid]=\"false\"\r\n        [placeholder]=\"'Enter your username'\"\r\n        [description]=\"'This is your public display name.'\"\r\n        [errorMessage]=\"'Username is required.'\"\r\n        [content]=\"'default value'\"\r\n        [labelPlacement]=\"'label-outside-left'\"\r\n        [isPrefixIconClass]=\"true\"\r\n        [prefixIconClass]=\"'icon-user'\"\r\n        [isSuffix1IconClass]=\"true\"\r\n        [suffix1IconClass]=\"'icon-close'\"\r\n        [isSuffix2IconClass]=\"true\"\r\n        [suffix2IconClass]=\"'icon-arrow-down'\"\r\n        [isClearable]=\"true\"\r\n      >\r\n      </ft-input>\r\n\r\n    </div>\r\n    <div class=\"case-item\">\r\n\r\n    </div>\r\n    <div class=\"case-item\">\r\n\r\n    </div>\r\n  </div>\r\n</div>\r\n</div>\r\n"
+            "templateData": "<!-- input-showcase.component.html -->\r\n<div class=\"all-case-container\">\r\n  <h1>FT-Input Component All cases</h1>\r\n<div class=\"cases-container\">\r\n  <div class=\"case-row case-row-heading\">\r\n    <div class=\"case-item case-item-heading\">\r\n\r\n    </div>\r\n    <div class=\"case-item\">\r\n      test\r\n    </div>\r\n    <div class=\"case-item\">\r\n      test\r\n    </div>\r\n    <div class=\"case-item\">\r\n      test\r\n    </div>\r\n\r\n  </div>\r\n\r\n  <div class=\"case-row\">\r\n    <div class=\"case-item case-item-heading vertical-text\">\r\n      test\r\n    </div>\r\n    <div class=\"case-item\">\r\n      <ft-input\r\n        [isLabel]=\"true\"\r\n        [label]=\"'Username'\"\r\n        [size]=\"size\"\r\n        [color]=\"'primary'\"\r\n        [variant]=\"'bordered'\"\r\n        [radius]=\"radius\"\r\n        [disabled]=\"false\"\r\n        [readonly]=\"false\"\r\n        [required]=\"true\"\r\n        [invalid]=\"false\"\r\n        [placeholder]=\"'Enter your username'\"\r\n        [description]=\"'This is your public display name.'\"\r\n        [errorMessage]=\"'Username is required.'\"\r\n        [content]=\"'default value'\"\r\n        [labelPlacement]=\"'label-inside'\"\r\n        [isPrefixIconClass]=\"isPrefixIconClass\"\r\n        [prefixIconClass]=\"'icon-user'\"\r\n        [isSuffix1IconClass]=\"true\"\r\n        [suffix1IconClass]=\"'icon-close'\"\r\n        [isSuffix2IconClass]=\"true\"\r\n        [suffix2IconClass]=\"'icon-arrow-down'\"\r\n        [isClearable]=\"true\"\r\n      >\r\n      </ft-input>\r\n\r\n    </div>\r\n    <div class=\"case-item\">\r\n        <ft-input\r\n          [isLabel]=\"true\"\r\n          [label]=\"'Username'\"\r\n          [size]=\"size\"\r\n          [color]=\"'primary'\"\r\n          [variant]=\"'bordered'\"\r\n          [radius]=\"radius\"\r\n          [disabled]=\"false\"\r\n          [readonly]=\"false\"\r\n          [required]=\"true\"\r\n          [invalid]=\"false\"\r\n          [placeholder]=\"'Enter your username'\"\r\n          [description]=\"'This is your public display name.'\"\r\n          [errorMessage]=\"'Username is required.'\"\r\n          [content]=\"'default value'\"\r\n          [labelPlacement]=\"'label-outside'\"\r\n          [isPrefixIconClass]=\"isPrefixIconClass\"\r\n          [prefixIconClass]=\"'icon-user'\"\r\n          [isSuffix1IconClass]=\"true\"\r\n          [suffix1IconClass]=\"'icon-close'\"\r\n          [isSuffix2IconClass]=\"true\"\r\n          [suffix2IconClass]=\"'icon-arrow-down'\"\r\n          [isClearable]=\"true\"\r\n        >\r\n        </ft-input>\r\n\r\n\r\n    </div>\r\n    <div class=\"case-item\">\r\n      <ft-input\r\n        [isLabel]=\"true\"\r\n        [label]=\"'Username'\"\r\n        [size]=\"size\"\r\n        [color]=\"'primary'\"\r\n        [variant]=\"'bordered'\"\r\n        [radius]=\"radius\"\r\n        [disabled]=\"false\"\r\n        [readonly]=\"false\"\r\n        [required]=\"true\"\r\n        [invalid]=\"false\"\r\n        [placeholder]=\"'Enter your username'\"\r\n        [description]=\"'This is your public display name.'\"\r\n        [errorMessage]=\"'Username is required.'\"\r\n        [content]=\"'default value'\"\r\n        [labelPlacement]=\"'label-outside-left'\"\r\n        [isPrefixIconClass]=\"isPrefixIconClass\"\r\n        [prefixIconClass]=\"'icon-user'\"\r\n        [isSuffix1IconClass]=\"true\"\r\n        [suffix1IconClass]=\"'icon-close'\"\r\n        [isSuffix2IconClass]=\"true\"\r\n        [suffix2IconClass]=\"'icon-arrow-down'\"\r\n        [isClearable]=\"true\"\r\n      >\r\n      </ft-input>\r\n\r\n    </div>\r\n\r\n  </div>\r\n\r\n  <div class=\"case-row\">\r\n    <div class=\"case-item case-item-heading vertical-text\">\r\n      test\r\n    </div>\r\n    <div class=\"case-item\">\r\n\r\n\r\n    </div>\r\n    <div class=\"case-item\">\r\n\r\n\r\n    </div>\r\n    <div class=\"case-item\">\r\n\r\n\r\n    </div>\r\n\r\n  </div>\r\n\r\n  <div class=\"case-row\">\r\n    <div class=\"case-item case-item-heading vertical-text\">\r\n      test\r\n    </div>\r\n    <div class=\"case-item\">\r\n\r\n\r\n    </div>\r\n    <div class=\"case-item\">\r\n\r\n\r\n    </div>\r\n    <div class=\"case-item\">\r\n\r\n\r\n    </div>\r\n\r\n  </div>\r\n\r\n</div>\r\n</div>\r\n"
         },
         {
             "name": "InputShowcaseComponent",
@@ -9101,7 +8932,7 @@
                 "linktype": "component",
                 "name": "InputAllCasesComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/18",
+                "coverageCount": "0/4",
                 "status": "low"
             },
             {

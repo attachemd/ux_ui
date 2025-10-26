@@ -1,5 +1,5 @@
 // input-showcase.component.ts
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 import { CommonModule } from '@angular/common';
 import {FTInputComponent} from '../input/ft.input.component';
@@ -12,74 +12,11 @@ import {FTInputComponent} from '../input/ft.input.component';
   imports: [CommonModule, FTInputComponent]
 })
 export class InputAllCasesComponent {
-  // Basic Examples
-  basicValue = '';
-  disabledValue = 'Cannot edit this';
-  readonlyValue = 'Read only content';
 
-  // Form Examples
-  user = {
-    username: '',
-    email: '',
-    password: '',
-    bio: ''
-  };
+  isPrefixIconClass: boolean = true;
+  radius: 'none-radius'|'sm-radius'|'md-radius'|'lg-radius'|'full-radius' = 'md-radius';
+  size: 'xs-size'|'sm-size'|'md-size'|'lg-size' = 'md-size';
 
-  // State Examples
-  searchQuery = '';
-  errorField = '';
-  successField = '';
 
-  // Icon Examples
-  searchTerm = '';
-  email = '';
-  phone = '';
 
-  // Clearable Examples
-  clearableText = 'Try clearing me!';
-
-  // Validation states
-  isEmailValid = true;
-  emailErrorMessage = '';
-
-  isSuffix1IconClass: boolean = false;
-
-  onEmailChange(value: string) {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    this.isEmailValid = emailRegex.test(value) || value === '';
-    this.emailErrorMessage = this.isEmailValid ? '' : 'Please enter a valid email address';
-  }
-
-  onSearch() {
-    if (this.searchQuery) {
-      alert(`Searching for: ${this.searchQuery}`);
-    }
-  }
-
-  onSubmit() {
-    const formData = {
-      username: this.user.username,
-      email: this.user.email,
-      bio: this.user.bio
-    };
-    console.log('Form submitted:', formData);
-    alert('Form submitted! Check console for details.');
-  }
-
-  resetForm() {
-    this.user = {
-      username: '',
-      email: '',
-      password: '',
-      bio: ''
-    };
-    this.basicValue = '';
-    this.searchQuery = '';
-    this.errorField = '';
-    this.successField = '';
-    this.searchTerm = '';
-    this.email = '';
-    this.phone = '';
-    this.clearableText = '';
-  }
 }

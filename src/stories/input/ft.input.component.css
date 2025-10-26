@@ -102,7 +102,7 @@
 
     &.xs-size {
       .input-wrapper {
-        padding: 0 var(--ft-unit-200);
+        padding: 0 var(--ft-unit-300);
         /*height: var(--ft-unit-600);*/
         height: var(--ft-unit-500);
         gap: var(--ft-unit-200);
@@ -128,7 +128,7 @@
 
       &.label-inside {
         .input-wrapper {
-          padding: 0 var(--ft-unit-200);
+          padding: 0 var(--ft-unit-300);
           height: var(--ft-unit-1000);
         }
       }
@@ -148,7 +148,7 @@
 
     &.sm-size {
       .input-wrapper {
-        padding: 0 var(--ft-unit-200);
+        padding: 0 var(--ft-unit-300);
         height: var(--ft-unit-600);
         gap: var(--ft-unit-200);
         [class^="icon-"], [class*=" icon-"] {
