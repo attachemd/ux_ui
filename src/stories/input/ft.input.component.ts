@@ -11,7 +11,7 @@ import {FormsModule} from '@angular/forms';
     NgIf
   ],
   styleUrls: ['./ft.input.component.css'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.Emulated // Ensure this is set (default)
 })
 export class FTInputComponent {
   // @Input() isLabel = false;

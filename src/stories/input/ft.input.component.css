@@ -1,7 +1,10 @@
+:host {
+  width: 100%;
+}
 
 
-  .field-container {
-    width: var(--container-xs);
+.field-container {
+    /*width: var(--container-xs);*/
     .input-wrapper {
       display: flex;
       align-items: center;
