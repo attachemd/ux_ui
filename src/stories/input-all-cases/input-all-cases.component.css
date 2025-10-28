@@ -17,7 +17,7 @@
   .cases-container {
     width: 100%;
     max-width: 100%;
-    overflow: auto;
+    /*overflow: auto;*/
     .case-row {
       display: flex;
       width: fit-content;
