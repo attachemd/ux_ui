@@ -31,12 +31,16 @@ const meta: Meta<InputAllCasesComponent> = {
       control: 'select',
       options: ['xs-size', 'sm-size', 'md-size', 'lg-size'],
     },
-
+    variant: {
+      control: 'select',
+      options: ['flat', 'faded', 'underlined', 'ghost'],
+    },
   },
   args: {
     isPrefixIconClass: false,
     radius: 'md-radius',
     size: 'md-size',
+    variant: 'flat',
   }
 };
 

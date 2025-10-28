@@ -19,8 +19,9 @@ export class FTInputComponent {
   @Input() label?: string;
   @Input() size: 'xs-size'|'sm-size'|'md-size'|'lg-size' = 'md-size';
   @Input() color: 'default'|'primary'|'secondary' = 'default';
-  @Input() variant: 'flat'|'bordered'|'faded'|'underlined' = 'bordered';
+  @Input() variant: 'flat'|'faded'|'underlined'|'ghost' = 'flat';
   @Input() radius: 'none-radius'|'sm-radius'|'md-radius'|'lg-radius'|'full-radius' = 'md-radius';
+  @Input() state: 'hovered'|'focused'|'normal'= 'normal';
   @Input() disabled = false;
   @Input() readonly = false;
   @Input() required = false;

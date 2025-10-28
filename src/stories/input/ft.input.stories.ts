@@ -45,7 +45,11 @@ const meta: Meta<FTInputComponent> = {
     },
     variant: {
       control: 'select',
-      options: ['flat', 'bordered', 'faded', 'underlined'],
+      options: ['flat', 'ghost', 'faded', 'underlined'],
+    },
+    state: {
+      control: 'select',
+      options: ['hovered','focused','normal'],
     },
     radius: {
       control: 'select',
@@ -63,6 +67,7 @@ const meta: Meta<FTInputComponent> = {
     content: 'content',
     size: 'md-size',
     radius: 'md-radius',
+    state: 'normal',
     isPrefixIconClass: false,
     prefixIconClass: 'icon-search',
     isSuffix1IconClass: true,
@@ -138,13 +143,6 @@ export const FlatVariant: Story = {
   args: {
     variant: 'flat',
     label: 'Flat Input',
-  },
-};
-
-export const BorderedVariant: Story = {
-  args: {
-    variant: 'bordered',
-    label: 'Bordered Input',
   },
 };
 
