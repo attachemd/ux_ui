@@ -50,6 +50,17 @@
         background-color: var(--ft-form-field-200);
       }
     }
+    &.readonly {
+      .input-wrapper {
+        background-color: var(--ft-form-field-50);
+      }
+    }
+    &.disabled {
+      color: var(--ft-color-on-surface-muted);
+      .input-wrapper {
+        background-color: var(--ft-form-field-100);
+      }
+    }
   }
 
   &.faded{

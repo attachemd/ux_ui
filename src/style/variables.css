@@ -830,6 +830,7 @@
 
     /* Mapped */
 
+    --ft-form-field-50: var(--ft-color-n-on-surface-2);
     --ft-form-field-100: var(--ft-color-n-on-surface-5);
     --ft-form-field-200: var(--ft-color-n-on-surface-8);
     --ft-form-field-muted: var(--ft-color-n-on-surface-3);

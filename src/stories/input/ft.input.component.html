@@ -14,7 +14,10 @@
 <!--</label>-->
 
 
-<div class="field-container" [class]="labelPlacement + ' ' + size + ' ' + variant + ' ' + state">
+<div class="field-container"
+     [class]="labelPlacement + ' ' + size + ' ' + variant + ' ' + state"
+     [class.readonly]="readonly"
+     [class.disabled]="disabled">
   <div *ngIf="isLabel && labelPlacement !== 'label-inside'" class="label-row">
     <span class="label leading-none"
           [ngClass]="{
