@@ -52,8 +52,8 @@
         <p class="placeholder content-xs--normal">{{ placeholder }}</p>
       </div>
     </div>
-    <div class="suffix-icon flex">
-      <div *ngIf="isSuffix1IconClass && suffix1IconClass" class="suffix1">
+    <div class="suffix-icon flex" *ngIf="!readonly">
+      <div *ngIf="isSuffix1IconClass && suffix1IconClass && !disabled" class="suffix1">
         <i [class]="suffix1IconClass"></i>
       </div>
       <div *ngIf="isSuffix2IconClass && suffix2IconClass" class="suffix2">
