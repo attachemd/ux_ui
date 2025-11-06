@@ -17,14 +17,16 @@
 <div class="field-container"
      [class]="labelPlacement + ' ' + size + ' ' + variant + ' ' + state"
      [class.readonly]="readonly"
-     [class.disabled]="disabled">
+     [class.disabled]="disabled"
+     [class.invalid]="invalid"
+>
   <div *ngIf="isLabel && labelPlacement !== 'label-inside'" class="label-row">
     <span class="label leading-none"
           [ngClass]="{
            'content-2xs--normal': size === 'sm-size' || size === 'md-size' || size === 'xs-size',
            'content-xs--normal': size === 'lg-size',
            }"
-    >{{ label }} <span *ngIf="required">*</span></span>
+    >{{ label }} <span *ngIf="required && !disabled">*</span></span>
   </div>
   <div class="input-wrapper" [class]="radiusClasses">
     <div *ngIf="isPrefixIconClass && prefixIconClass" class="prefix">
@@ -37,7 +39,7 @@
            'content-2xs--normal': size === 'sm-size' || size === 'md-size' || size === 'xs-size',
            'content-xs--normal': size === 'lg-size',
            }"
-        >{{ label }} <span *ngIf="required">*</span></span>
+        >{{ label }} <span *ngIf="required && !disabled">*</span></span>
       </div>
       <div *ngIf="content" class="content-row">
         <p class="content leading-none"
@@ -48,7 +50,8 @@
            }"
         >{{ content }}</p>
       </div>
-      <div *ngIf="placeholder && !content" class="placeholder-row">
+
+      <div *ngIf="hasPlaceholderToShow" class="placeholder-row">
         <p class="placeholder content-xs--normal">{{ placeholder }}</p>
       </div>
     </div>
@@ -64,7 +67,7 @@
   <div *ngIf="invalid && errorMessage" class="error-message">
     <p class="error-text content-2xs--normal">{{ errorMessage }}</p>
   </div>
-  <div *ngIf="description" class="description">
+  <div *ngIf="description && !invalid" class="description">
     <p class="highlight content-2xs--normal">{{ description }}</p>
   </div>
 </div>

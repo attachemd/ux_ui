@@ -55,4 +55,22 @@ export class FTInputComponent {
     };
     return classes[this.radius] || 'rounded-md';
   }
+
+  get hasPlaceholderToShow(): boolean {
+    // Basic conditions that prevent showing placeholder
+    if (!this.placeholder || this.content || this.disabled || this.readonly) {
+      return false;
+    }
+
+    // Special case: don't show placeholder for label-inside fields in normal states
+    const isLabelInsideInNormalState = this.labelPlacement === 'label-inside' &&
+      this.isNormalOrHoveredState &&
+      !this.invalid;
+
+    return !isLabelInsideInNormalState;
+  }
+
+  get isNormalOrHoveredState(): boolean {
+    return this.state === 'normal' || this.state === 'hovered';
+  }
 }

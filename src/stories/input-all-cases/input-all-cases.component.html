@@ -37,7 +37,7 @@
         [placeholder]="'Enter your username'"
         [description]="'This is your public display name.'"
         [errorMessage]="'Username is required.'"
-        [content]="'default value'"
+        [content]=""
         [labelPlacement]="'label-inside'"
         [isPrefixIconClass]="isPrefixIconClass"
         [prefixIconClass]="'icon-user'"
@@ -65,7 +65,7 @@
           [placeholder]="'Enter your username'"
           [description]="'This is your public display name.'"
           [errorMessage]="'Username is required.'"
-          [content]="'default value'"
+          [content]=""
           [labelPlacement]="'label-outside'"
           [isPrefixIconClass]="isPrefixIconClass"
           [prefixIconClass]="'icon-user'"
@@ -94,7 +94,7 @@
         [placeholder]="'Enter your username'"
         [description]="'This is your public display name.'"
         [errorMessage]="'Username is required.'"
-        [content]="'default value'"
+        [content]=""
         [labelPlacement]="'label-outside-left'"
         [isPrefixIconClass]="isPrefixIconClass"
         [prefixIconClass]="'icon-user'"
@@ -130,7 +130,7 @@
         [placeholder]="'Enter your username'"
         [description]="'This is your public display name.'"
         [errorMessage]="'Username is required.'"
-        [content]="'default value'"
+        [content]=""
         [labelPlacement]="'label-inside'"
         [isPrefixIconClass]="isPrefixIconClass"
         [prefixIconClass]="'icon-user'"
@@ -159,7 +159,7 @@
         [placeholder]="'Enter your username'"
         [description]="'This is your public display name.'"
         [errorMessage]="'Username is required.'"
-        [content]="'default value'"
+        [content]=""
         [labelPlacement]="'label-outside'"
         [isPrefixIconClass]="isPrefixIconClass"
         [prefixIconClass]="'icon-user'"
@@ -189,7 +189,7 @@
         [placeholder]="'Enter your username'"
         [description]="'This is your public display name.'"
         [errorMessage]="'Username is required.'"
-        [content]="'default value'"
+        [content]=""
         [labelPlacement]="'label-outside-left'"
         [isPrefixIconClass]="isPrefixIconClass"
         [prefixIconClass]="'icon-user'"
@@ -225,7 +225,7 @@
         [placeholder]="'Enter your username'"
         [description]="'This is your public display name.'"
         [errorMessage]="'Username is required.'"
-        [content]="'default value'"
+        [content]=""
         [labelPlacement]="'label-inside'"
         [isPrefixIconClass]="isPrefixIconClass"
         [prefixIconClass]="'icon-user'"
@@ -254,7 +254,7 @@
         [placeholder]="'Enter your username'"
         [description]="'This is your public display name.'"
         [errorMessage]="'Username is required.'"
-        [content]="'default value'"
+        [content]=""
         [labelPlacement]="'label-outside'"
         [isPrefixIconClass]="isPrefixIconClass"
         [prefixIconClass]="'icon-user'"
@@ -284,7 +284,7 @@
         [placeholder]="'Enter your username'"
         [description]="'This is your public display name.'"
         [errorMessage]="'Username is required.'"
-        [content]="'default value'"
+        [content]=""
         [labelPlacement]="'label-outside-left'"
         [isPrefixIconClass]="isPrefixIconClass"
         [prefixIconClass]="'icon-user'"
@@ -412,7 +412,7 @@
         [placeholder]="'Enter your username'"
         [description]="'This is your public display name.'"
         [errorMessage]="'Username is required.'"
-        [content]="'default value'"
+        [content]=""
         [labelPlacement]="'label-inside'"
         [isPrefixIconClass]="isPrefixIconClass"
         [prefixIconClass]="'icon-user'"
@@ -434,6 +434,190 @@
         [variant]="variant"
         [radius]="radius"
         [disabled]="true"
+        [readonly]="false"
+        [required]="true"
+        [invalid]="false"
+        [placeholder]="'Enter your username'"
+        [description]="'This is your public display name.'"
+        [errorMessage]="'Username is required.'"
+        [content]=""
+        [labelPlacement]="'label-outside'"
+        [isPrefixIconClass]="isPrefixIconClass"
+        [prefixIconClass]="'icon-user'"
+        [isSuffix1IconClass]="true"
+        [suffix1IconClass]="'icon-close'"
+        [isSuffix2IconClass]="true"
+        [suffix2IconClass]="'icon-arrow-down'"
+        [isClearable]="true"
+      >
+      </ft-input>
+
+
+    </div>
+    <div class="case-item">
+      <ft-input
+        [isLabel]="true"
+        [label]="'Username'"
+        [size]="size"
+        [color]="'primary'"
+        [variant]="variant"
+        [radius]="radius"
+        [disabled]="true"
+        [readonly]="false"
+        [required]="true"
+        [invalid]="false"
+        [placeholder]="'Enter your username'"
+        [description]="'This is your public display name.'"
+        [errorMessage]="'Username is required.'"
+        [content]=""
+        [labelPlacement]="'label-outside-left'"
+        [isPrefixIconClass]="isPrefixIconClass"
+        [prefixIconClass]="'icon-user'"
+        [isSuffix1IconClass]="true"
+        [suffix1IconClass]="'icon-close'"
+        [isSuffix2IconClass]="true"
+        [suffix2IconClass]="'icon-arrow-down'"
+        [isClearable]="true"
+      >
+      </ft-input>
+
+    </div>
+
+  </div>
+
+  <div class="case-row">
+    <div class="case-item case-item-heading vertical-text">
+      Invalid
+    </div>
+    <div class="case-item">
+      <ft-input
+        [isLabel]="true"
+        [label]="'Username'"
+        [size]="size"
+        [color]="'primary'"
+        [variant]="variant"
+        [radius]="radius"
+        [disabled]="false"
+        [readonly]="false"
+        [required]="true"
+        [invalid]="true"
+        [placeholder]="'Enter your username'"
+        [description]="'This is your public display name.'"
+        [errorMessage]="'Username is required.'"
+        [content]=""
+        [labelPlacement]="'label-inside'"
+        [isPrefixIconClass]="isPrefixIconClass"
+        [prefixIconClass]="'icon-user'"
+        [isSuffix1IconClass]="true"
+        [suffix1IconClass]="'icon-close'"
+        [isSuffix2IconClass]="true"
+        [suffix2IconClass]="'icon-arrow-down'"
+        [isClearable]="true"
+      >
+      </ft-input>
+
+    </div>
+    <div class="case-item">
+      <ft-input
+        [isLabel]="true"
+        [label]="'Username'"
+        [size]="size"
+        [color]="'primary'"
+        [variant]="variant"
+        [radius]="radius"
+        [disabled]="false"
+        [readonly]="false"
+        [required]="true"
+        [invalid]="true"
+        [placeholder]="'Enter your username'"
+        [description]="'This is your public display name.'"
+        [errorMessage]="'Username is required.'"
+        [content]=""
+        [labelPlacement]="'label-outside'"
+        [isPrefixIconClass]="isPrefixIconClass"
+        [prefixIconClass]="'icon-user'"
+        [isSuffix1IconClass]="true"
+        [suffix1IconClass]="'icon-close'"
+        [isSuffix2IconClass]="true"
+        [suffix2IconClass]="'icon-arrow-down'"
+        [isClearable]="true"
+      >
+      </ft-input>
+
+
+    </div>
+    <div class="case-item">
+      <ft-input
+        [isLabel]="true"
+        [label]="'Username'"
+        [size]="size"
+        [color]="'primary'"
+        [variant]="variant"
+        [radius]="radius"
+        [disabled]="false"
+        [readonly]="false"
+        [required]="true"
+        [invalid]="true"
+        [placeholder]="'Enter your username'"
+        [description]="'This is your public display name.'"
+        [errorMessage]="'Username is required.'"
+        [content]=""
+        [labelPlacement]="'label-outside-left'"
+        [isPrefixIconClass]="isPrefixIconClass"
+        [prefixIconClass]="'icon-user'"
+        [isSuffix1IconClass]="true"
+        [suffix1IconClass]="'icon-close'"
+        [isSuffix2IconClass]="true"
+        [suffix2IconClass]="'icon-arrow-down'"
+        [isClearable]="true"
+      >
+      </ft-input>
+
+    </div>
+
+  </div>
+
+  <div class="case-row">
+    <div class="case-item case-item-heading vertical-text">
+      Content
+    </div>
+    <div class="case-item">
+      <ft-input
+        [isLabel]="true"
+        [label]="'Username'"
+        [size]="size"
+        [color]="'primary'"
+        [variant]="variant"
+        [radius]="radius"
+        [disabled]="false"
+        [readonly]="false"
+        [required]="true"
+        [invalid]="false"
+        [placeholder]="'Enter your username'"
+        [description]="'This is your public display name.'"
+        [errorMessage]="'Username is required.'"
+        [content]="'default value'"
+        [labelPlacement]="'label-inside'"
+        [isPrefixIconClass]="isPrefixIconClass"
+        [prefixIconClass]="'icon-user'"
+        [isSuffix1IconClass]="true"
+        [suffix1IconClass]="'icon-close'"
+        [isSuffix2IconClass]="true"
+        [suffix2IconClass]="'icon-arrow-down'"
+        [isClearable]="true"
+      >
+      </ft-input>
+
+    </div>
+    <div class="case-item">
+      <ft-input
+        [isLabel]="true"
+        [label]="'Username'"
+        [size]="size"
+        [color]="'primary'"
+        [variant]="variant"
+        [radius]="radius"
+        [disabled]="false"
         [readonly]="false"
         [required]="true"
         [invalid]="false"
@@ -462,7 +646,7 @@
         [color]="'primary'"
         [variant]="variant"
         [radius]="radius"
-        [disabled]="true"
+        [disabled]="false"
         [readonly]="false"
         [required]="true"
         [invalid]="false"

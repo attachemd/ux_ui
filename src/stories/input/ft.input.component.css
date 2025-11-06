@@ -120,9 +120,19 @@
     }
   }
 
+  &.invalid {
+    .label {
+      color: var(--ft-color-danger);
+    }
+    .input-wrapper {
+      background-color: var(--ft-color-danger-50);
+      border: var(--ft-border-secondary)  solid var(--ft-color-danger);
+    }
+  }
+
   &.ghost {
     .input-wrapper {
-
+      border: none;
     }
     &.hovered {
       .input-wrapper {
