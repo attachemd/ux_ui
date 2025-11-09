@@ -11,7 +11,7 @@ const meta: Meta<InputAllCasesComponent> = {
   component: InputAllCasesComponent,
   // decorators: [
   //   moduleMetadata({
-  //     imports: [FormsModule, FTInputComponent],
+  //     imports: [FormsModule, FtRadioComponent],
   //   }),
   // ],
   // parameters: {
