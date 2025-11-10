@@ -24,7 +24,7 @@
       border-bottom: 1px solid var(--ft-color-border-200);
       .case-item {
         /*width: fit-content;*/
-        width: 350px;
+        width: 360px;
         height: 150px;
         border-right: 1px solid var(--ft-color-border-200);
         padding: var(--ft-unit-400);
