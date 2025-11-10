@@ -90,6 +90,10 @@
     color: var(--ft-color-text-primary);
   }
 
+  .sb-show-main {
+    height: auto;
+  }
+
   html {
     background: #ffffff;
   }
