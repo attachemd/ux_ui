@@ -16,5 +16,9 @@ import {FormsModule} from '@angular/forms';
 export class FtRadioComponent {
 
   @Input() isLabel = true;
+  @Input() selected = false;
+  @Input() inactive = false;
+  @Input() size: 'xs-size'|'sm-size'|'md-size'|'lg-size' = 'md-size';
+  @Input() state: 'hover'|'press'|'rest'= 'rest';
 
 }

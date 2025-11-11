@@ -2,7 +2,7 @@ import {FtRadioComponent} from './ft.radio.component';
 import type {Meta, StoryObj} from '@storybook/angular';
 
 const meta: Meta<FtRadioComponent> = {
-  title: 'Form/Input',
+  title: 'Form/Radio',
   component: FtRadioComponent,
   tags: ['autodocs'],
   argTypes: {
