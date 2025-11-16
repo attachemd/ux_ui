@@ -21,3 +21,22 @@ export const Default: Story = {
 
   }
 };
+
+export const Hover: Story = {
+  args: {
+    state: "hover"
+  }
+};
+
+export const Select: Story = {
+  args: {
+    select: true
+  }
+};
+
+export const SelectAndHover: Story = {
+  args: {
+    select: true,
+    state: "hover"
+  }
+};
