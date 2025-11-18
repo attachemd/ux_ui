@@ -2338,7 +2338,7 @@
         },
         {
             "name": "FtRadioComponent",
-            "id": "component-FtRadioComponent-9ae54516ff7cca3ff02e5ea72b36fd27ff262f477b973afbcfb3b30d99b0521b2d87c7020a699cf731af218aed85396958eef7bbcd9c67db71e9033527ac7649",
+            "id": "component-FtRadioComponent-68affb4d54af58f7fe1889755dddabddf3d17e3f4594faa8cd2599c79cf963ddabb41fc97bbb8801bdc27ceeffac13ec309742564bcef2a74398ad0a3faeeb8e",
             "file": "src/stories/radio/ft.radio.component.ts",
             "encapsulation": [
                 "ViewEncapsulation.Emulated"
@@ -2359,12 +2359,48 @@
             "hostDirectives": [],
             "inputsClass": [
                 {
+                    "name": "inactive",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 20,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
                     "name": "isLabel",
                     "defaultValue": "true",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "line": 18,
                     "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "selected",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 19,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "size",
+                    "defaultValue": "'md-size'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 21,
+                    "type": "\"xs-size\" | \"sm-size\" | \"md-size\" | \"lg-size\"",
+                    "decorators": []
+                },
+                {
+                    "name": "state",
+                    "defaultValue": "'rest'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 22,
+                    "type": "\"hover\" | \"press\" | \"rest\"",
                     "decorators": []
                 }
             ],
@@ -2391,17 +2427,17 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import {Component, Input, ViewEncapsulation} from '@angular/core';\nimport {NgClass, NgIf} from '@angular/common';\nimport {FormsModule} from '@angular/forms';\n\n@Component({\n  selector: 'ft-radio',\n  templateUrl: './ft.radio.component.html',\n  imports: [\n    NgClass,\n    FormsModule,\n    NgIf\n  ],\n  styleUrls: ['./ft.radio.component.css'],\n  encapsulation: ViewEncapsulation.Emulated // Ensure this is set (default)\n})\nexport class FtRadioComponent {\n\n  @Input() isLabel = true;\n\n}\n",
+            "sourceCode": "import {Component, Input, ViewEncapsulation} from '@angular/core';\nimport {NgClass, NgIf} from '@angular/common';\nimport {FormsModule} from '@angular/forms';\n\n@Component({\n  selector: 'ft-radio',\n  templateUrl: './ft.radio.component.html',\n  imports: [\n    NgClass,\n    FormsModule,\n    NgIf\n  ],\n  styleUrls: ['./ft.radio.component.css'],\n  encapsulation: ViewEncapsulation.Emulated // Ensure this is set (default)\n})\nexport class FtRadioComponent {\n\n  @Input() isLabel = true;\n  @Input() selected = false;\n  @Input() inactive = false;\n  @Input() size: 'xs-size'|'sm-size'|'md-size'|'lg-size' = 'md-size';\n  @Input() state: 'hover'|'press'|'rest'= 'rest';\n\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": ":host {\n  width: 100%;\n}\n\n\n.field-container {\n  /*width: var(--container-xs);*/\n\n  .input-wrapper {\n    display: flex;\n    align-items: center;\n    /*border: 1px solid var(--ft-color-border-200);*/\n    padding: 0 var(--ft-unit-400);\n    /*gap: var(--ft-unit-400);*/\n    /*height: var(--ft-unit-800);*/\n    /*background-color: var(--ft-form-field-100);*/\n\n    .content-section {\n      display: flex;\n      flex-direction: column;\n      flex-grow: 1;\n      gap: var(--ft-unit-100);\n\n      .label-row {\n        display: flex;\n        height: fit-content;\n      }\n\n      .content {\n\n      }\n\n      .placeholder {\n        color: var(--ft-color-on-surface-level-200);\n      }\n    }\n\n    .suffix-icon {\n      gap: var(--ft-unit-100);\n    }\n\n  }\n\n  &.flat {\n    .input-wrapper {\n      background-color: var(--ft-form-field-100);\n    }\n    &.hovered {\n      .input-wrapper {\n        background-color: var(--ft-form-field-200);\n      }\n    }\n    &.readonly {\n      .input-wrapper {\n        background-color: var(--ft-form-field-50);\n      }\n    }\n    &.disabled {\n      color: var(--ft-color-on-surface-muted);\n      .input-wrapper {\n        background-color: var(--ft-form-field-100);\n      }\n    }\n  }\n\n  &.faded{\n    .input-wrapper {\n      background-color: var(--ft-form-field-100);\n      border: var(--ft-border-secondary)  solid var(--ft-color-border-200);\n    }\n    &.hovered {\n      .input-wrapper {\n        background-color: var(--ft-form-field-200);\n      }\n    }\n    &.focused {\n      .input-wrapper {\n        background-color: var(--ft-form-field-200);\n        border: var(--ft-border-secondary) solid var(--ft-color-primary);\n      }\n    }\n    &.readonly {\n      .input-wrapper {\n        border: var(--ft-border-secondary) solid var(--ft-color-border-100);\n        background-color: var(--ft-form-field-50);\n      }\n    }\n    &.disabled {\n      color: var(--ft-color-on-surface-muted);\n      .input-wrapper {\n        background-color: var(--ft-form-field-100);\n      }\n    }\n  }\n\n  &.underlined {\n    .input-wrapper {\n      border: var(--ft-border-secondary) solid var(--ft-color-border-200);\n    }\n    &.hovered {\n      .input-wrapper {\n        border: var(--ft-border-secondary) solid var(--ft-color-border-300);\n      }\n    }\n    &.focused {\n      .input-wrapper {\n        border: var(--ft-border-secondary) solid var(--ft-color-primary);\n      }\n    }\n    &.readonly {\n      .input-wrapper {\n        border: var(--ft-border-secondary) solid var(--ft-color-border-100);\n      }\n    }\n    &.disabled {\n      color: var(--ft-color-on-surface-muted);\n      .input-wrapper {\n        border: var(--ft-border-secondary) solid var(--ft-color-border-200);\n      }\n    }\n  }\n\n  &.invalid {\n    .label {\n      color: var(--ft-color-danger);\n    }\n    .input-wrapper {\n      background-color: var(--ft-color-danger-50);\n      border: var(--ft-border-secondary)  solid var(--ft-color-danger);\n    }\n  }\n\n  &.ghost {\n    .input-wrapper {\n      border: none;\n    }\n    &.hovered {\n      .input-wrapper {\n        background-color: var(--ft-form-field-50);\n      }\n    }\n    &.focused {\n      .input-wrapper {\n        background-color: var(--ft-form-field-50);\n      }\n    }\n    &.readonly {\n      .input-wrapper {\n\n      }\n    }\n    &.disabled {\n      color: var(--ft-color-on-surface-muted);\n      .input-wrapper {\n\n      }\n    }\n  }\n\n  &.label-inside {\n    .input-wrapper {\n      grid-column: 1;\n      grid-row: 1;\n      /* B will take the remaining space */\n      min-width: min-content; /* Prevents B from shrinking too much */\n    }\n\n    .error-message {\n      grid-column: 1;\n      grid-row: 2;\n      /* C automatically matches B's column width */\n      /*width: 100%;*/\n      /*box-sizing: border-box;*/\n    }\n\n    .description {\n      grid-column: 1;\n      grid-row: 2;\n      /* C automatically matches B's column width */\n      /*width: 100%;*/\n      /*box-sizing: border-box;*/\n    }\n  }\n\n  &.label-outside {\n\n    .label-row {\n      grid-column: 1;\n      grid-row: 1;\n    }\n\n    .input-wrapper {\n      grid-column: 1;\n      grid-row: 2;\n      min-width: min-content; /* Prevents B from shrinking too much */\n    }\n\n    .error-message {\n      grid-column: 1;\n      grid-row: 3;\n    }\n\n    .description {\n      grid-column: 1;\n      grid-row: 3;\n    }\n  }\n\n  &.label-outside-left {\n    /*flex-direction: row;*/\n    /*align-items: center;*/\n\n    .label-row {\n      grid-column: 1;\n      grid-row: 1;\n    }\n\n    .input-wrapper {\n      grid-column: 2;\n      grid-row: 1;\n      min-width: min-content; /* Prevents B from shrinking too much */\n    }\n\n    .error-message {\n      grid-column: 2;\n      grid-row: 2;\n    }\n\n    .description {\n      grid-column: 2;\n      grid-row: 2;\n    }\n  }\n\n  &.xs-size {\n    .input-wrapper {\n      padding: 0 var(--ft-unit-300);\n      /*height: var(--ft-unit-600);*/\n      height: var(--ft-unit-500);\n      gap: var(--ft-unit-200);\n\n      [class^=\"icon-\"], [class*=\" icon-\"] {\n        width: 16px;\n        height: 16px;\n        font-size: 14px;\n      }\n\n      .content-section {\n        gap: 0;\n\n        .label-row {\n\n        }\n\n        .content {\n\n        }\n\n        .placeholder {\n          color: var(--ft-color-on-surface-level-200);\n        }\n      }\n    }\n\n    &.label-inside {\n      .input-wrapper {\n        padding: 0 var(--ft-unit-300);\n        height: var(--ft-unit-1000);\n      }\n    }\n\n    &.label-outside {\n      .input-wrapper {\n      }\n    }\n\n    &.label-outside-left {\n      column-gap: var(--ft-unit-100);\n\n      .input-wrapper {\n\n      }\n    }\n  }\n\n  &.sm-size {\n    .input-wrapper {\n      padding: 0 var(--ft-unit-300);\n      height: var(--ft-unit-600);\n      gap: var(--ft-unit-200);\n\n      [class^=\"icon-\"], [class*=\" icon-\"] {\n        width: 16px;\n        height: 16px;\n        font-size: 16px;\n      }\n    }\n\n    &.label-inside {\n      .input-wrapper {\n        padding: 0 var(--ft-unit-300);\n        height: var(--ft-unit-1200);\n      }\n    }\n\n    &.label-outside {\n      .input-wrapper {\n      }\n    }\n\n    &.label-outside-left {\n      column-gap: var(--ft-unit-200);\n\n      .input-wrapper {\n\n      }\n    }\n  }\n\n  &.md-size {\n    .input-wrapper {\n      height: var(--ft-unit-800);\n      gap: var(--ft-unit-300);\n    }\n\n    &.label-inside {\n      .input-wrapper {\n        height: var(--ft-unit-1400);\n      }\n    }\n\n    &.label-outside {\n      .input-wrapper {\n      }\n    }\n\n    &.label-outside-left {\n      /*gap: var(--ft-unit-300);*/\n      column-gap: var(--ft-unit-300);\n\n      .input-wrapper {\n\n      }\n    }\n  }\n\n  &.lg-size {\n    gap: var(--ft-unit-100);\n\n    .input-wrapper {\n      height: var(--ft-unit-900);\n      gap: var(--ft-unit-400);\n    }\n\n    &.label-inside {\n      .input-wrapper {\n        height: var(--ft-unit-1600);\n      }\n    }\n\n    &.label-outside {\n      .input-wrapper {\n      }\n    }\n\n    &.label-outside-left {\n      column-gap: var(--ft-unit-400);\n\n      .input-wrapper {\n\n      }\n    }\n  }\n}\n\nbody:has(.input-wrapper) {\n  background: #fff;\n}\n\n\n.error-text {\n  color: var(--ft-color-danger);\n  /*padding: 0 var(--ft-unit-200);*/\n}\n\n.input-wrapper.flat {\n  border: none;\n  background-color: var(--ft-color-surface-muted);\n}\n\n.input-wrapper.bordered {\n  border: 1px solid var(--ft-color-border-200);\n}\n\n/* Add more variant/size/color CSS as needed */\n.input-wrapper.invalid {\n  border-color: var(--ft-color-danger-500);\n}\n\nbutton {\n  background: none;\n  border: none;\n  cursor: pointer;\n}\n\nlabel.disabled input {\n  opacity: 0.5;\n}\n\n/* ... */\n\n\n",
+                    "data": ".radio {\n\n  border: var(--ft-border-secondary) solid red;\n  border-radius: var(--ft-radius-pill);\n\n  &.md-size {\n    width: 22px;\n    height: 22px;\n  }\n\n  &.rest {\n    width: 22px;\n    height: 22px;\n  }\n}\n",
                     "styleUrl": "./ft.radio.component.css"
                 }
             ],
             "stylesData": "",
             "extends": [],
-            "templateData": "\n"
+            "templateData": "\n<div\n  class=\"radio\"\n  [class]=\"size + ' ' + state\"\n  [class.selected]=\"selected\"\n  [class.inactive]=\"inactive\"\n>\n  <div class=\"control\"></div>\n</div>\n"
         },
         {
             "name": "HeaderComponent",
@@ -9073,7 +9109,7 @@
                 "linktype": "component",
                 "name": "FtRadioComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/2",
+                "coverageCount": "0/6",
                 "status": "low"
             },
             {
