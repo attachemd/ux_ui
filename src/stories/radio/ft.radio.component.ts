@@ -16,6 +16,7 @@ import {FormsModule} from '@angular/forms';
 export class FtRadioComponent {
 
   @Input() isLabel = true;
+  @Input() label?: string;
   @Input() select = false;
   @Input() inactive = false;
   @Input() size: 'xs-size'|'sm-size'|'md-size'|'lg-size' = 'md-size';
