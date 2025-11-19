@@ -1,12 +1,20 @@
-
 <div class="field-container"
      [class]="size + ' ' + state"
      [class.select]="select"
      [class.inactive]="inactive"
 >
-  <div
-    class="radio"
+  <div class="field"
+
   >
-    <div class="control"></div>
+    <div
+      class="radio"
+    >
+      <div class="control"></div>
+    </div>
+
+  </div>
+  <div *ngIf="isLabel" class="label">
+    test
   </div>
 </div>
+

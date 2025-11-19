@@ -1,36 +1,47 @@
+
 .field-container {
-  width: 32px;
-  height: 32px;
-  border-radius: var(--ft-radius-pill);
-  position: relative;
-
-  .radio {
-    /*display: flex;*/
-    /*align-items: center;*/
-    /*justify-content: center;*/
-    border: var(--ft-border-secondary) solid var(--ft-color-border-200);
+  display: flex;
+  align-items: center;
+  gap: var(--ft-spacing-xs);
+  .field {
+    width: 32px;
+    height: 32px;
     border-radius: var(--ft-radius-pill);
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    position: relative;
 
-    .control {
-      width: 13px;
-      height: 13px;
+    .radio {
+      /*display: flex;*/
+      /*align-items: center;*/
+      /*justify-content: center;*/
+      border: var(--ft-border-secondary) solid var(--ft-color-border-200);
       border-radius: var(--ft-radius-pill);
       position: absolute;
       left: 50%;
       top: 50%;
       transform: translate(-50%, -50%);
+
+      .control {
+        width: 13px;
+        height: 13px;
+        border-radius: var(--ft-radius-pill);
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
     }
+
+
+
   }
 
   &.md-size {
-    .radio {
+    .field {    .radio {
       width: 22px;
       height: 22px;
     }
+    }
+
   }
 
   &.rest {
@@ -38,22 +49,30 @@
   }
 
   &.hover {
-    background-color: var(--ft-form-field-100);
+    .field {
+      background-color: var(--ft-form-field-100);
+    }
+
   }
 
   &.select {
-    .radio {
-      border: var(--ft-border-secondary) solid var(--ft-color-primary);;
-      .control {
-        background-color: var(--ft-color-primary);
+    .field {
+      .radio {
+        border: var(--ft-border-secondary) solid var(--ft-color-primary);
+        .control {
+          background-color: var(--ft-color-primary);
+        }
       }
     }
+
 
     /*&.hover {*/
     /*  background-color: var(--ft-form-field-100);*/
     /*}*/
 
   }
+
 }
+
 
 
