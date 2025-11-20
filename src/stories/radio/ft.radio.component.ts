@@ -23,6 +23,6 @@ export class FtRadioComponent {
   @Input() inactive = false;
   @Input() invalid = false;
   @Input() size: 'xs-size'|'sm-size'|'md-size'|'lg-size' = 'md-size';
-  @Input() state: 'hover'|'press'|'rest'= 'rest';
+  @Input() state: 'hover'|'press'|'focus'|'rest'= 'rest';
 
 }

@@ -133,6 +133,12 @@
     }
   }
 
+  &.focus {
+    .field {
+      border: var(--ft-border-primary) solid var(--ft-color-primary);
+    }
+  }
+
 
 
 }
