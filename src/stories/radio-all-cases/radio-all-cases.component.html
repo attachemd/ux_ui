@@ -1,282 +1,54 @@
 <!-- input-showcase.component.html -->
 <div class="all-case-container">
-  <h1>FT-Input Component All cases</h1>
+  <h1>FT-Radio Component All cases</h1>
   <div class="cases-container">
     <div class="case-row case-row-heading">
       <div class="case-item case-item-heading">
 
       </div>
       <div class="case-item">
-        labelPlacement: inside
+        Selected
       </div>
       <div class="case-item">
-        labelPlacement: outside
+        Unselected
       </div>
-      <div class="case-item">
-        labelPlacement: outside left
-      </div>
+
 
     </div>
 
     <div class="case-row">
       <div class="case-item case-item-heading vertical-text">
-        Normal
+        Rest
       </div>
       <div class="case-item">
         <ft-radio
-          [isLabel]="true"
-          [label]="'Username'"
+          [isLabel]="isLabel"
+          [label]="label"
+          [isDescription]="isDescription"
+          [description]="description"
           [size]="size"
           [state]="'rest'"
+          [invalid]="false"
+          [select]="true"
+          [inactive]="false"
         >
         </ft-radio>
 
       </div>
       <div class="case-item">
-        <ft-input
-          [isLabel]="true"
-          [label]="'Username'"
+        <ft-radio
+          [isLabel]="isLabel"
+          [label]="label"
+          [isDescription]="isDescription"
+          [description]="description"
           [size]="size"
-          [color]="'primary'"
-          [variant]="variant"
-          [radius]="radius"
-          [disabled]="false"
-          [readonly]="false"
-          [required]="true"
+          [state]="'rest'"
           [invalid]="false"
-          [placeholder]="'Enter your username'"
-          [description]="'This is your public display name.'"
-          [errorMessage]="'Username is required.'"
-          [content]=""
-          [labelPlacement]="'label-outside'"
-          [isPrefixIconClass]="isPrefixIconClass"
-          [prefixIconClass]="'icon-user'"
-          [isSuffix1IconClass]="true"
-          [suffix1IconClass]="'icon-close'"
-          [isSuffix2IconClass]="true"
-          [suffix2IconClass]="'icon-arrow-down'"
-          [isClearable]="true"
+          [select]="false"
+          [inactive]="false"
         >
-        </ft-input>
+        </ft-radio>
 
-
-      </div>
-      <div class="case-item">
-        <ft-input
-          [isLabel]="true"
-          [label]="'Username'"
-          [size]="size"
-          [color]="'primary'"
-          [variant]="variant"
-          [radius]="radius"
-          [disabled]="false"
-          [readonly]="false"
-          [required]="true"
-          [invalid]="false"
-          [placeholder]="'Enter your username'"
-          [description]="'This is your public display name.'"
-          [errorMessage]="'Username is required.'"
-          [content]=""
-          [labelPlacement]="'label-outside-left'"
-          [isPrefixIconClass]="isPrefixIconClass"
-          [prefixIconClass]="'icon-user'"
-          [isSuffix1IconClass]="true"
-          [suffix1IconClass]="'icon-close'"
-          [isSuffix2IconClass]="true"
-          [suffix2IconClass]="'icon-arrow-down'"
-          [isClearable]="true"
-        >
-        </ft-input>
-
-      </div>
-
-    </div>
-
-    <div class="case-row">
-      <div class="case-item case-item-heading vertical-text">
-        Hovered
-      </div>
-      <div class="case-item">
-        <ft-input
-          [isLabel]="true"
-          [label]="'Username'"
-          [size]="size"
-          [color]="'primary'"
-          [variant]="variant"
-          [state]="'hovered'"
-          [radius]="radius"
-          [disabled]="false"
-          [readonly]="false"
-          [required]="true"
-          [invalid]="false"
-          [placeholder]="'Enter your username'"
-          [description]="'This is your public display name.'"
-          [errorMessage]="'Username is required.'"
-          [content]=""
-          [labelPlacement]="'label-inside'"
-          [isPrefixIconClass]="isPrefixIconClass"
-          [prefixIconClass]="'icon-user'"
-          [isSuffix1IconClass]="true"
-          [suffix1IconClass]="'icon-close'"
-          [isSuffix2IconClass]="true"
-          [suffix2IconClass]="'icon-arrow-down'"
-          [isClearable]="true"
-        >
-        </ft-input>
-
-      </div>
-      <div class="case-item">
-        <ft-input
-          [isLabel]="true"
-          [label]="'Username'"
-          [size]="size"
-          [color]="'primary'"
-          [variant]="variant"
-          [state]="'hovered'"
-          [radius]="radius"
-          [disabled]="false"
-          [readonly]="false"
-          [required]="true"
-          [invalid]="false"
-          [placeholder]="'Enter your username'"
-          [description]="'This is your public display name.'"
-          [errorMessage]="'Username is required.'"
-          [content]=""
-          [labelPlacement]="'label-outside'"
-          [isPrefixIconClass]="isPrefixIconClass"
-          [prefixIconClass]="'icon-user'"
-          [isSuffix1IconClass]="true"
-          [suffix1IconClass]="'icon-close'"
-          [isSuffix2IconClass]="true"
-          [suffix2IconClass]="'icon-arrow-down'"
-          [isClearable]="true"
-        >
-        </ft-input>
-
-
-      </div>
-      <div class="case-item">
-        <ft-input
-          [isLabel]="true"
-          [label]="'Username'"
-          [size]="size"
-          [color]="'primary'"
-          [variant]="variant"
-          [state]="'hovered'"
-          [radius]="radius"
-          [disabled]="false"
-          [readonly]="false"
-          [required]="true"
-          [invalid]="false"
-          [placeholder]="'Enter your username'"
-          [description]="'This is your public display name.'"
-          [errorMessage]="'Username is required.'"
-          [content]=""
-          [labelPlacement]="'label-outside-left'"
-          [isPrefixIconClass]="isPrefixIconClass"
-          [prefixIconClass]="'icon-user'"
-          [isSuffix1IconClass]="true"
-          [suffix1IconClass]="'icon-close'"
-          [isSuffix2IconClass]="true"
-          [suffix2IconClass]="'icon-arrow-down'"
-          [isClearable]="true"
-        >
-        </ft-input>
-
-      </div>
-
-    </div>
-
-    <div class="case-row">
-      <div class="case-item case-item-heading vertical-text">
-        Focused
-      </div>
-      <div class="case-item">
-        <ft-input
-          [isLabel]="true"
-          [label]="'Username'"
-          [size]="size"
-          [color]="'primary'"
-          [variant]="variant"
-          [state]="'focused'"
-          [radius]="radius"
-          [disabled]="false"
-          [readonly]="false"
-          [required]="true"
-          [invalid]="false"
-          [placeholder]="'Enter your username'"
-          [description]="'This is your public display name.'"
-          [errorMessage]="'Username is required.'"
-          [content]=""
-          [labelPlacement]="'label-inside'"
-          [isPrefixIconClass]="isPrefixIconClass"
-          [prefixIconClass]="'icon-user'"
-          [isSuffix1IconClass]="true"
-          [suffix1IconClass]="'icon-close'"
-          [isSuffix2IconClass]="true"
-          [suffix2IconClass]="'icon-arrow-down'"
-          [isClearable]="true"
-        >
-        </ft-input>
-
-      </div>
-      <div class="case-item">
-        <ft-input
-          [isLabel]="true"
-          [label]="'Username'"
-          [size]="size"
-          [color]="'primary'"
-          [variant]="variant"
-          [state]="'focused'"
-          [radius]="radius"
-          [disabled]="false"
-          [readonly]="false"
-          [required]="true"
-          [invalid]="false"
-          [placeholder]="'Enter your username'"
-          [description]="'This is your public display name.'"
-          [errorMessage]="'Username is required.'"
-          [content]=""
-          [labelPlacement]="'label-outside'"
-          [isPrefixIconClass]="isPrefixIconClass"
-          [prefixIconClass]="'icon-user'"
-          [isSuffix1IconClass]="true"
-          [suffix1IconClass]="'icon-close'"
-          [isSuffix2IconClass]="true"
-          [suffix2IconClass]="'icon-arrow-down'"
-          [isClearable]="true"
-        >
-        </ft-input>
-
-
-      </div>
-      <div class="case-item">
-        <ft-input
-          [isLabel]="true"
-          [label]="'Username'"
-          [size]="size"
-          [color]="'primary'"
-          [variant]="variant"
-          [state]="'focused'"
-          [radius]="radius"
-          [disabled]="false"
-          [readonly]="false"
-          [required]="true"
-          [invalid]="false"
-          [placeholder]="'Enter your username'"
-          [description]="'This is your public display name.'"
-          [errorMessage]="'Username is required.'"
-          [content]=""
-          [labelPlacement]="'label-outside-left'"
-          [isPrefixIconClass]="isPrefixIconClass"
-          [prefixIconClass]="'icon-user'"
-          [isSuffix1IconClass]="true"
-          [suffix1IconClass]="'icon-close'"
-          [isSuffix2IconClass]="true"
-          [suffix2IconClass]="'icon-arrow-down'"
-          [isClearable]="true"
-        >
-        </ft-input>
 
       </div>
 
@@ -285,93 +57,80 @@
 
     <div class="case-row">
       <div class="case-item case-item-heading vertical-text">
-        Read-Only
+        Hover
       </div>
       <div class="case-item">
-        <ft-input
-          [isLabel]="true"
-          [label]="'Username'"
+        <ft-radio
+          [isLabel]="isLabel"
+          [label]="label"
+          [isDescription]="isDescription"
+          [description]="description"
           [size]="size"
-          [color]="'primary'"
-          [variant]="variant"
-          [radius]="radius"
-          [disabled]="false"
-          [readonly]="true"
-          [required]="true"
+          [state]="'hover'"
           [invalid]="false"
-          [placeholder]="'Enter your username'"
-          [description]="'This is your public display name.'"
-          [errorMessage]="'Username is required.'"
-          [content]="'default value'"
-          [labelPlacement]="'label-inside'"
-          [isPrefixIconClass]="isPrefixIconClass"
-          [prefixIconClass]="'icon-user'"
-          [isSuffix1IconClass]="true"
-          [suffix1IconClass]="'icon-close'"
-          [isSuffix2IconClass]="true"
-          [suffix2IconClass]="'icon-arrow-down'"
-          [isClearable]="true"
+          [select]="true"
+          [inactive]="false"
         >
-        </ft-input>
+        </ft-radio>
 
       </div>
       <div class="case-item">
-        <ft-input
-          [isLabel]="true"
-          [label]="'Username'"
+        <ft-radio
+          [isLabel]="isLabel"
+          [label]="label"
+          [isDescription]="isDescription"
+          [description]="description"
           [size]="size"
-          [color]="'primary'"
-          [variant]="variant"
-          [radius]="radius"
-          [disabled]="false"
-          [readonly]="true"
-          [required]="true"
+          [state]="'hover'"
           [invalid]="false"
-          [placeholder]="'Enter your username'"
-          [description]="'This is your public display name.'"
-          [errorMessage]="'Username is required.'"
-          [content]="'default value'"
-          [labelPlacement]="'label-outside'"
-          [isPrefixIconClass]="isPrefixIconClass"
-          [prefixIconClass]="'icon-user'"
-          [isSuffix1IconClass]="true"
-          [suffix1IconClass]="'icon-close'"
-          [isSuffix2IconClass]="true"
-          [suffix2IconClass]="'icon-arrow-down'"
-          [isClearable]="true"
+          [select]="false"
+          [inactive]="false"
         >
-        </ft-input>
+        </ft-radio>
 
+
+      </div>
+
+
+    </div>
+
+    <div class="case-row">
+      <div class="case-item case-item-heading vertical-text">
+        Press
+      </div>
+      <div class="case-item">
+        <ft-radio
+          [isLabel]="isLabel"
+          [label]="label"
+          [isDescription]="isDescription"
+          [description]="description"
+          [size]="size"
+          [state]="'press'"
+          [invalid]="false"
+          [select]="true"
+          [inactive]="false"
+        >
+        </ft-radio>
 
       </div>
       <div class="case-item">
-        <ft-input
-          [isLabel]="true"
-          [label]="'Username'"
+        <ft-radio
+          [isLabel]="isLabel"
+          [label]="label"
+          [isDescription]="isDescription"
+          [description]="description"
           [size]="size"
-          [color]="'primary'"
-          [variant]="variant"
-          [radius]="radius"
-          [disabled]="false"
-          [readonly]="true"
-          [required]="true"
+          [state]="'press'"
           [invalid]="false"
-          [placeholder]="'Enter your username'"
-          [description]="'This is your public display name.'"
-          [errorMessage]="'Username is required.'"
-          [content]="'default value'"
-          [labelPlacement]="'label-outside-left'"
-          [isPrefixIconClass]="isPrefixIconClass"
-          [prefixIconClass]="'icon-user'"
-          [isSuffix1IconClass]="true"
-          [suffix1IconClass]="'icon-close'"
-          [isSuffix2IconClass]="true"
-          [suffix2IconClass]="'icon-arrow-down'"
-          [isClearable]="true"
+          [select]="false"
+          [inactive]="false"
         >
-        </ft-input>
+        </ft-radio>
+
 
       </div>
+
+
 
     </div>
 
@@ -380,90 +139,37 @@
         Disabled
       </div>
       <div class="case-item">
-        <ft-input
-          [isLabel]="true"
-          [label]="'Username'"
+        <ft-radio
+          [isLabel]="isLabel"
+          [label]="label"
+          [isDescription]="isDescription"
+          [description]="description"
           [size]="size"
-          [color]="'primary'"
-          [variant]="variant"
-          [radius]="radius"
-          [disabled]="true"
-          [readonly]="false"
-          [required]="true"
+          [state]="'rest'"
           [invalid]="false"
-          [placeholder]="'Enter your username'"
-          [description]="'This is your public display name.'"
-          [errorMessage]="'Username is required.'"
-          [content]=""
-          [labelPlacement]="'label-inside'"
-          [isPrefixIconClass]="isPrefixIconClass"
-          [prefixIconClass]="'icon-user'"
-          [isSuffix1IconClass]="true"
-          [suffix1IconClass]="'icon-close'"
-          [isSuffix2IconClass]="true"
-          [suffix2IconClass]="'icon-arrow-down'"
-          [isClearable]="true"
+          [select]="true"
+          [inactive]="true"
         >
-        </ft-input>
+        </ft-radio>
 
       </div>
       <div class="case-item">
-        <ft-input
-          [isLabel]="true"
-          [label]="'Username'"
+        <ft-radio
+          [isLabel]="isLabel"
+          [label]="label"
+          [isDescription]="isDescription"
+          [description]="description"
           [size]="size"
-          [color]="'primary'"
-          [variant]="variant"
-          [radius]="radius"
-          [disabled]="true"
-          [readonly]="false"
-          [required]="true"
+          [state]="'rest'"
           [invalid]="false"
-          [placeholder]="'Enter your username'"
-          [description]="'This is your public display name.'"
-          [errorMessage]="'Username is required.'"
-          [content]=""
-          [labelPlacement]="'label-outside'"
-          [isPrefixIconClass]="isPrefixIconClass"
-          [prefixIconClass]="'icon-user'"
-          [isSuffix1IconClass]="true"
-          [suffix1IconClass]="'icon-close'"
-          [isSuffix2IconClass]="true"
-          [suffix2IconClass]="'icon-arrow-down'"
-          [isClearable]="true"
+          [select]="false"
+          [inactive]="true"
         >
-        </ft-input>
+        </ft-radio>
 
 
       </div>
-      <div class="case-item">
-        <ft-input
-          [isLabel]="true"
-          [label]="'Username'"
-          [size]="size"
-          [color]="'primary'"
-          [variant]="variant"
-          [radius]="radius"
-          [disabled]="true"
-          [readonly]="false"
-          [required]="true"
-          [invalid]="false"
-          [placeholder]="'Enter your username'"
-          [description]="'This is your public display name.'"
-          [errorMessage]="'Username is required.'"
-          [content]=""
-          [labelPlacement]="'label-outside-left'"
-          [isPrefixIconClass]="isPrefixIconClass"
-          [prefixIconClass]="'icon-user'"
-          [isSuffix1IconClass]="true"
-          [suffix1IconClass]="'icon-close'"
-          [isSuffix2IconClass]="true"
-          [suffix2IconClass]="'icon-arrow-down'"
-          [isClearable]="true"
-        >
-        </ft-input>
 
-      </div>
 
     </div>
 
@@ -472,182 +178,37 @@
         Invalid
       </div>
       <div class="case-item">
-        <ft-input
-          [isLabel]="true"
-          [label]="'Username'"
+        <ft-radio
+          [isLabel]="isLabel"
+          [label]="label"
+          [isDescription]="isDescription"
+          [description]="description"
           [size]="size"
-          [color]="'primary'"
-          [variant]="variant"
-          [radius]="radius"
-          [disabled]="false"
-          [readonly]="false"
-          [required]="true"
+          [state]="'rest'"
           [invalid]="true"
-          [placeholder]="'Enter your username'"
-          [description]="'This is your public display name.'"
-          [errorMessage]="'Username is required.'"
-          [content]=""
-          [labelPlacement]="'label-inside'"
-          [isPrefixIconClass]="isPrefixIconClass"
-          [prefixIconClass]="'icon-user'"
-          [isSuffix1IconClass]="true"
-          [suffix1IconClass]="'icon-close'"
-          [isSuffix2IconClass]="true"
-          [suffix2IconClass]="'icon-arrow-down'"
-          [isClearable]="true"
+          [select]="true"
+          [inactive]="false"
         >
-        </ft-input>
+        </ft-radio>
 
       </div>
       <div class="case-item">
-        <ft-input
-          [isLabel]="true"
-          [label]="'Username'"
+        <ft-radio
+          [isLabel]="isLabel"
+          [label]="label"
+          [isDescription]="isDescription"
+          [description]="description"
           [size]="size"
-          [color]="'primary'"
-          [variant]="variant"
-          [radius]="radius"
-          [disabled]="false"
-          [readonly]="false"
-          [required]="true"
+          [state]="'rest'"
           [invalid]="true"
-          [placeholder]="'Enter your username'"
-          [description]="'This is your public display name.'"
-          [errorMessage]="'Username is required.'"
-          [content]=""
-          [labelPlacement]="'label-outside'"
-          [isPrefixIconClass]="isPrefixIconClass"
-          [prefixIconClass]="'icon-user'"
-          [isSuffix1IconClass]="true"
-          [suffix1IconClass]="'icon-close'"
-          [isSuffix2IconClass]="true"
-          [suffix2IconClass]="'icon-arrow-down'"
-          [isClearable]="true"
+          [select]="false"
+          [inactive]="false"
         >
-        </ft-input>
+        </ft-radio>
 
 
       </div>
-      <div class="case-item">
-        <ft-input
-          [isLabel]="true"
-          [label]="'Username'"
-          [size]="size"
-          [color]="'primary'"
-          [variant]="variant"
-          [radius]="radius"
-          [disabled]="false"
-          [readonly]="false"
-          [required]="true"
-          [invalid]="true"
-          [placeholder]="'Enter your username'"
-          [description]="'This is your public display name.'"
-          [errorMessage]="'Username is required.'"
-          [content]=""
-          [labelPlacement]="'label-outside-left'"
-          [isPrefixIconClass]="isPrefixIconClass"
-          [prefixIconClass]="'icon-user'"
-          [isSuffix1IconClass]="true"
-          [suffix1IconClass]="'icon-close'"
-          [isSuffix2IconClass]="true"
-          [suffix2IconClass]="'icon-arrow-down'"
-          [isClearable]="true"
-        >
-        </ft-input>
 
-      </div>
-
-    </div>
-
-    <div class="case-row">
-      <div class="case-item case-item-heading vertical-text">
-        Content
-      </div>
-      <div class="case-item">
-        <ft-input
-          [isLabel]="true"
-          [label]="'Username'"
-          [size]="size"
-          [color]="'primary'"
-          [variant]="variant"
-          [radius]="radius"
-          [disabled]="false"
-          [readonly]="false"
-          [required]="true"
-          [invalid]="false"
-          [placeholder]="'Enter your username'"
-          [description]="'This is your public display name.'"
-          [errorMessage]="'Username is required.'"
-          [content]="'default value'"
-          [labelPlacement]="'label-inside'"
-          [isPrefixIconClass]="isPrefixIconClass"
-          [prefixIconClass]="'icon-user'"
-          [isSuffix1IconClass]="true"
-          [suffix1IconClass]="'icon-close'"
-          [isSuffix2IconClass]="true"
-          [suffix2IconClass]="'icon-arrow-down'"
-          [isClearable]="true"
-        >
-        </ft-input>
-
-      </div>
-      <div class="case-item">
-        <ft-input
-          [isLabel]="true"
-          [label]="'Username'"
-          [size]="size"
-          [color]="'primary'"
-          [variant]="variant"
-          [radius]="radius"
-          [disabled]="false"
-          [readonly]="false"
-          [required]="true"
-          [invalid]="false"
-          [placeholder]="'Enter your username'"
-          [description]="'This is your public display name.'"
-          [errorMessage]="'Username is required.'"
-          [content]="'default value'"
-          [labelPlacement]="'label-outside'"
-          [isPrefixIconClass]="isPrefixIconClass"
-          [prefixIconClass]="'icon-user'"
-          [isSuffix1IconClass]="true"
-          [suffix1IconClass]="'icon-close'"
-          [isSuffix2IconClass]="true"
-          [suffix2IconClass]="'icon-arrow-down'"
-          [isClearable]="true"
-        >
-        </ft-input>
-
-
-      </div>
-      <div class="case-item">
-        <ft-input
-          [isLabel]="true"
-          [label]="'Username'"
-          [size]="size"
-          [color]="'primary'"
-          [variant]="variant"
-          [radius]="radius"
-          [disabled]="false"
-          [readonly]="false"
-          [required]="true"
-          [invalid]="false"
-          [placeholder]="'Enter your username'"
-          [description]="'This is your public display name.'"
-          [errorMessage]="'Username is required.'"
-          [content]="'default value'"
-          [labelPlacement]="'label-outside-left'"
-          [isPrefixIconClass]="isPrefixIconClass"
-          [prefixIconClass]="'icon-user'"
-          [isSuffix1IconClass]="true"
-          [suffix1IconClass]="'icon-close'"
-          [isSuffix2IconClass]="true"
-          [suffix2IconClass]="'icon-arrow-down'"
-          [isClearable]="true"
-        >
-        </ft-input>
-
-      </div>
 
     </div>
 

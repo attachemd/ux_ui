@@ -23,24 +23,24 @@ const meta: Meta<RadioAllCasesComponent> = {
   //   }
   // },
   argTypes: {
-    radius: {
-      control: 'select',
-      options: ['none-radius', 'sm-radius', 'md-radius', 'lg-radius', 'full-radius'],
-    },
     size: {
       control: 'select',
       options: ['xs-size', 'sm-size', 'md-size', 'lg-size'],
     },
-    variant: {
-      control: 'select',
-      options: ['flat', 'faded', 'underlined', 'ghost'],
+    isLabel: {
+      control: "boolean",
+      options: [true, false],
     },
+    label: {
+      control: 'text',
+    }
   },
   args: {
-    isPrefixIconClass: false,
-    radius: 'md-radius',
     size: 'md-size',
-    variant: 'flat',
+    isLabel: true,
+    label: 'Option A',
+    isDescription: false,
+    description: 'Description'
   }
 };
 

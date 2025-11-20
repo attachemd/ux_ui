@@ -13,10 +13,11 @@ import {FtRadioComponent} from '../radio/ft.radio.component';
 })
 export class RadioAllCasesComponent {
 
-  isPrefixIconClass: boolean = true;
-  radius: 'none-radius'|'sm-radius'|'md-radius'|'lg-radius'|'full-radius' = 'md-radius';
+  isLabel = false;
+  label= 'Option A';
+  isDescription = false;
+  description= 'Description';
   size: 'xs-size'|'sm-size'|'md-size'|'lg-size' = 'md-size';
-  variant: 'flat'|'faded'|'underlined'|'ghost' = 'flat';
 
 
 

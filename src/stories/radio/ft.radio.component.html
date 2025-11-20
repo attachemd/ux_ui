@@ -2,6 +2,7 @@
      [class]="size + ' ' + state"
      [class.select]="select"
      [class.inactive]="inactive"
+     [class.invalid]="invalid"
 >
   <div class="field"
 
@@ -13,8 +14,14 @@
     </div>
 
   </div>
-  <div *ngIf="isLabel" class="label">
-    test
+  <div class="content content-xs--normal">
+    <div *ngIf="isLabel" class="label">
+      {{label}}
+    </div>
+    <div *ngIf="isDescription" class="description">
+      {{description}}
+    </div>
   </div>
+
 </div>
 

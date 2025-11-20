@@ -15,10 +15,13 @@ import {FormsModule} from '@angular/forms';
 })
 export class FtRadioComponent {
 
-  @Input() isLabel = true;
+  @Input() isLabel = false;
   @Input() label?: string;
+  @Input() isDescription = false;
+  @Input() description?: string;
   @Input() select = false;
   @Input() inactive = false;
+  @Input() invalid = false;
   @Input() size: 'xs-size'|'sm-size'|'md-size'|'lg-size' = 'md-size';
   @Input() state: 'hover'|'press'|'rest'= 'rest';
 

@@ -2338,7 +2338,7 @@
         },
         {
             "name": "FtRadioComponent",
-            "id": "component-FtRadioComponent-ef9dab320d222ec95e1fca5b3090bb695f398a2265921057429fadb1d65dea5688449806528a5269e1d8300e0fd998a7e6f42c47b7ae1c6ee9fc154d2e0d1245",
+            "id": "component-FtRadioComponent-ad9ee76575f59e1ab531ac9a42577c0f26d4ecb78bba2e08855f63438dca0cac19f82b1f4d765bac96ab19c8f8b15d3305118927c384a126143a15aee36ad8e2",
             "file": "src/stories/radio/ft.radio.component.ts",
             "encapsulation": [
                 "ViewEncapsulation.Emulated"
@@ -2359,17 +2359,43 @@
             "hostDirectives": [],
             "inputsClass": [
                 {
+                    "name": "description",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 21,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
                     "name": "inactive",
                     "defaultValue": "false",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 21,
+                    "line": 23,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "invalid",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 24,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "isDescription",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 20,
                     "type": "boolean",
                     "decorators": []
                 },
                 {
                     "name": "isLabel",
-                    "defaultValue": "true",
+                    "defaultValue": "false",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "line": 18,
@@ -2389,7 +2415,7 @@
                     "defaultValue": "false",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 20,
+                    "line": 22,
                     "type": "boolean",
                     "decorators": []
                 },
@@ -2398,7 +2424,7 @@
                     "defaultValue": "'md-size'",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 22,
+                    "line": 25,
                     "type": "\"xs-size\" | \"sm-size\" | \"md-size\" | \"lg-size\"",
                     "decorators": []
                 },
@@ -2407,7 +2433,7 @@
                     "defaultValue": "'rest'",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 23,
+                    "line": 26,
                     "type": "\"hover\" | \"press\" | \"rest\"",
                     "decorators": []
                 }
@@ -2435,17 +2461,17 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import {Component, Input, ViewEncapsulation} from '@angular/core';\nimport {NgClass, NgIf} from '@angular/common';\nimport {FormsModule} from '@angular/forms';\n\n@Component({\n  selector: 'ft-radio',\n  templateUrl: './ft.radio.component.html',\n  imports: [\n    NgClass,\n    FormsModule,\n    NgIf\n  ],\n  styleUrls: ['./ft.radio.component.css'],\n  encapsulation: ViewEncapsulation.Emulated // Ensure this is set (default)\n})\nexport class FtRadioComponent {\n\n  @Input() isLabel = true;\n  @Input() label?: string;\n  @Input() select = false;\n  @Input() inactive = false;\n  @Input() size: 'xs-size'|'sm-size'|'md-size'|'lg-size' = 'md-size';\n  @Input() state: 'hover'|'press'|'rest'= 'rest';\n\n}\n",
+            "sourceCode": "import {Component, Input, ViewEncapsulation} from '@angular/core';\nimport {NgClass, NgIf} from '@angular/common';\nimport {FormsModule} from '@angular/forms';\n\n@Component({\n  selector: 'ft-radio',\n  templateUrl: './ft.radio.component.html',\n  imports: [\n    NgClass,\n    FormsModule,\n    NgIf\n  ],\n  styleUrls: ['./ft.radio.component.css'],\n  encapsulation: ViewEncapsulation.Emulated // Ensure this is set (default)\n})\nexport class FtRadioComponent {\n\n  @Input() isLabel = false;\n  @Input() label?: string;\n  @Input() isDescription = false;\n  @Input() description?: string;\n  @Input() select = false;\n  @Input() inactive = false;\n  @Input() invalid = false;\n  @Input() size: 'xs-size'|'sm-size'|'md-size'|'lg-size' = 'md-size';\n  @Input() state: 'hover'|'press'|'rest'= 'rest';\n\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "\n.field-container {\n  display: flex;\n  align-items: center;\n  gap: var(--ft-spacing-xs);\n  .field {\n    width: 32px;\n    height: 32px;\n    border-radius: var(--ft-radius-pill);\n    position: relative;\n\n    .radio {\n      /*display: flex;*/\n      /*align-items: center;*/\n      /*justify-content: center;*/\n      border: var(--ft-border-secondary) solid var(--ft-color-border-200);\n      border-radius: var(--ft-radius-pill);\n      position: absolute;\n      left: 50%;\n      top: 50%;\n      transform: translate(-50%, -50%);\n\n      .control {\n        width: 13px;\n        height: 13px;\n        border-radius: var(--ft-radius-pill);\n        position: absolute;\n        left: 50%;\n        top: 50%;\n        transform: translate(-50%, -50%);\n      }\n    }\n\n\n\n  }\n\n  &.md-size {\n    .field {    .radio {\n      width: 22px;\n      height: 22px;\n    }\n    }\n\n  }\n\n  &.rest {\n\n  }\n\n  &.hover {\n    .field {\n      background-color: var(--ft-form-field-100);\n    }\n\n  }\n\n  &.select {\n    .field {\n      .radio {\n        border: var(--ft-border-secondary) solid var(--ft-color-primary);\n        .control {\n          background-color: var(--ft-color-primary);\n        }\n      }\n    }\n\n\n    /*&.hover {*/\n    /*  background-color: var(--ft-form-field-100);*/\n    /*}*/\n\n  }\n\n}\n\n\n\n",
+                    "data": "\n.field-container {\n  display: flex;\n  align-items: center;\n  gap: var(--ft-unit-200);\n  .field {\n    width: 32px;\n    height: 32px;\n    border-radius: var(--ft-radius-pill);\n    position: relative;\n\n    .radio {\n      /*display: flex;*/\n      /*align-items: center;*/\n      /*justify-content: center;*/\n      border: var(--ft-border-secondary) solid var(--ft-color-border-200);\n      border-radius: var(--ft-radius-pill);\n      position: absolute;\n      left: 50%;\n      top: 50%;\n      transform: translate(-50%, -50%);\n\n      .control {\n        width: 13px;\n        height: 13px;\n        border-radius: var(--ft-radius-pill);\n        position: absolute;\n        left: 50%;\n        top: 50%;\n        transform: translate(-50%, -50%);\n      }\n    }\n\n\n\n  }\n\n  .content {\n    display: flex;\n    flex-direction: column;\n  }\n\n  &.md-size {\n    .field {    .radio {\n      width: 22px;\n      height: 22px;\n    }\n    }\n\n  }\n\n  &.rest {\n    &.inactive {\n      .field {\n        .radio {\n          border: var(--ft-border-secondary) solid var(--ft-radio-muted);\n        }\n      }\n\n    }\n    &.invalid {\n      .field {\n        .radio {\n          border: var(--ft-border-secondary) solid var(--ft-color-danger);\n        }\n      }\n\n    }\n  }\n\n  &.hover {\n    .field {\n      background-color: var(--ft-form-field-100);\n    }\n\n  }\n\n  &.press {\n    .field {\n      background-color: var(--ft-form-field-200);\n    }\n\n  }\n\n  &.select {\n    .field {\n      .radio {\n        border: var(--ft-border-secondary) solid var(--ft-color-primary);\n        .control {\n          background-color: var(--ft-color-primary);\n        }\n      }\n    }\n\n    &.inactive {\n      .field {\n        .radio {\n          border: var(--ft-border-secondary) solid var(--ft-radio-muted);\n          .control {\n            background-color: var(--ft-radio-muted);\n          }\n        }\n      }\n\n    }\n\n    &.invalid {\n      .field {\n        .radio {\n          border: var(--ft-border-secondary) solid var(--ft-color-danger);\n          .control {\n            background-color: var(--ft-color-danger);\n          }\n        }\n      }\n\n    }\n\n  }\n\n\n\n}\n\n\n\n",
                     "styleUrl": "./ft.radio.component.css"
                 }
             ],
             "stylesData": "",
             "extends": [],
-            "templateData": "<div class=\"field-container\"\n     [class]=\"size + ' ' + state\"\n     [class.select]=\"select\"\n     [class.inactive]=\"inactive\"\n>\n  <div class=\"field\"\n\n  >\n    <div\n      class=\"radio\"\n    >\n      <div class=\"control\"></div>\n    </div>\n\n  </div>\n  <div *ngIf=\"isLabel\" class=\"label\">\n    test\n  </div>\n</div>\n\n"
+            "templateData": "<div class=\"field-container\"\n     [class]=\"size + ' ' + state\"\n     [class.select]=\"select\"\n     [class.inactive]=\"inactive\"\n     [class.invalid]=\"invalid\"\n>\n  <div class=\"field\"\n\n  >\n    <div\n      class=\"radio\"\n    >\n      <div class=\"control\"></div>\n    </div>\n\n  </div>\n  <div class=\"content content-xs--normal\">\n    <div *ngIf=\"isLabel\" class=\"label\">\n      {{label}}\n    </div>\n    <div *ngIf=\"isDescription\" class=\"description\">\n      {{description}}\n    </div>\n  </div>\n\n</div>\n\n"
         },
         {
             "name": "HeaderComponent",
@@ -5767,7 +5793,7 @@
         },
         {
             "name": "RadioAllCasesComponent",
-            "id": "component-RadioAllCasesComponent-90018ac3e27992ff865ac2b28ca9c39e706fa19f760d1fbec72226413448120a92cc6249d3513ac68ba28fa69bac9dbac984beab4d958c3f08a146d4a7d7c577",
+            "id": "component-RadioAllCasesComponent-43359d8096d01032db8584e5db238ef21117cd262e5119c9090433b5b947540207f41b1766044607582f5acef5ee7b2d2fc8c1c26f3b1026289869db8fb466f6",
             "file": "src/stories/radio-all-cases/radio-all-cases.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -5788,22 +5814,44 @@
             "outputsClass": [],
             "propertiesClass": [
                 {
-                    "name": "isPrefixIconClass",
-                    "defaultValue": "true",
+                    "name": "description",
+                    "defaultValue": "'Description'",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "boolean",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 19
+                },
+                {
+                    "name": "isDescription",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 18
+                },
+                {
+                    "name": "isLabel",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
                     "indexKey": "",
                     "optional": false,
                     "description": "",
                     "line": 16
                 },
                 {
-                    "name": "radius",
-                    "defaultValue": "'md-radius'",
+                    "name": "label",
+                    "defaultValue": "'Option A'",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "\"none-radius\" | \"sm-radius\" | \"md-radius\" | \"lg-radius\" | \"full-radius\"",
+                    "type": "string",
                     "indexKey": "",
                     "optional": false,
                     "description": "",
@@ -5818,18 +5866,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 18
-                },
-                {
-                    "name": "variant",
-                    "defaultValue": "'flat'",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "\"flat\" | \"faded\" | \"underlined\" | \"ghost\"",
-                    "indexKey": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 19
+                    "line": 20
                 }
             ],
             "methodsClass": [],
@@ -5851,7 +5888,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import {Component, Input} from '@angular/core';\n\nimport { CommonModule } from '@angular/common';\nimport {FtRadioComponent} from '../radio/ft.radio.component';\n\n@Component({\n  selector: 'app-radio-showcase',\n  templateUrl: './radio-all-cases.component.html',\n  styleUrls: ['./radio-all-cases.component.css'],\n  standalone: true,\n  imports: [CommonModule, FtRadioComponent]\n})\nexport class RadioAllCasesComponent {\n\n  isPrefixIconClass: boolean = true;\n  radius: 'none-radius'|'sm-radius'|'md-radius'|'lg-radius'|'full-radius' = 'md-radius';\n  size: 'xs-size'|'sm-size'|'md-size'|'lg-size' = 'md-size';\n  variant: 'flat'|'faded'|'underlined'|'ghost' = 'flat';\n\n\n\n}\n",
+            "sourceCode": "import {Component, Input} from '@angular/core';\n\nimport { CommonModule } from '@angular/common';\nimport {FtRadioComponent} from '../radio/ft.radio.component';\n\n@Component({\n  selector: 'app-radio-showcase',\n  templateUrl: './radio-all-cases.component.html',\n  styleUrls: ['./radio-all-cases.component.css'],\n  standalone: true,\n  imports: [CommonModule, FtRadioComponent]\n})\nexport class RadioAllCasesComponent {\n\n  isLabel = false;\n  label= 'Option A';\n  isDescription = false;\n  description= 'Description';\n  size: 'xs-size'|'sm-size'|'md-size'|'lg-size' = 'md-size';\n\n\n\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -5861,7 +5898,7 @@
             ],
             "stylesData": "",
             "extends": [],
-            "templateData": "<!-- input-showcase.component.html -->\n<div class=\"all-case-container\">\n  <h1>FT-Input Component All cases</h1>\n<div class=\"cases-container\">\n  <div class=\"case-row case-row-heading\">\n    <div class=\"case-item case-item-heading\">\n\n    </div>\n    <div class=\"case-item\">\n      labelPlacement: inside\n    </div>\n    <div class=\"case-item\">\n      labelPlacement: outside\n    </div>\n    <div class=\"case-item\">\n      labelPlacement: outside left\n    </div>\n\n  </div>\n\n  <div class=\"case-row\">\n    <div class=\"case-item case-item-heading vertical-text\">\n      Normal\n    </div>\n    <div class=\"case-item\">\n      <ft-radio\n        [isLabel]=\"true\"\n        [label]=\"'Username'\"\n        [size]=\"size\"\n        [state]=\"'rest'\"\n      >\n      </ft-radio>\n\n    </div>\n    <div class=\"case-item\">\n        <ft-input\n          [isLabel]=\"true\"\n          [label]=\"'Username'\"\n          [size]=\"size\"\n          [color]=\"'primary'\"\n          [variant]=\"variant\"\n          [radius]=\"radius\"\n          [disabled]=\"false\"\n          [readonly]=\"false\"\n          [required]=\"true\"\n          [invalid]=\"false\"\n          [placeholder]=\"'Enter your username'\"\n          [description]=\"'This is your public display name.'\"\n          [errorMessage]=\"'Username is required.'\"\n          [content]=\"\"\n          [labelPlacement]=\"'label-outside'\"\n          [isPrefixIconClass]=\"isPrefixIconClass\"\n          [prefixIconClass]=\"'icon-user'\"\n          [isSuffix1IconClass]=\"true\"\n          [suffix1IconClass]=\"'icon-close'\"\n          [isSuffix2IconClass]=\"true\"\n          [suffix2IconClass]=\"'icon-arrow-down'\"\n          [isClearable]=\"true\"\n        >\n        </ft-input>\n\n\n    </div>\n    <div class=\"case-item\">\n      <ft-input\n        [isLabel]=\"true\"\n        [label]=\"'Username'\"\n        [size]=\"size\"\n        [color]=\"'primary'\"\n        [variant]=\"variant\"\n        [radius]=\"radius\"\n        [disabled]=\"false\"\n        [readonly]=\"false\"\n        [required]=\"true\"\n        [invalid]=\"false\"\n        [placeholder]=\"'Enter your username'\"\n        [description]=\"'This is your public display name.'\"\n        [errorMessage]=\"'Username is required.'\"\n        [content]=\"\"\n        [labelPlacement]=\"'label-outside-left'\"\n        [isPrefixIconClass]=\"isPrefixIconClass\"\n        [prefixIconClass]=\"'icon-user'\"\n        [isSuffix1IconClass]=\"true\"\n        [suffix1IconClass]=\"'icon-close'\"\n        [isSuffix2IconClass]=\"true\"\n        [suffix2IconClass]=\"'icon-arrow-down'\"\n        [isClearable]=\"true\"\n      >\n      </ft-input>\n\n    </div>\n\n  </div>\n\n  <div class=\"case-row\">\n    <div class=\"case-item case-item-heading vertical-text\">\n      Hovered\n    </div>\n    <div class=\"case-item\">\n      <ft-input\n        [isLabel]=\"true\"\n        [label]=\"'Username'\"\n        [size]=\"size\"\n        [color]=\"'primary'\"\n        [variant]=\"variant\"\n        [state]=\"'hovered'\"\n        [radius]=\"radius\"\n        [disabled]=\"false\"\n        [readonly]=\"false\"\n        [required]=\"true\"\n        [invalid]=\"false\"\n        [placeholder]=\"'Enter your username'\"\n        [description]=\"'This is your public display name.'\"\n        [errorMessage]=\"'Username is required.'\"\n        [content]=\"\"\n        [labelPlacement]=\"'label-inside'\"\n        [isPrefixIconClass]=\"isPrefixIconClass\"\n        [prefixIconClass]=\"'icon-user'\"\n        [isSuffix1IconClass]=\"true\"\n        [suffix1IconClass]=\"'icon-close'\"\n        [isSuffix2IconClass]=\"true\"\n        [suffix2IconClass]=\"'icon-arrow-down'\"\n        [isClearable]=\"true\"\n      >\n      </ft-input>\n\n    </div>\n    <div class=\"case-item\">\n      <ft-input\n        [isLabel]=\"true\"\n        [label]=\"'Username'\"\n        [size]=\"size\"\n        [color]=\"'primary'\"\n        [variant]=\"variant\"\n        [state]=\"'hovered'\"\n        [radius]=\"radius\"\n        [disabled]=\"false\"\n        [readonly]=\"false\"\n        [required]=\"true\"\n        [invalid]=\"false\"\n        [placeholder]=\"'Enter your username'\"\n        [description]=\"'This is your public display name.'\"\n        [errorMessage]=\"'Username is required.'\"\n        [content]=\"\"\n        [labelPlacement]=\"'label-outside'\"\n        [isPrefixIconClass]=\"isPrefixIconClass\"\n        [prefixIconClass]=\"'icon-user'\"\n        [isSuffix1IconClass]=\"true\"\n        [suffix1IconClass]=\"'icon-close'\"\n        [isSuffix2IconClass]=\"true\"\n        [suffix2IconClass]=\"'icon-arrow-down'\"\n        [isClearable]=\"true\"\n      >\n      </ft-input>\n\n\n    </div>\n    <div class=\"case-item\">\n      <ft-input\n        [isLabel]=\"true\"\n        [label]=\"'Username'\"\n        [size]=\"size\"\n        [color]=\"'primary'\"\n        [variant]=\"variant\"\n        [state]=\"'hovered'\"\n        [radius]=\"radius\"\n        [disabled]=\"false\"\n        [readonly]=\"false\"\n        [required]=\"true\"\n        [invalid]=\"false\"\n        [placeholder]=\"'Enter your username'\"\n        [description]=\"'This is your public display name.'\"\n        [errorMessage]=\"'Username is required.'\"\n        [content]=\"\"\n        [labelPlacement]=\"'label-outside-left'\"\n        [isPrefixIconClass]=\"isPrefixIconClass\"\n        [prefixIconClass]=\"'icon-user'\"\n        [isSuffix1IconClass]=\"true\"\n        [suffix1IconClass]=\"'icon-close'\"\n        [isSuffix2IconClass]=\"true\"\n        [suffix2IconClass]=\"'icon-arrow-down'\"\n        [isClearable]=\"true\"\n      >\n      </ft-input>\n\n    </div>\n\n  </div>\n\n  <div class=\"case-row\">\n    <div class=\"case-item case-item-heading vertical-text\">\n      Focused\n    </div>\n    <div class=\"case-item\">\n      <ft-input\n        [isLabel]=\"true\"\n        [label]=\"'Username'\"\n        [size]=\"size\"\n        [color]=\"'primary'\"\n        [variant]=\"variant\"\n        [state]=\"'focused'\"\n        [radius]=\"radius\"\n        [disabled]=\"false\"\n        [readonly]=\"false\"\n        [required]=\"true\"\n        [invalid]=\"false\"\n        [placeholder]=\"'Enter your username'\"\n        [description]=\"'This is your public display name.'\"\n        [errorMessage]=\"'Username is required.'\"\n        [content]=\"\"\n        [labelPlacement]=\"'label-inside'\"\n        [isPrefixIconClass]=\"isPrefixIconClass\"\n        [prefixIconClass]=\"'icon-user'\"\n        [isSuffix1IconClass]=\"true\"\n        [suffix1IconClass]=\"'icon-close'\"\n        [isSuffix2IconClass]=\"true\"\n        [suffix2IconClass]=\"'icon-arrow-down'\"\n        [isClearable]=\"true\"\n      >\n      </ft-input>\n\n    </div>\n    <div class=\"case-item\">\n      <ft-input\n        [isLabel]=\"true\"\n        [label]=\"'Username'\"\n        [size]=\"size\"\n        [color]=\"'primary'\"\n        [variant]=\"variant\"\n        [state]=\"'focused'\"\n        [radius]=\"radius\"\n        [disabled]=\"false\"\n        [readonly]=\"false\"\n        [required]=\"true\"\n        [invalid]=\"false\"\n        [placeholder]=\"'Enter your username'\"\n        [description]=\"'This is your public display name.'\"\n        [errorMessage]=\"'Username is required.'\"\n        [content]=\"\"\n        [labelPlacement]=\"'label-outside'\"\n        [isPrefixIconClass]=\"isPrefixIconClass\"\n        [prefixIconClass]=\"'icon-user'\"\n        [isSuffix1IconClass]=\"true\"\n        [suffix1IconClass]=\"'icon-close'\"\n        [isSuffix2IconClass]=\"true\"\n        [suffix2IconClass]=\"'icon-arrow-down'\"\n        [isClearable]=\"true\"\n      >\n      </ft-input>\n\n\n    </div>\n    <div class=\"case-item\">\n      <ft-input\n        [isLabel]=\"true\"\n        [label]=\"'Username'\"\n        [size]=\"size\"\n        [color]=\"'primary'\"\n        [variant]=\"variant\"\n        [state]=\"'focused'\"\n        [radius]=\"radius\"\n        [disabled]=\"false\"\n        [readonly]=\"false\"\n        [required]=\"true\"\n        [invalid]=\"false\"\n        [placeholder]=\"'Enter your username'\"\n        [description]=\"'This is your public display name.'\"\n        [errorMessage]=\"'Username is required.'\"\n        [content]=\"\"\n        [labelPlacement]=\"'label-outside-left'\"\n        [isPrefixIconClass]=\"isPrefixIconClass\"\n        [prefixIconClass]=\"'icon-user'\"\n        [isSuffix1IconClass]=\"true\"\n        [suffix1IconClass]=\"'icon-close'\"\n        [isSuffix2IconClass]=\"true\"\n        [suffix2IconClass]=\"'icon-arrow-down'\"\n        [isClearable]=\"true\"\n      >\n      </ft-input>\n\n    </div>\n\n\n  </div>\n\n  <div class=\"case-row\">\n    <div class=\"case-item case-item-heading vertical-text\">\n      Read-Only\n    </div>\n    <div class=\"case-item\">\n      <ft-input\n        [isLabel]=\"true\"\n        [label]=\"'Username'\"\n        [size]=\"size\"\n        [color]=\"'primary'\"\n        [variant]=\"variant\"\n        [radius]=\"radius\"\n        [disabled]=\"false\"\n        [readonly]=\"true\"\n        [required]=\"true\"\n        [invalid]=\"false\"\n        [placeholder]=\"'Enter your username'\"\n        [description]=\"'This is your public display name.'\"\n        [errorMessage]=\"'Username is required.'\"\n        [content]=\"'default value'\"\n        [labelPlacement]=\"'label-inside'\"\n        [isPrefixIconClass]=\"isPrefixIconClass\"\n        [prefixIconClass]=\"'icon-user'\"\n        [isSuffix1IconClass]=\"true\"\n        [suffix1IconClass]=\"'icon-close'\"\n        [isSuffix2IconClass]=\"true\"\n        [suffix2IconClass]=\"'icon-arrow-down'\"\n        [isClearable]=\"true\"\n      >\n      </ft-input>\n\n    </div>\n    <div class=\"case-item\">\n      <ft-input\n        [isLabel]=\"true\"\n        [label]=\"'Username'\"\n        [size]=\"size\"\n        [color]=\"'primary'\"\n        [variant]=\"variant\"\n        [radius]=\"radius\"\n        [disabled]=\"false\"\n        [readonly]=\"true\"\n        [required]=\"true\"\n        [invalid]=\"false\"\n        [placeholder]=\"'Enter your username'\"\n        [description]=\"'This is your public display name.'\"\n        [errorMessage]=\"'Username is required.'\"\n        [content]=\"'default value'\"\n        [labelPlacement]=\"'label-outside'\"\n        [isPrefixIconClass]=\"isPrefixIconClass\"\n        [prefixIconClass]=\"'icon-user'\"\n        [isSuffix1IconClass]=\"true\"\n        [suffix1IconClass]=\"'icon-close'\"\n        [isSuffix2IconClass]=\"true\"\n        [suffix2IconClass]=\"'icon-arrow-down'\"\n        [isClearable]=\"true\"\n      >\n      </ft-input>\n\n\n    </div>\n    <div class=\"case-item\">\n      <ft-input\n        [isLabel]=\"true\"\n        [label]=\"'Username'\"\n        [size]=\"size\"\n        [color]=\"'primary'\"\n        [variant]=\"variant\"\n        [radius]=\"radius\"\n        [disabled]=\"false\"\n        [readonly]=\"true\"\n        [required]=\"true\"\n        [invalid]=\"false\"\n        [placeholder]=\"'Enter your username'\"\n        [description]=\"'This is your public display name.'\"\n        [errorMessage]=\"'Username is required.'\"\n        [content]=\"'default value'\"\n        [labelPlacement]=\"'label-outside-left'\"\n        [isPrefixIconClass]=\"isPrefixIconClass\"\n        [prefixIconClass]=\"'icon-user'\"\n        [isSuffix1IconClass]=\"true\"\n        [suffix1IconClass]=\"'icon-close'\"\n        [isSuffix2IconClass]=\"true\"\n        [suffix2IconClass]=\"'icon-arrow-down'\"\n        [isClearable]=\"true\"\n      >\n      </ft-input>\n\n    </div>\n\n  </div>\n\n  <div class=\"case-row\">\n    <div class=\"case-item case-item-heading vertical-text\">\n      Disabled\n    </div>\n    <div class=\"case-item\">\n      <ft-input\n        [isLabel]=\"true\"\n        [label]=\"'Username'\"\n        [size]=\"size\"\n        [color]=\"'primary'\"\n        [variant]=\"variant\"\n        [radius]=\"radius\"\n        [disabled]=\"true\"\n        [readonly]=\"false\"\n        [required]=\"true\"\n        [invalid]=\"false\"\n        [placeholder]=\"'Enter your username'\"\n        [description]=\"'This is your public display name.'\"\n        [errorMessage]=\"'Username is required.'\"\n        [content]=\"\"\n        [labelPlacement]=\"'label-inside'\"\n        [isPrefixIconClass]=\"isPrefixIconClass\"\n        [prefixIconClass]=\"'icon-user'\"\n        [isSuffix1IconClass]=\"true\"\n        [suffix1IconClass]=\"'icon-close'\"\n        [isSuffix2IconClass]=\"true\"\n        [suffix2IconClass]=\"'icon-arrow-down'\"\n        [isClearable]=\"true\"\n      >\n      </ft-input>\n\n    </div>\n    <div class=\"case-item\">\n      <ft-input\n        [isLabel]=\"true\"\n        [label]=\"'Username'\"\n        [size]=\"size\"\n        [color]=\"'primary'\"\n        [variant]=\"variant\"\n        [radius]=\"radius\"\n        [disabled]=\"true\"\n        [readonly]=\"false\"\n        [required]=\"true\"\n        [invalid]=\"false\"\n        [placeholder]=\"'Enter your username'\"\n        [description]=\"'This is your public display name.'\"\n        [errorMessage]=\"'Username is required.'\"\n        [content]=\"\"\n        [labelPlacement]=\"'label-outside'\"\n        [isPrefixIconClass]=\"isPrefixIconClass\"\n        [prefixIconClass]=\"'icon-user'\"\n        [isSuffix1IconClass]=\"true\"\n        [suffix1IconClass]=\"'icon-close'\"\n        [isSuffix2IconClass]=\"true\"\n        [suffix2IconClass]=\"'icon-arrow-down'\"\n        [isClearable]=\"true\"\n      >\n      </ft-input>\n\n\n    </div>\n    <div class=\"case-item\">\n      <ft-input\n        [isLabel]=\"true\"\n        [label]=\"'Username'\"\n        [size]=\"size\"\n        [color]=\"'primary'\"\n        [variant]=\"variant\"\n        [radius]=\"radius\"\n        [disabled]=\"true\"\n        [readonly]=\"false\"\n        [required]=\"true\"\n        [invalid]=\"false\"\n        [placeholder]=\"'Enter your username'\"\n        [description]=\"'This is your public display name.'\"\n        [errorMessage]=\"'Username is required.'\"\n        [content]=\"\"\n        [labelPlacement]=\"'label-outside-left'\"\n        [isPrefixIconClass]=\"isPrefixIconClass\"\n        [prefixIconClass]=\"'icon-user'\"\n        [isSuffix1IconClass]=\"true\"\n        [suffix1IconClass]=\"'icon-close'\"\n        [isSuffix2IconClass]=\"true\"\n        [suffix2IconClass]=\"'icon-arrow-down'\"\n        [isClearable]=\"true\"\n      >\n      </ft-input>\n\n    </div>\n\n  </div>\n\n  <div class=\"case-row\">\n    <div class=\"case-item case-item-heading vertical-text\">\n      Invalid\n    </div>\n    <div class=\"case-item\">\n      <ft-input\n        [isLabel]=\"true\"\n        [label]=\"'Username'\"\n        [size]=\"size\"\n        [color]=\"'primary'\"\n        [variant]=\"variant\"\n        [radius]=\"radius\"\n        [disabled]=\"false\"\n        [readonly]=\"false\"\n        [required]=\"true\"\n        [invalid]=\"true\"\n        [placeholder]=\"'Enter your username'\"\n        [description]=\"'This is your public display name.'\"\n        [errorMessage]=\"'Username is required.'\"\n        [content]=\"\"\n        [labelPlacement]=\"'label-inside'\"\n        [isPrefixIconClass]=\"isPrefixIconClass\"\n        [prefixIconClass]=\"'icon-user'\"\n        [isSuffix1IconClass]=\"true\"\n        [suffix1IconClass]=\"'icon-close'\"\n        [isSuffix2IconClass]=\"true\"\n        [suffix2IconClass]=\"'icon-arrow-down'\"\n        [isClearable]=\"true\"\n      >\n      </ft-input>\n\n    </div>\n    <div class=\"case-item\">\n      <ft-input\n        [isLabel]=\"true\"\n        [label]=\"'Username'\"\n        [size]=\"size\"\n        [color]=\"'primary'\"\n        [variant]=\"variant\"\n        [radius]=\"radius\"\n        [disabled]=\"false\"\n        [readonly]=\"false\"\n        [required]=\"true\"\n        [invalid]=\"true\"\n        [placeholder]=\"'Enter your username'\"\n        [description]=\"'This is your public display name.'\"\n        [errorMessage]=\"'Username is required.'\"\n        [content]=\"\"\n        [labelPlacement]=\"'label-outside'\"\n        [isPrefixIconClass]=\"isPrefixIconClass\"\n        [prefixIconClass]=\"'icon-user'\"\n        [isSuffix1IconClass]=\"true\"\n        [suffix1IconClass]=\"'icon-close'\"\n        [isSuffix2IconClass]=\"true\"\n        [suffix2IconClass]=\"'icon-arrow-down'\"\n        [isClearable]=\"true\"\n      >\n      </ft-input>\n\n\n    </div>\n    <div class=\"case-item\">\n      <ft-input\n        [isLabel]=\"true\"\n        [label]=\"'Username'\"\n        [size]=\"size\"\n        [color]=\"'primary'\"\n        [variant]=\"variant\"\n        [radius]=\"radius\"\n        [disabled]=\"false\"\n        [readonly]=\"false\"\n        [required]=\"true\"\n        [invalid]=\"true\"\n        [placeholder]=\"'Enter your username'\"\n        [description]=\"'This is your public display name.'\"\n        [errorMessage]=\"'Username is required.'\"\n        [content]=\"\"\n        [labelPlacement]=\"'label-outside-left'\"\n        [isPrefixIconClass]=\"isPrefixIconClass\"\n        [prefixIconClass]=\"'icon-user'\"\n        [isSuffix1IconClass]=\"true\"\n        [suffix1IconClass]=\"'icon-close'\"\n        [isSuffix2IconClass]=\"true\"\n        [suffix2IconClass]=\"'icon-arrow-down'\"\n        [isClearable]=\"true\"\n      >\n      </ft-input>\n\n    </div>\n\n  </div>\n\n  <div class=\"case-row\">\n    <div class=\"case-item case-item-heading vertical-text\">\n      Content\n    </div>\n    <div class=\"case-item\">\n      <ft-input\n        [isLabel]=\"true\"\n        [label]=\"'Username'\"\n        [size]=\"size\"\n        [color]=\"'primary'\"\n        [variant]=\"variant\"\n        [radius]=\"radius\"\n        [disabled]=\"false\"\n        [readonly]=\"false\"\n        [required]=\"true\"\n        [invalid]=\"false\"\n        [placeholder]=\"'Enter your username'\"\n        [description]=\"'This is your public display name.'\"\n        [errorMessage]=\"'Username is required.'\"\n        [content]=\"'default value'\"\n        [labelPlacement]=\"'label-inside'\"\n        [isPrefixIconClass]=\"isPrefixIconClass\"\n        [prefixIconClass]=\"'icon-user'\"\n        [isSuffix1IconClass]=\"true\"\n        [suffix1IconClass]=\"'icon-close'\"\n        [isSuffix2IconClass]=\"true\"\n        [suffix2IconClass]=\"'icon-arrow-down'\"\n        [isClearable]=\"true\"\n      >\n      </ft-input>\n\n    </div>\n    <div class=\"case-item\">\n      <ft-input\n        [isLabel]=\"true\"\n        [label]=\"'Username'\"\n        [size]=\"size\"\n        [color]=\"'primary'\"\n        [variant]=\"variant\"\n        [radius]=\"radius\"\n        [disabled]=\"false\"\n        [readonly]=\"false\"\n        [required]=\"true\"\n        [invalid]=\"false\"\n        [placeholder]=\"'Enter your username'\"\n        [description]=\"'This is your public display name.'\"\n        [errorMessage]=\"'Username is required.'\"\n        [content]=\"'default value'\"\n        [labelPlacement]=\"'label-outside'\"\n        [isPrefixIconClass]=\"isPrefixIconClass\"\n        [prefixIconClass]=\"'icon-user'\"\n        [isSuffix1IconClass]=\"true\"\n        [suffix1IconClass]=\"'icon-close'\"\n        [isSuffix2IconClass]=\"true\"\n        [suffix2IconClass]=\"'icon-arrow-down'\"\n        [isClearable]=\"true\"\n      >\n      </ft-input>\n\n\n    </div>\n    <div class=\"case-item\">\n      <ft-input\n        [isLabel]=\"true\"\n        [label]=\"'Username'\"\n        [size]=\"size\"\n        [color]=\"'primary'\"\n        [variant]=\"variant\"\n        [radius]=\"radius\"\n        [disabled]=\"false\"\n        [readonly]=\"false\"\n        [required]=\"true\"\n        [invalid]=\"false\"\n        [placeholder]=\"'Enter your username'\"\n        [description]=\"'This is your public display name.'\"\n        [errorMessage]=\"'Username is required.'\"\n        [content]=\"'default value'\"\n        [labelPlacement]=\"'label-outside-left'\"\n        [isPrefixIconClass]=\"isPrefixIconClass\"\n        [prefixIconClass]=\"'icon-user'\"\n        [isSuffix1IconClass]=\"true\"\n        [suffix1IconClass]=\"'icon-close'\"\n        [isSuffix2IconClass]=\"true\"\n        [suffix2IconClass]=\"'icon-arrow-down'\"\n        [isClearable]=\"true\"\n      >\n      </ft-input>\n\n    </div>\n\n  </div>\n\n</div>\n</div>\n"
+            "templateData": "<!-- input-showcase.component.html -->\n<div class=\"all-case-container\">\n  <h1>FT-Radio Component All cases</h1>\n  <div class=\"cases-container\">\n    <div class=\"case-row case-row-heading\">\n      <div class=\"case-item case-item-heading\">\n\n      </div>\n      <div class=\"case-item\">\n        Selected\n      </div>\n      <div class=\"case-item\">\n        Unselected\n      </div>\n\n\n    </div>\n\n    <div class=\"case-row\">\n      <div class=\"case-item case-item-heading vertical-text\">\n        Rest\n      </div>\n      <div class=\"case-item\">\n        <ft-radio\n          [isLabel]=\"isLabel\"\n          [label]=\"label\"\n          [isDescription]=\"isDescription\"\n          [description]=\"description\"\n          [size]=\"size\"\n          [state]=\"'rest'\"\n          [invalid]=\"false\"\n          [select]=\"true\"\n          [inactive]=\"false\"\n        >\n        </ft-radio>\n\n      </div>\n      <div class=\"case-item\">\n        <ft-radio\n          [isLabel]=\"isLabel\"\n          [label]=\"label\"\n          [isDescription]=\"isDescription\"\n          [description]=\"description\"\n          [size]=\"size\"\n          [state]=\"'rest'\"\n          [invalid]=\"false\"\n          [select]=\"false\"\n          [inactive]=\"false\"\n        >\n        </ft-radio>\n\n\n      </div>\n\n\n    </div>\n\n    <div class=\"case-row\">\n      <div class=\"case-item case-item-heading vertical-text\">\n        Hover\n      </div>\n      <div class=\"case-item\">\n        <ft-radio\n          [isLabel]=\"isLabel\"\n          [label]=\"label\"\n          [isDescription]=\"isDescription\"\n          [description]=\"description\"\n          [size]=\"size\"\n          [state]=\"'hover'\"\n          [invalid]=\"false\"\n          [select]=\"true\"\n          [inactive]=\"false\"\n        >\n        </ft-radio>\n\n      </div>\n      <div class=\"case-item\">\n        <ft-radio\n          [isLabel]=\"isLabel\"\n          [label]=\"label\"\n          [isDescription]=\"isDescription\"\n          [description]=\"description\"\n          [size]=\"size\"\n          [state]=\"'hover'\"\n          [invalid]=\"false\"\n          [select]=\"false\"\n          [inactive]=\"false\"\n        >\n        </ft-radio>\n\n\n      </div>\n\n\n    </div>\n\n    <div class=\"case-row\">\n      <div class=\"case-item case-item-heading vertical-text\">\n        Press\n      </div>\n      <div class=\"case-item\">\n        <ft-radio\n          [isLabel]=\"isLabel\"\n          [label]=\"label\"\n          [isDescription]=\"isDescription\"\n          [description]=\"description\"\n          [size]=\"size\"\n          [state]=\"'press'\"\n          [invalid]=\"false\"\n          [select]=\"true\"\n          [inactive]=\"false\"\n        >\n        </ft-radio>\n\n      </div>\n      <div class=\"case-item\">\n        <ft-radio\n          [isLabel]=\"isLabel\"\n          [label]=\"label\"\n          [isDescription]=\"isDescription\"\n          [description]=\"description\"\n          [size]=\"size\"\n          [state]=\"'press'\"\n          [invalid]=\"false\"\n          [select]=\"false\"\n          [inactive]=\"false\"\n        >\n        </ft-radio>\n\n\n      </div>\n\n\n\n    </div>\n\n    <div class=\"case-row\">\n      <div class=\"case-item case-item-heading vertical-text\">\n        Disabled\n      </div>\n      <div class=\"case-item\">\n        <ft-radio\n          [isLabel]=\"isLabel\"\n          [label]=\"label\"\n          [isDescription]=\"isDescription\"\n          [description]=\"description\"\n          [size]=\"size\"\n          [state]=\"'rest'\"\n          [invalid]=\"false\"\n          [select]=\"true\"\n          [inactive]=\"true\"\n        >\n        </ft-radio>\n\n      </div>\n      <div class=\"case-item\">\n        <ft-radio\n          [isLabel]=\"isLabel\"\n          [label]=\"label\"\n          [isDescription]=\"isDescription\"\n          [description]=\"description\"\n          [size]=\"size\"\n          [state]=\"'rest'\"\n          [invalid]=\"false\"\n          [select]=\"false\"\n          [inactive]=\"true\"\n        >\n        </ft-radio>\n\n\n      </div>\n\n\n    </div>\n\n    <div class=\"case-row\">\n      <div class=\"case-item case-item-heading vertical-text\">\n        Invalid\n      </div>\n      <div class=\"case-item\">\n        <ft-radio\n          [isLabel]=\"isLabel\"\n          [label]=\"label\"\n          [isDescription]=\"isDescription\"\n          [description]=\"description\"\n          [size]=\"size\"\n          [state]=\"'rest'\"\n          [invalid]=\"true\"\n          [select]=\"true\"\n          [inactive]=\"false\"\n        >\n        </ft-radio>\n\n      </div>\n      <div class=\"case-item\">\n        <ft-radio\n          [isLabel]=\"isLabel\"\n          [label]=\"label\"\n          [isDescription]=\"isDescription\"\n          [description]=\"description\"\n          [size]=\"size\"\n          [state]=\"'rest'\"\n          [invalid]=\"true\"\n          [select]=\"false\"\n          [inactive]=\"false\"\n        >\n        </ft-radio>\n\n\n      </div>\n\n\n    </div>\n\n  </div>\n</div>\n"
         },
         {
             "name": "RiskAssessmentDialogComponent",
@@ -9215,7 +9252,7 @@
                 "linktype": "component",
                 "name": "RadioAllCasesComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/5",
+                "coverageCount": "0/6",
                 "status": "low"
             },
             {
@@ -9224,7 +9261,7 @@
                 "linktype": "component",
                 "name": "FtRadioComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/7",
+                "coverageCount": "0/10",
                 "status": "low"
             },
             {

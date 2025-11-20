@@ -2,7 +2,7 @@
 .field-container {
   display: flex;
   align-items: center;
-  gap: var(--ft-spacing-xs);
+  gap: var(--ft-unit-200);
   .field {
     width: 32px;
     height: 32px;
@@ -35,6 +35,11 @@
 
   }
 
+  .content {
+    display: flex;
+    flex-direction: column;
+  }
+
   &.md-size {
     .field {    .radio {
       width: 22px;
@@ -45,12 +50,37 @@
   }
 
   &.rest {
+    &.inactive {
+      .field {
+        .radio {
+          border: var(--ft-border-secondary) solid var(--ft-radio-muted);
+        }
+      }
+      .content {
+        color: var(--ft-color-on-surface-muted);
+      }
 
+    }
+    &.invalid {
+      .field {
+        .radio {
+          border: var(--ft-border-secondary) solid var(--ft-color-danger);
+        }
+      }
+
+    }
   }
 
   &.hover {
     .field {
       background-color: var(--ft-form-field-100);
+    }
+
+  }
+
+  &.press {
+    .field {
+      background-color: var(--ft-form-field-200);
     }
 
   }
@@ -65,12 +95,45 @@
       }
     }
 
+    &.inactive {
+      .field {
+        .radio {
+          border: var(--ft-border-secondary) solid var(--ft-radio-muted);
+          .control {
+            background-color: var(--ft-radio-muted);
+          }
+        }
+      }
 
-    /*&.hover {*/
-    /*  background-color: var(--ft-form-field-100);*/
-    /*}*/
+    }
+
+    &.invalid {
+      .field {
+        .radio {
+          border: var(--ft-border-secondary) solid var(--ft-color-danger);
+          .control {
+            background-color: var(--ft-color-danger);
+          }
+        }
+      }
+
+    }
 
   }
+
+  &.invalid {
+    .content {
+      color: var(--ft-color-danger);
+    }
+  }
+
+  &.inactive {
+    .content {
+      color: var(--ft-color-on-surface-muted);
+    }
+  }
+
+
 
 }
 

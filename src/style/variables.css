@@ -844,6 +844,7 @@
     --ft-icon-100: var(--ft-color-n-on-surface-100);
     --ft-icon-200: var(--ft-color-n-on-surface-15);
     --ft-icon-muted: var(--ft-color-n-on-surface-15);
+    --ft-radio-muted: var(--ft-color-n-on-surface-7);
 
 
     /* --- Colors --- */
