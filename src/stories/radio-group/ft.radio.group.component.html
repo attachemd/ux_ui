@@ -1,0 +1,24 @@
+<div class="group-field-container">
+  <div class="group-field-label content-xs--normal">
+    Label
+  </div>
+  <div class="group-field-content"
+  [ngClass]="flexDirection"
+  >
+    <ft-radio
+      *ngFor="let option of options"
+      [isLabel]="option.isLabel"
+      [label]="option.label"
+      [isDescription]="isDescription"
+      [description]="option.description"
+      [size]="option.size || size"
+      [state]="option.state || 'rest'"
+      [invalid]="option.invalid !== undefined ? option.invalid : false"
+      [select]="option.select !== undefined ? option.select : true"
+      [inactive]="option.inactive !== undefined ? option.inactive : false"
+    >
+    </ft-radio>
+  </div>
+</div>
+
+

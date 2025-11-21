@@ -1,0 +1,13 @@
+.group-field-container {
+  display: flex;
+
+  flex-direction: column;
+  gap: var(--ft-unit-200);
+  .group-field-label {
+
+  }
+  .group-field-content {
+    display: flex;
+    gap: var(--ft-unit-200);
+  }
+}

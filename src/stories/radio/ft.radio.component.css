@@ -38,6 +38,9 @@
   .content {
     display: flex;
     flex-direction: column;
+    .description {
+      color: var(--ft-color-on-surface-level-300);
+    }
   }
 
   &.md-size {
