@@ -6,8 +6,17 @@
   .group-field-label {
 
   }
-  .group-field-content {
+  .group-field-content-container {
     display: flex;
-    gap: var(--ft-unit-200);
+    flex-direction: column;
+    .group-field-content {
+      display: flex;
+      gap: var(--ft-unit-200);
+    }
   }
+}
+
+.error-text {
+  color: var(--ft-color-danger);
+  /*padding: 0 var(--ft-unit-200);*/
 }

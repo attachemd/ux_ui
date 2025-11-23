@@ -35,9 +35,10 @@ export class FtRadioGroupComponent {
   @Input() label?: string;
   @Input() isDescription = false;
   @Input() description?: string;
+  @Input() errorMessage?: string;
   @Input() select = false;
   @Input() inactive = false;
-  @Input() invalid = false;
+  @Input() invalid?: boolean;
   @Input() size: 'xs-size'|'sm-size'|'md-size'|'lg-size' = 'md-size';
   @Input() state: 'hover'|'press'|'focus'|'rest'= 'rest';
   @Input() flexDirection: 'flex-row'|'flex-col' = 'flex-row';

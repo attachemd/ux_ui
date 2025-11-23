@@ -17,6 +17,7 @@ const meta: Meta<FtRadioGroupComponent> = {
   },
   args: {
     isLabel: true,
+    label: 'Radio Group',
     options: [
       {
       isLabel: true,
@@ -52,19 +53,20 @@ export const Default: Story = {
 
 export const Hover: Story = {
   args: {
-    state: "hover"
+
   }
 };
 
-export const Select: Story = {
+export const Description: Story = {
   args: {
-    select: true
+    isDescription: true,
+    description: "Description for Radio Group"
   }
 };
 
-export const SelectAndHover: Story = {
+export const Invalid: Story = {
   args: {
-    select: true,
-    state: "hover"
+    invalid: true,
+    errorMessage: "An error occurred",
   }
 };
