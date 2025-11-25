@@ -209,6 +209,7 @@
   &.label-outside-left {
     /*flex-direction: row;*/
     /*align-items: center;*/
+    grid-template-columns: fit-content(50%) auto;
 
     .label-row {
       grid-column: 1;
