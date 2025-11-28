@@ -4,7 +4,9 @@ import docJson from "../documentation.json";
 // import "../src/style/tailwind.css"
 setCompodocJson(docJson);
 
-import { moduleMetadata } from '@storybook/angular';
+// import { moduleMetadata } from '@storybook/angular';
+// import {themes} from 'storybook/theming';
+import {withThemeByClassName} from '@storybook/addon-themes';
 
 const preview: Preview = {
   parameters: {
@@ -15,36 +17,55 @@ const preview: Preview = {
         date: /Date$/,
       },
     },
-    backgrounds: {
-      default: 'light',
-      values: [
-        { name: 'light', value: '#ffffff' },
-        { name: 'dark', value: '#121212' },
-      ],
-    },
+
+    // backgrounds: {
+    //   default: 'light',
+    //   values: [
+    //     { name: 'light', value: '#ffffff' },
+    //     { name: 'dark', value: '#121212' },
+    //   ],
+    // },
   },
+
   decorators: [
-    moduleMetadata({
-      declarations: [],
-      imports: [],
-      providers: [],
+    withThemeByClassName({
+      // 1. Target Element: 'html' or 'body' where the class is applied.
+      parentSelector: 'body',
+
+      // 2. Themes Mapping: Maps a user-friendly name (key) to the CSS class (value).
+      themes: {
+        // 'Theme Name': 'CSS-Class-Name'
+        light: '',
+        dark: 'dark-theme',
+      },
+
+      // 3. Default Theme: Which theme is active on load.
+      defaultTheme: 'light',
     }),
   ],
-  globalTypes: {
-    theme: {
-      name: 'Theme',
-      description: 'Global theme for components',
-      defaultValue: 'light',
-      toolbar: {
-        icon: 'circlehollow',
-        items: [
-          { value: 'light', title: 'Light' },
-          { value: 'dark', title: 'Dark' },
-        ],
-        dynamicTitle: true,
-      },
-    },
-  },
+
+  // decorators: [
+  //   moduleMetadata({
+  //     declarations: [],
+  //     imports: [],
+  //     providers: [],
+  //   }),
+  // ],
+  // globalTypes: {
+  //   theme: {
+  //     name: 'Theme',
+  //     description: 'Global theme for components',
+  //     defaultValue: 'light',
+  //     toolbar: {
+  //       icon: 'circlehollow',
+  //       items: [
+  //         { value: 'light', title: 'Light' },
+  //         { value: 'dark', title: 'Dark' },
+  //       ],
+  //       dynamicTitle: true,
+  //     },
+  //   },
+  // },
 };
 
 export default preview;

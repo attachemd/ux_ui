@@ -5,7 +5,7 @@
   width: 100%;
   max-width: 100%;
   margin: 0;
-  background-color: #ffffff;
+  background-color: var(--ft-color-surface-level-300);
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   h1 {
     color: #1a202c;
