@@ -754,6 +754,41 @@ border-radius: var(--ft-radius-pill);
     background-color: #45a049;
   }
 
+  /** StoryBook **/
+
+  .showcase-title {
+    color: var(--ft-color-on-surface-level-100);
+    margin-bottom: 1rem;
+    padding: var(--ft-unit-400) var(--ft-unit-600);
+    font-size: 1.6rem;
+    font-weight: 400;
+    /*text-align: center;*/
+
+    /*background:*/
+    /*  linear-gradient(var(--ft-color-primary), var(--ft-color-primary)) content-box,*/
+    /*  repeating-linear-gradient(*/
+    /*    45deg,*/
+    /*    var(--ft-color-primary) 0px,*/
+    /*    var(--ft-color-primary) 6px,*/
+    /*    white 6px,*/
+    /*    white 7px*/
+    /*  ) padding-box;*/
+
+    /*background:*/
+    /*  linear-gradient(red, red) content-box,*/
+    /*  linear-gradient(*/
+    /*    45deg,*/
+    /*    transparent 5%,*/
+    /*    blue 5%,*/
+    /*    blue 50%,*/
+    /*    transparent 50%,*/
+    /*    transparent 55%,*/
+    /*    blue 55%,*/
+    /*    blue 100%*/
+    /*  ) padding-box;*/
+    /*background-size: 10px 10px;*/
+  }
+
   @media (min-width: 1024px) {
     .form-group{
       flex-direction: row;

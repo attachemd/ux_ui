@@ -1,0 +1,36 @@
+<!-- color-table.component.html -->
+<!--<table border="1">-->
+<!--  &lt;!&ndash; Header row &ndash;&gt;-->
+<!--  <tr>-->
+<!--    <th>Variation\Color</th>-->
+<!--    <th *ngFor="let color of colors">{{ color }}</th>-->
+<!--  </tr>-->
+
+<!--  &lt;!&ndash; Data rows &ndash;&gt;-->
+<!--  <tr *ngFor="let variation of variations">-->
+<!--    <td>{{ variation }}</td>-->
+<!--    <td *ngFor="let color of colors">-->
+<!--      {{ 'var(&#45;&#45;color-' + color + '-' + variation + ')' }}-->
+<!--    </td>-->
+<!--  </tr>-->
+<!--</table>-->
+
+
+<table border="1">
+  <tr>
+    <th>Variation\Color</th>
+    <th *ngFor="let color of colors">{{ color }}</th>
+  </tr>
+  <tr *ngFor="let variation of variations">
+    <td>{{ variation }}</td>
+    <td *ngFor="let color of colors" >
+      <div class="cell">
+        <div class="color-sample" [ngStyle]="{'background-color': 'var(--color-' + color + '-' + variation + ')'}"></div>
+        <div class="color-desc">
+          {{ 'var(--color-' + color + '-' + variation + ')' }}
+        </div>
+      </div>
+
+    </td>
+  </tr>
+</table>

@@ -1,0 +1,23 @@
+table {
+  border-collapse: separate;
+  border-spacing: var(--ft-unit-400);
+}
+
+
+td:has(.cell) {
+  overflow: hidden;
+}
+
+.cell {
+  display: flex;
+  width: max-content;
+  gap: var(--ft-unit-400);
+  .color-sample {
+    width: 30px;
+    height: 30px;
+    background-color: #fff;
+    border: var(--ft-border-tertiary) solid var(--ft-color-surface-level-300);
+    border-radius: var(--ft-radius-300);
+    box-shadow: 0 1px 3px var(--ft-color-shadow-200);
+  }
+}
