@@ -51,9 +51,9 @@ export const Default: Story = {
   args: {}
 };
 
-export const AllVariations: Story = {
-  name: 'All Radio Variations',
-  render: () => ({
-    template: `<app-radio-showcase></app-radio-showcase>`
-  })
-};
+// export const AllVariations: Story = {
+//   name: 'All Radio Variations',
+//   render: () => ({
+//     template: `<app-radio-showcase></app-radio-showcase>`
+//   })
+// };

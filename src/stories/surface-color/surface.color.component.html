@@ -19,15 +19,18 @@
 <table border="1">
   <tr>
     <th>Variation\Color</th>
-    <th *ngFor="let color of colors">{{ color }}</th>
+    <th>Surface</th>
   </tr>
-  <tr *ngFor="let variation of variations">
-    <td>{{ variation }}</td>
-    <td *ngFor="let color of colors" >
+  <tr *ngFor="let level of surfaceLevels">
+    <td>{{ level }}</td>
+    <td>
       <div class="cell">
-        <div class="color-sample" [ngStyle]="{'background-color': 'var(--color-' + color + '-' + variation + ')'}"></div>
+        <div class="color-sample-container">
+          <div class="color-sample" [ngStyle]="{'background-color': 'var(--ft-color-n-surface-100)'}"></div>
+          <div class="color-sample" [ngStyle]="{'background-color': 'var(--ft-color-n-surface-' + level + ')'}"></div>
+        </div>
         <div class="color-desc">
-          {{ '--color-' + color + '-' + variation }}
+          {{ '--ft-color-n-surface-' + level }}
         </div>
       </div>
 

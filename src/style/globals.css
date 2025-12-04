@@ -92,6 +92,7 @@
 
   .sb-show-main {
     height: auto;
+    padding: 0 !important;
   }
 
   html {

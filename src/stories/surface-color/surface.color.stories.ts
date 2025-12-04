@@ -1,14 +1,14 @@
 // radio-showcase.stories.ts
 import type { Meta, StoryObj } from '@storybook/angular';
 import { moduleMetadata } from '@storybook/angular';
-import { CommonColorComponent } from './common.color.component';
+import { SurfaceColorComponent } from './surface.color.component';
 
 import { FormsModule } from '@angular/forms';
 import {FtRadioComponent} from '../radio/ft.radio.component';
 
-const meta: Meta<CommonColorComponent> = {
-  title: 'Color/Common',
-  component: CommonColorComponent,
+const meta: Meta<SurfaceColorComponent> = {
+  title: 'Color/Surface',
+  component: SurfaceColorComponent,
   // decorators: [
   //   moduleMetadata({
   //     imports: [FormsModule, FtRadioComponent],
@@ -31,7 +31,7 @@ const meta: Meta<CommonColorComponent> = {
 };
 
 export default meta;
-type Story = StoryObj<CommonColorComponent>;
+type Story = StoryObj<SurfaceColorComponent>;
 
 export const Default: Story = {
   args: {}

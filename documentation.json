@@ -2195,13 +2195,13 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "",
+                    "data": ":host {\r\n  display: block;\r\n  background-color: var(--ft-color-surface-level-300);\r\n  /*padding: var(--ft-unit-400)*/\r\n}\r\n\r\ntable {\r\n  /*border-collapse: separate;*/\r\n  /*border-spacing: var(--ft-unit-400);*/\r\n/*  background-color: var(--ft-color-surface-level-300);*/\r\n/*  padding: var(--ft-unit-400)*/\r\n}\r\n\r\ntr th {\r\n  color: var(--ft-color-on-surface-level-300);\r\n  font-size: var(--ft-text-2xs);\r\n  font-weight: 400;\r\n  padding: var(--ft-unit-200) var(--ft-unit-400);\r\n}\r\ntr td,\r\ntr th {\r\n  border-right: var(--ft-border-primary) solid var(--ft-color-border-200);\r\n  border-bottom: var(--ft-border-primary) solid var(--ft-color-border-200);\r\n}\r\n\r\ntr td:first-child,\r\ntr th:first-child {\r\n  padding: var(--ft-unit-200) var(--ft-unit-400);\r\n}\r\n\r\ntr td:first-child {\r\n  color: var(--ft-color-on-surface-level-300);\r\n  font-size: var(--ft-text-2xs);\r\n}\r\n\r\n\r\ntd:has(.cell) {\r\n  overflow: hidden;\r\n  font-size: var(--ft-text-2xs);\r\n}\r\n\r\n.cell {\r\n  display: flex;\r\n  width: max-content;\r\n  gap: var(--ft-unit-400);\r\n  padding: var(--ft-unit-400);\r\n  align-items: center;\r\n  .color-sample {\r\n    width: 30px;\r\n    height: 30px;\r\n    background-color: #fff;\r\n    border: var(--ft-border-tertiary) solid var(--ft-color-surface-level-300);\r\n    border-radius: var(--ft-radius-pill);\r\n    box-shadow: 0 1px 3px var(--ft-color-shadow-200);\r\n  }\r\n}\r\n",
                     "styleUrl": "./common.color.component.css"
                 }
             ],
             "stylesData": "",
             "extends": [],
-            "templateData": "<!-- color-table.component.html -->\n<!--<table border=\"1\">-->\n<!--  &lt;!&ndash; Header row &ndash;&gt;-->\n<!--  <tr>-->\n<!--    <th>Variation\\Color</th>-->\n<!--    <th *ngFor=\"let color of colors\">{{ color }}</th>-->\n<!--  </tr>-->\n\n<!--  &lt;!&ndash; Data rows &ndash;&gt;-->\n<!--  <tr *ngFor=\"let variation of variations\">-->\n<!--    <td>{{ variation }}</td>-->\n<!--    <td *ngFor=\"let color of colors\">-->\n<!--      {{ 'var(&#45;&#45;color-' + color + '-' + variation + ')' }}-->\n<!--    </td>-->\n<!--  </tr>-->\n<!--</table>-->\n\n\n<table border=\"1\">\n  <tr>\n    <th>Variation\\Color</th>\n    <th *ngFor=\"let color of colors\">{{ color }}</th>\n  </tr>\n  <tr *ngFor=\"let variation of variations\">\n    <td>{{ variation }}</td>\n    <td *ngFor=\"let color of colors\" [ngStyle]=\"{'background-color': 'var(--color-' + color + '-' + variation + ')'}\">\n      {{ 'var(--color-' + color + '-' + variation + ')' }}\n    </td>\n  </tr>\n</table>\n"
+            "templateData": "<!-- color-table.component.html -->\n<!--<table border=\"1\">-->\n<!--  &lt;!&ndash; Header row &ndash;&gt;-->\n<!--  <tr>-->\n<!--    <th>Variation\\Color</th>-->\n<!--    <th *ngFor=\"let color of colors\">{{ color }}</th>-->\n<!--  </tr>-->\n\n<!--  &lt;!&ndash; Data rows &ndash;&gt;-->\n<!--  <tr *ngFor=\"let variation of variations\">-->\n<!--    <td>{{ variation }}</td>-->\n<!--    <td *ngFor=\"let color of colors\">-->\n<!--      {{ 'var(&#45;&#45;color-' + color + '-' + variation + ')' }}-->\n<!--    </td>-->\n<!--  </tr>-->\n<!--</table>-->\n\n\n<table border=\"1\">\n  <tr>\n    <th>Variation\\Color</th>\n    <th *ngFor=\"let color of colors\">{{ color }}</th>\n  </tr>\n  <tr *ngFor=\"let variation of variations\">\n    <td>{{ variation }}</td>\n    <td *ngFor=\"let color of colors\" >\n      <div class=\"cell\">\n        <div class=\"color-sample\" [ngStyle]=\"{'background-color': 'var(--color-' + color + '-' + variation + ')'}\"></div>\n        <div class=\"color-desc\">\n          {{ '--color-' + color + '-' + variation }}\n        </div>\n      </div>\n\n    </td>\n  </tr>\n</table>\n"
         },
         {
             "name": "FTInputComponent",
@@ -6734,6 +6734,69 @@
             "templateData": "<form [formGroup]=\"riskFactorForm\">\n  <div class=\"dialog-form-body-container\">\n    <div class=\"dialog-form-body\">\n\n      <div class=\"form-group\">\n        <div class=\"field-container lg:min-w-[200px] lg:w-[200px]\">\n          <p-floatlabel variant=\"in\" class=\"w-full\">\n            <p-dropdown\n              formControlName=\"riskCategory\"\n              [options]=\"riskCategories\"\n              optionLabel=\"name\"\n              [showClear]=\"true\"\n              id=\"riskCategory\"\n              styleClass=\"w-full\"\n              variant=\"filled\"\n              (onChange)=\"onRiskCategoryChange()\"\n            />\n            <label for=\"riskCategory\">Catégorie de risque</label>\n          </p-floatlabel>\n        </div>\n\n        <div class=\"field-container\">\n          <p-floatlabel variant=\"in\" class=\"w-full\">\n            <p-autocomplete\n              [required]=\"true\"\n              formControlName=\"riskFactorName\"\n              [suggestions]=\"riskFactorSuggestions\"\n              field=\"name\"\n              (completeMethod)=\"searchRiskFactors($event)\"\n              (onSelect)=\"onRiskFactorSelect($event)\"\n              [showClear]=\"true\"\n              class=\"flex-grow\"\n              id=\"riskFactorName\"\n              variant=\"filled\"\n            >\n            </p-autocomplete>\n            <label\n              for=\"riskFactorName\">Facteur de risque {{ (riskCategoryControl?.value ? '(Filtré par ' + riskCategoryControl?.value.name + ') ' : ' ') }}\n              <span>*</span></label>\n          </p-floatlabel>\n          <small\n            class=\"p-error\"\n            *ngIf=\"shouldShowError(riskFactorNameControl)\"\n          >\n            <span *ngIf=\"riskFactorNameControl?.errors?.['required']\"\n            >Le facteur de risque est obligatoire.</span\n            >\n          </small>\n        </div>\n      </div>\n\n      <div class=\"form-group\">\n        <div class=\"field-container\">\n          <p-floatlabel variant=\"in\" class=\"w-full\">\n            <p-datepicker\n              formControlName=\"evaluationDate\"\n              [showClear]=\"true\"\n              id=\"evaluationDate\"\n              showIcon\n              iconDisplay=\"input\"\n              variant=\"filled\"\n              dateFormat=\"dd/mm/yy\"\n            ></p-datepicker>\n            <label for=\"evaluationDate\">Date de l'évaluation</label>\n          </p-floatlabel>\n        </div>\n\n        <div class=\"field-container\">\n          <p-floatlabel variant=\"in\" class=\"w-full\">\n            <p-dropdown\n              formControlName=\"riskLevel\"\n              [options]=\"riskLevels\"\n              optionLabel=\"name\"\n              [showClear]=\"true\"\n              id=\"riskLevel\"\n              styleClass=\"w-full\"\n              variant=\"filled\"\n            />\n            <label for=\"riskLevel\">Niveau de risque</label>\n          </p-floatlabel>\n        </div>\n      </div>\n\n      <div class=\"form-container\">\n        <p-floatlabel variant=\"in\">\n          <div class=\"p-inputgroup w-full\">\n              <textarea\n                pTextarea\n                id=\"note\"\n                formControlName=\"note\"\n                rows=\"3\"\n                cols=\"30\"\n                style=\"resize: none\"\n                class=\"w-full\"\n                variant=\"filled\"\n              ></textarea>\n            <p-button type=\"button\" pButton icon=\"pi pi-times\" severity=\"secondary\"\n                    [rounded]=\"true\"\n                    [text]=\"true\"\n                    (click)=\"clearField('note')\"\n                    *ngIf=\"noteControl?.value\"></p-button>\n          </div>\n          <label for=\"note\">Note</label>\n        </p-floatlabel>\n      </div>\n\n    </div>\n  </div>\n\n  <div class=\"flex justify-end gap-2 dialog-footer\">\n    <p-button\n      label=\"Annuler\"\n      severity=\"secondary\"\n      (click)=\"closeDialog(null)\"\n      size=\"small\"\n    />\n    <p-button label=\"Enregistrer\" (click)=\"saveRiskFactor()\" size=\"small\"\n              [disabled]=\"!riskFactorForm.valid\"/>\n  </div>\n</form>\n"
         },
         {
+            "name": "SurfaceColorComponent",
+            "id": "component-SurfaceColorComponent-8b0b2b7e5be3e2e88e01f2f608b5b0b7b935f9078c67ebc2a4444c34e6924408370f2ffd715a60717248f39897ac75165da7f5f76006048fa663084293a809fb",
+            "file": "src/stories/surface-color/surface.color.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "surface-color",
+            "styleUrls": [
+                "./surface.color.component.css"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./surface.color.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "surfaceLevels",
+                    "defaultValue": "[\n    '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10',\n    '15', '20', '25', '30', '35', '40', '45', '50', '55',\n    '60', '65', '70', '75', '80', '85', '90', '100'\n  ]",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "[]",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 15
+                }
+            ],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": false,
+            "imports": [
+                {
+                    "name": "NgForOf"
+                },
+                {
+                    "name": "NgStyle"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\nimport {NgForOf, NgStyle} from '@angular/common';\n\n@Component({\n  selector: 'surface-color',\n  templateUrl: './surface.color.component.html',\n  imports: [\n    NgForOf,\n    NgStyle\n  ],\n  styleUrls: ['./surface.color.component.css']\n})\nexport class SurfaceColorComponent {\n  // Array of opacity levels\n  surfaceLevels = [\n    '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10',\n    '15', '20', '25', '30', '35', '40', '45', '50', '55',\n    '60', '65', '70', '75', '80', '85', '90', '100'\n  ];\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ":host {\r\n  display: block;\r\n  background-color: var(--ft-color-surface-level-300);\r\n  /*padding: var(--ft-unit-400)*/\r\n}\r\n\r\ntable {\r\n  /*border-collapse: separate;*/\r\n  /*border-spacing: var(--ft-unit-400);*/\r\n/*  background-color: var(--ft-color-surface-level-300);*/\r\n/*  padding: var(--ft-unit-400)*/\r\n}\r\n\r\ntr th {\r\n  color: var(--ft-color-on-surface-level-300);\r\n  font-size: var(--ft-text-2xs);\r\n  font-weight: 400;\r\n  padding: var(--ft-unit-200) var(--ft-unit-400);\r\n}\r\ntr td,\r\ntr th {\r\n  border-right: var(--ft-border-primary) solid var(--ft-color-border-200);\r\n  border-bottom: var(--ft-border-primary) solid var(--ft-color-border-200);\r\n}\r\n\r\ntr td:first-child,\r\ntr th:first-child {\r\n  padding: var(--ft-unit-200) var(--ft-unit-400);\r\n}\r\n\r\ntr td:first-child {\r\n  color: var(--ft-color-on-surface-level-300);\r\n  font-size: var(--ft-text-2xs);\r\n}\r\n\r\n\r\ntd:has(.cell) {\r\n  overflow: hidden;\r\n  font-size: var(--ft-text-2xs);\r\n}\r\n\r\n.cell {\r\n  display: flex;\r\n  width: max-content;\r\n  gap: var(--ft-unit-400);\r\n  padding: var(--ft-unit-400);\r\n  align-items: center;\r\n  .color-sample {\r\n    width: 30px;\r\n    height: 30px;\r\n    background-color: #fff;\r\n    border: var(--ft-border-tertiary) solid var(--ft-color-surface-level-300);\r\n    border-radius: var(--ft-radius-pill);\r\n    box-shadow: 0 1px 3px var(--ft-color-shadow-200);\r\n  }\r\n}\r\n",
+                    "styleUrl": "./surface.color.component.css"
+                }
+            ],
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<!-- color-table.component.html -->\n<!--<table border=\"1\">-->\n<!--  &lt;!&ndash; Header row &ndash;&gt;-->\n<!--  <tr>-->\n<!--    <th>Variation\\Color</th>-->\n<!--    <th *ngFor=\"let color of colors\">{{ color }}</th>-->\n<!--  </tr>-->\n\n<!--  &lt;!&ndash; Data rows &ndash;&gt;-->\n<!--  <tr *ngFor=\"let variation of variations\">-->\n<!--    <td>{{ variation }}</td>-->\n<!--    <td *ngFor=\"let color of colors\">-->\n<!--      {{ 'var(&#45;&#45;color-' + color + '-' + variation + ')' }}-->\n<!--    </td>-->\n<!--  </tr>-->\n<!--</table>-->\n\n\n<table border=\"1\">\n  <tr>\n    <th>Variation\\Color</th>\n    <th>Surface</th>\n  </tr>\n  <tr *ngFor=\"let level of surfaceLevels\">\n    <td>{{ level }}</td>\n    <td>\n      <div class=\"cell\">\n        <div class=\"color-sample\" [ngStyle]=\"{'background-color': 'var(--ft-color-n-surface-' + level + ')'}\"></div>\n        <div class=\"color-desc\">\n          {{ '--ft-color-n-surface-' + level }}\n        </div>\n      </div>\n\n    </td>\n  </tr>\n</table>\n"
+        },
+        {
             "name": "SurgeryHistoryDialogComponent",
             "id": "component-SurgeryHistoryDialogComponent-36d7bb012f23801f6ee6fa006d0d5292a2069997750138d4bc95a801b86e16b31ef4a2c05d780119051b6d0fda284d92df8f1d0eb32b4aa8611a0a8e831d9545",
             "file": "src/app/dialogs/surgery-history-dialog/surgery-history-dialog.component.ts",
@@ -9686,6 +9749,15 @@
                 "name": "FtRadioComponent",
                 "coveragePercent": 0,
                 "coverageCount": "0/10",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/surface-color/surface.color.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "SurfaceColorComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
                 "status": "low"
             },
             {

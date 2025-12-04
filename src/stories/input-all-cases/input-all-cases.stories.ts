@@ -51,9 +51,9 @@ export const Default: Story = {
   args: {}
 };
 
-export const AllVariations: Story = {
-  name: 'All Input Variations',
-  render: () => ({
-    template: `<app-input-showcase></app-input-showcase>`
-  })
-};
+// export const AllVariations: Story = {
+//   name: 'All Input Variations',
+//   render: () => ({
+//     template: `<app-input-showcase></app-input-showcase>`
+//   })
+// };
