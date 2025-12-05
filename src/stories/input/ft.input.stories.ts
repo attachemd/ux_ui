@@ -76,7 +76,7 @@ const meta: Meta<FTInputComponent> = {
     suffix2IconClass: 'icon-arrow-down',
     invalid: false,
     errorMessage: 'error',
-  }
+  },
 };
 
 export default meta;

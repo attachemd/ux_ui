@@ -25,13 +25,16 @@
     <td>{{ level }}</td>
     <td>
       <div class="cell">
-        <div class="color-sample-container">
-          <div class="color-sample" [ngStyle]="{'background-color': 'var(--ft-color-n-surface-100)'}"></div>
-          <div class="color-sample" [ngStyle]="{'background-color': 'var(--ft-color-n-surface-' + level + ')'}"></div>
+        <div class="color-sample-outer-container">
+          <div class="color-sample-container">
+            <div class="color-sample solid" [ngStyle]="{'background-color': 'var(--ft-color-n-surface-100)'}"></div>
+            <div class="color-sample" [ngStyle]="{'background-color': 'var(--ft-color-n-surface-' + level + ')'}"></div>
+          </div>
         </div>
         <div class="color-desc">
           {{ '--ft-color-n-surface-' + level }}
         </div>
+
       </div>
 
     </td>
