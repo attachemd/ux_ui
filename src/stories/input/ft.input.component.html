@@ -42,17 +42,23 @@
         >{{ label }} <span *ngIf="required && !disabled">*</span></span>
       </div>
       <div *ngIf="content" class="content-row">
-        <p class="content leading-none truncate"
+        <p class="content truncate"
            [ngClass]="{
-           'content-xs--normal': size === 'xs-size',
-           'content-sm--normal': size === 'sm-size' || size === 'md-size',
-           'content-md--normal': size === 'lg-size',
+           'content-2xs--normal': size === 'xs-size',
+           'content-xs--normal': size === 'sm-size' || size === 'md-size',
+           'content-sm--normal': size === 'lg-size',
            }"
         >{{ content }}</p>
       </div>
 
       <div *ngIf="hasPlaceholderToShow" class="placeholder-row">
-        <p class="placeholder content-xs--normal truncate">{{ placeholder }}</p>
+        <p class="placeholder truncate"
+           [ngClass]="{
+           'content-2xs--normal': size === 'xs-size',
+           'content-xs--normal': size === 'sm-size' || size === 'md-size',
+           'content-sm--normal': size === 'lg-size',
+           }"
+        >{{ placeholder }}</p>
       </div>
     </div>
     <div class="suffix-icon flex" *ngIf="!readonly">

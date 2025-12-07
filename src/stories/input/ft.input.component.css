@@ -8,18 +8,23 @@
 
   .input-wrapper {
     display: flex;
+    min-width: 100%;
     align-items: center;
-    /*border: 1px solid var(--ft-color-border-200);*/
+    border-style: solid;
+    border-color: var(--ft-color-border-200);
+    border-width: var(--ft-border-secondary);
     padding: 0 var(--ft-unit-400);
     /*gap: var(--ft-unit-400);*/
     /*height: var(--ft-unit-800);*/
     /*background-color: var(--ft-form-field-100);*/
+
 
     .content-section {
       display: flex;
       flex-direction: column;
       flex-grow: 1;
       gap: var(--ft-unit-100);
+      min-width: 0;
 
       .label-row {
         display: flex;
@@ -31,7 +36,7 @@
       }
 
       .placeholder {
-        color: var(--ft-color-on-surface-level-200);
+        color: var(--ft-color-on-surface-level-300);
       }
     }
 
@@ -41,9 +46,11 @@
 
   }
 
+
   &.flat {
     .input-wrapper {
       background-color: var(--ft-form-field-100);
+      border: none;
     }
     &.hovered {
       .input-wrapper {
@@ -66,7 +73,6 @@
   &.faded{
     .input-wrapper {
       background-color: var(--ft-form-field-100);
-      border: var(--ft-border-secondary)  solid var(--ft-color-border-200);
     }
     &.hovered {
       .input-wrapper {
@@ -76,12 +82,12 @@
     &.focused {
       .input-wrapper {
         background-color: var(--ft-form-field-200);
-        border: var(--ft-border-secondary) solid var(--ft-color-primary);
+        border-color: var(--ft-color-primary);
       }
     }
     &.readonly {
       .input-wrapper {
-        border: var(--ft-border-secondary) solid var(--ft-color-border-100);
+        border-color: var(--ft-color-border-100);
         background-color: var(--ft-form-field-50);
       }
     }
@@ -95,27 +101,27 @@
 
   &.underlined {
     .input-wrapper {
-      border: var(--ft-border-secondary) solid var(--ft-color-border-200);
+
     }
     &.hovered {
       .input-wrapper {
-        border: var(--ft-border-secondary) solid var(--ft-color-border-300);
+        border-color: var(--ft-color-border-300);
       }
     }
     &.focused {
       .input-wrapper {
-        border: var(--ft-border-secondary) solid var(--ft-color-primary);
+        border-color: var(--ft-color-primary);
       }
     }
     &.readonly {
       .input-wrapper {
-        border: var(--ft-border-secondary) solid var(--ft-color-border-100);
+        border-color: var(--ft-color-border-100);
       }
     }
     &.disabled {
       color: var(--ft-color-on-surface-muted);
       .input-wrapper {
-        border: var(--ft-border-secondary) solid var(--ft-color-border-200);
+        border-color: var(--ft-color-border-200);
       }
     }
   }
@@ -126,7 +132,8 @@
     }
     .input-wrapper {
       background-color: var(--ft-color-danger-50);
-      border: var(--ft-border-secondary)  solid var(--ft-color-danger);
+      border-style: solid;
+      border-color: var(--ft-color-danger);
     }
   }
 
@@ -161,24 +168,17 @@
     .input-wrapper {
       grid-column: 1;
       grid-row: 1;
-      /* B will take the remaining space */
-      min-width: min-content; /* Prevents B from shrinking too much */
+
     }
 
     .error-message {
       grid-column: 1;
       grid-row: 2;
-      /* C automatically matches B's column width */
-      /*width: 100%;*/
-      /*box-sizing: border-box;*/
     }
 
     .description {
       grid-column: 1;
       grid-row: 2;
-      /* C automatically matches B's column width */
-      /*width: 100%;*/
-      /*box-sizing: border-box;*/
     }
   }
 
@@ -192,7 +192,6 @@
     .input-wrapper {
       grid-column: 1;
       grid-row: 2;
-      min-width: min-content; /* Prevents B from shrinking too much */
     }
 
     .error-message {
@@ -219,7 +218,6 @@
     .input-wrapper {
       grid-column: 2;
       grid-row: 1;
-      min-width: min-content; /* Prevents B from shrinking too much */
     }
 
     .error-message {
@@ -239,6 +237,7 @@
       /*height: var(--ft-unit-600);*/
       height: var(--ft-unit-500);
       gap: var(--ft-unit-200);
+      border-width: var(--ft-border-primary);
 
       [class^="icon-"], [class*=" icon-"] {
         width: 16px;
@@ -389,9 +388,9 @@ body:has(.input-wrapper) {
   background-color: var(--ft-color-surface-muted);
 }
 
-.input-wrapper.bordered {
-  border: 1px solid var(--ft-color-border-200);
-}
+/*.input-wrapper.bordered {*/
+/*  border-color: var(--ft-color-border-200);*/
+/*}*/
 
 /* Add more variant/size/color CSS as needed */
 .input-wrapper.invalid {
