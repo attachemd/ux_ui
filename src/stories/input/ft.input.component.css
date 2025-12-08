@@ -1,3 +1,11 @@
+::ng-deep storybook-root {
+  > ft-input {
+    min-width: 200px;
+    width: fit-content !important;
+    display: block;
+  }
+}
+
 :host {
   width: 100%;
 }

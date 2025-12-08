@@ -35,12 +35,17 @@ const meta: Meta<InputAllCasesComponent> = {
       control: 'select',
       options: ['flat', 'faded', 'underlined', 'ghost'],
     },
+    isDescription: {
+      control: "boolean",
+      options: [true, false],
+    }
   },
   args: {
     isPrefixIconClass: false,
     radius: 'md-radius',
     size: 'md-size',
     variant: 'flat',
+    isDescription: false,
   }
 };
 

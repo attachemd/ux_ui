@@ -1,5 +1,5 @@
 // input-showcase.component.ts
-import {Component, Input} from '@angular/core';
+import {Component, HostBinding, Input} from '@angular/core';
 
 import { CommonModule } from '@angular/common';
 import {FtRadioComponent} from '../radio/ft.radio.component';
@@ -12,6 +12,7 @@ import {FtRadioComponent} from '../radio/ft.radio.component';
   imports: [CommonModule, FtRadioComponent]
 })
 export class RadioAllCasesComponent {
+  @HostBinding('class') class = 'showcase';
 
   isLabel = false;
   label= 'Option A';

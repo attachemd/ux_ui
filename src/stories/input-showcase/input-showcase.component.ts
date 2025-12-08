@@ -1,5 +1,5 @@
 // input-showcase.component.ts
-import { Component } from '@angular/core';
+import {Component, HostBinding} from '@angular/core';
 
 import { CommonModule } from '@angular/common';
 import {FTInputComponent} from '../input/ft.input.component';
@@ -12,6 +12,7 @@ import {FTInputComponent} from '../input/ft.input.component';
   imports: [CommonModule, FTInputComponent]
 })
 export class InputShowcaseComponent {
+  @HostBinding('class') class = 'showcase';
   // Basic Examples
   basicValue = '';
   disabledValue = 'Cannot edit this';

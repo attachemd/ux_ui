@@ -90,10 +90,21 @@
     color: var(--ft-color-text-primary);
   }
 
-  .sb-show-main {
+  .sb-show-main:has([class*="showcase"]) {
     height: auto;
     padding: 0 !important;
   }
+
+  .sb-show-main {
+    background: var(--ft-color-surface-level-100);
+  }
+
+  /*storybook-root {*/
+  /*  > ft-input {*/
+  /*    width: 200px !important;*/
+  /*    display: block;*/
+  /*  }*/
+  /*}*/
 
   html {
     background: #ffffff;

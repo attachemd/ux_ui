@@ -74,6 +74,7 @@ const meta: Meta<FTInputComponent> = {
     suffix1IconClass: 'icon-close',
     isSuffix2IconClass: true,
     suffix2IconClass: 'icon-arrow-down',
+    isDescription: false,
     invalid: false,
     errorMessage: 'error',
   },
@@ -252,6 +253,7 @@ export const WithSuffixIcons: Story = {
 
 export const WithDescription: Story = {
   args: {
+    isDescription: true,
     description: 'This is a description.',
     label: 'With Description',
   },

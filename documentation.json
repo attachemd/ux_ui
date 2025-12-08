@@ -2205,7 +2205,7 @@
         },
         {
             "name": "FTInputComponent",
-            "id": "component-FTInputComponent-193f34199ba529485d56943ec948382e246677997ca8a8ca825f77c87505091cf1e6afa88ff124234af91d119c18230bdb0af9c3ceed85078473962d29543b2e",
+            "id": "component-FTInputComponent-447c4136e7f1112b5fa3c72bc57b5a17397ec899da1e8006a038f785507b695418df3e021c304898b7fcee13221e761475c9216751fe3f4e8f6a8e8b0b53cbb5",
             "file": "src/stories/input/ft.input.component.ts",
             "encapsulation": [
                 "ViewEncapsulation.Emulated"
@@ -2238,7 +2238,7 @@
                     "name": "content",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 32,
+                    "line": 33,
                     "type": "string",
                     "decorators": []
                 },
@@ -2246,7 +2246,7 @@
                     "name": "description",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 30,
+                    "line": 31,
                     "type": "string",
                     "decorators": []
                 },
@@ -2263,7 +2263,7 @@
                     "name": "errorMessage",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 31,
+                    "line": 32,
                     "type": "string",
                     "decorators": []
                 },
@@ -2281,7 +2281,16 @@
                     "defaultValue": "false",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 44,
+                    "line": 45,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "isDescription",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 30,
                     "type": "boolean",
                     "decorators": []
                 },
@@ -2299,7 +2308,7 @@
                     "defaultValue": "false",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 35,
+                    "line": 36,
                     "type": "boolean",
                     "decorators": []
                 },
@@ -2308,7 +2317,7 @@
                     "defaultValue": "true",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 38,
+                    "line": 39,
                     "type": "boolean",
                     "decorators": []
                 },
@@ -2317,7 +2326,7 @@
                     "defaultValue": "true",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 41,
+                    "line": 42,
                     "type": "boolean",
                     "decorators": []
                 },
@@ -2334,7 +2343,7 @@
                     "defaultValue": "'label-inside'",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 33,
+                    "line": 34,
                     "type": "\"label-inside\" | \"label-outside\" | \"label-outside-left\"",
                     "decorators": []
                 },
@@ -2351,7 +2360,7 @@
                     "defaultValue": "''",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 36,
+                    "line": 37,
                     "type": "string",
                     "decorators": []
                 },
@@ -2405,7 +2414,7 @@
                     "defaultValue": "'icon-close'",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 39,
+                    "line": 40,
                     "type": "string",
                     "decorators": []
                 },
@@ -2414,7 +2423,7 @@
                     "defaultValue": "'icon-arrow-down'",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 42,
+                    "line": 43,
                     "type": "string",
                     "decorators": []
                 },
@@ -2439,7 +2448,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 45
+                    "line": 46
                 }
             ],
             "methodsClass": [
@@ -2449,7 +2458,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 46,
+                    "line": 47,
                     "deprecated": false,
                     "deprecationMessage": ""
                 }
@@ -2474,11 +2483,11 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import {Component, Input, ViewEncapsulation} from '@angular/core';\r\nimport {NgClass, NgIf} from '@angular/common';\r\nimport {FormsModule} from '@angular/forms';\r\n\r\n@Component({\r\n  selector: 'ft-input',\r\n  templateUrl: './ft.input.component.html',\r\n  imports: [\r\n    NgClass,\r\n    FormsModule,\r\n    NgIf\r\n  ],\r\n  styleUrls: ['./ft.input.component.css'],\r\n  encapsulation: ViewEncapsulation.Emulated // Ensure this is set (default)\r\n})\r\nexport class FTInputComponent {\r\n  // @Input() isLabel = false;\r\n  @Input() isLabel = true;\r\n  @Input() label?: string;\r\n  @Input() size: 'xs-size'|'sm-size'|'md-size'|'lg-size' = 'md-size';\r\n  @Input() color: 'default'|'primary'|'secondary' = 'default';\r\n  @Input() variant: 'flat'|'faded'|'underlined'|'ghost' = 'flat';\r\n  @Input() radius: 'none-radius'|'sm-radius'|'md-radius'|'lg-radius'|'full-radius' = 'md-radius';\r\n  @Input() state: 'hovered'|'focused'|'normal'= 'normal';\r\n  @Input() disabled = false;\r\n  @Input() readonly = false;\r\n  @Input() required = false;\r\n  @Input() invalid = false;\r\n  @Input() placeholder?: string;\r\n  @Input() description?: string;\r\n  @Input() errorMessage?: string;\r\n  @Input() content?: string;\r\n  @Input() labelPlacement: 'label-inside' | 'label-outside' | 'label-outside-left' = 'label-inside';\r\n\r\n  @Input() isPrefixIconClass = false;\r\n  @Input() prefixIconClass = ''; // For icon libraries that use classes\r\n\r\n  @Input() isSuffix1IconClass = true;\r\n  @Input() suffix1IconClass = 'icon-close';\r\n\r\n  @Input() isSuffix2IconClass = true;\r\n  @Input() suffix2IconClass = 'icon-arrow-down';\r\n\r\n  @Input() isClearable = false;\r\n  value = '';\r\n  clear() { this.value = ''; }\r\n\r\n  get radiusClasses(): string {\r\n    const classes = {\r\n      'none-radius': 'rounded-none',\r\n      'sm-radius': 'rounded-sm',\r\n      'md-radius': 'rounded-lg',\r\n      'lg-radius': 'rounded-xl',\r\n      'full-radius': 'rounded-full'\r\n    };\r\n    return classes[this.radius] || 'rounded-md';\r\n  }\r\n\r\n  get hasPlaceholderToShow(): boolean {\r\n    // Basic conditions that prevent showing placeholder\r\n    if (!this.placeholder || this.content || this.disabled || this.readonly) {\r\n      return false;\r\n    }\r\n\r\n    // Special case: don't show placeholder for label-inside fields in normal states\r\n    const isLabelInsideInNormalState = this.labelPlacement === 'label-inside' &&\r\n      this.isNormalOrHoveredState &&\r\n      !this.invalid;\r\n\r\n    return !isLabelInsideInNormalState;\r\n  }\r\n\r\n  get isNormalOrHoveredState(): boolean {\r\n    return this.state === 'normal' || this.state === 'hovered';\r\n  }\r\n}\r\n",
+            "sourceCode": "import {Component, Input, ViewEncapsulation} from '@angular/core';\r\nimport {NgClass, NgIf} from '@angular/common';\r\nimport {FormsModule} from '@angular/forms';\r\n\r\n@Component({\r\n  selector: 'ft-input',\r\n  templateUrl: './ft.input.component.html',\r\n  imports: [\r\n    NgClass,\r\n    FormsModule,\r\n    NgIf\r\n  ],\r\n  styleUrls: ['./ft.input.component.css'],\r\n  encapsulation: ViewEncapsulation.Emulated // Ensure this is set (default)\r\n})\r\nexport class FTInputComponent {\r\n  // @Input() isLabel = false;\r\n  @Input() isLabel = true;\r\n  @Input() label?: string;\r\n  @Input() size: 'xs-size'|'sm-size'|'md-size'|'lg-size' = 'md-size';\r\n  @Input() color: 'default'|'primary'|'secondary' = 'default';\r\n  @Input() variant: 'flat'|'faded'|'underlined'|'ghost' = 'flat';\r\n  @Input() radius: 'none-radius'|'sm-radius'|'md-radius'|'lg-radius'|'full-radius' = 'md-radius';\r\n  @Input() state: 'hovered'|'focused'|'normal'= 'normal';\r\n  @Input() disabled = false;\r\n  @Input() readonly = false;\r\n  @Input() required = false;\r\n  @Input() invalid = false;\r\n  @Input() placeholder?: string;\r\n  @Input() isDescription = false;\r\n  @Input() description?: string;\r\n  @Input() errorMessage?: string;\r\n  @Input() content?: string;\r\n  @Input() labelPlacement: 'label-inside' | 'label-outside' | 'label-outside-left' = 'label-inside';\r\n\r\n  @Input() isPrefixIconClass = false;\r\n  @Input() prefixIconClass = ''; // For icon libraries that use classes\r\n\r\n  @Input() isSuffix1IconClass = true;\r\n  @Input() suffix1IconClass = 'icon-close';\r\n\r\n  @Input() isSuffix2IconClass = true;\r\n  @Input() suffix2IconClass = 'icon-arrow-down';\r\n\r\n  @Input() isClearable = false;\r\n  value = '';\r\n  clear() { this.value = ''; }\r\n\r\n  get radiusClasses(): string {\r\n    const classes = {\r\n      'none-radius': 'rounded-none',\r\n      'sm-radius': 'rounded-sm',\r\n      'md-radius': 'rounded-lg',\r\n      'lg-radius': 'rounded-xl',\r\n      'full-radius': 'rounded-full'\r\n    };\r\n    return classes[this.radius] || 'rounded-md';\r\n  }\r\n\r\n  get hasPlaceholderToShow(): boolean {\r\n    // Basic conditions that prevent showing placeholder\r\n    if (!this.placeholder || this.content || this.disabled || this.readonly) {\r\n      return false;\r\n    }\r\n\r\n    // Special case: don't show placeholder for label-inside fields in normal states\r\n    const isLabelInsideInNormalState = this.labelPlacement === 'label-inside' &&\r\n      this.isNormalOrHoveredState &&\r\n      !this.invalid;\r\n\r\n    return !isLabelInsideInNormalState;\r\n  }\r\n\r\n  get isNormalOrHoveredState(): boolean {\r\n    return this.state === 'normal' || this.state === 'hovered';\r\n  }\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": ":host {\r\n  width: 100%;\r\n}\r\n\r\n\r\n.field-container {\r\n  /*width: var(--container-xs);*/\r\n\r\n  .input-wrapper {\r\n    display: flex;\r\n    align-items: center;\r\n    border-style: solid;\r\n    border-color: var(--ft-color-border-200);\r\n    border-width: var(--ft-border-secondary);\r\n    padding: 0 var(--ft-unit-400);\r\n    /*gap: var(--ft-unit-400);*/\r\n    /*height: var(--ft-unit-800);*/\r\n    /*background-color: var(--ft-form-field-100);*/\r\n\r\n\r\n    .content-section {\r\n      display: flex;\r\n      flex-direction: column;\r\n      flex-grow: 1;\r\n      gap: var(--ft-unit-100);\r\n\r\n      .label-row {\r\n        display: flex;\r\n        height: fit-content;\r\n      }\r\n\r\n      .content {\r\n\r\n      }\r\n\r\n      .placeholder {\r\n        color: var(--ft-color-on-surface-level-200);\r\n      }\r\n    }\r\n\r\n    .suffix-icon {\r\n      gap: var(--ft-unit-100);\r\n    }\r\n\r\n  }\r\n\r\n\r\n  &.flat {\r\n    .input-wrapper {\r\n      background-color: var(--ft-form-field-100);\r\n      border: none;\r\n    }\r\n    &.hovered {\r\n      .input-wrapper {\r\n        background-color: var(--ft-form-field-200);\r\n      }\r\n    }\r\n    &.readonly {\r\n      .input-wrapper {\r\n        background-color: var(--ft-form-field-50);\r\n      }\r\n    }\r\n    &.disabled {\r\n      color: var(--ft-color-on-surface-muted);\r\n      .input-wrapper {\r\n        background-color: var(--ft-form-field-100);\r\n      }\r\n    }\r\n  }\r\n\r\n  &.faded{\r\n    .input-wrapper {\r\n      background-color: var(--ft-form-field-100);\r\n    }\r\n    &.hovered {\r\n      .input-wrapper {\r\n        background-color: var(--ft-form-field-200);\r\n      }\r\n    }\r\n    &.focused {\r\n      .input-wrapper {\r\n        background-color: var(--ft-form-field-200);\r\n        border-color: var(--ft-color-primary);\r\n      }\r\n    }\r\n    &.readonly {\r\n      .input-wrapper {\r\n        border-color: var(--ft-color-border-100);\r\n        background-color: var(--ft-form-field-50);\r\n      }\r\n    }\r\n    &.disabled {\r\n      color: var(--ft-color-on-surface-muted);\r\n      .input-wrapper {\r\n        background-color: var(--ft-form-field-100);\r\n      }\r\n    }\r\n  }\r\n\r\n  &.underlined {\r\n    .input-wrapper {\r\n\r\n    }\r\n    &.hovered {\r\n      .input-wrapper {\r\n        border-color: var(--ft-color-border-300);\r\n      }\r\n    }\r\n    &.focused {\r\n      .input-wrapper {\r\n        border-color: var(--ft-color-primary);\r\n      }\r\n    }\r\n    &.readonly {\r\n      .input-wrapper {\r\n        border-color: var(--ft-color-border-100);\r\n      }\r\n    }\r\n    &.disabled {\r\n      color: var(--ft-color-on-surface-muted);\r\n      .input-wrapper {\r\n        border-color: var(--ft-color-border-200);\r\n      }\r\n    }\r\n  }\r\n\r\n  &.invalid {\r\n    .label {\r\n      color: var(--ft-color-danger);\r\n    }\r\n    .input-wrapper {\r\n      background-color: var(--ft-color-danger-50);\r\n      border-style: solid;\r\n      border-color: var(--ft-color-danger);\r\n    }\r\n  }\r\n\r\n  &.ghost {\r\n    .input-wrapper {\r\n      border: none;\r\n    }\r\n    &.hovered {\r\n      .input-wrapper {\r\n        background-color: var(--ft-form-field-50);\r\n      }\r\n    }\r\n    &.focused {\r\n      .input-wrapper {\r\n        background-color: var(--ft-form-field-50);\r\n      }\r\n    }\r\n    &.readonly {\r\n      .input-wrapper {\r\n\r\n      }\r\n    }\r\n    &.disabled {\r\n      color: var(--ft-color-on-surface-muted);\r\n      .input-wrapper {\r\n\r\n      }\r\n    }\r\n  }\r\n\r\n  &.label-inside {\r\n    .input-wrapper {\r\n      grid-column: 1;\r\n      grid-row: 1;\r\n      /* B will take the remaining space */\r\n      min-width: min-content; /* Prevents B from shrinking too much */\r\n    }\r\n\r\n    .error-message {\r\n      grid-column: 1;\r\n      grid-row: 2;\r\n      /* C automatically matches B's column width */\r\n      /*width: 100%;*/\r\n      /*box-sizing: border-box;*/\r\n    }\r\n\r\n    .description {\r\n      grid-column: 1;\r\n      grid-row: 2;\r\n      /* C automatically matches B's column width */\r\n      /*width: 100%;*/\r\n      /*box-sizing: border-box;*/\r\n    }\r\n  }\r\n\r\n  &.label-outside {\r\n\r\n    .label-row {\r\n      grid-column: 1;\r\n      grid-row: 1;\r\n    }\r\n\r\n    .input-wrapper {\r\n      grid-column: 1;\r\n      grid-row: 2;\r\n      min-width: min-content; /* Prevents B from shrinking too much */\r\n    }\r\n\r\n    .error-message {\r\n      grid-column: 1;\r\n      grid-row: 3;\r\n    }\r\n\r\n    .description {\r\n      grid-column: 1;\r\n      grid-row: 3;\r\n    }\r\n  }\r\n\r\n  &.label-outside-left {\r\n    /*flex-direction: row;*/\r\n    /*align-items: center;*/\r\n    grid-template-columns: fit-content(50%) auto;\r\n\r\n    .label-row {\r\n      grid-column: 1;\r\n      grid-row: 1;\r\n    }\r\n\r\n    .input-wrapper {\r\n      grid-column: 2;\r\n      grid-row: 1;\r\n      min-width: min-content; /* Prevents B from shrinking too much */\r\n    }\r\n\r\n    .error-message {\r\n      grid-column: 2;\r\n      grid-row: 2;\r\n    }\r\n\r\n    .description {\r\n      grid-column: 2;\r\n      grid-row: 2;\r\n    }\r\n  }\r\n\r\n  &.xs-size {\r\n    .input-wrapper {\r\n      padding: 0 var(--ft-unit-300);\r\n      /*height: var(--ft-unit-600);*/\r\n      height: var(--ft-unit-500);\r\n      gap: var(--ft-unit-200);\r\n      border-width: var(--ft-border-primary);\r\n\r\n      [class^=\"icon-\"], [class*=\" icon-\"] {\r\n        width: 16px;\r\n        height: 16px;\r\n        font-size: 14px;\r\n      }\r\n\r\n      .content-section {\r\n        gap: 0;\r\n\r\n        .label-row {\r\n\r\n        }\r\n\r\n        .content {\r\n\r\n        }\r\n\r\n        .placeholder {\r\n          color: var(--ft-color-on-surface-level-200);\r\n        }\r\n      }\r\n    }\r\n\r\n    &.label-inside {\r\n      .input-wrapper {\r\n        padding: 0 var(--ft-unit-300);\r\n        height: var(--ft-unit-1000);\r\n      }\r\n    }\r\n\r\n    &.label-outside {\r\n      .input-wrapper {\r\n      }\r\n    }\r\n\r\n    &.label-outside-left {\r\n      column-gap: var(--ft-unit-100);\r\n\r\n      .input-wrapper {\r\n\r\n      }\r\n    }\r\n  }\r\n\r\n  &.sm-size {\r\n    .input-wrapper {\r\n      padding: 0 var(--ft-unit-300);\r\n      height: var(--ft-unit-600);\r\n      gap: var(--ft-unit-200);\r\n\r\n      [class^=\"icon-\"], [class*=\" icon-\"] {\r\n        width: 16px;\r\n        height: 16px;\r\n        font-size: 16px;\r\n      }\r\n    }\r\n\r\n    &.label-inside {\r\n      .input-wrapper {\r\n        padding: 0 var(--ft-unit-300);\r\n        height: var(--ft-unit-1200);\r\n      }\r\n    }\r\n\r\n    &.label-outside {\r\n      .input-wrapper {\r\n      }\r\n    }\r\n\r\n    &.label-outside-left {\r\n      column-gap: var(--ft-unit-200);\r\n\r\n      .input-wrapper {\r\n\r\n      }\r\n    }\r\n  }\r\n\r\n  &.md-size {\r\n    .input-wrapper {\r\n      height: var(--ft-unit-800);\r\n      gap: var(--ft-unit-300);\r\n    }\r\n\r\n    &.label-inside {\r\n      .input-wrapper {\r\n        height: var(--ft-unit-1400);\r\n      }\r\n    }\r\n\r\n    &.label-outside {\r\n      .input-wrapper {\r\n      }\r\n    }\r\n\r\n    &.label-outside-left {\r\n      /*gap: var(--ft-unit-300);*/\r\n      column-gap: var(--ft-unit-300);\r\n\r\n      .input-wrapper {\r\n\r\n      }\r\n    }\r\n  }\r\n\r\n  &.lg-size {\r\n    gap: var(--ft-unit-100);\r\n\r\n    .input-wrapper {\r\n      height: var(--ft-unit-900);\r\n      gap: var(--ft-unit-400);\r\n    }\r\n\r\n    &.label-inside {\r\n      .input-wrapper {\r\n        height: var(--ft-unit-1600);\r\n      }\r\n    }\r\n\r\n    &.label-outside {\r\n      .input-wrapper {\r\n      }\r\n    }\r\n\r\n    &.label-outside-left {\r\n      column-gap: var(--ft-unit-400);\r\n\r\n      .input-wrapper {\r\n\r\n      }\r\n    }\r\n  }\r\n}\r\n\r\nbody:has(.input-wrapper) {\r\n  background: #fff;\r\n}\r\n\r\n\r\n.error-text {\r\n  color: var(--ft-color-danger);\r\n  /*padding: 0 var(--ft-unit-200);*/\r\n}\r\n\r\n.input-wrapper.flat {\r\n  border: none;\r\n  background-color: var(--ft-color-surface-muted);\r\n}\r\n\r\n/*.input-wrapper.bordered {*/\r\n/*  border-color: var(--ft-color-border-200);*/\r\n/*}*/\r\n\r\n/* Add more variant/size/color CSS as needed */\r\n.input-wrapper.invalid {\r\n  border-color: var(--ft-color-danger-500);\r\n}\r\n\r\nbutton {\r\n  background: none;\r\n  border: none;\r\n  cursor: pointer;\r\n}\r\n\r\nlabel.disabled input {\r\n  opacity: 0.5;\r\n}\r\n\r\n/* ... */\r\n\r\n\r\n",
+                    "data": "::ng-deep storybook-root {\r\n  > ft-input {\r\n    min-width: 200px;\r\n    width: fit-content !important;\r\n    display: block;\r\n  }\r\n}\r\n\r\n:host {\r\n  width: 100%;\r\n}\r\n\r\n\r\n.field-container {\r\n  /*width: var(--container-xs);*/\r\n\r\n  .input-wrapper {\r\n    display: flex;\r\n    min-width: 100%;\r\n    align-items: center;\r\n    border-style: solid;\r\n    border-color: var(--ft-color-border-200);\r\n    border-width: var(--ft-border-secondary);\r\n    padding: 0 var(--ft-unit-400);\r\n    /*gap: var(--ft-unit-400);*/\r\n    /*height: var(--ft-unit-800);*/\r\n    /*background-color: var(--ft-form-field-100);*/\r\n\r\n\r\n    .content-section {\r\n      display: flex;\r\n      flex-direction: column;\r\n      flex-grow: 1;\r\n      gap: var(--ft-unit-100);\r\n      min-width: 0;\r\n\r\n      .label-row {\r\n        display: flex;\r\n        height: fit-content;\r\n      }\r\n\r\n      .content {\r\n\r\n      }\r\n\r\n      .placeholder {\r\n        color: var(--ft-color-on-surface-level-300);\r\n      }\r\n    }\r\n\r\n    .suffix-icon {\r\n      gap: var(--ft-unit-100);\r\n    }\r\n\r\n  }\r\n\r\n\r\n  &.flat {\r\n    .input-wrapper {\r\n      background-color: var(--ft-form-field-100);\r\n      border: none;\r\n    }\r\n    &.hovered {\r\n      .input-wrapper {\r\n        background-color: var(--ft-form-field-200);\r\n      }\r\n    }\r\n    &.readonly {\r\n      .input-wrapper {\r\n        background-color: var(--ft-form-field-50);\r\n      }\r\n    }\r\n    &.disabled {\r\n      color: var(--ft-color-on-surface-muted);\r\n      .input-wrapper {\r\n        background-color: var(--ft-form-field-100);\r\n      }\r\n    }\r\n  }\r\n\r\n  &.faded{\r\n    .input-wrapper {\r\n      background-color: var(--ft-form-field-100);\r\n    }\r\n    &.hovered {\r\n      .input-wrapper {\r\n        background-color: var(--ft-form-field-200);\r\n      }\r\n    }\r\n    &.focused {\r\n      .input-wrapper {\r\n        background-color: var(--ft-form-field-200);\r\n        border-color: var(--ft-color-primary);\r\n      }\r\n    }\r\n    &.readonly {\r\n      .input-wrapper {\r\n        border-color: var(--ft-color-border-100);\r\n        background-color: var(--ft-form-field-50);\r\n      }\r\n    }\r\n    &.disabled {\r\n      color: var(--ft-color-on-surface-muted);\r\n      .input-wrapper {\r\n        background-color: var(--ft-form-field-100);\r\n      }\r\n    }\r\n  }\r\n\r\n  &.underlined {\r\n    .input-wrapper {\r\n\r\n    }\r\n    &.hovered {\r\n      .input-wrapper {\r\n        border-color: var(--ft-color-border-300);\r\n      }\r\n    }\r\n    &.focused {\r\n      .input-wrapper {\r\n        border-color: var(--ft-color-primary);\r\n      }\r\n    }\r\n    &.readonly {\r\n      .input-wrapper {\r\n        border-color: var(--ft-color-border-100);\r\n      }\r\n    }\r\n    &.disabled {\r\n      color: var(--ft-color-on-surface-muted);\r\n      .input-wrapper {\r\n        border-color: var(--ft-color-border-200);\r\n      }\r\n    }\r\n  }\r\n\r\n  &.invalid {\r\n    .label {\r\n      color: var(--ft-color-danger);\r\n    }\r\n    .input-wrapper {\r\n      background-color: var(--ft-color-danger-50);\r\n      border-style: solid;\r\n      border-color: var(--ft-color-danger);\r\n    }\r\n  }\r\n\r\n  &.ghost {\r\n    .input-wrapper {\r\n      border: none;\r\n    }\r\n    &.hovered {\r\n      .input-wrapper {\r\n        background-color: var(--ft-form-field-50);\r\n      }\r\n    }\r\n    &.focused {\r\n      .input-wrapper {\r\n        background-color: var(--ft-form-field-50);\r\n      }\r\n    }\r\n    &.readonly {\r\n      .input-wrapper {\r\n\r\n      }\r\n    }\r\n    &.disabled {\r\n      color: var(--ft-color-on-surface-muted);\r\n      .input-wrapper {\r\n\r\n      }\r\n    }\r\n  }\r\n\r\n  &.label-inside {\r\n    .input-wrapper {\r\n      grid-column: 1;\r\n      grid-row: 1;\r\n\r\n    }\r\n\r\n    .error-message {\r\n      grid-column: 1;\r\n      grid-row: 2;\r\n    }\r\n\r\n    .description {\r\n      grid-column: 1;\r\n      grid-row: 2;\r\n    }\r\n  }\r\n\r\n  &.label-outside {\r\n\r\n    .label-row {\r\n      grid-column: 1;\r\n      grid-row: 1;\r\n    }\r\n\r\n    .input-wrapper {\r\n      grid-column: 1;\r\n      grid-row: 2;\r\n    }\r\n\r\n    .error-message {\r\n      grid-column: 1;\r\n      grid-row: 3;\r\n    }\r\n\r\n    .description {\r\n      grid-column: 1;\r\n      grid-row: 3;\r\n    }\r\n  }\r\n\r\n  &.label-outside-left {\r\n    /*flex-direction: row;*/\r\n    /*align-items: center;*/\r\n    grid-template-columns: fit-content(50%) auto;\r\n\r\n    .label-row {\r\n      grid-column: 1;\r\n      grid-row: 1;\r\n    }\r\n\r\n    .input-wrapper {\r\n      grid-column: 2;\r\n      grid-row: 1;\r\n    }\r\n\r\n    .error-message {\r\n      grid-column: 2;\r\n      grid-row: 2;\r\n    }\r\n\r\n    .description {\r\n      grid-column: 2;\r\n      grid-row: 2;\r\n    }\r\n  }\r\n\r\n  &.xs-size {\r\n    .input-wrapper {\r\n      padding: 0 var(--ft-unit-300);\r\n      /*height: var(--ft-unit-600);*/\r\n      height: var(--ft-unit-500);\r\n      gap: var(--ft-unit-200);\r\n      border-width: var(--ft-border-primary);\r\n\r\n      [class^=\"icon-\"], [class*=\" icon-\"] {\r\n        width: 16px;\r\n        height: 16px;\r\n        font-size: 14px;\r\n      }\r\n\r\n      .content-section {\r\n        gap: 0;\r\n\r\n        .label-row {\r\n\r\n        }\r\n\r\n        .content {\r\n\r\n        }\r\n\r\n        .placeholder {\r\n          color: var(--ft-color-on-surface-level-200);\r\n        }\r\n      }\r\n    }\r\n\r\n    &.label-inside {\r\n      .input-wrapper {\r\n        padding: 0 var(--ft-unit-300);\r\n        height: var(--ft-unit-1000);\r\n      }\r\n    }\r\n\r\n    &.label-outside {\r\n      .input-wrapper {\r\n      }\r\n    }\r\n\r\n    &.label-outside-left {\r\n      column-gap: var(--ft-unit-100);\r\n\r\n      .input-wrapper {\r\n\r\n      }\r\n    }\r\n  }\r\n\r\n  &.sm-size {\r\n    .input-wrapper {\r\n      padding: 0 var(--ft-unit-300);\r\n      height: var(--ft-unit-600);\r\n      gap: var(--ft-unit-200);\r\n\r\n      [class^=\"icon-\"], [class*=\" icon-\"] {\r\n        width: 16px;\r\n        height: 16px;\r\n        font-size: 16px;\r\n      }\r\n    }\r\n\r\n    &.label-inside {\r\n      .input-wrapper {\r\n        padding: 0 var(--ft-unit-300);\r\n        height: var(--ft-unit-1200);\r\n      }\r\n    }\r\n\r\n    &.label-outside {\r\n      .input-wrapper {\r\n      }\r\n    }\r\n\r\n    &.label-outside-left {\r\n      column-gap: var(--ft-unit-200);\r\n\r\n      .input-wrapper {\r\n\r\n      }\r\n    }\r\n  }\r\n\r\n  &.md-size {\r\n    .input-wrapper {\r\n      height: var(--ft-unit-800);\r\n      gap: var(--ft-unit-300);\r\n    }\r\n\r\n    &.label-inside {\r\n      .input-wrapper {\r\n        height: var(--ft-unit-1400);\r\n      }\r\n    }\r\n\r\n    &.label-outside {\r\n      .input-wrapper {\r\n      }\r\n    }\r\n\r\n    &.label-outside-left {\r\n      /*gap: var(--ft-unit-300);*/\r\n      column-gap: var(--ft-unit-300);\r\n\r\n      .input-wrapper {\r\n\r\n      }\r\n    }\r\n  }\r\n\r\n  &.lg-size {\r\n    gap: var(--ft-unit-100);\r\n\r\n    .input-wrapper {\r\n      height: var(--ft-unit-900);\r\n      gap: var(--ft-unit-400);\r\n    }\r\n\r\n    &.label-inside {\r\n      .input-wrapper {\r\n        height: var(--ft-unit-1600);\r\n      }\r\n    }\r\n\r\n    &.label-outside {\r\n      .input-wrapper {\r\n      }\r\n    }\r\n\r\n    &.label-outside-left {\r\n      column-gap: var(--ft-unit-400);\r\n\r\n      .input-wrapper {\r\n\r\n      }\r\n    }\r\n  }\r\n}\r\n\r\nbody:has(.input-wrapper) {\r\n  background: #fff;\r\n}\r\n\r\n\r\n.error-text {\r\n  color: var(--ft-color-danger);\r\n  /*padding: 0 var(--ft-unit-200);*/\r\n}\r\n\r\n.input-wrapper.flat {\r\n  border: none;\r\n  background-color: var(--ft-color-surface-muted);\r\n}\r\n\r\n/*.input-wrapper.bordered {*/\r\n/*  border-color: var(--ft-color-border-200);*/\r\n/*}*/\r\n\r\n/* Add more variant/size/color CSS as needed */\r\n.input-wrapper.invalid {\r\n  border-color: var(--ft-color-danger-500);\r\n}\r\n\r\nbutton {\r\n  background: none;\r\n  border: none;\r\n  cursor: pointer;\r\n}\r\n\r\nlabel.disabled input {\r\n  opacity: 0.5;\r\n}\r\n\r\n/* ... */\r\n\r\n\r\n",
                     "styleUrl": "./ft.input.component.css"
                 }
             ],
@@ -2491,7 +2500,7 @@
                         "name": "radiusClasses",
                         "type": "string",
                         "returnType": "string",
-                        "line": 48
+                        "line": 49
                     }
                 },
                 "hasPlaceholderToShow": {
@@ -2500,7 +2509,7 @@
                         "name": "hasPlaceholderToShow",
                         "type": "boolean",
                         "returnType": "boolean",
-                        "line": 59
+                        "line": 60
                     }
                 },
                 "isNormalOrHoveredState": {
@@ -2509,11 +2518,11 @@
                         "name": "isNormalOrHoveredState",
                         "type": "boolean",
                         "returnType": "boolean",
-                        "line": 73
+                        "line": 74
                     }
                 }
             },
-            "templateData": "<!--<label [class.disabled]=\"disabled\">-->\r\n<!--  <span *ngIf=\"label\">{{ label }} <span *ngIf=\"required\">*</span></span>-->\r\n<!--  <div class=\"input-wrapper\"-->\r\n<!--       [ngClass]=\"[size, color, variant, radius, {'invalid': invalid}]\">-->\r\n<!--    <input [(ngModel)]=\"value\"-->\r\n<!--           [placeholder]=\"placeholder\"-->\r\n<!--           [disabled]=\"disabled\"-->\r\n<!--           [readonly]=\"readonly\"-->\r\n<!--    />-->\r\n<!--    <button *ngIf=\"isClearable && value\" (click)=\"clear()\">✕</button>-->\r\n<!--  </div>-->\r\n<!--  <small *ngIf=\"invalid\">{{ errorMessage }}</small>-->\r\n<!--  <small *ngIf=\"!invalid && description\">{{ description }}</small>-->\r\n<!--</label>-->\r\n\r\n\r\n<div class=\"field-container\"\r\n     [class]=\"labelPlacement + ' ' + size + ' ' + variant + ' ' + state\"\r\n     [class.readonly]=\"readonly\"\r\n     [class.disabled]=\"disabled\"\r\n     [class.invalid]=\"invalid\"\r\n>\r\n  <div *ngIf=\"isLabel && labelPlacement !== 'label-inside'\" class=\"label-row\">\r\n    <span class=\"label leading-none\"\r\n          [ngClass]=\"{\r\n           'content-2xs--normal': size === 'sm-size' || size === 'md-size' || size === 'xs-size',\r\n           'content-xs--normal': size === 'lg-size',\r\n           }\"\r\n    >{{ label }} <span *ngIf=\"required && !disabled\">*</span></span>\r\n  </div>\r\n  <div class=\"input-wrapper\" [class]=\"radiusClasses\">\r\n    <div *ngIf=\"isPrefixIconClass && prefixIconClass\" class=\"prefix\">\r\n      <i [class]=\"prefixIconClass\"></i>\r\n    </div>\r\n    <div class=\"content-section\">\r\n      <div *ngIf=\"isLabel && labelPlacement === 'label-inside'\" class=\"label-row\">\r\n        <span class=\"label leading-none\"\r\n              [ngClass]=\"{\r\n           'content-2xs--normal': size === 'sm-size' || size === 'md-size' || size === 'xs-size',\r\n           'content-xs--normal': size === 'lg-size',\r\n           }\"\r\n        >{{ label }} <span *ngIf=\"required && !disabled\">*</span></span>\r\n      </div>\r\n      <div *ngIf=\"content\" class=\"content-row\">\r\n        <p class=\"content truncate\"\r\n           [ngClass]=\"{\r\n           'content-2xs--normal': size === 'xs-size',\r\n           'content-xs--normal': size === 'sm-size' || size === 'md-size',\r\n           'content-sm--normal': size === 'lg-size',\r\n           }\"\r\n        >{{ content }}</p>\r\n      </div>\r\n\r\n      <div *ngIf=\"hasPlaceholderToShow\" class=\"placeholder-row\">\r\n        <p class=\"placeholder truncate\"\r\n           [ngClass]=\"{\r\n           'content-2xs--normal': size === 'xs-size',\r\n           'content-xs--normal': size === 'sm-size' || size === 'md-size',\r\n           'content-sm--normal': size === 'lg-size',\r\n           }\"\r\n        >{{ placeholder }}</p>\r\n      </div>\r\n    </div>\r\n    <div class=\"suffix-icon flex\" *ngIf=\"!readonly\">\r\n      <div *ngIf=\"isSuffix1IconClass && suffix1IconClass && !disabled\" class=\"suffix1\">\r\n        <i [class]=\"suffix1IconClass\"></i>\r\n      </div>\r\n      <div *ngIf=\"isSuffix2IconClass && suffix2IconClass\" class=\"suffix2\">\r\n        <i [class]=\"suffix2IconClass\"></i>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <div *ngIf=\"invalid && errorMessage\" class=\"error-message\">\r\n    <p class=\"error-text content-2xs--normal\">{{ errorMessage }}</p>\r\n  </div>\r\n  <div *ngIf=\"description && !invalid\" class=\"description\">\r\n    <p class=\"highlight content-2xs--normal\">{{ description }}</p>\r\n  </div>\r\n</div>\r\n"
+            "templateData": "<!--<label [class.disabled]=\"disabled\">-->\r\n<!--  <span *ngIf=\"label\">{{ label }} <span *ngIf=\"required\">*</span></span>-->\r\n<!--  <div class=\"input-wrapper\"-->\r\n<!--       [ngClass]=\"[size, color, variant, radius, {'invalid': invalid}]\">-->\r\n<!--    <input [(ngModel)]=\"value\"-->\r\n<!--           [placeholder]=\"placeholder\"-->\r\n<!--           [disabled]=\"disabled\"-->\r\n<!--           [readonly]=\"readonly\"-->\r\n<!--    />-->\r\n<!--    <button *ngIf=\"isClearable && value\" (click)=\"clear()\">✕</button>-->\r\n<!--  </div>-->\r\n<!--  <small *ngIf=\"invalid\">{{ errorMessage }}</small>-->\r\n<!--  <small *ngIf=\"!invalid && description\">{{ description }}</small>-->\r\n<!--</label>-->\r\n\r\n\r\n<div class=\"field-container\"\r\n     [class]=\"labelPlacement + ' ' + size + ' ' + variant + ' ' + state\"\r\n     [class.readonly]=\"readonly\"\r\n     [class.disabled]=\"disabled\"\r\n     [class.invalid]=\"invalid\"\r\n>\r\n  <div *ngIf=\"isLabel && labelPlacement !== 'label-inside'\" class=\"label-row\">\r\n    <span class=\"label leading-none\"\r\n          [ngClass]=\"{\r\n           'content-2xs--normal': size === 'sm-size' || size === 'md-size' || size === 'xs-size',\r\n           'content-xs--normal': size === 'lg-size',\r\n           }\"\r\n    >{{ label }} <span *ngIf=\"required && !disabled\">*</span></span>\r\n  </div>\r\n  <div class=\"input-wrapper\" [class]=\"radiusClasses\">\r\n    <div *ngIf=\"isPrefixIconClass && prefixIconClass\" class=\"prefix\">\r\n      <i [class]=\"prefixIconClass\"></i>\r\n    </div>\r\n    <div class=\"content-section\">\r\n      <div *ngIf=\"isLabel && labelPlacement === 'label-inside'\" class=\"label-row\">\r\n        <span class=\"label leading-none\"\r\n              [ngClass]=\"{\r\n           'content-2xs--normal': size === 'sm-size' || size === 'md-size' || size === 'xs-size',\r\n           'content-xs--normal': size === 'lg-size',\r\n           }\"\r\n        >{{ label }} <span *ngIf=\"required && !disabled\">*</span></span>\r\n      </div>\r\n      <div *ngIf=\"content\" class=\"content-row\">\r\n        <p class=\"content truncate\"\r\n           [ngClass]=\"{\r\n           'content-2xs--normal': size === 'xs-size',\r\n           'content-xs--normal': size === 'sm-size' || size === 'md-size',\r\n           'content-sm--normal': size === 'lg-size',\r\n           }\"\r\n        >{{ content }}</p>\r\n      </div>\r\n\r\n      <div *ngIf=\"hasPlaceholderToShow\" class=\"placeholder-row\">\r\n        <p class=\"placeholder truncate\"\r\n           [ngClass]=\"{\r\n           'content-2xs--normal': size === 'xs-size',\r\n           'content-xs--normal': size === 'sm-size' || size === 'md-size',\r\n           'content-sm--normal': size === 'lg-size',\r\n           }\"\r\n        >{{ placeholder }}</p>\r\n      </div>\r\n    </div>\r\n    <div class=\"suffix-icon flex\" *ngIf=\"!readonly\">\r\n      <div *ngIf=\"isSuffix1IconClass && suffix1IconClass && !disabled\" class=\"suffix1\">\r\n        <i [class]=\"suffix1IconClass\"></i>\r\n      </div>\r\n      <div *ngIf=\"isSuffix2IconClass && suffix2IconClass\" class=\"suffix2\">\r\n        <i [class]=\"suffix2IconClass\"></i>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <div *ngIf=\"invalid && errorMessage\" class=\"error-message\">\r\n    <p class=\"error-text content-2xs--normal\">{{ errorMessage }}</p>\r\n  </div>\r\n  <div *ngIf=\"isDescription && description && !invalid\" class=\"description\">\r\n    <p class=\"highlight content-2xs--normal\">{{ description }}</p>\r\n  </div>\r\n</div>\r\n"
         },
         {
             "name": "FtRadioComponent",
@@ -2909,7 +2918,7 @@
         },
         {
             "name": "InputAllCasesComponent",
-            "id": "component-InputAllCasesComponent-26149c5444d2dc51fd7279631324dc81c3a59271e80fdfe77fc4c988b823ef212cb86ee23413fef0b6cdabfc4975ebecfac54eb9da9781134beaf62851ba93e0",
+            "id": "component-InputAllCasesComponent-4ad5cf1a5431eccd4352fa82e255643977895cf7f8ff84af49a9ca2f05f15d35a956c95c980f005aafec1642253097901fb4a9833f73b6a4e76bc920f3949b0a",
             "file": "src/stories/input-all-cases/input-all-cases.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -2929,6 +2938,37 @@
             "inputsClass": [],
             "outputsClass": [],
             "propertiesClass": [
+                {
+                    "name": "class",
+                    "defaultValue": "'showcase'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 15,
+                    "decorators": [
+                        {
+                            "name": "HostBinding",
+                            "stringifiedArguments": "'class'"
+                        }
+                    ],
+                    "modifierKind": [
+                        171
+                    ]
+                },
+                {
+                    "name": "isDescription",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "unknown",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 20
+                },
                 {
                     "name": "isPrefixIconClass",
                     "defaultValue": "true",
@@ -2977,7 +3017,17 @@
             "methodsClass": [],
             "deprecated": false,
             "deprecationMessage": "",
-            "hostBindings": [],
+            "hostBindings": [
+                {
+                    "name": "class",
+                    "defaultValue": "'showcase'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 15,
+                    "type": "string",
+                    "decorators": []
+                }
+            ],
             "hostListeners": [],
             "standalone": true,
             "imports": [
@@ -2993,7 +3043,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import {Component, Input} from '@angular/core';\r\n\r\nimport { CommonModule } from '@angular/common';\r\nimport {FTInputComponent} from '../input/ft.input.component';\r\n\r\n@Component({\r\n  selector: 'app-input-showcase',\r\n  templateUrl: './input-all-cases.component.html',\r\n  styleUrls: ['./input-all-cases.component.css'],\r\n  standalone: true,\r\n  imports: [CommonModule, FTInputComponent]\r\n})\r\nexport class InputAllCasesComponent {\r\n\r\n  isPrefixIconClass: boolean = true;\r\n  radius: 'none-radius'|'sm-radius'|'md-radius'|'lg-radius'|'full-radius' = 'md-radius';\r\n  size: 'xs-size'|'sm-size'|'md-size'|'lg-size' = 'md-size';\r\n  variant: 'flat'|'faded'|'underlined'|'ghost' = 'flat';\r\n\r\n\r\n\r\n}\r\n",
+            "sourceCode": "import {Component, HostBinding, Input} from '@angular/core';\r\n\r\nimport { CommonModule } from '@angular/common';\r\nimport {FTInputComponent} from '../input/ft.input.component';\r\n\r\n@Component({\r\n  selector: 'app-input-showcase',\r\n  templateUrl: './input-all-cases.component.html',\r\n  styleUrls: ['./input-all-cases.component.css'],\r\n  standalone: true,\r\n  imports: [CommonModule, FTInputComponent]\r\n})\r\nexport class InputAllCasesComponent {\r\n  @HostBinding('class') class = 'showcase';\r\n  isPrefixIconClass: boolean = true;\r\n  radius: 'none-radius'|'sm-radius'|'md-radius'|'lg-radius'|'full-radius' = 'md-radius';\r\n  size: 'xs-size'|'sm-size'|'md-size'|'lg-size' = 'md-size';\r\n  variant: 'flat'|'faded'|'underlined'|'ghost' = 'flat';\r\n  isDescription = false;\r\n\r\n\r\n\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -3003,11 +3053,11 @@
             ],
             "stylesData": "",
             "extends": [],
-            "templateData": "<!-- input-showcase.component.html -->\r\n<div class=\"all-case-container\">\r\n  <h1>FT-Input Component All cases</h1>\r\n<div class=\"cases-container\">\r\n  <div class=\"case-row case-row-heading\">\r\n    <div class=\"case-item case-item-heading\">\r\n\r\n    </div>\r\n    <div class=\"case-item\">\r\n      labelPlacement: inside\r\n    </div>\r\n    <div class=\"case-item\">\r\n      labelPlacement: outside\r\n    </div>\r\n    <div class=\"case-item\">\r\n      labelPlacement: outside left\r\n    </div>\r\n\r\n  </div>\r\n\r\n  <div class=\"case-row\">\r\n    <div class=\"case-item case-item-heading vertical-text\">\r\n      Normal\r\n    </div>\r\n    <div class=\"case-item\">\r\n      <ft-input\r\n        [isLabel]=\"true\"\r\n        [label]=\"'Username'\"\r\n        [size]=\"size\"\r\n        [color]=\"'primary'\"\r\n        [variant]=\"variant\"\r\n        [radius]=\"radius\"\r\n        [disabled]=\"false\"\r\n        [readonly]=\"false\"\r\n        [required]=\"true\"\r\n        [invalid]=\"false\"\r\n        [placeholder]=\"'Enter your username'\"\r\n        [description]=\"'This is your public display name.'\"\r\n        [errorMessage]=\"'Username is required.'\"\r\n        [content]=\"\"\r\n        [labelPlacement]=\"'label-inside'\"\r\n        [isPrefixIconClass]=\"isPrefixIconClass\"\r\n        [prefixIconClass]=\"'icon-user'\"\r\n        [isSuffix1IconClass]=\"true\"\r\n        [suffix1IconClass]=\"'icon-close'\"\r\n        [isSuffix2IconClass]=\"true\"\r\n        [suffix2IconClass]=\"'icon-arrow-down'\"\r\n        [isClearable]=\"true\"\r\n      >\r\n      </ft-input>\r\n\r\n    </div>\r\n    <div class=\"case-item\">\r\n        <ft-input\r\n          [isLabel]=\"true\"\r\n          [label]=\"'Username'\"\r\n          [size]=\"size\"\r\n          [color]=\"'primary'\"\r\n          [variant]=\"variant\"\r\n          [radius]=\"radius\"\r\n          [disabled]=\"false\"\r\n          [readonly]=\"false\"\r\n          [required]=\"true\"\r\n          [invalid]=\"false\"\r\n          [placeholder]=\"'Enter your username'\"\r\n          [description]=\"'This is your public display name.'\"\r\n          [errorMessage]=\"'Username is required.'\"\r\n          [content]=\"\"\r\n          [labelPlacement]=\"'label-outside'\"\r\n          [isPrefixIconClass]=\"isPrefixIconClass\"\r\n          [prefixIconClass]=\"'icon-user'\"\r\n          [isSuffix1IconClass]=\"true\"\r\n          [suffix1IconClass]=\"'icon-close'\"\r\n          [isSuffix2IconClass]=\"true\"\r\n          [suffix2IconClass]=\"'icon-arrow-down'\"\r\n          [isClearable]=\"true\"\r\n        >\r\n        </ft-input>\r\n\r\n\r\n    </div>\r\n    <div class=\"case-item\">\r\n      <ft-input\r\n        [isLabel]=\"true\"\r\n        [label]=\"'Username'\"\r\n        [size]=\"size\"\r\n        [color]=\"'primary'\"\r\n        [variant]=\"variant\"\r\n        [radius]=\"radius\"\r\n        [disabled]=\"false\"\r\n        [readonly]=\"false\"\r\n        [required]=\"true\"\r\n        [invalid]=\"false\"\r\n        [placeholder]=\"'Enter your username'\"\r\n        [description]=\"'This is your public display name.'\"\r\n        [errorMessage]=\"'Username is required.'\"\r\n        [content]=\"\"\r\n        [labelPlacement]=\"'label-outside-left'\"\r\n        [isPrefixIconClass]=\"isPrefixIconClass\"\r\n        [prefixIconClass]=\"'icon-user'\"\r\n        [isSuffix1IconClass]=\"true\"\r\n        [suffix1IconClass]=\"'icon-close'\"\r\n        [isSuffix2IconClass]=\"true\"\r\n        [suffix2IconClass]=\"'icon-arrow-down'\"\r\n        [isClearable]=\"true\"\r\n      >\r\n      </ft-input>\r\n\r\n    </div>\r\n\r\n  </div>\r\n\r\n  <div class=\"case-row\">\r\n    <div class=\"case-item case-item-heading vertical-text\">\r\n      Hovered\r\n    </div>\r\n    <div class=\"case-item\">\r\n      <ft-input\r\n        [isLabel]=\"true\"\r\n        [label]=\"'Username'\"\r\n        [size]=\"size\"\r\n        [color]=\"'primary'\"\r\n        [variant]=\"variant\"\r\n        [state]=\"'hovered'\"\r\n        [radius]=\"radius\"\r\n        [disabled]=\"false\"\r\n        [readonly]=\"false\"\r\n        [required]=\"true\"\r\n        [invalid]=\"false\"\r\n        [placeholder]=\"'Enter your username'\"\r\n        [description]=\"'This is your public display name.'\"\r\n        [errorMessage]=\"'Username is required.'\"\r\n        [content]=\"\"\r\n        [labelPlacement]=\"'label-inside'\"\r\n        [isPrefixIconClass]=\"isPrefixIconClass\"\r\n        [prefixIconClass]=\"'icon-user'\"\r\n        [isSuffix1IconClass]=\"true\"\r\n        [suffix1IconClass]=\"'icon-close'\"\r\n        [isSuffix2IconClass]=\"true\"\r\n        [suffix2IconClass]=\"'icon-arrow-down'\"\r\n        [isClearable]=\"true\"\r\n      >\r\n      </ft-input>\r\n\r\n    </div>\r\n    <div class=\"case-item\">\r\n      <ft-input\r\n        [isLabel]=\"true\"\r\n        [label]=\"'Username'\"\r\n        [size]=\"size\"\r\n        [color]=\"'primary'\"\r\n        [variant]=\"variant\"\r\n        [state]=\"'hovered'\"\r\n        [radius]=\"radius\"\r\n        [disabled]=\"false\"\r\n        [readonly]=\"false\"\r\n        [required]=\"true\"\r\n        [invalid]=\"false\"\r\n        [placeholder]=\"'Enter your username'\"\r\n        [description]=\"'This is your public display name.'\"\r\n        [errorMessage]=\"'Username is required.'\"\r\n        [content]=\"\"\r\n        [labelPlacement]=\"'label-outside'\"\r\n        [isPrefixIconClass]=\"isPrefixIconClass\"\r\n        [prefixIconClass]=\"'icon-user'\"\r\n        [isSuffix1IconClass]=\"true\"\r\n        [suffix1IconClass]=\"'icon-close'\"\r\n        [isSuffix2IconClass]=\"true\"\r\n        [suffix2IconClass]=\"'icon-arrow-down'\"\r\n        [isClearable]=\"true\"\r\n      >\r\n      </ft-input>\r\n\r\n\r\n    </div>\r\n    <div class=\"case-item\">\r\n      <ft-input\r\n        [isLabel]=\"true\"\r\n        [label]=\"'Username'\"\r\n        [size]=\"size\"\r\n        [color]=\"'primary'\"\r\n        [variant]=\"variant\"\r\n        [state]=\"'hovered'\"\r\n        [radius]=\"radius\"\r\n        [disabled]=\"false\"\r\n        [readonly]=\"false\"\r\n        [required]=\"true\"\r\n        [invalid]=\"false\"\r\n        [placeholder]=\"'Enter your username'\"\r\n        [description]=\"'This is your public display name.'\"\r\n        [errorMessage]=\"'Username is required.'\"\r\n        [content]=\"\"\r\n        [labelPlacement]=\"'label-outside-left'\"\r\n        [isPrefixIconClass]=\"isPrefixIconClass\"\r\n        [prefixIconClass]=\"'icon-user'\"\r\n        [isSuffix1IconClass]=\"true\"\r\n        [suffix1IconClass]=\"'icon-close'\"\r\n        [isSuffix2IconClass]=\"true\"\r\n        [suffix2IconClass]=\"'icon-arrow-down'\"\r\n        [isClearable]=\"true\"\r\n      >\r\n      </ft-input>\r\n\r\n    </div>\r\n\r\n  </div>\r\n\r\n  <div class=\"case-row\">\r\n    <div class=\"case-item case-item-heading vertical-text\">\r\n      Focused\r\n    </div>\r\n    <div class=\"case-item\">\r\n      <ft-input\r\n        [isLabel]=\"true\"\r\n        [label]=\"'Username'\"\r\n        [size]=\"size\"\r\n        [color]=\"'primary'\"\r\n        [variant]=\"variant\"\r\n        [state]=\"'focused'\"\r\n        [radius]=\"radius\"\r\n        [disabled]=\"false\"\r\n        [readonly]=\"false\"\r\n        [required]=\"true\"\r\n        [invalid]=\"false\"\r\n        [placeholder]=\"'Enter your username'\"\r\n        [description]=\"'This is your public display name.'\"\r\n        [errorMessage]=\"'Username is required.'\"\r\n        [content]=\"\"\r\n        [labelPlacement]=\"'label-inside'\"\r\n        [isPrefixIconClass]=\"isPrefixIconClass\"\r\n        [prefixIconClass]=\"'icon-user'\"\r\n        [isSuffix1IconClass]=\"true\"\r\n        [suffix1IconClass]=\"'icon-close'\"\r\n        [isSuffix2IconClass]=\"true\"\r\n        [suffix2IconClass]=\"'icon-arrow-down'\"\r\n        [isClearable]=\"true\"\r\n      >\r\n      </ft-input>\r\n\r\n    </div>\r\n    <div class=\"case-item\">\r\n      <ft-input\r\n        [isLabel]=\"true\"\r\n        [label]=\"'Username'\"\r\n        [size]=\"size\"\r\n        [color]=\"'primary'\"\r\n        [variant]=\"variant\"\r\n        [state]=\"'focused'\"\r\n        [radius]=\"radius\"\r\n        [disabled]=\"false\"\r\n        [readonly]=\"false\"\r\n        [required]=\"true\"\r\n        [invalid]=\"false\"\r\n        [placeholder]=\"'Enter your username'\"\r\n        [description]=\"'This is your public display name.'\"\r\n        [errorMessage]=\"'Username is required.'\"\r\n        [content]=\"\"\r\n        [labelPlacement]=\"'label-outside'\"\r\n        [isPrefixIconClass]=\"isPrefixIconClass\"\r\n        [prefixIconClass]=\"'icon-user'\"\r\n        [isSuffix1IconClass]=\"true\"\r\n        [suffix1IconClass]=\"'icon-close'\"\r\n        [isSuffix2IconClass]=\"true\"\r\n        [suffix2IconClass]=\"'icon-arrow-down'\"\r\n        [isClearable]=\"true\"\r\n      >\r\n      </ft-input>\r\n\r\n\r\n    </div>\r\n    <div class=\"case-item\">\r\n      <ft-input\r\n        [isLabel]=\"true\"\r\n        [label]=\"'Username'\"\r\n        [size]=\"size\"\r\n        [color]=\"'primary'\"\r\n        [variant]=\"variant\"\r\n        [state]=\"'focused'\"\r\n        [radius]=\"radius\"\r\n        [disabled]=\"false\"\r\n        [readonly]=\"false\"\r\n        [required]=\"true\"\r\n        [invalid]=\"false\"\r\n        [placeholder]=\"'Enter your username'\"\r\n        [description]=\"'This is your public display name.'\"\r\n        [errorMessage]=\"'Username is required.'\"\r\n        [content]=\"\"\r\n        [labelPlacement]=\"'label-outside-left'\"\r\n        [isPrefixIconClass]=\"isPrefixIconClass\"\r\n        [prefixIconClass]=\"'icon-user'\"\r\n        [isSuffix1IconClass]=\"true\"\r\n        [suffix1IconClass]=\"'icon-close'\"\r\n        [isSuffix2IconClass]=\"true\"\r\n        [suffix2IconClass]=\"'icon-arrow-down'\"\r\n        [isClearable]=\"true\"\r\n      >\r\n      </ft-input>\r\n\r\n    </div>\r\n\r\n\r\n  </div>\r\n\r\n  <div class=\"case-row\">\r\n    <div class=\"case-item case-item-heading vertical-text\">\r\n      Read-Only\r\n    </div>\r\n    <div class=\"case-item\">\r\n      <ft-input\r\n        [isLabel]=\"true\"\r\n        [label]=\"'Username'\"\r\n        [size]=\"size\"\r\n        [color]=\"'primary'\"\r\n        [variant]=\"variant\"\r\n        [radius]=\"radius\"\r\n        [disabled]=\"false\"\r\n        [readonly]=\"true\"\r\n        [required]=\"true\"\r\n        [invalid]=\"false\"\r\n        [placeholder]=\"'Enter your username'\"\r\n        [description]=\"'This is your public display name.'\"\r\n        [errorMessage]=\"'Username is required.'\"\r\n        [content]=\"'default value'\"\r\n        [labelPlacement]=\"'label-inside'\"\r\n        [isPrefixIconClass]=\"isPrefixIconClass\"\r\n        [prefixIconClass]=\"'icon-user'\"\r\n        [isSuffix1IconClass]=\"true\"\r\n        [suffix1IconClass]=\"'icon-close'\"\r\n        [isSuffix2IconClass]=\"true\"\r\n        [suffix2IconClass]=\"'icon-arrow-down'\"\r\n        [isClearable]=\"true\"\r\n      >\r\n      </ft-input>\r\n\r\n    </div>\r\n    <div class=\"case-item\">\r\n      <ft-input\r\n        [isLabel]=\"true\"\r\n        [label]=\"'Username'\"\r\n        [size]=\"size\"\r\n        [color]=\"'primary'\"\r\n        [variant]=\"variant\"\r\n        [radius]=\"radius\"\r\n        [disabled]=\"false\"\r\n        [readonly]=\"true\"\r\n        [required]=\"true\"\r\n        [invalid]=\"false\"\r\n        [placeholder]=\"'Enter your username'\"\r\n        [description]=\"'This is your public display name.'\"\r\n        [errorMessage]=\"'Username is required.'\"\r\n        [content]=\"'default value'\"\r\n        [labelPlacement]=\"'label-outside'\"\r\n        [isPrefixIconClass]=\"isPrefixIconClass\"\r\n        [prefixIconClass]=\"'icon-user'\"\r\n        [isSuffix1IconClass]=\"true\"\r\n        [suffix1IconClass]=\"'icon-close'\"\r\n        [isSuffix2IconClass]=\"true\"\r\n        [suffix2IconClass]=\"'icon-arrow-down'\"\r\n        [isClearable]=\"true\"\r\n      >\r\n      </ft-input>\r\n\r\n\r\n    </div>\r\n    <div class=\"case-item\">\r\n      <ft-input\r\n        [isLabel]=\"true\"\r\n        [label]=\"'Username'\"\r\n        [size]=\"size\"\r\n        [color]=\"'primary'\"\r\n        [variant]=\"variant\"\r\n        [radius]=\"radius\"\r\n        [disabled]=\"false\"\r\n        [readonly]=\"true\"\r\n        [required]=\"true\"\r\n        [invalid]=\"false\"\r\n        [placeholder]=\"'Enter your username'\"\r\n        [description]=\"'This is your public display name.'\"\r\n        [errorMessage]=\"'Username is required.'\"\r\n        [content]=\"'default value'\"\r\n        [labelPlacement]=\"'label-outside-left'\"\r\n        [isPrefixIconClass]=\"isPrefixIconClass\"\r\n        [prefixIconClass]=\"'icon-user'\"\r\n        [isSuffix1IconClass]=\"true\"\r\n        [suffix1IconClass]=\"'icon-close'\"\r\n        [isSuffix2IconClass]=\"true\"\r\n        [suffix2IconClass]=\"'icon-arrow-down'\"\r\n        [isClearable]=\"true\"\r\n      >\r\n      </ft-input>\r\n\r\n    </div>\r\n\r\n  </div>\r\n\r\n  <div class=\"case-row\">\r\n    <div class=\"case-item case-item-heading vertical-text\">\r\n      Disabled\r\n    </div>\r\n    <div class=\"case-item\">\r\n      <ft-input\r\n        [isLabel]=\"true\"\r\n        [label]=\"'Username'\"\r\n        [size]=\"size\"\r\n        [color]=\"'primary'\"\r\n        [variant]=\"variant\"\r\n        [radius]=\"radius\"\r\n        [disabled]=\"true\"\r\n        [readonly]=\"false\"\r\n        [required]=\"true\"\r\n        [invalid]=\"false\"\r\n        [placeholder]=\"'Enter your username'\"\r\n        [description]=\"'This is your public display name.'\"\r\n        [errorMessage]=\"'Username is required.'\"\r\n        [content]=\"\"\r\n        [labelPlacement]=\"'label-inside'\"\r\n        [isPrefixIconClass]=\"isPrefixIconClass\"\r\n        [prefixIconClass]=\"'icon-user'\"\r\n        [isSuffix1IconClass]=\"true\"\r\n        [suffix1IconClass]=\"'icon-close'\"\r\n        [isSuffix2IconClass]=\"true\"\r\n        [suffix2IconClass]=\"'icon-arrow-down'\"\r\n        [isClearable]=\"true\"\r\n      >\r\n      </ft-input>\r\n\r\n    </div>\r\n    <div class=\"case-item\">\r\n      <ft-input\r\n        [isLabel]=\"true\"\r\n        [label]=\"'Username'\"\r\n        [size]=\"size\"\r\n        [color]=\"'primary'\"\r\n        [variant]=\"variant\"\r\n        [radius]=\"radius\"\r\n        [disabled]=\"true\"\r\n        [readonly]=\"false\"\r\n        [required]=\"true\"\r\n        [invalid]=\"false\"\r\n        [placeholder]=\"'Enter your username'\"\r\n        [description]=\"'This is your public display name.'\"\r\n        [errorMessage]=\"'Username is required.'\"\r\n        [content]=\"\"\r\n        [labelPlacement]=\"'label-outside'\"\r\n        [isPrefixIconClass]=\"isPrefixIconClass\"\r\n        [prefixIconClass]=\"'icon-user'\"\r\n        [isSuffix1IconClass]=\"true\"\r\n        [suffix1IconClass]=\"'icon-close'\"\r\n        [isSuffix2IconClass]=\"true\"\r\n        [suffix2IconClass]=\"'icon-arrow-down'\"\r\n        [isClearable]=\"true\"\r\n      >\r\n      </ft-input>\r\n\r\n\r\n    </div>\r\n    <div class=\"case-item\">\r\n      <ft-input\r\n        [isLabel]=\"true\"\r\n        [label]=\"'Username'\"\r\n        [size]=\"size\"\r\n        [color]=\"'primary'\"\r\n        [variant]=\"variant\"\r\n        [radius]=\"radius\"\r\n        [disabled]=\"true\"\r\n        [readonly]=\"false\"\r\n        [required]=\"true\"\r\n        [invalid]=\"false\"\r\n        [placeholder]=\"'Enter your username'\"\r\n        [description]=\"'This is your public display name.'\"\r\n        [errorMessage]=\"'Username is required.'\"\r\n        [content]=\"\"\r\n        [labelPlacement]=\"'label-outside-left'\"\r\n        [isPrefixIconClass]=\"isPrefixIconClass\"\r\n        [prefixIconClass]=\"'icon-user'\"\r\n        [isSuffix1IconClass]=\"true\"\r\n        [suffix1IconClass]=\"'icon-close'\"\r\n        [isSuffix2IconClass]=\"true\"\r\n        [suffix2IconClass]=\"'icon-arrow-down'\"\r\n        [isClearable]=\"true\"\r\n      >\r\n      </ft-input>\r\n\r\n    </div>\r\n\r\n  </div>\r\n\r\n  <div class=\"case-row\">\r\n    <div class=\"case-item case-item-heading vertical-text\">\r\n      Invalid\r\n    </div>\r\n    <div class=\"case-item\">\r\n      <ft-input\r\n        [isLabel]=\"true\"\r\n        [label]=\"'Username'\"\r\n        [size]=\"size\"\r\n        [color]=\"'primary'\"\r\n        [variant]=\"variant\"\r\n        [radius]=\"radius\"\r\n        [disabled]=\"false\"\r\n        [readonly]=\"false\"\r\n        [required]=\"true\"\r\n        [invalid]=\"true\"\r\n        [placeholder]=\"'Enter your username'\"\r\n        [description]=\"'This is your public display name.'\"\r\n        [errorMessage]=\"'Username is required.'\"\r\n        [content]=\"\"\r\n        [labelPlacement]=\"'label-inside'\"\r\n        [isPrefixIconClass]=\"isPrefixIconClass\"\r\n        [prefixIconClass]=\"'icon-user'\"\r\n        [isSuffix1IconClass]=\"true\"\r\n        [suffix1IconClass]=\"'icon-close'\"\r\n        [isSuffix2IconClass]=\"true\"\r\n        [suffix2IconClass]=\"'icon-arrow-down'\"\r\n        [isClearable]=\"true\"\r\n      >\r\n      </ft-input>\r\n\r\n    </div>\r\n    <div class=\"case-item\">\r\n      <ft-input\r\n        [isLabel]=\"true\"\r\n        [label]=\"'Username'\"\r\n        [size]=\"size\"\r\n        [color]=\"'primary'\"\r\n        [variant]=\"variant\"\r\n        [radius]=\"radius\"\r\n        [disabled]=\"false\"\r\n        [readonly]=\"false\"\r\n        [required]=\"true\"\r\n        [invalid]=\"true\"\r\n        [placeholder]=\"'Enter your username'\"\r\n        [description]=\"'This is your public display name.'\"\r\n        [errorMessage]=\"'Username is required.'\"\r\n        [content]=\"\"\r\n        [labelPlacement]=\"'label-outside'\"\r\n        [isPrefixIconClass]=\"isPrefixIconClass\"\r\n        [prefixIconClass]=\"'icon-user'\"\r\n        [isSuffix1IconClass]=\"true\"\r\n        [suffix1IconClass]=\"'icon-close'\"\r\n        [isSuffix2IconClass]=\"true\"\r\n        [suffix2IconClass]=\"'icon-arrow-down'\"\r\n        [isClearable]=\"true\"\r\n      >\r\n      </ft-input>\r\n\r\n\r\n    </div>\r\n    <div class=\"case-item\">\r\n      <ft-input\r\n        [isLabel]=\"true\"\r\n        [label]=\"'Username'\"\r\n        [size]=\"size\"\r\n        [color]=\"'primary'\"\r\n        [variant]=\"variant\"\r\n        [radius]=\"radius\"\r\n        [disabled]=\"false\"\r\n        [readonly]=\"false\"\r\n        [required]=\"true\"\r\n        [invalid]=\"true\"\r\n        [placeholder]=\"'Enter your username'\"\r\n        [description]=\"'This is your public display name.'\"\r\n        [errorMessage]=\"'Username is required.'\"\r\n        [content]=\"\"\r\n        [labelPlacement]=\"'label-outside-left'\"\r\n        [isPrefixIconClass]=\"isPrefixIconClass\"\r\n        [prefixIconClass]=\"'icon-user'\"\r\n        [isSuffix1IconClass]=\"true\"\r\n        [suffix1IconClass]=\"'icon-close'\"\r\n        [isSuffix2IconClass]=\"true\"\r\n        [suffix2IconClass]=\"'icon-arrow-down'\"\r\n        [isClearable]=\"true\"\r\n      >\r\n      </ft-input>\r\n\r\n    </div>\r\n\r\n  </div>\r\n\r\n  <div class=\"case-row\">\r\n    <div class=\"case-item case-item-heading vertical-text\">\r\n      Content\r\n    </div>\r\n    <div class=\"case-item\">\r\n      <ft-input\r\n        [isLabel]=\"true\"\r\n        [label]=\"'Username'\"\r\n        [size]=\"size\"\r\n        [color]=\"'primary'\"\r\n        [variant]=\"variant\"\r\n        [radius]=\"radius\"\r\n        [disabled]=\"false\"\r\n        [readonly]=\"false\"\r\n        [required]=\"true\"\r\n        [invalid]=\"false\"\r\n        [placeholder]=\"'Enter your username'\"\r\n        [description]=\"'This is your public display name.'\"\r\n        [errorMessage]=\"'Username is required.'\"\r\n        [content]=\"'default value'\"\r\n        [labelPlacement]=\"'label-inside'\"\r\n        [isPrefixIconClass]=\"isPrefixIconClass\"\r\n        [prefixIconClass]=\"'icon-user'\"\r\n        [isSuffix1IconClass]=\"true\"\r\n        [suffix1IconClass]=\"'icon-close'\"\r\n        [isSuffix2IconClass]=\"true\"\r\n        [suffix2IconClass]=\"'icon-arrow-down'\"\r\n        [isClearable]=\"true\"\r\n      >\r\n      </ft-input>\r\n\r\n    </div>\r\n    <div class=\"case-item\">\r\n      <ft-input\r\n        [isLabel]=\"true\"\r\n        [label]=\"'Username'\"\r\n        [size]=\"size\"\r\n        [color]=\"'primary'\"\r\n        [variant]=\"variant\"\r\n        [radius]=\"radius\"\r\n        [disabled]=\"false\"\r\n        [readonly]=\"false\"\r\n        [required]=\"true\"\r\n        [invalid]=\"false\"\r\n        [placeholder]=\"'Enter your username'\"\r\n        [description]=\"'This is your public display name.'\"\r\n        [errorMessage]=\"'Username is required.'\"\r\n        [content]=\"'default value'\"\r\n        [labelPlacement]=\"'label-outside'\"\r\n        [isPrefixIconClass]=\"isPrefixIconClass\"\r\n        [prefixIconClass]=\"'icon-user'\"\r\n        [isSuffix1IconClass]=\"true\"\r\n        [suffix1IconClass]=\"'icon-close'\"\r\n        [isSuffix2IconClass]=\"true\"\r\n        [suffix2IconClass]=\"'icon-arrow-down'\"\r\n        [isClearable]=\"true\"\r\n      >\r\n      </ft-input>\r\n\r\n\r\n    </div>\r\n    <div class=\"case-item\">\r\n      <ft-input\r\n        [isLabel]=\"true\"\r\n        [label]=\"'Username'\"\r\n        [size]=\"size\"\r\n        [color]=\"'primary'\"\r\n        [variant]=\"variant\"\r\n        [radius]=\"radius\"\r\n        [disabled]=\"false\"\r\n        [readonly]=\"false\"\r\n        [required]=\"true\"\r\n        [invalid]=\"false\"\r\n        [placeholder]=\"'Enter your username'\"\r\n        [description]=\"'This is your public display name.'\"\r\n        [errorMessage]=\"'Username is required.'\"\r\n        [content]=\"'default value'\"\r\n        [labelPlacement]=\"'label-outside-left'\"\r\n        [isPrefixIconClass]=\"isPrefixIconClass\"\r\n        [prefixIconClass]=\"'icon-user'\"\r\n        [isSuffix1IconClass]=\"true\"\r\n        [suffix1IconClass]=\"'icon-close'\"\r\n        [isSuffix2IconClass]=\"true\"\r\n        [suffix2IconClass]=\"'icon-arrow-down'\"\r\n        [isClearable]=\"true\"\r\n      >\r\n      </ft-input>\r\n\r\n    </div>\r\n\r\n  </div>\r\n\r\n</div>\r\n</div>\r\n"
+            "templateData": "<!-- input-showcase.component.html -->\r\n<div class=\"all-case-container\">\r\n  <h1>FT-Input Component All cases</h1>\r\n  <div class=\"cases-container\">\r\n    <div class=\"case-row case-row-heading\">\r\n      <div class=\"case-item case-item-heading\">\r\n\r\n      </div>\r\n      <div class=\"case-item\">\r\n        labelPlacement: inside\r\n      </div>\r\n      <div class=\"case-item\">\r\n        labelPlacement: outside\r\n      </div>\r\n      <div class=\"case-item\">\r\n        labelPlacement: outside left\r\n      </div>\r\n\r\n    </div>\r\n\r\n    <div class=\"case-row\">\r\n      <div class=\"case-item case-item-heading vertical-text\">\r\n        Normal\r\n      </div>\r\n      <div class=\"case-item\">\r\n        <ft-input\r\n          [isLabel]=\"true\"\r\n          [label]=\"'Username'\"\r\n          [size]=\"size\"\r\n          [color]=\"'primary'\"\r\n          [variant]=\"variant\"\r\n          [radius]=\"radius\"\r\n          [disabled]=\"false\"\r\n          [readonly]=\"false\"\r\n          [required]=\"true\"\r\n          [invalid]=\"false\"\r\n          [placeholder]=\"'Enter your username'\"\r\n          [isDescription]=\"isDescription\"\r\n          [description]=\"'This is your public display name.'\"\r\n          [errorMessage]=\"'Username is required.'\"\r\n          [content]=\"\"\r\n          [labelPlacement]=\"'label-inside'\"\r\n          [isPrefixIconClass]=\"isPrefixIconClass\"\r\n          [prefixIconClass]=\"'icon-user'\"\r\n          [isSuffix1IconClass]=\"true\"\r\n          [suffix1IconClass]=\"'icon-close'\"\r\n          [isSuffix2IconClass]=\"true\"\r\n          [suffix2IconClass]=\"'icon-arrow-down'\"\r\n          [isClearable]=\"true\"\r\n        >\r\n        </ft-input>\r\n\r\n      </div>\r\n      <div class=\"case-item\">\r\n        <ft-input\r\n          [isLabel]=\"true\"\r\n          [label]=\"'Username'\"\r\n          [size]=\"size\"\r\n          [color]=\"'primary'\"\r\n          [variant]=\"variant\"\r\n          [radius]=\"radius\"\r\n          [disabled]=\"false\"\r\n          [readonly]=\"false\"\r\n          [required]=\"true\"\r\n          [invalid]=\"false\"\r\n          [placeholder]=\"'Enter your username'\"\r\n          [isDescription]=\"isDescription\"\r\n          [description]=\"'This is your public display name.'\"\r\n          [errorMessage]=\"'Username is required.'\"\r\n          [content]=\"\"\r\n          [labelPlacement]=\"'label-outside'\"\r\n          [isPrefixIconClass]=\"isPrefixIconClass\"\r\n          [prefixIconClass]=\"'icon-user'\"\r\n          [isSuffix1IconClass]=\"true\"\r\n          [suffix1IconClass]=\"'icon-close'\"\r\n          [isSuffix2IconClass]=\"true\"\r\n          [suffix2IconClass]=\"'icon-arrow-down'\"\r\n          [isClearable]=\"true\"\r\n        >\r\n        </ft-input>\r\n\r\n\r\n      </div>\r\n      <div class=\"case-item\">\r\n        <ft-input\r\n          [isLabel]=\"true\"\r\n          [label]=\"'Username'\"\r\n          [size]=\"size\"\r\n          [color]=\"'primary'\"\r\n          [variant]=\"variant\"\r\n          [radius]=\"radius\"\r\n          [disabled]=\"false\"\r\n          [readonly]=\"false\"\r\n          [required]=\"true\"\r\n          [invalid]=\"false\"\r\n          [placeholder]=\"'Enter your username'\"\r\n          [isDescription]=\"isDescription\"\r\n          [description]=\"'This is your public display name.'\"\r\n          [errorMessage]=\"'Username is required.'\"\r\n          [content]=\"\"\r\n          [labelPlacement]=\"'label-outside-left'\"\r\n          [isPrefixIconClass]=\"isPrefixIconClass\"\r\n          [prefixIconClass]=\"'icon-user'\"\r\n          [isSuffix1IconClass]=\"true\"\r\n          [suffix1IconClass]=\"'icon-close'\"\r\n          [isSuffix2IconClass]=\"true\"\r\n          [suffix2IconClass]=\"'icon-arrow-down'\"\r\n          [isClearable]=\"true\"\r\n        >\r\n        </ft-input>\r\n\r\n      </div>\r\n\r\n    </div>\r\n\r\n    <div class=\"case-row\">\r\n      <div class=\"case-item case-item-heading vertical-text\">\r\n        Hovered\r\n      </div>\r\n      <div class=\"case-item\">\r\n        <ft-input\r\n          [isLabel]=\"true\"\r\n          [label]=\"'Username'\"\r\n          [size]=\"size\"\r\n          [color]=\"'primary'\"\r\n          [variant]=\"variant\"\r\n          [state]=\"'hovered'\"\r\n          [radius]=\"radius\"\r\n          [disabled]=\"false\"\r\n          [readonly]=\"false\"\r\n          [required]=\"true\"\r\n          [invalid]=\"false\"\r\n          [placeholder]=\"'Enter your username'\"\r\n          [isDescription]=\"isDescription\"\r\n          [description]=\"'This is your public display name.'\"\r\n          [errorMessage]=\"'Username is required.'\"\r\n          [content]=\"\"\r\n          [labelPlacement]=\"'label-inside'\"\r\n          [isPrefixIconClass]=\"isPrefixIconClass\"\r\n          [prefixIconClass]=\"'icon-user'\"\r\n          [isSuffix1IconClass]=\"true\"\r\n          [suffix1IconClass]=\"'icon-close'\"\r\n          [isSuffix2IconClass]=\"true\"\r\n          [suffix2IconClass]=\"'icon-arrow-down'\"\r\n          [isClearable]=\"true\"\r\n        >\r\n        </ft-input>\r\n\r\n      </div>\r\n      <div class=\"case-item\">\r\n        <ft-input\r\n          [isLabel]=\"true\"\r\n          [label]=\"'Username'\"\r\n          [size]=\"size\"\r\n          [color]=\"'primary'\"\r\n          [variant]=\"variant\"\r\n          [state]=\"'hovered'\"\r\n          [radius]=\"radius\"\r\n          [disabled]=\"false\"\r\n          [readonly]=\"false\"\r\n          [required]=\"true\"\r\n          [invalid]=\"false\"\r\n          [placeholder]=\"'Enter your username'\"\r\n          [isDescription]=\"isDescription\"\r\n          [description]=\"'This is your public display name.'\"\r\n          [errorMessage]=\"'Username is required.'\"\r\n          [content]=\"\"\r\n          [labelPlacement]=\"'label-outside'\"\r\n          [isPrefixIconClass]=\"isPrefixIconClass\"\r\n          [prefixIconClass]=\"'icon-user'\"\r\n          [isSuffix1IconClass]=\"true\"\r\n          [suffix1IconClass]=\"'icon-close'\"\r\n          [isSuffix2IconClass]=\"true\"\r\n          [suffix2IconClass]=\"'icon-arrow-down'\"\r\n          [isClearable]=\"true\"\r\n        >\r\n        </ft-input>\r\n\r\n\r\n      </div>\r\n      <div class=\"case-item\">\r\n        <ft-input\r\n          [isLabel]=\"true\"\r\n          [label]=\"'Username'\"\r\n          [size]=\"size\"\r\n          [color]=\"'primary'\"\r\n          [variant]=\"variant\"\r\n          [state]=\"'hovered'\"\r\n          [radius]=\"radius\"\r\n          [disabled]=\"false\"\r\n          [readonly]=\"false\"\r\n          [required]=\"true\"\r\n          [invalid]=\"false\"\r\n          [placeholder]=\"'Enter your username'\"\r\n          [isDescription]=\"isDescription\"\r\n          [description]=\"'This is your public display name.'\"\r\n          [errorMessage]=\"'Username is required.'\"\r\n          [content]=\"\"\r\n          [labelPlacement]=\"'label-outside-left'\"\r\n          [isPrefixIconClass]=\"isPrefixIconClass\"\r\n          [prefixIconClass]=\"'icon-user'\"\r\n          [isSuffix1IconClass]=\"true\"\r\n          [suffix1IconClass]=\"'icon-close'\"\r\n          [isSuffix2IconClass]=\"true\"\r\n          [suffix2IconClass]=\"'icon-arrow-down'\"\r\n          [isClearable]=\"true\"\r\n        >\r\n        </ft-input>\r\n\r\n      </div>\r\n\r\n    </div>\r\n\r\n    <div class=\"case-row\">\r\n      <div class=\"case-item case-item-heading vertical-text\">\r\n        Focused\r\n      </div>\r\n      <div class=\"case-item\">\r\n        <ft-input\r\n          [isLabel]=\"true\"\r\n          [label]=\"'Username'\"\r\n          [size]=\"size\"\r\n          [color]=\"'primary'\"\r\n          [variant]=\"variant\"\r\n          [state]=\"'focused'\"\r\n          [radius]=\"radius\"\r\n          [disabled]=\"false\"\r\n          [readonly]=\"false\"\r\n          [required]=\"true\"\r\n          [invalid]=\"false\"\r\n          [placeholder]=\"'Enter your username'\"\r\n          [isDescription]=\"isDescription\"\r\n          [description]=\"'This is your public display name.'\"\r\n          [errorMessage]=\"'Username is required.'\"\r\n          [content]=\"\"\r\n          [labelPlacement]=\"'label-inside'\"\r\n          [isPrefixIconClass]=\"isPrefixIconClass\"\r\n          [prefixIconClass]=\"'icon-user'\"\r\n          [isSuffix1IconClass]=\"true\"\r\n          [suffix1IconClass]=\"'icon-close'\"\r\n          [isSuffix2IconClass]=\"true\"\r\n          [suffix2IconClass]=\"'icon-arrow-down'\"\r\n          [isClearable]=\"true\"\r\n        >\r\n        </ft-input>\r\n\r\n      </div>\r\n      <div class=\"case-item\">\r\n        <ft-input\r\n          [isLabel]=\"true\"\r\n          [label]=\"'Username'\"\r\n          [size]=\"size\"\r\n          [color]=\"'primary'\"\r\n          [variant]=\"variant\"\r\n          [state]=\"'focused'\"\r\n          [radius]=\"radius\"\r\n          [disabled]=\"false\"\r\n          [readonly]=\"false\"\r\n          [required]=\"true\"\r\n          [invalid]=\"false\"\r\n          [placeholder]=\"'Enter your username'\"\r\n          [isDescription]=\"isDescription\"\r\n          [description]=\"'This is your public display name.'\"\r\n          [errorMessage]=\"'Username is required.'\"\r\n          [content]=\"\"\r\n          [labelPlacement]=\"'label-outside'\"\r\n          [isPrefixIconClass]=\"isPrefixIconClass\"\r\n          [prefixIconClass]=\"'icon-user'\"\r\n          [isSuffix1IconClass]=\"true\"\r\n          [suffix1IconClass]=\"'icon-close'\"\r\n          [isSuffix2IconClass]=\"true\"\r\n          [suffix2IconClass]=\"'icon-arrow-down'\"\r\n          [isClearable]=\"true\"\r\n        >\r\n        </ft-input>\r\n\r\n\r\n      </div>\r\n      <div class=\"case-item\">\r\n        <ft-input\r\n          [isLabel]=\"true\"\r\n          [label]=\"'Username'\"\r\n          [size]=\"size\"\r\n          [color]=\"'primary'\"\r\n          [variant]=\"variant\"\r\n          [state]=\"'focused'\"\r\n          [radius]=\"radius\"\r\n          [disabled]=\"false\"\r\n          [readonly]=\"false\"\r\n          [required]=\"true\"\r\n          [invalid]=\"false\"\r\n          [placeholder]=\"'Enter your username'\"\r\n          [isDescription]=\"isDescription\"\r\n          [description]=\"'This is your public display name.'\"\r\n          [errorMessage]=\"'Username is required.'\"\r\n          [content]=\"\"\r\n          [labelPlacement]=\"'label-outside-left'\"\r\n          [isPrefixIconClass]=\"isPrefixIconClass\"\r\n          [prefixIconClass]=\"'icon-user'\"\r\n          [isSuffix1IconClass]=\"true\"\r\n          [suffix1IconClass]=\"'icon-close'\"\r\n          [isSuffix2IconClass]=\"true\"\r\n          [suffix2IconClass]=\"'icon-arrow-down'\"\r\n          [isClearable]=\"true\"\r\n        >\r\n        </ft-input>\r\n\r\n      </div>\r\n\r\n\r\n    </div>\r\n\r\n    <div class=\"case-row\">\r\n      <div class=\"case-item case-item-heading vertical-text\">\r\n        Read-Only\r\n      </div>\r\n      <div class=\"case-item\">\r\n        <ft-input\r\n          [isLabel]=\"true\"\r\n          [label]=\"'Username'\"\r\n          [size]=\"size\"\r\n          [color]=\"'primary'\"\r\n          [variant]=\"variant\"\r\n          [radius]=\"radius\"\r\n          [disabled]=\"false\"\r\n          [readonly]=\"true\"\r\n          [required]=\"true\"\r\n          [invalid]=\"false\"\r\n          [placeholder]=\"'Enter your username'\"\r\n          [isDescription]=\"isDescription\"\r\n          [description]=\"'This is your public display name.'\"\r\n          [errorMessage]=\"'Username is required.'\"\r\n          [content]=\"'default value'\"\r\n          [labelPlacement]=\"'label-inside'\"\r\n          [isPrefixIconClass]=\"isPrefixIconClass\"\r\n          [prefixIconClass]=\"'icon-user'\"\r\n          [isSuffix1IconClass]=\"true\"\r\n          [suffix1IconClass]=\"'icon-close'\"\r\n          [isSuffix2IconClass]=\"true\"\r\n          [suffix2IconClass]=\"'icon-arrow-down'\"\r\n          [isClearable]=\"true\"\r\n        >\r\n        </ft-input>\r\n\r\n      </div>\r\n      <div class=\"case-item\">\r\n        <ft-input\r\n          [isLabel]=\"true\"\r\n          [label]=\"'Username'\"\r\n          [size]=\"size\"\r\n          [color]=\"'primary'\"\r\n          [variant]=\"variant\"\r\n          [radius]=\"radius\"\r\n          [disabled]=\"false\"\r\n          [readonly]=\"true\"\r\n          [required]=\"true\"\r\n          [invalid]=\"false\"\r\n          [placeholder]=\"'Enter your username'\"\r\n          [isDescription]=\"isDescription\"\r\n          [description]=\"'This is your public display name.'\"\r\n          [errorMessage]=\"'Username is required.'\"\r\n          [content]=\"'default value'\"\r\n          [labelPlacement]=\"'label-outside'\"\r\n          [isPrefixIconClass]=\"isPrefixIconClass\"\r\n          [prefixIconClass]=\"'icon-user'\"\r\n          [isSuffix1IconClass]=\"true\"\r\n          [suffix1IconClass]=\"'icon-close'\"\r\n          [isSuffix2IconClass]=\"true\"\r\n          [suffix2IconClass]=\"'icon-arrow-down'\"\r\n          [isClearable]=\"true\"\r\n        >\r\n        </ft-input>\r\n\r\n\r\n      </div>\r\n      <div class=\"case-item\">\r\n        <ft-input\r\n          [isLabel]=\"true\"\r\n          [label]=\"'Username'\"\r\n          [size]=\"size\"\r\n          [color]=\"'primary'\"\r\n          [variant]=\"variant\"\r\n          [radius]=\"radius\"\r\n          [disabled]=\"false\"\r\n          [readonly]=\"true\"\r\n          [required]=\"true\"\r\n          [invalid]=\"false\"\r\n          [placeholder]=\"'Enter your username'\"\r\n          [isDescription]=\"isDescription\"\r\n          [description]=\"'This is your public display name.'\"\r\n          [errorMessage]=\"'Username is required.'\"\r\n          [content]=\"'default value'\"\r\n          [labelPlacement]=\"'label-outside-left'\"\r\n          [isPrefixIconClass]=\"isPrefixIconClass\"\r\n          [prefixIconClass]=\"'icon-user'\"\r\n          [isSuffix1IconClass]=\"true\"\r\n          [suffix1IconClass]=\"'icon-close'\"\r\n          [isSuffix2IconClass]=\"true\"\r\n          [suffix2IconClass]=\"'icon-arrow-down'\"\r\n          [isClearable]=\"true\"\r\n        >\r\n        </ft-input>\r\n\r\n      </div>\r\n\r\n    </div>\r\n\r\n    <div class=\"case-row\">\r\n      <div class=\"case-item case-item-heading vertical-text\">\r\n        Disabled\r\n      </div>\r\n      <div class=\"case-item\">\r\n        <ft-input\r\n          [isLabel]=\"true\"\r\n          [label]=\"'Username'\"\r\n          [size]=\"size\"\r\n          [color]=\"'primary'\"\r\n          [variant]=\"variant\"\r\n          [radius]=\"radius\"\r\n          [disabled]=\"true\"\r\n          [readonly]=\"false\"\r\n          [required]=\"true\"\r\n          [invalid]=\"false\"\r\n          [placeholder]=\"'Enter your username'\"\r\n          [isDescription]=\"isDescription\"\r\n          [description]=\"'This is your public display name.'\"\r\n          [errorMessage]=\"'Username is required.'\"\r\n          [content]=\"\"\r\n          [labelPlacement]=\"'label-inside'\"\r\n          [isPrefixIconClass]=\"isPrefixIconClass\"\r\n          [prefixIconClass]=\"'icon-user'\"\r\n          [isSuffix1IconClass]=\"true\"\r\n          [suffix1IconClass]=\"'icon-close'\"\r\n          [isSuffix2IconClass]=\"true\"\r\n          [suffix2IconClass]=\"'icon-arrow-down'\"\r\n          [isClearable]=\"true\"\r\n        >\r\n        </ft-input>\r\n\r\n      </div>\r\n      <div class=\"case-item\">\r\n        <ft-input\r\n          [isLabel]=\"true\"\r\n          [label]=\"'Username'\"\r\n          [size]=\"size\"\r\n          [color]=\"'primary'\"\r\n          [variant]=\"variant\"\r\n          [radius]=\"radius\"\r\n          [disabled]=\"true\"\r\n          [readonly]=\"false\"\r\n          [required]=\"true\"\r\n          [invalid]=\"false\"\r\n          [placeholder]=\"'Enter your username'\"\r\n          [isDescription]=\"isDescription\"\r\n          [description]=\"'This is your public display name.'\"\r\n          [errorMessage]=\"'Username is required.'\"\r\n          [content]=\"\"\r\n          [labelPlacement]=\"'label-outside'\"\r\n          [isPrefixIconClass]=\"isPrefixIconClass\"\r\n          [prefixIconClass]=\"'icon-user'\"\r\n          [isSuffix1IconClass]=\"true\"\r\n          [suffix1IconClass]=\"'icon-close'\"\r\n          [isSuffix2IconClass]=\"true\"\r\n          [suffix2IconClass]=\"'icon-arrow-down'\"\r\n          [isClearable]=\"true\"\r\n        >\r\n        </ft-input>\r\n\r\n\r\n      </div>\r\n      <div class=\"case-item\">\r\n        <ft-input\r\n          [isLabel]=\"true\"\r\n          [label]=\"'Username'\"\r\n          [size]=\"size\"\r\n          [color]=\"'primary'\"\r\n          [variant]=\"variant\"\r\n          [radius]=\"radius\"\r\n          [disabled]=\"true\"\r\n          [readonly]=\"false\"\r\n          [required]=\"true\"\r\n          [invalid]=\"false\"\r\n          [placeholder]=\"'Enter your username'\"\r\n          [isDescription]=\"isDescription\"\r\n          [description]=\"'This is your public display name.'\"\r\n          [errorMessage]=\"'Username is required.'\"\r\n          [content]=\"\"\r\n          [labelPlacement]=\"'label-outside-left'\"\r\n          [isPrefixIconClass]=\"isPrefixIconClass\"\r\n          [prefixIconClass]=\"'icon-user'\"\r\n          [isSuffix1IconClass]=\"true\"\r\n          [suffix1IconClass]=\"'icon-close'\"\r\n          [isSuffix2IconClass]=\"true\"\r\n          [suffix2IconClass]=\"'icon-arrow-down'\"\r\n          [isClearable]=\"true\"\r\n        >\r\n        </ft-input>\r\n\r\n      </div>\r\n\r\n    </div>\r\n\r\n    <div class=\"case-row\">\r\n      <div class=\"case-item case-item-heading vertical-text\">\r\n        Invalid\r\n      </div>\r\n      <div class=\"case-item\">\r\n        <ft-input\r\n          [isLabel]=\"true\"\r\n          [label]=\"'Username'\"\r\n          [size]=\"size\"\r\n          [color]=\"'primary'\"\r\n          [variant]=\"variant\"\r\n          [radius]=\"radius\"\r\n          [disabled]=\"false\"\r\n          [readonly]=\"false\"\r\n          [required]=\"true\"\r\n          [invalid]=\"true\"\r\n          [placeholder]=\"'Enter your username'\"\r\n          [isDescription]=\"isDescription\"\r\n          [description]=\"'This is your public display name.'\"\r\n          [errorMessage]=\"'Username is required.'\"\r\n          [content]=\"\"\r\n          [labelPlacement]=\"'label-inside'\"\r\n          [isPrefixIconClass]=\"isPrefixIconClass\"\r\n          [prefixIconClass]=\"'icon-user'\"\r\n          [isSuffix1IconClass]=\"true\"\r\n          [suffix1IconClass]=\"'icon-close'\"\r\n          [isSuffix2IconClass]=\"true\"\r\n          [suffix2IconClass]=\"'icon-arrow-down'\"\r\n          [isClearable]=\"true\"\r\n        >\r\n        </ft-input>\r\n\r\n      </div>\r\n      <div class=\"case-item\">\r\n        <ft-input\r\n          [isLabel]=\"true\"\r\n          [label]=\"'Username'\"\r\n          [size]=\"size\"\r\n          [color]=\"'primary'\"\r\n          [variant]=\"variant\"\r\n          [radius]=\"radius\"\r\n          [disabled]=\"false\"\r\n          [readonly]=\"false\"\r\n          [required]=\"true\"\r\n          [invalid]=\"true\"\r\n          [placeholder]=\"'Enter your username'\"\r\n          [isDescription]=\"isDescription\"\r\n          [description]=\"'This is your public display name.'\"\r\n          [errorMessage]=\"'Username is required.'\"\r\n          [content]=\"\"\r\n          [labelPlacement]=\"'label-outside'\"\r\n          [isPrefixIconClass]=\"isPrefixIconClass\"\r\n          [prefixIconClass]=\"'icon-user'\"\r\n          [isSuffix1IconClass]=\"true\"\r\n          [suffix1IconClass]=\"'icon-close'\"\r\n          [isSuffix2IconClass]=\"true\"\r\n          [suffix2IconClass]=\"'icon-arrow-down'\"\r\n          [isClearable]=\"true\"\r\n        >\r\n        </ft-input>\r\n\r\n\r\n      </div>\r\n      <div class=\"case-item\">\r\n        <ft-input\r\n          [isLabel]=\"true\"\r\n          [label]=\"'Username'\"\r\n          [size]=\"size\"\r\n          [color]=\"'primary'\"\r\n          [variant]=\"variant\"\r\n          [radius]=\"radius\"\r\n          [disabled]=\"false\"\r\n          [readonly]=\"false\"\r\n          [required]=\"true\"\r\n          [invalid]=\"true\"\r\n          [placeholder]=\"'Enter your username'\"\r\n          [isDescription]=\"isDescription\"\r\n          [description]=\"'This is your public display name.'\"\r\n          [errorMessage]=\"'Username is required.'\"\r\n          [content]=\"\"\r\n          [labelPlacement]=\"'label-outside-left'\"\r\n          [isPrefixIconClass]=\"isPrefixIconClass\"\r\n          [prefixIconClass]=\"'icon-user'\"\r\n          [isSuffix1IconClass]=\"true\"\r\n          [suffix1IconClass]=\"'icon-close'\"\r\n          [isSuffix2IconClass]=\"true\"\r\n          [suffix2IconClass]=\"'icon-arrow-down'\"\r\n          [isClearable]=\"true\"\r\n        >\r\n        </ft-input>\r\n\r\n      </div>\r\n\r\n    </div>\r\n\r\n    <div class=\"case-row\">\r\n      <div class=\"case-item case-item-heading vertical-text\">\r\n        Content\r\n      </div>\r\n      <div class=\"case-item\">\r\n        <ft-input\r\n          [isLabel]=\"true\"\r\n          [label]=\"'Username'\"\r\n          [size]=\"size\"\r\n          [color]=\"'primary'\"\r\n          [variant]=\"variant\"\r\n          [radius]=\"radius\"\r\n          [disabled]=\"false\"\r\n          [readonly]=\"false\"\r\n          [required]=\"true\"\r\n          [invalid]=\"false\"\r\n          [placeholder]=\"'Enter your username'\"\r\n          [isDescription]=\"isDescription\"\r\n          [description]=\"'This is your public display name.'\"\r\n          [errorMessage]=\"'Username is required.'\"\r\n          [content]=\"'default value'\"\r\n          [labelPlacement]=\"'label-inside'\"\r\n          [isPrefixIconClass]=\"isPrefixIconClass\"\r\n          [prefixIconClass]=\"'icon-user'\"\r\n          [isSuffix1IconClass]=\"true\"\r\n          [suffix1IconClass]=\"'icon-close'\"\r\n          [isSuffix2IconClass]=\"true\"\r\n          [suffix2IconClass]=\"'icon-arrow-down'\"\r\n          [isClearable]=\"true\"\r\n        >\r\n        </ft-input>\r\n\r\n      </div>\r\n      <div class=\"case-item\">\r\n        <ft-input\r\n          [isLabel]=\"true\"\r\n          [label]=\"'Username'\"\r\n          [size]=\"size\"\r\n          [color]=\"'primary'\"\r\n          [variant]=\"variant\"\r\n          [radius]=\"radius\"\r\n          [disabled]=\"false\"\r\n          [readonly]=\"false\"\r\n          [required]=\"true\"\r\n          [invalid]=\"false\"\r\n          [placeholder]=\"'Enter your username'\"\r\n          [isDescription]=\"isDescription\"\r\n          [description]=\"'This is your public display name.'\"\r\n          [errorMessage]=\"'Username is required.'\"\r\n          [content]=\"'default value'\"\r\n          [labelPlacement]=\"'label-outside'\"\r\n          [isPrefixIconClass]=\"isPrefixIconClass\"\r\n          [prefixIconClass]=\"'icon-user'\"\r\n          [isSuffix1IconClass]=\"true\"\r\n          [suffix1IconClass]=\"'icon-close'\"\r\n          [isSuffix2IconClass]=\"true\"\r\n          [suffix2IconClass]=\"'icon-arrow-down'\"\r\n          [isClearable]=\"true\"\r\n        >\r\n        </ft-input>\r\n\r\n\r\n      </div>\r\n      <div class=\"case-item\">\r\n        <ft-input\r\n          [isLabel]=\"true\"\r\n          [label]=\"'Username'\"\r\n          [size]=\"size\"\r\n          [color]=\"'primary'\"\r\n          [variant]=\"variant\"\r\n          [radius]=\"radius\"\r\n          [disabled]=\"false\"\r\n          [readonly]=\"false\"\r\n          [required]=\"true\"\r\n          [invalid]=\"false\"\r\n          [placeholder]=\"'Enter your username'\"\r\n          [isDescription]=\"isDescription\"\r\n          [description]=\"'This is your public display name.'\"\r\n          [errorMessage]=\"'Username is required.'\"\r\n          [content]=\"'default value'\"\r\n          [labelPlacement]=\"'label-outside-left'\"\r\n          [isPrefixIconClass]=\"isPrefixIconClass\"\r\n          [prefixIconClass]=\"'icon-user'\"\r\n          [isSuffix1IconClass]=\"true\"\r\n          [suffix1IconClass]=\"'icon-close'\"\r\n          [isSuffix2IconClass]=\"true\"\r\n          [suffix2IconClass]=\"'icon-arrow-down'\"\r\n          [isClearable]=\"true\"\r\n        >\r\n        </ft-input>\r\n\r\n      </div>\r\n\r\n    </div>\r\n\r\n  </div>\r\n</div>\r\n"
         },
         {
             "name": "InputShowcaseComponent",
-            "id": "component-InputShowcaseComponent-44fc11d43002797f882b88816a0de354d195f29a921d3dd50b910022bd6775bd602f3a0f5cb45dee7daa93751f0e8ac3f5d744b384356015bd67e18e307d211b",
+            "id": "component-InputShowcaseComponent-f2846898e7affcf8575950ca686b8c9233f2cbc458bd1e001268cd3335d2d2761762a58e07fb8a9bfcc5653044d79577a8af8c4c3326166f6cc5d7d4ef9eb051",
             "file": "src/stories/input-showcase/input-showcase.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -3036,7 +3086,27 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 16
+                    "line": 17
+                },
+                {
+                    "name": "class",
+                    "defaultValue": "'showcase'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 15,
+                    "decorators": [
+                        {
+                            "name": "HostBinding",
+                            "stringifiedArguments": "'class'"
+                        }
+                    ],
+                    "modifierKind": [
+                        171
+                    ]
                 },
                 {
                     "name": "clearableText",
@@ -3047,7 +3117,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 39
+                    "line": 40
                 },
                 {
                     "name": "disabledValue",
@@ -3058,7 +3128,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 17
+                    "line": 18
                 },
                 {
                     "name": "email",
@@ -3069,7 +3139,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 35
+                    "line": 36
                 },
                 {
                     "name": "emailErrorMessage",
@@ -3080,7 +3150,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 43
+                    "line": 44
                 },
                 {
                     "name": "errorField",
@@ -3091,7 +3161,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 30
+                    "line": 31
                 },
                 {
                     "name": "isEmailValid",
@@ -3102,7 +3172,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 42
+                    "line": 43
                 },
                 {
                     "name": "phone",
@@ -3113,7 +3183,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 36
+                    "line": 37
                 },
                 {
                     "name": "readonlyValue",
@@ -3124,7 +3194,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 18
+                    "line": 19
                 },
                 {
                     "name": "searchQuery",
@@ -3135,7 +3205,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 29
+                    "line": 30
                 },
                 {
                     "name": "searchTerm",
@@ -3146,7 +3216,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 34
+                    "line": 35
                 },
                 {
                     "name": "successField",
@@ -3157,7 +3227,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 31
+                    "line": 32
                 },
                 {
                     "name": "user",
@@ -3168,7 +3238,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 21
+                    "line": 22
                 }
             ],
             "methodsClass": [
@@ -3185,7 +3255,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 45,
+                    "line": 46,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -3206,7 +3276,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 51,
+                    "line": 52,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -3216,7 +3286,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 57,
+                    "line": 58,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -3226,14 +3296,24 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 67,
+                    "line": 68,
                     "deprecated": false,
                     "deprecationMessage": ""
                 }
             ],
             "deprecated": false,
             "deprecationMessage": "",
-            "hostBindings": [],
+            "hostBindings": [
+                {
+                    "name": "class",
+                    "defaultValue": "'showcase'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 15,
+                    "type": "string",
+                    "decorators": []
+                }
+            ],
             "hostListeners": [],
             "standalone": true,
             "imports": [
@@ -3249,7 +3329,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\n\nimport { CommonModule } from '@angular/common';\nimport {FTInputComponent} from '../input/ft.input.component';\n\n@Component({\n  selector: 'app-input-showcase',\n  templateUrl: './input-showcase.component.html',\n  styleUrls: ['./input-showcase.component.css'],\n  standalone: true,\n  imports: [CommonModule, FTInputComponent]\n})\nexport class InputShowcaseComponent {\n  // Basic Examples\n  basicValue = '';\n  disabledValue = 'Cannot edit this';\n  readonlyValue = 'Read only content';\n\n  // Form Examples\n  user = {\n    username: '',\n    email: '',\n    password: '',\n    bio: ''\n  };\n\n  // State Examples\n  searchQuery = '';\n  errorField = '';\n  successField = '';\n\n  // Icon Examples\n  searchTerm = '';\n  email = '';\n  phone = '';\n\n  // Clearable Examples\n  clearableText = 'Try clearing me!';\n\n  // Validation states\n  isEmailValid = true;\n  emailErrorMessage = '';\n\n  onEmailChange(value: string) {\n    const emailRegex = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;\n    this.isEmailValid = emailRegex.test(value) || value === '';\n    this.emailErrorMessage = this.isEmailValid ? '' : 'Please enter a valid email address';\n  }\n\n  onSearch() {\n    if (this.searchQuery) {\n      alert(`Searching for: ${this.searchQuery}`);\n    }\n  }\n\n  onSubmit() {\n    const formData = {\n      username: this.user.username,\n      email: this.user.email,\n      bio: this.user.bio\n    };\n    console.log('Form submitted:', formData);\n    alert('Form submitted! Check console for details.');\n  }\n\n  resetForm() {\n    this.user = {\n      username: '',\n      email: '',\n      password: '',\n      bio: ''\n    };\n    this.basicValue = '';\n    this.searchQuery = '';\n    this.errorField = '';\n    this.successField = '';\n    this.searchTerm = '';\n    this.email = '';\n    this.phone = '';\n    this.clearableText = '';\n  }\n}\n",
+            "sourceCode": "import {Component, HostBinding} from '@angular/core';\n\nimport { CommonModule } from '@angular/common';\nimport {FTInputComponent} from '../input/ft.input.component';\n\n@Component({\n  selector: 'app-input-showcase',\n  templateUrl: './input-showcase.component.html',\n  styleUrls: ['./input-showcase.component.css'],\n  standalone: true,\n  imports: [CommonModule, FTInputComponent]\n})\nexport class InputShowcaseComponent {\n  @HostBinding('class') class = 'showcase';\n  // Basic Examples\n  basicValue = '';\n  disabledValue = 'Cannot edit this';\n  readonlyValue = 'Read only content';\n\n  // Form Examples\n  user = {\n    username: '',\n    email: '',\n    password: '',\n    bio: ''\n  };\n\n  // State Examples\n  searchQuery = '';\n  errorField = '';\n  successField = '';\n\n  // Icon Examples\n  searchTerm = '';\n  email = '';\n  phone = '';\n\n  // Clearable Examples\n  clearableText = 'Try clearing me!';\n\n  // Validation states\n  isEmailValid = true;\n  emailErrorMessage = '';\n\n  onEmailChange(value: string) {\n    const emailRegex = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;\n    this.isEmailValid = emailRegex.test(value) || value === '';\n    this.emailErrorMessage = this.isEmailValid ? '' : 'Please enter a valid email address';\n  }\n\n  onSearch() {\n    if (this.searchQuery) {\n      alert(`Searching for: ${this.searchQuery}`);\n    }\n  }\n\n  onSubmit() {\n    const formData = {\n      username: this.user.username,\n      email: this.user.email,\n      bio: this.user.bio\n    };\n    console.log('Form submitted:', formData);\n    alert('Form submitted! Check console for details.');\n  }\n\n  resetForm() {\n    this.user = {\n      username: '',\n      email: '',\n      password: '',\n      bio: ''\n    };\n    this.basicValue = '';\n    this.searchQuery = '';\n    this.errorField = '';\n    this.successField = '';\n    this.searchTerm = '';\n    this.email = '';\n    this.phone = '';\n    this.clearableText = '';\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -6141,7 +6221,7 @@
         },
         {
             "name": "RadioAllCasesComponent",
-            "id": "component-RadioAllCasesComponent-b075e63747b1c6a2f36db355b5a40ca9c33a91f1fa5a3c58de69fb1a8e94fe25ab676535f1c60f338577f3ab0e937a2cf4ca815575f3f152a628428369d3b877",
+            "id": "component-RadioAllCasesComponent-2c1a6db405ac8243291903ca94c96ef60a1a28f540fe5dd0222664a599e86eb137dc857a2b9c1117b31ec63b3b8c04d9109a87132a5a6897dd8f4c2fed7a76dd",
             "file": "src/stories/radio-all-cases/radio-all-cases.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -6162,6 +6242,26 @@
             "outputsClass": [],
             "propertiesClass": [
                 {
+                    "name": "class",
+                    "defaultValue": "'showcase'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 15,
+                    "decorators": [
+                        {
+                            "name": "HostBinding",
+                            "stringifiedArguments": "'class'"
+                        }
+                    ],
+                    "modifierKind": [
+                        171
+                    ]
+                },
+                {
                     "name": "description",
                     "defaultValue": "'Description'",
                     "deprecated": false,
@@ -6170,7 +6270,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 19
+                    "line": 20
                 },
                 {
                     "name": "isDescription",
@@ -6181,7 +6281,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 18
+                    "line": 19
                 },
                 {
                     "name": "isLabel",
@@ -6192,7 +6292,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 16
+                    "line": 17
                 },
                 {
                     "name": "label",
@@ -6203,7 +6303,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 17
+                    "line": 18
                 },
                 {
                     "name": "size",
@@ -6214,13 +6314,23 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 20
+                    "line": 21
                 }
             ],
             "methodsClass": [],
             "deprecated": false,
             "deprecationMessage": "",
-            "hostBindings": [],
+            "hostBindings": [
+                {
+                    "name": "class",
+                    "defaultValue": "'showcase'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 15,
+                    "type": "string",
+                    "decorators": []
+                }
+            ],
             "hostListeners": [],
             "standalone": true,
             "imports": [
@@ -6236,7 +6346,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import {Component, Input} from '@angular/core';\r\n\r\nimport { CommonModule } from '@angular/common';\r\nimport {FtRadioComponent} from '../radio/ft.radio.component';\r\n\r\n@Component({\r\n  selector: 'app-radio-showcase',\r\n  templateUrl: './radio-all-cases.component.html',\r\n  styleUrls: ['./radio-all-cases.component.css'],\r\n  standalone: true,\r\n  imports: [CommonModule, FtRadioComponent]\r\n})\r\nexport class RadioAllCasesComponent {\r\n\r\n  isLabel = false;\r\n  label= 'Option A';\r\n  isDescription = false;\r\n  description= 'Description';\r\n  size: 'xs-size'|'sm-size'|'md-size'|'lg-size' = 'md-size';\r\n\r\n\r\n\r\n}\r\n",
+            "sourceCode": "import {Component, HostBinding, Input} from '@angular/core';\r\n\r\nimport { CommonModule } from '@angular/common';\r\nimport {FtRadioComponent} from '../radio/ft.radio.component';\r\n\r\n@Component({\r\n  selector: 'app-radio-showcase',\r\n  templateUrl: './radio-all-cases.component.html',\r\n  styleUrls: ['./radio-all-cases.component.css'],\r\n  standalone: true,\r\n  imports: [CommonModule, FtRadioComponent]\r\n})\r\nexport class RadioAllCasesComponent {\r\n  @HostBinding('class') class = 'showcase';\r\n\r\n  isLabel = false;\r\n  label= 'Option A';\r\n  isDescription = false;\r\n  description= 'Description';\r\n  size: 'xs-size'|'sm-size'|'md-size'|'lg-size' = 'md-size';\r\n\r\n\r\n\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -9685,7 +9795,7 @@
                 "linktype": "component",
                 "name": "InputAllCasesComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/5",
+                "coverageCount": "0/8",
                 "status": "low"
             },
             {
@@ -9694,7 +9804,7 @@
                 "linktype": "component",
                 "name": "InputShowcaseComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/18",
+                "coverageCount": "0/20",
                 "status": "low"
             },
             {
@@ -9703,7 +9813,7 @@
                 "linktype": "component",
                 "name": "FTInputComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/26",
+                "coverageCount": "0/27",
                 "status": "low"
             },
             {
@@ -9721,7 +9831,7 @@
                 "linktype": "component",
                 "name": "RadioAllCasesComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/6",
+                "coverageCount": "0/8",
                 "status": "low"
             },
             {

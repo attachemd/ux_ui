@@ -27,6 +27,7 @@ export class FTInputComponent {
   @Input() required = false;
   @Input() invalid = false;
   @Input() placeholder?: string;
+  @Input() isDescription = false;
   @Input() description?: string;
   @Input() errorMessage?: string;
   @Input() content?: string;

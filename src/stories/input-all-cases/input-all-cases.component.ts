@@ -1,5 +1,5 @@
 // input-showcase.component.ts
-import {Component, Input} from '@angular/core';
+import {Component, HostBinding, Input} from '@angular/core';
 
 import { CommonModule } from '@angular/common';
 import {FTInputComponent} from '../input/ft.input.component';
@@ -12,11 +12,12 @@ import {FTInputComponent} from '../input/ft.input.component';
   imports: [CommonModule, FTInputComponent]
 })
 export class InputAllCasesComponent {
-
+  @HostBinding('class') class = 'showcase';
   isPrefixIconClass: boolean = true;
   radius: 'none-radius'|'sm-radius'|'md-radius'|'lg-radius'|'full-radius' = 'md-radius';
   size: 'xs-size'|'sm-size'|'md-size'|'lg-size' = 'md-size';
   variant: 'flat'|'faded'|'underlined'|'ghost' = 'flat';
+  isDescription = false;
 
 
 
