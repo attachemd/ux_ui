@@ -31,6 +31,10 @@ const meta: Meta<RadioAllCasesComponent> = {
       control: "boolean",
       options: [true, false],
     },
+    isDescription: {
+      control: "boolean",
+      options: [true, false],
+    },
     label: {
       control: 'text',
     }
