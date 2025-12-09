@@ -812,6 +812,7 @@
     --ft-color-on-surface-scroll: var(--ft-color-n-on-surface-15);
     --ft-color-border-100: var(--ft-color-n-on-surface-3);
     --ft-color-shadow-200: var(--ft-color-n-on-surface-10);
+    --ft-color-shadow-300: var(--ft-color-n-on-surface-20);
     --ft-color-border-200: var(--ft-color-n-on-surface-10);
     --ft-color-border-300: var(--ft-color-n-on-surface-40);
     --ft-color-border-muted: var(--ft-color-n-on-surface-40);

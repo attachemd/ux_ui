@@ -4038,6 +4038,69 @@
             "templateData": "<div class=\"body\">\r\n<div class=\"container\">\r\n  <h1 class=\"text-xl\">Medical Status Tags</h1>\r\n\r\n  <h2>Risk Level Status</h2>\r\n  <!-- <p class=\"section-description\">\r\n    Visual indicators for patient risk assessment levels, color-coded from\r\n    severe (red) to safe (green).\r\n  </p> -->\r\n  <div class=\"tag-container\">\r\n    <div class=\"tag risk-critical\">CRITICAL</div>\r\n    <div class=\"tag risk-high\">HIGH</div>\r\n    <div class=\"tag risk-medium\">MEDIUM</div>\r\n    <div class=\"tag risk-low\">LOW</div>\r\n  </div>\r\n\r\n  <h2>Allergy Severity</h2>\r\n  <!-- <p class=\"section-description\">\r\n    Indicates the severity level of patient allergies, helping prioritize\r\n    medical awareness.\r\n  </p> -->\r\n  <div class=\"tag-container\">\r\n    <div class=\"tag allergy-severe\">SEVERE</div>\r\n    <div class=\"tag allergy-moderate\">MODERATE</div>\r\n    <div class=\"tag allergy-low\">LOW</div>\r\n  </div>\r\n\r\n  <h2>Medical Condition Status</h2>\r\n  <!-- <p class=\"section-description\">\r\n    Shows the current state of diagnosed medical conditions.\r\n  </p> -->\r\n  <div class=\"tag-container\">\r\n    <div class=\"tag condition-active\">ACTIVE</div>\r\n    <div class=\"tag condition-in-remission\">IN REMISSION</div>\r\n    <div class=\"tag condition-resolved\">RESOLVED</div>\r\n  </div>\r\n\r\n  <h2>Treatment Status</h2>\r\n  <!-- <p class=\"section-description\">\r\n    Tracks the status of prescribed treatments and medications.\r\n  </p> -->\r\n  <div class=\"tag-container\">\r\n    <div class=\"tag treatment-in-progress\">IN PROGRESS</div>\r\n    <div class=\"tag treatment-stopped\">STOPPED</div>\r\n    <div class=\"tag treatment-finished\">FINISHED</div>\r\n    <div class=\"tag treatment-not-taken\">NOT TAKEN</div>\r\n  </div>\r\n</div>\r\n</div>\r\n"
         },
         {
+            "name": "OnSurfaceColorComponent",
+            "id": "component-OnSurfaceColorComponent-c30745587c925fd6a48cac766d19574d7a4c2757131260a764e4107ab3617d446f2fb392048a7361fff9b059588b1c29b855123bfe86b2c100cbcb3fcc5b81da",
+            "file": "src/stories/on-surface-color/on.surface.color.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "surface-color",
+            "styleUrls": [
+                "./on.surface.color.component.css"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./on.surface.color.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "surfaceLevels",
+                    "defaultValue": "[\r\n    '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10',\r\n    '15', '20', '25', '30', '35', '40', '45', '50', '55',\r\n    '60', '65', '70', '75', '80', '85', '90', '100'\r\n  ]",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "[]",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 15
+                }
+            ],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": false,
+            "imports": [
+                {
+                    "name": "NgForOf"
+                },
+                {
+                    "name": "NgStyle"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\r\nimport {NgForOf, NgStyle} from '@angular/common';\r\n\r\n@Component({\r\n  selector: 'surface-color',\r\n  templateUrl: './on.surface.color.component.html',\r\n  imports: [\r\n    NgForOf,\r\n    NgStyle\r\n  ],\r\n  styleUrls: ['./on.surface.color.component.css']\r\n})\r\nexport class OnSurfaceColorComponent {\r\n  // Array of opacity levels\r\n  surfaceLevels = [\r\n    '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10',\r\n    '15', '20', '25', '30', '35', '40', '45', '50', '55',\r\n    '60', '65', '70', '75', '80', '85', '90', '100'\r\n  ];\r\n}\r\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ":host {\r\n  display: block;\r\n  background-color: var(--ft-color-surface-level-300);\r\n  /*padding: var(--ft-unit-400)*/\r\n}\r\n\r\ntable {\r\n  /*border-collapse: separate;*/\r\n  /*border-spacing: var(--ft-unit-400);*/\r\n/*  background-color: var(--ft-color-surface-level-300);*/\r\n/*  padding: var(--ft-unit-400)*/\r\n}\r\n\r\ntr th {\r\n  color: var(--ft-color-on-surface-level-300);\r\n  font-size: var(--ft-text-2xs);\r\n  font-weight: 400;\r\n  padding: var(--ft-unit-200) var(--ft-unit-400);\r\n}\r\ntr td,\r\ntr th {\r\n  border-right: var(--ft-border-primary) solid var(--ft-color-border-200);\r\n  border-bottom: var(--ft-border-primary) solid var(--ft-color-border-200);\r\n}\r\n\r\ntr td:first-child,\r\ntr th:first-child {\r\n  padding: var(--ft-unit-200) var(--ft-unit-400);\r\n}\r\n\r\ntr td:first-child {\r\n  color: var(--ft-color-on-surface-level-300);\r\n  font-size: var(--ft-text-2xs);\r\n}\r\n\r\n\r\ntd:has(.cell) {\r\n  overflow: hidden;\r\n  font-size: var(--ft-text-2xs);\r\n}\r\n\r\n.cell {\r\n  display: flex;\r\n  width: max-content;\r\n  gap: var(--ft-unit-400);\r\n  padding: var(--ft-unit-400);\r\n  align-items: center;\r\n  .color-sample-outer-container {\r\n    /* Define the size of the square unit */\r\n    --square-size: 3px;\r\n\r\n    /* Define the two colors */\r\n    --color-light: var(--ft-color-surface-level-300); /* Light gray */\r\n    --color-dark: var(--ft-color-n-on-surface-100); /* Dark gray */\r\n\r\n    display: flex;\r\n    width: 30px;\r\n    height: 30px;\r\n\r\n    /*background-color: #fff;*/\r\n    /*background-image:*/\r\n    /*  linear-gradient(45deg, #ccc 25%, transparent 25%),*/\r\n    /*  linear-gradient(-45deg, #ccc 25%, transparent 25%),*/\r\n    /*  linear-gradient(45deg, transparent 75%, #ccc 75%),*/\r\n    /*  linear-gradient(-45deg, transparent 75%, #ccc 75%);*/\r\n    /*background-size: 20px 20px;*/\r\n    /*background-position: 0 0, 0 10px, 10px -10px, -10px 0px;*/\r\n\r\n    /* --- SIMPLER CHECKERBOARD using repeating-conic-gradient --- */\r\n    background-image: repeating-conic-gradient(\r\n      var(--color-light) 0% 25%,\r\n      var(--color-dark) 25% 50%\r\n    );\r\n\r\n    /* Set the size of the repeating tile (2x2 squares) */\r\n    background-size: calc(2 * var(--square-size)) calc(2 * var(--square-size));\r\n\r\n    border: var(--ft-border-tertiary) solid var(--ft-color-surface-level-300);\r\n    border-radius: var(--ft-radius-200);\r\n    box-shadow: 0 1px 3px var(--ft-color-shadow-300);\r\n\r\n    .color-sample-container {\r\n\r\n      /*border: var(--ft-border-primary) solid var(--ft-color-border-200);*/\r\n      width: 100%;\r\n      height: 100%;\r\n      display: flex;\r\n      gap: var(--ft-border-primary);\r\n      /*position: relative;*/\r\n      .color-sample {\r\n        width: 50%;\r\n        height: 100%;\r\n        /*position: absolute;*/\r\n        /*top: 50%;*/\r\n        /*left: 50%;*/\r\n        /*transform: translate(-50%, -50%);*/\r\n\r\n\r\n      }\r\n\r\n      /*.solid {*/\r\n      /*  border-right: var(--ft-border-primary) solid var(--ft-color-border-200);*/\r\n      /*}*/\r\n\r\n    }\r\n\r\n  }\r\n\r\n}\r\n",
+                    "styleUrl": "./on.surface.color.component.css"
+                }
+            ],
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<!-- color-table.component.html -->\r\n<!--<table border=\"1\">-->\r\n<!--  &lt;!&ndash; Header row &ndash;&gt;-->\r\n<!--  <tr>-->\r\n<!--    <th>Variation\\Color</th>-->\r\n<!--    <th *ngFor=\"let color of colors\">{{ color }}</th>-->\r\n<!--  </tr>-->\r\n\r\n<!--  &lt;!&ndash; Data rows &ndash;&gt;-->\r\n<!--  <tr *ngFor=\"let variation of variations\">-->\r\n<!--    <td>{{ variation }}</td>-->\r\n<!--    <td *ngFor=\"let color of colors\">-->\r\n<!--      {{ 'var(&#45;&#45;color-' + color + '-' + variation + ')' }}-->\r\n<!--    </td>-->\r\n<!--  </tr>-->\r\n<!--</table>-->\r\n\r\n\r\n<table border=\"1\">\r\n  <tr>\r\n    <th>Variation\\Color</th>\r\n    <th>Surface</th>\r\n  </tr>\r\n  <tr *ngFor=\"let level of surfaceLevels\">\r\n    <td>{{ level }}</td>\r\n    <td>\r\n      <div class=\"cell\">\r\n        <div class=\"color-sample-outer-container\">\r\n          <div class=\"color-sample-container\">\r\n            <div class=\"color-sample solid\" [ngStyle]=\"{'background-color': 'var(--ft-color-n-on-surface-100)'}\"></div>\r\n            <div class=\"color-sample\" [ngStyle]=\"{'background-color': 'var(--ft-color-n-on-surface-' + level + ')'}\"></div>\r\n          </div>\r\n        </div>\r\n        <div class=\"color-desc\">\r\n          {{ '--ft-color-n-on-surface-' + level }}\r\n        </div>\r\n\r\n      </div>\r\n\r\n    </td>\r\n  </tr>\r\n</table>\r\n"
+        },
+        {
             "name": "PageComponent",
             "id": "component-PageComponent-79bfb042a722f49579739dfd01d8f1b67681d0272a72a283c14edeb22f0462775c80ba4f7c1eb0fa4bd5fa1844083da0140980e75b5500cd98cc26421ec6d569",
             "file": "src/stories/page.component.ts",
@@ -6898,7 +6961,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": ":host {\r\n  display: block;\r\n  background-color: var(--ft-color-surface-level-300);\r\n  /*padding: var(--ft-unit-400)*/\r\n}\r\n\r\ntable {\r\n  /*border-collapse: separate;*/\r\n  /*border-spacing: var(--ft-unit-400);*/\r\n/*  background-color: var(--ft-color-surface-level-300);*/\r\n/*  padding: var(--ft-unit-400)*/\r\n}\r\n\r\ntr th {\r\n  color: var(--ft-color-on-surface-level-300);\r\n  font-size: var(--ft-text-2xs);\r\n  font-weight: 400;\r\n  padding: var(--ft-unit-200) var(--ft-unit-400);\r\n}\r\ntr td,\r\ntr th {\r\n  border-right: var(--ft-border-primary) solid var(--ft-color-border-200);\r\n  border-bottom: var(--ft-border-primary) solid var(--ft-color-border-200);\r\n}\r\n\r\ntr td:first-child,\r\ntr th:first-child {\r\n  padding: var(--ft-unit-200) var(--ft-unit-400);\r\n}\r\n\r\ntr td:first-child {\r\n  color: var(--ft-color-on-surface-level-300);\r\n  font-size: var(--ft-text-2xs);\r\n}\r\n\r\n\r\ntd:has(.cell) {\r\n  overflow: hidden;\r\n  font-size: var(--ft-text-2xs);\r\n}\r\n\r\n.cell {\r\n  display: flex;\r\n  width: max-content;\r\n  gap: var(--ft-unit-400);\r\n  padding: var(--ft-unit-400);\r\n  align-items: center;\r\n  .color-sample-outer-container {\r\n    /* Define the size of the square unit */\r\n    --square-size: 3px;\r\n\r\n    /* Define the two colors */\r\n    --color-light: var(--ft-color-surface-level-300); /* Light gray */\r\n    --color-dark: var(--ft-color-n-on-surface-100); /* Dark gray */\r\n\r\n    display: flex;\r\n    width: 30px;\r\n    height: 30px;\r\n\r\n    /*background-color: #fff;*/\r\n    /*background-image:*/\r\n    /*  linear-gradient(45deg, #ccc 25%, transparent 25%),*/\r\n    /*  linear-gradient(-45deg, #ccc 25%, transparent 25%),*/\r\n    /*  linear-gradient(45deg, transparent 75%, #ccc 75%),*/\r\n    /*  linear-gradient(-45deg, transparent 75%, #ccc 75%);*/\r\n    /*background-size: 20px 20px;*/\r\n    /*background-position: 0 0, 0 10px, 10px -10px, -10px 0px;*/\r\n\r\n    /* --- SIMPLER CHECKERBOARD using repeating-conic-gradient --- */\r\n    background-image: repeating-conic-gradient(\r\n      var(--color-light) 0% 25%,\r\n      var(--color-dark) 25% 50%\r\n    );\r\n\r\n    /* Set the size of the repeating tile (2x2 squares) */\r\n    background-size: calc(2 * var(--square-size)) calc(2 * var(--square-size));\r\n\r\n    border: var(--ft-border-tertiary) solid var(--ft-color-surface-level-300);\r\n    border-radius: var(--ft-radius-200);\r\n    box-shadow: 0 1px 3px var(--ft-color-shadow-200);\r\n\r\n    .color-sample-container {\r\n\r\n      border: var(--ft-border-primary) solid var(--ft-color-border-200);\r\n      width: 100%;\r\n      height: 100%;\r\n      display: flex;\r\n      gap: var(--ft-border-primary);\r\n      /*position: relative;*/\r\n      .color-sample {\r\n        width: 50%;\r\n        height: 100%;\r\n        /*position: absolute;*/\r\n        /*top: 50%;*/\r\n        /*left: 50%;*/\r\n        /*transform: translate(-50%, -50%);*/\r\n\r\n\r\n      }\r\n\r\n      /*.solid {*/\r\n      /*  border-right: var(--ft-border-primary) solid var(--ft-color-border-200);*/\r\n      /*}*/\r\n\r\n    }\r\n\r\n  }\r\n\r\n}\r\n",
+                    "data": ":host {\r\n  display: block;\r\n  background-color: var(--ft-color-surface-level-300);\r\n  /*padding: var(--ft-unit-400)*/\r\n}\r\n\r\ntable {\r\n  /*border-collapse: separate;*/\r\n  /*border-spacing: var(--ft-unit-400);*/\r\n/*  background-color: var(--ft-color-surface-level-300);*/\r\n/*  padding: var(--ft-unit-400)*/\r\n}\r\n\r\ntr th {\r\n  color: var(--ft-color-on-surface-level-300);\r\n  font-size: var(--ft-text-2xs);\r\n  font-weight: 400;\r\n  padding: var(--ft-unit-200) var(--ft-unit-400);\r\n}\r\ntr td,\r\ntr th {\r\n  border-right: var(--ft-border-primary) solid var(--ft-color-border-200);\r\n  border-bottom: var(--ft-border-primary) solid var(--ft-color-border-200);\r\n}\r\n\r\ntr td:first-child,\r\ntr th:first-child {\r\n  padding: var(--ft-unit-200) var(--ft-unit-400);\r\n}\r\n\r\ntr td:first-child {\r\n  color: var(--ft-color-on-surface-level-300);\r\n  font-size: var(--ft-text-2xs);\r\n}\r\n\r\n\r\ntd:has(.cell) {\r\n  overflow: hidden;\r\n  font-size: var(--ft-text-2xs);\r\n}\r\n\r\n.cell {\r\n  display: flex;\r\n  width: max-content;\r\n  gap: var(--ft-unit-400);\r\n  padding: var(--ft-unit-400);\r\n  align-items: center;\r\n  .color-sample-outer-container {\r\n    /* Define the size of the square unit */\r\n    --square-size: 3px;\r\n\r\n    /* Define the two colors */\r\n    --color-light: var(--ft-color-surface-level-300); /* Light gray */\r\n    --color-dark: var(--ft-color-n-on-surface-100); /* Dark gray */\r\n\r\n    display: flex;\r\n    width: 30px;\r\n    height: 30px;\r\n\r\n    /*background-color: #fff;*/\r\n    /*background-image:*/\r\n    /*  linear-gradient(45deg, #ccc 25%, transparent 25%),*/\r\n    /*  linear-gradient(-45deg, #ccc 25%, transparent 25%),*/\r\n    /*  linear-gradient(45deg, transparent 75%, #ccc 75%),*/\r\n    /*  linear-gradient(-45deg, transparent 75%, #ccc 75%);*/\r\n    /*background-size: 20px 20px;*/\r\n    /*background-position: 0 0, 0 10px, 10px -10px, -10px 0px;*/\r\n\r\n    /* --- SIMPLER CHECKERBOARD using repeating-conic-gradient --- */\r\n    background-image: repeating-conic-gradient(\r\n      var(--color-light) 0% 25%,\r\n      var(--color-dark) 25% 50%\r\n    );\r\n\r\n    /* Set the size of the repeating tile (2x2 squares) */\r\n    background-size: calc(2 * var(--square-size)) calc(2 * var(--square-size));\r\n\r\n    border: var(--ft-border-tertiary) solid var(--ft-color-surface-level-300);\r\n    border-radius: var(--ft-radius-200);\r\n    box-shadow: 0 1px 3px var(--ft-color-shadow-300);\r\n\r\n    .color-sample-container {\r\n\r\n      /*border: var(--ft-border-primary) solid var(--ft-color-border-200);*/\r\n      width: 100%;\r\n      height: 100%;\r\n      display: flex;\r\n      gap: var(--ft-border-primary);\r\n      /*position: relative;*/\r\n      .color-sample {\r\n        width: 50%;\r\n        height: 100%;\r\n        /*position: absolute;*/\r\n        /*top: 50%;*/\r\n        /*left: 50%;*/\r\n        /*transform: translate(-50%, -50%);*/\r\n\r\n\r\n      }\r\n\r\n      /*.solid {*/\r\n      /*  border-right: var(--ft-border-primary) solid var(--ft-color-border-200);*/\r\n      /*}*/\r\n\r\n    }\r\n\r\n  }\r\n\r\n}\r\n",
                     "styleUrl": "./surface.color.component.css"
                 }
             ],
@@ -9814,6 +9877,15 @@
                 "name": "FTInputComponent",
                 "coveragePercent": 0,
                 "coverageCount": "0/27",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/on-surface-color/on.surface.color.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "OnSurfaceColorComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
                 "status": "low"
             },
             {

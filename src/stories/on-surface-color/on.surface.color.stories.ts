@@ -1,14 +1,14 @@
 
 import type { Meta, StoryObj } from '@storybook/angular';
 import { moduleMetadata } from '@storybook/angular';
-import { SurfaceColorComponent } from './surface.color.component';
+import { OnSurfaceColorComponent } from './on.surface.color.component';
 
 import { FormsModule } from '@angular/forms';
 import {FtRadioComponent} from '../radio/ft.radio.component';
 
-const meta: Meta<SurfaceColorComponent> = {
-  title: 'Color/Surface',
-  component: SurfaceColorComponent,
+const meta: Meta<OnSurfaceColorComponent> = {
+  title: 'Color/On Surface',
+  component: OnSurfaceColorComponent,
   // decorators: [
   //   moduleMetadata({
   //     imports: [FormsModule, FtRadioComponent],
@@ -31,7 +31,7 @@ const meta: Meta<SurfaceColorComponent> = {
 };
 
 export default meta;
-type Story = StoryObj<SurfaceColorComponent>;
+type Story = StoryObj<OnSurfaceColorComponent>;
 
 export const Default: Story = {
   args: {}

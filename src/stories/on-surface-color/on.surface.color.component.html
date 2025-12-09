@@ -1,0 +1,42 @@
+<!-- color-table.component.html -->
+<!--<table border="1">-->
+<!--  &lt;!&ndash; Header row &ndash;&gt;-->
+<!--  <tr>-->
+<!--    <th>Variation\Color</th>-->
+<!--    <th *ngFor="let color of colors">{{ color }}</th>-->
+<!--  </tr>-->
+
+<!--  &lt;!&ndash; Data rows &ndash;&gt;-->
+<!--  <tr *ngFor="let variation of variations">-->
+<!--    <td>{{ variation }}</td>-->
+<!--    <td *ngFor="let color of colors">-->
+<!--      {{ 'var(&#45;&#45;color-' + color + '-' + variation + ')' }}-->
+<!--    </td>-->
+<!--  </tr>-->
+<!--</table>-->
+
+
+<table border="1">
+  <tr>
+    <th>Variation\Color</th>
+    <th>Surface</th>
+  </tr>
+  <tr *ngFor="let level of surfaceLevels">
+    <td>{{ level }}</td>
+    <td>
+      <div class="cell">
+        <div class="color-sample-outer-container">
+          <div class="color-sample-container">
+            <div class="color-sample solid" [ngStyle]="{'background-color': 'var(--ft-color-n-on-surface-100)'}"></div>
+            <div class="color-sample" [ngStyle]="{'background-color': 'var(--ft-color-n-on-surface-' + level + ')'}"></div>
+          </div>
+        </div>
+        <div class="color-desc">
+          {{ '--ft-color-n-on-surface-' + level }}
+        </div>
+
+      </div>
+
+    </td>
+  </tr>
+</table>
