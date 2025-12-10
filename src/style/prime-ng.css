@@ -137,10 +137,10 @@
 
   .p-floatlabel:has(.p-disabled) {
     /*label {*/
-    /*  color: var(--ft-color-text-muted);*/
+    /*  colors: var(--ft-colors-text-muted);*/
     /*}*/
     /*.p-select-dropdown {*/
-    /*  color: var(--ft-color-text-muted);*/
+    /*  colors: var(--ft-colors-text-muted);*/
     /*}*/
   }
 
@@ -169,7 +169,7 @@
   /*  left: 0;*/
   /*  display: block;*/
   /*  pointer-events: none;*/
-  /*  transition: background var(--p-textarea-transition-duration),color var(--p-textarea-transition-duration),border-color var(--p-textarea-transition-duration),outline-color var(--p-textarea-transition-duration),box-shadow var(--p-textarea-transition-duration);*/
+  /*  transition: background var(--p-textarea-transition-duration),colors var(--p-textarea-transition-duration),border-colors var(--p-textarea-transition-duration),outline-colors var(--p-textarea-transition-duration),box-shadow var(--p-textarea-transition-duration);*/
   /*}*/
   /*.p-floatlabel:has(.p-textarea):hover::after {*/
   /*  background: linear-gradient(*/
@@ -199,7 +199,7 @@
     width: 100%;
     /*border-width: var(--ft-border-secondary);*/
     border-width: 0;
-    /*border-color: transparent;*/
+    /*border-colors: transparent;*/
   }
 
   .p-inputnumber {
@@ -218,7 +218,7 @@
     /*border-width: var(--ft-border-secondary);*/
     border-width: 0;
     border-color: var(--ft-color-background-quaternary);
-    /*background-color: #fff;*/
+    /*background-colors: #fff;*/
   }
 
   .p-multiselect-overlay {
@@ -368,7 +368,7 @@
   }
 
   .p-toggleswitch.p-toggleswitch-checked .p-toggleswitch-slider {
-    background-color: var(--color-electric-primary) !important; /* Your desired color */
+    background-color: var(--color-electric-primary) !important; /* Your desired colors */
   }
 
   .p-toggleswitch {

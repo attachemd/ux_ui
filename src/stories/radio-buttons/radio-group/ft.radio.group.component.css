@@ -1,0 +1,29 @@
+.group-field-container {
+  display: flex;
+
+  flex-direction: column;
+  gap: var(--ft-unit-200);
+  .group-field-label {
+
+  }
+  .group-field-content-container {
+    display: flex;
+    flex-direction: column;
+    .group-field-content {
+      display: flex;
+      gap: var(--ft-unit-200);
+    }
+  }
+
+  &.inactive {
+    .group-field-label {
+      color: var(--ft-color-on-surface-muted);
+    }
+
+  }
+}
+
+.error-text {
+  color: var(--ft-color-danger);
+  /*padding: 0 var(--ft-unit-200);*/
+}

@@ -8,6 +8,8 @@ setCompodocJson(docJson);
 // import {themes} from 'storybook/theming';
 import {withThemeByClassName} from '@storybook/addon-themes';
 
+import '!style-loader!css-loader!../src/stories/common.styles.css';
+
 const preview: Preview = {
   parameters: {
     actions: { argTypesRegex: '^on[A-Z].*' },
