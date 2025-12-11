@@ -5,6 +5,9 @@ const meta: Meta<FtRadioComponent> = {
   title: 'Radio Buttons/Radio',
   component: FtRadioComponent,
   tags: ['autodocs'],
+  parameters: {
+    order: 1,  // Lower number = appears earlier
+  },
   argTypes: {
 
   },

@@ -7,9 +7,9 @@
     <td>{{ variation }}</td>
     <td *ngFor="let color of CommonColors" >
       <div class="cell">
-        <div class="color-sample" [ngStyle]="{'background-color': 'var(--colors-' + color + '-' + variation + ')'}"></div>
+        <div class="color-sample" [ngStyle]="{'background-color': 'var(--color-' + color + '-' + variation + ')'}"></div>
         <div class="color-desc">
-          {{ '--colors-' + color + '-' + variation }}
+          {{ '--color-' + color + '-' + variation }}
         </div>
       </div>
 
@@ -29,12 +29,12 @@
       <div class="cell">
         <div class="color-sample-outer-container">
           <div class="color-sample-container">
-            <div class="color-sample solid" [ngStyle]="{'background-color': 'var(--ft-colors-n-on-surface-100)'}"></div>
-            <div class="color-sample transparent" [ngStyle]="{'background-color': 'var(--ft-colors-n-on-surface-' + level + ')'}"></div>
+            <div class="color-sample solid" [ngStyle]="{'background-color': 'var(--ft-color-n-on-surface-100)'}"></div>
+            <div class="color-sample transparent" [ngStyle]="{'background-color': 'var(--ft-color-n-on-surface-' + level + ')'}"></div>
           </div>
         </div>
         <div class="color-desc">
-          {{ '--ft-colors-n-on-surface-' + level }}
+          {{ '--ft-color-n-on-surface-' + level }}
         </div>
 
       </div>
@@ -55,12 +55,12 @@
       <div class="cell">
         <div class="color-sample-outer-container">
           <div class="color-sample-container">
-            <div class="color-sample solid" [ngStyle]="{'background-color': 'var(--ft-colors-n-surface-100)'}"></div>
-            <div class="color-sample transparent" [ngStyle]="{'background-color': 'var(--ft-colors-n-surface-' + level + ')'}"></div>
+            <div class="color-sample solid" [ngStyle]="{'background-color': 'var(--ft-color-n-surface-100)'}"></div>
+            <div class="color-sample transparent" [ngStyle]="{'background-color': 'var(--ft-color-n-surface-' + level + ')'}"></div>
           </div>
         </div>
         <div class="color-desc">
-          {{ '--ft-colors-n-surface-' + level }}
+          {{ '--ft-color-n-surface-' + level }}
         </div>
 
       </div>

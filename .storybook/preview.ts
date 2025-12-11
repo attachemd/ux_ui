@@ -12,6 +12,16 @@ import '!style-loader!css-loader!../src/stories/common.styles.css';
 
 const preview: Preview = {
   parameters: {
+    options: {
+      storySort: {
+        order: [
+          'Radio Buttons', ['Radio', 'Radio Group', 'Radio All Cases', '*'],  // Radio Buttons group first
+          'Inputs', ['Input', 'Textarea', 'Select', '*'], // Inputs group second
+          'Colors', [ 'Surface', 'OnSurface', 'Common', '*'],
+          ['*', '**'],  // All other stories
+        ], // * means everything else
+      },
+    },
     actions: { argTypesRegex: '^on[A-Z].*' },
     controls: {
       matchers: {
