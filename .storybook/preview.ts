@@ -1,5 +1,5 @@
-import type { Preview } from '@storybook/angular'
-import { setCompodocJson } from "@storybook/addon-docs/angular";
+import type {Preview} from '@storybook/angular'
+import {setCompodocJson} from "@storybook/addon-docs/angular";
 import docJson from "../documentation.json";
 // import "../src/style/tailwind.css"
 setCompodocJson(docJson);
@@ -12,17 +12,21 @@ import '!style-loader!css-loader!../src/stories/common.styles.css';
 
 const preview: Preview = {
   parameters: {
+    docs: {
+      inlineStories: false,
+    },
     options: {
       storySort: {
         order: [
+          'Theme', ['Roadmap', 'Colors', ['Common Colors', 'Surface Colors', 'On Surface Colors', '*']],
           'Radio Buttons', ['Radio', 'Radio Group', 'Radio All Cases', '*'],  // Radio Buttons group first
           'Inputs', ['Input', 'Textarea', 'Select', '*'], // Inputs group second
-          'Colors', [ 'Surface', 'OnSurface', 'Common', '*'],
+          'Buttons', ['Button', 'Textarea', 'Select', '*'], // Inputs group second
           ['*', '**'],  // All other stories
         ], // * means everything else
       },
     },
-    actions: { argTypesRegex: '^on[A-Z].*' },
+    actions: {argTypesRegex: '^on[A-Z].*'},
     controls: {
       matchers: {
         color: /(background|color)$/i,

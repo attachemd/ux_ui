@@ -788,6 +788,30 @@
     --ft-color-electric-primary: var(--color-green-500);
     --ft-color-electric-secondary: var(--color-pink-500);
 
+    --ft-color-success-50: var(--color-green-50);
+    --ft-color-success-100: var(--color-green-100);
+    --ft-color-success-200: var(--color-green-200);
+    --ft-color-success-300: var(--color-green-300);
+    --ft-color-success-400: var(--color-green-400);
+    --ft-color-success-500: var(--color-green-500);
+    --ft-color-success-600: var(--color-green-600);
+    --ft-color-success-700: var(--color-green-700);
+    --ft-color-success-800: var(--color-green-800);
+    --ft-color-success-900: var(--color-green-900);
+    --ft-color-success-950: var(--color-green-950);
+
+    --ft-color-warning-50: var(--color-orange-50);
+    --ft-color-warning-100: var(--color-orange-100);
+    --ft-color-warning-200: var(--color-orange-200);
+    --ft-color-warning-300: var(--color-orange-300);
+    --ft-color-warning-400: var(--color-orange-400);
+    --ft-color-warning-500: var(--color-orange-500);
+    --ft-color-warning-600: var(--color-orange-600);
+    --ft-color-warning-700: var(--color-orange-700);
+    --ft-color-warning-800: var(--color-orange-800);
+    --ft-color-warning-900: var(--color-orange-900);
+    --ft-color-warning-950: var(--color-orange-950);
+
     --ft-color-danger-50: var(--color-red-50);
     --ft-color-danger-100: var(--color-red-100);
     --ft-color-danger-200: var(--color-red-200);
@@ -799,6 +823,7 @@
     --ft-color-danger-800: var(--color-red-800);
     --ft-color-danger-900: var(--color-red-900);
     --ft-color-danger-950: var(--color-red-950);
+
     --ft-color-surface-level-100: var(--ft-color-n-surface-85);
     --ft-color-surface-level-200: var(--ft-color-n-on-surface-4);
     --ft-color-surface-level-300: var(--ft-color-n-surface-100);
@@ -834,6 +859,7 @@
     --ft-form-field-50: var(--ft-color-n-on-surface-2);
     --ft-form-field-100: var(--ft-color-n-on-surface-5);
     --ft-form-field-200: var(--ft-color-n-on-surface-8);
+    --ft-form-field-300: var(--ft-color-n-on-surface-15);
     --ft-form-field-muted: var(--ft-color-n-on-surface-3);
     --ft-form-field-content-muted: var(--ft-color-n-on-surface-40);
     --ft-form-field-label-muted: var(--ft-color-n-on-surface-20);

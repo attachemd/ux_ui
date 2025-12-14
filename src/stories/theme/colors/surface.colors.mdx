@@ -1,0 +1,58 @@
+import {Meta, Unstyled} from "@storybook/addon-docs/blocks";
+
+<Meta title="Theme/Colors/Surface Colors"/>
+
+**Surface color** is the background color of UI containers—cards, sheets, dialogs, sidebars, etc.
+
+
+export const surfaceLevels = [
+  '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10',
+  '15', '20', '25', '30', '35', '40', '45', '50', '55',
+  '60', '65', '70', '75', '80', '85', '90', '100'
+];
+
+
+export const ColorSample = ({level}) => (
+  <div class="cell">
+    <div class="color-sample-outer-container">
+      <div class="color-sample-container">
+        <div class="color-sample solid"
+             style={{
+               backgroundColor: 'var(--ft-color-n-surface-100)',
+             }}
+        ></div>
+        <div class="color-sample transparent"
+             style={{
+               backgroundColor: 'var(--ft-color-n-surface-' + level + ')',
+             }}
+        ></div>
+      </div>
+    </div>
+    <div class="color-desc">
+      {'--ft-color-n-surface-' + level}
+    </div>
+
+  </div>
+);
+
+<Unstyled>
+
+  <table class="color-surface-table custom-docs">
+    <thead>
+    <tr>
+      <th>Variation\Color</th>
+      <th>Surface</th>
+    </tr>
+    </thead>
+    <tbody>
+    {surfaceLevels.map((level) => (
+      <tr>
+        <td>{level}</td>
+        <td>
+          <ColorSample level={level}/>
+        </td>
+      </tr>
+    ))}
+    </tbody>
+  </table>
+</Unstyled>

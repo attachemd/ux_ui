@@ -16,7 +16,7 @@ export class InputAllCasesComponent {
   isPrefixIconClass: boolean = true;
   radius: 'none-radius'|'sm-radius'|'md-radius'|'lg-radius'|'full-radius' = 'md-radius';
   size: 'xs-size'|'sm-size'|'md-size'|'lg-size' = 'md-size';
-  variant: 'flat'|'faded'|'underlined'|'ghost' = 'flat';
+  variant: 'flat'|'faded'|'outlined'|'ghost' = 'flat';
   isDescription = false;
 
 

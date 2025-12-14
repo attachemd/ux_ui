@@ -33,7 +33,7 @@ const meta: Meta<InputAllCasesComponent> = {
     },
     variant: {
       control: 'select',
-      options: ['flat', 'faded', 'underlined', 'ghost'],
+      options: ['flat', 'faded', 'outlined', 'ghost'],
     },
     isDescription: {
       control: "boolean",

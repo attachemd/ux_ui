@@ -961,31 +961,6 @@
             "extends": []
         },
         {
-            "name": "User",
-            "id": "interface-User-23c11020a2831beb3fa02ee911a75b64009c31bb46f73a01145c2560cb13b7f7e641105b678bd8fb01a5a199117001f3da4a78351d29d85d213ed7b82982091f",
-            "file": "src/stories/others/user.ts",
-            "deprecated": false,
-            "deprecationMessage": "",
-            "type": "interface",
-            "sourceCode": "export interface User {\r\n  name: string;\r\n}\r\n",
-            "properties": [
-                {
-                    "name": "name",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "string",
-                    "indexKey": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 2
-                }
-            ],
-            "indexSignatures": [],
-            "kind": 172,
-            "methods": [],
-            "extends": []
-        },
-        {
             "name": "UserData",
             "id": "interface-UserData-b2e81b2a44ace9b231833a0812bc199195729f85af7ec1fba833311996957ba9f761f4b2e3f2b3fad66c5ce8fe3104a2e575681eb433da3227a9c5e55db7f1a3",
             "file": "src/app/components/patient/patient-list/patient-list.component.ts",
@@ -1996,155 +1971,21 @@
             "templateData": "<mat-sidenav-container class=\"main-sidenav-container\" [class.expanded]=\"expanded()\">\r\n  <mat-sidenav #snav [mode]=\"isMobile() ? 'over' : 'side'\"\r\n               [fixedInViewport]=\"isMobile()\"\r\n               class=\"main-sidenav\"\r\n               [opened]=\"!isMobile()\"\r\n  (transitionend)=\"onDrawerTransitionEnd($event)\"\r\n  >\r\n<!--    <mat-nav-list>-->\r\n<!--      @for (nav of fillerNav; track nav) {-->\r\n<!--        <a mat-list-item>{{nav}}</a>-->\r\n<!--      }-->\r\n<!--    </mat-nav-list>-->\r\n    <div class=\"ft-flex-center main-sidenav-header\">\r\n<!--      <span class=\"ft-flex-center logo sidenav-elem\" *ngIf=\"isMobile() || isElementVisible\" [class.opacity-100]=\"isMobile() || isElementVisible\">Logo</span>-->\r\n<!--      <button (click)=\"fold(snav)\" *ngIf=\"snav.opened\"><i class=\"icon-menu\"></i></button>-->\r\n\r\n      <div class=\"main-sidenav-nav-item\">\r\n        <button (click)=\"fold(snav)\" *ngIf=\"snav.opened\"><i class=\"icon-menu\"></i></button>\r\n        <div class=\"ft-flex-center\" *ngIf=\"isMobile()\">\r\n          <span class=\"ft-flex-center\"></span>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <div class=\"flex-grow main-sidenav-body\">\r\n\r\n        <div class=\"main-sidenav-nav-item active\">\r\n          <i class=\"icon-users\"></i>\r\n          <div class=\"ft-flex-center sidenav-elem\" *ngIf=\"isMobile() || isElementVisible\" [class.opacity-100]=\"isMobile() || isElementVisible\">\r\n            <span class=\"ft-flex-center\">Patients</span>\r\n          </div>\r\n        </div>\r\n      <div class=\"main-sidenav-nav-item\">\r\n          <i class=\"icon-visit\"></i>\r\n          <div class=\"ft-flex-center sidenav-elem\" *ngIf=\"isMobile() || isElementVisible\" [class.opacity-100]=\"isMobile() || isElementVisible\">\r\n            <span class=\"ft-flex-center\">Visites</span>\r\n          </div>\r\n        </div>\r\n      <div class=\"main-sidenav-nav-item\">\r\n          <i class=\"icon-admission\"></i>\r\n          <div class=\"ft-flex-center sidenav-elem\" *ngIf=\"isMobile() || isElementVisible\" [class.opacity-100]=\"isMobile() || isElementVisible\">\r\n            <span class=\"ft-flex-center\">Admissions</span>\r\n          </div>\r\n        </div>\r\n      <div class=\"main-sidenav-nav-item\">\r\n          <i class=\"icon-hospitalization\"></i>\r\n          <div class=\"ft-flex-center sidenav-elem\" *ngIf=\"isMobile() || isElementVisible\" [class.opacity-100]=\"isMobile() || isElementVisible\">\r\n            <span class=\"ft-flex-center\">Hospitalisations</span>\r\n          </div>\r\n        </div>\r\n\r\n    </div>\r\n    <div class=\"main-sidenav-footer\">\r\n      <div class=\"main-sidenav-nav-item\">\r\n        <i class=\"icon-help2\"></i>\r\n        <div class=\"ft-flex-center\" *ngIf=\"isMobile()\">\r\n          <span class=\"ft-flex-center\">Support</span>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </mat-sidenav>\r\n\r\n  <mat-sidenav-content>\r\n    <div class=\"flex flex-col w-full h-full\">\r\n      <div class=\"main-toolbar\">\r\n        <div class=\"flex items-center gap-3\">\r\n          <button (click)=\"snav.open()\" *ngIf=\"!snav.opened\"><i class=\"icon-menu\"></i></button>\r\n\r\n          <span class=\"ft-flex-center logo\">Logo</span>\r\n        </div>\r\n        <div class=\"flex gap-6\">\r\n          <button><i class=\"icon-search\"></i></button>\r\n          <!-- <button><i class=\"icon-theme\"></i></button> -->\r\n          <ft-theme-switcher></ft-theme-switcher>\r\n          <button><i class=\"icon-bell\"></i></button>\r\n          <button class=\"!hidden lg:!flex\"><i class=\"icon-setting\"></i></button>\r\n          <button><i class=\"icon-user\"></i></button>\r\n          <button class=\"!hidden lg:!flex\"><i class=\"icon-logout\"></i></button>\r\n        </div>\r\n      </div>\r\n\r\n      <div class=\"main-content\">\r\n        <router-outlet></router-outlet>\r\n\r\n      </div>\r\n    </div>\r\n\r\n  </mat-sidenav-content>\r\n</mat-sidenav-container>\r\n"
         },
         {
-            "name": "ButtonComponent",
-            "id": "component-ButtonComponent-fe416a32c85ca004ceeb0491decc43dd2a52eb9e2077aa016a4e8bc3ed659826ac535bc9b7851f6241899b995331e201cfe067725a899218c7cdf1fa4ffb2cd3",
-            "file": "src/stories/others/button.component.ts",
+            "name": "ButtonAllCasesComponent",
+            "id": "component-ButtonAllCasesComponent-46d1d69f8834546efc21909cc4bb9b81e5133a621a892023c613cdfde28e7f9b41e22857af90233fc48a25e0adc584340a5af90c65f6ab78b5edeb5c5ad395d2",
+            "file": "src/stories/Buttons/button-all-cases/button-all-cases.component.ts",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
             "outputs": [],
             "providers": [],
-            "selector": "storybook-button",
+            "selector": "app-button-showcase",
             "styleUrls": [
-                "./button.css"
-            ],
-            "styles": [],
-            "template": " <button    class=\"bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded\"\n  type=\"button\"\n  (click)=\"onClick.emit($event)\"\n  [ngClass]=\"classes\"\n  [ngStyle]=\"{ 'background-color': backgroundColor }\"\n>\n  {{ label }}\n</button>",
-            "templateUrl": [],
-            "viewProviders": [],
-            "hostDirectives": [],
-            "inputsClass": [
-                {
-                    "name": "backgroundColor",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "rawdescription": "\nWhat background colors to use",
-                    "description": "<p>What background colors to use</p>\n",
-                    "line": 26,
-                    "type": "string",
-                    "decorators": []
-                },
-                {
-                    "name": "label",
-                    "defaultValue": "'Button'",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "jsdoctags": [
-                        {
-                            "pos": 885,
-                            "end": 899,
-                            "kind": 328,
-                            "id": 0,
-                            "flags": 16842752,
-                            "modifierFlagsCache": 0,
-                            "transformFlags": 0,
-                            "tagName": {
-                                "pos": 886,
-                                "end": 894,
-                                "kind": 80,
-                                "id": 0,
-                                "flags": 16842752,
-                                "transformFlags": 0,
-                                "escapedText": "required"
-                            },
-                            "comment": ""
-                        }
-                    ],
-                    "rawdescription": "\n\nButton contents\n\n",
-                    "description": "<p>Button contents</p>\n",
-                    "line": 38,
-                    "type": "string",
-                    "decorators": []
-                },
-                {
-                    "name": "primary",
-                    "defaultValue": "false",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "rawdescription": "\nIs this the principal call to action on the page?",
-                    "description": "<p>Is this the principal call to action on the page?</p>\n",
-                    "line": 22,
-                    "type": "boolean",
-                    "decorators": []
-                },
-                {
-                    "name": "size",
-                    "defaultValue": "'medium'",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "rawdescription": "\nHow large should the button be?",
-                    "description": "<p>How large should the button be?</p>\n",
-                    "line": 30,
-                    "type": "\"small\" | \"medium\" | \"large\" | \"lolo\"",
-                    "decorators": []
-                }
-            ],
-            "outputsClass": [
-                {
-                    "name": "onClick",
-                    "defaultValue": "new EventEmitter<Event>()",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "rawdescription": "\nOptional click handler",
-                    "description": "<p>Optional click handler</p>\n",
-                    "line": 42,
-                    "type": "EventEmitter"
-                }
-            ],
-            "propertiesClass": [],
-            "methodsClass": [],
-            "deprecated": false,
-            "deprecationMessage": "",
-            "hostBindings": [],
-            "hostListeners": [],
-            "standalone": true,
-            "imports": [
-                {
-                    "name": "CommonModule",
-                    "type": "module"
-                }
-            ],
-            "description": "",
-            "rawdescription": "\n",
-            "type": "component",
-            "sourceCode": "import { CommonModule } from '@angular/common';\r\nimport { Component, Input, Output, EventEmitter } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'storybook-button',\r\n  standalone: true,\r\n  imports: [CommonModule],\r\n  template: ` <button\r\n    class=\"bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded\"\r\n  type=\"button\"\r\n  (click)=\"onClick.emit($event)\"\r\n  [ngClass]=\"classes\"\r\n  [ngStyle]=\"{ 'background-color': backgroundColor }\"\r\n>\r\n  {{ label }}\r\n</button>`,\r\n  styleUrls: ['./button.css'],\r\n})\r\nexport class ButtonComponent {\r\n  /** Is this the principal call to action on the page? */\r\n  @Input()\r\n  primary = false;\r\n\r\n  /** What background colors to use */\r\n  @Input()\r\n  backgroundColor?: string;\r\n\r\n  /** How large should the button be? */\r\n  @Input()\r\n  size: 'small' | 'medium' | 'large' | 'lolo' = 'medium';\r\n\r\n  /**\r\n   * Button contents\r\n   *\r\n   * @required\r\n   */\r\n  @Input()\r\n  label = 'Button';\r\n\r\n  /** Optional click handler */\r\n  @Output()\r\n  onClick = new EventEmitter<Event>();\r\n\r\n  public get classes(): string[] {\r\n    const mode = this.primary ? 'storybook-button--primary' : 'storybook-button--secondary';\r\n\r\n    return ['storybook-button', `storybook-button--${this.size}`, mode];\r\n  }\r\n}\r\n",
-            "assetsDirs": [],
-            "styleUrlsData": [
-                {
-                    "data": ".storybook-button {\r\n  display: inline-block;\r\n  cursor: pointer;\r\n  border: 0;\r\n  border-radius: 3em;\r\n  font-weight: 700;\r\n  line-height: 1;\r\n  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;\r\n}\r\n.storybook-button--primary {\r\n  background-color: #555ab9;\r\n  color: white;\r\n}\r\n.storybook-button--secondary {\r\n  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;\r\n  background-color: transparent;\r\n  color: #333;\r\n}\r\n.storybook-button--small {\r\n  padding: 10px 16px;\r\n  font-size: 12px;\r\n}\r\n.storybook-button--medium {\r\n  padding: 11px 20px;\r\n  font-size: 14px;\r\n}\r\n.storybook-button--large {\r\n  padding: 12px 24px;\r\n  font-size: 16px;\r\n}\r\n.storybook-button--lolo {\r\n  padding: 12px 24px;\r\n  background-color: var(--switch-100);\r\n  /*background-colors: red;*/\r\n  font-size: 16px;\r\n}\r\n",
-                    "styleUrl": "./button.css"
-                }
-            ],
-            "stylesData": "",
-            "extends": [],
-            "accessors": {
-                "classes": {
-                    "name": "classes",
-                    "getSignature": {
-                        "name": "classes",
-                        "type": "[]",
-                        "returnType": "string[]",
-                        "line": 44
-                    }
-                }
-            }
-        },
-        {
-            "name": "ColorComponent",
-            "id": "component-ColorComponent-5059e4788cff2c66dbaf818625da95c957bbc5cd11cf561ad86d468ef36b99738d8257329e438df6a9b7c24382602d77565bda3a8ff8f9ecdd1ad5fbfd422548",
-            "file": "src/stories/colors/color.component.ts",
-            "encapsulation": [],
-            "entryComponents": [],
-            "inputs": [],
-            "outputs": [],
-            "providers": [],
-            "selector": "colors",
-            "styleUrls": [
-                "./color.component.css"
+                "./button-all-cases.component.css"
             ],
             "styles": [],
             "templateUrl": [
-                "./color.component.html"
+                "./button-all-cases.component.html"
             ],
             "viewProviders": [],
             "hostDirectives": [],
@@ -2152,50 +1993,302 @@
             "outputsClass": [],
             "propertiesClass": [
                 {
+                    "name": "class",
+                    "defaultValue": "'showcase'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 16,
+                    "decorators": [
+                        {
+                            "name": "HostBinding",
+                            "stringifiedArguments": "'class'"
+                        }
+                    ],
+                    "modifierKind": [
+                        171
+                    ]
+                },
+                {
                     "name": "color",
-                    "defaultValue": "\"common\"",
+                    "defaultValue": "\"primary\"",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "\"common\" | \"surface\" | \"on-surface\"",
+                    "type": "\"primary\" | \"secondary\" | \"tertiary\" | \"success\" | \"warning\" | \"danger\"",
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 15
+                    "line": 21
                 },
                 {
-                    "name": "CommonColors",
-                    "defaultValue": "['red', 'orange', 'amber', 'yellow', 'lime', 'green', 'emerald', 'teal', 'cyan', 'sky', 'blue', 'indigo', 'violet', 'purple', 'fuchsia', 'pink', 'rose']",
+                    "name": "isLabel",
+                    "defaultValue": "false",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "[]",
+                    "type": "unknown",
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 16
+                    "line": 18
                 },
                 {
-                    "name": "surfaceLevels",
-                    "defaultValue": "[\r\n    '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10',\r\n    '15', '20', '25', '30', '35', '40', '45', '50', '55',\r\n    '60', '65', '70', '75', '80', '85', '90', '100'\r\n  ]",
+                    "name": "isPrefixIconClass",
+                    "defaultValue": "true",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "[]",
+                    "type": "boolean",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 23
+                },
+                {
+                    "name": "isSuffixIconClass",
+                    "defaultValue": "true",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "boolean",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 24
+                },
+                {
+                    "name": "label",
+                    "defaultValue": "'Username'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 19
+                },
+                {
+                    "name": "radius",
+                    "defaultValue": "\"md-radius\"",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "\"none-radius\" | \"sm-radius\" | \"md-radius\" | \"lg-radius\" | \"full-radius\"",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 22
+                },
+                {
+                    "name": "size",
+                    "defaultValue": "'md-size'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "\"xs-size\" | \"sm-size\" | \"md-size\" | \"lg-size\"",
                     "indexKey": "",
                     "optional": false,
                     "description": "",
                     "line": 20
                 },
                 {
-                    "name": "variations",
-                    "defaultValue": "['50', '100', '200', '300', '400', '500', '600', '700', '800', '900', '950']",
+                    "name": "states",
+                    "defaultValue": "[\r\n     'rest',\r\n    'hover',\r\n    'press',\r\n    'focus',\r\n    'disabled',\r\n  ]",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "[]",
+                    "type": "Array<\"rest\" | \"hover\" | \"press\" | \"focus\" | \"disabled\">",
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 18
+                    "line": 33
+                },
+                {
+                    "name": "variants",
+                    "defaultValue": "[\r\n    'flat',\r\n    'outlined',\r\n    'faded',\r\n    'ghost',\r\n  ]",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Array<\"flat\" | \"outlined\" | \"faded\" | \"ghost\">",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 26
                 }
             ],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [
+                {
+                    "name": "class",
+                    "defaultValue": "'showcase'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 16,
+                    "type": "string",
+                    "decorators": []
+                }
+            ],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "CommonModule",
+                    "type": "module"
+                },
+                {
+                    "name": "FtButtonComponent",
+                    "type": "component"
+                },
+                {
+                    "name": "FTInputComponent",
+                    "type": "component"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import {Component, HostBinding, Input} from '@angular/core';\r\nimport { CommonModule } from '@angular/common';\r\nimport {FtButtonComponent} from '../button/ft.button.component';\r\nimport {FTInputComponent} from '../../inputs/input/ft.input.component';\r\n\r\n\r\n@Component({\r\n  selector: 'app-button-showcase',\r\n  templateUrl: './button-all-cases.component.html',\r\n  styleUrls: ['./button-all-cases.component.css'],\r\n  standalone: true,\r\n  imports: [CommonModule, FtButtonComponent, FTInputComponent]\r\n})\r\nexport class ButtonAllCasesComponent {\r\n  @HostBinding('class') class = 'showcase';\r\n\r\n  isLabel = false;\r\n  label= 'Username';\r\n  size: 'xs-size'|'sm-size'|'md-size'|'lg-size' = 'md-size';\r\n  color: \"primary\" | \"secondary\" | \"tertiary\" | \"success\" | \"warning\" | \"danger\" = \"primary\";\r\n  radius: \"none-radius\" | \"sm-radius\" | \"md-radius\" | \"lg-radius\" | \"full-radius\" = \"md-radius\";\r\n  isPrefixIconClass: boolean = true;\r\n  isSuffixIconClass: boolean = true;\r\n\r\n  variants: Array<'flat' | 'outlined' | 'faded' | 'ghost'> = [\r\n    'flat',\r\n    'outlined',\r\n    'faded',\r\n    'ghost',\r\n  ];\r\n\r\n  states: Array<'rest' | 'hover' | 'press' | 'focus' | 'disabled'> = [\r\n     'rest',\r\n    'hover',\r\n    'press',\r\n    'focus',\r\n    'disabled',\r\n  ];\r\n\r\n\r\n\r\n}\r\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./button-all-cases.component.css"
+                }
+            ],
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<!-- input-showcase.component.html -->\r\n<div class=\"all-case-container\">\r\n  <h1 class=\"showcase-title\">Button All Cases</h1>\r\n  <div class=\"cases-container\">\r\n    <div class=\"case-row case-row-heading\">\r\n      <div class=\"case-item case-item-heading\">\r\n\r\n      </div>\r\n      <div class=\"case-item\">\r\n        Flat\r\n      </div>\r\n      <div class=\"case-item\">\r\n        Outlined\r\n      </div>\r\n      <div class=\"case-item\">\r\n        Faded\r\n      </div>\r\n      <div class=\"case-item\">\r\n        Ghost\r\n      </div>\r\n\r\n\r\n    </div>\r\n    @for (state of states; track state) {\r\n    <div class=\"case-row\">\r\n      <div class=\"case-item case-item-heading vertical-text\">\r\n        {{state}}\r\n      </div>\r\n      @for (variant of variants; track variant) {\r\n      <div class=\"case-item\">\r\n        <ft-button\r\n          [state]=\"state\"\r\n          [isLabel]=\"true\"\r\n          [label]=\"label\"\r\n          [size]=\"size\"\r\n          [color]=\"color\"\r\n          [variant]=\"variant\"\r\n          [radius]=\"radius\"\r\n          [disabled]=\"false\"\r\n          [isPrefixIconClass]=\"isPrefixIconClass\"\r\n          [prefixIconClass]=\"'icon-user'\"\r\n          [isSuffixIconClass]=\"isSuffixIconClass\"\r\n          [suffixIconClass]=\"'icon-arrow-right'\"\r\n        >\r\n        </ft-button>\r\n\r\n      </div>\r\n      }\r\n\r\n    </div>\r\n    }\r\n\r\n\r\n  </div>\r\n</div>\r\n"
+        },
+        {
+            "name": "FtButtonComponent",
+            "id": "component-FtButtonComponent-a7292dc59584322f672324ef253b06f8992dfa87ebd04625bf89b5980d229a3d318a7259367971fd5d4b8274d270929410cfb2a781a9bea7ca2dbbefcbf4559f",
+            "file": "src/stories/Buttons/button/ft.button.component.ts",
+            "encapsulation": [
+                "ViewEncapsulation.Emulated"
+            ],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "ft-button",
+            "styleUrls": [
+                "./ft.button.component.css"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./ft.button.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "color",
+                    "defaultValue": "'primary'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 21,
+                    "type": "\"primary\" | \"secondary\" | \"tertiary\" | \"success\" | \"warning\" | \"danger\"",
+                    "decorators": []
+                },
+                {
+                    "name": "disabled",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 25,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "isLabel",
+                    "defaultValue": "true",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 18,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "isPrefixIconClass",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 27,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "isSuffixIconClass",
+                    "defaultValue": "true",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 30,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "label",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 19,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "prefixIconClass",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 28,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "radius",
+                    "defaultValue": "'md-radius'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 23,
+                    "type": "\"none-radius\" | \"sm-radius\" | \"md-radius\" | \"lg-radius\" | \"full-radius\"",
+                    "decorators": []
+                },
+                {
+                    "name": "size",
+                    "defaultValue": "'md-size'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 20,
+                    "type": "\"xs-size\" | \"sm-size\" | \"md-size\" | \"lg-size\"",
+                    "decorators": []
+                },
+                {
+                    "name": "state",
+                    "defaultValue": "'rest'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 24,
+                    "type": "\"rest\" | \"hover\" | \"press\" | \"focus\" | \"disabled\"",
+                    "decorators": []
+                },
+                {
+                    "name": "suffixIconClass",
+                    "defaultValue": "'icon-arrow-right'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 31,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "variant",
+                    "defaultValue": "'flat'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 22,
+                    "type": "\"flat\" | \"faded\" | \"outlined\" | \"ghost\"",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
             "methodsClass": [],
             "deprecated": false,
             "deprecationMessage": "",
@@ -2204,10 +2297,11 @@
             "standalone": false,
             "imports": [
                 {
-                    "name": "NgForOf"
+                    "name": "NgClass"
                 },
                 {
-                    "name": "NgStyle"
+                    "name": "FormsModule",
+                    "type": "module"
                 },
                 {
                     "name": "NgIf"
@@ -2216,21 +2310,32 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\r\nimport {NgForOf, NgIf, NgStyle} from '@angular/common';\r\n\r\n@Component({\r\n  selector: 'colors',\r\n  templateUrl: './color.component.html',\r\n  imports: [\r\n    NgForOf,\r\n    NgStyle,\r\n    NgIf\r\n  ],\r\n  styleUrls: ['./color.component.css']\r\n})\r\nexport class ColorComponent {\r\n  color: \"common\" | \"surface\" | \"on-surface\" = \"common\";\r\n  CommonColors = ['red', 'orange', 'amber', 'yellow', 'lime', 'green', 'emerald', 'teal', 'cyan', 'sky', 'blue', 'indigo', 'violet', 'purple', 'fuchsia', 'pink', 'rose'];\r\n\r\n  variations = ['50', '100', '200', '300', '400', '500', '600', '700', '800', '900', '950'];\r\n\r\n  surfaceLevels = [\r\n    '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10',\r\n    '15', '20', '25', '30', '35', '40', '45', '50', '55',\r\n    '60', '65', '70', '75', '80', '85', '90', '100'\r\n  ];\r\n}\r\n",
+            "sourceCode": "import {Component, Input, ViewEncapsulation} from '@angular/core';\r\nimport {NgClass, NgIf} from '@angular/common';\r\nimport {FormsModule} from '@angular/forms';\r\n\r\n@Component({\r\n  selector: 'ft-button',\r\n  templateUrl: './ft.button.component.html',\r\n  imports: [\r\n    NgClass,\r\n    FormsModule,\r\n    NgIf\r\n  ],\r\n  styleUrls: ['./ft.button.component.css'],\r\n  encapsulation: ViewEncapsulation.Emulated // Ensure this is set (default)\r\n})\r\nexport class FtButtonComponent {\r\n  // @Input() isLabel = false;\r\n  @Input() isLabel = true;\r\n  @Input() label?: string;\r\n  @Input() size: 'xs-size'|'sm-size'|'md-size'|'lg-size' = 'md-size';\r\n  @Input() color: 'primary'|'secondary'|'tertiary'|'success'|'warning'|'danger' = 'primary';\r\n  @Input() variant: 'flat'|'faded'|'outlined'|'ghost' = 'flat';\r\n  @Input() radius: 'none-radius'|'sm-radius'|'md-radius'|'lg-radius'|'full-radius' = 'md-radius';\r\n  @Input() state: 'rest' | 'hover' | 'press' | 'focus' | 'disabled'= 'rest';\r\n  @Input() disabled = false;\r\n\r\n  @Input() isPrefixIconClass = false;\r\n  @Input() prefixIconClass = ''; // For icon libraries that use classes\r\n\r\n  @Input() isSuffixIconClass = true;\r\n  @Input() suffixIconClass = 'icon-arrow-right';\r\n\r\n  get radiusClasses(): string {\r\n    const classes = {\r\n      'none-radius': 'rounded-none',\r\n      'sm-radius': 'rounded-sm',\r\n      'md-radius': 'rounded-lg',\r\n      'lg-radius': 'rounded-xl',\r\n      'full-radius': 'rounded-full'\r\n    };\r\n    return classes[this.radius] || 'rounded-md';\r\n  }\r\n\r\n\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": ":host {\r\n  display: block;\r\n  background-color: var(--ft-color-surface-level-300);\r\n  /*padding: var(--ft-unit-400)*/\r\n}\r\n\r\ntable.color-common-table {\r\n  /*border-collapse: separate;*/\r\n  /*border-spacing: var(--ft-unit-400);*/\r\n/*  background-colors: var(--ft-colors-surface-level-300);*/\r\n/*  padding: var(--ft-unit-400)*/\r\n\r\n  tr th {\r\n    color: var(--ft-color-on-surface-level-300);\r\n    font-size: var(--ft-text-2xs);\r\n    font-weight: 400;\r\n    padding: var(--ft-unit-200) var(--ft-unit-400);\r\n  }\r\n  tr td,\r\n  tr th {\r\n    border-right: var(--ft-border-primary) solid var(--ft-color-border-200);\r\n    border-bottom: var(--ft-border-primary) solid var(--ft-color-border-200);\r\n  }\r\n\r\n  tr td:first-child,\r\n  tr th:first-child {\r\n    padding: var(--ft-unit-200) var(--ft-unit-400);\r\n  }\r\n\r\n  tr td:first-child {\r\n    color: var(--ft-color-on-surface-level-300);\r\n    font-size: var(--ft-text-2xs);\r\n  }\r\n\r\n\r\n  td:has(.cell) {\r\n    overflow: hidden;\r\n    font-size: var(--ft-text-2xs);\r\n  }\r\n\r\n  .cell {\r\n    display: flex;\r\n    width: max-content;\r\n    gap: var(--ft-unit-400);\r\n    padding: var(--ft-unit-400);\r\n    align-items: center;\r\n    .color-sample {\r\n      width: 30px;\r\n      height: 30px;\r\n      background-color: #fff;\r\n      border: var(--ft-border-tertiary) solid var(--ft-color-surface-level-300);\r\n      border-radius: var(--ft-radius-pill);\r\n      box-shadow: 0 1px 3px var(--ft-color-shadow-200), inset 0 0 3px var(--ft-color-shadow-300);\r\n    }\r\n  }\r\n}\r\n\r\ntable.color-surface-table {\r\n  /*border-collapse: separate;*/\r\n  /*border-spacing: var(--ft-unit-400);*/\r\n  /*  background-colors: var(--ft-colors-surface-level-300);*/\r\n  /*  padding: var(--ft-unit-400)*/\r\n\r\n  tr th {\r\n    color: var(--ft-color-on-surface-level-300);\r\n    font-size: var(--ft-text-2xs);\r\n    font-weight: 400;\r\n    padding: var(--ft-unit-200) var(--ft-unit-400);\r\n  }\r\n  tr td,\r\n  tr th {\r\n    border-right: var(--ft-border-primary) solid var(--ft-color-border-200);\r\n    border-bottom: var(--ft-border-primary) solid var(--ft-color-border-200);\r\n  }\r\n\r\n  tr td:first-child,\r\n  tr th:first-child {\r\n    padding: var(--ft-unit-200) var(--ft-unit-400);\r\n  }\r\n\r\n  tr td:first-child {\r\n    color: var(--ft-color-on-surface-level-300);\r\n    font-size: var(--ft-text-2xs);\r\n  }\r\n\r\n\r\n  td:has(.cell) {\r\n    overflow: hidden;\r\n    font-size: var(--ft-text-2xs);\r\n  }\r\n\r\n  .cell {\r\n    display: flex;\r\n    width: max-content;\r\n    gap: var(--ft-unit-400);\r\n    padding: var(--ft-unit-400);\r\n    align-items: center;\r\n    .color-sample-outer-container {\r\n      /* Define the size of the square unit */\r\n      --square-size: 6px;\r\n\r\n      /* Define the two colors */\r\n      --color-light: var(--ft-color-surface-level-300); /* Light gray */\r\n      --color-dark: var(--ft-color-n-on-surface-20); /* Dark gray */\r\n\r\n      display: flex;\r\n      width: 200px;\r\n      height: 30px;\r\n\r\n      /*background-colors: #fff;*/\r\n      /*background-image:*/\r\n      /*  linear-gradient(45deg, #ccc 25%, transparent 25%),*/\r\n      /*  linear-gradient(-45deg, #ccc 25%, transparent 25%),*/\r\n      /*  linear-gradient(45deg, transparent 75%, #ccc 75%),*/\r\n      /*  linear-gradient(-45deg, transparent 75%, #ccc 75%);*/\r\n      /*background-size: 20px 20px;*/\r\n      /*background-position: 0 0, 0 10px, 10px -10px, -10px 0px;*/\r\n\r\n      /* --- SIMPLER CHECKERBOARD using repeating-conic-gradient --- */\r\n      background-image: repeating-conic-gradient(\r\n        var(--color-light) 0% 25%,\r\n        var(--color-dark) 25% 50%\r\n      );\r\n\r\n      /* Set the size of the repeating tile (2x2 squares) */\r\n      background-size: calc(2 * var(--square-size)) calc(2 * var(--square-size));\r\n\r\n      border: var(--ft-border-tertiary) solid var(--ft-color-surface-level-300);\r\n      border-radius: var(--ft-radius-200);\r\n      box-shadow: 0 1px 3px var(--ft-color-shadow-300);\r\n\r\n      .color-sample-container {\r\n\r\n        /*border: var(--ft-border-primary) solid var(--ft-colors-border-200);*/\r\n        width: 100%;\r\n        height: 100%;\r\n        display: flex;\r\n        /*gap: var(--ft-border-primary);*/\r\n        /*position: relative;*/\r\n        .color-sample {\r\n          width: 50%;\r\n          height: 100%;\r\n          /*position: absolute;*/\r\n          /*top: 50%;*/\r\n          /*left: 50%;*/\r\n          /*transform: translate(-50%, -50%);*/\r\n\r\n\r\n        }\r\n\r\n        .transparent {\r\n          box-shadow: inset 0 0 3px var(--ft-color-shadow-300);\r\n        }\r\n\r\n        /*.solid {*/\r\n        /*  border-right: var(--ft-border-primary) solid var(--ft-colors-border-200);*/\r\n        /*}*/\r\n\r\n      }\r\n\r\n    }\r\n\r\n  }\r\n}\r\n\r\n\r\n\r\n",
-                    "styleUrl": "./color.component.css"
+                    "data": ":host {\r\n  width: fit-content;\r\n}\r\n\r\n\r\n.button-container {\r\n  /*width: var(--container-xs);*/\r\n\r\n  .button-wrapper{\r\n    display: flex;\r\n    /*min-width: 100%;*/\r\n    align-items: center;\r\n    border-style: solid;\r\n    border-color: var(--ft-color-border-200);\r\n    border-width: var(--ft-border-secondary);\r\n    padding: 0 var(--ft-unit-400);\r\n    /*gap: var(--ft-unit-400);*/\r\n    /*height: var(--ft-unit-800);*/\r\n    /*background-colors: var(--ft-form-field-100);*/\r\n    width: fit-content;\r\n\r\n\r\n    .content-section {\r\n      display: flex;\r\n      flex-direction: column;\r\n      /*flex-grow: 1;*/\r\n      gap: var(--ft-unit-100);\r\n      min-width: 0;\r\n\r\n      .label-row {\r\n        display: flex;\r\n        height: fit-content;\r\n      }\r\n\r\n    }\r\n\r\n    .suffix-icon {\r\n      gap: var(--ft-unit-100);\r\n    }\r\n\r\n  }\r\n\r\n  &.flat {\r\n    .button-wrapper{\r\n      /*background-color: var(--ft-form-field-100);*/\r\n      border: none;\r\n    }\r\n\r\n    &.primary {\r\n      color: var(--ft-color-on-primary);\r\n      .button-wrapper{\r\n        background-color: var(--ft-color-primary);\r\n        /*box-shadow: 0 8px 24px var(--ft-color-mauve-200);*/\r\n        /*box-shadow: 0 8px 24px rgba(var(--ft-color-primary), 0.3);*/\r\n        box-shadow: 0 8px 24px color-mix(in srgb, var(--ft-color-primary) 30%, transparent);\r\n      }\r\n      &.hover {\r\n        .button-wrapper{\r\n          background-color: var(--ft-color-primary-600);\r\n        }\r\n      }\r\n      &.press {\r\n        .button-wrapper{\r\n          background-color: var(--ft-color-primary-700);\r\n        }\r\n      }\r\n\r\n\r\n    }\r\n    &.success {\r\n      color: var(--ft-color-on-primary);\r\n      .button-wrapper{\r\n        background-color: var(--ft-color-success);\r\n        /*box-shadow: 0 8px 24px var(--ft-color-mauve-200);*/\r\n        /*box-shadow: 0 8px 24px rgba(var(--ft-color-primary), 0.3);*/\r\n        box-shadow: 0 8px 24px color-mix(in srgb, var(--ft-color-success) 30%, transparent);\r\n      }\r\n      &.hover {\r\n        .button-wrapper{\r\n          background-color: var(--ft-color-success-600);\r\n        }\r\n      }\r\n      &.press {\r\n        .button-wrapper{\r\n          background-color: var(--ft-color-success-700);\r\n        }\r\n      }\r\n\r\n\r\n    }\r\n    &.focus {\r\n      .button-wrapper{\r\n        /*border: 2px solid transparent;*/\r\n        /*outline: 2px solid #1ea7fd;*/\r\n        position: relative;\r\n        &::before {\r\n          content: \"\";\r\n          position: absolute;\r\n          top: -2px;\r\n          left: -2px;\r\n          border: 2px solid transparent;\r\n          outline: 2px solid var(--ft-color-primary);\r\n          border-radius: inherit;\r\n          z-index: 1;\r\n          width: 100%;\r\n          height: inherit;\r\n          box-sizing: content-box;\r\n        }\r\n\r\n      }\r\n    }\r\n    &.disabled {\r\n      color: var(--ft-color-on-surface-muted);\r\n      .button-wrapper{\r\n        background-color: var(--ft-form-field-100);\r\n        box-shadow: none;\r\n      }\r\n    }\r\n\r\n  }\r\n\r\n  &.outlined {\r\n    .button-wrapper{\r\n\r\n    }\r\n    &.primary {\r\n      &.hover {\r\n        .button-wrapper{\r\n          border-color: var(--ft-color-primary);\r\n        }\r\n      }\r\n      &.press {\r\n        .button-wrapper{\r\n          border-color: var(--ft-color-primary);\r\n          background-color: var(--ft-color-primary-50);\r\n        }\r\n      }\r\n\r\n    }\r\n    &.success {\r\n      &.hover {\r\n        .button-wrapper{\r\n          border-color: var(--ft-color-success);\r\n        }\r\n      }\r\n      &.press {\r\n        .button-wrapper{\r\n          border-color: var(--ft-color-success);\r\n          background-color: var(--ft-color-success-50);\r\n        }\r\n      }\r\n\r\n    }\r\n    &.focus {\r\n      .button-wrapper{\r\n        /*border-color: var(--ft-color-primary);*/\r\n        position: relative;\r\n        &::before {\r\n          content: \"\";\r\n          position: absolute;\r\n          top: -4px;\r\n          left: -4px;\r\n          border: 2px solid transparent;\r\n          outline: 2px solid var(--ft-color-primary);\r\n          border-radius: inherit;\r\n          z-index: 1;\r\n          width: calc(100% + 4px);\r\n          height: inherit;\r\n          box-sizing: content-box;\r\n        }\r\n      }\r\n    }\r\n    &.disabled {\r\n      color: var(--ft-color-on-surface-muted);\r\n      .button-wrapper{\r\n        border-color: var(--ft-color-border-200);\r\n      }\r\n    }\r\n\r\n  }\r\n\r\n  &.faded{\r\n    .button-wrapper{\r\n      border: none;\r\n      background-color: var(--ft-form-field-100);\r\n    }\r\n    &.primary {\r\n      color: var(--ft-color-primary);\r\n      &.hover {\r\n        color: var(--ft-color-primary-600);\r\n        .button-wrapper{\r\n          background-color: var(--ft-color-primary-100);\r\n        }\r\n      }\r\n      &.press {\r\n        color: var(--ft-color-primary-700);\r\n        .button-wrapper{\r\n          background-color: var(--ft-color-primary-200);\r\n        }\r\n      }\r\n\r\n    }\r\n    &.success {\r\n      color: var(--ft-color-success);\r\n      &.hover {\r\n        color: var(--ft-color-success-600);\r\n        .button-wrapper{\r\n          background-color: var(--ft-color-success-100);\r\n        }\r\n      }\r\n      &.press {\r\n        color: var(--ft-color-success-700);\r\n        .button-wrapper{\r\n          background-color: var(--ft-color-success-200);\r\n        }\r\n      }\r\n\r\n    }\r\n    &.focus {\r\n      .button-wrapper{\r\n        position: relative;\r\n        &::before {\r\n          content: \"\";\r\n          position: absolute;\r\n          top: -2px;\r\n          left: -2px;\r\n          border: 2px solid transparent;\r\n          outline: 2px solid var(--ft-color-primary);\r\n          border-radius: inherit;\r\n          z-index: 1;\r\n          width: 100%;\r\n          height: inherit;\r\n          box-sizing: content-box;\r\n        }\r\n      }\r\n    }\r\n    &.disabled {\r\n      color: var(--ft-color-on-surface-muted);\r\n      .button-wrapper{\r\n        background-color: var(--ft-form-field-100);\r\n        color: var(--ft-color-on-surface-muted);\r\n      }\r\n    }\r\n\r\n  }\r\n\r\n  &.ghost {\r\n    .button-wrapper{\r\n      border: none;\r\n    }\r\n    &.primary {\r\n      color: var(--ft-color-primary-500);\r\n      &.hover {\r\n        color: var(--ft-color-primary-600);\r\n        .button-wrapper{\r\n          /*background-color: var(--ft-form-field-50);*/\r\n        }\r\n      }\r\n      &.press {\r\n        color: var(--ft-color-primary-700);\r\n        .button-wrapper{\r\n\r\n        }\r\n      }\r\n\r\n    }\r\n    &.success {\r\n      color: var(--ft-color-success-500);\r\n      &.hover {\r\n        color: var(--ft-color-success-600);\r\n        .button-wrapper{\r\n          /*background-color: var(--ft-form-field-50);*/\r\n        }\r\n      }\r\n      &.press {\r\n        color: var(--ft-color-success-700);\r\n        .button-wrapper{\r\n\r\n        }\r\n      }\r\n\r\n    }\r\n\r\n    &.focus {\r\n      .button-wrapper{\r\n        position: relative;\r\n        &::before {\r\n          content: \"\";\r\n          position: absolute;\r\n          top: -2px;\r\n          left: -2px;\r\n          border: 2px solid transparent;\r\n          outline: 2px solid var(--ft-color-primary);\r\n          border-radius: inherit;\r\n          z-index: 1;\r\n          width: 100%;\r\n          height: inherit;\r\n          box-sizing: content-box;\r\n        }\r\n      }\r\n    }\r\n    &.disabled {\r\n      color: var(--ft-color-on-surface-muted);\r\n      .button-wrapper{\r\n\r\n      }\r\n    }\r\n  }\r\n\r\n  &.xs-size {\r\n    .button-wrapper{\r\n      padding: 0 var(--ft-unit-300);\r\n      /*height: var(--ft-unit-600);*/\r\n      height: var(--ft-unit-500);\r\n      gap: var(--ft-unit-200);\r\n      border-width: var(--ft-border-primary);\r\n\r\n      [class^=\"icon-\"], [class*=\" icon-\"] {\r\n        width: 16px;\r\n        height: 16px;\r\n        font-size: 14px;\r\n      }\r\n\r\n      .content-section {\r\n        gap: 0;\r\n\r\n        .label-row {\r\n\r\n        }\r\n\r\n        .content {\r\n\r\n        }\r\n\r\n        .placeholder {\r\n          color: var(--ft-color-on-surface-level-200);\r\n        }\r\n      }\r\n    }\r\n\r\n    &.label-inside {\r\n      .button-wrapper{\r\n        padding: 0 var(--ft-unit-300);\r\n        height: var(--ft-unit-1000);\r\n      }\r\n    }\r\n\r\n    &.label-outside {\r\n      .button-wrapper{\r\n      }\r\n    }\r\n\r\n    &.label-outside-left {\r\n      column-gap: var(--ft-unit-100);\r\n\r\n      .button-wrapper{\r\n\r\n      }\r\n    }\r\n  }\r\n\r\n  &.sm-size {\r\n    .button-wrapper{\r\n      padding: 0 var(--ft-unit-300);\r\n      height: var(--ft-unit-600);\r\n      gap: var(--ft-unit-200);\r\n\r\n      [class^=\"icon-\"], [class*=\" icon-\"] {\r\n        width: 16px;\r\n        height: 16px;\r\n        font-size: 16px;\r\n      }\r\n    }\r\n\r\n    &.label-inside {\r\n      .button-wrapper{\r\n        padding: 0 var(--ft-unit-300);\r\n        height: var(--ft-unit-1200);\r\n      }\r\n    }\r\n\r\n    &.label-outside {\r\n      .button-wrapper{\r\n      }\r\n    }\r\n\r\n    &.label-outside-left {\r\n      column-gap: var(--ft-unit-200);\r\n\r\n      .button-wrapper{\r\n\r\n      }\r\n    }\r\n  }\r\n\r\n  &.md-size {\r\n    .button-wrapper{\r\n      height: var(--ft-unit-800);\r\n      gap: var(--ft-unit-300);\r\n    }\r\n\r\n    &.label-inside {\r\n      .button-wrapper{\r\n        height: var(--ft-unit-1400);\r\n      }\r\n    }\r\n\r\n    &.label-outside {\r\n      .button-wrapper{\r\n      }\r\n    }\r\n\r\n    &.label-outside-left {\r\n      /*gap: var(--ft-unit-300);*/\r\n      column-gap: var(--ft-unit-300);\r\n\r\n      .button-wrapper{\r\n\r\n      }\r\n    }\r\n  }\r\n\r\n  &.lg-size {\r\n    gap: var(--ft-unit-100);\r\n\r\n    .button-wrapper{\r\n      height: var(--ft-unit-900);\r\n      gap: var(--ft-unit-400);\r\n    }\r\n\r\n    &.label-inside {\r\n      .button-wrapper{\r\n        height: var(--ft-unit-1600);\r\n      }\r\n    }\r\n\r\n    &.label-outside {\r\n      .button-wrapper{\r\n      }\r\n    }\r\n\r\n    &.label-outside-left {\r\n      column-gap: var(--ft-unit-400);\r\n\r\n      .button-wrapper{\r\n\r\n      }\r\n    }\r\n  }\r\n\r\n  /*&.focus {*/\r\n  /*  .button-wrapper{*/\r\n  /*    !*border: 2px solid transparent;*!*/\r\n  /*    !*outline: 2px solid #1ea7fd;*!*/\r\n  /*    position: relative;*/\r\n  /*    &::before {*/\r\n  /*      content: \"\";*/\r\n  /*      position: absolute;*/\r\n  /*      top: -2px;*/\r\n  /*      left: -2px;*/\r\n  /*      border: 2px solid transparent;*/\r\n  /*      outline: 2px solid var(--ft-color-primary);*/\r\n  /*      border-radius: inherit;*/\r\n  /*      z-index: 1;*/\r\n  /*      width: 100%;*/\r\n  /*      height: inherit;*/\r\n  /*      box-sizing: content-box;*/\r\n  /*    }*/\r\n\r\n  /*  }*/\r\n  /*}*/\r\n}\r\n\r\nbody:has(.input-wrapper) {\r\n  background: #fff;\r\n}\r\n\r\n",
+                    "styleUrl": "./ft.button.component.css"
                 }
             ],
             "stylesData": "",
             "extends": [],
-            "templateData": "<table *ngIf=\"color === 'common'\" class=\"color-common-table\">\r\n  <tr>\r\n    <th>Variation\\Color</th>\r\n    <th *ngFor=\"let color of CommonColors\">{{ color }}</th>\r\n  </tr>\r\n  <tr *ngFor=\"let variation of variations\">\r\n    <td>{{ variation }}</td>\r\n    <td *ngFor=\"let color of CommonColors\" >\r\n      <div class=\"cell\">\r\n        <div class=\"color-sample\" [ngStyle]=\"{'background-color': 'var(--colors-' + color + '-' + variation + ')'}\"></div>\r\n        <div class=\"color-desc\">\r\n          {{ '--colors-' + color + '-' + variation }}\r\n        </div>\r\n      </div>\r\n\r\n    </td>\r\n  </tr>\r\n</table>\r\n\r\n\r\n<!--<table *ngIf=\"color === 'on-surface'\" class=\"color-surface-table\">-->\r\n<table class=\"color-surface-table\">\r\n  <tr>\r\n    <th>Variation\\Color</th>\r\n    <th>Surface</th>\r\n  </tr>\r\n  <tr *ngFor=\"let level of surfaceLevels\">\r\n    <td>{{ level }}</td>\r\n    <td>\r\n      <div class=\"cell\">\r\n        <div class=\"color-sample-outer-container\">\r\n          <div class=\"color-sample-container\">\r\n            <div class=\"color-sample solid\" [ngStyle]=\"{'background-color': 'var(--ft-colors-n-on-surface-100)'}\"></div>\r\n            <div class=\"color-sample transparent\" [ngStyle]=\"{'background-color': 'var(--ft-colors-n-on-surface-' + level + ')'}\"></div>\r\n          </div>\r\n        </div>\r\n        <div class=\"color-desc\">\r\n          {{ '--ft-colors-n-on-surface-' + level }}\r\n        </div>\r\n\r\n      </div>\r\n\r\n    </td>\r\n  </tr>\r\n</table>\r\n\r\n\r\n<table *ngIf=\"color === 'surface'\" class=\"color-surface-table\">\r\n  <tr>\r\n    <th>Variation\\Color</th>\r\n    <th>Surface</th>\r\n  </tr>\r\n  <tr *ngFor=\"let level of surfaceLevels\">\r\n    <td>{{ level }}</td>\r\n    <td>\r\n      <div class=\"cell\">\r\n        <div class=\"color-sample-outer-container\">\r\n          <div class=\"color-sample-container\">\r\n            <div class=\"color-sample solid\" [ngStyle]=\"{'background-color': 'var(--ft-colors-n-surface-100)'}\"></div>\r\n            <div class=\"color-sample transparent\" [ngStyle]=\"{'background-color': 'var(--ft-colors-n-surface-' + level + ')'}\"></div>\r\n          </div>\r\n        </div>\r\n        <div class=\"color-desc\">\r\n          {{ '--ft-colors-n-surface-' + level }}\r\n        </div>\r\n\r\n      </div>\r\n\r\n    </td>\r\n  </tr>\r\n</table>\r\n\r\n"
+            "accessors": {
+                "radiusClasses": {
+                    "name": "radiusClasses",
+                    "getSignature": {
+                        "name": "radiusClasses",
+                        "type": "string",
+                        "returnType": "string",
+                        "line": 33
+                    }
+                }
+            },
+            "templateData": "<div class=\"button-container\"\r\n     [class]=\"size + ' ' + variant + ' ' + state + ' ' + color\"\r\n>\r\n  <div class=\"button-wrapper\" [class]=\"radiusClasses\">\r\n    <div *ngIf=\"isPrefixIconClass && prefixIconClass\" class=\"prefix\">\r\n      <i [class]=\"prefixIconClass\"></i>\r\n    </div>\r\n    <div class=\"content-section\">\r\n      <div *ngIf=\"isLabel\" class=\"label-row\">\r\n        <span class=\"label truncate\"\r\n              [ngClass]=\"{\r\n           'content-xs--bold': size === 'sm-size' || size === 'md-size' || size === 'xs-size',\r\n           'content-sm--bold': size === 'lg-size',\r\n           }\"\r\n        >{{ label }}</span>\r\n      </div>\r\n\r\n    </div>\r\n    <div *ngIf=\"isSuffixIconClass && suffixIconClass\" class=\"suffix-icon flex\">\r\n      <div class=\"suffix1\">\r\n        <i [class]=\"suffixIconClass\"></i>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
         },
         {
             "name": "FTInputComponent",
-            "id": "component-FTInputComponent-447c4136e7f1112b5fa3c72bc57b5a17397ec899da1e8006a038f785507b695418df3e021c304898b7fcee13221e761475c9216751fe3f4e8f6a8e8b0b53cbb5",
+            "id": "component-FTInputComponent-1bd3cc3484e7d9867e2546510fc0eaf99c4901b5c8933168d63f3fa9a7d08712987173094e2777aaf17b221c4b45d2c7f38c5d42a20c04c9f98cb65281ce6ea6",
             "file": "src/stories/inputs/input/ft.input.component.ts",
             "encapsulation": [
                 "ViewEncapsulation.Emulated"
@@ -2458,7 +2563,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "line": 22,
-                    "type": "\"flat\" | \"faded\" | \"underlined\" | \"ghost\"",
+                    "type": "\"flat\" | \"faded\" | \"outlined\" | \"ghost\"",
                     "decorators": []
                 }
             ],
@@ -2508,11 +2613,11 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import {Component, Input, ViewEncapsulation} from '@angular/core';\r\nimport {NgClass, NgIf} from '@angular/common';\r\nimport {FormsModule} from '@angular/forms';\r\n\r\n@Component({\r\n  selector: 'ft-input',\r\n  templateUrl: './ft.input.component.html',\r\n  imports: [\r\n    NgClass,\r\n    FormsModule,\r\n    NgIf\r\n  ],\r\n  styleUrls: ['./ft.input.component.css'],\r\n  encapsulation: ViewEncapsulation.Emulated // Ensure this is set (default)\r\n})\r\nexport class FTInputComponent {\r\n  // @Input() isLabel = false;\r\n  @Input() isLabel = true;\r\n  @Input() label?: string;\r\n  @Input() size: 'xs-size'|'sm-size'|'md-size'|'lg-size' = 'md-size';\r\n  @Input() color: 'default'|'primary'|'secondary' = 'default';\r\n  @Input() variant: 'flat'|'faded'|'underlined'|'ghost' = 'flat';\r\n  @Input() radius: 'none-radius'|'sm-radius'|'md-radius'|'lg-radius'|'full-radius' = 'md-radius';\r\n  @Input() state: 'hovered'|'focused'|'normal'= 'normal';\r\n  @Input() disabled = false;\r\n  @Input() readonly = false;\r\n  @Input() required = false;\r\n  @Input() invalid = false;\r\n  @Input() placeholder?: string;\r\n  @Input() isDescription = false;\r\n  @Input() description?: string;\r\n  @Input() errorMessage?: string;\r\n  @Input() content?: string;\r\n  @Input() labelPlacement: 'label-inside' | 'label-outside' | 'label-outside-left' = 'label-inside';\r\n\r\n  @Input() isPrefixIconClass = false;\r\n  @Input() prefixIconClass = ''; // For icon libraries that use classes\r\n\r\n  @Input() isSuffix1IconClass = true;\r\n  @Input() suffix1IconClass = 'icon-close';\r\n\r\n  @Input() isSuffix2IconClass = true;\r\n  @Input() suffix2IconClass = 'icon-arrow-down';\r\n\r\n  @Input() isClearable = false;\r\n  value = '';\r\n  clear() { this.value = ''; }\r\n\r\n  get radiusClasses(): string {\r\n    const classes = {\r\n      'none-radius': 'rounded-none',\r\n      'sm-radius': 'rounded-sm',\r\n      'md-radius': 'rounded-lg',\r\n      'lg-radius': 'rounded-xl',\r\n      'full-radius': 'rounded-full'\r\n    };\r\n    return classes[this.radius] || 'rounded-md';\r\n  }\r\n\r\n  get hasPlaceholderToShow(): boolean {\r\n    // Basic conditions that prevent showing placeholder\r\n    if (!this.placeholder || this.content || this.disabled || this.readonly) {\r\n      return false;\r\n    }\r\n\r\n    // Special case: don't show placeholder for label-inside fields in normal states\r\n    const isLabelInsideInNormalState = this.labelPlacement === 'label-inside' &&\r\n      this.isNormalOrHoveredState &&\r\n      !this.invalid;\r\n\r\n    return !isLabelInsideInNormalState;\r\n  }\r\n\r\n  get isNormalOrHoveredState(): boolean {\r\n    return this.state === 'normal' || this.state === 'hovered';\r\n  }\r\n}\r\n",
+            "sourceCode": "import {Component, Input, ViewEncapsulation} from '@angular/core';\r\nimport {NgClass, NgIf} from '@angular/common';\r\nimport {FormsModule} from '@angular/forms';\r\n\r\n@Component({\r\n  selector: 'ft-input',\r\n  templateUrl: './ft.input.component.html',\r\n  imports: [\r\n    NgClass,\r\n    FormsModule,\r\n    NgIf\r\n  ],\r\n  styleUrls: ['./ft.input.component.css'],\r\n  encapsulation: ViewEncapsulation.Emulated // Ensure this is set (default)\r\n})\r\nexport class FTInputComponent {\r\n  // @Input() isLabel = false;\r\n  @Input() isLabel = true;\r\n  @Input() label?: string;\r\n  @Input() size: 'xs-size'|'sm-size'|'md-size'|'lg-size' = 'md-size';\r\n  @Input() color: 'default'|'primary'|'secondary' = 'default';\r\n  @Input() variant: 'flat'|'faded'|'outlined'|'ghost' = 'flat';\r\n  @Input() radius: 'none-radius'|'sm-radius'|'md-radius'|'lg-radius'|'full-radius' = 'md-radius';\r\n  @Input() state: 'hovered'|'focused'|'normal'= 'normal';\r\n  @Input() disabled = false;\r\n  @Input() readonly = false;\r\n  @Input() required = false;\r\n  @Input() invalid = false;\r\n  @Input() placeholder?: string;\r\n  @Input() isDescription = false;\r\n  @Input() description?: string;\r\n  @Input() errorMessage?: string;\r\n  @Input() content?: string;\r\n  @Input() labelPlacement: 'label-inside' | 'label-outside' | 'label-outside-left' = 'label-inside';\r\n\r\n  @Input() isPrefixIconClass = false;\r\n  @Input() prefixIconClass = ''; // For icon libraries that use classes\r\n\r\n  @Input() isSuffix1IconClass = true;\r\n  @Input() suffix1IconClass = 'icon-close';\r\n\r\n  @Input() isSuffix2IconClass = true;\r\n  @Input() suffix2IconClass = 'icon-arrow-down';\r\n\r\n  @Input() isClearable = false;\r\n  value = '';\r\n  clear() { this.value = ''; }\r\n\r\n  get radiusClasses(): string {\r\n    const classes = {\r\n      'none-radius': 'rounded-none',\r\n      'sm-radius': 'rounded-sm',\r\n      'md-radius': 'rounded-lg',\r\n      'lg-radius': 'rounded-xl',\r\n      'full-radius': 'rounded-full'\r\n    };\r\n    return classes[this.radius] || 'rounded-md';\r\n  }\r\n\r\n  get hasPlaceholderToShow(): boolean {\r\n    // Basic conditions that prevent showing placeholder\r\n    if (!this.placeholder || this.content || this.disabled || this.readonly) {\r\n      return false;\r\n    }\r\n\r\n    // Special case: don't show placeholder for label-inside fields in normal states\r\n    const isLabelInsideInNormalState = this.labelPlacement === 'label-inside' &&\r\n      this.isNormalOrHoveredState &&\r\n      !this.invalid;\r\n\r\n    return !isLabelInsideInNormalState;\r\n  }\r\n\r\n  get isNormalOrHoveredState(): boolean {\r\n    return this.state === 'normal' || this.state === 'hovered';\r\n  }\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "::ng-deep storybook-root {\r\n  > ft-input {\r\n    min-width: 200px;\r\n    width: fit-content !important;\r\n    display: block;\r\n  }\r\n}\r\n\r\n:host {\r\n  width: 100%;\r\n}\r\n\r\n\r\n.field-container {\r\n  /*width: var(--container-xs);*/\r\n\r\n  .input-wrapper {\r\n    display: flex;\r\n    min-width: 100%;\r\n    align-items: center;\r\n    border-style: solid;\r\n    border-color: var(--ft-color-border-200);\r\n    border-width: var(--ft-border-secondary);\r\n    padding: 0 var(--ft-unit-400);\r\n    /*gap: var(--ft-unit-400);*/\r\n    /*height: var(--ft-unit-800);*/\r\n    /*background-colors: var(--ft-form-field-100);*/\r\n\r\n\r\n    .content-section {\r\n      display: flex;\r\n      flex-direction: column;\r\n      flex-grow: 1;\r\n      gap: var(--ft-unit-100);\r\n      min-width: 0;\r\n\r\n      .label-row {\r\n        display: flex;\r\n        height: fit-content;\r\n      }\r\n\r\n      .content {\r\n\r\n      }\r\n\r\n      .placeholder {\r\n        color: var(--ft-color-on-surface-level-300);\r\n      }\r\n    }\r\n\r\n    .suffix-icon {\r\n      gap: var(--ft-unit-100);\r\n    }\r\n\r\n  }\r\n\r\n\r\n  &.flat {\r\n    .input-wrapper {\r\n      background-color: var(--ft-form-field-100);\r\n      border: none;\r\n    }\r\n    &.hovered {\r\n      .input-wrapper {\r\n        background-color: var(--ft-form-field-200);\r\n      }\r\n    }\r\n    &.readonly {\r\n      .input-wrapper {\r\n        background-color: var(--ft-form-field-50);\r\n      }\r\n    }\r\n    &.disabled {\r\n      color: var(--ft-color-on-surface-muted);\r\n      .input-wrapper {\r\n        background-color: var(--ft-form-field-100);\r\n      }\r\n    }\r\n  }\r\n\r\n  &.faded{\r\n    .input-wrapper {\r\n      background-color: var(--ft-form-field-100);\r\n    }\r\n    &.hovered {\r\n      .input-wrapper {\r\n        background-color: var(--ft-form-field-200);\r\n      }\r\n    }\r\n    &.focused {\r\n      .input-wrapper {\r\n        background-color: var(--ft-form-field-200);\r\n        border-color: var(--ft-color-primary);\r\n      }\r\n    }\r\n    &.readonly {\r\n      .input-wrapper {\r\n        border-color: var(--ft-color-border-100);\r\n        background-color: var(--ft-form-field-50);\r\n      }\r\n    }\r\n    &.disabled {\r\n      color: var(--ft-color-on-surface-muted);\r\n      .input-wrapper {\r\n        background-color: var(--ft-form-field-100);\r\n      }\r\n    }\r\n  }\r\n\r\n  &.underlined {\r\n    .input-wrapper {\r\n\r\n    }\r\n    &.hovered {\r\n      .input-wrapper {\r\n        border-color: var(--ft-color-border-300);\r\n      }\r\n    }\r\n    &.focused {\r\n      .input-wrapper {\r\n        border-color: var(--ft-color-primary);\r\n      }\r\n    }\r\n    &.readonly {\r\n      .input-wrapper {\r\n        border-color: var(--ft-color-border-100);\r\n      }\r\n    }\r\n    &.disabled {\r\n      color: var(--ft-color-on-surface-muted);\r\n      .input-wrapper {\r\n        border-color: var(--ft-color-border-200);\r\n      }\r\n    }\r\n  }\r\n\r\n  &.invalid {\r\n    .label {\r\n      color: var(--ft-color-danger);\r\n    }\r\n    .input-wrapper {\r\n      background-color: var(--ft-color-danger-50);\r\n      border-style: solid;\r\n      border-color: var(--ft-color-danger);\r\n    }\r\n  }\r\n\r\n  &.ghost {\r\n    .input-wrapper {\r\n      border: none;\r\n    }\r\n    &.hovered {\r\n      .input-wrapper {\r\n        background-color: var(--ft-form-field-50);\r\n      }\r\n    }\r\n    &.focused {\r\n      .input-wrapper {\r\n        background-color: var(--ft-form-field-50);\r\n      }\r\n    }\r\n    &.readonly {\r\n      .input-wrapper {\r\n\r\n      }\r\n    }\r\n    &.disabled {\r\n      color: var(--ft-color-on-surface-muted);\r\n      .input-wrapper {\r\n\r\n      }\r\n    }\r\n  }\r\n\r\n  &.label-inside {\r\n    .input-wrapper {\r\n      grid-column: 1;\r\n      grid-row: 1;\r\n\r\n    }\r\n\r\n    .error-message {\r\n      grid-column: 1;\r\n      grid-row: 2;\r\n    }\r\n\r\n    .description {\r\n      grid-column: 1;\r\n      grid-row: 2;\r\n    }\r\n  }\r\n\r\n  &.label-outside {\r\n\r\n    .label-row {\r\n      grid-column: 1;\r\n      grid-row: 1;\r\n    }\r\n\r\n    .input-wrapper {\r\n      grid-column: 1;\r\n      grid-row: 2;\r\n    }\r\n\r\n    .error-message {\r\n      grid-column: 1;\r\n      grid-row: 3;\r\n    }\r\n\r\n    .description {\r\n      grid-column: 1;\r\n      grid-row: 3;\r\n    }\r\n  }\r\n\r\n  &.label-outside-left {\r\n    /*flex-direction: row;*/\r\n    /*align-items: center;*/\r\n    grid-template-columns: fit-content(50%) auto;\r\n\r\n    .label-row {\r\n      grid-column: 1;\r\n      grid-row: 1;\r\n    }\r\n\r\n    .input-wrapper {\r\n      grid-column: 2;\r\n      grid-row: 1;\r\n    }\r\n\r\n    .error-message {\r\n      grid-column: 2;\r\n      grid-row: 2;\r\n    }\r\n\r\n    .description {\r\n      grid-column: 2;\r\n      grid-row: 2;\r\n    }\r\n  }\r\n\r\n  &.xs-size {\r\n    .input-wrapper {\r\n      padding: 0 var(--ft-unit-300);\r\n      /*height: var(--ft-unit-600);*/\r\n      height: var(--ft-unit-500);\r\n      gap: var(--ft-unit-200);\r\n      border-width: var(--ft-border-primary);\r\n\r\n      [class^=\"icon-\"], [class*=\" icon-\"] {\r\n        width: 16px;\r\n        height: 16px;\r\n        font-size: 14px;\r\n      }\r\n\r\n      .content-section {\r\n        gap: 0;\r\n\r\n        .label-row {\r\n\r\n        }\r\n\r\n        .content {\r\n\r\n        }\r\n\r\n        .placeholder {\r\n          color: var(--ft-color-on-surface-level-200);\r\n        }\r\n      }\r\n    }\r\n\r\n    &.label-inside {\r\n      .input-wrapper {\r\n        padding: 0 var(--ft-unit-300);\r\n        height: var(--ft-unit-1000);\r\n      }\r\n    }\r\n\r\n    &.label-outside {\r\n      .input-wrapper {\r\n      }\r\n    }\r\n\r\n    &.label-outside-left {\r\n      column-gap: var(--ft-unit-100);\r\n\r\n      .input-wrapper {\r\n\r\n      }\r\n    }\r\n  }\r\n\r\n  &.sm-size {\r\n    .input-wrapper {\r\n      padding: 0 var(--ft-unit-300);\r\n      height: var(--ft-unit-600);\r\n      gap: var(--ft-unit-200);\r\n\r\n      [class^=\"icon-\"], [class*=\" icon-\"] {\r\n        width: 16px;\r\n        height: 16px;\r\n        font-size: 16px;\r\n      }\r\n    }\r\n\r\n    &.label-inside {\r\n      .input-wrapper {\r\n        padding: 0 var(--ft-unit-300);\r\n        height: var(--ft-unit-1200);\r\n      }\r\n    }\r\n\r\n    &.label-outside {\r\n      .input-wrapper {\r\n      }\r\n    }\r\n\r\n    &.label-outside-left {\r\n      column-gap: var(--ft-unit-200);\r\n\r\n      .input-wrapper {\r\n\r\n      }\r\n    }\r\n  }\r\n\r\n  &.md-size {\r\n    .input-wrapper {\r\n      height: var(--ft-unit-800);\r\n      gap: var(--ft-unit-300);\r\n    }\r\n\r\n    &.label-inside {\r\n      .input-wrapper {\r\n        height: var(--ft-unit-1400);\r\n      }\r\n    }\r\n\r\n    &.label-outside {\r\n      .input-wrapper {\r\n      }\r\n    }\r\n\r\n    &.label-outside-left {\r\n      /*gap: var(--ft-unit-300);*/\r\n      column-gap: var(--ft-unit-300);\r\n\r\n      .input-wrapper {\r\n\r\n      }\r\n    }\r\n  }\r\n\r\n  &.lg-size {\r\n    gap: var(--ft-unit-100);\r\n\r\n    .input-wrapper {\r\n      height: var(--ft-unit-900);\r\n      gap: var(--ft-unit-400);\r\n    }\r\n\r\n    &.label-inside {\r\n      .input-wrapper {\r\n        height: var(--ft-unit-1600);\r\n      }\r\n    }\r\n\r\n    &.label-outside {\r\n      .input-wrapper {\r\n      }\r\n    }\r\n\r\n    &.label-outside-left {\r\n      column-gap: var(--ft-unit-400);\r\n\r\n      .input-wrapper {\r\n\r\n      }\r\n    }\r\n  }\r\n}\r\n\r\nbody:has(.input-wrapper) {\r\n  background: #fff;\r\n}\r\n\r\n\r\n.error-text {\r\n  color: var(--ft-color-danger);\r\n  /*padding: 0 var(--ft-unit-200);*/\r\n}\r\n\r\n.input-wrapper.flat {\r\n  border: none;\r\n  background-color: var(--ft-color-surface-muted);\r\n}\r\n\r\n/*.input-wrapper.bordered {*/\r\n/*  border-colors: var(--ft-colors-border-200);*/\r\n/*}*/\r\n\r\n/* Add more variant/size/colors CSS as needed */\r\n.input-wrapper.invalid {\r\n  border-color: var(--ft-color-danger-500);\r\n}\r\n\r\nbutton {\r\n  background: none;\r\n  border: none;\r\n  cursor: pointer;\r\n}\r\n\r\nlabel.disabled input {\r\n  opacity: 0.5;\r\n}\r\n\r\n/* ... */\r\n\r\n\r\n",
+                    "data": "::ng-deep storybook-root {\r\n  > ft-input {\r\n    min-width: 200px;\r\n    width: fit-content !important;\r\n    display: block;\r\n  }\r\n}\r\n\r\n:host {\r\n  width: 100%;\r\n}\r\n\r\n\r\n.field-container {\r\n  /*width: var(--container-xs);*/\r\n\r\n  .input-wrapper {\r\n    display: flex;\r\n    min-width: 100%;\r\n    align-items: center;\r\n    border-style: solid;\r\n    border-color: var(--ft-color-border-200);\r\n    border-width: var(--ft-border-secondary);\r\n    padding: 0 var(--ft-unit-400);\r\n    /*gap: var(--ft-unit-400);*/\r\n    /*height: var(--ft-unit-800);*/\r\n    /*background-colors: var(--ft-form-field-100);*/\r\n\r\n\r\n    .content-section {\r\n      display: flex;\r\n      flex-direction: column;\r\n      flex-grow: 1;\r\n      gap: var(--ft-unit-100);\r\n      min-width: 0;\r\n\r\n      .label-row {\r\n        display: flex;\r\n        height: fit-content;\r\n      }\r\n\r\n      .content {\r\n\r\n      }\r\n\r\n      .placeholder {\r\n        color: var(--ft-color-on-surface-level-300);\r\n      }\r\n    }\r\n\r\n    .suffix-icon {\r\n      gap: var(--ft-unit-100);\r\n    }\r\n\r\n  }\r\n\r\n\r\n  &.flat {\r\n    .input-wrapper {\r\n      background-color: var(--ft-form-field-100);\r\n      border: none;\r\n    }\r\n    &.hovered {\r\n      .input-wrapper {\r\n        background-color: var(--ft-form-field-200);\r\n      }\r\n    }\r\n    &.readonly {\r\n      .input-wrapper {\r\n        background-color: var(--ft-form-field-50);\r\n      }\r\n    }\r\n    &.disabled {\r\n      color: var(--ft-color-on-surface-muted);\r\n      .input-wrapper {\r\n        background-color: var(--ft-form-field-100);\r\n      }\r\n    }\r\n  }\r\n\r\n  &.faded{\r\n    .input-wrapper {\r\n      background-color: var(--ft-form-field-100);\r\n    }\r\n    &.hovered {\r\n      .input-wrapper {\r\n        background-color: var(--ft-form-field-200);\r\n      }\r\n    }\r\n    &.focused {\r\n      .input-wrapper {\r\n        background-color: var(--ft-form-field-200);\r\n        border-color: var(--ft-color-primary);\r\n      }\r\n    }\r\n    &.readonly {\r\n      .input-wrapper {\r\n        border-color: var(--ft-color-border-100);\r\n        background-color: var(--ft-form-field-50);\r\n      }\r\n    }\r\n    &.disabled {\r\n      color: var(--ft-color-on-surface-muted);\r\n      .input-wrapper {\r\n        background-color: var(--ft-form-field-100);\r\n      }\r\n    }\r\n  }\r\n\r\n  &.outlined {\r\n    .input-wrapper {\r\n\r\n    }\r\n    &.hovered {\r\n      .input-wrapper {\r\n        border-color: var(--ft-color-border-300);\r\n      }\r\n    }\r\n    &.focused {\r\n      .input-wrapper {\r\n        border-color: var(--ft-color-primary);\r\n      }\r\n    }\r\n    &.readonly {\r\n      .input-wrapper {\r\n        border-color: var(--ft-color-border-100);\r\n      }\r\n    }\r\n    &.disabled {\r\n      color: var(--ft-color-on-surface-muted);\r\n      .input-wrapper {\r\n        border-color: var(--ft-color-border-200);\r\n      }\r\n    }\r\n  }\r\n\r\n  &.invalid {\r\n    .label {\r\n      color: var(--ft-color-danger);\r\n    }\r\n    .input-wrapper {\r\n      background-color: var(--ft-color-danger-50);\r\n      border-style: solid;\r\n      border-color: var(--ft-color-danger);\r\n    }\r\n  }\r\n\r\n  &.ghost {\r\n    .input-wrapper {\r\n      border: none;\r\n    }\r\n    &.hovered {\r\n      .input-wrapper {\r\n        background-color: var(--ft-form-field-50);\r\n      }\r\n    }\r\n    &.focused {\r\n      .input-wrapper {\r\n        background-color: var(--ft-form-field-50);\r\n      }\r\n    }\r\n    &.readonly {\r\n      .input-wrapper {\r\n\r\n      }\r\n    }\r\n    &.disabled {\r\n      color: var(--ft-color-on-surface-muted);\r\n      .input-wrapper {\r\n\r\n      }\r\n    }\r\n  }\r\n\r\n  &.label-inside {\r\n    .input-wrapper {\r\n      grid-column: 1;\r\n      grid-row: 1;\r\n\r\n    }\r\n\r\n    .error-message {\r\n      grid-column: 1;\r\n      grid-row: 2;\r\n    }\r\n\r\n    .description {\r\n      grid-column: 1;\r\n      grid-row: 2;\r\n    }\r\n  }\r\n\r\n  &.label-outside {\r\n\r\n    .label-row {\r\n      grid-column: 1;\r\n      grid-row: 1;\r\n    }\r\n\r\n    .input-wrapper {\r\n      grid-column: 1;\r\n      grid-row: 2;\r\n    }\r\n\r\n    .error-message {\r\n      grid-column: 1;\r\n      grid-row: 3;\r\n    }\r\n\r\n    .description {\r\n      grid-column: 1;\r\n      grid-row: 3;\r\n    }\r\n  }\r\n\r\n  &.label-outside-left {\r\n    /*flex-direction: row;*/\r\n    /*align-items: center;*/\r\n    grid-template-columns: fit-content(50%) auto;\r\n\r\n    .label-row {\r\n      grid-column: 1;\r\n      grid-row: 1;\r\n    }\r\n\r\n    .input-wrapper {\r\n      grid-column: 2;\r\n      grid-row: 1;\r\n    }\r\n\r\n    .error-message {\r\n      grid-column: 2;\r\n      grid-row: 2;\r\n    }\r\n\r\n    .description {\r\n      grid-column: 2;\r\n      grid-row: 2;\r\n    }\r\n  }\r\n\r\n  &.xs-size {\r\n    .input-wrapper {\r\n      padding: 0 var(--ft-unit-300);\r\n      /*height: var(--ft-unit-600);*/\r\n      height: var(--ft-unit-500);\r\n      gap: var(--ft-unit-200);\r\n      border-width: var(--ft-border-primary);\r\n\r\n      [class^=\"icon-\"], [class*=\" icon-\"] {\r\n        width: 16px;\r\n        height: 16px;\r\n        font-size: 14px;\r\n      }\r\n\r\n      .content-section {\r\n        gap: 0;\r\n\r\n        .label-row {\r\n\r\n        }\r\n\r\n        .content {\r\n\r\n        }\r\n\r\n        .placeholder {\r\n          color: var(--ft-color-on-surface-level-200);\r\n        }\r\n      }\r\n    }\r\n\r\n    &.label-inside {\r\n      .input-wrapper {\r\n        padding: 0 var(--ft-unit-300);\r\n        height: var(--ft-unit-1000);\r\n      }\r\n    }\r\n\r\n    &.label-outside {\r\n      .input-wrapper {\r\n      }\r\n    }\r\n\r\n    &.label-outside-left {\r\n      column-gap: var(--ft-unit-100);\r\n\r\n      .input-wrapper {\r\n\r\n      }\r\n    }\r\n  }\r\n\r\n  &.sm-size {\r\n    .input-wrapper {\r\n      padding: 0 var(--ft-unit-300);\r\n      height: var(--ft-unit-600);\r\n      gap: var(--ft-unit-200);\r\n\r\n      [class^=\"icon-\"], [class*=\" icon-\"] {\r\n        width: 16px;\r\n        height: 16px;\r\n        font-size: 16px;\r\n      }\r\n    }\r\n\r\n    &.label-inside {\r\n      .input-wrapper {\r\n        padding: 0 var(--ft-unit-300);\r\n        height: var(--ft-unit-1200);\r\n      }\r\n    }\r\n\r\n    &.label-outside {\r\n      .input-wrapper {\r\n      }\r\n    }\r\n\r\n    &.label-outside-left {\r\n      column-gap: var(--ft-unit-200);\r\n\r\n      .input-wrapper {\r\n\r\n      }\r\n    }\r\n  }\r\n\r\n  &.md-size {\r\n    .input-wrapper {\r\n      height: var(--ft-unit-800);\r\n      gap: var(--ft-unit-300);\r\n    }\r\n\r\n    &.label-inside {\r\n      .input-wrapper {\r\n        height: var(--ft-unit-1400);\r\n      }\r\n    }\r\n\r\n    &.label-outside {\r\n      .input-wrapper {\r\n      }\r\n    }\r\n\r\n    &.label-outside-left {\r\n      /*gap: var(--ft-unit-300);*/\r\n      column-gap: var(--ft-unit-300);\r\n\r\n      .input-wrapper {\r\n\r\n      }\r\n    }\r\n  }\r\n\r\n  &.lg-size {\r\n    gap: var(--ft-unit-100);\r\n\r\n    .input-wrapper {\r\n      height: var(--ft-unit-900);\r\n      gap: var(--ft-unit-400);\r\n    }\r\n\r\n    &.label-inside {\r\n      .input-wrapper {\r\n        height: var(--ft-unit-1600);\r\n      }\r\n    }\r\n\r\n    &.label-outside {\r\n      .input-wrapper {\r\n      }\r\n    }\r\n\r\n    &.label-outside-left {\r\n      column-gap: var(--ft-unit-400);\r\n\r\n      .input-wrapper {\r\n\r\n      }\r\n    }\r\n  }\r\n}\r\n\r\nbody:has(.input-wrapper) {\r\n  background: #fff;\r\n}\r\n\r\n\r\n.error-text {\r\n  color: var(--ft-color-danger);\r\n  /*padding: 0 var(--ft-unit-200);*/\r\n}\r\n\r\n.input-wrapper.flat {\r\n  border: none;\r\n  background-color: var(--ft-color-surface-muted);\r\n}\r\n\r\n/*.input-wrapper.bordered {*/\r\n/*  border-colors: var(--ft-colors-border-200);*/\r\n/*}*/\r\n\r\n/* Add more variant/size/colors CSS as needed */\r\n.input-wrapper.invalid {\r\n  border-color: var(--ft-color-danger-500);\r\n}\r\n\r\nbutton {\r\n  background: none;\r\n  border: none;\r\n  cursor: pointer;\r\n}\r\n\r\nlabel.disabled input {\r\n  opacity: 0.5;\r\n}\r\n\r\n/* ... */\r\n\r\n\r\n",
                     "styleUrl": "./ft.input.component.css"
                 }
             ],
@@ -2856,94 +2961,8 @@
             "templateData": "<div class=\"group-field-container\"\r\n     [class.inactive]=\"inactive\"\r\n>\r\n  <div class=\"group-field-label content-xs--normal\">\r\n    {{label}}\r\n  </div>\r\n  <div class=\"group-field-content-container\">\r\n    <div class=\"group-field-content\"\r\n         [ngClass]=\"flexDirection\"\r\n    >\r\n      <ft-radio\r\n        *ngFor=\"let option of options\"\r\n        [isLabel]=\"option.isLabel\"\r\n        [label]=\"option.label\"\r\n        [isDescription]=\"isDescription ?? option.isDescription\"\r\n        [description]=\"option.description\"\r\n        [size]=\"option.size || size\"\r\n        [state]=\"option.state || 'rest'\"\r\n        [invalid]=\"invalid ?? option.invalid ?? false\"\r\n        [select]=\"option.select !== undefined ? option.select : true\"\r\n        [inactive]=\"inactive ?? option.inactive ?? false\"\r\n      >\r\n      </ft-radio>\r\n    </div>\r\n    <div *ngIf=\"invalid && errorMessage\" class=\"error-message\">\r\n      <p class=\"error-text content-2xs--normal\">{{ errorMessage }}</p>\r\n    </div>\r\n    <div *ngIf=\"description && !invalid\" class=\"description\">\r\n      <p class=\"highlight content-2xs--normal\">{{ description }}</p>\r\n    </div>\r\n  </div>\r\n\r\n</div>\r\n\r\n\r\n"
         },
         {
-            "name": "HeaderComponent",
-            "id": "component-HeaderComponent-35575735b3444c6f049822f5234963ce3b046795ea9cdf6a15e8c7d72acd8ededb78ca25c4e1fbb5f0416c5855203a87ae0483f5d065c2dfa68d5329e347a84b",
-            "file": "src/stories/others/header.component.ts",
-            "encapsulation": [],
-            "entryComponents": [],
-            "inputs": [],
-            "outputs": [],
-            "providers": [],
-            "selector": "storybook-header",
-            "styleUrls": [
-                "./header.css"
-            ],
-            "styles": [],
-            "template": "<header>  <div class=\"storybook-header\">\n    <div>\n      <svg width=\"32\" height=\"32\" viewBox=\"0 0 32 32\" xmlns=\"http://www.w3.org/2000/svg\">\n        <g fill=\"none\" fillRule=\"evenodd\">\n          <path\n            d=\"M10 0h12a10 10 0 0110 10v12a10 10 0 01-10 10H10A10 10 0 010 22V10A10 10 0 0110 0z\"\n            fill=\"#FFF\"\n          />\n          <path\n            d=\"M5.3 10.6l10.4 6v11.1l-10.4-6v-11zm11.4-6.2l9.7 5.5-9.7 5.6V4.4z\"\n            fill=\"#555AB9\"\n          />\n          <path d=\"M27.2 10.6v11.2l-10.5 6V16.5l10.5-6zM15.7 4.4v11L6 10l9.7-5.5z\" fill=\"#91BAF8\" />\n        </g>\n      </svg>\n      <h1>Acme</h1>\n    </div>\n    <div>\n      <div *ngIf=\"user\">\n        <span class=\"welcome\">\n          Welcome, <b>{{ user.name }}</b\n          >!\n        </span>\n        <storybook-button\n          *ngIf=\"user\"\n          size=\"small\"\n          (onClick)=\"onLogout.emit($event)\"\n          label=\"Log out\"\n        ></storybook-button>\n      </div>\n      <div *ngIf=\"!user\">\n        <storybook-button\n          *ngIf=\"!user\"\n          size=\"small\"\n          class=\"margin-left\"\n          (onClick)=\"onLogin.emit($event)\"\n          label=\"Log in\"\n        ></storybook-button>\n        <storybook-button\n          *ngIf=\"!user\"\n          size=\"small\"\n          [primary]=\"true\"\n          class=\"margin-left\"\n          (onClick)=\"onCreateAccount.emit($event)\"\n          label=\"Sign up\"\n        ></storybook-button>\n      </div>\n    </div>\n  </div>\n</header>",
-            "templateUrl": [],
-            "viewProviders": [],
-            "hostDirectives": [],
-            "inputsClass": [
-                {
-                    "name": "user",
-                    "defaultValue": "null",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 66,
-                    "type": "User | null",
-                    "decorators": []
-                }
-            ],
-            "outputsClass": [
-                {
-                    "name": "onCreateAccount",
-                    "defaultValue": "new EventEmitter<Event>()",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 75,
-                    "type": "EventEmitter"
-                },
-                {
-                    "name": "onLogin",
-                    "defaultValue": "new EventEmitter<Event>()",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 69,
-                    "type": "EventEmitter"
-                },
-                {
-                    "name": "onLogout",
-                    "defaultValue": "new EventEmitter<Event>()",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 72,
-                    "type": "EventEmitter"
-                }
-            ],
-            "propertiesClass": [],
-            "methodsClass": [],
-            "deprecated": false,
-            "deprecationMessage": "",
-            "hostBindings": [],
-            "hostListeners": [],
-            "standalone": true,
-            "imports": [
-                {
-                    "name": "CommonModule",
-                    "type": "module"
-                },
-                {
-                    "name": "ButtonComponent",
-                    "type": "component"
-                }
-            ],
-            "description": "",
-            "rawdescription": "\n",
-            "type": "component",
-            "sourceCode": "import { Component, Input, Output, EventEmitter } from '@angular/core';\r\nimport { CommonModule } from '@angular/common';\r\n\r\nimport { ButtonComponent } from './button.component';\r\nimport type { User } from './user';\r\n\r\n@Component({\r\n  selector: 'storybook-header',\r\n  standalone: true,\r\n  imports: [CommonModule, ButtonComponent],\r\n  template: `<header>\r\n  <div class=\"storybook-header\">\r\n    <div>\r\n      <svg width=\"32\" height=\"32\" viewBox=\"0 0 32 32\" xmlns=\"http://www.w3.org/2000/svg\">\r\n        <g fill=\"none\" fillRule=\"evenodd\">\r\n          <path\r\n            d=\"M10 0h12a10 10 0 0110 10v12a10 10 0 01-10 10H10A10 10 0 010 22V10A10 10 0 0110 0z\"\r\n            fill=\"#FFF\"\r\n          />\r\n          <path\r\n            d=\"M5.3 10.6l10.4 6v11.1l-10.4-6v-11zm11.4-6.2l9.7 5.5-9.7 5.6V4.4z\"\r\n            fill=\"#555AB9\"\r\n          />\r\n          <path d=\"M27.2 10.6v11.2l-10.5 6V16.5l10.5-6zM15.7 4.4v11L6 10l9.7-5.5z\" fill=\"#91BAF8\" />\r\n        </g>\r\n      </svg>\r\n      <h1>Acme</h1>\r\n    </div>\r\n    <div>\r\n      <div *ngIf=\"user\">\r\n        <span class=\"welcome\">\r\n          Welcome, <b>{{ user.name }}</b\r\n          >!\r\n        </span>\r\n        <storybook-button\r\n          *ngIf=\"user\"\r\n          size=\"small\"\r\n          (onClick)=\"onLogout.emit($event)\"\r\n          label=\"Log out\"\r\n        ></storybook-button>\r\n      </div>\r\n      <div *ngIf=\"!user\">\r\n        <storybook-button\r\n          *ngIf=\"!user\"\r\n          size=\"small\"\r\n          class=\"margin-left\"\r\n          (onClick)=\"onLogin.emit($event)\"\r\n          label=\"Log in\"\r\n        ></storybook-button>\r\n        <storybook-button\r\n          *ngIf=\"!user\"\r\n          size=\"small\"\r\n          [primary]=\"true\"\r\n          class=\"margin-left\"\r\n          (onClick)=\"onCreateAccount.emit($event)\"\r\n          label=\"Sign up\"\r\n        ></storybook-button>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</header>`,\r\n  styleUrls: ['./header.css'],\r\n})\r\nexport class HeaderComponent {\r\n  @Input()\r\n  user: User | null = null;\r\n\r\n  @Output()\r\n  onLogin = new EventEmitter<Event>();\r\n\r\n  @Output()\r\n  onLogout = new EventEmitter<Event>();\r\n\r\n  @Output()\r\n  onCreateAccount = new EventEmitter<Event>();\r\n}\r\n",
-            "assetsDirs": [],
-            "styleUrlsData": [
-                {
-                    "data": ".storybook-header {\r\n  display: flex;\r\n  justify-content: space-between;\r\n  align-items: center;\r\n  border-bottom: 1px solid rgba(0, 0, 0, 0.1);\r\n  padding: 15px 20px;\r\n  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;\r\n}\r\n\r\n.storybook-header svg {\r\n  display: inline-block;\r\n  vertical-align: top;\r\n}\r\n\r\n.storybook-header h1 {\r\n  display: inline-block;\r\n  vertical-align: top;\r\n  margin: 6px 0 6px 10px;\r\n  font-weight: 700;\r\n  font-size: 20px;\r\n  line-height: 1;\r\n}\r\n\r\n.storybook-header button + button {\r\n  margin-left: 10px;\r\n}\r\n\r\n.storybook-header .welcome {\r\n  margin-right: 10px;\r\n  color: #333;\r\n  font-size: 14px;\r\n}\r\n",
-                    "styleUrl": "./header.css"
-                }
-            ],
-            "stylesData": "",
-            "extends": []
-        },
-        {
             "name": "InputAllCasesComponent",
-            "id": "component-InputAllCasesComponent-4ad5cf1a5431eccd4352fa82e255643977895cf7f8ff84af49a9ca2f05f15d35a956c95c980f005aafec1642253097901fb4a9833f73b6a4e76bc920f3949b0a",
+            "id": "component-InputAllCasesComponent-cdbf42d2a182f28a9f67114e9bb9d3e7980b67a0d0fbc7b22428c27f835208c81e874f6224e045c54e58fb0ca1a873bb9e5990c342cff61bd47bf91b0d4cf33c",
             "file": "src/stories/inputs/input-all-cases/input-all-cases.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -3032,7 +3051,7 @@
                     "defaultValue": "'flat'",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "\"flat\" | \"faded\" | \"underlined\" | \"ghost\"",
+                    "type": "\"flat\" | \"faded\" | \"outlined\" | \"ghost\"",
                     "indexKey": "",
                     "optional": false,
                     "description": "",
@@ -3068,17 +3087,17 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import {Component, HostBinding, Input} from '@angular/core';\r\n\r\nimport { CommonModule } from '@angular/common';\r\nimport {FTInputComponent} from '../input/ft.input.component';\r\n\r\n@Component({\r\n  selector: 'app-input-showcase',\r\n  templateUrl: './input-all-cases.component.html',\r\n  styleUrls: ['./input-all-cases.component.css'],\r\n  standalone: true,\r\n  imports: [CommonModule, FTInputComponent]\r\n})\r\nexport class InputAllCasesComponent {\r\n  @HostBinding('class') class = 'showcase';\r\n  isPrefixIconClass: boolean = true;\r\n  radius: 'none-radius'|'sm-radius'|'md-radius'|'lg-radius'|'full-radius' = 'md-radius';\r\n  size: 'xs-size'|'sm-size'|'md-size'|'lg-size' = 'md-size';\r\n  variant: 'flat'|'faded'|'underlined'|'ghost' = 'flat';\r\n  isDescription = false;\r\n\r\n\r\n\r\n}\r\n",
+            "sourceCode": "import {Component, HostBinding, Input} from '@angular/core';\r\n\r\nimport { CommonModule } from '@angular/common';\r\nimport {FTInputComponent} from '../input/ft.input.component';\r\n\r\n@Component({\r\n  selector: 'app-input-showcase',\r\n  templateUrl: './input-all-cases.component.html',\r\n  styleUrls: ['./input-all-cases.component.css'],\r\n  standalone: true,\r\n  imports: [CommonModule, FTInputComponent]\r\n})\r\nexport class InputAllCasesComponent {\r\n  @HostBinding('class') class = 'showcase';\r\n  isPrefixIconClass: boolean = true;\r\n  radius: 'none-radius'|'sm-radius'|'md-radius'|'lg-radius'|'full-radius' = 'md-radius';\r\n  size: 'xs-size'|'sm-size'|'md-size'|'lg-size' = 'md-size';\r\n  variant: 'flat'|'faded'|'outlined'|'ghost' = 'flat';\r\n  isDescription = false;\r\n\r\n\r\n\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "/* input-showcase.component.css */\r\n.all-case-container {\r\n  /*height: 100%;*/\r\n  /*max-height: 100%;*/\r\n  width: 100%;\r\n  max-width: 100%;\r\n  margin: 0;\r\n  background-color: #ffffff;\r\n  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;\r\n  h1 {\r\n    color: #1a202c;\r\n    margin-bottom: 2rem;\r\n    text-align: center;\r\n    font-size: 2.5rem;\r\n    font-weight: 700;\r\n  }\r\n  .cases-container {\r\n    width: 100%;\r\n    max-width: 100%;\r\n    /*overflow: auto;*/\r\n    .case-row {\r\n      display: flex;\r\n      width: fit-content;\r\n      border-bottom: 1px solid var(--ft-color-border-200);\r\n      .case-item {\r\n        /*width: fit-content;*/\r\n        width: 360px;\r\n        height: 150px;\r\n        border-right: 1px solid var(--ft-color-border-200);\r\n        padding: var(--ft-unit-400);\r\n        display: flex;\r\n        justify-content: center;\r\n        align-items: center;\r\n        &.case-item-heading {\r\n          width: var(--ft-unit-800);\r\n          /*background-colors: var(--ft-colors-secondary);*/\r\n          color: var(--ft-color-on-surface-level-300);\r\n          font-size: var(--ft-text-2xs);\r\n          padding: 0;\r\n          border-right: 1px solid var(--ft-color-border-200);\r\n          &.vertical-text {\r\n            writing-mode: vertical-rl; /* Right to left */\r\n          }\r\n        }\r\n      }\r\n      &.case-row-heading {\r\n        height: var(--ft-unit-800);\r\n        /*background-colors: var(--ft-colors-primary);*/\r\n        color: var(--ft-color-on-surface-level-300);\r\n        padding: 0;\r\n        font-size: var(--ft-text-2xs);\r\n        /*border-bottom: 1px solid var(--ft-colors-border-200);*/\r\n        .case-item {\r\n          /*padding-inline: var(--ft-unit-400);*/\r\n          padding-block: 0;\r\n          height: 100%;\r\n        }\r\n      }\r\n    }\r\n  }\r\n}\r\n\r\n\r\n.showcase-section {\r\n  margin-bottom: 3rem;\r\n  padding: 2rem;\r\n  background: white;\r\n  border-radius: 12px;\r\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);\r\n  border: 1px solid #e2e8f0;\r\n}\r\n\r\n.showcase-section h2 {\r\n  color: #2d3748;\r\n  margin-bottom: 1.5rem;\r\n  font-size: 1.5rem;\r\n  font-weight: 600;\r\n  border-bottom: 2px solid #edf2f7;\r\n  padding-bottom: 0.5rem;\r\n}\r\n\r\n.examples-grid {\r\n  display: grid;\r\n  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));\r\n  gap: 2rem;\r\n  margin-bottom: 1rem;\r\n}\r\n\r\n.example-item {\r\n  display: flex;\r\n  flex-direction: column;\r\n  gap: 0.75rem;\r\n}\r\n\r\n.example-item h3 {\r\n  color: #4a5568;\r\n  font-size: 1rem;\r\n  font-weight: 600;\r\n  margin: 0;\r\n}\r\n\r\n.value-display {\r\n  font-size: 0.875rem;\r\n  color: #718096;\r\n  background: #f7fafc;\r\n  padding: 0.5rem;\r\n  border-radius: 4px;\r\n  margin: 0;\r\n  font-family: 'Monaco', 'Consolas', monospace;\r\n}\r\n\r\n/* Form Example Styles */\r\n.form-example {\r\n  display: flex;\r\n  flex-direction: column;\r\n  gap: 1.5rem;\r\n}\r\n\r\n.form-grid {\r\n  display: grid;\r\n  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));\r\n  gap: 1.5rem;\r\n}\r\n\r\n.form-actions {\r\n  display: flex;\r\n  gap: 1rem;\r\n  justify-content: flex-start;\r\n  margin-top: 1rem;\r\n}\r\n\r\n.btn {\r\n  padding: 0.75rem 1.5rem;\r\n  border: none;\r\n  border-radius: 8px;\r\n  font-weight: 600;\r\n  cursor: pointer;\r\n  transition: all 0.2s ease;\r\n  font-size: 0.875rem;\r\n}\r\n\r\n.btn-primary {\r\n  background: #4299e1;\r\n  color: white;\r\n}\r\n\r\n.btn-primary:hover {\r\n  background: #3182ce;\r\n  transform: translateY(-1px);\r\n}\r\n\r\n.btn-secondary {\r\n  background: #e2e8f0;\r\n  color: #4a5568;\r\n}\r\n\r\n.btn-secondary:hover {\r\n  background: #cbd5e0;\r\n  transform: translateY(-1px);\r\n}\r\n\r\n/* Responsive Design */\r\n@media (max-width: 768px) {\r\n  .showcase-container {\r\n    padding: 1rem;\r\n  }\r\n\r\n  .examples-grid {\r\n    grid-template-columns: 1fr;\r\n    gap: 1.5rem;\r\n  }\r\n\r\n  .showcase-section {\r\n    padding: 1.5rem;\r\n    margin-bottom: 2rem;\r\n  }\r\n\r\n  .form-grid {\r\n    grid-template-columns: 1fr;\r\n  }\r\n\r\n  .form-actions {\r\n    flex-direction: column;\r\n  }\r\n}\r\n\r\n/* Dark mode support */\r\n@media (prefers-color-scheme: dark) {\r\n  .showcase-section {\r\n    background: #2d3748;\r\n    border-color: #4a5568;\r\n  }\r\n\r\n  .showcase-container h1,\r\n  .showcase-section h2,\r\n  .example-item h3 {\r\n    color: #e2e8f0;\r\n  }\r\n\r\n  .value-display {\r\n    background: #4a5568;\r\n    color: #cbd5e0;\r\n  }\r\n}\r\n",
+                    "data": "",
                     "styleUrl": "./input-all-cases.component.css"
                 }
             ],
             "stylesData": "",
             "extends": [],
-            "templateData": "<!-- input-showcase.component.html -->\r\n<div class=\"all-case-container\">\r\n  <h1>FT-Input Component All cases</h1>\r\n  <div class=\"cases-container\">\r\n    <div class=\"case-row case-row-heading\">\r\n      <div class=\"case-item case-item-heading\">\r\n\r\n      </div>\r\n      <div class=\"case-item\">\r\n        labelPlacement: inside\r\n      </div>\r\n      <div class=\"case-item\">\r\n        labelPlacement: outside\r\n      </div>\r\n      <div class=\"case-item\">\r\n        labelPlacement: outside left\r\n      </div>\r\n\r\n    </div>\r\n\r\n    <div class=\"case-row\">\r\n      <div class=\"case-item case-item-heading vertical-text\">\r\n        Normal\r\n      </div>\r\n      <div class=\"case-item\">\r\n        <ft-input\r\n          [isLabel]=\"true\"\r\n          [label]=\"'Username'\"\r\n          [size]=\"size\"\r\n          [color]=\"'primary'\"\r\n          [variant]=\"variant\"\r\n          [radius]=\"radius\"\r\n          [disabled]=\"false\"\r\n          [readonly]=\"false\"\r\n          [required]=\"true\"\r\n          [invalid]=\"false\"\r\n          [placeholder]=\"'Enter your username'\"\r\n          [isDescription]=\"isDescription\"\r\n          [description]=\"'This is your public display name.'\"\r\n          [errorMessage]=\"'Username is required.'\"\r\n          [content]=\"\"\r\n          [labelPlacement]=\"'label-inside'\"\r\n          [isPrefixIconClass]=\"isPrefixIconClass\"\r\n          [prefixIconClass]=\"'icon-user'\"\r\n          [isSuffix1IconClass]=\"true\"\r\n          [suffix1IconClass]=\"'icon-close'\"\r\n          [isSuffix2IconClass]=\"true\"\r\n          [suffix2IconClass]=\"'icon-arrow-down'\"\r\n          [isClearable]=\"true\"\r\n        >\r\n        </ft-input>\r\n\r\n      </div>\r\n      <div class=\"case-item\">\r\n        <ft-input\r\n          [isLabel]=\"true\"\r\n          [label]=\"'Username'\"\r\n          [size]=\"size\"\r\n          [color]=\"'primary'\"\r\n          [variant]=\"variant\"\r\n          [radius]=\"radius\"\r\n          [disabled]=\"false\"\r\n          [readonly]=\"false\"\r\n          [required]=\"true\"\r\n          [invalid]=\"false\"\r\n          [placeholder]=\"'Enter your username'\"\r\n          [isDescription]=\"isDescription\"\r\n          [description]=\"'This is your public display name.'\"\r\n          [errorMessage]=\"'Username is required.'\"\r\n          [content]=\"\"\r\n          [labelPlacement]=\"'label-outside'\"\r\n          [isPrefixIconClass]=\"isPrefixIconClass\"\r\n          [prefixIconClass]=\"'icon-user'\"\r\n          [isSuffix1IconClass]=\"true\"\r\n          [suffix1IconClass]=\"'icon-close'\"\r\n          [isSuffix2IconClass]=\"true\"\r\n          [suffix2IconClass]=\"'icon-arrow-down'\"\r\n          [isClearable]=\"true\"\r\n        >\r\n        </ft-input>\r\n\r\n\r\n      </div>\r\n      <div class=\"case-item\">\r\n        <ft-input\r\n          [isLabel]=\"true\"\r\n          [label]=\"'Username'\"\r\n          [size]=\"size\"\r\n          [color]=\"'primary'\"\r\n          [variant]=\"variant\"\r\n          [radius]=\"radius\"\r\n          [disabled]=\"false\"\r\n          [readonly]=\"false\"\r\n          [required]=\"true\"\r\n          [invalid]=\"false\"\r\n          [placeholder]=\"'Enter your username'\"\r\n          [isDescription]=\"isDescription\"\r\n          [description]=\"'This is your public display name.'\"\r\n          [errorMessage]=\"'Username is required.'\"\r\n          [content]=\"\"\r\n          [labelPlacement]=\"'label-outside-left'\"\r\n          [isPrefixIconClass]=\"isPrefixIconClass\"\r\n          [prefixIconClass]=\"'icon-user'\"\r\n          [isSuffix1IconClass]=\"true\"\r\n          [suffix1IconClass]=\"'icon-close'\"\r\n          [isSuffix2IconClass]=\"true\"\r\n          [suffix2IconClass]=\"'icon-arrow-down'\"\r\n          [isClearable]=\"true\"\r\n        >\r\n        </ft-input>\r\n\r\n      </div>\r\n\r\n    </div>\r\n\r\n    <div class=\"case-row\">\r\n      <div class=\"case-item case-item-heading vertical-text\">\r\n        Hovered\r\n      </div>\r\n      <div class=\"case-item\">\r\n        <ft-input\r\n          [isLabel]=\"true\"\r\n          [label]=\"'Username'\"\r\n          [size]=\"size\"\r\n          [color]=\"'primary'\"\r\n          [variant]=\"variant\"\r\n          [state]=\"'hovered'\"\r\n          [radius]=\"radius\"\r\n          [disabled]=\"false\"\r\n          [readonly]=\"false\"\r\n          [required]=\"true\"\r\n          [invalid]=\"false\"\r\n          [placeholder]=\"'Enter your username'\"\r\n          [isDescription]=\"isDescription\"\r\n          [description]=\"'This is your public display name.'\"\r\n          [errorMessage]=\"'Username is required.'\"\r\n          [content]=\"\"\r\n          [labelPlacement]=\"'label-inside'\"\r\n          [isPrefixIconClass]=\"isPrefixIconClass\"\r\n          [prefixIconClass]=\"'icon-user'\"\r\n          [isSuffix1IconClass]=\"true\"\r\n          [suffix1IconClass]=\"'icon-close'\"\r\n          [isSuffix2IconClass]=\"true\"\r\n          [suffix2IconClass]=\"'icon-arrow-down'\"\r\n          [isClearable]=\"true\"\r\n        >\r\n        </ft-input>\r\n\r\n      </div>\r\n      <div class=\"case-item\">\r\n        <ft-input\r\n          [isLabel]=\"true\"\r\n          [label]=\"'Username'\"\r\n          [size]=\"size\"\r\n          [color]=\"'primary'\"\r\n          [variant]=\"variant\"\r\n          [state]=\"'hovered'\"\r\n          [radius]=\"radius\"\r\n          [disabled]=\"false\"\r\n          [readonly]=\"false\"\r\n          [required]=\"true\"\r\n          [invalid]=\"false\"\r\n          [placeholder]=\"'Enter your username'\"\r\n          [isDescription]=\"isDescription\"\r\n          [description]=\"'This is your public display name.'\"\r\n          [errorMessage]=\"'Username is required.'\"\r\n          [content]=\"\"\r\n          [labelPlacement]=\"'label-outside'\"\r\n          [isPrefixIconClass]=\"isPrefixIconClass\"\r\n          [prefixIconClass]=\"'icon-user'\"\r\n          [isSuffix1IconClass]=\"true\"\r\n          [suffix1IconClass]=\"'icon-close'\"\r\n          [isSuffix2IconClass]=\"true\"\r\n          [suffix2IconClass]=\"'icon-arrow-down'\"\r\n          [isClearable]=\"true\"\r\n        >\r\n        </ft-input>\r\n\r\n\r\n      </div>\r\n      <div class=\"case-item\">\r\n        <ft-input\r\n          [isLabel]=\"true\"\r\n          [label]=\"'Username'\"\r\n          [size]=\"size\"\r\n          [color]=\"'primary'\"\r\n          [variant]=\"variant\"\r\n          [state]=\"'hovered'\"\r\n          [radius]=\"radius\"\r\n          [disabled]=\"false\"\r\n          [readonly]=\"false\"\r\n          [required]=\"true\"\r\n          [invalid]=\"false\"\r\n          [placeholder]=\"'Enter your username'\"\r\n          [isDescription]=\"isDescription\"\r\n          [description]=\"'This is your public display name.'\"\r\n          [errorMessage]=\"'Username is required.'\"\r\n          [content]=\"\"\r\n          [labelPlacement]=\"'label-outside-left'\"\r\n          [isPrefixIconClass]=\"isPrefixIconClass\"\r\n          [prefixIconClass]=\"'icon-user'\"\r\n          [isSuffix1IconClass]=\"true\"\r\n          [suffix1IconClass]=\"'icon-close'\"\r\n          [isSuffix2IconClass]=\"true\"\r\n          [suffix2IconClass]=\"'icon-arrow-down'\"\r\n          [isClearable]=\"true\"\r\n        >\r\n        </ft-input>\r\n\r\n      </div>\r\n\r\n    </div>\r\n\r\n    <div class=\"case-row\">\r\n      <div class=\"case-item case-item-heading vertical-text\">\r\n        Focused\r\n      </div>\r\n      <div class=\"case-item\">\r\n        <ft-input\r\n          [isLabel]=\"true\"\r\n          [label]=\"'Username'\"\r\n          [size]=\"size\"\r\n          [color]=\"'primary'\"\r\n          [variant]=\"variant\"\r\n          [state]=\"'focused'\"\r\n          [radius]=\"radius\"\r\n          [disabled]=\"false\"\r\n          [readonly]=\"false\"\r\n          [required]=\"true\"\r\n          [invalid]=\"false\"\r\n          [placeholder]=\"'Enter your username'\"\r\n          [isDescription]=\"isDescription\"\r\n          [description]=\"'This is your public display name.'\"\r\n          [errorMessage]=\"'Username is required.'\"\r\n          [content]=\"\"\r\n          [labelPlacement]=\"'label-inside'\"\r\n          [isPrefixIconClass]=\"isPrefixIconClass\"\r\n          [prefixIconClass]=\"'icon-user'\"\r\n          [isSuffix1IconClass]=\"true\"\r\n          [suffix1IconClass]=\"'icon-close'\"\r\n          [isSuffix2IconClass]=\"true\"\r\n          [suffix2IconClass]=\"'icon-arrow-down'\"\r\n          [isClearable]=\"true\"\r\n        >\r\n        </ft-input>\r\n\r\n      </div>\r\n      <div class=\"case-item\">\r\n        <ft-input\r\n          [isLabel]=\"true\"\r\n          [label]=\"'Username'\"\r\n          [size]=\"size\"\r\n          [color]=\"'primary'\"\r\n          [variant]=\"variant\"\r\n          [state]=\"'focused'\"\r\n          [radius]=\"radius\"\r\n          [disabled]=\"false\"\r\n          [readonly]=\"false\"\r\n          [required]=\"true\"\r\n          [invalid]=\"false\"\r\n          [placeholder]=\"'Enter your username'\"\r\n          [isDescription]=\"isDescription\"\r\n          [description]=\"'This is your public display name.'\"\r\n          [errorMessage]=\"'Username is required.'\"\r\n          [content]=\"\"\r\n          [labelPlacement]=\"'label-outside'\"\r\n          [isPrefixIconClass]=\"isPrefixIconClass\"\r\n          [prefixIconClass]=\"'icon-user'\"\r\n          [isSuffix1IconClass]=\"true\"\r\n          [suffix1IconClass]=\"'icon-close'\"\r\n          [isSuffix2IconClass]=\"true\"\r\n          [suffix2IconClass]=\"'icon-arrow-down'\"\r\n          [isClearable]=\"true\"\r\n        >\r\n        </ft-input>\r\n\r\n\r\n      </div>\r\n      <div class=\"case-item\">\r\n        <ft-input\r\n          [isLabel]=\"true\"\r\n          [label]=\"'Username'\"\r\n          [size]=\"size\"\r\n          [color]=\"'primary'\"\r\n          [variant]=\"variant\"\r\n          [state]=\"'focused'\"\r\n          [radius]=\"radius\"\r\n          [disabled]=\"false\"\r\n          [readonly]=\"false\"\r\n          [required]=\"true\"\r\n          [invalid]=\"false\"\r\n          [placeholder]=\"'Enter your username'\"\r\n          [isDescription]=\"isDescription\"\r\n          [description]=\"'This is your public display name.'\"\r\n          [errorMessage]=\"'Username is required.'\"\r\n          [content]=\"\"\r\n          [labelPlacement]=\"'label-outside-left'\"\r\n          [isPrefixIconClass]=\"isPrefixIconClass\"\r\n          [prefixIconClass]=\"'icon-user'\"\r\n          [isSuffix1IconClass]=\"true\"\r\n          [suffix1IconClass]=\"'icon-close'\"\r\n          [isSuffix2IconClass]=\"true\"\r\n          [suffix2IconClass]=\"'icon-arrow-down'\"\r\n          [isClearable]=\"true\"\r\n        >\r\n        </ft-input>\r\n\r\n      </div>\r\n\r\n\r\n    </div>\r\n\r\n    <div class=\"case-row\">\r\n      <div class=\"case-item case-item-heading vertical-text\">\r\n        Read-Only\r\n      </div>\r\n      <div class=\"case-item\">\r\n        <ft-input\r\n          [isLabel]=\"true\"\r\n          [label]=\"'Username'\"\r\n          [size]=\"size\"\r\n          [color]=\"'primary'\"\r\n          [variant]=\"variant\"\r\n          [radius]=\"radius\"\r\n          [disabled]=\"false\"\r\n          [readonly]=\"true\"\r\n          [required]=\"true\"\r\n          [invalid]=\"false\"\r\n          [placeholder]=\"'Enter your username'\"\r\n          [isDescription]=\"isDescription\"\r\n          [description]=\"'This is your public display name.'\"\r\n          [errorMessage]=\"'Username is required.'\"\r\n          [content]=\"'default value'\"\r\n          [labelPlacement]=\"'label-inside'\"\r\n          [isPrefixIconClass]=\"isPrefixIconClass\"\r\n          [prefixIconClass]=\"'icon-user'\"\r\n          [isSuffix1IconClass]=\"true\"\r\n          [suffix1IconClass]=\"'icon-close'\"\r\n          [isSuffix2IconClass]=\"true\"\r\n          [suffix2IconClass]=\"'icon-arrow-down'\"\r\n          [isClearable]=\"true\"\r\n        >\r\n        </ft-input>\r\n\r\n      </div>\r\n      <div class=\"case-item\">\r\n        <ft-input\r\n          [isLabel]=\"true\"\r\n          [label]=\"'Username'\"\r\n          [size]=\"size\"\r\n          [color]=\"'primary'\"\r\n          [variant]=\"variant\"\r\n          [radius]=\"radius\"\r\n          [disabled]=\"false\"\r\n          [readonly]=\"true\"\r\n          [required]=\"true\"\r\n          [invalid]=\"false\"\r\n          [placeholder]=\"'Enter your username'\"\r\n          [isDescription]=\"isDescription\"\r\n          [description]=\"'This is your public display name.'\"\r\n          [errorMessage]=\"'Username is required.'\"\r\n          [content]=\"'default value'\"\r\n          [labelPlacement]=\"'label-outside'\"\r\n          [isPrefixIconClass]=\"isPrefixIconClass\"\r\n          [prefixIconClass]=\"'icon-user'\"\r\n          [isSuffix1IconClass]=\"true\"\r\n          [suffix1IconClass]=\"'icon-close'\"\r\n          [isSuffix2IconClass]=\"true\"\r\n          [suffix2IconClass]=\"'icon-arrow-down'\"\r\n          [isClearable]=\"true\"\r\n        >\r\n        </ft-input>\r\n\r\n\r\n      </div>\r\n      <div class=\"case-item\">\r\n        <ft-input\r\n          [isLabel]=\"true\"\r\n          [label]=\"'Username'\"\r\n          [size]=\"size\"\r\n          [color]=\"'primary'\"\r\n          [variant]=\"variant\"\r\n          [radius]=\"radius\"\r\n          [disabled]=\"false\"\r\n          [readonly]=\"true\"\r\n          [required]=\"true\"\r\n          [invalid]=\"false\"\r\n          [placeholder]=\"'Enter your username'\"\r\n          [isDescription]=\"isDescription\"\r\n          [description]=\"'This is your public display name.'\"\r\n          [errorMessage]=\"'Username is required.'\"\r\n          [content]=\"'default value'\"\r\n          [labelPlacement]=\"'label-outside-left'\"\r\n          [isPrefixIconClass]=\"isPrefixIconClass\"\r\n          [prefixIconClass]=\"'icon-user'\"\r\n          [isSuffix1IconClass]=\"true\"\r\n          [suffix1IconClass]=\"'icon-close'\"\r\n          [isSuffix2IconClass]=\"true\"\r\n          [suffix2IconClass]=\"'icon-arrow-down'\"\r\n          [isClearable]=\"true\"\r\n        >\r\n        </ft-input>\r\n\r\n      </div>\r\n\r\n    </div>\r\n\r\n    <div class=\"case-row\">\r\n      <div class=\"case-item case-item-heading vertical-text\">\r\n        Disabled\r\n      </div>\r\n      <div class=\"case-item\">\r\n        <ft-input\r\n          [isLabel]=\"true\"\r\n          [label]=\"'Username'\"\r\n          [size]=\"size\"\r\n          [color]=\"'primary'\"\r\n          [variant]=\"variant\"\r\n          [radius]=\"radius\"\r\n          [disabled]=\"true\"\r\n          [readonly]=\"false\"\r\n          [required]=\"true\"\r\n          [invalid]=\"false\"\r\n          [placeholder]=\"'Enter your username'\"\r\n          [isDescription]=\"isDescription\"\r\n          [description]=\"'This is your public display name.'\"\r\n          [errorMessage]=\"'Username is required.'\"\r\n          [content]=\"\"\r\n          [labelPlacement]=\"'label-inside'\"\r\n          [isPrefixIconClass]=\"isPrefixIconClass\"\r\n          [prefixIconClass]=\"'icon-user'\"\r\n          [isSuffix1IconClass]=\"true\"\r\n          [suffix1IconClass]=\"'icon-close'\"\r\n          [isSuffix2IconClass]=\"true\"\r\n          [suffix2IconClass]=\"'icon-arrow-down'\"\r\n          [isClearable]=\"true\"\r\n        >\r\n        </ft-input>\r\n\r\n      </div>\r\n      <div class=\"case-item\">\r\n        <ft-input\r\n          [isLabel]=\"true\"\r\n          [label]=\"'Username'\"\r\n          [size]=\"size\"\r\n          [color]=\"'primary'\"\r\n          [variant]=\"variant\"\r\n          [radius]=\"radius\"\r\n          [disabled]=\"true\"\r\n          [readonly]=\"false\"\r\n          [required]=\"true\"\r\n          [invalid]=\"false\"\r\n          [placeholder]=\"'Enter your username'\"\r\n          [isDescription]=\"isDescription\"\r\n          [description]=\"'This is your public display name.'\"\r\n          [errorMessage]=\"'Username is required.'\"\r\n          [content]=\"\"\r\n          [labelPlacement]=\"'label-outside'\"\r\n          [isPrefixIconClass]=\"isPrefixIconClass\"\r\n          [prefixIconClass]=\"'icon-user'\"\r\n          [isSuffix1IconClass]=\"true\"\r\n          [suffix1IconClass]=\"'icon-close'\"\r\n          [isSuffix2IconClass]=\"true\"\r\n          [suffix2IconClass]=\"'icon-arrow-down'\"\r\n          [isClearable]=\"true\"\r\n        >\r\n        </ft-input>\r\n\r\n\r\n      </div>\r\n      <div class=\"case-item\">\r\n        <ft-input\r\n          [isLabel]=\"true\"\r\n          [label]=\"'Username'\"\r\n          [size]=\"size\"\r\n          [color]=\"'primary'\"\r\n          [variant]=\"variant\"\r\n          [radius]=\"radius\"\r\n          [disabled]=\"true\"\r\n          [readonly]=\"false\"\r\n          [required]=\"true\"\r\n          [invalid]=\"false\"\r\n          [placeholder]=\"'Enter your username'\"\r\n          [isDescription]=\"isDescription\"\r\n          [description]=\"'This is your public display name.'\"\r\n          [errorMessage]=\"'Username is required.'\"\r\n          [content]=\"\"\r\n          [labelPlacement]=\"'label-outside-left'\"\r\n          [isPrefixIconClass]=\"isPrefixIconClass\"\r\n          [prefixIconClass]=\"'icon-user'\"\r\n          [isSuffix1IconClass]=\"true\"\r\n          [suffix1IconClass]=\"'icon-close'\"\r\n          [isSuffix2IconClass]=\"true\"\r\n          [suffix2IconClass]=\"'icon-arrow-down'\"\r\n          [isClearable]=\"true\"\r\n        >\r\n        </ft-input>\r\n\r\n      </div>\r\n\r\n    </div>\r\n\r\n    <div class=\"case-row\">\r\n      <div class=\"case-item case-item-heading vertical-text\">\r\n        Invalid\r\n      </div>\r\n      <div class=\"case-item\">\r\n        <ft-input\r\n          [isLabel]=\"true\"\r\n          [label]=\"'Username'\"\r\n          [size]=\"size\"\r\n          [color]=\"'primary'\"\r\n          [variant]=\"variant\"\r\n          [radius]=\"radius\"\r\n          [disabled]=\"false\"\r\n          [readonly]=\"false\"\r\n          [required]=\"true\"\r\n          [invalid]=\"true\"\r\n          [placeholder]=\"'Enter your username'\"\r\n          [isDescription]=\"isDescription\"\r\n          [description]=\"'This is your public display name.'\"\r\n          [errorMessage]=\"'Username is required.'\"\r\n          [content]=\"\"\r\n          [labelPlacement]=\"'label-inside'\"\r\n          [isPrefixIconClass]=\"isPrefixIconClass\"\r\n          [prefixIconClass]=\"'icon-user'\"\r\n          [isSuffix1IconClass]=\"true\"\r\n          [suffix1IconClass]=\"'icon-close'\"\r\n          [isSuffix2IconClass]=\"true\"\r\n          [suffix2IconClass]=\"'icon-arrow-down'\"\r\n          [isClearable]=\"true\"\r\n        >\r\n        </ft-input>\r\n\r\n      </div>\r\n      <div class=\"case-item\">\r\n        <ft-input\r\n          [isLabel]=\"true\"\r\n          [label]=\"'Username'\"\r\n          [size]=\"size\"\r\n          [color]=\"'primary'\"\r\n          [variant]=\"variant\"\r\n          [radius]=\"radius\"\r\n          [disabled]=\"false\"\r\n          [readonly]=\"false\"\r\n          [required]=\"true\"\r\n          [invalid]=\"true\"\r\n          [placeholder]=\"'Enter your username'\"\r\n          [isDescription]=\"isDescription\"\r\n          [description]=\"'This is your public display name.'\"\r\n          [errorMessage]=\"'Username is required.'\"\r\n          [content]=\"\"\r\n          [labelPlacement]=\"'label-outside'\"\r\n          [isPrefixIconClass]=\"isPrefixIconClass\"\r\n          [prefixIconClass]=\"'icon-user'\"\r\n          [isSuffix1IconClass]=\"true\"\r\n          [suffix1IconClass]=\"'icon-close'\"\r\n          [isSuffix2IconClass]=\"true\"\r\n          [suffix2IconClass]=\"'icon-arrow-down'\"\r\n          [isClearable]=\"true\"\r\n        >\r\n        </ft-input>\r\n\r\n\r\n      </div>\r\n      <div class=\"case-item\">\r\n        <ft-input\r\n          [isLabel]=\"true\"\r\n          [label]=\"'Username'\"\r\n          [size]=\"size\"\r\n          [color]=\"'primary'\"\r\n          [variant]=\"variant\"\r\n          [radius]=\"radius\"\r\n          [disabled]=\"false\"\r\n          [readonly]=\"false\"\r\n          [required]=\"true\"\r\n          [invalid]=\"true\"\r\n          [placeholder]=\"'Enter your username'\"\r\n          [isDescription]=\"isDescription\"\r\n          [description]=\"'This is your public display name.'\"\r\n          [errorMessage]=\"'Username is required.'\"\r\n          [content]=\"\"\r\n          [labelPlacement]=\"'label-outside-left'\"\r\n          [isPrefixIconClass]=\"isPrefixIconClass\"\r\n          [prefixIconClass]=\"'icon-user'\"\r\n          [isSuffix1IconClass]=\"true\"\r\n          [suffix1IconClass]=\"'icon-close'\"\r\n          [isSuffix2IconClass]=\"true\"\r\n          [suffix2IconClass]=\"'icon-arrow-down'\"\r\n          [isClearable]=\"true\"\r\n        >\r\n        </ft-input>\r\n\r\n      </div>\r\n\r\n    </div>\r\n\r\n    <div class=\"case-row\">\r\n      <div class=\"case-item case-item-heading vertical-text\">\r\n        Content\r\n      </div>\r\n      <div class=\"case-item\">\r\n        <ft-input\r\n          [isLabel]=\"true\"\r\n          [label]=\"'Username'\"\r\n          [size]=\"size\"\r\n          [color]=\"'primary'\"\r\n          [variant]=\"variant\"\r\n          [radius]=\"radius\"\r\n          [disabled]=\"false\"\r\n          [readonly]=\"false\"\r\n          [required]=\"true\"\r\n          [invalid]=\"false\"\r\n          [placeholder]=\"'Enter your username'\"\r\n          [isDescription]=\"isDescription\"\r\n          [description]=\"'This is your public display name.'\"\r\n          [errorMessage]=\"'Username is required.'\"\r\n          [content]=\"'default value'\"\r\n          [labelPlacement]=\"'label-inside'\"\r\n          [isPrefixIconClass]=\"isPrefixIconClass\"\r\n          [prefixIconClass]=\"'icon-user'\"\r\n          [isSuffix1IconClass]=\"true\"\r\n          [suffix1IconClass]=\"'icon-close'\"\r\n          [isSuffix2IconClass]=\"true\"\r\n          [suffix2IconClass]=\"'icon-arrow-down'\"\r\n          [isClearable]=\"true\"\r\n        >\r\n        </ft-input>\r\n\r\n      </div>\r\n      <div class=\"case-item\">\r\n        <ft-input\r\n          [isLabel]=\"true\"\r\n          [label]=\"'Username'\"\r\n          [size]=\"size\"\r\n          [color]=\"'primary'\"\r\n          [variant]=\"variant\"\r\n          [radius]=\"radius\"\r\n          [disabled]=\"false\"\r\n          [readonly]=\"false\"\r\n          [required]=\"true\"\r\n          [invalid]=\"false\"\r\n          [placeholder]=\"'Enter your username'\"\r\n          [isDescription]=\"isDescription\"\r\n          [description]=\"'This is your public display name.'\"\r\n          [errorMessage]=\"'Username is required.'\"\r\n          [content]=\"'default value'\"\r\n          [labelPlacement]=\"'label-outside'\"\r\n          [isPrefixIconClass]=\"isPrefixIconClass\"\r\n          [prefixIconClass]=\"'icon-user'\"\r\n          [isSuffix1IconClass]=\"true\"\r\n          [suffix1IconClass]=\"'icon-close'\"\r\n          [isSuffix2IconClass]=\"true\"\r\n          [suffix2IconClass]=\"'icon-arrow-down'\"\r\n          [isClearable]=\"true\"\r\n        >\r\n        </ft-input>\r\n\r\n\r\n      </div>\r\n      <div class=\"case-item\">\r\n        <ft-input\r\n          [isLabel]=\"true\"\r\n          [label]=\"'Username'\"\r\n          [size]=\"size\"\r\n          [color]=\"'primary'\"\r\n          [variant]=\"variant\"\r\n          [radius]=\"radius\"\r\n          [disabled]=\"false\"\r\n          [readonly]=\"false\"\r\n          [required]=\"true\"\r\n          [invalid]=\"false\"\r\n          [placeholder]=\"'Enter your username'\"\r\n          [isDescription]=\"isDescription\"\r\n          [description]=\"'This is your public display name.'\"\r\n          [errorMessage]=\"'Username is required.'\"\r\n          [content]=\"'default value'\"\r\n          [labelPlacement]=\"'label-outside-left'\"\r\n          [isPrefixIconClass]=\"isPrefixIconClass\"\r\n          [prefixIconClass]=\"'icon-user'\"\r\n          [isSuffix1IconClass]=\"true\"\r\n          [suffix1IconClass]=\"'icon-close'\"\r\n          [isSuffix2IconClass]=\"true\"\r\n          [suffix2IconClass]=\"'icon-arrow-down'\"\r\n          [isClearable]=\"true\"\r\n        >\r\n        </ft-input>\r\n\r\n      </div>\r\n\r\n    </div>\r\n\r\n  </div>\r\n</div>\r\n"
+            "templateData": "<!-- input-showcase.component.html -->\r\n<div class=\"all-case-container\">\r\n  <h1>FT-Input All cases</h1>\r\n  <div class=\"cases-container\">\r\n    <div class=\"case-row case-row-heading\">\r\n      <div class=\"case-item case-item-heading\">\r\n\r\n      </div>\r\n      <div class=\"case-item\">\r\n        labelPlacement: inside\r\n      </div>\r\n      <div class=\"case-item\">\r\n        labelPlacement: outside\r\n      </div>\r\n      <div class=\"case-item\">\r\n        labelPlacement: outside left\r\n      </div>\r\n\r\n    </div>\r\n\r\n    <div class=\"case-row\">\r\n      <div class=\"case-item case-item-heading vertical-text\">\r\n        Normal\r\n      </div>\r\n      <div class=\"case-item\">\r\n        <ft-input\r\n          [isLabel]=\"true\"\r\n          [label]=\"'Username'\"\r\n          [size]=\"size\"\r\n          [color]=\"'primary'\"\r\n          [variant]=\"variant\"\r\n          [radius]=\"radius\"\r\n          [disabled]=\"false\"\r\n          [readonly]=\"false\"\r\n          [required]=\"true\"\r\n          [invalid]=\"false\"\r\n          [placeholder]=\"'Enter your username'\"\r\n          [isDescription]=\"isDescription\"\r\n          [description]=\"'This is your public display name.'\"\r\n          [errorMessage]=\"'Username is required.'\"\r\n          [content]=\"\"\r\n          [labelPlacement]=\"'label-inside'\"\r\n          [isPrefixIconClass]=\"isPrefixIconClass\"\r\n          [prefixIconClass]=\"'icon-user'\"\r\n          [isSuffix1IconClass]=\"true\"\r\n          [suffix1IconClass]=\"'icon-close'\"\r\n          [isSuffix2IconClass]=\"true\"\r\n          [suffix2IconClass]=\"'icon-arrow-down'\"\r\n          [isClearable]=\"true\"\r\n        >\r\n        </ft-input>\r\n\r\n      </div>\r\n      <div class=\"case-item\">\r\n        <ft-input\r\n          [isLabel]=\"true\"\r\n          [label]=\"'Username'\"\r\n          [size]=\"size\"\r\n          [color]=\"'primary'\"\r\n          [variant]=\"variant\"\r\n          [radius]=\"radius\"\r\n          [disabled]=\"false\"\r\n          [readonly]=\"false\"\r\n          [required]=\"true\"\r\n          [invalid]=\"false\"\r\n          [placeholder]=\"'Enter your username'\"\r\n          [isDescription]=\"isDescription\"\r\n          [description]=\"'This is your public display name.'\"\r\n          [errorMessage]=\"'Username is required.'\"\r\n          [content]=\"\"\r\n          [labelPlacement]=\"'label-outside'\"\r\n          [isPrefixIconClass]=\"isPrefixIconClass\"\r\n          [prefixIconClass]=\"'icon-user'\"\r\n          [isSuffix1IconClass]=\"true\"\r\n          [suffix1IconClass]=\"'icon-close'\"\r\n          [isSuffix2IconClass]=\"true\"\r\n          [suffix2IconClass]=\"'icon-arrow-down'\"\r\n          [isClearable]=\"true\"\r\n        >\r\n        </ft-input>\r\n\r\n\r\n      </div>\r\n      <div class=\"case-item\">\r\n        <ft-input\r\n          [isLabel]=\"true\"\r\n          [label]=\"'Username'\"\r\n          [size]=\"size\"\r\n          [color]=\"'primary'\"\r\n          [variant]=\"variant\"\r\n          [radius]=\"radius\"\r\n          [disabled]=\"false\"\r\n          [readonly]=\"false\"\r\n          [required]=\"true\"\r\n          [invalid]=\"false\"\r\n          [placeholder]=\"'Enter your username'\"\r\n          [isDescription]=\"isDescription\"\r\n          [description]=\"'This is your public display name.'\"\r\n          [errorMessage]=\"'Username is required.'\"\r\n          [content]=\"\"\r\n          [labelPlacement]=\"'label-outside-left'\"\r\n          [isPrefixIconClass]=\"isPrefixIconClass\"\r\n          [prefixIconClass]=\"'icon-user'\"\r\n          [isSuffix1IconClass]=\"true\"\r\n          [suffix1IconClass]=\"'icon-close'\"\r\n          [isSuffix2IconClass]=\"true\"\r\n          [suffix2IconClass]=\"'icon-arrow-down'\"\r\n          [isClearable]=\"true\"\r\n        >\r\n        </ft-input>\r\n\r\n      </div>\r\n\r\n    </div>\r\n\r\n    <div class=\"case-row\">\r\n      <div class=\"case-item case-item-heading vertical-text\">\r\n        Hovered\r\n      </div>\r\n      <div class=\"case-item\">\r\n        <ft-input\r\n          [isLabel]=\"true\"\r\n          [label]=\"'Username'\"\r\n          [size]=\"size\"\r\n          [color]=\"'primary'\"\r\n          [variant]=\"variant\"\r\n          [state]=\"'hovered'\"\r\n          [radius]=\"radius\"\r\n          [disabled]=\"false\"\r\n          [readonly]=\"false\"\r\n          [required]=\"true\"\r\n          [invalid]=\"false\"\r\n          [placeholder]=\"'Enter your username'\"\r\n          [isDescription]=\"isDescription\"\r\n          [description]=\"'This is your public display name.'\"\r\n          [errorMessage]=\"'Username is required.'\"\r\n          [content]=\"\"\r\n          [labelPlacement]=\"'label-inside'\"\r\n          [isPrefixIconClass]=\"isPrefixIconClass\"\r\n          [prefixIconClass]=\"'icon-user'\"\r\n          [isSuffix1IconClass]=\"true\"\r\n          [suffix1IconClass]=\"'icon-close'\"\r\n          [isSuffix2IconClass]=\"true\"\r\n          [suffix2IconClass]=\"'icon-arrow-down'\"\r\n          [isClearable]=\"true\"\r\n        >\r\n        </ft-input>\r\n\r\n      </div>\r\n      <div class=\"case-item\">\r\n        <ft-input\r\n          [isLabel]=\"true\"\r\n          [label]=\"'Username'\"\r\n          [size]=\"size\"\r\n          [color]=\"'primary'\"\r\n          [variant]=\"variant\"\r\n          [state]=\"'hovered'\"\r\n          [radius]=\"radius\"\r\n          [disabled]=\"false\"\r\n          [readonly]=\"false\"\r\n          [required]=\"true\"\r\n          [invalid]=\"false\"\r\n          [placeholder]=\"'Enter your username'\"\r\n          [isDescription]=\"isDescription\"\r\n          [description]=\"'This is your public display name.'\"\r\n          [errorMessage]=\"'Username is required.'\"\r\n          [content]=\"\"\r\n          [labelPlacement]=\"'label-outside'\"\r\n          [isPrefixIconClass]=\"isPrefixIconClass\"\r\n          [prefixIconClass]=\"'icon-user'\"\r\n          [isSuffix1IconClass]=\"true\"\r\n          [suffix1IconClass]=\"'icon-close'\"\r\n          [isSuffix2IconClass]=\"true\"\r\n          [suffix2IconClass]=\"'icon-arrow-down'\"\r\n          [isClearable]=\"true\"\r\n        >\r\n        </ft-input>\r\n\r\n\r\n      </div>\r\n      <div class=\"case-item\">\r\n        <ft-input\r\n          [isLabel]=\"true\"\r\n          [label]=\"'Username'\"\r\n          [size]=\"size\"\r\n          [color]=\"'primary'\"\r\n          [variant]=\"variant\"\r\n          [state]=\"'hovered'\"\r\n          [radius]=\"radius\"\r\n          [disabled]=\"false\"\r\n          [readonly]=\"false\"\r\n          [required]=\"true\"\r\n          [invalid]=\"false\"\r\n          [placeholder]=\"'Enter your username'\"\r\n          [isDescription]=\"isDescription\"\r\n          [description]=\"'This is your public display name.'\"\r\n          [errorMessage]=\"'Username is required.'\"\r\n          [content]=\"\"\r\n          [labelPlacement]=\"'label-outside-left'\"\r\n          [isPrefixIconClass]=\"isPrefixIconClass\"\r\n          [prefixIconClass]=\"'icon-user'\"\r\n          [isSuffix1IconClass]=\"true\"\r\n          [suffix1IconClass]=\"'icon-close'\"\r\n          [isSuffix2IconClass]=\"true\"\r\n          [suffix2IconClass]=\"'icon-arrow-down'\"\r\n          [isClearable]=\"true\"\r\n        >\r\n        </ft-input>\r\n\r\n      </div>\r\n\r\n    </div>\r\n\r\n    <div class=\"case-row\">\r\n      <div class=\"case-item case-item-heading vertical-text\">\r\n        Focused\r\n      </div>\r\n      <div class=\"case-item\">\r\n        <ft-input\r\n          [isLabel]=\"true\"\r\n          [label]=\"'Username'\"\r\n          [size]=\"size\"\r\n          [color]=\"'primary'\"\r\n          [variant]=\"variant\"\r\n          [state]=\"'focused'\"\r\n          [radius]=\"radius\"\r\n          [disabled]=\"false\"\r\n          [readonly]=\"false\"\r\n          [required]=\"true\"\r\n          [invalid]=\"false\"\r\n          [placeholder]=\"'Enter your username'\"\r\n          [isDescription]=\"isDescription\"\r\n          [description]=\"'This is your public display name.'\"\r\n          [errorMessage]=\"'Username is required.'\"\r\n          [content]=\"\"\r\n          [labelPlacement]=\"'label-inside'\"\r\n          [isPrefixIconClass]=\"isPrefixIconClass\"\r\n          [prefixIconClass]=\"'icon-user'\"\r\n          [isSuffix1IconClass]=\"true\"\r\n          [suffix1IconClass]=\"'icon-close'\"\r\n          [isSuffix2IconClass]=\"true\"\r\n          [suffix2IconClass]=\"'icon-arrow-down'\"\r\n          [isClearable]=\"true\"\r\n        >\r\n        </ft-input>\r\n\r\n      </div>\r\n      <div class=\"case-item\">\r\n        <ft-input\r\n          [isLabel]=\"true\"\r\n          [label]=\"'Username'\"\r\n          [size]=\"size\"\r\n          [color]=\"'primary'\"\r\n          [variant]=\"variant\"\r\n          [state]=\"'focused'\"\r\n          [radius]=\"radius\"\r\n          [disabled]=\"false\"\r\n          [readonly]=\"false\"\r\n          [required]=\"true\"\r\n          [invalid]=\"false\"\r\n          [placeholder]=\"'Enter your username'\"\r\n          [isDescription]=\"isDescription\"\r\n          [description]=\"'This is your public display name.'\"\r\n          [errorMessage]=\"'Username is required.'\"\r\n          [content]=\"\"\r\n          [labelPlacement]=\"'label-outside'\"\r\n          [isPrefixIconClass]=\"isPrefixIconClass\"\r\n          [prefixIconClass]=\"'icon-user'\"\r\n          [isSuffix1IconClass]=\"true\"\r\n          [suffix1IconClass]=\"'icon-close'\"\r\n          [isSuffix2IconClass]=\"true\"\r\n          [suffix2IconClass]=\"'icon-arrow-down'\"\r\n          [isClearable]=\"true\"\r\n        >\r\n        </ft-input>\r\n\r\n\r\n      </div>\r\n      <div class=\"case-item\">\r\n        <ft-input\r\n          [isLabel]=\"true\"\r\n          [label]=\"'Username'\"\r\n          [size]=\"size\"\r\n          [color]=\"'primary'\"\r\n          [variant]=\"variant\"\r\n          [state]=\"'focused'\"\r\n          [radius]=\"radius\"\r\n          [disabled]=\"false\"\r\n          [readonly]=\"false\"\r\n          [required]=\"true\"\r\n          [invalid]=\"false\"\r\n          [placeholder]=\"'Enter your username'\"\r\n          [isDescription]=\"isDescription\"\r\n          [description]=\"'This is your public display name.'\"\r\n          [errorMessage]=\"'Username is required.'\"\r\n          [content]=\"\"\r\n          [labelPlacement]=\"'label-outside-left'\"\r\n          [isPrefixIconClass]=\"isPrefixIconClass\"\r\n          [prefixIconClass]=\"'icon-user'\"\r\n          [isSuffix1IconClass]=\"true\"\r\n          [suffix1IconClass]=\"'icon-close'\"\r\n          [isSuffix2IconClass]=\"true\"\r\n          [suffix2IconClass]=\"'icon-arrow-down'\"\r\n          [isClearable]=\"true\"\r\n        >\r\n        </ft-input>\r\n\r\n      </div>\r\n\r\n\r\n    </div>\r\n\r\n    <div class=\"case-row\">\r\n      <div class=\"case-item case-item-heading vertical-text\">\r\n        Read-Only\r\n      </div>\r\n      <div class=\"case-item\">\r\n        <ft-input\r\n          [isLabel]=\"true\"\r\n          [label]=\"'Username'\"\r\n          [size]=\"size\"\r\n          [color]=\"'primary'\"\r\n          [variant]=\"variant\"\r\n          [radius]=\"radius\"\r\n          [disabled]=\"false\"\r\n          [readonly]=\"true\"\r\n          [required]=\"true\"\r\n          [invalid]=\"false\"\r\n          [placeholder]=\"'Enter your username'\"\r\n          [isDescription]=\"isDescription\"\r\n          [description]=\"'This is your public display name.'\"\r\n          [errorMessage]=\"'Username is required.'\"\r\n          [content]=\"'default value'\"\r\n          [labelPlacement]=\"'label-inside'\"\r\n          [isPrefixIconClass]=\"isPrefixIconClass\"\r\n          [prefixIconClass]=\"'icon-user'\"\r\n          [isSuffix1IconClass]=\"true\"\r\n          [suffix1IconClass]=\"'icon-close'\"\r\n          [isSuffix2IconClass]=\"true\"\r\n          [suffix2IconClass]=\"'icon-arrow-down'\"\r\n          [isClearable]=\"true\"\r\n        >\r\n        </ft-input>\r\n\r\n      </div>\r\n      <div class=\"case-item\">\r\n        <ft-input\r\n          [isLabel]=\"true\"\r\n          [label]=\"'Username'\"\r\n          [size]=\"size\"\r\n          [color]=\"'primary'\"\r\n          [variant]=\"variant\"\r\n          [radius]=\"radius\"\r\n          [disabled]=\"false\"\r\n          [readonly]=\"true\"\r\n          [required]=\"true\"\r\n          [invalid]=\"false\"\r\n          [placeholder]=\"'Enter your username'\"\r\n          [isDescription]=\"isDescription\"\r\n          [description]=\"'This is your public display name.'\"\r\n          [errorMessage]=\"'Username is required.'\"\r\n          [content]=\"'default value'\"\r\n          [labelPlacement]=\"'label-outside'\"\r\n          [isPrefixIconClass]=\"isPrefixIconClass\"\r\n          [prefixIconClass]=\"'icon-user'\"\r\n          [isSuffix1IconClass]=\"true\"\r\n          [suffix1IconClass]=\"'icon-close'\"\r\n          [isSuffix2IconClass]=\"true\"\r\n          [suffix2IconClass]=\"'icon-arrow-down'\"\r\n          [isClearable]=\"true\"\r\n        >\r\n        </ft-input>\r\n\r\n\r\n      </div>\r\n      <div class=\"case-item\">\r\n        <ft-input\r\n          [isLabel]=\"true\"\r\n          [label]=\"'Username'\"\r\n          [size]=\"size\"\r\n          [color]=\"'primary'\"\r\n          [variant]=\"variant\"\r\n          [radius]=\"radius\"\r\n          [disabled]=\"false\"\r\n          [readonly]=\"true\"\r\n          [required]=\"true\"\r\n          [invalid]=\"false\"\r\n          [placeholder]=\"'Enter your username'\"\r\n          [isDescription]=\"isDescription\"\r\n          [description]=\"'This is your public display name.'\"\r\n          [errorMessage]=\"'Username is required.'\"\r\n          [content]=\"'default value'\"\r\n          [labelPlacement]=\"'label-outside-left'\"\r\n          [isPrefixIconClass]=\"isPrefixIconClass\"\r\n          [prefixIconClass]=\"'icon-user'\"\r\n          [isSuffix1IconClass]=\"true\"\r\n          [suffix1IconClass]=\"'icon-close'\"\r\n          [isSuffix2IconClass]=\"true\"\r\n          [suffix2IconClass]=\"'icon-arrow-down'\"\r\n          [isClearable]=\"true\"\r\n        >\r\n        </ft-input>\r\n\r\n      </div>\r\n\r\n    </div>\r\n\r\n    <div class=\"case-row\">\r\n      <div class=\"case-item case-item-heading vertical-text\">\r\n        Disabled\r\n      </div>\r\n      <div class=\"case-item\">\r\n        <ft-input\r\n          [isLabel]=\"true\"\r\n          [label]=\"'Username'\"\r\n          [size]=\"size\"\r\n          [color]=\"'primary'\"\r\n          [variant]=\"variant\"\r\n          [radius]=\"radius\"\r\n          [disabled]=\"true\"\r\n          [readonly]=\"false\"\r\n          [required]=\"true\"\r\n          [invalid]=\"false\"\r\n          [placeholder]=\"'Enter your username'\"\r\n          [isDescription]=\"isDescription\"\r\n          [description]=\"'This is your public display name.'\"\r\n          [errorMessage]=\"'Username is required.'\"\r\n          [content]=\"\"\r\n          [labelPlacement]=\"'label-inside'\"\r\n          [isPrefixIconClass]=\"isPrefixIconClass\"\r\n          [prefixIconClass]=\"'icon-user'\"\r\n          [isSuffix1IconClass]=\"true\"\r\n          [suffix1IconClass]=\"'icon-close'\"\r\n          [isSuffix2IconClass]=\"true\"\r\n          [suffix2IconClass]=\"'icon-arrow-down'\"\r\n          [isClearable]=\"true\"\r\n        >\r\n        </ft-input>\r\n\r\n      </div>\r\n      <div class=\"case-item\">\r\n        <ft-input\r\n          [isLabel]=\"true\"\r\n          [label]=\"'Username'\"\r\n          [size]=\"size\"\r\n          [color]=\"'primary'\"\r\n          [variant]=\"variant\"\r\n          [radius]=\"radius\"\r\n          [disabled]=\"true\"\r\n          [readonly]=\"false\"\r\n          [required]=\"true\"\r\n          [invalid]=\"false\"\r\n          [placeholder]=\"'Enter your username'\"\r\n          [isDescription]=\"isDescription\"\r\n          [description]=\"'This is your public display name.'\"\r\n          [errorMessage]=\"'Username is required.'\"\r\n          [content]=\"\"\r\n          [labelPlacement]=\"'label-outside'\"\r\n          [isPrefixIconClass]=\"isPrefixIconClass\"\r\n          [prefixIconClass]=\"'icon-user'\"\r\n          [isSuffix1IconClass]=\"true\"\r\n          [suffix1IconClass]=\"'icon-close'\"\r\n          [isSuffix2IconClass]=\"true\"\r\n          [suffix2IconClass]=\"'icon-arrow-down'\"\r\n          [isClearable]=\"true\"\r\n        >\r\n        </ft-input>\r\n\r\n\r\n      </div>\r\n      <div class=\"case-item\">\r\n        <ft-input\r\n          [isLabel]=\"true\"\r\n          [label]=\"'Username'\"\r\n          [size]=\"size\"\r\n          [color]=\"'primary'\"\r\n          [variant]=\"variant\"\r\n          [radius]=\"radius\"\r\n          [disabled]=\"true\"\r\n          [readonly]=\"false\"\r\n          [required]=\"true\"\r\n          [invalid]=\"false\"\r\n          [placeholder]=\"'Enter your username'\"\r\n          [isDescription]=\"isDescription\"\r\n          [description]=\"'This is your public display name.'\"\r\n          [errorMessage]=\"'Username is required.'\"\r\n          [content]=\"\"\r\n          [labelPlacement]=\"'label-outside-left'\"\r\n          [isPrefixIconClass]=\"isPrefixIconClass\"\r\n          [prefixIconClass]=\"'icon-user'\"\r\n          [isSuffix1IconClass]=\"true\"\r\n          [suffix1IconClass]=\"'icon-close'\"\r\n          [isSuffix2IconClass]=\"true\"\r\n          [suffix2IconClass]=\"'icon-arrow-down'\"\r\n          [isClearable]=\"true\"\r\n        >\r\n        </ft-input>\r\n\r\n      </div>\r\n\r\n    </div>\r\n\r\n    <div class=\"case-row\">\r\n      <div class=\"case-item case-item-heading vertical-text\">\r\n        Invalid\r\n      </div>\r\n      <div class=\"case-item\">\r\n        <ft-input\r\n          [isLabel]=\"true\"\r\n          [label]=\"'Username'\"\r\n          [size]=\"size\"\r\n          [color]=\"'primary'\"\r\n          [variant]=\"variant\"\r\n          [radius]=\"radius\"\r\n          [disabled]=\"false\"\r\n          [readonly]=\"false\"\r\n          [required]=\"true\"\r\n          [invalid]=\"true\"\r\n          [placeholder]=\"'Enter your username'\"\r\n          [isDescription]=\"isDescription\"\r\n          [description]=\"'This is your public display name.'\"\r\n          [errorMessage]=\"'Username is required.'\"\r\n          [content]=\"\"\r\n          [labelPlacement]=\"'label-inside'\"\r\n          [isPrefixIconClass]=\"isPrefixIconClass\"\r\n          [prefixIconClass]=\"'icon-user'\"\r\n          [isSuffix1IconClass]=\"true\"\r\n          [suffix1IconClass]=\"'icon-close'\"\r\n          [isSuffix2IconClass]=\"true\"\r\n          [suffix2IconClass]=\"'icon-arrow-down'\"\r\n          [isClearable]=\"true\"\r\n        >\r\n        </ft-input>\r\n\r\n      </div>\r\n      <div class=\"case-item\">\r\n        <ft-input\r\n          [isLabel]=\"true\"\r\n          [label]=\"'Username'\"\r\n          [size]=\"size\"\r\n          [color]=\"'primary'\"\r\n          [variant]=\"variant\"\r\n          [radius]=\"radius\"\r\n          [disabled]=\"false\"\r\n          [readonly]=\"false\"\r\n          [required]=\"true\"\r\n          [invalid]=\"true\"\r\n          [placeholder]=\"'Enter your username'\"\r\n          [isDescription]=\"isDescription\"\r\n          [description]=\"'This is your public display name.'\"\r\n          [errorMessage]=\"'Username is required.'\"\r\n          [content]=\"\"\r\n          [labelPlacement]=\"'label-outside'\"\r\n          [isPrefixIconClass]=\"isPrefixIconClass\"\r\n          [prefixIconClass]=\"'icon-user'\"\r\n          [isSuffix1IconClass]=\"true\"\r\n          [suffix1IconClass]=\"'icon-close'\"\r\n          [isSuffix2IconClass]=\"true\"\r\n          [suffix2IconClass]=\"'icon-arrow-down'\"\r\n          [isClearable]=\"true\"\r\n        >\r\n        </ft-input>\r\n\r\n\r\n      </div>\r\n      <div class=\"case-item\">\r\n        <ft-input\r\n          [isLabel]=\"true\"\r\n          [label]=\"'Username'\"\r\n          [size]=\"size\"\r\n          [color]=\"'primary'\"\r\n          [variant]=\"variant\"\r\n          [radius]=\"radius\"\r\n          [disabled]=\"false\"\r\n          [readonly]=\"false\"\r\n          [required]=\"true\"\r\n          [invalid]=\"true\"\r\n          [placeholder]=\"'Enter your username'\"\r\n          [isDescription]=\"isDescription\"\r\n          [description]=\"'This is your public display name.'\"\r\n          [errorMessage]=\"'Username is required.'\"\r\n          [content]=\"\"\r\n          [labelPlacement]=\"'label-outside-left'\"\r\n          [isPrefixIconClass]=\"isPrefixIconClass\"\r\n          [prefixIconClass]=\"'icon-user'\"\r\n          [isSuffix1IconClass]=\"true\"\r\n          [suffix1IconClass]=\"'icon-close'\"\r\n          [isSuffix2IconClass]=\"true\"\r\n          [suffix2IconClass]=\"'icon-arrow-down'\"\r\n          [isClearable]=\"true\"\r\n        >\r\n        </ft-input>\r\n\r\n      </div>\r\n\r\n    </div>\r\n\r\n    <div class=\"case-row\">\r\n      <div class=\"case-item case-item-heading vertical-text\">\r\n        Content\r\n      </div>\r\n      <div class=\"case-item\">\r\n        <ft-input\r\n          [isLabel]=\"true\"\r\n          [label]=\"'Username'\"\r\n          [size]=\"size\"\r\n          [color]=\"'primary'\"\r\n          [variant]=\"variant\"\r\n          [radius]=\"radius\"\r\n          [disabled]=\"false\"\r\n          [readonly]=\"false\"\r\n          [required]=\"true\"\r\n          [invalid]=\"false\"\r\n          [placeholder]=\"'Enter your username'\"\r\n          [isDescription]=\"isDescription\"\r\n          [description]=\"'This is your public display name.'\"\r\n          [errorMessage]=\"'Username is required.'\"\r\n          [content]=\"'default value'\"\r\n          [labelPlacement]=\"'label-inside'\"\r\n          [isPrefixIconClass]=\"isPrefixIconClass\"\r\n          [prefixIconClass]=\"'icon-user'\"\r\n          [isSuffix1IconClass]=\"true\"\r\n          [suffix1IconClass]=\"'icon-close'\"\r\n          [isSuffix2IconClass]=\"true\"\r\n          [suffix2IconClass]=\"'icon-arrow-down'\"\r\n          [isClearable]=\"true\"\r\n        >\r\n        </ft-input>\r\n\r\n      </div>\r\n      <div class=\"case-item\">\r\n        <ft-input\r\n          [isLabel]=\"true\"\r\n          [label]=\"'Username'\"\r\n          [size]=\"size\"\r\n          [color]=\"'primary'\"\r\n          [variant]=\"variant\"\r\n          [radius]=\"radius\"\r\n          [disabled]=\"false\"\r\n          [readonly]=\"false\"\r\n          [required]=\"true\"\r\n          [invalid]=\"false\"\r\n          [placeholder]=\"'Enter your username'\"\r\n          [isDescription]=\"isDescription\"\r\n          [description]=\"'This is your public display name.'\"\r\n          [errorMessage]=\"'Username is required.'\"\r\n          [content]=\"'default value'\"\r\n          [labelPlacement]=\"'label-outside'\"\r\n          [isPrefixIconClass]=\"isPrefixIconClass\"\r\n          [prefixIconClass]=\"'icon-user'\"\r\n          [isSuffix1IconClass]=\"true\"\r\n          [suffix1IconClass]=\"'icon-close'\"\r\n          [isSuffix2IconClass]=\"true\"\r\n          [suffix2IconClass]=\"'icon-arrow-down'\"\r\n          [isClearable]=\"true\"\r\n        >\r\n        </ft-input>\r\n\r\n\r\n      </div>\r\n      <div class=\"case-item\">\r\n        <ft-input\r\n          [isLabel]=\"true\"\r\n          [label]=\"'Username'\"\r\n          [size]=\"size\"\r\n          [color]=\"'primary'\"\r\n          [variant]=\"variant\"\r\n          [radius]=\"radius\"\r\n          [disabled]=\"false\"\r\n          [readonly]=\"false\"\r\n          [required]=\"true\"\r\n          [invalid]=\"false\"\r\n          [placeholder]=\"'Enter your username'\"\r\n          [isDescription]=\"isDescription\"\r\n          [description]=\"'This is your public display name.'\"\r\n          [errorMessage]=\"'Username is required.'\"\r\n          [content]=\"'default value'\"\r\n          [labelPlacement]=\"'label-outside-left'\"\r\n          [isPrefixIconClass]=\"isPrefixIconClass\"\r\n          [prefixIconClass]=\"'icon-user'\"\r\n          [isSuffix1IconClass]=\"true\"\r\n          [suffix1IconClass]=\"'icon-close'\"\r\n          [isSuffix2IconClass]=\"true\"\r\n          [suffix2IconClass]=\"'icon-arrow-down'\"\r\n          [isClearable]=\"true\"\r\n        >\r\n        </ft-input>\r\n\r\n      </div>\r\n\r\n    </div>\r\n\r\n  </div>\r\n</div>\r\n"
         },
         {
             "name": "InputShowcaseComponent",
@@ -3364,7 +3383,7 @@
             ],
             "stylesData": "",
             "extends": [],
-            "templateData": "<!-- input-showcase.component.html -->\n<div class=\"showcase-container\">\n  <h1>FT-Input Component Showcase</h1>\n\n  <!-- Basic Examples Section -->\n  <section class=\"showcase-section\">\n    <h2>Basic Examples</h2>\n    <div class=\"examples-grid\">\n      <div class=\"example-item\">\n        <h3>Default Input</h3>\n        <ft-input\n          label=\"Full Name\"\n          placeholder=\"Enter your full name\"\n          [(value)]=\"basicValue\"\n          description=\"This is a basic input field\">\n        </ft-input>\n        <p class=\"value-display\">Value: {{ basicValue }}</p>\n      </div>\n\n      <div class=\"example-item\">\n        <h3>Disabled Input</h3>\n        <ft-input\n          label=\"Disabled Field\"\n          [value]=\"disabledValue\"\n          [disabled]=\"true\"\n          description=\"This field is disabled\">\n        </ft-input>\n      </div>\n\n      <div class=\"example-item\">\n        <h3>Readonly Input</h3>\n        <ft-input\n          label=\"Readonly Field\"\n          [readonly]=\"true\"\n          description=\"This field is read only\">\n        </ft-input>\n      </div>\n    </div>\n  </section>\n\n  <!-- Size Variations -->\n  <section class=\"showcase-section\">\n    <h2>Size Variations</h2>\n    <div class=\"examples-grid\">\n      <div class=\"example-item\">\n        <ft-input\n          label=\"Extra Small\"\n          size=\"xs-size\"\n          placeholder=\"xs-size input\">\n        </ft-input>\n      </div>\n\n      <div class=\"example-item\">\n        <ft-input\n          label=\"Small\"\n          size=\"sm-size\"\n          placeholder=\"sm-size input\">\n        </ft-input>\n      </div>\n\n      <div class=\"example-item\">\n        <ft-input\n          label=\"Medium\"\n          size=\"md-size\"\n          placeholder=\"md-size input\">\n        </ft-input>\n      </div>\n\n      <div class=\"example-item\">\n        <ft-input\n          label=\"Large\"\n          size=\"lg-size\"\n          placeholder=\"lg-size input\">\n        </ft-input>\n      </div>\n    </div>\n  </section>\n\n  <!-- label-outside Variations -->\n  <section class=\"showcase-section\">\n    <h2>label-outside Variations</h2>\n    <div class=\"examples-grid\">\n      <div class=\"example-item\">\n        <ft-input\n          label=\"Extra Small\"\n          size=\"xs-size\"\n          labelPlacement=\"label-outside\"\n          placeholder=\"xs-size input\">\n        </ft-input>\n      </div>\n\n      <div class=\"example-item\">\n        <ft-input\n          label=\"Small\"\n          size=\"sm-size\"\n          labelPlacement=\"label-outside\"\n          placeholder=\"sm-size input\">\n        </ft-input>\n      </div>\n\n      <div class=\"example-item\">\n        <ft-input\n          label=\"Medium\"\n          size=\"md-size\"\n          labelPlacement=\"label-outside\"\n          placeholder=\"md-size input\">\n        </ft-input>\n      </div>\n\n      <div class=\"example-item\">\n        <ft-input\n          label=\"Large\"\n          size=\"lg-size\"\n          labelPlacement=\"label-outside\"\n          placeholder=\"lg-size input\">\n        </ft-input>\n      </div>\n    </div>\n  </section>\n\n  <!-- label-outside-left Variations -->\n  <section class=\"showcase-section\">\n    <h2>label-outside-left Variations</h2>\n    <div class=\"examples-grid\">\n      <div class=\"example-item\">\n        <ft-input\n          label=\"Extra Small\"\n          size=\"xs-size\"\n          labelPlacement=\"label-outside-left\"\n          placeholder=\"xs-size input\">\n        </ft-input>\n      </div>\n\n      <div class=\"example-item\">\n        <ft-input\n          label=\"Small\"\n          size=\"sm-size\"\n          labelPlacement=\"label-outside-left\"\n          placeholder=\"sm-size input\">\n        </ft-input>\n      </div>\n\n      <div class=\"example-item\">\n        <ft-input\n          label=\"Medium\"\n          size=\"md-size\"\n          labelPlacement=\"label-outside-left\"\n          placeholder=\"md-size input\">\n        </ft-input>\n      </div>\n\n      <div class=\"example-item\">\n        <ft-input\n          label=\"Large\"\n          size=\"lg-size\"\n          labelPlacement=\"label-outside-left\"\n          placeholder=\"lg-size input\">\n        </ft-input>\n      </div>\n    </div>\n  </section>\n\n  <!-- Variant Styles -->\n  <section class=\"showcase-section\">\n    <h2>Variant Styles</h2>\n    <div class=\"examples-grid\">\n      <div class=\"example-item\">\n        <ft-input\n          label=\"Flat Variant\"\n          variant=\"flat\"\n          placeholder=\"flat style\">\n        </ft-input>\n      </div>\n\n      <div class=\"example-item\">\n        <ft-input\n          label=\"Bordered Variant\"\n          variant=\"bordered\"\n          placeholder=\"bordered style\">\n        </ft-input>\n      </div>\n\n      <div class=\"example-item\">\n        <ft-input\n          label=\"Faded Variant\"\n          variant=\"faded\"\n          placeholder=\"faded style\">\n        </ft-input>\n      </div>\n\n      <div class=\"example-item\">\n        <ft-input\n          label=\"Underlined Variant\"\n          variant=\"underlined\"\n          placeholder=\"underlined style\">\n        </ft-input>\n      </div>\n    </div>\n  </section>\n\n  <!-- Color Variations -->\n  <section class=\"showcase-section\">\n    <h2>Color Variations</h2>\n    <div class=\"examples-grid\">\n      <div class=\"example-item\">\n        <ft-input\n          label=\"Default Color\"\n          color=\"default\"\n          placeholder=\"default color\">\n        </ft-input>\n      </div>\n\n      <div class=\"example-item\">\n        <ft-input\n          label=\"Primary Color\"\n          color=\"primary\"\n          placeholder=\"primary color\">\n        </ft-input>\n      </div>\n\n      <div class=\"example-item\">\n        <ft-input\n          label=\"Secondary Color\"\n          color=\"secondary\"\n          placeholder=\"secondary color\">\n        </ft-input>\n      </div>\n    </div>\n  </section>\n\n  <!-- Form Example -->\n  <section class=\"showcase-section\">\n    <h2>Form Example</h2>\n    <div class=\"form-example\">\n      <div class=\"form-grid\">\n        <ft-input\n          label=\"Username *\"\n          placeholder=\"Enter username\"\n          [(value)]=\"user.username\"\n          [required]=\"true\"\n          description=\"Your public username\">\n        </ft-input>\n\n        <ft-input\n          label=\"Email Address *\"\n          placeholder=\"your@email.com\"\n          [(value)]=\"user.email\"\n          [required]=\"true\"\n          [invalid]=\"!isEmailValid && user.email !== ''\"\n          [errorMessage]=\"emailErrorMessage\"\n          (valueChange)=\"onEmailChange($event)\">\n        </ft-input>\n\n        <ft-input\n          label=\"Password *\"\n          placeholder=\"Enter password\"\n          type=\"password\"\n          [(value)]=\"user.password\"\n          [required]=\"true\"\n          description=\"Minimum 8 characters\">\n        </ft-input>\n\n        <ft-input\n          label=\"Bio\"\n          placeholder=\"Tell us about yourself...\"\n          [(value)]=\"user.bio\"\n          description=\"Optional bio information\">\n        </ft-input>\n      </div>\n\n      <div class=\"form-actions\">\n        <button class=\"btn btn-primary\" (click)=\"onSubmit()\">Submit Form</button>\n        <button class=\"btn btn-secondary\" (click)=\"resetForm()\">Reset All</button>\n      </div>\n    </div>\n  </section>\n\n  <!-- Icon Examples -->\n  <section class=\"showcase-section\">\n    <h2>Input with Icons</h2>\n    <div class=\"examples-grid\">\n      <div class=\"example-item\">\n        <ft-input\n          label=\"Search\"\n          [(value)]=\"searchTerm\"\n          [isPrefixIconClass]=\"true\"\n          prefixIconClass=\"icon-search\"\n          [isClearable]=\"true\"\n          placeholder=\"Search...\">\n        </ft-input>\n      </div>\n\n      <div class=\"example-item\">\n        <ft-input\n          label=\"Email with Icons\"\n          [(value)]=\"email\"\n          [isPrefixIconClass]=\"true\"\n          prefixIconClass=\"icon-email\"\n          [isSuffix1IconClass]=\"true\"\n          suffix1IconClass=\"icon-close\"\n          placeholder=\"email@example.com\">\n        </ft-input>\n      </div>\n\n      <div class=\"example-item\">\n        <ft-input\n          label=\"Phone Number\"\n          [(value)]=\"phone\"\n          [isPrefixIconClass]=\"true\"\n          prefixIconClass=\"icon-phone\"\n          [isSuffix2IconClass]=\"true\"\n          suffix2IconClass=\"icon-arrow-down\"\n          placeholder=\"+1 (555) 000-0000\">\n        </ft-input>\n      </div>\n    </div>\n  </section>\n\n  <!-- Validation States -->\n  <section class=\"showcase-section\">\n    <h2>Validation States</h2>\n    <div class=\"examples-grid\">\n      <div class=\"example-item\">\n        <ft-input\n          label=\"Valid Field\"\n          [(value)]=\"successField\"\n          color=\"primary\"\n          description=\"This field is valid\">\n        </ft-input>\n      </div>\n\n      <div class=\"example-item\">\n        <ft-input\n          label=\"Error Field\"\n          [(value)]=\"errorField\"\n          [invalid]=\"true\"\n          errorMessage=\"This field has an error\"\n          placeholder=\"This field shows error\">\n        </ft-input>\n      </div>\n\n      <div class=\"example-item\">\n        <ft-input\n          label=\"Required Field\"\n          [required]=\"true\"\n          placeholder=\"This field is required\"\n          description=\"* indicates required field\">\n        </ft-input>\n      </div>\n    </div>\n  </section>\n\n  <!-- Clearable Input -->\n  <section class=\"showcase-section\">\n    <h2>Clearable Input</h2>\n    <div class=\"examples-grid\">\n      <div class=\"example-item\">\n        <ft-input\n          label=\"Clearable Field\"\n          [(value)]=\"clearableText\"\n          [isClearable]=\"true\"\n          placeholder=\"Type something and clear it\"\n          description=\"Click the X to clear the field\">\n        </ft-input>\n        <p class=\"value-display\">Current value: {{ clearableText }}</p>\n      </div>\n    </div>\n  </section>\n</div>\n"
+            "templateData": "<!-- input-showcase.component.html -->\n<div class=\"showcase-container\">\n  <h1>FT-Input Component Showcase</h1>\n\n  <!-- Basic Examples Section -->\n  <section class=\"showcase-section\">\n    <h2>Basic Examples</h2>\n    <div class=\"examples-grid\">\n      <div class=\"example-item\">\n        <h3>Default Input</h3>\n        <ft-input\n          label=\"Full Name\"\n          placeholder=\"Enter your full name\"\n          [(value)]=\"basicValue\"\n          description=\"This is a basic input field\">\n        </ft-input>\n        <p class=\"value-display\">Value: {{ basicValue }}</p>\n      </div>\n\n      <div class=\"example-item\">\n        <h3>Disabled Input</h3>\n        <ft-input\n          label=\"Disabled Field\"\n          [value]=\"disabledValue\"\n          [disabled]=\"true\"\n          description=\"This field is disabled\">\n        </ft-input>\n      </div>\n\n      <div class=\"example-item\">\n        <h3>Readonly Input</h3>\n        <ft-input\n          label=\"Readonly Field\"\n          [readonly]=\"true\"\n          description=\"This field is read only\">\n        </ft-input>\n      </div>\n    </div>\n  </section>\n\n  <!-- Size Variations -->\n  <section class=\"showcase-section\">\n    <h2>Size Variations</h2>\n    <div class=\"examples-grid\">\n      <div class=\"example-item\">\n        <ft-input\n          label=\"Extra Small\"\n          size=\"xs-size\"\n          placeholder=\"xs-size input\">\n        </ft-input>\n      </div>\n\n      <div class=\"example-item\">\n        <ft-input\n          label=\"Small\"\n          size=\"sm-size\"\n          placeholder=\"sm-size input\">\n        </ft-input>\n      </div>\n\n      <div class=\"example-item\">\n        <ft-input\n          label=\"Medium\"\n          size=\"md-size\"\n          placeholder=\"md-size input\">\n        </ft-input>\n      </div>\n\n      <div class=\"example-item\">\n        <ft-input\n          label=\"Large\"\n          size=\"lg-size\"\n          placeholder=\"lg-size input\">\n        </ft-input>\n      </div>\n    </div>\n  </section>\n\n  <!-- label-outside Variations -->\n  <section class=\"showcase-section\">\n    <h2>label-outside Variations</h2>\n    <div class=\"examples-grid\">\n      <div class=\"example-item\">\n        <ft-input\n          label=\"Extra Small\"\n          size=\"xs-size\"\n          labelPlacement=\"label-outside\"\n          placeholder=\"xs-size input\">\n        </ft-input>\n      </div>\n\n      <div class=\"example-item\">\n        <ft-input\n          label=\"Small\"\n          size=\"sm-size\"\n          labelPlacement=\"label-outside\"\n          placeholder=\"sm-size input\">\n        </ft-input>\n      </div>\n\n      <div class=\"example-item\">\n        <ft-input\n          label=\"Medium\"\n          size=\"md-size\"\n          labelPlacement=\"label-outside\"\n          placeholder=\"md-size input\">\n        </ft-input>\n      </div>\n\n      <div class=\"example-item\">\n        <ft-input\n          label=\"Large\"\n          size=\"lg-size\"\n          labelPlacement=\"label-outside\"\n          placeholder=\"lg-size input\">\n        </ft-input>\n      </div>\n    </div>\n  </section>\n\n  <!-- label-outside-left Variations -->\n  <section class=\"showcase-section\">\n    <h2>label-outside-left Variations</h2>\n    <div class=\"examples-grid\">\n      <div class=\"example-item\">\n        <ft-input\n          label=\"Extra Small\"\n          size=\"xs-size\"\n          labelPlacement=\"label-outside-left\"\n          placeholder=\"xs-size input\">\n        </ft-input>\n      </div>\n\n      <div class=\"example-item\">\n        <ft-input\n          label=\"Small\"\n          size=\"sm-size\"\n          labelPlacement=\"label-outside-left\"\n          placeholder=\"sm-size input\">\n        </ft-input>\n      </div>\n\n      <div class=\"example-item\">\n        <ft-input\n          label=\"Medium\"\n          size=\"md-size\"\n          labelPlacement=\"label-outside-left\"\n          placeholder=\"md-size input\">\n        </ft-input>\n      </div>\n\n      <div class=\"example-item\">\n        <ft-input\n          label=\"Large\"\n          size=\"lg-size\"\n          labelPlacement=\"label-outside-left\"\n          placeholder=\"lg-size input\">\n        </ft-input>\n      </div>\n    </div>\n  </section>\n\n  <!-- Variant Styles -->\n  <section class=\"showcase-section\">\n    <h2>Variant Styles</h2>\n    <div class=\"examples-grid\">\n      <div class=\"example-item\">\n        <ft-input\n          label=\"Flat Variant\"\n          variant=\"flat\"\n          placeholder=\"flat style\">\n        </ft-input>\n      </div>\n\n      <div class=\"example-item\">\n        <ft-input\n          label=\"Bordered Variant\"\n          variant=\"bordered\"\n          placeholder=\"bordered style\">\n        </ft-input>\n      </div>\n\n      <div class=\"example-item\">\n        <ft-input\n          label=\"Faded Variant\"\n          variant=\"faded\"\n          placeholder=\"faded style\">\n        </ft-input>\n      </div>\n\n      <div class=\"example-item\">\n        <ft-input\n          label=\"Outlined Variant\"\n          variant=\"outlined\"\n          placeholder=\"outlined style\">\n        </ft-input>\n      </div>\n    </div>\n  </section>\n\n  <!-- Color Variations -->\n  <section class=\"showcase-section\">\n    <h2>Color Variations</h2>\n    <div class=\"examples-grid\">\n      <div class=\"example-item\">\n        <ft-input\n          label=\"Default Color\"\n          color=\"default\"\n          placeholder=\"default color\">\n        </ft-input>\n      </div>\n\n      <div class=\"example-item\">\n        <ft-input\n          label=\"Primary Color\"\n          color=\"primary\"\n          placeholder=\"primary color\">\n        </ft-input>\n      </div>\n\n      <div class=\"example-item\">\n        <ft-input\n          label=\"Secondary Color\"\n          color=\"secondary\"\n          placeholder=\"secondary color\">\n        </ft-input>\n      </div>\n    </div>\n  </section>\n\n  <!-- Form Example -->\n  <section class=\"showcase-section\">\n    <h2>Form Example</h2>\n    <div class=\"form-example\">\n      <div class=\"form-grid\">\n        <ft-input\n          label=\"Username *\"\n          placeholder=\"Enter username\"\n          [(value)]=\"user.username\"\n          [required]=\"true\"\n          description=\"Your public username\">\n        </ft-input>\n\n        <ft-input\n          label=\"Email Address *\"\n          placeholder=\"your@email.com\"\n          [(value)]=\"user.email\"\n          [required]=\"true\"\n          [invalid]=\"!isEmailValid && user.email !== ''\"\n          [errorMessage]=\"emailErrorMessage\"\n          (valueChange)=\"onEmailChange($event)\">\n        </ft-input>\n\n        <ft-input\n          label=\"Password *\"\n          placeholder=\"Enter password\"\n          type=\"password\"\n          [(value)]=\"user.password\"\n          [required]=\"true\"\n          description=\"Minimum 8 characters\">\n        </ft-input>\n\n        <ft-input\n          label=\"Bio\"\n          placeholder=\"Tell us about yourself...\"\n          [(value)]=\"user.bio\"\n          description=\"Optional bio information\">\n        </ft-input>\n      </div>\n\n      <div class=\"form-actions\">\n        <button class=\"btn btn-primary\" (click)=\"onSubmit()\">Submit Form</button>\n        <button class=\"btn btn-secondary\" (click)=\"resetForm()\">Reset All</button>\n      </div>\n    </div>\n  </section>\n\n  <!-- Icon Examples -->\n  <section class=\"showcase-section\">\n    <h2>Input with Icons</h2>\n    <div class=\"examples-grid\">\n      <div class=\"example-item\">\n        <ft-input\n          label=\"Search\"\n          [(value)]=\"searchTerm\"\n          [isPrefixIconClass]=\"true\"\n          prefixIconClass=\"icon-search\"\n          [isClearable]=\"true\"\n          placeholder=\"Search...\">\n        </ft-input>\n      </div>\n\n      <div class=\"example-item\">\n        <ft-input\n          label=\"Email with Icons\"\n          [(value)]=\"email\"\n          [isPrefixIconClass]=\"true\"\n          prefixIconClass=\"icon-email\"\n          [isSuffix1IconClass]=\"true\"\n          suffix1IconClass=\"icon-close\"\n          placeholder=\"email@example.com\">\n        </ft-input>\n      </div>\n\n      <div class=\"example-item\">\n        <ft-input\n          label=\"Phone Number\"\n          [(value)]=\"phone\"\n          [isPrefixIconClass]=\"true\"\n          prefixIconClass=\"icon-phone\"\n          [isSuffix2IconClass]=\"true\"\n          suffix2IconClass=\"icon-arrow-down\"\n          placeholder=\"+1 (555) 000-0000\">\n        </ft-input>\n      </div>\n    </div>\n  </section>\n\n  <!-- Validation States -->\n  <section class=\"showcase-section\">\n    <h2>Validation States</h2>\n    <div class=\"examples-grid\">\n      <div class=\"example-item\">\n        <ft-input\n          label=\"Valid Field\"\n          [(value)]=\"successField\"\n          color=\"primary\"\n          description=\"This field is valid\">\n        </ft-input>\n      </div>\n\n      <div class=\"example-item\">\n        <ft-input\n          label=\"Error Field\"\n          [(value)]=\"errorField\"\n          [invalid]=\"true\"\n          errorMessage=\"This field has an error\"\n          placeholder=\"This field shows error\">\n        </ft-input>\n      </div>\n\n      <div class=\"example-item\">\n        <ft-input\n          label=\"Required Field\"\n          [required]=\"true\"\n          placeholder=\"This field is required\"\n          description=\"* indicates required field\">\n        </ft-input>\n      </div>\n    </div>\n  </section>\n\n  <!-- Clearable Input -->\n  <section class=\"showcase-section\">\n    <h2>Clearable Input</h2>\n    <div class=\"examples-grid\">\n      <div class=\"example-item\">\n        <ft-input\n          label=\"Clearable Field\"\n          [(value)]=\"clearableText\"\n          [isClearable]=\"true\"\n          placeholder=\"Type something and clear it\"\n          description=\"Click the X to clear the field\">\n        </ft-input>\n        <p class=\"value-display\">Current value: {{ clearableText }}</p>\n      </div>\n    </div>\n  </section>\n</div>\n"
         },
         {
             "name": "MedicalConditionDialogComponent",
@@ -4061,100 +4080,6 @@
             "stylesData": "",
             "extends": [],
             "templateData": "<div class=\"body\">\r\n<div class=\"container\">\r\n  <h1 class=\"text-xl\">Medical Status Tags</h1>\r\n\r\n  <h2>Risk Level Status</h2>\r\n  <!-- <p class=\"section-description\">\r\n    Visual indicators for patient risk assessment levels, colors-coded from\r\n    severe (red) to safe (green).\r\n  </p> -->\r\n  <div class=\"tag-container\">\r\n    <div class=\"tag risk-critical\">CRITICAL</div>\r\n    <div class=\"tag risk-high\">HIGH</div>\r\n    <div class=\"tag risk-medium\">MEDIUM</div>\r\n    <div class=\"tag risk-low\">LOW</div>\r\n  </div>\r\n\r\n  <h2>Allergy Severity</h2>\r\n  <!-- <p class=\"section-description\">\r\n    Indicates the severity level of patient allergies, helping prioritize\r\n    medical awareness.\r\n  </p> -->\r\n  <div class=\"tag-container\">\r\n    <div class=\"tag allergy-severe\">SEVERE</div>\r\n    <div class=\"tag allergy-moderate\">MODERATE</div>\r\n    <div class=\"tag allergy-low\">LOW</div>\r\n  </div>\r\n\r\n  <h2>Medical Condition Status</h2>\r\n  <!-- <p class=\"section-description\">\r\n    Shows the current state of diagnosed medical conditions.\r\n  </p> -->\r\n  <div class=\"tag-container\">\r\n    <div class=\"tag condition-active\">ACTIVE</div>\r\n    <div class=\"tag condition-in-remission\">IN REMISSION</div>\r\n    <div class=\"tag condition-resolved\">RESOLVED</div>\r\n  </div>\r\n\r\n  <h2>Treatment Status</h2>\r\n  <!-- <p class=\"section-description\">\r\n    Tracks the status of prescribed treatments and medications.\r\n  </p> -->\r\n  <div class=\"tag-container\">\r\n    <div class=\"tag treatment-in-progress\">IN PROGRESS</div>\r\n    <div class=\"tag treatment-stopped\">STOPPED</div>\r\n    <div class=\"tag treatment-finished\">FINISHED</div>\r\n    <div class=\"tag treatment-not-taken\">NOT TAKEN</div>\r\n  </div>\r\n</div>\r\n</div>\r\n"
-        },
-        {
-            "name": "PageComponent",
-            "id": "component-PageComponent-79bfb042a722f49579739dfd01d8f1b67681d0272a72a283c14edeb22f0462775c80ba4f7c1eb0fa4bd5fa1844083da0140980e75b5500cd98cc26421ec6d569",
-            "file": "src/stories/others/page.component.ts",
-            "encapsulation": [],
-            "entryComponents": [],
-            "inputs": [],
-            "outputs": [],
-            "providers": [],
-            "selector": "storybook-page",
-            "styleUrls": [
-                "./page.css"
-            ],
-            "styles": [],
-            "template": "<article>  <storybook-header\n    [user]=\"user\"\n    (onLogout)=\"doLogout()\"\n    (onLogin)=\"doLogin()\"\n    (onCreateAccount)=\"doCreateAccount()\"\n  ></storybook-header>\n  <section class=\"storybook-page\">\n    <h2>Pages in Storybook</h2>\n    <p>\n      We recommend building UIs with a\n      <a href=\"https://componentdriven.org\" target=\"_blank\" rel=\"noopener noreferrer\">\n        <strong>component-driven</strong>\n      </a>\n      process starting with atomic components and ending with pages.\n    </p>\n    <p>\n      Render pages with mock data. This makes it easy to build and review page states without\n      needing to navigate to them in your app. Here are some handy patterns for managing page data\n      in Storybook:\n    </p>\n    <ul>\n      <li>\n        Use a higher-level connected component. Storybook helps you compose such data from the\n        \"args\" of child component stories\n      </li>\n      <li>\n        Assemble data in the page component from your services. You can mock these services out\n        using Storybook.\n      </li>\n    </ul>\n    <p>\n      Get a guided tutorial on component-driven development at\n      <a href=\"https://storybook.js.org/tutorials/\" target=\"_blank\" rel=\"noopener noreferrer\">\n        Storybook tutorials\n      </a>\n      . Read more in the\n      <a href=\"https://storybook.js.org/docs\" target=\"_blank\" rel=\"noopener noreferrer\"> docs </a>\n      .\n    </p>\n    <div class=\"tip-wrapper\">\n      <span class=\"tip\">Tip</span> Adjust the width of the canvas with the\n      <svg width=\"10\" height=\"10\" viewBox=\"0 0 12 12\" xmlns=\"http://www.w3.org/2000/svg\">\n        <g fill=\"none\" fillRule=\"evenodd\">\n          <path\n            d=\"M1.5 5.2h4.8c.3 0 .5.2.5.4v5.1c-.1.2-.3.3-.4.3H1.4a.5.5 0 01-.5-.4V5.7c0-.3.2-.5.5-.5zm0-2.1h6.9c.3 0 .5.2.5.4v7a.5.5 0 01-1 0V4H1.5a.5.5 0 010-1zm0-2.1h9c.3 0 .5.2.5.4v9.1a.5.5 0 01-1 0V2H1.5a.5.5 0 010-1zm4.3 5.2H2V10h3.8V6.2z\"\n            id=\"a\"\n            fill=\"#999\"\n          />\n        </g>\n      </svg>\n      Viewports addon in the toolbar\n    </div>\n  </section>\n</article>",
-            "templateUrl": [],
-            "viewProviders": [],
-            "hostDirectives": [],
-            "inputsClass": [],
-            "outputsClass": [],
-            "propertiesClass": [
-                {
-                    "name": "user",
-                    "defaultValue": "null",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "User | null",
-                    "indexKey": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 69
-                }
-            ],
-            "methodsClass": [
-                {
-                    "name": "doCreateAccount",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 79,
-                    "deprecated": false,
-                    "deprecationMessage": ""
-                },
-                {
-                    "name": "doLogin",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 75,
-                    "deprecated": false,
-                    "deprecationMessage": ""
-                },
-                {
-                    "name": "doLogout",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 71,
-                    "deprecated": false,
-                    "deprecationMessage": ""
-                }
-            ],
-            "deprecated": false,
-            "deprecationMessage": "",
-            "hostBindings": [],
-            "hostListeners": [],
-            "standalone": true,
-            "imports": [
-                {
-                    "name": "CommonModule",
-                    "type": "module"
-                },
-                {
-                    "name": "HeaderComponent",
-                    "type": "component"
-                }
-            ],
-            "description": "",
-            "rawdescription": "\n",
-            "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\r\nimport { CommonModule } from '@angular/common';\r\n\r\nimport { HeaderComponent } from './header.component';\r\nimport type { User } from './user';\r\n\r\n@Component({\r\n  selector: 'storybook-page',\r\n  standalone: true,\r\n  imports: [CommonModule, HeaderComponent],\r\n  template: `<article>\r\n  <storybook-header\r\n    [user]=\"user\"\r\n    (onLogout)=\"doLogout()\"\r\n    (onLogin)=\"doLogin()\"\r\n    (onCreateAccount)=\"doCreateAccount()\"\r\n  ></storybook-header>\r\n  <section class=\"storybook-page\">\r\n    <h2>Pages in Storybook</h2>\r\n    <p>\r\n      We recommend building UIs with a\r\n      <a href=\"https://componentdriven.org\" target=\"_blank\" rel=\"noopener noreferrer\">\r\n        <strong>component-driven</strong>\r\n      </a>\r\n      process starting with atomic components and ending with pages.\r\n    </p>\r\n    <p>\r\n      Render pages with mock data. This makes it easy to build and review page states without\r\n      needing to navigate to them in your app. Here are some handy patterns for managing page data\r\n      in Storybook:\r\n    </p>\r\n    <ul>\r\n      <li>\r\n        Use a higher-level connected component. Storybook helps you compose such data from the\r\n        \"args\" of child component stories\r\n      </li>\r\n      <li>\r\n        Assemble data in the page component from your services. You can mock these services out\r\n        using Storybook.\r\n      </li>\r\n    </ul>\r\n    <p>\r\n      Get a guided tutorial on component-driven development at\r\n      <a href=\"https://storybook.js.org/tutorials/\" target=\"_blank\" rel=\"noopener noreferrer\">\r\n        Storybook tutorials\r\n      </a>\r\n      . Read more in the\r\n      <a href=\"https://storybook.js.org/docs\" target=\"_blank\" rel=\"noopener noreferrer\"> docs </a>\r\n      .\r\n    </p>\r\n    <div class=\"tip-wrapper\">\r\n      <span class=\"tip\">Tip</span> Adjust the width of the canvas with the\r\n      <svg width=\"10\" height=\"10\" viewBox=\"0 0 12 12\" xmlns=\"http://www.w3.org/2000/svg\">\r\n        <g fill=\"none\" fillRule=\"evenodd\">\r\n          <path\r\n            d=\"M1.5 5.2h4.8c.3 0 .5.2.5.4v5.1c-.1.2-.3.3-.4.3H1.4a.5.5 0 01-.5-.4V5.7c0-.3.2-.5.5-.5zm0-2.1h6.9c.3 0 .5.2.5.4v7a.5.5 0 01-1 0V4H1.5a.5.5 0 010-1zm0-2.1h9c.3 0 .5.2.5.4v9.1a.5.5 0 01-1 0V2H1.5a.5.5 0 010-1zm4.3 5.2H2V10h3.8V6.2z\"\r\n            id=\"a\"\r\n            fill=\"#999\"\r\n          />\r\n        </g>\r\n      </svg>\r\n      Viewports addon in the toolbar\r\n    </div>\r\n  </section>\r\n</article>`,\r\n  styleUrls: ['./page.css'],\r\n})\r\nexport class PageComponent {\r\n  user: User | null = null;\r\n\r\n  doLogout() {\r\n    this.user = null;\r\n  }\r\n\r\n  doLogin() {\r\n    this.user = { name: 'Jane Doe' };\r\n  }\r\n\r\n  doCreateAccount() {\r\n    this.user = { name: 'Jane Doe' };\r\n  }\r\n}\r\n",
-            "assetsDirs": [],
-            "styleUrlsData": [
-                {
-                    "data": ".storybook-page {\r\n  margin: 0 auto;\r\n  padding: 48px 20px;\r\n  max-width: 600px;\r\n  color: #333;\r\n  font-size: 14px;\r\n  line-height: 24px;\r\n  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;\r\n}\r\n\r\n.storybook-page h2 {\r\n  display: inline-block;\r\n  vertical-align: top;\r\n  margin: 0 0 4px;\r\n  font-weight: 700;\r\n  font-size: 32px;\r\n  line-height: 1;\r\n}\r\n\r\n.storybook-page p {\r\n  margin: 1em 0;\r\n}\r\n\r\n.storybook-page a {\r\n  color: inherit;\r\n}\r\n\r\n.storybook-page ul {\r\n  margin: 1em 0;\r\n  padding-left: 30px;\r\n}\r\n\r\n.storybook-page li {\r\n  margin-bottom: 8px;\r\n}\r\n\r\n.storybook-page .tip {\r\n  display: inline-block;\r\n  vertical-align: top;\r\n  margin-right: 10px;\r\n  border-radius: 1em;\r\n  background: #e7fdd8;\r\n  padding: 4px 12px;\r\n  color: #357a14;\r\n  font-weight: 700;\r\n  font-size: 11px;\r\n  line-height: 12px;\r\n}\r\n\r\n.storybook-page .tip-wrapper {\r\n  margin-top: 40px;\r\n  margin-bottom: 40px;\r\n  font-size: 13px;\r\n  line-height: 20px;\r\n}\r\n\r\n.storybook-page .tip-wrapper svg {\r\n  display: inline-block;\r\n  vertical-align: top;\r\n  margin-top: 3px;\r\n  margin-right: 4px;\r\n  width: 12px;\r\n  height: 12px;\r\n}\r\n\r\n.storybook-page .tip-wrapper svg path {\r\n  fill: #1ea7fd;\r\n}\r\n",
-                    "styleUrl": "./page.css"
-                }
-            ],
-            "stylesData": "",
-            "extends": []
         },
         {
             "name": "PatientAddComponent",
@@ -6375,7 +6300,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "/* input-showcase.component.css */\r\n.all-case-container {\r\n  /*height: 100%;*/\r\n  /*max-height: 100%;*/\r\n  width: 100%;\r\n  max-width: 100%;\r\n  margin: 0;\r\n  background-color: var(--ft-color-surface-level-300);\r\n  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;\r\n\r\n  .cases-container {\r\n    width: 100%;\r\n    max-width: 100%;\r\n    /*overflow: auto;*/\r\n    .case-row {\r\n      display: flex;\r\n      width: fit-content;\r\n      border-bottom: 1px solid var(--ft-color-border-200);\r\n      .case-item {\r\n        /*width: fit-content;*/\r\n        width: 360px;\r\n        height: 150px;\r\n        border-right: 1px solid var(--ft-color-border-200);\r\n        padding: var(--ft-unit-400);\r\n        display: flex;\r\n        justify-content: center;\r\n        align-items: center;\r\n        &.case-item-heading {\r\n          width: var(--ft-unit-800);\r\n          /*background-colors: var(--ft-colors-secondary);*/\r\n          color: var(--ft-color-on-surface-level-300);\r\n          font-size: var(--ft-text-2xs);\r\n          padding: 0;\r\n          border-right: 1px solid var(--ft-color-border-200);\r\n          &.vertical-text {\r\n            writing-mode: vertical-rl; /* Right to left */\r\n          }\r\n        }\r\n      }\r\n      &.case-row-heading {\r\n        height: var(--ft-unit-800);\r\n        /*background-colors: var(--ft-colors-primary);*/\r\n        color: var(--ft-color-on-surface-level-300);\r\n        padding: 0;\r\n        font-size: var(--ft-text-2xs);\r\n        /*border-bottom: 1px solid var(--ft-colors-border-200);*/\r\n        .case-item {\r\n          /*padding-inline: var(--ft-unit-400);*/\r\n          padding-block: 0;\r\n          height: 100%;\r\n        }\r\n      }\r\n    }\r\n  }\r\n}\r\n\r\n\r\n.showcase-section {\r\n  margin-bottom: 3rem;\r\n  padding: 2rem;\r\n  background: white;\r\n  border-radius: 12px;\r\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);\r\n  border: 1px solid #e2e8f0;\r\n}\r\n\r\n.showcase-section h2 {\r\n  color: #2d3748;\r\n  margin-bottom: 1.5rem;\r\n  font-size: 1.5rem;\r\n  font-weight: 600;\r\n  border-bottom: 2px solid #edf2f7;\r\n  padding-bottom: 0.5rem;\r\n}\r\n\r\n.examples-grid {\r\n  display: grid;\r\n  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));\r\n  gap: 2rem;\r\n  margin-bottom: 1rem;\r\n}\r\n\r\n.example-item {\r\n  display: flex;\r\n  flex-direction: column;\r\n  gap: 0.75rem;\r\n}\r\n\r\n.example-item h3 {\r\n  color: #4a5568;\r\n  font-size: 1rem;\r\n  font-weight: 600;\r\n  margin: 0;\r\n}\r\n\r\n.value-display {\r\n  font-size: 0.875rem;\r\n  color: #718096;\r\n  background: #f7fafc;\r\n  padding: 0.5rem;\r\n  border-radius: 4px;\r\n  margin: 0;\r\n  font-family: 'Monaco', 'Consolas', monospace;\r\n}\r\n\r\n/* Form Example Styles */\r\n.form-example {\r\n  display: flex;\r\n  flex-direction: column;\r\n  gap: 1.5rem;\r\n}\r\n\r\n.form-grid {\r\n  display: grid;\r\n  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));\r\n  gap: 1.5rem;\r\n}\r\n\r\n.form-actions {\r\n  display: flex;\r\n  gap: 1rem;\r\n  justify-content: flex-start;\r\n  margin-top: 1rem;\r\n}\r\n\r\n.btn {\r\n  padding: 0.75rem 1.5rem;\r\n  border: none;\r\n  border-radius: 8px;\r\n  font-weight: 600;\r\n  cursor: pointer;\r\n  transition: all 0.2s ease;\r\n  font-size: 0.875rem;\r\n}\r\n\r\n.btn-primary {\r\n  background: #4299e1;\r\n  color: white;\r\n}\r\n\r\n.btn-primary:hover {\r\n  background: #3182ce;\r\n  transform: translateY(-1px);\r\n}\r\n\r\n.btn-secondary {\r\n  background: #e2e8f0;\r\n  color: #4a5568;\r\n}\r\n\r\n.btn-secondary:hover {\r\n  background: #cbd5e0;\r\n  transform: translateY(-1px);\r\n}\r\n\r\n/* Responsive Design */\r\n@media (max-width: 768px) {\r\n  .showcase-container {\r\n    padding: 1rem;\r\n  }\r\n\r\n  .examples-grid {\r\n    grid-template-columns: 1fr;\r\n    gap: 1.5rem;\r\n  }\r\n\r\n  .showcase-section {\r\n    padding: 1.5rem;\r\n    margin-bottom: 2rem;\r\n  }\r\n\r\n  .form-grid {\r\n    grid-template-columns: 1fr;\r\n  }\r\n\r\n  .form-actions {\r\n    flex-direction: column;\r\n  }\r\n}\r\n\r\n/* Dark mode support */\r\n@media (prefers-color-scheme: dark) {\r\n  .showcase-section {\r\n    background: #2d3748;\r\n    border-color: #4a5568;\r\n  }\r\n\r\n  .showcase-container h1,\r\n  .showcase-section h2,\r\n  .example-item h3 {\r\n    color: #e2e8f0;\r\n  }\r\n\r\n  .value-display {\r\n    background: #4a5568;\r\n    color: #cbd5e0;\r\n  }\r\n}\r\n",
+                    "data": "",
                     "styleUrl": "./radio-all-cases.component.css"
                 }
             ],
@@ -8253,204 +8178,6 @@
                 }
             },
             "templateData": "<form [formGroup]=\"vaccinationForm\">\r\n  <div class=\"dialog-form-body-container\">\r\n    <div class=\"dialog-form-body\">\r\n\r\n      <div class=\"field-container\">\r\n        <p-floatlabel variant=\"in\" class=\"w-full\">\r\n          <p-autocomplete\r\n            [required]=\"true\"\r\n            formControlName=\"vaccineName\"\r\n            [suggestions]=\"vaccineSuggestions\"\r\n            (completeMethod)=\"searchVaccines($event)\"\r\n            field=\"name\"\r\n            [showClear]=\"true\"\r\n            class=\"flex-grow\"\r\n            id=\"vaccineName\"\r\n            variant=\"filled\"\r\n          >\r\n          </p-autocomplete>\r\n          <label for=\"vaccineName\">Vaccin <span>*</span></label>\r\n        </p-floatlabel>\r\n        <small\r\n          class=\"p-error\"\r\n          *ngIf=\"shouldShowError(vaccineNameControl)\"\r\n        >\r\n            <span *ngIf=\"vaccineNameControl?.errors?.['required']\"\r\n            >Le nom du vaccin est obligatoire.</span\r\n            >\r\n        </small>\r\n      </div>\r\n\r\n      <div class=\"field-container\">\r\n        <p-floatlabel variant=\"in\" class=\"w-full\">\r\n          <p-datepicker\r\n            formControlName=\"administrationDate\"\r\n            [showClear]=\"true\"\r\n            id=\"administrationDate\"\r\n            showIcon\r\n            iconDisplay=\"input\"\r\n            variant=\"filled\"\r\n            dateFormat=\"dd/mm/yy\"\r\n            [inputStyle]=\"{'width': '100%'}\"\r\n          ></p-datepicker>\r\n          <label for=\"administrationDate\">Date d'administration</label>\r\n        </p-floatlabel>\r\n      </div>\r\n\r\n      <div class=\"form-container\">\r\n        <p-floatlabel variant=\"in\">\r\n          <div class=\"p-inputgroup w-full\">\r\n              <textarea\r\n                pTextarea\r\n                id=\"notes\"\r\n                formControlName=\"notes\"\r\n                rows=\"3\"\r\n                cols=\"30\"\r\n                style=\"resize: none\"\r\n                class=\"w-full\"\r\n                variant=\"filled\"\r\n              ></textarea>\r\n            <p-button type=\"button\" pButton icon=\"pi pi-times\" severity=\"secondary\"\r\n                    [rounded]=\"true\"\r\n                    [text]=\"true\"\r\n                    (click)=\"clearField('notes')\"\r\n                    *ngIf=\"notesControl?.value\"></p-button>\r\n          </div>\r\n          <label for=\"notes\">Notes</label>\r\n        </p-floatlabel>\r\n      </div>\r\n\r\n    </div>\r\n  </div>\r\n\r\n  <div class=\"flex justify-end gap-2 dialog-footer\">\r\n    <p-button\r\n      label=\"Annuler\"\r\n      severity=\"secondary\"\r\n      (click)=\"closeDialog(null)\"\r\n      size=\"small\"\r\n    />\r\n    <p-button label=\"Enregistrer\" (click)=\"saveVaccination()\" size=\"small\"\r\n              [disabled]=\"!vaccinationForm.valid\"/>\r\n  </div>\r\n</form>\r\n"
-        },
-        {
-            "name": "YButtonComponent",
-            "id": "component-YButtonComponent-489efbf50a7ef630ff18401956eb766ef0c11270d41a119801e5256abd3a264f8f0e9a36076e7029b83a721ca3090b305370fd63d9cf9226c9fd470022145e9b",
-            "file": "src/stories/others/x/y.component.ts",
-            "encapsulation": [],
-            "entryComponents": [],
-            "inputs": [],
-            "outputs": [],
-            "providers": [],
-            "selector": "app-button",
-            "styleUrls": [],
-            "styles": [
-                "\n    button {\n      padding: 10px 15px;\n      border: none;\n      border-radius: 4px;\n      cursor: pointer;\n      display: inline-flex;\n      align-items: center;\n      gap: 8px; /* Space between text and icon */\n    }\n\n    button.primary {\n      background-color: #007bff;\n      color: white;\n    }\n\n    button.secondary {\n      background-color: #6c757d;\n      color: white;\n    }\n\n    button:disabled {\n      opacity: 0.6;\n      cursor: not-allowed;\n    }\n\n    /* Styles for the icon itself - adjust based on your icon library */\n    ::ng-deep .icon {\n      /* Example for a generic icon class */\n      font-size: 1.2em;\n      line-height: 1; /* Helps with vertical alignment */\n      display: inline-block;\n    }\n  "
-            ],
-            "template": "<button\n  [ngClass]=\"type\"\n  [disabled]=\"disabled\"\n  (click)=\"onClick.emit($event)\"\n>\n  <ng-content select=\"[icon-left]\"></ng-content>\n  {{ label }}\n  <ng-content select=\"[icon-right]\"></ng-content>\n</button>\n",
-            "templateUrl": [],
-            "viewProviders": [],
-            "hostDirectives": [],
-            "inputsClass": [
-                {
-                    "name": "disabled",
-                    "defaultValue": "false",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 57,
-                    "type": "boolean",
-                    "decorators": []
-                },
-                {
-                    "name": "label",
-                    "defaultValue": "'Button'",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 55,
-                    "type": "string",
-                    "decorators": []
-                },
-                {
-                    "name": "type",
-                    "defaultValue": "'primary'",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 56,
-                    "type": "\"primary\" | \"secondary\"",
-                    "decorators": []
-                }
-            ],
-            "outputsClass": [
-                {
-                    "name": "onClick",
-                    "defaultValue": "new EventEmitter<Event>()",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 58,
-                    "type": "EventEmitter<Event>"
-                }
-            ],
-            "propertiesClass": [],
-            "methodsClass": [],
-            "deprecated": false,
-            "deprecationMessage": "",
-            "hostBindings": [],
-            "hostListeners": [],
-            "standalone": true,
-            "imports": [
-                {
-                    "name": "CommonModule",
-                    "type": "module"
-                }
-            ],
-            "description": "",
-            "rawdescription": "\n",
-            "type": "component",
-            "sourceCode": "import { Component, Input, Output, EventEmitter } from '@angular/core';\r\nimport { CommonModule } from '@angular/common'; // Import CommonModule\r\n\r\n@Component({\r\n  selector: 'app-button',\r\n  standalone: true, // If using standalone components\r\n  imports: [CommonModule], // Import CommonModule if standalone\r\n  template: `\r\n    <button\r\n      [ngClass]=\"type\"\r\n      [disabled]=\"disabled\"\r\n      (click)=\"onClick.emit($event)\"\r\n    >\r\n      <ng-content select=\"[icon-left]\"></ng-content>\r\n      {{ label }}\r\n      <ng-content select=\"[icon-right]\"></ng-content>\r\n    </button>\r\n  `,\r\n  styles: [`\r\n    button {\r\n      padding: 10px 15px;\r\n      border: none;\r\n      border-radius: 4px;\r\n      cursor: pointer;\r\n      display: inline-flex;\r\n      align-items: center;\r\n      gap: 8px; /* Space between text and icon */\r\n    }\r\n\r\n    button.primary {\r\n      background-color: #007bff;\r\n      color: white;\r\n    }\r\n\r\n    button.secondary {\r\n      background-color: #6c757d;\r\n      color: white;\r\n    }\r\n\r\n    button:disabled {\r\n      opacity: 0.6;\r\n      cursor: not-allowed;\r\n    }\r\n\r\n    /* Styles for the icon itself - adjust based on your icon library */\r\n    ::ng-deep .icon {\r\n      /* Example for a generic icon class */\r\n      font-size: 1.2em;\r\n      line-height: 1; /* Helps with vertical alignment */\r\n      display: inline-block;\r\n    }\r\n  `]\r\n})\r\nexport class YButtonComponent {\r\n  @Input() label: string = 'Button';\r\n  @Input() type: 'primary' | 'secondary' = 'primary';\r\n  @Input() disabled: boolean = false;\r\n  @Output() onClick: EventEmitter<Event> = new EventEmitter<Event>();\r\n}\r\n",
-            "assetsDirs": [],
-            "styleUrlsData": "",
-            "stylesData": "\n    button {\n      padding: 10px 15px;\n      border: none;\n      border-radius: 4px;\n      cursor: pointer;\n      display: inline-flex;\n      align-items: center;\n      gap: 8px; /* Space between text and icon */\n    }\n\n    button.primary {\n      background-color: #007bff;\n      color: white;\n    }\n\n    button.secondary {\n      background-color: #6c757d;\n      color: white;\n    }\n\n    button:disabled {\n      opacity: 0.6;\n      cursor: not-allowed;\n    }\n\n    /* Styles for the icon itself - adjust based on your icon library */\n    ::ng-deep .icon {\n      /* Example for a generic icon class */\n      font-size: 1.2em;\n      line-height: 1; /* Helps with vertical alignment */\n      display: inline-block;\n    }\n  \n",
-            "extends": []
-        },
-        {
-            "name": "ZButtonComponent",
-            "id": "component-ZButtonComponent-cd7031b032a669a2b66933246b119d2e9b095c1b1485c5211375c10be82f3f1781ac3bc0d3e74b29fdc7ecbcdd8327fb5cf938f53a1583e91f0b86d0f86502e8",
-            "file": "src/stories/others/z/z.button.component.ts",
-            "encapsulation": [],
-            "entryComponents": [],
-            "inputs": [],
-            "outputs": [],
-            "providers": [],
-            "selector": "app-z-button",
-            "styleUrls": [
-                "./z.button.component.css"
-            ],
-            "styles": [],
-            "template": "<button\n  [class]=\"buttonClass\"\n  [disabled]=\"disabled\"\n  (click)=\"onClick.emit($event)\"\n>\n  <span *ngIf=\"iconPosition === 'left'\" class=\"icon-left\">\n    <i [class]=\"iconClass\">{{ iconText }}</i>\n  </span>\n  {{ label }}\n  <span *ngIf=\"iconPosition === 'right'\" class=\"icon-right\">\n    <i [class]=\"iconClass\">{{ iconText }}</i>\n  </span>\n</button>\n",
-            "templateUrl": [],
-            "viewProviders": [],
-            "hostDirectives": [],
-            "inputsClass": [
-                {
-                    "name": "buttonClass",
-                    "defaultValue": "'btn-primary'",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 29,
-                    "type": "string",
-                    "decorators": []
-                },
-                {
-                    "name": "disabled",
-                    "defaultValue": "false",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 30,
-                    "type": "boolean",
-                    "decorators": []
-                },
-                {
-                    "name": "iconClass",
-                    "defaultValue": "''",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 34,
-                    "type": "string",
-                    "decorators": []
-                },
-                {
-                    "name": "iconName",
-                    "defaultValue": "''",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 31,
-                    "type": "string",
-                    "decorators": []
-                },
-                {
-                    "name": "iconPosition",
-                    "defaultValue": "'left'",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 32,
-                    "type": "\"left\" | \"right\"",
-                    "decorators": []
-                },
-                {
-                    "name": "iconText",
-                    "defaultValue": "''",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 33,
-                    "type": "string",
-                    "decorators": []
-                },
-                {
-                    "name": "label",
-                    "defaultValue": "'Button'",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 28,
-                    "type": "string",
-                    "decorators": []
-                }
-            ],
-            "outputsClass": [
-                {
-                    "name": "onClick",
-                    "defaultValue": "new EventEmitter<Event>()",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 36,
-                    "type": "EventEmitter"
-                }
-            ],
-            "propertiesClass": [],
-            "methodsClass": [],
-            "deprecated": false,
-            "deprecationMessage": "",
-            "hostBindings": [],
-            "hostListeners": [],
-            "standalone": false,
-            "imports": [
-                {
-                    "name": "NgIf"
-                }
-            ],
-            "description": "",
-            "rawdescription": "\n",
-            "type": "component",
-            "sourceCode": "import { Component, Input, Output, EventEmitter } from '@angular/core';\r\nimport {NgIf} from '@angular/common';\r\n\r\n@Component({\r\n  selector: 'app-z-button',\r\n  template: `\r\n    <button\r\n      [class]=\"buttonClass\"\r\n      [disabled]=\"disabled\"\r\n      (click)=\"onClick.emit($event)\"\r\n    >\r\n      <span *ngIf=\"iconPosition === 'left'\" class=\"icon-left\">\r\n        <i [class]=\"iconClass\">{{ iconText }}</i>\r\n      </span>\r\n      {{ label }}\r\n      <span *ngIf=\"iconPosition === 'right'\" class=\"icon-right\">\r\n        <i [class]=\"iconClass\">{{ iconText }}</i>\r\n      </span>\r\n    </button>\r\n  `,\r\n  imports: [\r\n    NgIf\r\n  ],\r\n  styleUrls: ['./z.button.component.css']\r\n})\r\nexport class ZButtonComponent {\r\n  @Input() label = 'Button';\r\n  @Input() buttonClass = 'btn-primary';\r\n  @Input() disabled = false;\r\n  @Input() iconName = '';\r\n  @Input() iconPosition: 'left' | 'right' = 'left';\r\n  @Input() iconText = ''; // For text-based icons like Material icons\r\n  @Input() iconClass = ''; // For icon libraries that use classes\r\n\r\n  @Output() onClick = new EventEmitter<Event>();\r\n}\r\n",
-            "assetsDirs": [],
-            "styleUrlsData": [
-                {
-                    "data": "button {\r\n  padding: 8px 16px;\r\n  border-radius: 4px;\r\n  cursor: pointer;\r\n  display: inline-flex;\r\n  align-items: center;\r\n  gap: 8px;\r\n}\r\n\r\n.btn-primary {\r\n  background-color: #1976d2;\r\n  color: white;\r\n  border: none;\r\n}\r\n\r\n.btn-primary:disabled {\r\n  background-color: #cccccc;\r\n  cursor: not-allowed;\r\n}\r\n\r\n.icon-left {\r\n  margin-right: 8px;\r\n}\r\n\r\n.icon-right {\r\n  margin-left: 8px;\r\n}\r\n",
-                    "styleUrl": "./z.button.component.css"
-                }
-            ],
-            "stylesData": "",
-            "extends": []
         }
     ],
     "modules": [],
@@ -9215,7 +8942,7 @@
         ]
     },
     "coverage": {
-        "count": 4,
+        "count": 3,
         "status": "low",
         "files": [
             {
@@ -9725,12 +9452,21 @@
                 "status": "low"
             },
             {
-                "filePath": "src/stories/colors/color.component.ts",
+                "filePath": "src/stories/Buttons/button-all-cases/button-all-cases.component.ts",
                 "type": "component",
                 "linktype": "component",
-                "name": "ColorComponent",
+                "name": "ButtonAllCasesComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/5",
+                "coverageCount": "0/12",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Buttons/button/ft.button.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "FtButtonComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/13",
                 "status": "low"
             },
             {
@@ -9758,60 +9494,6 @@
                 "name": "FTInputComponent",
                 "coveragePercent": 0,
                 "coverageCount": "0/27",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/others/button.component.ts",
-                "type": "component",
-                "linktype": "component",
-                "name": "ButtonComponent",
-                "coveragePercent": 83,
-                "coverageCount": "5/6",
-                "status": "very-good"
-            },
-            {
-                "filePath": "src/stories/others/header.component.ts",
-                "type": "component",
-                "linktype": "component",
-                "name": "HeaderComponent",
-                "coveragePercent": 0,
-                "coverageCount": "0/5",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/others/page.component.ts",
-                "type": "component",
-                "linktype": "component",
-                "name": "PageComponent",
-                "coveragePercent": 0,
-                "coverageCount": "0/5",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/others/user.ts",
-                "type": "interface",
-                "linktype": "interface",
-                "name": "User",
-                "coveragePercent": 0,
-                "coverageCount": "0/2",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/others/x/y.component.ts",
-                "type": "component",
-                "linktype": "component",
-                "name": "YButtonComponent",
-                "coveragePercent": 0,
-                "coverageCount": "0/5",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/others/z/z.button.component.ts",
-                "type": "component",
-                "linktype": "component",
-                "name": "ZButtonComponent",
-                "coveragePercent": 0,
-                "coverageCount": "0/9",
                 "status": "low"
             },
             {

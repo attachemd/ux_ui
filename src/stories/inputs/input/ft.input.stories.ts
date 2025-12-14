@@ -45,7 +45,7 @@ const meta: Meta<FTInputComponent> = {
     },
     variant: {
       control: 'select',
-      options: ['flat', 'ghost', 'faded', 'underlined'],
+      options: ['flat', 'ghost', 'faded', 'outlined'],
     },
     state: {
       control: 'select',
@@ -154,10 +154,10 @@ export const FadedVariant: Story = {
   },
 };
 
-export const UnderlinedVariant: Story = {
+export const OutlinedVariant: Story = {
   args: {
-    variant: 'underlined',
-    label: 'Underlined Input',
+    variant: 'outlined',
+    label: 'Outlined Input',
   },
 };
 
