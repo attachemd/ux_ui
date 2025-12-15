@@ -145,6 +145,7 @@
       background-color: var(--ft-color-danger-50);
       border-style: solid;
       border-color: var(--ft-color-danger);
+      border-width: var(--ft-border-secondary);
     }
   }
 
