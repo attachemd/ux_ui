@@ -2,21 +2,21 @@
 /*  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;*/
 /*  line-height: 1.6;*/
 /*  padding: 20px;*/
-/*  !*background-color: #ededed;*!*/
-/*  color: #333;*/
+/*  !*background-colors: #ededed;*!*/
+/*  colors: #333;*/
 /*  max-width: 1200px;*/
 /*  margin: 0 auto;*/
 /*}*/
 
 /*.container {*/
-/*  background-color: white;*/
+/*  background-colors: white;*/
 /*  border-radius: 8px;*/
 /*  padding: 25px;*/
 /*}*/
 
 /*h2 {*/
 /*  margin-top: 30px;*/
-/*  color: #2c3e50;*/
+/*  colors: #2c3e50;*/
 /*  border-bottom: 1px solid #eee;*/
 /*  padding-bottom: 10px;*/
 /*  margin-bottom: 20px;*/
@@ -45,87 +45,87 @@
 /*}*/
 
 /*.section-description {*/
-/*  color: #555;*/
+/*  colors: #555;*/
 /*  margin-bottom: 20px;*/
 /*  font-size: 15px;*/
 /*}*/
 
 /*!* Risk Level Tags *!*/
 /*.risk-critical {*/
-/*  background-color: #fde8e8;*/
-/*  color: #e53e3e;*/
+/*  background-colors: #fde8e8;*/
+/*  colors: #e53e3e;*/
 /*}*/
 
 /*.risk-high {*/
-/*  background-color: #feebc8;*/
-/*  color: #dd6b20;*/
+/*  background-colors: #feebc8;*/
+/*  colors: #dd6b20;*/
 /*}*/
 
 /*.risk-medium {*/
-/*  background-color: #fefcbf;*/
-/*  color: #b7791f;*/
+/*  background-colors: #fefcbf;*/
+/*  colors: #b7791f;*/
 /*}*/
 
 /*.risk-low {*/
-/*  background-color: #c6f6d5;*/
-/*  color: #2f855a;*/
+/*  background-colors: #c6f6d5;*/
+/*  colors: #2f855a;*/
 /*}*/
 
 /*!* Allergy Severity Tags *!*/
 /*.allergy-severe {*/
-/*  background-color: #fed7d7;*/
-/*  color: #c53030;*/
+/*  background-colors: #fed7d7;*/
+/*  colors: #c53030;*/
 /*}*/
 
 /*.allergy-moderate {*/
-/*  background-color: #fed7aa;*/
-/*  color: #c05621;*/
+/*  background-colors: #fed7aa;*/
+/*  colors: #c05621;*/
 /*}*/
 
 /*.allergy-low {*/
-/*  background-color: #fefcbf;*/
-/*  color: #975a16;*/
+/*  background-colors: #fefcbf;*/
+/*  colors: #975a16;*/
 /*}*/
 
 /*!* Medical Condition Status Tags *!*/
 /*.condition-active {*/
-/*  background-color: #bee3f8;*/
-/*  color: #2b6cb0;*/
+/*  background-colors: #bee3f8;*/
+/*  colors: #2b6cb0;*/
 /*}*/
 
 /*.condition-in-remission {*/
-/*  background-color: #b2f5ea;*/
-/*  color: #2c7a7b;*/
+/*  background-colors: #b2f5ea;*/
+/*  colors: #2c7a7b;*/
 /*}*/
 
 /*.condition-resolved {*/
-/*  !*background-color: #c3dafe;*!*/
-/*  !*color: #4c51bf;*!*/
-/*  background-color: #C8E6C9;*/
-/*  color: #1B5E20;*/
+/*  !*background-colors: #c3dafe;*!*/
+/*  !*colors: #4c51bf;*!*/
+/*  background-colors: #C8E6C9;*/
+/*  colors: #1B5E20;*/
 /*}*/
 
 /*!* Treatment Status Tags *!*/
 /*.treatment-in-progress {*/
-/*  background-color: #9decf9;*/
-/*  color: #0987a0;*/
+/*  background-colors: #9decf9;*/
+/*  colors: #0987a0;*/
 /*}*/
 
 /*.treatment-stopped {*/
-/*  !*background-color: #feb2b2;*!*/
-/*  !*color: #c53030;*!*/
-/*  background-color: #D9C6FC;*/
-/*  color: #4B0082;*/
+/*  !*background-colors: #feb2b2;*!*/
+/*  !*colors: #c53030;*!*/
+/*  background-colors: #D9C6FC;*/
+/*  colors: #4B0082;*/
 /*}*/
 
 /*.treatment-finished {*/
-/*  background-color: #9ae6b4;*/
-/*  color: #276749;*/
+/*  background-colors: #9ae6b4;*/
+/*  colors: #276749;*/
 /*}*/
 
 /*.treatment-not-taken {*/
-/*  background-color: #e2e8f0;*/
-/*  color: #4a5568;*/
+/*  background-colors: #e2e8f0;*/
+/*  colors: #4a5568;*/
 /*}*/
 
 
@@ -182,63 +182,63 @@ h2 {
 
 
 /* Risk Level Tags */
-/* Original: background-color: #fde8e8; color: #e53e3e; */
+/* Original: background-colors: #fde8e8; colors: #e53e3e; */
 .risk-critical {
   background-color: var(--color-red-100); /* Closest to #fde8e8 */
   color: var(--color-red-600); /* Closest to #e53e3e */
 }
 
-/* Original: background-color: #feebc8; color: #dd6b20; */
+/* Original: background-colors: #feebc8; colors: #dd6b20; */
 .risk-high {
   background-color: var(--color-orange-100); /* Closest to #feebc8 */
   color: var(--color-orange-600); /* Closest to #dd6b20 */
 }
 
-/* Original: background-color: #fefcbf; color: #b7791f; */
+/* Original: background-colors: #fefcbf; colors: #b7791f; */
 .risk-medium {
   background-color: var(--color-yellow-100); /* Closest to #fefcbf */
   color: var(--color-amber-700); /* Closest to #b7791f */
 }
 
-/* Original: background-color: #c6f6d5; color: #2f855a; */
+/* Original: background-colors: #c6f6d5; colors: #2f855a; */
 .risk-low {
   background-color: var(--color-green-200); /* Closest to #c6f6d5 */
   color: var(--color-green-700); /* Closest to #2f855a */
 }
 
 /* Allergy Severity Tags */
-/* Original: background-color: #fed7d7; color: #c53030; */
+/* Original: background-colors: #fed7d7; colors: #c53030; */
 .allergy-severe {
   background-color: var(--color-red-200); /* Closest to #fed7d7 */
   color: var(--color-red-700); /* Closest to #c53030 */
 }
 
-/* Original: background-color: #fed7aa; color: #c05621; */
+/* Original: background-colors: #fed7aa; colors: #c05621; */
 .allergy-moderate {
   background-color: var(--color-orange-200); /* Closest to #fed7aa */
   color: var(--color-orange-700); /* Closest to #c05621 */
 }
 
-/* Original: background-color: #fefcbf; color: #975a16; */
+/* Original: background-colors: #fefcbf; colors: #975a16; */
 .allergy-low {
   background-color: var(--color-yellow-100); /* Closest to #fefcbf */
   color: var(--color-amber-800); /* Closest to #975a16 */
 }
 
 /* Medical Condition Status Tags */
-/* Original: background-color: #bee3f8; color: #2b6cb0; */
+/* Original: background-colors: #bee3f8; colors: #2b6cb0; */
 .condition-active {
   background-color: var(--color-sky-200); /* Closest to #bee3f8 */
   color: var(--color-sky-700); /* Closest to #2b6cb0 */
 }
 
-/* Original: background-color: #b2f5ea; color: #2c7a7b; */
+/* Original: background-colors: #b2f5ea; colors: #2c7a7b; */
 .condition-in-remission {
   background-color: var(--color-teal-200); /* Closest to #b2f5ea */
   color: var(--color-teal-700); /* Closest to #2c7a7b */
 }
 
-/* Original: background-color: #C8E6C9; color: #1B5E20; */
+/* Original: background-colors: #C8E6C9; colors: #1B5E20; */
 .condition-resolved {
   background-color: var(
     --color-green-200
@@ -247,25 +247,25 @@ h2 {
 }
 
 /* Treatment Status Tags */
-/* Original: background-color: #9decf9; color: #0987a0; */
+/* Original: background-colors: #9decf9; colors: #0987a0; */
 .treatment-in-progress {
   background-color: var(--color-cyan-200); /* Closest to #9decf9 */
   color: var(--color-cyan-600); /* Closest to #0987a0 */
 }
 
-/* Original: background-color: #D9C6FC; color: #4B0082; */
+/* Original: background-colors: #D9C6FC; colors: #4B0082; */
 .treatment-stopped {
   background-color: var(--color-purple-200); /* Closest to #D9C6FC, was violet-300, purple is better for #4B0082 text */
   color: var(--color-purple-800); /* Closest to #4B0082 (Indigo/Deep Purple) */
 }
 
-/* Original: background-color: #9ae6b4; color: #276749; */
+/* Original: background-colors: #9ae6b4; colors: #276749; */
 .treatment-finished {
   background-color: var(--color-emerald-200); /* Closest to #9ae6b4 */
   color: var(--color-emerald-700); /* Closest to #276749 */
 }
 
-/* Original: background-color: #e2e8f0; color: #4a5568; */
+/* Original: background-colors: #e2e8f0; colors: #4a5568; */
 .treatment-not-taken {
   background-color: var(--color-slate-200); /* Closest to #e2e8f0 */
   color: var(--color-slate-600); /* Closest to #4a5568 */

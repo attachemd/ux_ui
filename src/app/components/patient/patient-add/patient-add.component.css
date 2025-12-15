@@ -4,7 +4,7 @@
   height: 100%;
   padding: 0 var(--ft-spacing-md) var(--ft-spacing-md);
   .add-patient-container {
-    /*background-color: var(--ft-color-background-primary);*/
+    /*background-colors: var(--ft-colors-background-primary);*/
     display: flex;
     flex-direction: column;
     flex-grow: 1;
@@ -39,7 +39,7 @@
         visibility: visible;
       }
       mat-panel-title {
-        /*background-color: red !important;*/
+        /*background-colors: red !important;*/
       }
     }
     .mat-expansion-panel {

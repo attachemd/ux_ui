@@ -1,0 +1,94 @@
+import {Meta, Unstyled} from "@storybook/addon-docs/blocks";
+
+<Meta title="Theme/Roadmap"/>
+
+Visually track the development status of a component library
+
+export const componentStatusArray = [
+  {name: "Theme", status: "In progress"},
+  {name: "Input", status: "Review"},
+  {name: "Radio", status: "Review"},
+  {name: "Radio Group", status: "Review"},
+  {name: "Button", status: "In progress"},
+  {name: "Button Toggle", status: "In progress"},
+  {name: "Checkbox", status: "Not started"},
+  {name: "Checkbox Group", status: "Not started"},
+  {name: "Select", status: "Not started"},
+  {name: "Switch", status: "Not started"},
+  {name: "Dropdown", status: "Not started"},
+  {name: "Textarea", status: "Not started"},
+  {name: "Datelnput", status: "Not started"},
+  {name: "TimeInput", status: "Not started"},
+  {name: "DateRangePicker", status: "Not started"},
+  {name: "Card", status: "Not started"},
+  {name: "Table", status: "Not started"},
+  {name: "Pagination", status: "Not started"},
+  {name: "Badge", status: "Not started"},
+  {name: "NumberInput", status: "Not started"},
+  {name: "Tooltip", status: "Not started"},
+  {name: "Breadcrumb", status: "Not started"},
+  {name: "Toast", status: "Not started"},
+  {name: "Calendar", status: "Not started"},
+  {name: "RangeCalendar", status: "Not started"},
+  {name: "Progress", status: "Not started"},
+  {name: "Circular Progress", status: "Not started"},
+  {name: "Slider", status: "Not started"},
+  {name: "Kbd", status: "Not started"},
+  {name: "Spinner", status: "Not started"},
+  {name: "Image", status: "Not started"},
+  {name: "Modal/Popup", status: "Not started"},
+  {name: "Popover", status: "Not started"},
+  {name: "Scroll", status: "Not started"},
+  {name: "Navbar", status: "Not started"},
+  {name: "Skeleton", status: "Not started"},
+];
+
+export const statusToClass = {
+  "Done": "done",
+  "Not started": "not-started",
+  "In progress": "in-progress",
+  "Review": "review",
+  "Blocked": "blocked"
+};
+
+export let toCssClass = (status) => {
+  return status.toLowerCase().replace(/\s+/g, '-');
+}
+
+
+export const ColorSample = ({level}) => (
+  <div class="cell">
+    <div class="color-sample-outer-container">
+      <div class="color-sample-container">
+        <div class="color-sample solid"
+             style={{
+               backgroundColor: 'var(--ft-color-n-surface-100)',
+             }}
+        ></div>
+        <div class="color-sample transparent"
+             style={{
+               backgroundColor: 'var(--ft-color-n-surface-' + level + ')',
+             }}
+        ></div>
+      </div>
+    </div>
+    <div class="color-desc">
+      {'--ft-color-n-surface-' + level}
+    </div>
+
+  </div>
+);
+
+<Unstyled>
+
+  <div class="roadmap custom-docs">
+    {componentStatusArray.map((componentStatus) => (
+      <div class="component">
+        <div class="component-name">{componentStatus.name}</div>
+        <div class={`status-badge ${toCssClass(componentStatus.status)}`}>{componentStatus.status}</div>
+      </div>
+    ))}
+  </div>
+
+
+</Unstyled>

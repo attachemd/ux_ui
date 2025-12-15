@@ -67,7 +67,7 @@
     /* FormField properties */
     --mat-form-field-container-height: var(--ft-spacing-3xl);
     --mat-form-field-container-vertical-padding: var(--ft-spacing-2xs);
-    /*--mdc-filled-text-field-container-color: var(--ft-color-background-tertiary);*/
+    /*--mdc-filled-text-field-container-colors: var(--ft-colors-background-tertiary);*/
     --mdc-filled-text-field-container-color: transparent;
     --mdc-filled-text-field-container-shape: var(--ft-radius-pill);
     --mdc-filled-text-field-active-indicator-height: 0;
@@ -113,7 +113,7 @@
     --mdc-checkbox-selected-hover-icon-color: var(--ft-color-primary);
     --mdc-checkbox-selected-checkmark-color: var(--ft-color-on-primary);
     --mdc-checkbox-selected-focus-state-layer-color: var(--ft-color-on-primary);
-    /*--mdc-checkbox-unselected-focus-state-layer-color: var(--ft-color-primary);*/
+    /*--mdc-checkbox-unselected-focus-state-layer-colors: var(--ft-colors-primary);*/
     --mdc-checkbox-selected-hover-state-layer-color: var(--ft-color-primary);
     --mdc-checkbox-unselected-hover-state-layer-color: var(--ft-color-primary);
     --mdc-checkbox-unselected-pressed-state-layer-color: var(--ft-color-primary);

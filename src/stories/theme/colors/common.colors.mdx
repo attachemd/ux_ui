@@ -1,0 +1,58 @@
+import {Meta, Unstyled} from "@storybook/addon-docs/blocks";
+
+<Meta title="Theme/Colors/Common Colors"/>
+
+Below is a color palette showing all common colors with their variations.
+
+
+export const colorNames = [
+  'red', 'orange', 'amber', 'yellow', 'lime',
+  'green', 'emerald', 'teal', 'cyan', 'sky',
+  'blue', 'indigo', 'violet', 'purple', 'fuchsia',
+  'pink', 'rose', 'slate', 'gray', 'zinc', 'neutral', 'stone'
+];
+
+export const colorVariations = [
+  '50', '100', '200', '300', '400',
+  '500', '600', '700', '800', '900', '950'
+];
+
+
+export const ColorSample = ({color, variation}) => (
+  <div className="cell">
+    <div
+      className="color-sample"
+      style={{
+        backgroundColor: `var(--color-${color}-${variation})`,
+      }}
+    />
+    <div className="color-desc">
+      {`--color-${color}-${variation}`}
+    </div>
+  </div>
+);
+
+<Unstyled>
+  <table className="color-common-table custom-docs">
+    <thead>
+    <tr>
+      <th>Variation\Color</th>
+      {colorNames.map((color) => (
+        <th key={color}><strong>{color}</strong></th>
+      ))}
+    </tr>
+    </thead>
+    <tbody>
+    {colorVariations.map((variation) => (
+      <tr key={variation}>
+        <td><strong>{variation}</strong></td>
+        {colorNames.map((color) => (
+          <td key={`${color}-${variation}`}>
+            <ColorSample color={color} variation={variation}/>
+          </td>
+        ))}
+      </tr>
+    ))}
+    </tbody>
+  </table>
+</Unstyled>

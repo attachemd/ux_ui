@@ -1,0 +1,71 @@
+import {FtButtonComponent} from './ft.button.component';
+import type {Meta, StoryObj} from '@storybook/angular';
+
+const meta: Meta<FtButtonComponent> = {
+  title: 'Buttons/Button',
+  component: FtButtonComponent,
+  tags: ['autodocs'],
+  argTypes: {
+    prefixIconClass: {
+      control: 'select',
+      options: [
+        'icon-search',
+        'icon-menu',
+        'icon-export'
+      ],
+      description: 'Select an icon class for the component',
+    },
+    suffixIconClass: {
+      control: 'select',
+      options: [
+        'icon-arrow-right',
+        'icon-menu',
+        'icon-export',
+        'icon-close',
+        'icon-arrow-down'
+      ],
+      description: 'Select an icon class for the component',
+    },
+
+    size: {
+      control: 'select',
+      options: ['xs-size', 'sm-size', 'md-size', 'lg-size'],
+    },
+    color: {
+      control: 'select',
+      options: ['default', 'primary', 'secondary'],
+    },
+    variant: {
+      control: 'select',
+      options: ['flat', 'ghost', 'faded', 'outlined'],
+    },
+    state: {
+      control: 'select',
+      options: ['rest', 'hover', 'press', 'focus', 'disabled'],
+    },
+    radius: {
+      control: 'select',
+      options: ['none-radius', 'sm-radius', 'md-radius', 'lg-radius', 'full-radius'],
+    },
+  },
+  args: {
+    isLabel: true,
+    label: 'Label',
+    size: 'md-size',
+    radius: 'md-radius',
+    state: 'rest',
+    isPrefixIconClass: true,
+    prefixIconClass: 'icon-user',
+    isSuffixIconClass: true,
+    suffixIconClass: 'icon-arrow-right',
+  },
+};
+
+export default meta;
+type Story = StoryObj<FtButtonComponent>;
+
+export const Default: Story = {
+  args: {
+    label: "Label"
+  }
+};

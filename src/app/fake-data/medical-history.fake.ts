@@ -10,30 +10,30 @@ export let medicalHistoryEntities: MedicalHistoryEntity[] = [
   {
     title: 'Allergies', blocks:
       [
-        {title: 'Penicillin', status: 'Severe', class: 'chip-color-level3', note: 'Anaphylaxis'},
-        {title: 'Dust Mites', status: 'Mild', class: 'chip-color-level2'},
+        {title: 'Penicillin', status: 'Severe', class: 'chip-colors-level3', note: 'Anaphylaxis'},
+        {title: 'Dust Mites', status: 'Mild', class: 'chip-colors-level2'},
       ], dialogComponent: AllergyDialogComponent, focusOnShow: false
   },
   {
     title: 'Facteurs de risque', blocks:
       [
-        {title: 'Cardiovascular Risk', status: 'Severe', class: 'chip-color-level3'},
-        {title: 'Diabetes Risk', status: 'Medium', class: 'chip-color-level2', note: 'parent relation'},
-        {title: 'Fall Risk (Elderly)', status: 'Low', class: 'chip-color-level1'},
+        {title: 'Cardiovascular Risk', status: 'Severe', class: 'chip-colors-level3'},
+        {title: 'Diabetes Risk', status: 'Medium', class: 'chip-colors-level2', note: 'parent relation'},
+        {title: 'Fall Risk (Elderly)', status: 'Low', class: 'chip-colors-level1'},
       ], dialogComponent: RiskAssessmentDialogComponent, focusOnShow: false
   },
   {
     title: 'Antécédents médicaux', blocks:
       [
-        {title: 'Hypertension', status: 'Active', class: 'chip-color-normal'},
-        {title: 'class 2 Diabetes', status: 'Active', class: 'chip-color-normal'},
+        {title: 'Hypertension', status: 'Active', class: 'chip-colors-normal'},
+        {title: 'class 2 Diabetes', status: 'Active', class: 'chip-colors-normal'},
       ], dialogComponent: MedicalConditionDialogComponent
   },
   {
     title: 'Traitements', blocks:
       [
-        {title: 'Amoxicilline 500mg', status: 'Ongoing', class: 'chip-color-ongoing'},
-        {title: 'Floxin 20mg', status: 'Done', class: 'chip-color-done'},
+        {title: 'Amoxicilline 500mg', status: 'Ongoing', class: 'chip-colors-ongoing'},
+        {title: 'Floxin 20mg', status: 'Done', class: 'chip-colors-done'},
       ], dialogComponent: TreatmentDialogComponent
   },
   {

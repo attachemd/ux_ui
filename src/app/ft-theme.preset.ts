@@ -45,28 +45,28 @@ export const FTThemePreset = definePreset(Aura, {
         //   }
         // },
         // formField: {
-        //   hoverBorderColor: '{primary.color}',
+        //   hoverBorderColor: '{primary.colors}',
         //   filled: {
-        //     background: 'var(--ft-color-background-tertiary)',
+        //     background: 'var(--ft-colors-background-tertiary)',
         //     hover: {
-        //       background: 'var(--ft-color-background-quaternary)',
+        //       background: 'var(--ft-colors-background-quaternary)',
         //     },
         //     focus: {
-        //       background: 'var(--ft-color-background-quaternary)',
+        //       background: 'var(--ft-colors-background-quaternary)',
         //     },
         //   },
-        //   color: 'var(--ft-color-text-primary)',
+        //   colors: 'var(--ft-colors-text-primary)',
         //   icon: {
-        //     color: 'var(--ft-color-text-primary)',
+        //     colors: 'var(--ft-colors-text-primary)',
         //   },
         //   float: {
         //     label: {
-        //       color: 'var(--ft-color-text-secondary)',
+        //       colors: 'var(--ft-colors-text-secondary)',
         //       focus: {
-        //         color: 'var(--ft-color-text-tertairy)',
+        //         colors: 'var(--ft-colors-text-tertairy)',
         //       },
         //       active: {
-        //         color: 'var(--ft-color-text-tertairy)',
+        //         colors: 'var(--ft-colors-text-tertairy)',
         //       }
         //     },
         //   },
@@ -77,15 +77,15 @@ export const FTThemePreset = definePreset(Aura, {
         // },
         // inputtext: {
         //   filled: {
-        //     background: 'var(--ft-color-background-tertiary)',
+        //     background: 'var(--ft-colors-background-tertiary)',
         //     hover: {
-        //       background: 'var(--ft-color-background-quaternary)',
+        //       background: 'var(--ft-colors-background-quaternary)',
         //     },
         //     focus: {
-        //       background: 'var(--ft-color-background-quaternary)',
+        //       background: 'var(--ft-colors-background-quaternary)',
         //     },
         //   },
-        //   color: 'red',
+        //   colors: 'red',
         // },
       },
       light: {
@@ -106,25 +106,25 @@ export const FTThemePreset = definePreset(Aura, {
       },
       dark: {
         // formField: {
-        //   hoverBorderColor: '{primary.color}',
+        //   hoverBorderColor: '{primary.colors}',
         //   filled: {
-        //     background: 'var(--ft-color-background-tertiary)',
+        //     background: 'var(--ft-colors-background-tertiary)',
         //     hover: {
-        //       background: 'var(--ft-color-background-quaternary)',
+        //       background: 'var(--ft-colors-background-quaternary)',
         //     },
         //     focus: {
-        //       background: 'var(--ft-color-background-quaternary)',
+        //       background: 'var(--ft-colors-background-quaternary)',
         //     },
         //   }
         // },
         // inputtext: {
         //   filled: {
-        //     background: 'var(--ft-color-background-tertiary)',
+        //     background: 'var(--ft-colors-background-tertiary)',
         //     hover: {
-        //       background: 'var(--ft-color-background-quaternary)',
+        //       background: 'var(--ft-colors-background-quaternary)',
         //     },
         //     focus: {
-        //       background: 'var(--ft-color-background-quaternary)',
+        //       background: 'var(--ft-colors-background-quaternary)',
         //     },
         //   }
         // }
@@ -158,8 +158,8 @@ export const FTThemePreset = definePreset(Aura, {
 
         // // Define styles for the checked state
         // checked: { // Use _checked to target the checked state
-        //   background: 'red' // Set the background when checked (e.g., to your primary color)
-        //   // Or use a specific color value:
+        //   background: 'red' // Set the background when checked (e.g., to your primary colors)
+        //   // Or use a specific colors value:
         //   // background: '#007bff'
         // }
         // height: '16px',
@@ -175,7 +175,7 @@ export const FTThemePreset = definePreset(Aura, {
     // overlay: {
     //   modal: {
     //     padding: 'var(--ft-spacing-md)',
-    //     color: 'var(--ft-color-text-primary)',
+    //     colors: 'var(--ft-colors-text-primary)',
     //   }
     // },
     dialog: {
@@ -193,7 +193,7 @@ export const FTThemePreset = definePreset(Aura, {
         // title: {
         //   fontSize: 'var(--text-base)',
         //   fontWeight: 'var(--font-weight-normal)',
-        //   // color: 'var(--ft-color-text-primary)',
+        //   // colors: 'var(--ft-colors-text-primary)',
         // }
       // }
     },

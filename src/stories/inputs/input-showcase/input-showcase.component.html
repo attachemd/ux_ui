@@ -1,0 +1,369 @@
+<!-- input-showcase.component.html -->
+<div class="showcase-container">
+  <h1>FT-Input Component Showcase</h1>
+
+  <!-- Basic Examples Section -->
+  <section class="showcase-section">
+    <h2>Basic Examples</h2>
+    <div class="examples-grid">
+      <div class="example-item">
+        <h3>Default Input</h3>
+        <ft-input
+          label="Full Name"
+          placeholder="Enter your full name"
+          [(value)]="basicValue"
+          description="This is a basic input field">
+        </ft-input>
+        <p class="value-display">Value: {{ basicValue }}</p>
+      </div>
+
+      <div class="example-item">
+        <h3>Disabled Input</h3>
+        <ft-input
+          label="Disabled Field"
+          [value]="disabledValue"
+          [disabled]="true"
+          description="This field is disabled">
+        </ft-input>
+      </div>
+
+      <div class="example-item">
+        <h3>Readonly Input</h3>
+        <ft-input
+          label="Readonly Field"
+          [readonly]="true"
+          description="This field is read only">
+        </ft-input>
+      </div>
+    </div>
+  </section>
+
+  <!-- Size Variations -->
+  <section class="showcase-section">
+    <h2>Size Variations</h2>
+    <div class="examples-grid">
+      <div class="example-item">
+        <ft-input
+          label="Extra Small"
+          size="xs-size"
+          placeholder="xs-size input">
+        </ft-input>
+      </div>
+
+      <div class="example-item">
+        <ft-input
+          label="Small"
+          size="sm-size"
+          placeholder="sm-size input">
+        </ft-input>
+      </div>
+
+      <div class="example-item">
+        <ft-input
+          label="Medium"
+          size="md-size"
+          placeholder="md-size input">
+        </ft-input>
+      </div>
+
+      <div class="example-item">
+        <ft-input
+          label="Large"
+          size="lg-size"
+          placeholder="lg-size input">
+        </ft-input>
+      </div>
+    </div>
+  </section>
+
+  <!-- label-outside Variations -->
+  <section class="showcase-section">
+    <h2>label-outside Variations</h2>
+    <div class="examples-grid">
+      <div class="example-item">
+        <ft-input
+          label="Extra Small"
+          size="xs-size"
+          labelPlacement="label-outside"
+          placeholder="xs-size input">
+        </ft-input>
+      </div>
+
+      <div class="example-item">
+        <ft-input
+          label="Small"
+          size="sm-size"
+          labelPlacement="label-outside"
+          placeholder="sm-size input">
+        </ft-input>
+      </div>
+
+      <div class="example-item">
+        <ft-input
+          label="Medium"
+          size="md-size"
+          labelPlacement="label-outside"
+          placeholder="md-size input">
+        </ft-input>
+      </div>
+
+      <div class="example-item">
+        <ft-input
+          label="Large"
+          size="lg-size"
+          labelPlacement="label-outside"
+          placeholder="lg-size input">
+        </ft-input>
+      </div>
+    </div>
+  </section>
+
+  <!-- label-outside-left Variations -->
+  <section class="showcase-section">
+    <h2>label-outside-left Variations</h2>
+    <div class="examples-grid">
+      <div class="example-item">
+        <ft-input
+          label="Extra Small"
+          size="xs-size"
+          labelPlacement="label-outside-left"
+          placeholder="xs-size input">
+        </ft-input>
+      </div>
+
+      <div class="example-item">
+        <ft-input
+          label="Small"
+          size="sm-size"
+          labelPlacement="label-outside-left"
+          placeholder="sm-size input">
+        </ft-input>
+      </div>
+
+      <div class="example-item">
+        <ft-input
+          label="Medium"
+          size="md-size"
+          labelPlacement="label-outside-left"
+          placeholder="md-size input">
+        </ft-input>
+      </div>
+
+      <div class="example-item">
+        <ft-input
+          label="Large"
+          size="lg-size"
+          labelPlacement="label-outside-left"
+          placeholder="lg-size input">
+        </ft-input>
+      </div>
+    </div>
+  </section>
+
+  <!-- Variant Styles -->
+  <section class="showcase-section">
+    <h2>Variant Styles</h2>
+    <div class="examples-grid">
+      <div class="example-item">
+        <ft-input
+          label="Flat Variant"
+          variant="flat"
+          placeholder="flat style">
+        </ft-input>
+      </div>
+
+      <div class="example-item">
+        <ft-input
+          label="Bordered Variant"
+          variant="bordered"
+          placeholder="bordered style">
+        </ft-input>
+      </div>
+
+      <div class="example-item">
+        <ft-input
+          label="Faded Variant"
+          variant="faded"
+          placeholder="faded style">
+        </ft-input>
+      </div>
+
+      <div class="example-item">
+        <ft-input
+          label="Outlined Variant"
+          variant="outlined"
+          placeholder="outlined style">
+        </ft-input>
+      </div>
+    </div>
+  </section>
+
+  <!-- Color Variations -->
+  <section class="showcase-section">
+    <h2>Color Variations</h2>
+    <div class="examples-grid">
+      <div class="example-item">
+        <ft-input
+          label="Default Color"
+          color="default"
+          placeholder="default color">
+        </ft-input>
+      </div>
+
+      <div class="example-item">
+        <ft-input
+          label="Primary Color"
+          color="primary"
+          placeholder="primary color">
+        </ft-input>
+      </div>
+
+      <div class="example-item">
+        <ft-input
+          label="Secondary Color"
+          color="secondary"
+          placeholder="secondary color">
+        </ft-input>
+      </div>
+    </div>
+  </section>
+
+  <!-- Form Example -->
+  <section class="showcase-section">
+    <h2>Form Example</h2>
+    <div class="form-example">
+      <div class="form-grid">
+        <ft-input
+          label="Username *"
+          placeholder="Enter username"
+          [(value)]="user.username"
+          [required]="true"
+          description="Your public username">
+        </ft-input>
+
+        <ft-input
+          label="Email Address *"
+          placeholder="your@email.com"
+          [(value)]="user.email"
+          [required]="true"
+          [invalid]="!isEmailValid && user.email !== ''"
+          [errorMessage]="emailErrorMessage"
+          (valueChange)="onEmailChange($event)">
+        </ft-input>
+
+        <ft-input
+          label="Password *"
+          placeholder="Enter password"
+          type="password"
+          [(value)]="user.password"
+          [required]="true"
+          description="Minimum 8 characters">
+        </ft-input>
+
+        <ft-input
+          label="Bio"
+          placeholder="Tell us about yourself..."
+          [(value)]="user.bio"
+          description="Optional bio information">
+        </ft-input>
+      </div>
+
+      <div class="form-actions">
+        <button class="btn btn-primary" (click)="onSubmit()">Submit Form</button>
+        <button class="btn btn-secondary" (click)="resetForm()">Reset All</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Icon Examples -->
+  <section class="showcase-section">
+    <h2>Input with Icons</h2>
+    <div class="examples-grid">
+      <div class="example-item">
+        <ft-input
+          label="Search"
+          [(value)]="searchTerm"
+          [isPrefixIconClass]="true"
+          prefixIconClass="icon-search"
+          [isClearable]="true"
+          placeholder="Search...">
+        </ft-input>
+      </div>
+
+      <div class="example-item">
+        <ft-input
+          label="Email with Icons"
+          [(value)]="email"
+          [isPrefixIconClass]="true"
+          prefixIconClass="icon-email"
+          [isSuffix1IconClass]="true"
+          suffix1IconClass="icon-close"
+          placeholder="email@example.com">
+        </ft-input>
+      </div>
+
+      <div class="example-item">
+        <ft-input
+          label="Phone Number"
+          [(value)]="phone"
+          [isPrefixIconClass]="true"
+          prefixIconClass="icon-phone"
+          [isSuffix2IconClass]="true"
+          suffix2IconClass="icon-arrow-down"
+          placeholder="+1 (555) 000-0000">
+        </ft-input>
+      </div>
+    </div>
+  </section>
+
+  <!-- Validation States -->
+  <section class="showcase-section">
+    <h2>Validation States</h2>
+    <div class="examples-grid">
+      <div class="example-item">
+        <ft-input
+          label="Valid Field"
+          [(value)]="successField"
+          color="primary"
+          description="This field is valid">
+        </ft-input>
+      </div>
+
+      <div class="example-item">
+        <ft-input
+          label="Error Field"
+          [(value)]="errorField"
+          [invalid]="true"
+          errorMessage="This field has an error"
+          placeholder="This field shows error">
+        </ft-input>
+      </div>
+
+      <div class="example-item">
+        <ft-input
+          label="Required Field"
+          [required]="true"
+          placeholder="This field is required"
+          description="* indicates required field">
+        </ft-input>
+      </div>
+    </div>
+  </section>
+
+  <!-- Clearable Input -->
+  <section class="showcase-section">
+    <h2>Clearable Input</h2>
+    <div class="examples-grid">
+      <div class="example-item">
+        <ft-input
+          label="Clearable Field"
+          [(value)]="clearableText"
+          [isClearable]="true"
+          placeholder="Type something and clear it"
+          description="Click the X to clear the field">
+        </ft-input>
+        <p class="value-display">Current value: {{ clearableText }}</p>
+      </div>
+    </div>
+  </section>
+</div>

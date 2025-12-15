@@ -20,17 +20,17 @@
   /* ft-panel */
   /* ft-flex-center */
   /*@theme {*/
-  /*  --color-mauve-50: #f2eefb;*/
-  /*  --color-mauve-100: #e1daf7;*/
-  /*  --color-mauve-200: #c3b4ee;*/
-  /*  --color-mauve-300: #a48fe6;*/
-  /*  --color-mauve-400: #8669dd;*/
-  /*  --color-mauve-500: #6946d5;*/
-  /*  --color-mauve-600: #4d2ab7;*/
-  /*  --color-mauve-700: #3a1f89;*/
-  /*  --color-mauve-800: #26155b;*/
-  /*  --color-mauve-900: #130a2e;*/
-  /*  --color-mauve-950: #0a0619;*/
+  /*  --colors-mauve-50: #f2eefb;*/
+  /*  --colors-mauve-100: #e1daf7;*/
+  /*  --colors-mauve-200: #c3b4ee;*/
+  /*  --colors-mauve-300: #a48fe6;*/
+  /*  --colors-mauve-400: #8669dd;*/
+  /*  --colors-mauve-500: #6946d5;*/
+  /*  --colors-mauve-600: #4d2ab7;*/
+  /*  --colors-mauve-700: #3a1f89;*/
+  /*  --colors-mauve-800: #26155b;*/
+  /*  --colors-mauve-900: #130a2e;*/
+  /*  --colors-mauve-950: #0a0619;*/
   /*}*/
 
   :root {
@@ -788,6 +788,30 @@
     --ft-color-electric-primary: var(--color-green-500);
     --ft-color-electric-secondary: var(--color-pink-500);
 
+    --ft-color-success-50: var(--color-green-50);
+    --ft-color-success-100: var(--color-green-100);
+    --ft-color-success-200: var(--color-green-200);
+    --ft-color-success-300: var(--color-green-300);
+    --ft-color-success-400: var(--color-green-400);
+    --ft-color-success-500: var(--color-green-500);
+    --ft-color-success-600: var(--color-green-600);
+    --ft-color-success-700: var(--color-green-700);
+    --ft-color-success-800: var(--color-green-800);
+    --ft-color-success-900: var(--color-green-900);
+    --ft-color-success-950: var(--color-green-950);
+
+    --ft-color-warning-50: var(--color-orange-50);
+    --ft-color-warning-100: var(--color-orange-100);
+    --ft-color-warning-200: var(--color-orange-200);
+    --ft-color-warning-300: var(--color-orange-300);
+    --ft-color-warning-400: var(--color-orange-400);
+    --ft-color-warning-500: var(--color-orange-500);
+    --ft-color-warning-600: var(--color-orange-600);
+    --ft-color-warning-700: var(--color-orange-700);
+    --ft-color-warning-800: var(--color-orange-800);
+    --ft-color-warning-900: var(--color-orange-900);
+    --ft-color-warning-950: var(--color-orange-950);
+
     --ft-color-danger-50: var(--color-red-50);
     --ft-color-danger-100: var(--color-red-100);
     --ft-color-danger-200: var(--color-red-200);
@@ -799,6 +823,7 @@
     --ft-color-danger-800: var(--color-red-800);
     --ft-color-danger-900: var(--color-red-900);
     --ft-color-danger-950: var(--color-red-950);
+
     --ft-color-surface-level-100: var(--ft-color-n-surface-85);
     --ft-color-surface-level-200: var(--ft-color-n-on-surface-4);
     --ft-color-surface-level-300: var(--ft-color-n-surface-100);
@@ -812,6 +837,7 @@
     --ft-color-on-surface-scroll: var(--ft-color-n-on-surface-15);
     --ft-color-border-100: var(--ft-color-n-on-surface-3);
     --ft-color-shadow-200: var(--ft-color-n-on-surface-10);
+    --ft-color-shadow-300: var(--ft-color-n-on-surface-20);
     --ft-color-border-200: var(--ft-color-n-on-surface-10);
     --ft-color-border-300: var(--ft-color-n-on-surface-40);
     --ft-color-border-muted: var(--ft-color-n-on-surface-40);
@@ -833,6 +859,7 @@
     --ft-form-field-50: var(--ft-color-n-on-surface-2);
     --ft-form-field-100: var(--ft-color-n-on-surface-5);
     --ft-form-field-200: var(--ft-color-n-on-surface-8);
+    --ft-form-field-300: var(--ft-color-n-on-surface-15);
     --ft-form-field-muted: var(--ft-color-n-on-surface-3);
     --ft-form-field-content-muted: var(--ft-color-n-on-surface-40);
     --ft-form-field-label-muted: var(--ft-color-n-on-surface-20);
@@ -848,16 +875,16 @@
 
 
     /* --- Colors --- */
-    /*--ft-color-primary: var(--color-mauve-500);*/
-    /*--ft-color-on-primary: #fff;*/
-    /*--ft-color-secondary: #6c757d;*/
-    /*--ft-color-success: #28a745;*/
-    /*--ft-color-danger: #dc3545;*/
-    /*--ft-color-warning: #ffc107;*/
-    /*--ft-color-info: #DBECF2;*/
+    /*--ft-colors-primary: var(--colors-mauve-500);*/
+    /*--ft-colors-on-primary: #fff;*/
+    /*--ft-colors-secondary: #6c757d;*/
+    /*--ft-colors-success: #28a745;*/
+    /*--ft-colors-danger: #dc3545;*/
+    /*--ft-colors-warning: #ffc107;*/
+    /*--ft-colors-info: #DBECF2;*/
     --ft-color-light: #fff;
     --ft-color-dark: #000;
-    /*--ft-color-global-shadow: 1, 93, 231;*/
+    /*--ft-colors-global-shadow: 1, 93, 231;*/
     --ft-color-global-shadow: 0, 0, 0;
     --color-electric-primary: #34C759;
     --color-electric-secondary: #ff00ae;
@@ -977,7 +1004,7 @@
     --ft-color-light: #fff; /* Dark becomes light background */
     --ft-color-dark: #000; /* Light becomes dark background */
 
-    --ft-color-text-base: var(--ft-color-light); /* Use light color for text */
+    --ft-color-text-base: var(--ft-color-light); /* Use light colors for text */
     --ft-color-text-muted: var(--ft-color-secondary);
 
     --ft-color-text-primary: rgba(255, 255, 255, 0.7);
@@ -986,14 +1013,14 @@
 
     --ft-color-background-body: 33, 37, 41; /* Dark background */
 
-    /* --ft-color-background-primary: rgba(255, 255, 255, 0.2);
-    --ft-color-background-secondary: rgba(255, 255, 255, 0.08);
-    --ft-color-background-tertiary: #393838;
-    --ft-color-background-quaternary: #e3e3e3;
-    --ft-color-background-quinary: rgba(255, 255, 255, 0.26);
+    /* --ft-colors-background-primary: rgba(255, 255, 255, 0.2);
+    --ft-colors-background-secondary: rgba(255, 255, 255, 0.08);
+    --ft-colors-background-tertiary: #393838;
+    --ft-colors-background-quaternary: #e3e3e3;
+    --ft-colors-background-quinary: rgba(255, 255, 255, 0.26);
 
-    --ft-color-dark-alpha-primary: rgba(255, 255, 255, 0.03);
-    --ft-color-dark-alpha-secondary: rgba(255, 255, 255, 0.1); */
+    --ft-colors-dark-alpha-primary: rgba(255, 255, 255, 0.03);
+    --ft-colors-dark-alpha-secondary: rgba(255, 255, 255, 0.1); */
 
     --ft-color-background-primary: rgb(0 0 0 / 88%);
     --ft-color-background-secondary: rgba(255, 255, 255, 0.08);
@@ -1008,7 +1035,7 @@
 
     --ft-color-link: var(--ft-color-primary);
 
-    /* --ft-color-background-image: linear-gradient(
+    /* --ft-colors-background-image: linear-gradient(
         129deg,
         rgb(255 0 88 / 3%),
         rgba(255, 255, 255, 0)
