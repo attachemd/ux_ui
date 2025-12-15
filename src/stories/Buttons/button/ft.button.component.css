@@ -30,6 +30,9 @@
       .label-row {
         display: flex;
         height: fit-content;
+        .label {
+          line-height: 2;
+        }
       }
 
     }
