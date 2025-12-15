@@ -43,9 +43,12 @@
 
       }
 
-      .placeholder {
-        color: var(--ft-color-on-surface-level-300);
+      .placeholder-row {
+        .placeholder {
+          color: var(--ft-color-on-surface-level-300);
+        }
       }
+
     }
 
     .suffix-icon {
@@ -197,6 +200,16 @@
       grid-row: 1;
     }
 
+    .content {
+      line-height: 2;
+    }
+
+    .placeholder-row {
+      .placeholder {
+        line-height: 2;
+      }
+    }
+
     .input-wrapper {
       grid-column: 1;
       grid-row: 2;
@@ -221,6 +234,16 @@
     .label-row {
       grid-column: 1;
       grid-row: 1;
+    }
+
+    .content {
+      line-height: 2;
+    }
+
+    .placeholder-row {
+      .placeholder {
+        line-height: 2;
+      }
     }
 
     .input-wrapper {
