@@ -9,7 +9,8 @@
       <div *ngIf="isLabel" class="label-row">
         <span class="label truncate"
               [ngClass]="{
-           'content-xs--bold': size === 'sm-size' || size === 'md-size' || size === 'xs-size',
+           'content-2xs--bold': size === 'sm-size' || size === 'xs-size',
+           'content-xs--bold': size === 'md-size',
            'content-sm--bold': size === 'lg-size',
            }"
         >{{ label }}</span>
