@@ -773,20 +773,42 @@
 
     /* ALIAS */
 
-    --ft-color-on-primary: #FFFFFF;
-    --ft-color-primary: var(--ft-color-mauve-500);
-    --ft-color-secondary: #6C757D;
-    --ft-color-on-secondary: #FFFFFF;
-    --ft-color-success: var(--color-green-500);
-    --ft-color-on-success: #FFFFFF;
-    --ft-color-danger: var(--color-red-500);
-    --ft-color-on-danger: #FFFFFF;
-    --ft-color-warning: var(--color-orange-500);
-    --ft-color-on-warning: #FFFFFF;
-    --ft-color-info: var(--color-blue-500);
-    --ft-color-on-info: #FFFFFF;
-    --ft-color-electric-primary: var(--color-green-500);
-    --ft-color-electric-secondary: var(--color-pink-500);
+
+    --ft-color-primary-50: var(--ft-color-mauve-50);
+    --ft-color-primary-100: var(--ft-color-mauve-100);
+    --ft-color-primary-200: var(--ft-color-mauve-200);
+    --ft-color-primary-300: var(--ft-color-mauve-300);
+    --ft-color-primary-400: var(--ft-color-mauve-400);
+    --ft-color-primary-500: var(--ft-color-mauve-500);
+    --ft-color-primary-600: var(--ft-color-mauve-600);
+    --ft-color-primary-700: var(--ft-color-mauve-700);
+    --ft-color-primary-800: var(--ft-color-mauve-800);
+    --ft-color-primary-900: var(--ft-color-mauve-900);
+    --ft-color-primary-950: var(--ft-color-mauve-950);
+
+    --ft-color-secondary-50: var(--color-pink-50);
+    --ft-color-secondary-100: var(--color-pink-100);
+    --ft-color-secondary-200: var(--color-pink-200);
+    --ft-color-secondary-300: var(--color-pink-300);
+    --ft-color-secondary-400: var(--color-pink-400);
+    --ft-color-secondary-500: var(--color-pink-500);
+    --ft-color-secondary-600: var(--color-pink-600);
+    --ft-color-secondary-700: var(--color-pink-700);
+    --ft-color-secondary-800: var(--color-pink-800);
+    --ft-color-secondary-900: var(--color-pink-900);
+    --ft-color-secondary-950: var(--color-pink-950);
+
+    --ft-color-tertiary-50: var(--color-neutral-50);
+    --ft-color-tertiary-100: var(--color-neutral-100);
+    --ft-color-tertiary-200: var(--color-neutral-200);
+    --ft-color-tertiary-300: var(--color-neutral-300);
+    --ft-color-tertiary-400: var(--color-neutral-400);
+    --ft-color-tertiary-500: var(--color-neutral-500);
+    --ft-color-tertiary-600: var(--color-neutral-600);
+    --ft-color-tertiary-700: var(--color-neutral-700);
+    --ft-color-tertiary-800: var(--color-neutral-800);
+    --ft-color-tertiary-900: var(--color-neutral-900);
+    --ft-color-tertiary-950: var(--color-neutral-950);
 
     --ft-color-success-50: var(--color-green-50);
     --ft-color-success-100: var(--color-green-100);
@@ -842,17 +864,23 @@
     --ft-color-border-300: var(--ft-color-n-on-surface-40);
     --ft-color-border-muted: var(--ft-color-n-on-surface-40);
     --ft-color-border-solid: var(--ft-color-n-on-surface-100);
-    --ft-color-primary-50: var(--ft-color-mauve-50);
-    --ft-color-primary-100: var(--ft-color-mauve-100);
-    --ft-color-primary-200: var(--ft-color-mauve-200);
-    --ft-color-primary-300: var(--ft-color-mauve-300);
-    --ft-color-primary-400: var(--ft-color-mauve-400);
-    --ft-color-primary-500: var(--ft-color-mauve-500);
-    --ft-color-primary-600: var(--ft-color-mauve-600);
-    --ft-color-primary-700: var(--ft-color-mauve-700);
-    --ft-color-primary-800: var(--ft-color-mauve-800);
-    --ft-color-primary-900: var(--ft-color-mauve-900);
-    --ft-color-primary-950: var(--ft-color-mauve-950);
+
+    --ft-color-on-primary: #FFFFFF;
+    --ft-color-primary: var(--ft-color-mauve-500);
+    --ft-color-secondary: var(--color-pink-500);
+    --ft-color-on-secondary: #FFFFFF;
+    --ft-color-tertiary: var(--ft-color-tertiary-500);
+    --ft-color-on-tertiary: #FFFFFF;
+    --ft-color-success: var(--color-green-500);
+    --ft-color-on-success: #FFFFFF;
+    --ft-color-danger: var(--color-red-500);
+    --ft-color-on-danger: #FFFFFF;
+    --ft-color-warning: var(--color-orange-500);
+    --ft-color-on-warning: #FFFFFF;
+    --ft-color-info: var(--color-blue-500);
+    --ft-color-on-info: #FFFFFF;
+    --ft-color-electric-primary: var(--color-green-500);
+    --ft-color-electric-secondary: var(--color-pink-500);
 
     /* Mapped */
 
