@@ -59,7 +59,7 @@ export class FTInputComponent {
 
   get hasPlaceholderToShow(): boolean {
     // Basic conditions that prevent showing placeholder
-    if (!this.placeholder || this.content || this.disabled || this.readonly) {
+    if (!this.placeholder || this.content || this.readonly) {
       return false;
     }
 

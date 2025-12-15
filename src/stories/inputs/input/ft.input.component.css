@@ -77,6 +77,9 @@
       color: var(--ft-color-on-surface-muted);
       .input-wrapper {
         background-color: var(--ft-form-field-100);
+        .placeholder {
+          color: var(--ft-color-on-surface-muted);
+        }
       }
     }
   }
@@ -106,6 +109,9 @@
       color: var(--ft-color-on-surface-muted);
       .input-wrapper {
         background-color: var(--ft-form-field-100);
+        .placeholder {
+          color: var(--ft-color-on-surface-muted);
+        }
       }
     }
   }
@@ -133,6 +139,9 @@
       color: var(--ft-color-on-surface-muted);
       .input-wrapper {
         border-color: var(--ft-color-border-200);
+        .placeholder {
+          color: var(--ft-color-on-surface-muted);
+        }
       }
     }
   }
@@ -171,7 +180,9 @@
     &.disabled {
       color: var(--ft-color-on-surface-muted);
       .input-wrapper {
-
+        .placeholder {
+          color: var(--ft-color-on-surface-muted);
+        }
       }
     }
   }
@@ -432,17 +443,5 @@ body:has(.input-wrapper) {
 .input-wrapper.invalid {
   border-color: var(--ft-color-danger-500);
 }
-
-button {
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-label.disabled input {
-  opacity: 0.5;
-}
-
-/* ... */
 
 
