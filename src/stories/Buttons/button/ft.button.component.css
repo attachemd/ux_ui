@@ -50,7 +50,7 @@
     }
 
     &.primary {
-      color: var(--ft-color-on-primary);
+      color: var(--ft-color-solid-surface);
       .button-wrapper{
         background-color: var(--ft-color-primary);
         /*box-shadow: 0 8px 24px var(--ft-color-mauve-200);*/
@@ -71,7 +71,7 @@
 
     }
     &.success {
-      color: var(--ft-color-on-primary);
+      color: var(--ft-color-solid-surface);
       .button-wrapper{
         background-color: var(--ft-color-success);
         /*box-shadow: 0 8px 24px var(--ft-color-mauve-200);*/
@@ -86,6 +86,27 @@
       &.press {
         .button-wrapper{
           background-color: var(--ft-color-success-700);
+        }
+      }
+
+
+    }
+    &.danger {
+      color: var(--ft-color-solid-surface);
+      .button-wrapper{
+        background-color: var(--ft-color-danger);
+        /*box-shadow: 0 8px 24px var(--ft-color-mauve-200);*/
+        /*box-shadow: 0 8px 24px rgba(var(--ft-color-primary), 0.3);*/
+        box-shadow: 0 8px 24px color-mix(in srgb, var(--ft-color-danger) 30%, transparent);
+      }
+      &.hover {
+        .button-wrapper{
+          background-color: var(--ft-color-danger-600);
+        }
+      }
+      &.press {
+        .button-wrapper{
+          background-color: var(--ft-color-danger-700);
         }
       }
 
@@ -150,6 +171,20 @@
         .button-wrapper{
           border-color: var(--ft-color-success);
           background-color: var(--ft-color-success-50);
+        }
+      }
+
+    }
+    &.danger {
+      &.hover {
+        .button-wrapper{
+          border-color: var(--ft-color-danger);
+        }
+      }
+      &.press {
+        .button-wrapper{
+          border-color: var(--ft-color-danger);
+          background-color: var(--ft-color-danger-50);
         }
       }
 
@@ -219,6 +254,22 @@
       }
 
     }
+    &.danger {
+      color: var(--ft-color-danger);
+      &.hover {
+        color: var(--ft-color-danger-600);
+        .button-wrapper{
+          background-color: var(--ft-color-danger-100);
+        }
+      }
+      &.press {
+        color: var(--ft-color-danger-700);
+        .button-wrapper{
+          background-color: var(--ft-color-danger-200);
+        }
+      }
+
+    }
     &.focus {
       .button-wrapper{
         position: relative;
@@ -277,6 +328,22 @@
       }
       &.press {
         color: var(--ft-color-success-700);
+        .button-wrapper{
+
+        }
+      }
+
+    }
+    &.danger {
+      color: var(--ft-color-danger-500);
+      &.hover {
+        color: var(--ft-color-danger-600);
+        .button-wrapper{
+          /*background-color: var(--ft-form-field-50);*/
+        }
+      }
+      &.press {
+        color: var(--ft-color-danger-700);
         .button-wrapper{
 
         }
