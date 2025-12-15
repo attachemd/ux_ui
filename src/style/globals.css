@@ -85,7 +85,9 @@
   body {
     width: 100%;
     height: 100%;
-    font-family: Inter, sans-serif;
+    /*font-family: Inter, sans-serif;*/
+    font-family: 'Google Sans Flex', sans-serif;
+    font-variation-settings: "slnt" 0, "GRAD" 0, "ROND" 100;
     font-size: var(--text-base);
     color: var(--ft-color-text-primary);
   }

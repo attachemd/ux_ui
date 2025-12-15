@@ -273,7 +273,7 @@ table.color-surface-table {
   max-width: 100%;
   margin: 0;
   background-color: var(--ft-color-surface-level-300);
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  /*font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;*/
 
   .cases-container {
     width: 100%;

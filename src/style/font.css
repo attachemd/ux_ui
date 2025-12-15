@@ -11,3 +11,11 @@
 /*@import '@fontsource/inter/400-italic.css';*/
 
 
+@font-face {
+  font-family: 'Google Sans Flex';
+  src: url('assets/fonts/google-sans-flex/GoogleSansFlex-VariableFont_GRAD,ROND,opsz,slnt,wdth,wght.ttf') format('truetype');
+  font-weight: 100 900; /* For variable fonts, define the range */
+  font-style: normal;
+  /* You might need additional settings for variable axes */
+}
+
