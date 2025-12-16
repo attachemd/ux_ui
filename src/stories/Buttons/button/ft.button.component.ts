@@ -25,10 +25,10 @@ export class FtButtonComponent {
   @Input() disabled = false;
 
   @Input() isPrefixIconClass = false;
-  @Input() prefixIconClass = ''; // For icon libraries that use classes
+  @Input() prefixIconClass = 'person'; // For icon libraries that use classes
 
   @Input() isSuffixIconClass = true;
-  @Input() suffixIconClass = 'icon-arrow-right';
+  @Input() suffixIconClass = 'face';
 
   get radiusClasses(): string {
     const classes = {

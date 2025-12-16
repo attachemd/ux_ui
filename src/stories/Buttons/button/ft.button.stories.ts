@@ -9,7 +9,7 @@ const meta: Meta<FtButtonComponent> = {
     prefixIconClass: {
       control: 'select',
       options: [
-        'icon-search',
+        'person',
         'icon-menu',
         'icon-export'
       ],
@@ -18,7 +18,7 @@ const meta: Meta<FtButtonComponent> = {
     suffixIconClass: {
       control: 'select',
       options: [
-        'icon-arrow-right',
+        'face',
         'icon-menu',
         'icon-export',
         'icon-close',
@@ -55,9 +55,9 @@ const meta: Meta<FtButtonComponent> = {
     radius: 'md-radius',
     state: 'rest',
     isPrefixIconClass: true,
-    prefixIconClass: 'icon-user',
+    prefixIconClass: 'person',
     isSuffixIconClass: true,
-    suffixIconClass: 'icon-arrow-right',
+    suffixIconClass: 'face',
   },
 };
 

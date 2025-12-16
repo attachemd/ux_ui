@@ -2,8 +2,9 @@
      [class]="size + ' ' + variant + ' ' + state + ' ' + color"
 >
   <div class="button-wrapper" [class]="radiusClasses">
-    <div *ngIf="isPrefixIconClass && prefixIconClass" class="prefix">
-      <i [class]="prefixIconClass"></i>
+    <div *ngIf="isPrefixIconClass && prefixIconClass" class="prefix-icon">
+<!--      <i [class]="prefixIconClass"></i>-->
+      <span class="material-symbols-rounded">{{prefixIconClass}}</span>
     </div>
     <div class="content-section">
       <div *ngIf="isLabel" class="label-row">
@@ -18,8 +19,9 @@
 
     </div>
     <div *ngIf="isSuffixIconClass && suffixIconClass" class="suffix-icon flex">
-      <div class="suffix1">
-        <i [class]="suffixIconClass"></i>
+      <div class="suffix">
+<!--        <i [class]="suffixIconClass"></i>-->
+        <span class="material-symbols-rounded">{{suffixIconClass}}</span>
       </div>
     </div>
   </div>
