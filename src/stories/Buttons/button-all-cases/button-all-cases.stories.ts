@@ -19,6 +19,9 @@ const meta: Meta<ButtonAllCasesComponent> = {
   //   }
   // },
   argTypes: {
+    isLabel: {
+      control: 'boolean'
+    },
     label: {
       control: 'text',
       description: 'Label for the button'
@@ -37,6 +40,7 @@ const meta: Meta<ButtonAllCasesComponent> = {
     },
   },
   args: {
+    isLabel: true,
     label: 'Username',
     size: 'md-size',
     color: 'primary',

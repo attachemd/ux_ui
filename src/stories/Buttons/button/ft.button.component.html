@@ -6,7 +6,7 @@
 <!--      <i [class]="prefixIconClass"></i>-->
       <span class="material-symbols-rounded">{{prefixIconClass}}</span>
     </div>
-    <div class="content-section">
+    <div *ngIf="isLabel" class="content-section">
       <div *ngIf="isLabel" class="label-row">
         <span class="label truncate"
               [ngClass]="{
