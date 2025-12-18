@@ -13,19 +13,7 @@
     border-style: solid;
     border-color: var(--ft-color-border-200);
     border-width: var(--ft-border-secondary);
-    padding: 0 var(--ft-unit-400);
-    /*gap: var(--ft-unit-400);*/
-    /*height: var(--ft-unit-800);*/
-    /*background-colors: var(--ft-form-field-100);*/
-    width: fit-content;
 
-    &:has(.prefix-icon) {
-      padding-left: var(--ft-unit-200);
-    }
-
-    &:has(.suffix-icon) {
-      padding-right: var(--ft-unit-200);
-    }
 
 
     .content-section {
@@ -869,13 +857,31 @@
 
   &.sm-size {
     .button-wrapper {
-      padding: 0 var(--ft-unit-300);
       height: var(--ft-unit-600);
+      /* Default state: Balanced padding */
+      padding: 0 var(--ft-unit-200);
       gap: var(--ft-unit-200);
+      width: fit-content;
 
-      [class^="icon-"], [class*=" icon-"] {
-        width: 16px;
-        height: 16px;
+      /* Specific Icon Adjustments */
+      &:has(.prefix-icon) {
+        padding-left: var(--ft-unit-100);
+      }
+
+      &:has(.suffix-icon) {
+        padding-right: var(--ft-unit-100);
+      }
+
+      /* Combined Rule: If it has EITHER icon, but NO content and NOT BOTH icons,
+         apply balanced small padding */
+      &:not(:has(.content-section)) {
+        &:has(.prefix-icon):not(:has(.suffix-icon)),
+        &:has(.suffix-icon):not(:has(.prefix-icon)) {
+          padding: 0 var(--ft-unit-100);
+        }
+      }
+
+      [class*="material-symbols-rounded"] {
         font-size: 16px;
       }
     }
@@ -904,7 +910,28 @@
   &.md-size {
     .button-wrapper {
       height: var(--ft-unit-800);
+      /* Default state: Balanced padding */
+      padding: 0 var(--ft-unit-300);
       gap: var(--ft-unit-300);
+      width: fit-content;
+
+      /* Specific Icon Adjustments */
+      &:has(.prefix-icon) {
+        padding-left: var(--ft-unit-200);
+      }
+
+      &:has(.suffix-icon) {
+        padding-right: var(--ft-unit-200);
+      }
+
+      /* Combined Rule: If it has EITHER icon, but NO content and NOT BOTH icons,
+         apply balanced small padding */
+      &:not(:has(.content-section)) {
+        &:has(.prefix-icon):not(:has(.suffix-icon)),
+        &:has(.suffix-icon):not(:has(.prefix-icon)) {
+          padding: 0 var(--ft-unit-200);
+        }
+      }
       [class*="material-symbols-rounded"] {
         font-size: 20px;
       }
@@ -936,7 +963,31 @@
 
     .button-wrapper {
       height: var(--ft-unit-900);
+      /* Default state: Balanced padding */
+      padding: 0 var(--ft-unit-400);
       gap: var(--ft-unit-400);
+      width: fit-content;
+
+      /* Specific Icon Adjustments */
+      &:has(.prefix-icon) {
+        padding-left: var(--ft-unit-300);
+      }
+
+      &:has(.suffix-icon) {
+        padding-right: var(--ft-unit-300);
+      }
+
+      /* Combined Rule: If it has EITHER icon, but NO content and NOT BOTH icons,
+         apply balanced small padding */
+      &:not(:has(.content-section)) {
+        &:has(.prefix-icon):not(:has(.suffix-icon)),
+        &:has(.suffix-icon):not(:has(.prefix-icon)) {
+          padding: 0 var(--ft-unit-300);
+        }
+      }
+      [class*="material-symbols-rounded"] {
+        font-size: 24px;
+      }
     }
 
     &.label-inside {
