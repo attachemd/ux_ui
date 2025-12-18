@@ -9,29 +9,27 @@ const meta: Meta<FTInputComponent> = {
     prefixIconClass: {
       control: 'select',
       options: [
-        'icon-search',
-        'icon-menu',
-        'icon-export'
+        'keyboard_arrow_down',
+        'export',
+        'close',
       ],
       description: 'Select an icon class for the component',
     },
     suffix1IconClass: {
       control: 'select',
       options: [
-        'icon-menu',
-        'icon-export',
-        'icon-close',
-        'icon-arrow-down'
+        'keyboard_arrow_down',
+        'export',
+        'close',
       ],
       description: 'Select an icon class for the component',
     },
     suffix2IconClass: {
       control: 'select',
       options: [
-        'icon-menu',
-        'icon-export',
-        'icon-close',
-        'icon-arrow-down'
+        'keyboard_arrow_down',
+        'export',
+        'close',
       ],
       description: 'Select an icon class for the component',
     },
@@ -69,11 +67,11 @@ const meta: Meta<FTInputComponent> = {
     radius: 'md-radius',
     state: 'normal',
     isPrefixIconClass: false,
-    prefixIconClass: 'icon-search',
+    prefixIconClass: 'person',
     isSuffix1IconClass: true,
-    suffix1IconClass: 'icon-close',
+    suffix1IconClass: 'close_small',
     isSuffix2IconClass: true,
-    suffix2IconClass: 'icon-arrow-down',
+    suffix2IconClass: 'keyboard_arrow_down',
     isDescription: false,
     invalid: false,
     errorMessage: 'error',

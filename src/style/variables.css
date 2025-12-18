@@ -668,8 +668,10 @@
 
 
     --ft-unit-0: 0px;
+    --ft-unit-25: 1px;
     --ft-unit-50: 2px;
     --ft-unit-100: 4px;
+    --ft-unit-150: 6px;
     --ft-unit-200: 8px;
     --ft-unit-300: 12px;
     --ft-unit-350: 14px;

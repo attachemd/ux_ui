@@ -2,7 +2,6 @@
   width: fit-content;
 }
 
-
 .button-container {
   /*width: var(--container-xs);*/
 
@@ -61,9 +60,6 @@
 
       .button-wrapper {
         background-color: var(--ft-color-primary);
-        /*box-shadow: 0 8px 24px var(--ft-color-mauve-200);*/
-        /*box-shadow: 0 8px 24px rgba(var(--ft-color-primary), 0.3);*/
-        box-shadow: 0 8px 24px color-mix(in srgb, var(--ft-color-primary) 30%, transparent);
       }
 
       &.hover {
@@ -92,9 +88,6 @@
 
       .button-wrapper {
         background-color: var(--ft-color-secondary);
-        /*box-shadow: 0 8px 24px var(--ft-color-mauve-200);*/
-        /*box-shadow: 0 8px 24px rgba(var(--ft-color-secondary), 0.3);*/
-        box-shadow: 0 8px 24px color-mix(in srgb, var(--ft-color-secondary) 30%, transparent);
       }
 
       &.hover {
@@ -807,11 +800,34 @@
 
   &.xs-size {
     .button-wrapper {
-      padding: 0 var(--ft-unit-300);
+      /*padding: 0 var(--ft-unit-300);*/
       /*height: var(--ft-unit-600);*/
       height: var(--ft-unit-500);
-      gap: var(--ft-unit-200);
+      /*gap: var(--ft-unit-200);*/
       border-width: var(--ft-border-primary);
+
+      /* Default state: Balanced padding */
+      padding: 0 var(--ft-unit-150);
+      gap: var(--ft-unit-150);
+      width: fit-content;
+
+      /* Specific Icon Adjustments */
+      &:has(.prefix-icon) {
+        padding-left: var(--ft-unit-100);
+      }
+
+      &:has(.suffix-icon) {
+        padding-right: var(--ft-unit-100);
+      }
+
+      /* Combined Rule: If it has EITHER icon, but NO content and NOT BOTH icons,
+         apply balanced small padding */
+      &:not(:has(.content-section)) {
+        &:has(.prefix-icon):not(:has(.suffix-icon)),
+        &:has(.suffix-icon):not(:has(.prefix-icon)) {
+          padding: 0 var(--ft-unit-100);
+        }
+      }
 
       [class*="material-symbols-rounded"] {
         font-size: 14px;
@@ -830,6 +846,44 @@
 
         .placeholder {
           color: var(--ft-color-on-surface-level-200);
+        }
+      }
+    }
+
+    &.flat {
+      &.primary {
+        .button-wrapper {
+          box-shadow: 0 2px 16px color-mix(in srgb, var(--ft-color-primary) 30%, transparent);
+        }
+      }
+      &.secondary {
+        .button-wrapper {
+          box-shadow: 0 2px 16px color-mix(in srgb, var(--ft-color-secondary) 30%, transparent);
+        }
+      }
+      &.tertiary {
+        .button-wrapper {
+          box-shadow: 0 2px 16px color-mix(in srgb, var(--ft-color-tertiary) 30%, transparent);
+        }
+      }
+      &.success {
+        .button-wrapper {
+          box-shadow: 0 2px 16px color-mix(in srgb, var(--ft-color-success) 30%, transparent);
+        }
+      }
+      &.warning {
+        .button-wrapper {
+          box-shadow: 0 2px 16px color-mix(in srgb, var(--ft-color-warning) 30%, transparent);
+        }
+      }
+      &.danger {
+        .button-wrapper {
+          box-shadow: 0 2px 16px color-mix(in srgb, var(--ft-color-danger) 30%, transparent);
+        }
+      }
+      &.disabled {
+        .button-wrapper {
+          box-shadow: none;
         }
       }
     }
@@ -865,11 +919,11 @@
 
       /* Specific Icon Adjustments */
       &:has(.prefix-icon) {
-        padding-left: var(--ft-unit-100);
+        padding-left: var(--ft-unit-150);
       }
 
       &:has(.suffix-icon) {
-        padding-right: var(--ft-unit-100);
+        padding-right: var(--ft-unit-150);
       }
 
       /* Combined Rule: If it has EITHER icon, but NO content and NOT BOTH icons,
@@ -877,12 +931,50 @@
       &:not(:has(.content-section)) {
         &:has(.prefix-icon):not(:has(.suffix-icon)),
         &:has(.suffix-icon):not(:has(.prefix-icon)) {
-          padding: 0 var(--ft-unit-100);
+          padding: 0 var(--ft-unit-150);
         }
       }
 
       [class*="material-symbols-rounded"] {
         font-size: 16px;
+      }
+    }
+
+    &.flat {
+      &.primary {
+        .button-wrapper {
+          box-shadow: 0 6px 20px color-mix(in srgb, var(--ft-color-primary) 30%, transparent);
+        }
+      }
+      &.secondary {
+        .button-wrapper {
+          box-shadow: 0 6px 20px color-mix(in srgb, var(--ft-color-secondary) 30%, transparent);
+        }
+      }
+      &.tertiary {
+        .button-wrapper {
+          box-shadow: 0 6px 20px color-mix(in srgb, var(--ft-color-tertiary) 30%, transparent);
+        }
+      }
+      &.success {
+        .button-wrapper {
+          box-shadow: 0 6px 20px color-mix(in srgb, var(--ft-color-success) 30%, transparent);
+        }
+      }
+      &.warning {
+        .button-wrapper {
+          box-shadow: 0 6px 20px color-mix(in srgb, var(--ft-color-warning) 30%, transparent);
+        }
+      }
+      &.danger {
+        .button-wrapper {
+          box-shadow: 0 6px 20px color-mix(in srgb, var(--ft-color-danger) 30%, transparent);
+        }
+      }
+      &.disabled {
+        .button-wrapper {
+          box-shadow: none;
+        }
       }
     }
 
@@ -934,6 +1026,44 @@
       }
       [class*="material-symbols-rounded"] {
         font-size: 20px;
+      }
+    }
+
+    &.flat {
+      &.primary {
+        .button-wrapper {
+          box-shadow: 0 8px 24px color-mix(in srgb, var(--ft-color-primary) 30%, transparent);
+        }
+      }
+      &.secondary {
+        .button-wrapper {
+          box-shadow: 0 8px 24px color-mix(in srgb, var(--ft-color-secondary) 30%, transparent);
+        }
+      }
+      &.tertiary {
+        .button-wrapper {
+          box-shadow: 0 8px 24px color-mix(in srgb, var(--ft-color-tertiary) 30%, transparent);
+        }
+      }
+      &.success {
+        .button-wrapper {
+          box-shadow: 0 8px 24px color-mix(in srgb, var(--ft-color-success) 30%, transparent);
+        }
+      }
+      &.warning {
+        .button-wrapper {
+          box-shadow: 0 8px 24px color-mix(in srgb, var(--ft-color-warning) 30%, transparent);
+        }
+      }
+      &.danger {
+        .button-wrapper {
+          box-shadow: 0 8px 24px color-mix(in srgb, var(--ft-color-danger) 30%, transparent);
+        }
+      }
+      &.disabled {
+        .button-wrapper {
+          box-shadow: none;
+        }
       }
     }
 
@@ -990,6 +1120,45 @@
       }
     }
 
+    &.flat {
+      &.primary {
+        .button-wrapper {
+          box-shadow: 0 8px 28px color-mix(in srgb, var(--ft-color-primary) 30%, transparent);
+        }
+      }
+      &.secondary {
+        .button-wrapper {
+          box-shadow: 0 8px 28px color-mix(in srgb, var(--ft-color-secondary) 30%, transparent);
+        }
+      }
+      &.tertiary {
+        .button-wrapper {
+          box-shadow: 0 8px 28px color-mix(in srgb, var(--ft-color-tertiary) 30%, transparent);
+        }
+      }
+      &.success {
+        .button-wrapper {
+          box-shadow: 0 8px 28px color-mix(in srgb, var(--ft-color-success) 30%, transparent);
+        }
+      }
+      &.warning {
+        .button-wrapper {
+          box-shadow: 0 8px 28px color-mix(in srgb, var(--ft-color-warning) 30%, transparent);
+        }
+      }
+      &.danger {
+        .button-wrapper {
+          box-shadow: 0 8px 28px color-mix(in srgb, var(--ft-color-danger) 30%, transparent);
+        }
+      }
+      &.disabled {
+        .button-wrapper {
+          box-shadow: none;
+        }
+      }
+    }
+
+
     &.label-inside {
       .button-wrapper {
         height: var(--ft-unit-1600);
@@ -1010,28 +1179,98 @@
     }
   }
 
-  /*&.focus {*/
-  /*  .button-wrapper{*/
-  /*    !*border: 2px solid transparent;*!*/
-  /*    !*outline: 2px solid #1ea7fd;*!*/
-  /*    position: relative;*/
-  /*    &::before {*/
-  /*      content: "";*/
-  /*      position: absolute;*/
-  /*      top: -2px;*/
-  /*      left: -2px;*/
-  /*      border: 2px solid transparent;*/
-  /*      outline: 2px solid var(--ft-color-primary);*/
-  /*      border-radius: inherit;*/
-  /*      z-index: 1;*/
-  /*      width: 100%;*/
-  /*      height: inherit;*/
-  /*      box-sizing: content-box;*/
-  /*    }*/
-
-  /*  }*/
-  /*}*/
 }
+
+/*!* 1. GLOBAL BASE STYLES & LAYOUT (Write once) *!*/
+/*.button-container {*/
+/*  !* Default Internal Variables (The "Mixin" Arguments) *!*/
+/*  --_brand: var(--ft-color-primary);*/
+/*  --_text: var(--ft-color-solid-surface);*/
+/*  --_bg: transparent;*/
+/*  --_border-color: var(--ft-color-border-200);*/
+/*  --_shadow: none;*/
+/*  --_height: var(--ft-unit-800);*/
+/*  --_padding: 0 var(--ft-unit-300);*/
+/*  --_gap: var(--ft-unit-300);*/
+/*  --_icon-size: 20px;*/
+
+/*  display: flex;*/
+/*  align-items: center;*/
+
+/*  .button-wrapper {*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    height: var(--_height);*/
+/*    padding: var(--_padding);*/
+/*    gap: var(--_gap);*/
+/*    background-color: var(--_bg);*/
+/*    color: var(--_text);*/
+/*    border: var(--ft-border-secondary) solid var(--_border-color);*/
+/*    box-shadow: var(--_shadow);*/
+/*    width: fit-content;*/
+
+/*    [class*="material-symbols-rounded"] { font-size: var(--_icon-size); }*/
+/*  }*/
+
+/*  !* 2. COLOR THEME LOGIC (The Mixin Logic) *!*/
+/*  &.primary   { --_brand: var(--ft-color-primary); }*/
+/*  &.secondary { --_brand: var(--ft-color-secondary); }*/
+/*  &.tertiary  { --_brand: var(--ft-color-tertiary); }*/
+/*  &.success   { --_brand: var(--ft-color-success); }*/
+/*  &.warning   { --_brand: var(--ft-color-warning); }*/
+/*  &.danger    { --_brand: var(--ft-color-danger); }*/
+
+/*  !* 3. VARIANT LOGIC (Collapsing Flat, Outlined, Faded, Ghost) *!*/
+
+/*  !* FLAT: Solid background, shadow uses color-mix *!*/
+/*  &.flat {*/
+/*    --_bg: var(--_brand);*/
+/*    --_border-color: transparent;*/
+/*    --_shadow: 0 8px 24px color-mix(in srgb, var(--_brand) 30%, transparent);*/
+
+/*    &.hover { --_bg: var(--_brand-600, color-mix(in srgb, var(--_brand) 80%, black)); }*/
+/*    &.press { --_bg: var(--_brand-700, color-mix(in srgb, var(--_brand) 60%, black)); }*/
+/*    &.focus { --_bg: var(--_brand-900, color-mix(in srgb, var(--_brand) 40%, black)); }*/
+/*  }*/
+
+/*  !* OUTLINED: Border changes on hover/press *!*/
+/*  &.outlined {*/
+/*    &.hover { --_border-color: var(--_brand); }*/
+/*    &.press { --_border-color: var(--_brand); --_bg: color-mix(in srgb, var(--_brand) 10%, transparent); }*/
+/*  }*/
+
+/*  !* FADED: Light background, colored text *!*/
+/*  &.faded {*/
+/*    --_bg: var(--ft-form-field-100);*/
+/*    --_text: var(--_brand);*/
+/*    --_border-color: transparent;*/
+
+/*    &.hover { --_bg: color-mix(in srgb, var(--_brand) 20%, transparent); }*/
+/*  }*/
+
+/*  !* 4. SIZE LOGIC (Collapsing XS, SM, MD, LG) *!*/
+/*  &.xs-size {*/
+/*    --_height: var(--ft-unit-500);*/
+/*    --_padding: 0 var(--ft-unit-150);*/
+/*    --_gap: var(--ft-unit-150);*/
+/*    --_icon-size: 14px;*/
+/*    --_shadow-blur: 16px; !* Dynamic shadow sizing *!*/
+/*  }*/
+
+/*  &.lg-size {*/
+/*    --_height: var(--ft-unit-900);*/
+/*    --_padding: 0 var(--_unit-400);*/
+/*    --_icon-size: 24px;*/
+/*  }*/
+
+/*  !* 5. SPECIAL CASE: DISABLED *!*/
+/*  &.disabled {*/
+/*    --_text: var(--ft-color-on-surface-muted);*/
+/*    --_bg: var(--ft-form-field-100);*/
+/*    --_shadow: none;*/
+/*    pointer-events: none;*/
+/*  }*/
+/*}*/
 
 body:has(.input-wrapper) {
   background: #fff;

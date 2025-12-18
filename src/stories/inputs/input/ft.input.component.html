@@ -30,7 +30,7 @@
   </div>
   <div class="input-wrapper" [class]="radiusClasses">
     <div *ngIf="isPrefixIconClass && prefixIconClass" class="prefix">
-      <i [class]="prefixIconClass"></i>
+      <span class="material-symbols-rounded">{{prefixIconClass}}</span>
     </div>
     <div class="content-section">
       <div *ngIf="isLabel && labelPlacement === 'label-inside'" class="label-row">
@@ -62,11 +62,11 @@
       </div>
     </div>
     <div class="suffix-icon flex" *ngIf="!readonly">
-      <div *ngIf="isSuffix1IconClass && suffix1IconClass && !disabled" class="suffix1">
-        <i [class]="suffix1IconClass"></i>
+      <div *ngIf="isSuffix1IconClass && suffix1IconClass && !disabled" class="suffix suffix1">
+        <span class="material-symbols-rounded">{{suffix1IconClass}}</span>
       </div>
-      <div *ngIf="isSuffix2IconClass && suffix2IconClass" class="suffix2">
-        <i [class]="suffix2IconClass"></i>
+      <div *ngIf="isSuffix2IconClass && suffix2IconClass" class="suffix suffix2">
+        <span class="material-symbols-rounded">{{suffix2IconClass}}</span>
       </div>
     </div>
   </div>

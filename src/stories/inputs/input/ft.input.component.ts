@@ -37,10 +37,10 @@ export class FTInputComponent {
   @Input() prefixIconClass = ''; // For icon libraries that use classes
 
   @Input() isSuffix1IconClass = true;
-  @Input() suffix1IconClass = 'icon-close';
+  @Input() suffix1IconClass = 'close_small';
 
   @Input() isSuffix2IconClass = true;
-  @Input() suffix2IconClass = 'icon-arrow-down';
+  @Input() suffix2IconClass = 'keyboard_arrow_down';
 
   @Input() isClearable = false;
   value = '';
