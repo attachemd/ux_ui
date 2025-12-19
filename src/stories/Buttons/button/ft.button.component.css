@@ -84,6 +84,7 @@
   /* FLAT: Solid background, shadow uses color-mix */
   &.flat {
     --_bg: var(--_brand);
+    --_text: var(--ft-color-on-primary);
     --_border-color: transparent;
     --_shadow: 0 var(--_vertical-offset) var(--_shadow-blur) color-mix(in srgb, var(--_brand) 30%, transparent);
 
@@ -96,6 +97,10 @@
   &.outlined {
     &.hover { --_border-color: var(--_brand); }
     &.press { --_border-color: var(--_brand); --_bg: color-mix(in srgb, var(--_brand) 10%, transparent); }
+    &.focus { --_border-color: var(--_brand); --_bg: color-mix(in srgb, var(--_brand) 20%, transparent); }
+    &.disabled {
+      --_bg: transparent;
+    }
   }
 
   /* FADED: Light background, colored text */
@@ -105,6 +110,22 @@
     --_border-color: transparent;
 
     &.hover { --_bg: color-mix(in srgb, var(--_brand) 20%, transparent); }
+    &.press { --_bg: color-mix(in srgb, var(--_brand) 30%, transparent); }
+    &.focus { --_bg: color-mix(in srgb, var(--_brand) 40%, transparent); }
+  }
+
+  &.ghost {
+    /*--_bg: var(--_brand);*/
+    --_text: var(--_brand);
+    --_border-color: transparent;
+    --_shadow: none;
+
+    &.hover { --_text: var(--_brand-600, color-mix(in srgb, var(--_brand) 80%, black)); }
+    &.press { --_text: var(--_brand-700, color-mix(in srgb, var(--_brand) 60%, black)); }
+    &.focus { --_text: var(--_brand-900, color-mix(in srgb, var(--_brand) 40%, black)); }
+    &.disabled {
+      --_bg: transparent;
+    }
   }
 
   /* 4. SIZE LOGIC (Collapsing XS, SM, MD, LG) */
