@@ -33,7 +33,7 @@ export class FtButtonComponent {
   get radiusClasses(): string {
     const classes = {
       'none-radius': 'rounded-none',
-      'sm-radius': 'rounded-sm',
+      'sm-radius': 'rounded-md',
       'md-radius': 'rounded-lg',
       'lg-radius': 'rounded-xl',
       'full-radius': 'rounded-full'

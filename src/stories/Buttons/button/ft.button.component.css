@@ -36,6 +36,7 @@
     .content-section {
       display: flex;
       flex-direction: column;
+
       .label-row {
         display: flex;
         height: fit-content;
@@ -68,50 +69,100 @@
       }
     }
 
-    [class*="material-symbols-rounded"] { font-size: var(--_icon-size); }
+    [class*="material-symbols-rounded"] {
+      font-size: var(--_icon-size);
+    }
   }
 
   /* 2. COLOR THEME LOGIC (The Mixin Logic) */
-  &.primary   { --_brand: var(--ft-color-primary); }
-  &.secondary { --_brand: var(--ft-color-secondary); }
-  &.tertiary  { --_brand: var(--ft-color-tertiary); }
-  &.success   { --_brand: var(--ft-color-success); }
-  &.warning   { --_brand: var(--ft-color-warning); }
-  &.danger    { --_brand: var(--ft-color-danger); }
+
+  &.primary {
+    --_brand: var(--ft-color-primary);
+  }
+
+  &.secondary {
+    --_brand: var(--ft-color-secondary);
+  }
+
+  &.tertiary {
+    --_brand: var(--ft-color-tertiary);
+  }
+
+  &.success {
+    --_brand: var(--ft-color-success);
+  }
+
+  &.warning {
+    --_brand: var(--ft-color-warning);
+  }
+
+  &.danger {
+    --_brand: var(--ft-color-danger);
+  }
 
   /* 3. VARIANT LOGIC (Collapsing Flat, Outlined, Faded, Ghost) */
 
   /* FLAT: Solid background, shadow uses color-mix */
+
   &.flat {
     --_bg: var(--_brand);
     --_text: var(--ft-color-on-primary);
     --_border-color: transparent;
     --_shadow: 0 var(--_vertical-offset) var(--_shadow-blur) color-mix(in srgb, var(--_brand) 30%, transparent);
 
-    &.hover { --_bg: var(--_brand-600, color-mix(in srgb, var(--_brand) 80%, black)); }
-    &.press { --_bg: var(--_brand-700, color-mix(in srgb, var(--_brand) 60%, black)); }
-    &.focus { --_bg: var(--_brand-900, color-mix(in srgb, var(--_brand) 40%, black)); }
+    &.hover {
+      --_bg: var(--_brand-600, color-mix(in srgb, var(--_brand) 80%, black));
+    }
+
+    &.press {
+      --_bg: var(--_brand-700, color-mix(in srgb, var(--_brand) 60%, black));
+    }
+
+    &.focus {
+      --_bg: var(--_brand-900, color-mix(in srgb, var(--_brand) 40%, black));
+    }
   }
 
   /* OUTLINED: Border changes on hover/press */
+
   &.outlined {
-    &.hover { --_border-color: var(--_brand); }
-    &.press { --_border-color: var(--_brand); --_bg: color-mix(in srgb, var(--_brand) 10%, transparent); }
-    &.focus { --_border-color: var(--_brand); --_bg: color-mix(in srgb, var(--_brand) 20%, transparent); }
+    &.hover {
+      --_border-color: var(--_brand);
+    }
+
+    &.press {
+      --_border-color: var(--_brand);
+      --_bg: color-mix(in srgb, var(--_brand) 10%, transparent);
+    }
+
+    &.focus {
+      --_border-color: var(--_brand);
+      --_bg: color-mix(in srgb, var(--_brand) 20%, transparent);
+    }
+
     &.disabled {
       --_bg: transparent;
     }
   }
 
   /* FADED: Light background, colored text */
+
   &.faded {
     --_bg: var(--ft-form-field-100);
     --_text: var(--_brand);
     --_border-color: transparent;
 
-    &.hover { --_bg: color-mix(in srgb, var(--_brand) 20%, transparent); }
-    &.press { --_bg: color-mix(in srgb, var(--_brand) 30%, transparent); }
-    &.focus { --_bg: color-mix(in srgb, var(--_brand) 40%, transparent); }
+    &.hover {
+      --_bg: color-mix(in srgb, var(--_brand) 20%, transparent);
+    }
+
+    &.press {
+      --_bg: color-mix(in srgb, var(--_brand) 30%, transparent);
+    }
+
+    &.focus {
+      --_bg: color-mix(in srgb, var(--_brand) 40%, transparent);
+    }
   }
 
   &.ghost {
@@ -120,52 +171,67 @@
     --_border-color: transparent;
     --_shadow: none;
 
-    &.hover { --_text: var(--_brand-600, color-mix(in srgb, var(--_brand) 80%, black)); }
-    &.press { --_text: var(--_brand-700, color-mix(in srgb, var(--_brand) 60%, black)); }
-    &.focus { --_text: var(--_brand-900, color-mix(in srgb, var(--_brand) 40%, black)); }
+    &.hover {
+      --_text: var(--_brand-600, color-mix(in srgb, var(--_brand) 80%, black));
+    }
+
+    &.press {
+      --_text: var(--_brand-700, color-mix(in srgb, var(--_brand) 60%, black));
+    }
+
+    &.focus {
+      --_text: var(--_brand-900, color-mix(in srgb, var(--_brand) 40%, black));
+    }
+
     &.disabled {
       --_bg: transparent;
     }
   }
 
   /* 4. SIZE LOGIC (Collapsing XS, SM, MD, LG) */
+
   &.xs-size {
-    --_height: var(--ft-unit-500);
-    --_padding: 0 var(--ft-unit-150);
-    --_balanced_small_padding: var(--ft-unit-100);
-    --_gap: var(--ft-unit-150);
-    --_icon-size: 14px;
-    --_vertical-offset: 2px;
-    --_shadow-blur: 14px; /* Dynamic shadow sizing */
-  }
-  &.sm-size {
     --_height: var(--ft-unit-600);
     --_padding: 0 var(--ft-unit-200);
+    --_balanced_small_padding: var(--ft-unit-100);
+    --_gap: var(--ft-unit-100);
+    --_icon-size: 14px;
+    --_vertical-offset: 2px;
+    --_shadow-blur: 14px;
+  }
+
+  &.sm-size {
+    --_height: var(--ft-unit-700);
+    --_padding: 0 var(--ft-unit-300);
     --_balanced_small_padding: var(--ft-unit-150);
     --_gap: var(--ft-unit-150);
     --_icon-size: 16px;
     --_vertical-offset: 6px;
-    --_shadow-blur: 20px; /* Dynamic shadow sizing */
+    --_shadow-blur: 20px;
   }
+
   &.md-size {
     --_height: var(--ft-unit-800);
     --_padding: 0 var(--ft-unit-400);
     --_balanced_small_padding: var(--ft-unit-200);
-    --_gap: var(--ft-unit-150);
+    --_gap: var(--ft-unit-200);
     --_icon-size: 20px;
     --_vertical-offset: 8px;
-    --_shadow-blur: 24px; /* Dynamic shadow sizing */
+    --_shadow-blur: 24px;
   }
+
   &.lg-size {
     --_height: var(--ft-unit-900);
     --_padding: 0 var(--ft-unit-500);
     --_balanced_small_padding: var(--ft-unit-300);
+    --_gap: var(--ft-unit-300);
     --_icon-size: 24px;
     --_vertical-offset: 8px;
     --_shadow-blur: 28px;
   }
 
   /* 5. SPECIAL CASE: DISABLED */
+
   &.disabled {
     --_text: var(--ft-color-on-surface-muted);
     --_bg: var(--ft-form-field-100);
