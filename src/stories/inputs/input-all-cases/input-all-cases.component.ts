@@ -14,7 +14,7 @@ import {FTInputComponent} from '../input/ft.input.component';
 export class InputAllCasesComponent {
   @HostBinding('class') class = 'showcase';
   isPrefixIconClass: boolean = true;
-  radius: 'none-radius'|'sm-radius'|'md-radius'|'lg-radius'|'full-radius' = 'md-radius';
+  radius: 'none-radius'|'xs-radius'|'sm-radius'|'md-radius'|'lg-radius'|'full-radius' = 'md-radius';
   size: 'xs-size'|'sm-size'|'md-size'|'lg-size' = 'md-size';
   variant: 'flat'|'faded'|'outlined'|'ghost' = 'flat';
   isDescription = false;

@@ -45,7 +45,7 @@ const meta: Meta<FtButtonComponent> = {
     },
     radius: {
       control: 'select',
-      options: ['none-radius', 'sm-radius', 'md-radius', 'lg-radius', 'full-radius'],
+      options: ['none-radius', 'xs-radius', 'sm-radius', 'md-radius', 'lg-radius', 'full-radius'],
     },
   },
   args: {

@@ -20,7 +20,7 @@ export class FTInputComponent {
   @Input() size: 'xs-size'|'sm-size'|'md-size'|'lg-size' = 'md-size';
   @Input() color: 'default'|'primary'|'secondary' = 'default';
   @Input() variant: 'flat'|'faded'|'outlined'|'ghost' = 'flat';
-  @Input() radius: 'none-radius'|'sm-radius'|'md-radius'|'lg-radius'|'full-radius' = 'md-radius';
+  @Input() radius: 'none-radius'|'xs-radius'|'sm-radius'|'md-radius'|'lg-radius'|'full-radius' = 'md-radius';
   @Input() state: 'hovered'|'focused'|'normal'= 'normal';
   @Input() disabled = false;
   @Input() readonly = false;
@@ -49,7 +49,8 @@ export class FTInputComponent {
   get radiusClasses(): string {
     const classes = {
       'none-radius': 'rounded-none',
-      'sm-radius': 'rounded-sm',
+      'xs-radius': 'rounded-sm',
+      'sm-radius': 'rounded-md',
       'md-radius': 'rounded-lg',
       'lg-radius': 'rounded-xl',
       'full-radius': 'rounded-full'

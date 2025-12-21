@@ -19,7 +19,7 @@ export class ButtonAllCasesComponent {
   label= 'Username';
   size: 'xs-size'|'sm-size'|'md-size'|'lg-size' = 'md-size';
   color: "primary" | "secondary" | "tertiary" | "success" | "warning" | "danger" = "primary";
-  radius: "none-radius" | "sm-radius" | "md-radius" | "lg-radius" | "full-radius" = "md-radius";
+  radius: "none-radius" | "xs-radius" | "sm-radius" | "md-radius" | "lg-radius" | "full-radius" = "md-radius";
   isPrefixIconClass: boolean = true;
   isSuffixIconClass: boolean = true;
 

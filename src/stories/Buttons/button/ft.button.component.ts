@@ -20,7 +20,7 @@ export class FtButtonComponent {
   @Input() size: 'xs-size'|'sm-size'|'md-size'|'lg-size' = 'md-size';
   @Input() color: 'primary'|'secondary'|'tertiary'|'success'|'warning'|'danger' = 'primary';
   @Input() variant: 'flat'|'faded'|'outlined'|'ghost' = 'flat';
-  @Input() radius: 'none-radius'|'sm-radius'|'md-radius'|'lg-radius'|'full-radius' = 'md-radius';
+  @Input() radius: 'none-radius'|'xs-radius'|'sm-radius'|'md-radius'|'lg-radius'|'full-radius' = 'md-radius';
   @Input() state: 'rest' | 'hover' | 'press' | 'focus' | 'disabled'= 'rest';
   @Input() disabled = false;
 
@@ -33,6 +33,7 @@ export class FtButtonComponent {
   get radiusClasses(): string {
     const classes = {
       'none-radius': 'rounded-none',
+      'xs-radius': 'rounded-sm',
       'sm-radius': 'rounded-md',
       'md-radius': 'rounded-lg',
       'lg-radius': 'rounded-xl',
