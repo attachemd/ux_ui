@@ -12,7 +12,6 @@
 
 
 .field-container {
-  /*width: var(--container-xs);*/
 
   .input-wrapper {
     display: flex;
@@ -22,9 +21,6 @@
     border-color: var(--ft-color-border-200);
     border-width: var(--ft-border-secondary);
     padding: 0 var(--ft-unit-400);
-    /*gap: var(--ft-unit-400);*/
-    /*height: var(--ft-unit-800);*/
-    /*background-colors: var(--ft-form-field-100);*/
 
 
     .content-section {
@@ -220,14 +216,11 @@
     }
 
     .content {
-      /*padding-top: 0.1em;*/
-      /*padding-bottom: 0.3em;*/
+
     }
 
     .placeholder-row {
       .placeholder {
-        /*padding-top: 0.1em;*/
-        /*padding-bottom: 0.3em;*/
       }
     }
 
@@ -248,8 +241,6 @@
   }
 
   &.label-outside-left {
-    /*flex-direction: row;*/
-    /*align-items: center;*/
     grid-template-columns: fit-content(50%) auto;
 
     .label-row {
@@ -258,14 +249,11 @@
     }
 
     .content {
-      /*padding-top: 0.1em;*/
-      /*padding-bottom: 0.3em;*/
+
     }
 
     .placeholder-row {
       .placeholder {
-        /*padding-top: 0.1em;*/
-        /*padding-bottom: 0.3em;*/
       }
     }
 
@@ -436,7 +424,6 @@ body:has(.input-wrapper) {
 
 .error-text {
   color: var(--ft-color-danger);
-  /*padding: 0 var(--ft-unit-200);*/
 }
 
 .input-wrapper.flat {
@@ -444,11 +431,6 @@ body:has(.input-wrapper) {
   background-color: var(--ft-color-surface-muted);
 }
 
-/*.input-wrapper.bordered {*/
-/*  border-colors: var(--ft-colors-border-200);*/
-/*}*/
-
-/* Add more variant/size/colors CSS as needed */
 .input-wrapper.invalid {
   border-color: var(--ft-color-danger-500);
 }
