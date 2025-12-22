@@ -19,11 +19,11 @@ const preview: Preview = {
       storySort: {
         order: [
           'Theme', ['Roadmap', 'Colors', ['Common Colors', 'Surface Colors', 'On Surface Colors', '*']],
-          'Radio Buttons', ['Radio', 'Radio Group', 'Radio All Cases', '*'],  // Radio Buttons group first
-          'Inputs', ['Input', 'Textarea', 'Select', '*'], // Inputs group second
-          'Buttons', ['Button', 'Textarea', 'Select', '*'], // Inputs group second
+          'Radio Buttons', ['Radio', 'Radio Group', 'Radio All Cases', '*'],
+          'Inputs', ['Input', 'Textarea', 'Select', '*'],
+          'Buttons', ['Button', 'Button All Cases', 'Icon Button', 'Icon Button All Cases', 'Textarea', 'Select', '*'],
           ['*', '**'],  // All other stories
-        ], // * means everything else
+        ],
       },
     },
     actions: {argTypesRegex: '^on[A-Z].*'},
