@@ -14,7 +14,13 @@
     </div>
 
   </div>
-  <div class="content content-xs--normal">
+  <div class="content"
+       [ngClass]="{
+           'content-2xs--normal': size === 'xs-size',
+           'content-xs--normal': size === 'sm-size' || size === 'md-size',
+           'content-sm--normal': size === 'lg-size',
+           }"
+  >
     <div *ngIf="isLabel" class="label">
       {{label}}
     </div>

@@ -19,6 +19,23 @@ export class InputAllCasesComponent {
   variant: 'flat'|'faded'|'outlined'|'ghost' = 'flat';
   isDescription = false;
 
+  states: Array<'rest' | 'hover' | 'focus' | 'readonly' | 'disabled' | 'invalid' | 'content'> = [
+    'rest',
+    'hover',
+    'focus',
+    'readonly',
+    'disabled',
+    'invalid',
+    'content'
+  ];
+
+  labelPlacements: Array<'label-inside' | 'label-outside' | 'label-outside-left'> = [
+      'label-inside',
+      'label-outside',
+      'label-outside-left'
+
+  ];
+
 
 
 }

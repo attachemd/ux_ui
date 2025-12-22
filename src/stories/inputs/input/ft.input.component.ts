@@ -21,7 +21,7 @@ export class FTInputComponent {
   @Input() color: 'default'|'primary'|'secondary' = 'default';
   @Input() variant: 'flat'|'faded'|'outlined'|'ghost' = 'flat';
   @Input() radius: 'none-radius'|'xs-radius'|'sm-radius'|'md-radius'|'lg-radius'|'full-radius' = 'md-radius';
-  @Input() state: 'hovered'|'focused'|'normal'= 'normal';
+  @Input() state: 'rest'|'hover'|'focus'|'readonly'|'disabled'|'invalid'|'content'= 'rest';
   @Input() disabled = false;
   @Input() readonly = false;
   @Input() required = false;
@@ -60,19 +60,19 @@ export class FTInputComponent {
 
   get hasPlaceholderToShow(): boolean {
     // Basic conditions that prevent showing placeholder
-    if (!this.placeholder || this.content || this.readonly) {
+    if (!this.placeholder || this.state === 'readonly' || this.state === 'content') {
       return false;
     }
 
     // Special case: don't show placeholder for label-inside fields in normal states
     const isLabelInsideInNormalState = this.labelPlacement === 'label-inside' &&
       this.isNormalOrHoveredState &&
-      !this.invalid;
+      this.state !== 'invalid';
 
     return !isLabelInsideInNormalState;
   }
 
   get isNormalOrHoveredState(): boolean {
-    return this.state === 'normal' || this.state === 'hovered';
+    return this.state === 'rest' || this.state === 'hover';
   }
 }

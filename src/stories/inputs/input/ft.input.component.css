@@ -12,18 +12,19 @@
 
 
 .field-container {
-  /* 1. INTERNAL VARIABLE DEFAULTS (The "Mixin" Arguments) */
+  /* INTERNAL VARIABLE DEFAULTS (The "Mixin" Arguments) */
   --_field-bg: transparent;
   --_field-border-color: var(--ft-color-border-200);
   --_field-border-width: var(--ft-border-secondary);
   --_field-text: var(--ft-color-solid-on-surface);
   --_field-placeholder: var(--ft-color-on-surface-level-300);
-  --_field-label: var(--ft-color-solid-on-surface);
+  --_field-label: var(--ft-color-on-surface-level-100);
 
+  --_balanced_small_padding: var(--ft-unit-400);
   --_field-height: var(--ft-unit-800);
   --_field-padding: 0 var(--ft-unit-400);
   --_field-gap: var(--ft-unit-300);
-  --_field-container-gap: var(--ft-unit-200);
+  --_field-container-gap: var(--ft-unit-100);
   --_field-icon-size: 20px;
   --_field-content-gap: var(--ft-unit-100);
 
@@ -31,7 +32,7 @@
   width: 100%;
   gap: var(--_field-container-gap);
 
-  /* 2. BASE LAYOUT & CHILD STYLES */
+  /* BASE LAYOUT & CHILD STYLES */
 
   .input-wrapper {
     display: flex;
@@ -59,15 +60,27 @@
       .placeholder {
         color: var(--_field-placeholder);
       }
+
+      .content {
+        color: var(--_field-text);
+      }
     }
 
-    .prefix, .suffix-icon .suffix {
+    .prefix-icon, .suffix-icon .suffix {
       display: flex;
       align-items: center;
     }
 
     .suffix-icon {
       gap: var(--ft-unit-100);
+    }
+
+    &:has(.prefix-icon) {
+      padding-left: var(--_balanced_small_padding);
+    }
+
+    &:has(.suffix-icon) {
+      padding-right: var(--_balanced_small_padding);
     }
 
     [class*="material-symbols-rounded"] {
@@ -80,12 +93,20 @@
     display: contents;
   }
 
+  .description p, .error-text {
+    line-height: 1;
+  }
+
   .error-text {
     color: var(--ft-color-danger);
   }
 
+  &.label-inside {
+    --_field-label: var(--ft-color-on-surface-level-300);
+  }
 
-  /* 4. STATE LOGIC (Overrides variants) */
+
+  /* STATE LOGIC (Overrides variants) */
 
   &.invalid {
     --_field-label: var(--ft-color-danger);
@@ -103,21 +124,24 @@
     --_field-border-color: var(--ft-color-border-muted);
   }
 
-  /* 5. SIZE LOGIC */
+  /* SIZE LOGIC */
 
   &.xs-size {
     --_field-height: var(--ft-unit-500);
+    --_balanced_small_padding: var(--ft-unit-150);
     --_field-padding: 0 var(--ft-unit-200);
     --_field-gap: var(--ft-unit-200);
-    --_field-container-gap: var(--ft-unit-200);
     --_field-icon-size: 16px;
     --_field-content-gap: var(--ft-unit-100);
     --_field-border-width: var(--ft-border-primary);
 
     &.label-inside {
       --_field-height: var(--ft-unit-1000);
-      --_field-padding: 0 var(--ft-unit-200);
+      --_balanced_small_padding: var(--ft-unit-300);
+      --_field-padding: 0 var(--ft-unit-300);
+
       .rounded-full {
+        --_balanced_small_padding: var(--ft-unit-300);
         --_field-padding: 0 var(--ft-unit-300);
       }
     }
@@ -125,16 +149,20 @@
 
   &.sm-size {
     --_field-height: var(--ft-unit-600);
+    --_balanced_small_padding: var(--ft-unit-200);
     --_field-padding: 0 var(--ft-unit-300);
-    --_field-gap: var(--ft-unit-300);
-    --_field-container-gap: var(--ft-unit-200);
+    --_field-gap: var(--ft-unit-200);
     --_field-icon-size: 16px;
     --_field-content-gap: var(--ft-unit-150);
 
     &.label-inside {
       --_field-height: var(--ft-unit-1200);
+      --_balanced_small_padding: var(--ft-unit-300);
       --_field-padding: 0 var(--ft-unit-300);
+      --_field-gap: var(--ft-unit-300);
+
       .rounded-full {
+        --_balanced_small_padding: var(--ft-unit-400);
         --_field-padding: 0 var(--ft-unit-400);
       }
     }
@@ -142,16 +170,20 @@
 
   &.md-size {
     --_field-height: var(--ft-unit-800);
+    --_balanced_small_padding: var(--ft-unit-200);
     --_field-padding: 0 var(--ft-unit-300);
-    --_field-gap: var(--ft-unit-300);
-    --_field-container-gap: var(--ft-unit-200);
+    --_field-gap: var(--ft-unit-200);
     --_field-icon-size: 20px;
-    --_field-content-gap: var(--ft-unit-200);
+    --_field-content-gap: var(--ft-unit-150);
 
     &.label-inside {
       --_field-height: var(--ft-unit-1400);
+      --_balanced_small_padding: var(--ft-unit-300);
       --_field-padding: 0 var(--ft-unit-300);
+      --_field-gap: var(--ft-unit-300);
+
       .rounded-full {
+        --_balanced_small_padding: var(--ft-unit-400);
         --_field-padding: 0 var(--ft-unit-400);
       }
     }
@@ -159,28 +191,31 @@
 
   &.lg-size {
     --_field-height: var(--ft-unit-900);
+    --_balanced_small_padding: var(--ft-unit-300);
     --_field-padding: 0 var(--ft-unit-400);
     --_field-gap: var(--ft-unit-400);
-    --_field-container-gap: var(--ft-unit-200);
     --_field-icon-size: 24px;
     --_field-content-gap: var(--ft-unit-200);
 
     &.label-inside {
       --_field-height: var(--ft-unit-1600);
+      --_balanced_small_padding: var(--ft-unit-400);
       --_field-padding: 0 var(--ft-unit-400);
+
       .rounded-full {
+        --_balanced_small_padding: var(--ft-unit-500);
         --_field-padding: 0 var(--ft-unit-500);
       }
     }
   }
 
-  /* 3. VARIANT LOGIC */
+  /* VARIANT LOGIC */
 
   &.flat {
     --_field-bg: var(--ft-form-field-100);
     --_field-border-width: 0px;
 
-    &.hovered {
+    &.hover {
       --_field-bg: var(--ft-form-field-200);
     }
 
@@ -192,11 +227,11 @@
   &.faded {
     --_field-bg: var(--ft-form-field-100);
 
-    &.hovered {
+    &.hover {
       --_field-bg: var(--ft-form-field-200);
     }
 
-    &.focused {
+    &.focus {
       --_field-bg: var(--ft-form-field-200);
       --_field-border-color: var(--ft-color-primary);
     }
@@ -209,11 +244,12 @@
 
   &.outlined {
     --_field-bg: transparent !important;
-    &.hovered {
+
+    &.hover {
       --_field-border-color: var(--ft-color-border-300);
     }
 
-    &.focused {
+    &.focus {
       --_field-border-color: var(--ft-color-primary);
     }
 
@@ -225,13 +261,20 @@
   &.ghost {
     --_field-border-width: 0px;
     --_field-bg: transparent;
+    &.label-outside-left, &.label-outside {
+      .content {
+        --_field-text: var(--ft-color-on-surface-level-300);
+      }
+    }
 
-    &.hovered, &.focused {
+
+
+    &.hover, &.focus {
       --_field-bg: var(--ft-form-field-50);
     }
   }
 
-  /* 6. LAYOUT MODES (Grid Positioning) */
+  /* LAYOUT MODES (Grid Positioning) */
 
   &.label-inside {
     .input-wrapper {

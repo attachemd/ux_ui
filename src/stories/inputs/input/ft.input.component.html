@@ -1,36 +1,36 @@
 <div class="field-container"
      [class]="labelPlacement + ' ' + size + ' ' + variant + ' ' + state"
-     [class.readonly]="readonly"
-     [class.disabled]="disabled"
-     [class.invalid]="invalid"
 >
+<!--     [class.readonly]="readonly"-->
+<!--     [class.disabled]="disabled"-->
+<!--     [class.invalid]="invalid"-->
   <div *ngIf="isLabel && labelPlacement !== 'label-inside'" class="label-row">
     <span class="label leading-none"
           [ngClass]="{
-           'content-2xs--normal': size === 'sm-size' || size === 'md-size' || size === 'xs-size',
-           'content-xs--normal': size === 'lg-size',
+           'content-2xs--semibold': size === 'sm-size' || size === 'md-size' || size === 'xs-size',
+           'content-xs--semibold': size === 'lg-size',
            }"
     >{{ label }} <span *ngIf="required && !disabled">*</span></span>
   </div>
   <div class="input-wrapper" [class]="radiusClasses">
-    <div *ngIf="isPrefixIconClass && prefixIconClass" class="prefix">
+    <div *ngIf="isPrefixIconClass && prefixIconClass" class="prefix-icon">
       <span class="material-symbols-rounded">{{prefixIconClass}}</span>
     </div>
     <div class="content-section">
       <div *ngIf="isLabel && labelPlacement === 'label-inside'" class="label-row">
         <span class="label leading-none"
               [ngClass]="{
-           'content-2xs--normal': size === 'sm-size' || size === 'md-size' || size === 'xs-size',
-           'content-xs--normal': size === 'lg-size',
+           'content-2xs--bold': size === 'sm-size' || size === 'md-size' || size === 'xs-size',
+           'content-xs--bold': size === 'lg-size',
            }"
         >{{ label }} <span *ngIf="required && !disabled">*</span></span>
       </div>
-      <div *ngIf="content" class="content-row">
+      <div *ngIf="state === 'content'" class="content-row">
         <p class="content truncate"
            [ngClass]="{
-           'content-2xs--normal': size === 'xs-size',
-           'content-xs--normal': size === 'sm-size' || size === 'md-size',
-           'content-sm--normal': size === 'lg-size',
+           'content-2xs--medium': size === 'xs-size',
+           'content-xs--medium': size === 'sm-size' || size === 'md-size',
+           'content-sm--medium': size === 'lg-size',
            }"
         >{{ content }}</p>
       </div>
@@ -38,14 +38,14 @@
       <div *ngIf="hasPlaceholderToShow" class="placeholder-row">
         <p class="placeholder truncate"
            [ngClass]="{
-           'content-2xs--normal': size === 'xs-size',
-           'content-xs--normal': size === 'sm-size' || size === 'md-size',
-           'content-sm--normal': size === 'lg-size',
+           'content-2xs--light': size === 'xs-size',
+           'content-xs--light': size === 'sm-size' || size === 'md-size',
+           'content-sm--light': size === 'lg-size',
            }"
         >{{ placeholder }}</p>
       </div>
     </div>
-    <div class="suffix-icon flex" *ngIf="!readonly">
+    <div class="suffix-icon flex" *ngIf="state !== 'readonly'">
       <div *ngIf="isSuffix1IconClass && suffix1IconClass && !disabled" class="suffix suffix1">
         <span class="material-symbols-rounded">{{suffix1IconClass}}</span>
       </div>
@@ -54,10 +54,10 @@
       </div>
     </div>
   </div>
-  <div *ngIf="invalid && errorMessage" class="error-message">
+  <div *ngIf="state === 'invalid' && errorMessage" class="error-message">
     <p class="error-text content-2xs--normal">{{ errorMessage }}</p>
   </div>
-  <div *ngIf="isDescription && description && !invalid" class="description">
+  <div *ngIf="isDescription && description && state !== 'invalid'" class="description">
     <p class="highlight content-2xs--normal">{{ description }}</p>
   </div>
 </div>

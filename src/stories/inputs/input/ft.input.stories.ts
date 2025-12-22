@@ -47,7 +47,7 @@ const meta: Meta<FTInputComponent> = {
     },
     state: {
       control: 'select',
-      options: ['hovered','focused','normal'],
+      options: ['rest','hover','focus','readonly','disabled','invalid','content'],
     },
     radius: {
       control: 'select',
@@ -65,7 +65,7 @@ const meta: Meta<FTInputComponent> = {
     content: 'content',
     size: 'md-size',
     radius: 'md-radius',
-    state: 'normal',
+    state: 'rest',
     isPrefixIconClass: false,
     prefixIconClass: 'person',
     isSuffix1IconClass: true,
@@ -73,7 +73,6 @@ const meta: Meta<FTInputComponent> = {
     isSuffix2IconClass: true,
     suffix2IconClass: 'keyboard_arrow_down',
     isDescription: false,
-    invalid: false,
     errorMessage: 'error',
   },
 };
@@ -91,7 +90,7 @@ export const WithError: Story = {
   args: {
     placeholder: 'Email',
     content: '',
-    invalid: true,
+    state: 'invalid',
     errorMessage: 'Invalid email address',
   }
 };
@@ -196,7 +195,7 @@ export const FullRadius: Story = {
 
 export const Disabled: Story = {
   args: {
-    disabled: true,
+    state: 'disabled',
     label: 'Disabled Input',
     content: 'Disabled',
   },
@@ -204,7 +203,7 @@ export const Disabled: Story = {
 
 export const Readonly: Story = {
   args: {
-    readonly: true,
+    state: 'readonly',
     label: 'Readonly Input',
     content: 'Readonly',
   },
