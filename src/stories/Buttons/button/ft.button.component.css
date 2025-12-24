@@ -204,7 +204,7 @@
     --_padding: 0 var(--ft-unit-200);
     --_balanced_small_padding: var(--ft-unit-100);
     --_gap: var(--ft-unit-100);
-    --_icon-size: 14px;
+    --_icon-size: 16px;
     --_vertical-offset: 2px;
     --_shadow-blur: 12px;
   }
@@ -214,7 +214,7 @@
     --_padding: 0 var(--ft-unit-300);
     --_balanced_small_padding: var(--ft-unit-150);
     --_gap: var(--ft-unit-150);
-    --_icon-size: 16px;
+    --_icon-size: 18px;
     --_vertical-offset: 4px;
     --_shadow-blur: 16px;
   }
