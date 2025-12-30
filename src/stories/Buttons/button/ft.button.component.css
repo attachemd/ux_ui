@@ -159,17 +159,17 @@
     --_border-color: transparent;
 
     &.hover {
-      --_text: var(--_brand-600, color-mix(in srgb, var(--_brand) 80%, black));
+      --_text: color-mix(in srgb, var(--_brand) 80%, black);
       --_bg: color-mix(in srgb, var(--_brand) 20%, transparent);
     }
 
     &.press {
-      --_text: var(--_brand-700, color-mix(in srgb, var(--_brand) 60%, black));
+      --_text: color-mix(in srgb, var(--_brand) 60%, black);
       --_bg: color-mix(in srgb, var(--_brand) 30%, transparent);
     }
 
     &.focus {
-      --_text: var(--_brand-900, color-mix(in srgb, var(--_brand) 40%, black));
+      --_text: color-mix(in srgb, var(--_brand) 40%, black);
       --_bg: color-mix(in srgb, var(--_brand) 40%, transparent);
     }
   }

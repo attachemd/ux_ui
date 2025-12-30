@@ -89,7 +89,7 @@
     font-family: 'Google Sans Flex', sans-serif;
     font-variation-settings: "slnt" 0, "GRAD" 0, "ROND" 100;
     font-size: var(--text-base);
-    color: var(--ft-color-text-primary);
+    color: var(--ft-color-on-surface-level-100);
   }
 
   .sb-show-main:has([class*="showcase"]) {
@@ -98,7 +98,7 @@
   }
 
   .sb-show-main {
-    background: var(--ft-color-surface-level-100);
+    background: var(--ft-color-solid-surface);
 
   }
 
