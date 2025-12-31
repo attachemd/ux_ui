@@ -114,18 +114,18 @@
     --_shadow: 0 var(--_vertical-offset) var(--_shadow-blur) color-mix(in srgb, var(--_brand_variant) 30%, transparent);
 
     &.hover {
-      --_brand_variant: color-mix(in srgb, var(--_brand) 80%, black);
-      --_bg: var(--_brand-600, var(--_brand_variant));
+      --_brand_variant: color-mix(in srgb, var(--_brand) 80%, var(--ft-color-mix-z));
+      --_bg: var(--_brand_variant);
     }
 
     &.press {
-      --_brand_variant: color-mix(in srgb, var(--_brand) 60%, black);
-      --_bg: var(--_brand-700, color-mix(in srgb, var(--_brand) 60%, black));
+      --_brand_variant: color-mix(in srgb, var(--_brand) 60%, var(--ft-color-mix-z));
+      --_bg: color-mix(in srgb, var(--_brand) 60%, var(--ft-color-mix-z));
     }
 
     &.focus {
-      --_brand_variant: color-mix(in srgb, var(--_brand) 40%, black);
-      --_bg: var(--_brand-900, color-mix(in srgb, var(--_brand) 40%, black));
+      --_brand_variant: color-mix(in srgb, var(--_brand) 40%, var(--ft-color-mix-z));
+      --_bg: color-mix(in srgb, var(--_brand) 40%, var(--ft-color-mix-z));
     }
   }
 
@@ -159,17 +159,17 @@
     --_border-color: transparent;
 
     &.hover {
-      --_text: color-mix(in srgb, var(--_brand) 80%, black);
+      --_text: color-mix(in srgb, var(--_brand) 80%, var(--ft-color-mix-z));
       --_bg: color-mix(in srgb, var(--_brand) 20%, transparent);
     }
 
     &.press {
-      --_text: color-mix(in srgb, var(--_brand) 60%, black);
+      --_text: color-mix(in srgb, var(--_brand) 60%, var(--ft-color-mix-z));
       --_bg: color-mix(in srgb, var(--_brand) 30%, transparent);
     }
 
     &.focus {
-      --_text: color-mix(in srgb, var(--_brand) 40%, black);
+      --_text: color-mix(in srgb, var(--_brand) 40%, var(--ft-color-mix-z));
       --_bg: color-mix(in srgb, var(--_brand) 40%, transparent);
     }
   }
@@ -181,15 +181,15 @@
     --_shadow: none;
 
     &.hover {
-      --_text: var(--_brand-600, color-mix(in srgb, var(--_brand) 80%, black));
+      --_text: color-mix(in srgb, var(--_brand) 80%, var(--ft-color-mix-z));
     }
 
     &.press {
-      --_text: var(--_brand-700, color-mix(in srgb, var(--_brand) 60%, black));
+      --_text: color-mix(in srgb, var(--_brand) 60%, var(--ft-color-mix-z));
     }
 
     &.focus {
-      --_text: var(--_brand-900, color-mix(in srgb, var(--_brand) 40%, black));
+      --_text: color-mix(in srgb, var(--_brand) 40%, var(--ft-color-mix-z));
     }
 
     &.disabled {
