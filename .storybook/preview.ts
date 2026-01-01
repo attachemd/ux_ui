@@ -60,6 +60,22 @@ const preview: Preview = {
     }),
   ],
 
+  globalTypes: {
+    theme: {
+      name        : 'Theme',
+      description : 'Global theme for components',
+      defaultValue: 'light',
+      toolbar     : {
+        icon : 'mirror',
+        items: [
+          { value: 'light', title: 'Light', icon: 'sun' },
+          { value: 'dark',  title: 'Dark',  icon: 'moon' },
+        ],
+        dynamicTitle: true,
+      },
+    },
+  }
+
   // decorators: [
   //   moduleMetadata({
   //     declarations: [],

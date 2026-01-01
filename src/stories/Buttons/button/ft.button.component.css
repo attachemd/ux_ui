@@ -116,16 +116,19 @@
     &.hover {
       --_brand_variant: color-mix(in srgb, var(--_brand) 80%, var(--ft-color-mix-z));
       --_bg: var(--_brand_variant);
+      /*--_text: color-mix(in srgb, var(--ft-color-on-primary) 30%, var(--ft-color-mix-a));*/
     }
 
     &.press {
       --_brand_variant: color-mix(in srgb, var(--_brand) 60%, var(--ft-color-mix-z));
       --_bg: color-mix(in srgb, var(--_brand) 60%, var(--ft-color-mix-z));
+      /*--_text: color-mix(in srgb, var(--ft-color-on-primary) 20%, var(--ft-color-mix-a));*/
     }
 
     &.focus {
       --_brand_variant: color-mix(in srgb, var(--_brand) 40%, var(--ft-color-mix-z));
       --_bg: color-mix(in srgb, var(--_brand) 40%, var(--ft-color-mix-z));
+      /*--_text: color-mix(in srgb, var(--ft-color-on-primary) 10%, var(--ft-color-mix-a));*/
     }
   }
 

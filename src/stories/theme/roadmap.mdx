@@ -82,6 +82,17 @@ export const ColorSample = ({level}) => (
 
 <Unstyled>
 
+  {/* -------  theme badge  ------- */}
+  <span className="theme-label">Active theme: <span className="auto-text" /></span>
+
+  <style>{`
+    .theme-label { font-size: .875rem; margin-bottom: 1rem; display: inline-block; }
+    .auto-text::before { content: 'light'; }
+    html[data-theme='dark'] .auto-text::before,
+    body.dark-theme   .auto-text::before { content: 'dark'; }
+  `}</style>
+
+
   <div class="roadmap custom-docs">
     {componentStatusArray.map((componentStatus) => (
       <div class="component">
