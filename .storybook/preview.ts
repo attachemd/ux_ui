@@ -8,7 +8,7 @@ setCompodocJson(docJson);
 
 // import { moduleMetadata } from '@storybook/angular';
 // import {themes} from 'storybook/theming';
-// import {withThemeByClassName} from '@storybook/addon-themes';
+import {withThemeByClassName} from '@storybook/addon-themes';
 
 import '!style-loader!css-loader!../src/stories/common.styles.css';
 import {themes} from 'storybook/theming';
@@ -216,6 +216,8 @@ const preview: Preview = {
       const isDark = context.globals['darkMode'];
 
       const html = document.documentElement;
+      console.log('html');
+      console.log(html);
       html.classList.toggle('dark', isDark);
 
       return storyFn();
