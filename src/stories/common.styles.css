@@ -12,30 +12,49 @@
   > h2, p {
     padding: 0 var(--ft-unit-400);
   }
+
+  p {
+    font-family: 'Google Sans Flex', sans-serif;
+    font-size: 13px;
+    margin: var(--ft-unit-400) 0;
+    -webkit-font-smoothing: antialiased;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    line-height: 1;
+    color: var(--ft-color-on-surface-level-200);
+  }
 }}
 
 /* Status styles */
 .done {
-  background-color: var(--color-emerald-200);
-  color: var(--color-emerald-700);
+  /*background-color: var(--color-emerald-200);*/
+  /*color: var(--color-emerald-700);*/
+  background-color: color-mix(in srgb, var(--color-emerald-500) 25%, transparent);
+  color: color-mix(in srgb, var(--color-emerald-500) 50%, var(--ft-color-mix-z));
 }
 
 .not-started {
-  background-color: var(--color-slate-200);
-  color: var(--color-slate-700);
+  /*background-color: var(--color-slate-200);*/
+  background-color: color-mix(in srgb, var(--color-slate-500) 25%, transparent);
+  /*background-color: color-mix(in srgb, color-mix(in srgb, var(--color-slate-500) , var(--ft-color-mix-a) 5%) 30%, transparent);*/
+  /*color: var(--color-slate-700);*/
+  color: color-mix(in srgb, var(--color-slate-500) 50%, var(--ft-color-mix-z));
+
 }
 
 /* You might also want additional statuses for future use: */
 .in-progress {
   /*background-color: var(--color-amber-200);*/
   background-color: color-mix(in srgb, var(--color-amber-500) 30%, transparent);
+  /*background-color: color-mix(in srgb, color-mix(in srgb, var(--color-amber-500) 40%, var(--ft-color-mix-z)) 30%, transparent);*/
   /*color: var(--color-amber-700);*/
   color: color-mix(in srgb, var(--color-amber-500) 50%, var(--ft-color-mix-z));
 }
 
 .review {
-  background-color: var(--color-blue-200);
-  color: var(--color-blue-700);
+  /*background-color: var(--color-blue-200);*/
+  background-color: color-mix(in srgb, var(--color-blue-500) 25%, transparent);
+  /*color: var(--color-blue-700);*/
+  color: color-mix(in srgb, var(--color-blue-500) 50%, var(--ft-color-mix-z));
 }
 
 .blocked {
