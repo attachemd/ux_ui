@@ -894,7 +894,7 @@
   }
 
   /* Override variables for the dark theme */
-body.dark {
+body.dark-theme {
   /*body.dark-theme, body:has(.dark-theme) {*/
     color-scheme: dark;
 

@@ -5,6 +5,7 @@
   max-width: 100%;
 }
 .sbdocs-wrapper:has(.custom-docs) {
+  background-color: var(--ft-color-solid-surface);
   flex-direction: row;
   justify-content: start;
   padding: 0;
@@ -26,8 +27,10 @@
 
 /* You might also want additional statuses for future use: */
 .in-progress {
-  background-color: var(--color-amber-200);
-  color: var(--color-amber-700);
+  /*background-color: var(--color-amber-200);*/
+  background-color: color-mix(in srgb, var(--color-amber-500) 30%, transparent);
+  /*color: var(--color-amber-700);*/
+  color: color-mix(in srgb, var(--color-amber-500) 50%, var(--ft-color-mix-z));
 }
 
 .review {
