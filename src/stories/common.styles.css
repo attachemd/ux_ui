@@ -4,6 +4,9 @@
 .sbdocs-content:has(.custom-docs)  {
   max-width: 100%;
 }
+.sbdocs-wrapper {
+  background-color: var(--ft-color-solid-surface);
+}
 .sbdocs-wrapper:has(.custom-docs) {
   background-color: var(--ft-color-solid-surface);
   flex-direction: row;

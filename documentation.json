@@ -2791,6 +2791,143 @@
             "templateData": "<div class=\"field-container\"\n     [class]=\"labelPlacement + ' ' + size + ' ' + variant + ' ' + state\"\n>\n<!--     [class.readonly]=\"readonly\"-->\n<!--     [class.disabled]=\"disabled\"-->\n<!--     [class.invalid]=\"invalid\"-->\n  <div *ngIf=\"isLabel && labelPlacement !== 'label-inside'\" class=\"label-row\">\n    <span class=\"label leading-none\"\n          [ngClass]=\"{\n           'content-2xs--semibold': size === 'sm-size' || size === 'md-size' || size === 'xs-size',\n           'content-xs--semibold': size === 'lg-size',\n           }\"\n    >{{ label }} <span *ngIf=\"required && !disabled\">*</span></span>\n  </div>\n  <div class=\"input-wrapper\" [class]=\"radiusClasses\">\n    <div *ngIf=\"isPrefixIconClass && prefixIconClass\" class=\"prefix-icon\">\n      <span class=\"material-symbols-rounded\">{{prefixIconClass}}</span>\n    </div>\n    <div class=\"content-section\">\n      <div *ngIf=\"isLabel && labelPlacement === 'label-inside'\" class=\"label-row\">\n        <span class=\"label leading-none\"\n              [ngClass]=\"{\n           'content-2xs--bold': size === 'sm-size' || size === 'md-size' || size === 'xs-size',\n           'content-xs--bold': size === 'lg-size',\n           }\"\n        >{{ label }} <span *ngIf=\"required && !disabled\">*</span></span>\n      </div>\n      <div *ngIf=\"state === 'content'\" class=\"content-row\">\n        <p class=\"content truncate\"\n           [ngClass]=\"{\n           'content-2xs--medium': size === 'xs-size',\n           'content-xs--medium': size === 'sm-size' || size === 'md-size',\n           'content-sm--medium': size === 'lg-size',\n           }\"\n        >{{ content }}</p>\n      </div>\n\n      <div *ngIf=\"hasPlaceholderToShow\" class=\"placeholder-row\">\n        <p class=\"placeholder truncate\"\n           [ngClass]=\"{\n           'content-2xs--light': size === 'xs-size',\n           'content-xs--light': size === 'sm-size' || size === 'md-size',\n           'content-sm--light': size === 'lg-size',\n           }\"\n        >{{ placeholder }}</p>\n      </div>\n    </div>\n    <div class=\"suffix-icon flex\" *ngIf=\"state !== 'readonly'\">\n      <div *ngIf=\"isSuffix1IconClass && suffix1IconClass && !disabled\" class=\"suffix suffix1\">\n        <span class=\"material-symbols-rounded\">{{suffix1IconClass}}</span>\n      </div>\n      <div *ngIf=\"isSuffix2IconClass && suffix2IconClass\" class=\"suffix suffix2\">\n        <span class=\"material-symbols-rounded\">{{suffix2IconClass}}</span>\n      </div>\n    </div>\n  </div>\n  <div *ngIf=\"state === 'invalid' && errorMessage\" class=\"error-message\">\n    <p class=\"error-text content-2xs--normal\">{{ errorMessage }}</p>\n  </div>\n  <div *ngIf=\"isDescription && description && state !== 'invalid'\" class=\"description\">\n    <p class=\"highlight content-2xs--normal\">{{ description }}</p>\n  </div>\n</div>\n"
         },
         {
+            "name": "FtLoginComponent",
+            "id": "component-FtLoginComponent-a0f2e031d999345519482958f342366015a83d429611cc6d9140f55cdc889f204ae6591c55019602665c577b27e9108c14398459d09c6f985507016016105244",
+            "file": "src/stories/login/login/ft.login.component.ts",
+            "encapsulation": [
+                "ViewEncapsulation.Emulated"
+            ],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "ft-login",
+            "styleUrls": [
+                "./ft.login.component.css"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./ft.login.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "description",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 21,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "inactive",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 23,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "invalid",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 24,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "isDescription",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 20,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "isLabel",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 18,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "label",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 19,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "select",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 22,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "size",
+                    "defaultValue": "'md-size'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 25,
+                    "type": "\"xs-size\" | \"sm-size\" | \"md-size\" | \"lg-size\"",
+                    "decorators": []
+                },
+                {
+                    "name": "state",
+                    "defaultValue": "'rest'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 26,
+                    "type": "\"hover\" | \"press\" | \"focus\" | \"rest\"",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": false,
+            "imports": [
+                {
+                    "name": "NgClass"
+                },
+                {
+                    "name": "FormsModule",
+                    "type": "module"
+                },
+                {
+                    "name": "NgIf"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import {Component, Input, ViewEncapsulation} from '@angular/core';\r\nimport {NgClass, NgIf} from '@angular/common';\r\nimport {FormsModule} from '@angular/forms';\r\n\r\n@Component({\r\n  selector: 'ft-login',\r\n  templateUrl: './ft.login.component.html',\r\n  imports: [\r\n    NgClass,\r\n    FormsModule,\r\n    NgIf\r\n  ],\r\n  styleUrls: ['./ft.login.component.css'],\r\n  encapsulation: ViewEncapsulation.Emulated // Ensure this is set (default)\r\n})\r\nexport class FtLoginComponent {\r\n\r\n  @Input() isLabel = false;\r\n  @Input() label?: string;\r\n  @Input() isDescription = false;\r\n  @Input() description?: string;\r\n  @Input() select = false;\r\n  @Input() inactive = false;\r\n  @Input() invalid = false;\r\n  @Input() size: 'xs-size'|'sm-size'|'md-size'|'lg-size' = 'md-size';\r\n  @Input() state: 'hover'|'press'|'focus'|'rest'= 'rest';\r\n\r\n}\r\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "\r\n.field-container {\r\n  /* 1. INTERNAL VARIABLE DEFAULTS */\r\n  --_field-bg: transparent;\r\n  --_field-border-color: var(--ft-color-border-200);\r\n  --_field-border-width: var(--ft-border-tertiary);\r\n  --_field-control-bg: transparent; /* The inner dot */\r\n  --_field-text: var(--ft-color-solid-on-surface);\r\n  --_field-description: var(--ft-color-on-surface-level-300);\r\n\r\n  --_field-size: 34px;\r\n  --_field-scale: 0.9;\r\n  --_radio-scale: 0.7;\r\n  --_control-scale: 0.7;\r\n\r\n  display: flex;\r\n  align-items: center;\r\n  gap: var(--ft-unit-200);\r\n\r\n  /* 2. COMPONENT STRUCTURE */\r\n  .field {\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n    width: var(--_field-size);\r\n    height: var(--_field-size);\r\n    transform: scale(var(--_field-scale));\r\n    border-radius: var(--ft-radius-pill);\r\n    background-color: var(--_field-bg);\r\n    transition: background-color 0.2s ease;\r\n\r\n    .radio {\r\n      width: 100%;\r\n      height: 100%;\r\n      transform: scale(var(--_radio-scale));\r\n      border: var(--_field-border-width) solid var(--_field-border-color);\r\n      border-radius: var(--ft-radius-pill);\r\n      display: flex;\r\n      align-items: center;\r\n      justify-content: center;\r\n      transition: border-color 0.2s ease;\r\n\r\n      .control {\r\n        width: 100%;\r\n        height: 100%;\r\n        transform: scale(var(--_control-scale));\r\n        border-radius: var(--ft-radius-pill);\r\n        background-color: var(--_field-control-bg);\r\n        transition: background-color 0.2s ease;\r\n      }\r\n    }\r\n  }\r\n\r\n  .content {\r\n    display: flex;\r\n    flex-direction: column;\r\n    color: var(--_field-text);\r\n\r\n    .description {\r\n      color: var(--_field-description);\r\n    }\r\n  }\r\n\r\n  /* 3. INTERACTION STATES */\r\n  &.hover { --_field-bg: var(--ft-form-field-100); }\r\n  &.press, &.focus { --_field-bg: var(--ft-form-field-200); }\r\n\r\n  /* 4. SELECTION LOGIC (Changes Border and Control Dot) */\r\n  &.select {\r\n    --_field-border-color: var(--ft-color-primary);\r\n    --_field-border-width: var(--ft-border-secondary);\r\n    --_field-control-bg: var(--ft-color-primary);\r\n  }\r\n\r\n  /* 5. VALIDATION & STATUS LOGIC (Overrides selection/rest) */\r\n  &.invalid {\r\n    --_field-text: var(--ft-color-danger);\r\n    --_field-border-color: var(--ft-color-danger);\r\n    --_field-border-width: var(--ft-border-secondary);\r\n\r\n    &.select { --_field-control-bg: var(--ft-color-danger); }\r\n  }\r\n\r\n  &.inactive {\r\n    pointer-events: none;\r\n    --_field-text: var(--ft-color-on-surface-muted);\r\n    --_field-description: var(--ft-color-on-surface-muted);\r\n    --_field-border-color: var(--ft-radio-muted);\r\n    --_field-border-width: var(--ft-border-secondary);\r\n\r\n    &.select { --_field-control-bg: var(--ft-radio-muted); }\r\n  }\r\n\r\n  /* 6. SIZE LOGIC */\r\n  &.xs-size {\r\n    --_field-size: 24px;\r\n    --_radio-scale: 0.7;\r\n  }\r\n\r\n  &.sm-size {\r\n    --_field-size: 28px;\r\n    --_radio-scale: 0.7;\r\n  }\r\n\r\n  &.md-size {\r\n    /* MD is currently your default, but you can adjust scales here */\r\n    --_field-size: 32px;\r\n    --_radio-scale: 0.7;\r\n  }\r\n\r\n  &.lg-size {\r\n    --_field-size: 36px;\r\n    --_radio-scale: 0.7;\r\n  }\r\n}\r\n\r\n\r\n",
+                    "styleUrl": "./ft.login.component.css"
+                }
+            ],
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<div class=\"field-container\">\r\nattache\r\n\r\n</div>\r\n\r\n"
+        },
+        {
             "name": "FtRadioComponent",
             "id": "component-FtRadioComponent-d51bef94297c1b7373b77179f11cd630b212c2dadb33bb5839517d4fe3ae341bf6df1976be2da08607e4f331597b84db97e57d677d02d212ffbaf9431d95b5c3",
             "file": "src/stories/radio-buttons/radio/ft.radio.component.ts",
@@ -9809,6 +9946,15 @@
                 "name": "FTInputComponent",
                 "coveragePercent": 0,
                 "coverageCount": "0/27",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/login/login/ft.login.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "FtLoginComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/10",
                 "status": "low"
             },
             {
