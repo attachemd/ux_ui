@@ -22,7 +22,6 @@ export class FtButtonComponent {
   @Input() variant: 'flat'|'faded'|'outlined'|'ghost' = 'flat';
   @Input() radius: 'none-radius'|'xs-radius'|'sm-radius'|'md-radius'|'lg-radius'|'full-radius' = 'md-radius';
   @Input() state: 'rest' | 'hover' | 'press' | 'focus' | 'disabled'= 'rest';
-  @Input() disabled = false;
 
   @Input() isPrefixIconClass = false;
   @Input() prefixIconClass = 'person'; // For icon libraries that use classes

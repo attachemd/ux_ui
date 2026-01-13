@@ -1,6 +1,8 @@
 import {Component, Input, ViewEncapsulation} from '@angular/core';
 import {NgClass, NgIf} from '@angular/common';
 import {FormsModule} from '@angular/forms';
+import {FTInputComponent} from '../../inputs/input/ft.input.component';
+import {FtButtonComponent} from '../../Buttons/button/ft.button.component';
 
 @Component({
   selector: 'ft-login',
@@ -8,7 +10,9 @@ import {FormsModule} from '@angular/forms';
   imports: [
     NgClass,
     FormsModule,
-    NgIf
+    NgIf,
+    FTInputComponent,
+    FtButtonComponent
   ],
   styleUrls: ['./ft.login.component.css'],
   encapsulation: ViewEncapsulation.Emulated // Ensure this is set (default)

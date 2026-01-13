@@ -1,5 +1,25 @@
-<div class="field-container">
-login
+<div class="login"> <!-- Main container for the login section -->
+  <div class="login__box"> <!-- Box that holds all login elements -->
+    <div class="login__logo">
+      <!-- Place for logo or brand image -->
+      <div class="login__logo-text">
+        <div class="login__logo-sub-text1">FIRE</div>
+        <div class="login__logo-sub-text2">HIS</div>
+      </div>
+    </div>
 
+      <div class="login__fields-container"> <!-- Wrapper for alignment/padding -->
+        <div class="login__fields-inner-container">
+          <!-- Place for login form elements, e.g. inputs, buttons -->
+
+          <div class="login__fields"> <!-- Container for all input fields -->
+            <ft-input [isLabel]="false" [label]="'Label'" [size]="'md-size'" [radius]="'sm-radius'" [state]="'rest'" [placeholder]="'Nom d\'utilisateur'" [isDescription]="false" [errorMessage]="'error'" [content]="'content'" [labelPlacement]="'label-outside-left'" [isPrefixIconClass]="true" [prefixIconClass]="'person'" [isSuffix1IconClass]="false" [suffix1IconClass]="'close_small'" [isSuffix2IconClass]="false"></ft-input>
+            <ft-input [isLabel]="false" [label]="'Label'" [size]="'md-size'" [radius]="'sm-radius'" [state]="'rest'" [placeholder]="'Nom d\'utilisateur'" [isDescription]="false" [errorMessage]="'error'" [content]="'content'" [labelPlacement]="'label-outside-left'" [isPrefixIconClass]="true" [prefixIconClass]="'lock'" [isSuffix1IconClass]="false" [suffix1IconClass]="'close_small'" [isSuffix2IconClass]="true" [suffix2IconClass]="'visibility_off'"></ft-input>
+            <ft-button [isLabel]="true" [label]="'Se connecter'" [size]="'md-size'" [color]="'primary'" [variant]="'outlined'" [radius]="'md-radius'" [state]="'disabled'" [isPrefixIconClass]="false" [prefixIconClass]="'person'" [isSuffixIconClass]="false" [suffixIconClass]="'face'"></ft-button>
+          </div>
+        </div>
+      </div>
+
+  </div>
 </div>
 

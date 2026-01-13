@@ -1,116 +1,77 @@
+::ng-deep .sb-show-main.sb-main-padded {
+  padding: 0;
+}
 
-.field-container {
-  /* 1. INTERNAL VARIABLE DEFAULTS */
-  --_field-bg: transparent;
-  --_field-border-color: var(--ft-color-border-200);
-  --_field-border-width: var(--ft-border-tertiary);
-  --_field-control-bg: transparent; /* The inner dot */
-  --_field-text: var(--ft-color-solid-on-surface);
-  --_field-description: var(--ft-color-on-surface-level-300);
+::ng-deep #storybook-root {
+  height: 100%
+}
 
-  --_field-size: 34px;
-  --_field-scale: 0.9;
-  --_radio-scale: 0.7;
-  --_control-scale: 0.7;
 
+.login {
+  /* Main container styles */
   display: flex;
   align-items: center;
-  gap: var(--ft-unit-200);
+  justify-content: center;
+  background-color: var(--ft-color-surface-level-100);
+  height: 100%;
 
-  /* 2. COMPONENT STRUCTURE */
-  .field {
+  .login__box {
+    /* Box styles */
     display: flex;
-    align-items: center;
-    justify-content: center;
-    width: var(--_field-size);
-    height: var(--_field-size);
-    transform: scale(var(--_field-scale));
-    border-radius: var(--ft-radius-pill);
-    background-color: var(--_field-bg);
-    transition: background-color 0.2s ease;
+    width: var(--container-3xl);
+    height: var(--container-sm);
+    background-color: var(--ft-color-surface-level-100);
+    border-radius: var(--ft-radius-600);
+    box-shadow: 0 18px 46px var(--ft-color-n-on-surface-4);
+    overflow: hidden;
 
-    .radio {
-      width: 100%;
-      height: 100%;
-      transform: scale(var(--_radio-scale));
-      border: var(--_field-border-width) solid var(--_field-border-color);
-      border-radius: var(--ft-radius-pill);
+    .login__logo {
+      /* Logo styles */
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: border-color 0.2s ease;
-
-      .control {
-        width: 100%;
-        height: 100%;
-        transform: scale(var(--_control-scale));
-        border-radius: var(--ft-radius-pill);
-        background-color: var(--_field-control-bg);
-        transition: background-color 0.2s ease;
+      width: var(--container-2xs);
+      height: 100%;
+      background-color: var(--ft-color-surface-level-200);
+      .login__logo-text {
+        display: flex;
+        font-size: var(--text-lg);
+        font-weight: 700;
+        .login__logo-sub-text1 {
+          color: var(--ft-color-on-surface-level-100);
+        }
+        .login__logo-sub-text2 {
+          color: var(--ft-color-on-surface-level-300);
+        }
       }
     }
-  }
 
-  .content {
-    display: flex;
-    flex-direction: column;
-    color: var(--_field-text);
 
-    .description {
-      color: var(--_field-description);
-    }
-  }
 
-  /* 3. INTERACTION STATES */
-  &.hover { --_field-bg: var(--ft-form-field-100); }
-  &.press, &.focus { --_field-bg: var(--ft-form-field-200); }
+      .login__fields-container {
+        /* Alignment/padding styles */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-grow: 1;
 
-  /* 4. SELECTION LOGIC (Changes Border and Control Dot) */
-  &.select {
-    --_field-border-color: var(--ft-color-primary);
-    --_field-border-width: var(--ft-border-secondary);
-    --_field-control-bg: var(--ft-color-primary);
-  }
+        .login__fields-inner-container {
+          /* Form elements styles */
+          width: var(--container-3xs);
+          height: 100%;
+          .login__fields {
+            /* Fields container styles */
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: var(--ft-unit-600);
+          }
+        }
+      }
 
-  /* 5. VALIDATION & STATUS LOGIC (Overrides selection/rest) */
-  &.invalid {
-    --_field-text: var(--ft-color-danger);
-    --_field-border-color: var(--ft-color-danger);
-    --_field-border-width: var(--ft-border-secondary);
-
-    &.select { --_field-control-bg: var(--ft-color-danger); }
-  }
-
-  &.inactive {
-    pointer-events: none;
-    --_field-text: var(--ft-color-on-surface-muted);
-    --_field-description: var(--ft-color-on-surface-muted);
-    --_field-border-color: var(--ft-radio-muted);
-    --_field-border-width: var(--ft-border-secondary);
-
-    &.select { --_field-control-bg: var(--ft-radio-muted); }
-  }
-
-  /* 6. SIZE LOGIC */
-  &.xs-size {
-    --_field-size: 24px;
-    --_radio-scale: 0.7;
-  }
-
-  &.sm-size {
-    --_field-size: 28px;
-    --_radio-scale: 0.7;
-  }
-
-  &.md-size {
-    /* MD is currently your default, but you can adjust scales here */
-    --_field-size: 32px;
-    --_radio-scale: 0.7;
-  }
-
-  &.lg-size {
-    --_field-size: 36px;
-    --_radio-scale: 0.7;
   }
 }
 

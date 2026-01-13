@@ -2792,7 +2792,7 @@
         },
         {
             "name": "FtLoginComponent",
-            "id": "component-FtLoginComponent-a0f2e031d999345519482958f342366015a83d429611cc6d9140f55cdc889f204ae6591c55019602665c577b27e9108c14398459d09c6f985507016016105244",
+            "id": "component-FtLoginComponent-d2677fe958e4d5dfb85e0a6b3c5298b6ff569da94c9983d09c01f467e183212234ff5dbda78ed66bfa8e4f667a2940d9738161a5918576d6c670f68da25c4012",
             "file": "src/stories/login/login/ft.login.component.ts",
             "encapsulation": [
                 "ViewEncapsulation.Emulated"
@@ -2816,7 +2816,7 @@
                     "name": "description",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 21,
+                    "line": 23,
                     "type": "string",
                     "decorators": []
                 },
@@ -2825,7 +2825,7 @@
                     "defaultValue": "false",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 23,
+                    "line": 25,
                     "type": "boolean",
                     "decorators": []
                 },
@@ -2834,7 +2834,7 @@
                     "defaultValue": "false",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 24,
+                    "line": 26,
                     "type": "boolean",
                     "decorators": []
                 },
@@ -2843,7 +2843,7 @@
                     "defaultValue": "false",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 20,
+                    "line": 22,
                     "type": "boolean",
                     "decorators": []
                 },
@@ -2852,7 +2852,7 @@
                     "defaultValue": "false",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 18,
+                    "line": 20,
                     "type": "boolean",
                     "decorators": []
                 },
@@ -2860,7 +2860,7 @@
                     "name": "label",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 19,
+                    "line": 21,
                     "type": "string",
                     "decorators": []
                 },
@@ -2869,7 +2869,7 @@
                     "defaultValue": "false",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 22,
+                    "line": 24,
                     "type": "boolean",
                     "decorators": []
                 },
@@ -2878,7 +2878,7 @@
                     "defaultValue": "'md-size'",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 25,
+                    "line": 27,
                     "type": "\"xs-size\" | \"sm-size\" | \"md-size\" | \"lg-size\"",
                     "decorators": []
                 },
@@ -2887,7 +2887,7 @@
                     "defaultValue": "'rest'",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 26,
+                    "line": 28,
                     "type": "\"hover\" | \"press\" | \"focus\" | \"rest\"",
                     "decorators": []
                 }
@@ -2910,22 +2910,26 @@
                 },
                 {
                     "name": "NgIf"
+                },
+                {
+                    "name": "FTInputComponent",
+                    "type": "component"
                 }
             ],
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import {Component, Input, ViewEncapsulation} from '@angular/core';\r\nimport {NgClass, NgIf} from '@angular/common';\r\nimport {FormsModule} from '@angular/forms';\r\n\r\n@Component({\r\n  selector: 'ft-login',\r\n  templateUrl: './ft.login.component.html',\r\n  imports: [\r\n    NgClass,\r\n    FormsModule,\r\n    NgIf\r\n  ],\r\n  styleUrls: ['./ft.login.component.css'],\r\n  encapsulation: ViewEncapsulation.Emulated // Ensure this is set (default)\r\n})\r\nexport class FtLoginComponent {\r\n\r\n  @Input() isLabel = false;\r\n  @Input() label?: string;\r\n  @Input() isDescription = false;\r\n  @Input() description?: string;\r\n  @Input() select = false;\r\n  @Input() inactive = false;\r\n  @Input() invalid = false;\r\n  @Input() size: 'xs-size'|'sm-size'|'md-size'|'lg-size' = 'md-size';\r\n  @Input() state: 'hover'|'press'|'focus'|'rest'= 'rest';\r\n\r\n}\r\n",
+            "sourceCode": "import {Component, Input, ViewEncapsulation} from '@angular/core';\nimport {NgClass, NgIf} from '@angular/common';\nimport {FormsModule} from '@angular/forms';\nimport {FTInputComponent} from '../../inputs/input/ft.input.component';\n\n@Component({\n  selector: 'ft-login',\n  templateUrl: './ft.login.component.html',\n  imports: [\n    NgClass,\n    FormsModule,\n    NgIf,\n    FTInputComponent\n  ],\n  styleUrls: ['./ft.login.component.css'],\n  encapsulation: ViewEncapsulation.Emulated // Ensure this is set (default)\n})\nexport class FtLoginComponent {\n\n  @Input() isLabel = false;\n  @Input() label?: string;\n  @Input() isDescription = false;\n  @Input() description?: string;\n  @Input() select = false;\n  @Input() inactive = false;\n  @Input() invalid = false;\n  @Input() size: 'xs-size'|'sm-size'|'md-size'|'lg-size' = 'md-size';\n  @Input() state: 'hover'|'press'|'focus'|'rest'= 'rest';\n\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "\r\n.field-container {\r\n  /* 1. INTERNAL VARIABLE DEFAULTS */\r\n  --_field-bg: transparent;\r\n  --_field-border-color: var(--ft-color-border-200);\r\n  --_field-border-width: var(--ft-border-tertiary);\r\n  --_field-control-bg: transparent; /* The inner dot */\r\n  --_field-text: var(--ft-color-solid-on-surface);\r\n  --_field-description: var(--ft-color-on-surface-level-300);\r\n\r\n  --_field-size: 34px;\r\n  --_field-scale: 0.9;\r\n  --_radio-scale: 0.7;\r\n  --_control-scale: 0.7;\r\n\r\n  display: flex;\r\n  align-items: center;\r\n  gap: var(--ft-unit-200);\r\n\r\n  /* 2. COMPONENT STRUCTURE */\r\n  .field {\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n    width: var(--_field-size);\r\n    height: var(--_field-size);\r\n    transform: scale(var(--_field-scale));\r\n    border-radius: var(--ft-radius-pill);\r\n    background-color: var(--_field-bg);\r\n    transition: background-color 0.2s ease;\r\n\r\n    .radio {\r\n      width: 100%;\r\n      height: 100%;\r\n      transform: scale(var(--_radio-scale));\r\n      border: var(--_field-border-width) solid var(--_field-border-color);\r\n      border-radius: var(--ft-radius-pill);\r\n      display: flex;\r\n      align-items: center;\r\n      justify-content: center;\r\n      transition: border-color 0.2s ease;\r\n\r\n      .control {\r\n        width: 100%;\r\n        height: 100%;\r\n        transform: scale(var(--_control-scale));\r\n        border-radius: var(--ft-radius-pill);\r\n        background-color: var(--_field-control-bg);\r\n        transition: background-color 0.2s ease;\r\n      }\r\n    }\r\n  }\r\n\r\n  .content {\r\n    display: flex;\r\n    flex-direction: column;\r\n    color: var(--_field-text);\r\n\r\n    .description {\r\n      color: var(--_field-description);\r\n    }\r\n  }\r\n\r\n  /* 3. INTERACTION STATES */\r\n  &.hover { --_field-bg: var(--ft-form-field-100); }\r\n  &.press, &.focus { --_field-bg: var(--ft-form-field-200); }\r\n\r\n  /* 4. SELECTION LOGIC (Changes Border and Control Dot) */\r\n  &.select {\r\n    --_field-border-color: var(--ft-color-primary);\r\n    --_field-border-width: var(--ft-border-secondary);\r\n    --_field-control-bg: var(--ft-color-primary);\r\n  }\r\n\r\n  /* 5. VALIDATION & STATUS LOGIC (Overrides selection/rest) */\r\n  &.invalid {\r\n    --_field-text: var(--ft-color-danger);\r\n    --_field-border-color: var(--ft-color-danger);\r\n    --_field-border-width: var(--ft-border-secondary);\r\n\r\n    &.select { --_field-control-bg: var(--ft-color-danger); }\r\n  }\r\n\r\n  &.inactive {\r\n    pointer-events: none;\r\n    --_field-text: var(--ft-color-on-surface-muted);\r\n    --_field-description: var(--ft-color-on-surface-muted);\r\n    --_field-border-color: var(--ft-radio-muted);\r\n    --_field-border-width: var(--ft-border-secondary);\r\n\r\n    &.select { --_field-control-bg: var(--ft-radio-muted); }\r\n  }\r\n\r\n  /* 6. SIZE LOGIC */\r\n  &.xs-size {\r\n    --_field-size: 24px;\r\n    --_radio-scale: 0.7;\r\n  }\r\n\r\n  &.sm-size {\r\n    --_field-size: 28px;\r\n    --_radio-scale: 0.7;\r\n  }\r\n\r\n  &.md-size {\r\n    /* MD is currently your default, but you can adjust scales here */\r\n    --_field-size: 32px;\r\n    --_radio-scale: 0.7;\r\n  }\r\n\r\n  &.lg-size {\r\n    --_field-size: 36px;\r\n    --_radio-scale: 0.7;\r\n  }\r\n}\r\n\r\n\r\n",
+                    "data": "::ng-deep .sb-show-main.sb-main-padded {\n  padding: 0;\n}\n\n::ng-deep #storybook-root {\n  height: 100%\n}\n\n\n.login {\n  /* Main container styles */\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  /*background-color: red;*/\n  height: 100%;\n\n  .login__box {\n    /* Box styles */\n    display: flex;\n    width: var(--container-3xl);\n    height: var(--container-sm);\n    background-color: var(--ft-color-surface-level-100);\n    border-radius: var(--ft-radius-600);\n    box-shadow: 0 18px 46px var(--ft-color-n-on-surface-4);\n    overflow: hidden;\n\n    .login__logo {\n      /* Logo styles */\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      width: var(--container-2xs);\n      height: 100%;\n      background-color: var(--ft-color-surface-level-200);\n    }\n\n\n\n      .login__fields-container {\n        /* Alignment/padding styles */\n        display: flex;\n        align-items: center;\n        justify-content: center;\n        flex-grow: 1;\n\n        .login__fields-inner-container {\n          /* Form elements styles */\n          width: var(--container-3xs);\n          height: 100%;\n          .login__fields {\n            /* Fields container styles */\n            width: 100%;\n            height: 100%;\n            display: flex;\n            align-items: center;\n            justify-content: center;\n          }\n        }\n      }\n\n  }\n}\n\n\n",
                     "styleUrl": "./ft.login.component.css"
                 }
             ],
             "stylesData": "",
             "extends": [],
-            "templateData": "<div class=\"field-container\">\r\nattache\r\n\r\n</div>\r\n\r\n"
+            "templateData": "<div class=\"login\"> <!-- Main container for the login section -->\n  <div class=\"login__box\"> <!-- Box that holds all login elements -->\n    <div class=\"login__logo\">\n      <!-- Place for logo or brand image -->\n      logo\n    </div>\n\n      <div class=\"login__fields-container\"> <!-- Wrapper for alignment/padding -->\n        <div class=\"login__fields-inner-container\">\n          <!-- Place for login form elements, e.g. inputs, buttons -->\n\n          <div class=\"login__fields\"> <!-- Container for all input fields -->\n            <ft-input [isLabel]=\"false\" [label]=\"'Label'\" [size]=\"'md-size'\" [radius]=\"'md-radius'\" [state]=\"'rest'\" [placeholder]=\"'Nom d'utilisateur'\" [isDescription]=\"false\" [errorMessage]=\"'error'\" [content]=\"'content'\" [labelPlacement]=\"'label-outside-left'\" [isPrefixIconClass]=\"true\" [prefixIconClass]=\"'person'\" [isSuffix1IconClass]=\"true\" [suffix1IconClass]=\"'close_small'\" [isSuffix2IconClass]=\"true\" [suffix2IconClass]=\"'keyboard_arrow_down'\"></ft-input>\n          </div>\n        </div>\n      </div>\n\n  </div>\n</div>\n\n"
         },
         {
             "name": "FtRadioComponent",
