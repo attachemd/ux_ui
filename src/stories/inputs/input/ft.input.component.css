@@ -193,14 +193,15 @@
     --_field-height: var(--ft-unit-900);
     --_balanced_small_padding: var(--ft-unit-300);
     --_field-padding: 0 var(--ft-unit-400);
-    --_field-gap: var(--ft-unit-400);
-    --_field-icon-size: 24px;
+    --_field-gap: var(--ft-unit-300);
+    --_field-icon-size: 20px;
     --_field-content-gap: var(--ft-unit-150);
 
     &.label-inside {
       --_field-height: var(--ft-unit-1600);
       --_balanced_small_padding: var(--ft-unit-400);
       --_field-padding: 0 var(--ft-unit-500);
+      --_field-gap: var(--ft-unit-400);
 
       .rounded-full {
         --_balanced_small_padding: var(--ft-unit-500);

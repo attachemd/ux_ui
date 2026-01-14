@@ -1,9 +1,9 @@
 <div class="field-container"
      [class]="labelPlacement + ' ' + size + ' ' + variant + ' ' + state"
+     [ngClass]="{
+           'gap-x-0': !isLabel && labelPlacement === 'label-outside-left',
+           }"
 >
-<!--     [class.readonly]="readonly"-->
-<!--     [class.disabled]="disabled"-->
-<!--     [class.invalid]="invalid"-->
   <div *ngIf="isLabel && labelPlacement !== 'label-inside'" class="label-row">
     <span class="label leading-none"
           [ngClass]="{
@@ -12,7 +12,7 @@
            }"
     >{{ label }} <span *ngIf="required && !disabled">*</span></span>
   </div>
-  <div class="input-wrapper" [class]="radiusClasses">
+  <div class="input-wrapper w-[30px]" [class]="radiusClasses">
     <div *ngIf="isPrefixIconClass && prefixIconClass" class="prefix-icon">
       <span class="material-symbols-rounded">{{prefixIconClass}}</span>
     </div>
@@ -29,8 +29,7 @@
         <p class="content truncate"
            [ngClass]="{
            'content-2xs--medium': size === 'xs-size',
-           'content-xs--medium': size === 'sm-size' || size === 'md-size',
-           'content-sm--medium': size === 'lg-size',
+           'content-xs--medium': size === 'sm-size' || size === 'md-size' || size === 'lg-size',
            }"
         >{{ content }}</p>
       </div>
@@ -39,8 +38,7 @@
         <p class="placeholder truncate"
            [ngClass]="{
            'content-2xs--light': size === 'xs-size',
-           'content-xs--light': size === 'sm-size' || size === 'md-size',
-           'content-sm--light': size === 'lg-size',
+           'content-xs--light': size === 'sm-size' || size === 'md-size' || size === 'lg-size',
            }"
         >{{ placeholder }}</p>
       </div>

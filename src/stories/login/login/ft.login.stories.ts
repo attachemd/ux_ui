@@ -4,7 +4,7 @@ import type {Meta, StoryObj} from '@storybook/angular';
 const meta: Meta<FtLoginComponent> = {
   title: 'Login/Login',
   component: FtLoginComponent,
-  tags: ['autodocs'],
+  // tags: ['autodocs'],
   parameters: {
     order: 1,  // Lower number = appears earlier
   },

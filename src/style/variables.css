@@ -593,7 +593,7 @@
     --ft-color-mauve-900: #130a2e;
     --ft-color-mauve-950: #0a0619;
 
-    --ft-color-solid-surface: #fff;
+    --ft-color-solid-surface: var(--ft-color-secondary-50);
     --ft-color-solid-on-surface: #000;
 
     --ft-color-n-on-surface-0: color-mix(in srgb, var(--ft-color-mix-z) 0%, transparent);
@@ -903,14 +903,15 @@ body.dark-theme {
     --ft-color-mix-a: #000; /* Dark background */
     --ft-color-mix-z: #fff; /* Light text */
 
-    --ft-color-solid-surface: color-mix(in srgb, var(--ft-color-primary) 20%, var(--ft-color-mix-a)); /* Dark background */
+    /*--ft-color-solid-surface: color-mix(in srgb, var(--ft-color-primary) 20%, var(--ft-color-mix-a)); !* Dark background *!*/
+    --ft-color-solid-surface: var(--ft-color-primary-900); /* Dark background */
     --ft-color-solid-on-surface: #f5f5f5; /* Light text */
 
     /*!* --- Neutral/On-Surface Opacities --- *!*/
 
     /* --- Surface Levels --- */
     --ft-color-surface-level-100: var(--ft-color-n-surface-15);
-    --ft-color-surface-level-200: var(--ft-color-n-surface-10);
+    --ft-color-surface-level-200: var(--ft-color-n-on-surface-7);
     --ft-color-surface-level-300: var(--ft-color-n-surface-20);
     --ft-color-surface-level-400: var(--ft-color-n-surface-25);
     --ft-color-surface-muted: var(--ft-color-n-surface-30);
