@@ -11,7 +11,7 @@ import {medicalHistoryEntities, notes} from '../../../../fake-data/medical-histo
   styleUrl: './medical-history.component.css'
 })
 export class MedicalHistoryComponent {
-  @HostBinding('class') class = 'ft-panel lg:h-auto lg:!overflow-auto tab-body-container';
+  @HostBinding('class') class = 'ft-panel lg:h-auto lg:overflow-auto! tab-body-container';
   @ViewChild('tabBodyContent') child!: ElementRef<HTMLElement>;
   medicalHistoryEntities: MedicalHistoryEntity[] = medicalHistoryEntities;
   comments: Note[] = notes;

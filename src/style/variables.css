@@ -19,8 +19,6 @@
   /* ft-hdivider */
   /* ft-panel */
   /* ft-flex-center */
-
-
   body {
 
     --ft-color-mix-a: #fff; /* Light background */
@@ -397,7 +395,6 @@
    */
 
 
-
     /* ~12px (tiny text: captions, labels) */
     --text-xs: 0.75rem; /* = 12px */
     --text-xs--line-height: calc(1 / 0.75); /* 1.33 (unitless) */
@@ -471,7 +468,6 @@
    */
 
 
-
     /* Tightest: -5% of font size (for condensed headlines) */
     --tracking-tighter: -0.05em; /* Example: 16px font → -0.8px */
 
@@ -533,12 +529,9 @@
     --shadow-2xs: 0 1px rgb(0 0 0 / 0.05);
     --shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 0.05);
     --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
-    --shadow-md:
-      0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-    --shadow-lg:
-      0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-    --shadow-xl:
-      0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
     --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
 
     --inset-shadow-2xs: inset 0 1px rgb(0 0 0 / 0.05);
@@ -554,15 +547,12 @@
 
     --text-shadow-2xs: 0px 1px 0px rgb(0 0 0 / 0.15);
     --text-shadow-xs: 0px 1px 1px rgb(0 0 0 / 0.2);
-    --text-shadow-sm:
-      0px 1px 0px rgb(0 0 0 / 0.075), 0px 1px 1px rgb(0 0 0 / 0.075),
-      0px 2px 2px rgb(0 0 0 / 0.075);
-    --text-shadow-md:
-      0px 1px 1px rgb(0 0 0 / 0.1), 0px 1px 2px rgb(0 0 0 / 0.1),
-      0px 2px 4px rgb(0 0 0 / 0.1);
-    --text-shadow-lg:
-      0px 1px 2px rgb(0 0 0 / 0.1), 0px 3px 2px rgb(0 0 0 / 0.1),
-      0px 4px 8px rgb(0 0 0 / 0.1);
+    --text-shadow-sm: 0px 1px 0px rgb(0 0 0 / 0.075), 0px 1px 1px rgb(0 0 0 / 0.075),
+    0px 2px 2px rgb(0 0 0 / 0.075);
+    --text-shadow-md: 0px 1px 1px rgb(0 0 0 / 0.1), 0px 1px 2px rgb(0 0 0 / 0.1),
+    0px 2px 4px rgb(0 0 0 / 0.1);
+    --text-shadow-lg: 0px 1px 2px rgb(0 0 0 / 0.1), 0px 3px 2px rgb(0 0 0 / 0.1),
+    0px 4px 8px rgb(0 0 0 / 0.1);
 
     --ease-in: cubic-bezier(0.4, 0, 1, 1);
     --ease-out: cubic-bezier(0, 0, 0.2, 1);
@@ -593,7 +583,7 @@
     --ft-color-mauve-900: #130a2e;
     --ft-color-mauve-950: #0a0619;
 
-    --ft-color-solid-surface: var(--ft-color-secondary-50);
+    --ft-color-solid-surface: #fff;
     --ft-color-solid-on-surface: #000;
 
     --ft-color-n-on-surface-0: color-mix(in srgb, var(--ft-color-mix-z) 0%, transparent);
@@ -655,7 +645,6 @@
     --ft-color-n-surface-85: color-mix(in srgb, var(--ft-color-mix-a) 85%, transparent);
     --ft-color-n-surface-90: color-mix(in srgb, var(--ft-color-mix-a) 90%, transparent);
     --ft-color-n-surface-100: color-mix(in srgb, var(--ft-color-mix-a) 100%, transparent);
-
 
 
     --ft-unit-0: 0px;
@@ -837,8 +826,8 @@
     --ft-color-on-surface-muted: var(--ft-color-n-on-surface-30);
     --ft-color-on-surface-scroll: var(--ft-color-n-on-surface-15);
     --ft-color-border-100: var(--ft-color-n-on-surface-3);
-    --ft-color-shadow-200: var(--ft-color-n-on-surface-10);
-    --ft-color-shadow-300: var(--ft-color-n-on-surface-20);
+    --ft-color-shadow-200: var(--ft-color-n-on-surface-3);
+    --ft-color-shadow-300: var(--ft-color-n-on-surface-5);
     --ft-color-border-200: var(--ft-color-n-on-surface-10);
     --ft-color-border-300: var(--ft-color-n-on-surface-40);
     --ft-color-border-muted: var(--ft-color-n-on-surface-7);
@@ -858,6 +847,11 @@
     --ft-color-on-warning: #FFFFFF;
     --ft-color-info: var(--color-blue-500);
     --ft-color-on-info: #FFFFFF;
+    --ft-color-highlight: linear-gradient(
+      90deg,
+      var(--ft-color-primary),
+      var(--ft-color-secondary)
+    );
     --ft-color-electric-primary: var(--color-green-500);
     --ft-color-electric-secondary: var(--color-pink-500);
 
@@ -894,8 +888,8 @@
   }
 
   /* Override variables for the dark theme */
-body.dark-theme {
-  /*body.dark-theme, body:has(.dark-theme) {*/
+  body.dark-theme {
+    /*body.dark-theme, body:has(.dark-theme) {*/
     color-scheme: dark;
 
     /* --- Base Colors --- */
@@ -910,8 +904,8 @@ body.dark-theme {
     /*!* --- Neutral/On-Surface Opacities --- *!*/
 
     /* --- Surface Levels --- */
-    --ft-color-surface-level-100: var(--ft-color-n-surface-15);
-    --ft-color-surface-level-200: var(--ft-color-n-on-surface-7);
+    --ft-color-surface-level-100: var(--ft-color-n-surface-40);
+    --ft-color-surface-level-200: var(--ft-color-n-on-surface-5);
     --ft-color-surface-level-300: var(--ft-color-n-surface-20);
     --ft-color-surface-level-400: var(--ft-color-n-surface-25);
     --ft-color-surface-muted: var(--ft-color-n-surface-30);
@@ -930,8 +924,8 @@ body.dark-theme {
     --ft-color-border-solid: var(--ft-color-n-on-surface-30);
 
     /* --- Shadows --- */
-    --ft-color-shadow-200: var(--ft-color-n-surface-10);
-    --ft-color-shadow-300: var(--ft-color-n-surface-20);
+    --ft-color-shadow-200: var(--ft-color-n-surface-8);
+    --ft-color-shadow-300: var(--ft-color-n-surface-15);
 
     /* --- Primary/Secondary Colors (adjust luminance) --- */
     --ft-color-on-primary: #000;
@@ -942,6 +936,12 @@ body.dark-theme {
     --ft-color-danger: #f87171; /* Brighter red for visibility */
     --ft-color-warning: #fbbf24; /* Brighter orange for visibility */
     --ft-color-info: #60a5fa; /* Brighter blue for visibility */
+
+    --ft-color-highlight: linear-gradient(
+      90deg,
+      var(--ft-color-primary-800),
+      var(--ft-color-secondary-950)
+    );
 
     /* --- Background Image --- */
 

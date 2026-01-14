@@ -1,10 +1,10 @@
-<div class="lg:!flex main-sidenav">
+<div class="lg:flex! main-sidenav">
   <div class="ft-flex-center">
     <button><i class="icon-menu"></i></button>
   </div>
-  <div class="ft-flex-center flex-grow">
+  <div class="ft-flex-center grow">
     <div class="ft-flex-center">
-      <div class="ft-flex-center flex-col flex-grow">
+      <div class="ft-flex-center flex-col grow">
         <i class="icon-users"></i>
         <div class="ft-flex-center">
           <span class="ft-flex-center">Patients</span>
@@ -19,7 +19,7 @@
 <div class="flex flex-col w-full">
   <div class="main-toolbar">
     <div class="flex items-center gap-3">
-      <i class="icon-menu lg:!hidden"></i
+      <i class="icon-menu lg:hidden!"></i
       ><span class="ft-flex-center logo">Logo</span>
     </div>
     <div class="flex gap-6">
@@ -27,17 +27,17 @@
       <!-- <button><i class="icon-theme"></i></button> -->
       <ft-theme-switcher></ft-theme-switcher>
       <button><i class="icon-bell"></i></button>
-      <button class="!hidden lg:!flex"><i class="icon-setting"></i></button>
+      <button class="hidden! lg:flex!"><i class="icon-setting"></i></button>
       <button><i class="icon-user"></i></button>
-      <button class="!hidden lg:!flex"><i class="icon-logout"></i></button>
+      <button class="hidden! lg:flex!"><i class="icon-logout"></i></button>
     </div>
   </div>
 
   <div #mainContent class="main-content">
     <div class="patient-info ft-panel">
-      <button><i class="icon-arrow-left !text-4xl"> </i></button>
+      <button><i class="icon-arrow-left text-4xl!"> </i></button>
       <span
-        class="truncate flex-grow justify-start items-center lg:flex-grow-0 ft-text"
+        class="truncate grow justify-start items-center lg:grow-0 ft-text"
       >
         Mr. AHMED IBRAHIMI
       </span>
@@ -50,9 +50,9 @@
           <span class="leading-none">Homme</span>
         </div>
         <div class="ft-vdivider h-5"></div>
-        <div class="flex flex-grow items-center gap-2 w-0 max-w-fit">
+        <div class="flex grow items-center gap-2 w-0 max-w-fit">
           <i class="icon-birthday"></i>
-          <span class="truncate leading-none flex-grow">
+          <span class="truncate leading-none grow">
             24 ans et 4 mois
           </span>
         </div>
@@ -73,10 +73,10 @@
       </button>
     </div>
 
-    <div class="lg:!hidden ft-panel secondary-navbar">
-      <div class="flex flex-grow gap-1 h-full">
+    <div class="lg:hidden! ft-panel secondary-navbar">
+      <div class="flex grow gap-1 h-full">
         <div
-          class="ft-flex-center flex-grow xxl:justify-center gap-2 w-0 relative"
+          class="ft-flex-center grow xxl:justify-center gap-2 w-0 relative"
         >
           <div class="ft-flex-center w-full h-full">
             <span class="truncate font-normal inline-block active">
@@ -90,25 +90,25 @@
       </button>
     </div>
 
-    <div class="!hidden lg:!flex ft-panel gap-1 secondary-navbar">
-      <div class="flex flex-grow gap-1 h-full">
-        <div class="ft-flex-center flex-grow gap-2 w-0">
+    <div class="hidden! lg:flex! ft-panel gap-1 secondary-navbar">
+      <div class="flex grow gap-1 h-full">
+        <div class="ft-flex-center grow gap-2 w-0">
           <div class="ft-flex-center w-full h-full">
             <span class="ft-text"> Détails du patient </span>
           </div>
         </div>
-        <div class="ft-flex-center flex-grow gap-2 w-0">
+        <div class="ft-flex-center grow gap-2 w-0">
           <div class="ft-flex-center w-full h-full">
             <span class="ft-text"> Assurance </span>
           </div>
         </div>
         <div
-          class="ft-flex-center flex-col flex-grow xxl:justify-center w-0 relative"
+          class="ft-flex-center flex-col grow xxl:justify-center w-0 relative"
         >
           <div
             class="ft-flex-center w-full h-full"
           >
-            <span class="ft-text !text-[var(--ft-color-primary)]">
+            <span class="ft-text text-(--ft-color-primary)!">
               Historique Medical
             </span>
           </div>
@@ -116,18 +116,18 @@
             class="tab-border"
           ></div>
           <div
-            class="w-full border-b border-[var(--ft-color-primary)] absolute bottom-0 blur-[3px] opacity-20"
+            class="w-full border-b border-(--ft-color-primary) absolute bottom-0 blur-[3px] opacity-20"
           ></div>
           <div
-            class="w-full border-b-2 border-[var(--ft-color-primary)] absolute bottom-0 blur-2xl"
+            class="w-full border-b-2 border-(--ft-color-primary) absolute bottom-0 blur-2xl"
           ></div>
         </div>
-        <div class="ft-flex-center flex-grow gap-2 w-0">
+        <div class="ft-flex-center grow gap-2 w-0">
           <div class="ft-flex-center w-full h-full">
             <span class="ft-text"> Biométrie </span>
           </div>
         </div>
-        <div class="ft-flex-center flex-grow gap-2 w-0">
+        <div class="ft-flex-center grow gap-2 w-0">
           <div class="ft-flex-center w-full h-full">
             <span class="ft-text"> Pièces jointes </span>
           </div>
@@ -138,7 +138,7 @@
       </button>
     </div>
 
-    <div class="ft-panel lg:h-auto lg:!overflow-auto tab-body-container">
+    <div class="ft-panel lg:h-auto lg:overflow-auto! tab-body-container">
       <div class="flex justify-end tab-body-header">
         <div class="flex items-center gap-2">
           <!--          <span class="font-bold leading-none">Last update</span>-->
@@ -149,7 +149,7 @@
         </div>
       </div>
 
-      <div #tabBodyContent class="lg:!flex-row tab-body-content">
+      <div #tabBodyContent class="lg:flex-row! tab-body-content">
         <div class="hm-container lg:pr-3">
           @for (entity of medicalHistoryEntities; track entity.title) {
             <div class="mini-card">
@@ -207,7 +207,7 @@
                 <button><i class="icon-search"></i></button>
               </div>
             </div>
-            <div class="comment-body-outer-container lg:!overflow-auto">
+            <div class="comment-body-outer-container lg:overflow-auto!">
               <div class="ft-top-scroll-overlay-container">
                 <div class="ft-scroll-overlay"></div>
               </div>
@@ -264,13 +264,13 @@
     </div>
   </div>
 </div>
-<div class="lg:!flex main-sidenav">
+<div class="lg:flex! main-sidenav">
   <div class="ft-flex-center">
     <button><i class="icon-menu"></i></button>
   </div>
-  <div class="ft-flex-center flex-grow">
+  <div class="ft-flex-center grow">
     <div class="ft-flex-center">
-      <div class="ft-flex-center flex-col flex-grow">
+      <div class="ft-flex-center flex-col grow">
         <i class="icon-users"></i>
         <div class="ft-flex-center">
           <span class="ft-flex-center">Patients</span>
@@ -285,7 +285,7 @@
 <div class="flex flex-col w-full">
   <div class="main-toolbar">
     <div class="flex items-center gap-3">
-      <i class="icon-menu lg:!hidden"></i
+      <i class="icon-menu lg:hidden!"></i
       ><span class="ft-flex-center logo">Logo</span>
     </div>
     <div class="flex gap-6">
@@ -293,17 +293,17 @@
       <!-- <button><i class="icon-theme"></i></button> -->
       <ft-theme-switcher></ft-theme-switcher>
       <button><i class="icon-bell"></i></button>
-      <button class="!hidden lg:!flex"><i class="icon-setting"></i></button>
+      <button class="hidden! lg:flex!"><i class="icon-setting"></i></button>
       <button><i class="icon-user"></i></button>
-      <button class="!hidden lg:!flex"><i class="icon-logout"></i></button>
+      <button class="hidden! lg:flex!"><i class="icon-logout"></i></button>
     </div>
   </div>
 
   <div #mainContent class="main-content">
     <div class="patient-info ft-panel">
-      <button><i class="icon-arrow-left !text-4xl"> </i></button>
+      <button><i class="icon-arrow-left text-4xl!"> </i></button>
       <span
-        class="truncate flex-grow justify-start items-center lg:flex-grow-0 ft-text"
+        class="truncate grow justify-start items-center lg:grow-0 ft-text"
       >
         Mr. AHMED IBRAHIMI
       </span>
@@ -316,9 +316,9 @@
           <span class="leading-none">Homme</span>
         </div>
         <div class="ft-vdivider h-5"></div>
-        <div class="flex flex-grow items-center gap-2 w-0 max-w-fit">
+        <div class="flex grow items-center gap-2 w-0 max-w-fit">
           <i class="icon-birthday"></i>
-          <span class="truncate leading-none flex-grow">
+          <span class="truncate leading-none grow">
             24 ans et 4 mois
           </span>
         </div>
@@ -339,10 +339,10 @@
       </button>
     </div>
 
-    <div class="lg:!hidden ft-panel secondary-navbar">
-      <div class="flex flex-grow gap-1 h-full">
+    <div class="lg:hidden! ft-panel secondary-navbar">
+      <div class="flex grow gap-1 h-full">
         <div
-          class="ft-flex-center flex-grow xxl:justify-center gap-2 w-0 relative"
+          class="ft-flex-center grow xxl:justify-center gap-2 w-0 relative"
         >
           <div class="ft-flex-center w-full h-full">
             <span class="truncate font-normal inline-block active">
@@ -356,44 +356,44 @@
       </button>
     </div>
 
-    <div class="!hidden lg:!flex ft-panel gap-1 secondary-navbar">
-      <div class="flex flex-grow gap-1 h-full">
-        <div class="ft-flex-center flex-grow gap-2 w-0">
+    <div class="hidden! lg:flex! ft-panel gap-1 secondary-navbar">
+      <div class="flex grow gap-1 h-full">
+        <div class="ft-flex-center grow gap-2 w-0">
           <div class="ft-flex-center w-full h-full">
             <span class="ft-text"> Détails du patient </span>
           </div>
         </div>
-        <div class="ft-flex-center flex-grow gap-2 w-0">
+        <div class="ft-flex-center grow gap-2 w-0">
           <div class="ft-flex-center w-full h-full">
             <span class="ft-text"> Assurance </span>
           </div>
         </div>
         <div
-          class="ft-flex-center flex-col flex-grow xxl:justify-center w-0 relative"
+          class="ft-flex-center flex-col grow xxl:justify-center w-0 relative"
         >
           <div
-            class="ft-flex-center w-full h-full border-b border-[var(--ft-color-primary)]"
+            class="ft-flex-center w-full h-full border-b border-(--ft-color-primary)"
           >
-            <span class="ft-text !text-[var(--ft-color-primary)]">
+            <span class="ft-text text-(--ft-color-primary)!">
               Historique Medical
             </span>
           </div>
           <div
-            class="w-[77%] border-b border-[var(--ft-color-primary)] absolute bottom-0 blur-xl"
+            class="w-[77%] border-b border-(--ft-color-primary) absolute bottom-0 blur-xl"
           ></div>
           <div
-            class="w-full border-b border-[var(--ft-color-primary)] absolute bottom-0 blur-[3px] opacity-20"
+            class="w-full border-b border-(--ft-color-primary) absolute bottom-0 blur-[3px] opacity-20"
           ></div>
           <div
-            class="w-full border-b-2 border-[var(--ft-color-primary)] absolute bottom-0 blur-2xl"
+            class="w-full border-b-2 border-(--ft-color-primary) absolute bottom-0 blur-2xl"
           ></div>
         </div>
-        <div class="ft-flex-center flex-grow gap-2 w-0">
+        <div class="ft-flex-center grow gap-2 w-0">
           <div class="ft-flex-center w-full h-full">
             <span class="ft-text"> Biométrie </span>
           </div>
         </div>
-        <div class="ft-flex-center flex-grow gap-2 w-0">
+        <div class="ft-flex-center grow gap-2 w-0">
           <div class="ft-flex-center w-full h-full">
             <span class="ft-text"> Pièces jointes </span>
           </div>
@@ -404,7 +404,7 @@
       </button>
     </div>
 
-    <div class="ft-panel lg:h-auto lg:!overflow-auto tab-body-container">
+    <div class="ft-panel lg:h-auto lg:overflow-auto! tab-body-container">
       <div class="flex justify-end tab-body-header">
         <div class="flex items-center gap-2">
           <!--          <span class="font-bold leading-none">Last update</span>-->
@@ -415,7 +415,7 @@
         </div>
       </div>
 
-      <div #tabBodyContent class="lg:!flex-row tab-body-content">
+      <div #tabBodyContent class="lg:flex-row! tab-body-content">
         <div class="hm-container lg:pr-3">
           @for (entity of medicalHistoryEntities; track entity.title) {
             <div class="mini-card">
@@ -473,7 +473,7 @@
                 <button><i class="icon-search"></i></button>
               </div>
             </div>
-            <div class="comment-body-outer-container lg:!overflow-auto">
+            <div class="comment-body-outer-container lg:overflow-auto!">
               <div class="ft-top-scroll-overlay-container">
                 <div class="ft-scroll-overlay"></div>
               </div>

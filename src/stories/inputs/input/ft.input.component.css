@@ -173,6 +173,7 @@
     --_balanced_small_padding: var(--ft-unit-200);
     --_field-padding: 0 var(--ft-unit-300);
     --_field-gap: var(--ft-unit-200);
+    --_field-container-gap: var(--ft-unit-200);
     --_field-icon-size: 20px;
     --_field-content-gap: var(--ft-unit-100);
 
@@ -194,6 +195,7 @@
     --_balanced_small_padding: var(--ft-unit-300);
     --_field-padding: 0 var(--ft-unit-400);
     --_field-gap: var(--ft-unit-300);
+    --_field-container-gap: var(--ft-unit-300);
     --_field-icon-size: 20px;
     --_field-content-gap: var(--ft-unit-150);
 
@@ -308,7 +310,7 @@
 
   &.label-outside-left {
     grid-template-columns: fit-content(50%) auto;
-    column-gap: var(--_field-gap);
+    column-gap: var(--_field-container-gap);
 
     .label-row {
       grid-area: 1 / 1;

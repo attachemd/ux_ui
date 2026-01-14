@@ -1,8 +1,10 @@
 <div class="field-container"
      [class]="labelPlacement + ' ' + size + ' ' + variant + ' ' + state"
-     [ngClass]="{
-           'gap-x-0': !isLabel && labelPlacement === 'label-outside-left',
-           }"
+     [ngStyle]="{
+    '--_field-container-gap': (!isLabel && (labelPlacement === 'label-outside-left' || labelPlacement === 'label-outside'))
+                    ? '0'
+                    : null
+  }"
 >
   <div *ngIf="isLabel && labelPlacement !== 'label-inside'" class="label-row">
     <span class="label leading-none"
@@ -12,7 +14,7 @@
            }"
     >{{ label }} <span *ngIf="required && !disabled">*</span></span>
   </div>
-  <div class="input-wrapper w-[30px]" [class]="radiusClasses">
+  <div class="input-wrapper" [class]="radiusClasses">
     <div *ngIf="isPrefixIconClass && prefixIconClass" class="prefix-icon">
       <span class="material-symbols-rounded">{{prefixIconClass}}</span>
     </div>

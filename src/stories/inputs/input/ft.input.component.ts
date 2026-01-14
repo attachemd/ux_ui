@@ -1,5 +1,5 @@
 import {Component, Input, ViewEncapsulation} from '@angular/core';
-import {NgClass, NgIf} from '@angular/common';
+import {NgClass, NgIf, NgStyle} from '@angular/common';
 import {FormsModule} from '@angular/forms';
 
 @Component({
@@ -8,7 +8,8 @@ import {FormsModule} from '@angular/forms';
   imports: [
     NgClass,
     FormsModule,
-    NgIf
+    NgIf,
+    NgStyle
   ],
   styleUrls: ['./ft.input.component.css'],
   encapsulation: ViewEncapsulation.Emulated // Ensure this is set (default)

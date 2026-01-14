@@ -1,4 +1,4 @@
-<!--<div class="ft-panel lg:h-auto lg:!overflow-auto tab-body-container">-->
+<!--<div class="ft-panel lg:h-auto lg:overflow-auto! tab-body-container">-->
   <div class="flex justify-end tab-body-header">
     <div class="flex items-center gap-2">
       <!--          <span class="font-bold leading-none">Last update</span>-->
@@ -9,7 +9,7 @@
     </div>
   </div>
 
-  <div id="tabBodyContent" class="lg:!flex-row tab-body-content">
+  <div id="tabBodyContent" class="lg:flex-row! tab-body-content">
     <div class="hm-container lg:pr-3" >
       @for (entity of medicalHistoryEntities; track entity.title) {
         <div class="mini-card">
@@ -67,7 +67,7 @@
             <button><i class="icon-search"></i></button>
           </div>
         </div>
-        <div class="comment-body-outer-container lg:!overflow-auto">
+        <div class="comment-body-outer-container lg:overflow-auto!">
           <div class="ft-top-scroll-overlay-container">
             <div class="ft-scroll-overlay"></div>
           </div>
