@@ -19,14 +19,17 @@ import {FtButtonComponent} from '../../Buttons/button/ft.button.component';
 })
 export class FtLoginComponent {
 
-  @Input() isLabel = false;
-  @Input() label?: string;
-  @Input() isDescription = false;
-  @Input() description?: string;
-  @Input() select = false;
-  @Input() inactive = false;
-  @Input() invalid = false;
-  @Input() size: 'xs-size'|'sm-size'|'md-size'|'lg-size' = 'md-size';
-  @Input() state: 'hover'|'press'|'focus'|'rest'= 'rest';
+
+  inputState: {username: 'rest'|'disabled'|'hover'|'focus'|'readonly'|'invalid'|'content',
+  password: 'rest'|'disabled'|'hover'|'focus'|'readonly'|'invalid'|'content'} = {
+    username: 'rest',
+    password: 'rest'
+  }
+  content = {
+    username: '',
+    password: ''
+  }
+  buttonState: 'rest' | 'hover' | 'press' | 'focus' | 'disabled' = 'disabled'
+
 
 }

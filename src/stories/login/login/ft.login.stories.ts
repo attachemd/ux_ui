@@ -12,7 +12,7 @@ const meta: Meta<FtLoginComponent> = {
 
   },
   args: {
-    isLabel: true,
+
   }
 };
 
@@ -25,21 +25,26 @@ export const Default: Story = {
   }
 };
 
-export const Hover: Story = {
+export const Focus: Story = {
   args: {
-    state: "hover"
+    inputState: {
+      username: "focus" as const,
+      password: "rest"
+    }
   }
 };
 
-export const Select: Story = {
+export const Content: Story = {
   args: {
-    select: true
+    inputState: {
+      username: "content",
+      password: "content"
+    },
+    content: {
+      username: 'root',
+      password: 'password'
+    },
+    buttonState: 'rest'
   }
 };
 
-export const SelectAndHover: Story = {
-  args: {
-    select: true,
-    state: "hover"
-  }
-};
