@@ -857,9 +857,9 @@
 
     /* Mapped */
 
-    --ft-form-field-50: var(--ft-color-n-on-surface-2);
-    --ft-form-field-100: var(--ft-color-n-on-surface-5);
-    --ft-form-field-200: var(--ft-color-n-on-surface-8);
+    --ft-form-field-50: color-mix(in srgb, var(--ft-color-primary) 2%, transparent);
+    --ft-form-field-100: color-mix(in srgb, var(--ft-color-primary) 4%, transparent);
+    --ft-form-field-200: color-mix(in srgb, var(--ft-color-primary) 8%, transparent);
     --ft-form-field-300: var(--ft-color-n-on-surface-15);
     --ft-form-field-muted: var(--ft-color-n-on-surface-3);
     --ft-form-field-content-muted: var(--ft-color-n-on-surface-40);
