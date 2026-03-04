@@ -1,8 +1,8 @@
-import {FtLoginComponent} from './ft.login.component';
-import type {Meta, StoryObj} from '@storybook/angular';
+import { FtLoginComponent } from './ft.login.component';
+import type { Meta, StoryObj } from '@storybook/angular';
 
 const meta: Meta<FtLoginComponent> = {
-  title: 'Login/Login',
+  title: 'Components/Login',
   component: FtLoginComponent,
   // tags: ['autodocs'],
   parameters: {

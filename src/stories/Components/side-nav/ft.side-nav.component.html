@@ -1,0 +1,42 @@
+<link
+  href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+  rel="stylesheet" />
+
+<aside class="sidebar" [class.expanded]="isExpanded()" [attr.aria-expanded]="isExpanded()" role="navigation"
+  aria-label="Main Navigation">
+  <!-- Brand/Menu Action -->
+  <button class="menu-trigger" (click)="toggleSidebar()"
+    [attr.aria-label]="isExpanded() ? 'Collapse sidebar' : 'Expand sidebar'">
+    <span class="material-symbols-rounded">
+      {{ isExpanded() ? 'menu_open' : 'menu' }}
+    </span>
+  </button>
+
+  <!-- Navigation -->
+  <nav class="nav-list">
+    @for (item of navItems(); track item.id; let i = $index) {
+    <button (click)="setActive(item.id)" class="nav-item group" [class.active]="activeId() === item.id"
+      [attr.aria-current]="activeId() === item.id ? 'page' : null" [style.--item-index]="i">
+      <!-- Active Indicator Bar -->
+      <!-- <div class="active-indicator"></div> -->
+
+      <span class="material-symbols-rounded icon">
+        {{ item.icon }}
+      </span>
+
+      <span class="nav-label">{{ item.label }}</span>
+
+      <span class="tooltip group-hover:scale-100" role="tooltip">
+        {{ item.label }}
+      </span>
+    </button>
+    }
+  </nav>
+
+  <!-- Footer -->
+  <div class="sidebar-footer">
+    <button class="help-btn" aria-label="Get help">
+      <span class="material-symbols-rounded">help</span>
+    </button>
+  </div>
+</aside>

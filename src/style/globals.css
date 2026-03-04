@@ -98,7 +98,8 @@
   }
 
   .sb-show-main {
-    background: var(--ft-color-solid-surface);
+    /*background-color: var(--ft-color-solid-surface);*/
+    background: var(--ft-color-background-image);
 
   }
 

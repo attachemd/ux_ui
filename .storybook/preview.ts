@@ -1,15 +1,15 @@
 // import './preview-body-class';
 
 import React from 'react';
-import type {Preview} from '@storybook/angular'
-import {setCompodocJson} from "@storybook/addon-docs/angular";
+import type { Preview } from '@storybook/angular'
+import { setCompodocJson } from "@storybook/addon-docs/angular";
 import docJson from "../documentation.json";
 setCompodocJson(docJson);
 
 import '!style-loader!css-loader!../src/stories/common.styles.css';
-import {themes} from 'storybook/theming';
-import {useDarkMode} from '@vueless/storybook-dark-mode';
-import {DocsContainer} from '@storybook/addon-docs/blocks';
+import { themes } from 'storybook/theming';
+import { useDarkMode } from '@vueless/storybook-dark-mode';
+import { DocsContainer } from '@storybook/addon-docs/blocks';
 
 
 const preview: Preview = {
@@ -36,12 +36,12 @@ const preview: Preview = {
           'Radio Buttons', ['Radio', 'Radio Group', 'Radio All Cases', '*'],
           'Inputs', ['Input', 'Textarea', 'Select', '*'],
           'Buttons', ['Button', 'Button All Cases', 'Icon Button', 'Icon Button All Cases', 'Textarea', 'Select', '*'],
-          'login', ['Login', '*'],
+          'Components', ['Login', '*'],
           ['*', '**'],  // All other stories
         ],
       },
     },
-    actions: {argTypesRegex: '^on[A-Z].*'},
+    actions: { argTypesRegex: '^on[A-Z].*' },
     controls: {
       matchers: {
         color: /(background|color)$/i,
