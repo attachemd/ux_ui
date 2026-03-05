@@ -36,6 +36,7 @@ const preview: Preview = {
           'Radio Buttons', ['Radio', 'Radio Group', 'Radio All Cases', '*'],
           'Inputs', ['Input', 'Textarea', 'Select', '*'],
           'Buttons', ['Button', 'Button All Cases', 'Icon Button', 'Icon Button All Cases', 'Textarea', 'Select', '*'],
+          'Toggles', ['Toggle', 'Toggle All Cases', '*'],
           'Components', ['Login', '*'],
           ['*', '**'],  // All other stories
         ],

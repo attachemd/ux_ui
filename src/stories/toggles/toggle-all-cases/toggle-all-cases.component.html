@@ -1,0 +1,124 @@
+<div class="all-case-container">
+    <h1 class="showcase-title">Toggle Component Showcase</h1>
+
+    <div class="showcase-grid">
+
+        @for (v of ['default', 'icon', 'label']; track v) {
+        <div class="variant-section">
+            <h2>Variant: {{v}}</h2>
+
+            <div class="table-scroll-container">
+                <table class="color-common-table">
+                    <thead>
+                        <tr class="header-row">
+                            <th class="state-heading">State / Position</th>
+                            @for (pos of ['left', 'right', 'top']; track pos) {
+                            <th colspan="3" class="pos-heading" [ngClass]="{
+                                    'bg-pos-left': pos === 'left',
+                                    'bg-pos-right': pos === 'right',
+                                    'bg-pos-top': pos === 'top'
+                                }">
+                                <div class="pos-content">
+                                    <span class="material-symbols-rounded">
+                                        {{pos === 'left' ? 'format_align_left' : (pos === 'right' ? 'format_align_right'
+                                        : 'vertical_align_top')}}
+                                    </span>
+                                    Label: {{pos}}
+                                </div>
+                            </th>
+                            }
+                        </tr>
+                        <tr class="sub-header-row">
+                            <th class="empty-heading"></th>
+                            @for (pos of ['left', 'right', 'top']; track pos) {
+                            <th class="size-heading border-left-group">SM</th>
+                            <th class="size-heading">MD</th>
+                            <th class="size-heading">LG</th>
+                            }
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Row: Selected (ON) -->
+                        <tr>
+                            <td class="state-cell">Selected (ON)</td>
+                            @for (pos of ['left', 'right', 'top']; track pos) {
+                            @for (s of ['sm-size', 'md-size', 'lg-size']; track s; let first = $first) {
+                            <td class="toggle-cell" [ngClass]="{
+                                    'border-left-group': first,
+                                    'cell-bg-pos-left': pos === 'left',
+                                    'cell-bg-pos-right': pos === 'right',
+                                    'cell-bg-pos-top': pos === 'top'
+                                }">
+                                <ft-toggle [size]="$any(s)" [variant]="$any(v)" [labelPosition]="$any(pos)"
+                                    [isLabel]="true" label="Toggle On" [select]="true"></ft-toggle>
+                            </td>
+                            }
+                            }
+                        </tr>
+                        <!-- Row: Unselected (OFF) -->
+                        <tr>
+                            <td class="state-cell">Unselected (OFF)</td>
+                            @for (pos of ['left', 'right', 'top']; track pos) {
+                            @for (s of ['sm-size', 'md-size', 'lg-size']; track s; let first = $first) {
+                            <td class="toggle-cell" [ngClass]="{
+                                    'border-left-group': first,
+                                    'cell-bg-pos-left': pos === 'left',
+                                    'cell-bg-pos-right': pos === 'right',
+                                    'cell-bg-pos-top': pos === 'top'
+                                }">
+                                <ft-toggle [size]="$any(s)" [variant]="$any(v)" [labelPosition]="$any(pos)"
+                                    [isLabel]="true" label="Toggle Off" [select]="false"></ft-toggle>
+                            </td>
+                            }
+                            }
+                        </tr>
+                        <!-- Row: Invalid -->
+                        <tr class="invalid-row">
+                            <td class="state-cell">Invalid</td>
+                            @for (pos of ['left', 'right', 'top']; track pos) {
+                            @for (s of ['sm-size', 'md-size', 'lg-size']; track s; let first = $first) {
+                            <td class="toggle-cell" [ngClass]="{'border-left-group': first}">
+                                <ft-toggle [size]="$any(s)" [variant]="$any(v)" [labelPosition]="$any(pos)"
+                                    [isLabel]="true" label="Invalid" [select]="true" [invalid]="true"></ft-toggle>
+                            </td>
+                            }
+                            }
+                        </tr>
+                        <!-- Row: Disabled -->
+                        <tr class="disabled-row">
+                            <td class="state-cell">Disabled</td>
+                            @for (pos of ['left', 'right', 'top']; track pos) {
+                            @for (s of ['sm-size', 'md-size', 'lg-size']; track s; let first = $first) {
+                            <td class="toggle-cell" [ngClass]="{'border-left-group': first}">
+                                <ft-toggle [size]="$any(s)" [variant]="$any(v)" [labelPosition]="$any(pos)"
+                                    [isLabel]="true" label="Disabled" [select]="true" [inactive]="true"></ft-toggle>
+                            </td>
+                            }
+                            }
+                        </tr>
+                        <!-- Row: With Description -->
+                        <tr>
+                            <td class="state-cell">With Description</td>
+                            @for (pos of ['left', 'right', 'top']; track pos) {
+                            @for (s of ['sm-size', 'md-size', 'lg-size']; track s; let first = $first) {
+                            <td class="toggle-cell" [ngClass]="{
+                                    'border-left-group': first,
+                                    'cell-bg-pos-left': pos === 'left',
+                                    'cell-bg-pos-right': pos === 'right',
+                                    'cell-bg-pos-top': pos === 'top'
+                                }">
+                                <ft-toggle [size]="$any(s)" [variant]="$any(v)" [labelPosition]="$any(pos)"
+                                    [isLabel]="true" label="Toggle Label" [isDescription]="true"
+                                    description="Detailed context." [select]="true"></ft-toggle>
+                            </td>
+                            }
+                            }
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        }
+
+    </div>
+</div>

@@ -3375,6 +3375,143 @@
             "templateData": "<link\r\n  href=\"https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200\"\r\n  rel=\"stylesheet\" />\r\n\r\n<aside class=\"sidebar\" [class.expanded]=\"isExpanded()\" [attr.aria-expanded]=\"isExpanded()\" role=\"navigation\"\r\n  aria-label=\"Main Navigation\">\r\n  <!-- Brand/Menu Action -->\r\n  <button class=\"menu-trigger\" (click)=\"toggleSidebar()\"\r\n    [attr.aria-label]=\"isExpanded() ? 'Collapse sidebar' : 'Expand sidebar'\">\r\n    <span class=\"material-symbols-rounded\">\r\n      {{ isExpanded() ? 'menu_open' : 'menu' }}\r\n    </span>\r\n  </button>\r\n\r\n  <!-- Navigation -->\r\n  <nav class=\"nav-list\">\r\n    @for (item of navItems(); track item.id; let i = $index) {\r\n    <button (click)=\"setActive(item.id)\" class=\"nav-item group\" [class.active]=\"activeId() === item.id\"\r\n      [attr.aria-current]=\"activeId() === item.id ? 'page' : null\" [style.--item-index]=\"i\">\r\n      <!-- Active Indicator Bar -->\r\n      <!-- <div class=\"active-indicator\"></div> -->\r\n\r\n      <span class=\"material-symbols-rounded icon\">\r\n        {{ item.icon }}\r\n      </span>\r\n\r\n      <span class=\"nav-label\">{{ item.label }}</span>\r\n\r\n      <span class=\"tooltip group-hover:scale-100\" role=\"tooltip\">\r\n        {{ item.label }}\r\n      </span>\r\n    </button>\r\n    }\r\n  </nav>\r\n\r\n  <!-- Footer -->\r\n  <div class=\"sidebar-footer\">\r\n    <button class=\"help-btn\" aria-label=\"Get help\">\r\n      <span class=\"material-symbols-rounded\">help</span>\r\n    </button>\r\n  </div>\r\n</aside>"
         },
         {
+            "name": "FtToggleComponent",
+            "id": "component-FtToggleComponent-b9f50dbf3716595d1317b14aaff86ea52839e8c4602caed317fe75b8ee937e15e1c3dd92db769bcf3751cc6c3a1307938b4f0f9359c8ee7620e4521aa357da25",
+            "file": "src/stories/toggles/toggle/ft.toggle.component.ts",
+            "encapsulation": [
+                "ViewEncapsulation.Emulated"
+            ],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "ft-toggle",
+            "styleUrls": [
+                "./ft.toggle.component.css"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./ft.toggle.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "description",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 22,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "inactive",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 24,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "invalid",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 25,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "isDescription",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 21,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "isLabel",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 19,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "label",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 20,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "select",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 23,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "size",
+                    "defaultValue": "'md-size'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 26,
+                    "type": "\"xs-size\" | \"sm-size\" | \"md-size\" | \"lg-size\"",
+                    "decorators": []
+                },
+                {
+                    "name": "state",
+                    "defaultValue": "'rest'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 27,
+                    "type": "\"hover\" | \"press\" | \"focus\" | \"rest\"",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "NgClass"
+                },
+                {
+                    "name": "FormsModule",
+                    "type": "module"
+                },
+                {
+                    "name": "NgIf"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input, ViewEncapsulation } from '@angular/core';\r\nimport { NgClass, NgIf } from '@angular/common';\r\nimport { FormsModule } from '@angular/forms';\r\n\r\n@Component({\r\n    selector: 'ft-toggle',\r\n    standalone: true,\r\n    templateUrl: './ft.toggle.component.html',\r\n    imports: [\r\n        NgClass,\r\n        FormsModule,\r\n        NgIf\r\n    ],\r\n    styleUrls: ['./ft.toggle.component.css'],\r\n    encapsulation: ViewEncapsulation.Emulated // Ensure this is set (default)\r\n})\r\nexport class FtToggleComponent {\r\n\r\n    @Input() isLabel = false;\r\n    @Input() label?: string;\r\n    @Input() isDescription = false;\r\n    @Input() description?: string;\r\n    @Input() select = false;\r\n    @Input() inactive = false;\r\n    @Input() invalid = false;\r\n    @Input() size: 'xs-size' | 'sm-size' | 'md-size' | 'lg-size' = 'md-size';\r\n    @Input() state: 'hover' | 'press' | 'focus' | 'rest' = 'rest';\r\n\r\n}\r\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ".field-container {\r\n    /* 1. INTERNAL VARIABLE DEFAULTS */\r\n    --_field-bg: transparent;\r\n    --_field-border-color: var(--ft-color-border-200);\r\n    --_field-border-width: var(--ft-border-tertiary);\r\n    --_field-thumb-bg: var(--ft-color-border-200);\r\n    /* Unselected thumb */\r\n    --_field-track-bg: transparent;\r\n    /* Unselected track color (border visible) */\r\n    --_field-text: var(--ft-color-solid-on-surface);\r\n    --_field-description: var(--ft-color-on-surface-level-300);\r\n\r\n    /* Size base (matches radio height) */\r\n    --_field-height: 20px;\r\n    --_field-width: 36px;\r\n    --_field-scale: 1;\r\n    --_thumb-size: 14px;\r\n    --_thumb-offset: 3px;\r\n\r\n    display: flex;\r\n    align-items: center;\r\n    gap: var(--ft-unit-200);\r\n\r\n    /* 2. COMPONENT STRUCTURE */\r\n    .field {\r\n        display: flex;\r\n        align-items: center;\r\n        justify-content: center;\r\n        width: calc(var(--_field-width) + 12px);\r\n        /* padding for hover states */\r\n        height: calc(var(--_field-height) + 12px);\r\n        transform: scale(var(--_field-scale));\r\n        border-radius: var(--ft-radius-pill);\r\n        background-color: var(--_field-bg);\r\n        transition: background-color 0.2s ease;\r\n\r\n        .toggle {\r\n            position: relative;\r\n            width: var(--_field-width);\r\n            height: var(--_field-height);\r\n            border: var(--_field-border-width) solid var(--_field-border-color);\r\n            background-color: var(--_field-track-bg);\r\n            border-radius: var(--ft-radius-pill);\r\n            display: flex;\r\n            align-items: center;\r\n            transition: background-color 0.2s ease, border-color 0.2s ease;\r\n\r\n            .thumb {\r\n                position: absolute;\r\n                left: var(--_thumb-offset);\r\n                width: var(--_thumb-size);\r\n                height: var(--_thumb-size);\r\n                border-radius: var(--ft-radius-pill);\r\n                background-color: var(--_field-thumb-bg);\r\n                transition: left 0.2s ease, background-color 0.2s ease;\r\n            }\r\n        }\r\n    }\r\n\r\n    .content {\r\n        display: flex;\r\n        flex-direction: column;\r\n        color: var(--_field-text);\r\n\r\n        .description {\r\n            color: var(--_field-description);\r\n        }\r\n    }\r\n\r\n    /* 3. INTERACTION STATES */\r\n    &.hover {\r\n        --_field-bg: var(--ft-form-field-100);\r\n    }\r\n\r\n    &.press,\r\n    &.focus {\r\n        --_field-bg: var(--ft-form-field-200);\r\n    }\r\n\r\n    /* 4. SELECTION LOGIC (Changes Border and Thumb position) */\r\n    &.select {\r\n        --_field-border-color: var(--ft-color-primary);\r\n        --_field-border-width: var(--ft-border-tertiary);\r\n        /* Toggles often look better with normal border when active */\r\n        --_field-track-bg: var(--ft-color-primary);\r\n        --_field-thumb-bg: var(--ft-color-white, #fff);\r\n\r\n        .toggle .thumb {\r\n            left: calc(var(--_field-width) - var(--_thumb-size) - var(--_thumb-offset));\r\n        }\r\n    }\r\n\r\n    /* 5. VALIDATION & STATUS LOGIC (Overrides selection/rest) */\r\n    &.invalid {\r\n        --_field-text: var(--ft-color-danger);\r\n        --_field-border-color: var(--ft-color-danger);\r\n\r\n        &.select {\r\n            --_field-track-bg: var(--ft-color-danger);\r\n        }\r\n\r\n        &:not(.select) {\r\n            .toggle .thumb {\r\n                background-color: var(--ft-color-danger);\r\n            }\r\n        }\r\n    }\r\n\r\n    &.inactive {\r\n        pointer-events: none;\r\n        --_field-text: var(--ft-color-on-surface-muted);\r\n        --_field-description: var(--ft-color-on-surface-muted);\r\n        --_field-border-color: var(--ft-radio-muted);\r\n        --_field-thumb-bg: var(--ft-radio-muted);\r\n\r\n        &.select {\r\n            --_field-track-bg: var(--ft-radio-muted);\r\n            --_field-thumb-bg: color-mix(in srgb, var(--ft-radio-muted) 20%, #fff);\r\n        }\r\n    }\r\n\r\n    /* 6. SIZE LOGIC */\r\n    &.xs-size {\r\n        --_field-height: 14px;\r\n        --_field-width: 26px;\r\n        --_thumb-size: 10px;\r\n        --_thumb-offset: 2px;\r\n    }\r\n\r\n    &.sm-size {\r\n        --_field-height: 16px;\r\n        --_field-width: 30px;\r\n        --_thumb-size: 12px;\r\n        --_thumb-offset: 2px;\r\n    }\r\n\r\n    &.md-size {\r\n        --_field-height: 20px;\r\n        --_field-width: 36px;\r\n        --_thumb-size: 14px;\r\n        --_thumb-offset: 3px;\r\n    }\r\n\r\n    &.lg-size {\r\n        --_field-height: 24px;\r\n        --_field-width: 44px;\r\n        --_thumb-size: 18px;\r\n        --_thumb-offset: 3px;\r\n    }\r\n}",
+                    "styleUrl": "./ft.toggle.component.css"
+                }
+            ],
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<div class=\"field-container\" [class]=\"size + ' ' + state\" [class.select]=\"select\" [class.inactive]=\"inactive\"\r\n    [class.invalid]=\"invalid\">\r\n    <div class=\"field\">\r\n        <div class=\"toggle\">\r\n            <div class=\"thumb\"></div>\r\n        </div>\r\n\r\n    </div>\r\n    <div class=\"content\" [ngClass]=\"{\r\n           'content-2xs--normal': size === 'xs-size',\r\n           'content-xs--normal': size === 'sm-size' || size === 'md-size',\r\n           'content-sm--normal': size === 'lg-size',\r\n           }\">\r\n        <div *ngIf=\"isLabel\" class=\"label\">\r\n            {{label}}\r\n        </div>\r\n        <div *ngIf=\"isDescription\" class=\"description\">\r\n            {{description}}\r\n        </div>\r\n    </div>\r\n\r\n</div>"
+        },
+        {
             "name": "IconButtonAllCasesComponent",
             "id": "component-IconButtonAllCasesComponent-5a0962744d2dafd8fe2a752534229d68d064c41b5261f8855597041224f02b4fb3006e94e5ef4577472b0841f519e1ae9e734aa5e76435f99fb76dd11d43a8f3",
             "file": "src/stories/Buttons/icon-button-all-cases/icon.button.all.cases.component.ts",
@@ -7850,6 +7987,145 @@
             "extends": []
         },
         {
+            "name": "ToggleAllCasesComponent",
+            "id": "component-ToggleAllCasesComponent-dad4d66c7d428425008cac677673b34e839d94388b049ab24ba9d9874512b11a7ebdc2c18bf02bf494187592fadd771205fb3198342c1c6365e77a03b0a8d420",
+            "file": "src/stories/toggles/toggle-all-cases/toggle-all-cases.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-toggle-showcase",
+            "styleUrls": [
+                "./toggle-all-cases.component.css"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./toggle-all-cases.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "class",
+                    "defaultValue": "'showcase'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 13,
+                    "decorators": [
+                        {
+                            "name": "HostBinding",
+                            "stringifiedArguments": "'class'"
+                        }
+                    ],
+                    "modifierKind": [
+                        171
+                    ]
+                },
+                {
+                    "name": "description",
+                    "defaultValue": "'Enable or disable this feature'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 18
+                },
+                {
+                    "name": "isDescription",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "unknown",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 17
+                },
+                {
+                    "name": "isLabel",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "unknown",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 15
+                },
+                {
+                    "name": "label",
+                    "defaultValue": "'Feature Toggle'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 16
+                },
+                {
+                    "name": "size",
+                    "defaultValue": "'md-size'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "\"xs-size\" | \"sm-size\" | \"md-size\" | \"lg-size\"",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 19
+                }
+            ],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [
+                {
+                    "name": "class",
+                    "defaultValue": "'showcase'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 13,
+                    "type": "string",
+                    "decorators": []
+                }
+            ],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "CommonModule",
+                    "type": "module"
+                },
+                {
+                    "name": "FtToggleComponent",
+                    "type": "component"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, HostBinding, Input } from '@angular/core';\r\nimport { CommonModule } from '@angular/common';\r\nimport { FtToggleComponent } from '../toggle/ft.toggle.component';\r\n\r\n@Component({\r\n    selector: 'app-toggle-showcase',\r\n    templateUrl: './toggle-all-cases.component.html',\r\n    styleUrls: ['./toggle-all-cases.component.css'],\r\n    standalone: true,\r\n    imports: [CommonModule, FtToggleComponent]\r\n})\r\nexport class ToggleAllCasesComponent {\r\n    @HostBinding('class') class = 'showcase';\r\n\r\n    isLabel = false;\r\n    label = 'Feature Toggle';\r\n    isDescription = false;\r\n    description = 'Enable or disable this feature';\r\n    size: 'xs-size' | 'sm-size' | 'md-size' | 'lg-size' = 'md-size';\r\n}\r\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./toggle-all-cases.component.css"
+                }
+            ],
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<div class=\"all-case-container\">\r\n    <h1 class=\"showcase-title\">Toggle All Cases</h1>\r\n    <div class=\"cases-container\">\r\n        <div class=\"case-row case-row-heading\">\r\n            <div class=\"case-item case-item-heading\"></div>\r\n            <div class=\"case-item\">Selected</div>\r\n            <div class=\"case-item\">Unselected</div>\r\n        </div>\r\n\r\n        <!-- Rest State -->\r\n        <div class=\"case-row\">\r\n            <div class=\"case-item case-item-heading vertical-text\">Rest</div>\r\n            <div class=\"case-item\">\r\n                <ft-toggle [isLabel]=\"isLabel\" [label]=\"label\" [isDescription]=\"isDescription\"\r\n                    [description]=\"description\" [size]=\"size\" [state]=\"'rest'\" [select]=\"true\">\r\n                </ft-toggle>\r\n            </div>\r\n            <div class=\"case-item\">\r\n                <ft-toggle [isLabel]=\"isLabel\" [label]=\"label\" [isDescription]=\"isDescription\"\r\n                    [description]=\"description\" [size]=\"size\" [state]=\"'rest'\" [select]=\"false\">\r\n                </ft-toggle>\r\n            </div>\r\n        </div>\r\n\r\n        <!-- Hover State -->\r\n        <div class=\"case-row\">\r\n            <div class=\"case-item case-item-heading vertical-text\">Hover</div>\r\n            <div class=\"case-item\">\r\n                <ft-toggle [isLabel]=\"isLabel\" [label]=\"label\" [isDescription]=\"isDescription\"\r\n                    [description]=\"description\" [size]=\"size\" [state]=\"'hover'\" [select]=\"true\">\r\n                </ft-toggle>\r\n            </div>\r\n            <div class=\"case-item\">\r\n                <ft-toggle [isLabel]=\"isLabel\" [label]=\"label\" [isDescription]=\"isDescription\"\r\n                    [description]=\"description\" [size]=\"size\" [state]=\"'hover'\" [select]=\"false\">\r\n                </ft-toggle>\r\n            </div>\r\n        </div>\r\n\r\n        <!-- Press/Focus State -->\r\n        <div class=\"case-row\">\r\n            <div class=\"case-item case-item-heading vertical-text\">Press</div>\r\n            <div class=\"case-item\">\r\n                <ft-toggle [isLabel]=\"isLabel\" [label]=\"label\" [isDescription]=\"isDescription\"\r\n                    [description]=\"description\" [size]=\"size\" [state]=\"'press'\" [select]=\"true\">\r\n                </ft-toggle>\r\n            </div>\r\n            <div class=\"case-item\">\r\n                <ft-toggle [isLabel]=\"isLabel\" [label]=\"label\" [isDescription]=\"isDescription\"\r\n                    [description]=\"description\" [size]=\"size\" [state]=\"'press'\" [select]=\"false\">\r\n                </ft-toggle>\r\n            </div>\r\n        </div>\r\n\r\n        <!-- Disabled State -->\r\n        <div class=\"case-row\">\r\n            <div class=\"case-item case-item-heading vertical-text\">Disabled</div>\r\n            <div class=\"case-item\">\r\n                <ft-toggle [isLabel]=\"isLabel\" [label]=\"label\" [isDescription]=\"isDescription\"\r\n                    [description]=\"description\" [size]=\"size\" [state]=\"'rest'\" [select]=\"true\" [inactive]=\"true\">\r\n                </ft-toggle>\r\n            </div>\r\n            <div class=\"case-item\">\r\n                <ft-toggle [isLabel]=\"isLabel\" [label]=\"label\" [isDescription]=\"isDescription\"\r\n                    [description]=\"description\" [size]=\"size\" [state]=\"'rest'\" [select]=\"false\" [inactive]=\"true\">\r\n                </ft-toggle>\r\n            </div>\r\n        </div>\r\n\r\n        <!-- Invalid State -->\r\n        <div class=\"case-row\">\r\n            <div class=\"case-item case-item-heading vertical-text\">Invalid</div>\r\n            <div class=\"case-item\">\r\n                <ft-toggle [isLabel]=\"isLabel\" [label]=\"label\" [isDescription]=\"isDescription\"\r\n                    [description]=\"description\" [size]=\"size\" [state]=\"'rest'\" [select]=\"true\" [invalid]=\"true\">\r\n                </ft-toggle>\r\n            </div>\r\n            <div class=\"case-item\">\r\n                <ft-toggle [isLabel]=\"isLabel\" [label]=\"label\" [isDescription]=\"isDescription\"\r\n                    [description]=\"description\" [size]=\"size\" [state]=\"'rest'\" [select]=\"false\" [invalid]=\"true\">\r\n                </ft-toggle>\r\n            </div>\r\n        </div>\r\n\r\n    </div>\r\n</div>"
+        },
+        {
             "name": "TreatmentDialogComponent",
             "id": "component-TreatmentDialogComponent-ef662aec7380bc537bf238e85e242112cce347baefd19a787b73f707b815e0a74705fd25512ba44bab09057e839f3159cde575bfb8269700f005f1974fd50751",
             "file": "src/app/dialogs/treatment-dialog/treatment-dialog.component.ts",
@@ -10148,6 +10424,24 @@
                 "type": "component",
                 "linktype": "component",
                 "name": "FtRadioComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/10",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/toggles/toggle-all-cases/toggle-all-cases.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "ToggleAllCasesComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/8",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/toggles/toggle/ft.toggle.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "FtToggleComponent",
                 "coveragePercent": 0,
                 "coverageCount": "0/10",
                 "status": "low"
