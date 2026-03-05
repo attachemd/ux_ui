@@ -1,0 +1,23 @@
+<div class="field-container" [class]="size + ' ' + state" [class.checked]="checked"
+    [class.indeterminate]="indeterminate" [class.inactive]="inactive" [class.invalid]="invalid">
+    <div class="field">
+        <div class="checkbox">
+            <div class="control">
+                <span *ngIf="checked && !indeterminate" class="material-symbols-rounded check-icon">check</span>
+                <span *ngIf="indeterminate" class="material-symbols-rounded indeterminate-icon">remove</span>
+            </div>
+        </div>
+    </div>
+    <div class="content" [ngClass]="{
+           'content-2xs--normal': size === 'xs-size',
+           'content-xs--normal': size === 'sm-size' || size === 'md-size',
+           'content-sm--normal': size === 'lg-size',
+           }">
+        <div *ngIf="isLabel" class="label">
+            {{label}}
+        </div>
+        <div *ngIf="isDescription" class="description">
+            {{description}}
+        </div>
+    </div>
+</div>

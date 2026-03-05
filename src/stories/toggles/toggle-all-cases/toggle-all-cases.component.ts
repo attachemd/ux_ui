@@ -12,9 +12,20 @@ import { FtToggleComponent } from '../toggle/ft.toggle.component';
 export class ToggleAllCasesComponent {
     @HostBinding('class') class = 'showcase';
 
-    isLabel = false;
-    label = 'Feature Toggle';
-    isDescription = false;
-    description = 'Enable or disable this feature';
-    size: 'xs-size' | 'sm-size' | 'md-size' | 'lg-size' = 'md-size';
+    @Input() isLabel = true;
+    @Input() label = 'Feature Toggle';
+    @Input() isDescription = false;
+    @Input() description = 'Enable or disable this feature';
+    @Input() size: 'sm-size' | 'md-size' | 'lg-size' = 'sm-size';
+    @Input() variant: 'default' | 'icon' | 'label' = 'default';
+    @Input() labelPosition: 'left' | 'right' | 'top' = 'right';
+
+    states: Array<'rest' | 'hover' | 'press' | 'focus' | 'disabled' | 'invalid'> = [
+        'rest',
+        'hover',
+        'press',
+        'focus',
+        'disabled',
+        'invalid'
+    ];
 }

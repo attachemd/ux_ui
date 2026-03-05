@@ -4,7 +4,7 @@ import { moduleMetadata } from '@storybook/angular';
 import { InputAllCasesComponent } from './input-all-cases.component';
 
 import { FormsModule } from '@angular/forms';
-import {FTInputComponent} from '../input/ft.input.component';
+import { FTInputComponent } from '../input/ft.input.component';
 
 const meta: Meta<InputAllCasesComponent> = {
   title: 'Inputs/Input All Cases',
@@ -38,6 +38,9 @@ const meta: Meta<InputAllCasesComponent> = {
     isDescription: {
       control: "boolean",
       options: [true, false],
+    },
+    showContent: {
+      control: 'boolean',
     }
   },
   args: {
@@ -46,6 +49,7 @@ const meta: Meta<InputAllCasesComponent> = {
     size: 'md-size',
     variant: 'flat',
     isDescription: false,
+    showContent: false
   }
 };
 
@@ -54,6 +58,12 @@ type Story = StoryObj<InputAllCasesComponent>;
 
 export const Default: Story = {
   args: {}
+};
+
+export const WithContent: Story = {
+  args: {
+    showContent: true
+  }
 };
 
 // export const AllVariations: Story = {

@@ -1,0 +1,135 @@
+.field-container {
+    /* 1. INTERNAL VARIABLE DEFAULTS */
+    --_field-bg: transparent;
+    --_field-border-color: var(--ft-color-border-200);
+    --_field-border-width: var(--ft-border-tertiary);
+    --_field-control-bg: transparent;
+    --_field-text: var(--ft-color-solid-on-surface);
+    --_field-description: var(--ft-color-on-surface-level-300);
+    --_checkmark-color: var(--ft-color-mix-a);
+
+    --_field-size: 34px;
+    --_field-scale: 0.9;
+    --_checkbox-scale: 0.7;
+    --_control-scale: 1;
+
+    display: flex;
+    align-items: center;
+    gap: var(--ft-unit-200);
+
+    /* 2. COMPONENT STRUCTURE */
+    .field {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: var(--_field-size);
+        height: var(--_field-size);
+        transform: scale(var(--_field-scale));
+        border-radius: var(--ft-radius-pill);
+        background-color: var(--_field-bg);
+        transition: background-color 0.2s ease;
+
+        .checkbox {
+            width: 100%;
+            height: 100%;
+            transform: scale(var(--_checkbox-scale));
+            border: var(--_field-border-width) solid var(--_field-border-color);
+            border-radius: var(--ft-radius-200);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            background-color: var(--_field-control-bg);
+
+            .control {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: var(--_checkmark-color);
+
+                .material-symbols-rounded {
+                    font-size: 24px;
+                    font-weight: 900;
+                }
+            }
+        }
+    }
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        color: var(--_field-text);
+
+        .description {
+            color: var(--_field-description);
+        }
+    }
+
+    /* 3. INTERACTION STATES */
+    &.hover {
+        --_field-bg: var(--ft-form-field-100);
+    }
+
+    &.press,
+    &.focus {
+        --_field-bg: var(--ft-form-field-200);
+    }
+
+    /* 4. SELECTION LOGIC */
+    &.checked,
+    &.indeterminate {
+        --_field-border-color: var(--ft-color-primary);
+        --_field-control-bg: var(--ft-color-primary);
+    }
+
+    /* 5. VALIDATION & STATUS LOGIC */
+    &.invalid {
+        --_field-text: var(--ft-color-danger);
+        --_field-border-color: var(--ft-color-danger);
+
+        &.checked,
+        &.indeterminate {
+            --_field-control-bg: var(--ft-color-danger);
+        }
+    }
+
+    &.inactive {
+        pointer-events: none;
+        --_field-text: var(--ft-color-on-surface-muted);
+        --_field-description: var(--ft-color-on-surface-muted);
+        --_field-border-color: var(--ft-radio-muted);
+
+        &.checked,
+        &.indeterminate {
+            --_field-control-bg: var(--ft-radio-muted);
+            --_field-border-color: var(--ft-radio-muted);
+        }
+    }
+
+    /* 6. SIZE LOGIC */
+    &.xs-size {
+        --_field-size: 24px;
+
+        .material-symbols-rounded {
+            font-size: 16px !important;
+        }
+    }
+
+    &.sm-size {
+        --_field-size: 28px;
+
+        .material-symbols-rounded {
+            font-size: 20px !important;
+        }
+    }
+
+    &.md-size {
+        --_field-size: 32px;
+    }
+
+    &.lg-size {
+        --_field-size: 36px;
+    }
+}

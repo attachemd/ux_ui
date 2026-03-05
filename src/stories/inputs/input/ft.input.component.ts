@@ -1,6 +1,6 @@
-import {Component, Input, ViewEncapsulation} from '@angular/core';
-import {NgClass, NgIf, NgStyle} from '@angular/common';
-import {FormsModule} from '@angular/forms';
+import { Component, Input, ViewEncapsulation } from '@angular/core';
+import { NgClass, NgIf, NgStyle } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'ft-input',
@@ -18,11 +18,11 @@ export class FTInputComponent {
   // @Input() isLabel = false;
   @Input() isLabel = true;
   @Input() label?: string;
-  @Input() size: 'xs-size'|'sm-size'|'md-size'|'lg-size' = 'md-size';
-  @Input() color: 'default'|'primary'|'secondary' = 'default';
-  @Input() variant: 'flat'|'faded'|'outlined'|'ghost' = 'flat';
-  @Input() radius: 'none-radius'|'xs-radius'|'sm-radius'|'md-radius'|'lg-radius'|'full-radius' = 'md-radius';
-  @Input() state: 'rest'|'hover'|'focus'|'readonly'|'disabled'|'invalid'|'content'= 'rest';
+  @Input() size: 'xs-size' | 'sm-size' | 'md-size' | 'lg-size' = 'md-size';
+  @Input() color: 'default' | 'primary' | 'secondary' = 'default';
+  @Input() variant: 'flat' | 'faded' | 'outlined' | 'ghost' = 'flat';
+  @Input() radius: 'none-radius' | 'xs-radius' | 'sm-radius' | 'md-radius' | 'lg-radius' | 'full-radius' = 'md-radius';
+  @Input() state: 'rest' | 'hover' | 'focus' | 'readonly' | 'disabled' | 'invalid' | 'content' = 'rest';
   @Input() disabled = false;
   @Input() readonly = false;
   @Input() required = false;
@@ -44,6 +44,7 @@ export class FTInputComponent {
   @Input() suffix2IconClass = 'keyboard_arrow_down';
 
   @Input() isClearable = false;
+  @Input() showContent = false;
   value = '';
   clear() { this.value = ''; }
 
@@ -61,7 +62,7 @@ export class FTInputComponent {
 
   get hasPlaceholderToShow(): boolean {
     // Basic conditions that prevent showing placeholder
-    if (!this.placeholder || this.state === 'readonly' || this.state === 'content') {
+    if (!this.placeholder || this.state === 'readonly' || this.state === 'content' || (this.showContent && this.content)) {
       return false;
     }
 

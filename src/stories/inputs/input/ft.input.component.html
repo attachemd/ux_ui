@@ -1,18 +1,13 @@
-<div class="field-container"
-     [class]="labelPlacement + ' ' + size + ' ' + variant + ' ' + state"
-     [ngStyle]="{
+<div class="field-container" [class]="labelPlacement + ' ' + size + ' ' + variant + ' ' + state" [ngStyle]="{
     '--_field-container-gap': (!isLabel && (labelPlacement === 'label-outside-left' || labelPlacement === 'label-outside'))
                     ? '0'
                     : null
-  }"
->
+  }">
   <div *ngIf="isLabel && labelPlacement !== 'label-inside'" class="label-row">
-    <span class="label leading-none"
-          [ngClass]="{
+    <span class="label leading-none" [ngClass]="{
            'content-2xs--semibold': size === 'sm-size' || size === 'md-size' || size === 'xs-size',
            'content-xs--semibold': size === 'lg-size',
-           }"
-    >{{ label }} <span *ngIf="required && !disabled">*</span></span>
+           }">{{ label }} <span *ngIf="required && !disabled">*</span></span>
   </div>
   <div class="input-wrapper" [class]="radiusClasses">
     <div *ngIf="isPrefixIconClass && prefixIconClass" class="prefix-icon">
@@ -20,29 +15,23 @@
     </div>
     <div class="content-section">
       <div *ngIf="isLabel && labelPlacement === 'label-inside'" class="label-row">
-        <span class="label leading-none"
-              [ngClass]="{
+        <span class="label leading-none" [ngClass]="{
            'content-2xs--bold': size === 'sm-size' || size === 'md-size' || size === 'xs-size',
            'content-xs--bold': size === 'lg-size',
-           }"
-        >{{ label }} <span *ngIf="required && !disabled">*</span></span>
+           }">{{ label }} <span *ngIf="required && !disabled">*</span></span>
       </div>
-      <div *ngIf="state === 'content'" class="content-row">
-        <p class="content truncate"
-           [ngClass]="{
+      <div *ngIf="(state === 'content' || showContent) && content" class="content-row">
+        <p class="content truncate" [ngClass]="{
            'content-2xs--medium': size === 'xs-size',
            'content-xs--medium': size === 'sm-size' || size === 'md-size' || size === 'lg-size',
-           }"
-        >{{ content }}</p>
+           }">{{ content }}</p>
       </div>
 
       <div *ngIf="hasPlaceholderToShow" class="placeholder-row">
-        <p class="placeholder truncate"
-           [ngClass]="{
+        <p class="placeholder truncate" [ngClass]="{
            'content-2xs--light': size === 'xs-size',
            'content-xs--light': size === 'sm-size' || size === 'md-size' || size === 'lg-size',
-           }"
-        >{{ placeholder }}</p>
+           }">{{ placeholder }}</p>
       </div>
     </div>
     <div class="suffix-icon flex" *ngIf="state !== 'readonly'">

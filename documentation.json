@@ -2199,6 +2199,147 @@
             "templateData": "<!-- input-showcase.component.html -->\r\n<div class=\"all-case-container\">\r\n  <h1 class=\"showcase-title\">Button All Cases</h1>\r\n  <div class=\"cases-container\">\r\n    <div class=\"case-row case-row-heading\">\r\n      <div class=\"case-item case-item-heading\">\r\n\r\n      </div>\r\n      <div class=\"case-item\">\r\n        Flat\r\n      </div>\r\n      <div class=\"case-item\">\r\n        Outlined\r\n      </div>\r\n      <div class=\"case-item\">\r\n        Faded\r\n      </div>\r\n      <div class=\"case-item\">\r\n        Ghost\r\n      </div>\r\n\r\n\r\n    </div>\r\n    @for (state of states; track state) {\r\n    <div class=\"case-row\">\r\n      <div class=\"case-item case-item-heading vertical-text\">\r\n        {{state}}\r\n      </div>\r\n      @for (variant of variants; track variant) {\r\n      <div class=\"case-item\">\r\n        <ft-button\r\n          [state]=\"state\"\r\n          [isLabel]=\"isLabel\"\r\n          [label]=\"label\"\r\n          [size]=\"size\"\r\n          [color]=\"color\"\r\n          [variant]=\"variant\"\r\n          [radius]=\"radius\"\r\n          [isPrefixIconClass]=\"isPrefixIconClass\"\r\n          [prefixIconClass]=\"'person'\"\r\n          [isSuffixIconClass]=\"isSuffixIconClass\"\r\n          [suffixIconClass]=\"'arrow_right_alt'\"\r\n        >\r\n        </ft-button>\r\n\r\n      </div>\r\n      }\r\n\r\n    </div>\r\n    }\r\n\r\n\r\n  </div>\r\n</div>\r\n"
         },
         {
+            "name": "CheckboxAllCasesComponent",
+            "id": "component-CheckboxAllCasesComponent-b6d072d2e20a985c2ce8f967fdd8f3f7bf549a61f63740219a0c3a42dd7669fe5f74da267cea94a64fb4d9d8f75366ac811c1568ead16f61ef0b0be68bce0e58",
+            "file": "src/stories/checkbox-all-cases/checkbox-all-cases.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-checkbox-showcase",
+            "styleUrls": [
+                "./checkbox-all-cases.component.css"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./checkbox-all-cases.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "description",
+                    "defaultValue": "'Description'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 18,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "isDescription",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 17,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "isLabel",
+                    "defaultValue": "true",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 15,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "label",
+                    "defaultValue": "'Checkbox'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 16,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "size",
+                    "defaultValue": "'md-size'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 19,
+                    "type": "\"xs-size\" | \"sm-size\" | \"md-size\" | \"lg-size\"",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "class",
+                    "defaultValue": "'showcase'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 13,
+                    "decorators": [
+                        {
+                            "name": "HostBinding",
+                            "stringifiedArguments": "'class'"
+                        }
+                    ],
+                    "modifierKind": [
+                        171
+                    ]
+                },
+                {
+                    "name": "states",
+                    "defaultValue": "[\r\n        'rest',\r\n        'hover',\r\n        'press',\r\n        'focus',\r\n        'disabled',\r\n        'invalid'\r\n    ]",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Array<\"rest\" | \"hover\" | \"press\" | \"focus\" | \"disabled\" | \"invalid\">",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 21
+                }
+            ],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [
+                {
+                    "name": "class",
+                    "defaultValue": "'showcase'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 13,
+                    "type": "string",
+                    "decorators": []
+                }
+            ],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "CommonModule",
+                    "type": "module"
+                },
+                {
+                    "name": "FtCheckboxComponent",
+                    "type": "component"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, HostBinding, Input } from '@angular/core';\r\nimport { CommonModule } from '@angular/common';\r\nimport { FtCheckboxComponent } from '../checkbox/ft.checkbox.component';\r\n\r\n@Component({\r\n    selector: 'app-checkbox-showcase',\r\n    templateUrl: './checkbox-all-cases.component.html',\r\n    styleUrls: ['./checkbox-all-cases.component.css'],\r\n    standalone: true,\r\n    imports: [CommonModule, FtCheckboxComponent]\r\n})\r\nexport class CheckboxAllCasesComponent {\r\n    @HostBinding('class') class = 'showcase';\r\n\r\n    @Input() isLabel = true;\r\n    @Input() label = 'Checkbox';\r\n    @Input() isDescription = false;\r\n    @Input() description = 'Description';\r\n    @Input() size: 'xs-size' | 'sm-size' | 'md-size' | 'lg-size' = 'md-size';\r\n\r\n    states: Array<'rest' | 'hover' | 'press' | 'focus' | 'disabled' | 'invalid'> = [\r\n        'rest',\r\n        'hover',\r\n        'press',\r\n        'focus',\r\n        'disabled',\r\n        'invalid'\r\n    ];\r\n}\r\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./checkbox-all-cases.component.css"
+                }
+            ],
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<div class=\"all-case-container\">\r\n    <h1 class=\"showcase-title\">Checkbox All Cases</h1>\r\n    <div class=\"cases-container\">\r\n        <div class=\"case-row case-row-heading\">\r\n            <div class=\"case-item case-item-heading\"></div>\r\n            <div class=\"case-item\">Checked</div>\r\n            <div class=\"case-item\">Unchecked</div>\r\n            <div class=\"case-item\">Indeterminate</div>\r\n            <div class=\"case-item\">With Description</div>\r\n        </div>\r\n\r\n        @for (state of states; track state) {\r\n        <div class=\"case-row\">\r\n            <div class=\"case-item case-item-heading vertical-text\">\r\n                {{state === 'disabled' || state === 'invalid' ? state : state}}\r\n            </div>\r\n\r\n            <!-- Checked -->\r\n            <div class=\"case-item\">\r\n                <ft-checkbox [isLabel]=\"isLabel\" [label]=\"label\" [size]=\"size\"\r\n                    [state]=\"state === 'disabled' || state === 'invalid' ? 'rest' : state\"\r\n                    [invalid]=\"state === 'invalid'\" [checked]=\"true\" [inactive]=\"state === 'disabled'\">\r\n                </ft-checkbox>\r\n            </div>\r\n\r\n            <!-- Unchecked -->\r\n            <div class=\"case-item\">\r\n                <ft-checkbox [isLabel]=\"isLabel\" [label]=\"label\" [size]=\"size\"\r\n                    [state]=\"state === 'disabled' || state === 'invalid' ? 'rest' : state\"\r\n                    [invalid]=\"state === 'invalid'\" [checked]=\"false\" [inactive]=\"state === 'disabled'\">\r\n                </ft-checkbox>\r\n            </div>\r\n\r\n            <!-- Indeterminate -->\r\n            <div class=\"case-item\">\r\n                <ft-checkbox [isLabel]=\"isLabel\" [label]=\"label\" [size]=\"size\"\r\n                    [state]=\"state === 'disabled' || state === 'invalid' ? 'rest' : state\"\r\n                    [invalid]=\"state === 'invalid'\" [checked]=\"false\" [indeterminate]=\"true\"\r\n                    [inactive]=\"state === 'disabled'\">\r\n                </ft-checkbox>\r\n            </div>\r\n\r\n            <!-- With Description -->\r\n            <div class=\"case-item\">\r\n                <ft-checkbox [isLabel]=\"true\" label=\"With Description\" [isDescription]=\"true\"\r\n                    description=\"Providing additional context.\" [size]=\"size\"\r\n                    [state]=\"state === 'disabled' || state === 'invalid' ? 'rest' : state\"\r\n                    [invalid]=\"state === 'invalid'\" [checked]=\"true\" [inactive]=\"state === 'disabled'\">\r\n                </ft-checkbox>\r\n            </div>\r\n        </div>\r\n        }\r\n    </div>\r\n</div>"
+        },
+        {
             "name": "FtButtonComponent",
             "id": "component-FtButtonComponent-d1b371317af0a478f863f7c1134b994994afb1fdea802746312901649d62a458911a1bae71c2625c0c1ed0742c5f09d98edff9bbd064c5e76324dcca458e06a7",
             "file": "src/stories/Buttons/button/ft.button.component.ts",
@@ -2366,6 +2507,152 @@
             "templateData": "<div class=\"button-container\"\r\n     [class]=\"size + ' ' + variant + ' ' + state + ' ' + color\"\r\n>\r\n  <div class=\"button-wrapper\" [class]=\"radiusClasses\">\r\n    <div *ngIf=\"isPrefixIconClass && prefixIconClass\" class=\"prefix-icon\">\r\n<!--      <i [class]=\"prefixIconClass\"></i>-->\r\n      <span class=\"material-symbols-rounded\">{{prefixIconClass}}</span>\r\n    </div>\r\n    <div *ngIf=\"isLabel\" class=\"content-section\">\r\n      <div *ngIf=\"isLabel\" class=\"label-row\">\r\n        <span class=\"label truncate\"\r\n              [ngClass]=\"{\r\n           'content-3xs--bold': size === 'xs-size',\r\n           'content-2xs--bold': size === 'sm-size',\r\n           'content-xs--bold': size === 'md-size',\r\n           'content-sm--bold': size === 'lg-size',\r\n           }\"\r\n        >{{ label }}</span>\r\n      </div>\r\n\r\n    </div>\r\n    <div *ngIf=\"isSuffixIconClass && suffixIconClass\" class=\"suffix-icon flex\">\r\n      <div class=\"suffix\">\r\n<!--        <i [class]=\"suffixIconClass\"></i>-->\r\n        <span class=\"material-symbols-rounded\">{{suffixIconClass}}</span>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
         },
         {
+            "name": "FtCheckboxComponent",
+            "id": "component-FtCheckboxComponent-4b577daf0d29183380b4a32e2d9d0b7ae9a23bf3204fafabc8280819543c878c958d30987a09fbd91938d35159a6da26309f707efb0d2468ed4452f30ebded41",
+            "file": "src/stories/checkbox/ft.checkbox.component.ts",
+            "encapsulation": [
+                "ViewEncapsulation.Emulated"
+            ],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "ft-checkbox",
+            "styleUrls": [
+                "./ft.checkbox.component.css"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./ft.checkbox.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "checked",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 23,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "description",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 22,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "inactive",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 25,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "indeterminate",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 24,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "invalid",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 26,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "isDescription",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 21,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "isLabel",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 19,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "label",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 20,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "size",
+                    "defaultValue": "'md-size'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 27,
+                    "type": "\"xs-size\" | \"sm-size\" | \"md-size\" | \"lg-size\"",
+                    "decorators": []
+                },
+                {
+                    "name": "state",
+                    "defaultValue": "'rest'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 28,
+                    "type": "\"hover\" | \"press\" | \"focus\" | \"rest\"",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "NgClass"
+                },
+                {
+                    "name": "FormsModule",
+                    "type": "module"
+                },
+                {
+                    "name": "NgIf"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input, ViewEncapsulation } from '@angular/core';\r\nimport { NgClass, NgIf } from '@angular/common';\r\nimport { FormsModule } from '@angular/forms';\r\n\r\n@Component({\r\n    selector: 'ft-checkbox',\r\n    templateUrl: './ft.checkbox.component.html',\r\n    standalone: true,\r\n    imports: [\r\n        NgClass,\r\n        FormsModule,\r\n        NgIf\r\n    ],\r\n    styleUrls: ['./ft.checkbox.component.css'],\r\n    encapsulation: ViewEncapsulation.Emulated\r\n})\r\nexport class FtCheckboxComponent {\r\n\r\n    @Input() isLabel = false;\r\n    @Input() label?: string;\r\n    @Input() isDescription = false;\r\n    @Input() description?: string;\r\n    @Input() checked = false;\r\n    @Input() indeterminate = false;\r\n    @Input() inactive = false;\r\n    @Input() invalid = false;\r\n    @Input() size: 'xs-size' | 'sm-size' | 'md-size' | 'lg-size' = 'md-size';\r\n    @Input() state: 'hover' | 'press' | 'focus' | 'rest' = 'rest';\r\n\r\n}\r\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ".field-container {\r\n    /* 1. INTERNAL VARIABLE DEFAULTS */\r\n    --_field-bg: transparent;\r\n    --_field-border-color: var(--ft-color-border-200);\r\n    --_field-border-width: var(--ft-border-tertiary);\r\n    --_field-control-bg: transparent;\r\n    --_field-text: var(--ft-color-solid-on-surface);\r\n    --_field-description: var(--ft-color-on-surface-level-300);\r\n    --_checkmark-color: var(--ft-color-mix-a);\r\n\r\n    --_field-size: 34px;\r\n    --_field-scale: 0.9;\r\n    --_checkbox-scale: 0.7;\r\n    --_control-scale: 1;\r\n\r\n    display: flex;\r\n    align-items: center;\r\n    gap: var(--ft-unit-200);\r\n\r\n    /* 2. COMPONENT STRUCTURE */\r\n    .field {\r\n        display: flex;\r\n        align-items: center;\r\n        justify-content: center;\r\n        width: var(--_field-size);\r\n        height: var(--_field-size);\r\n        transform: scale(var(--_field-scale));\r\n        border-radius: var(--ft-radius-pill);\r\n        background-color: var(--_field-bg);\r\n        transition: background-color 0.2s ease;\r\n\r\n        .checkbox {\r\n            width: 100%;\r\n            height: 100%;\r\n            transform: scale(var(--_checkbox-scale));\r\n            border: var(--_field-border-width) solid var(--_field-border-color);\r\n            border-radius: var(--ft-radius-200);\r\n            display: flex;\r\n            align-items: center;\r\n            justify-content: center;\r\n            transition: all 0.2s ease;\r\n            background-color: var(--_field-control-bg);\r\n\r\n            .control {\r\n                width: 100%;\r\n                height: 100%;\r\n                display: flex;\r\n                align-items: center;\r\n                justify-content: center;\r\n                color: var(--_checkmark-color);\r\n\r\n                .material-symbols-rounded {\r\n                    font-size: 24px;\r\n                    font-weight: 900;\r\n                }\r\n            }\r\n        }\r\n    }\r\n\r\n    .content {\r\n        display: flex;\r\n        flex-direction: column;\r\n        color: var(--_field-text);\r\n\r\n        .description {\r\n            color: var(--_field-description);\r\n        }\r\n    }\r\n\r\n    /* 3. INTERACTION STATES */\r\n    &.hover {\r\n        --_field-bg: var(--ft-form-field-100);\r\n    }\r\n\r\n    &.press,\r\n    &.focus {\r\n        --_field-bg: var(--ft-form-field-200);\r\n    }\r\n\r\n    /* 4. SELECTION LOGIC */\r\n    &.checked,\r\n    &.indeterminate {\r\n        --_field-border-color: var(--ft-color-primary);\r\n        --_field-control-bg: var(--ft-color-primary);\r\n    }\r\n\r\n    /* 5. VALIDATION & STATUS LOGIC */\r\n    &.invalid {\r\n        --_field-text: var(--ft-color-danger);\r\n        --_field-border-color: var(--ft-color-danger);\r\n\r\n        &.checked,\r\n        &.indeterminate {\r\n            --_field-control-bg: var(--ft-color-danger);\r\n        }\r\n    }\r\n\r\n    &.inactive {\r\n        pointer-events: none;\r\n        --_field-text: var(--ft-color-on-surface-muted);\r\n        --_field-description: var(--ft-color-on-surface-muted);\r\n        --_field-border-color: var(--ft-radio-muted);\r\n\r\n        &.checked,\r\n        &.indeterminate {\r\n            --_field-control-bg: var(--ft-radio-muted);\r\n            --_field-border-color: var(--ft-radio-muted);\r\n        }\r\n    }\r\n\r\n    /* 6. SIZE LOGIC */\r\n    &.xs-size {\r\n        --_field-size: 24px;\r\n\r\n        .material-symbols-rounded {\r\n            font-size: 16px !important;\r\n        }\r\n    }\r\n\r\n    &.sm-size {\r\n        --_field-size: 28px;\r\n\r\n        .material-symbols-rounded {\r\n            font-size: 20px !important;\r\n        }\r\n    }\r\n\r\n    &.md-size {\r\n        --_field-size: 32px;\r\n    }\r\n\r\n    &.lg-size {\r\n        --_field-size: 36px;\r\n    }\r\n}",
+                    "styleUrl": "./ft.checkbox.component.css"
+                }
+            ],
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<div class=\"field-container\" [class]=\"size + ' ' + state\" [class.checked]=\"checked\"\r\n    [class.indeterminate]=\"indeterminate\" [class.inactive]=\"inactive\" [class.invalid]=\"invalid\">\r\n    <div class=\"field\">\r\n        <div class=\"checkbox\">\r\n            <div class=\"control\">\r\n                <span *ngIf=\"checked && !indeterminate\" class=\"material-symbols-rounded check-icon\">check</span>\r\n                <span *ngIf=\"indeterminate\" class=\"material-symbols-rounded indeterminate-icon\">remove</span>\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <div class=\"content\" [ngClass]=\"{\r\n           'content-2xs--normal': size === 'xs-size',\r\n           'content-xs--normal': size === 'sm-size' || size === 'md-size',\r\n           'content-sm--normal': size === 'lg-size',\r\n           }\">\r\n        <div *ngIf=\"isLabel\" class=\"label\">\r\n            {{label}}\r\n        </div>\r\n        <div *ngIf=\"isDescription\" class=\"description\">\r\n            {{description}}\r\n        </div>\r\n    </div>\r\n</div>"
+        },
+        {
             "name": "FtIconButtonComponent",
             "id": "component-FtIconButtonComponent-3c2bed42d7e5cf2ced820b645273c56e29d48ac327623b9b4213aa42d4bc318160906b075a3b0ee7085aa5a2721c436d7eb00ef79211e8ffe4dcb4047cab1f6f",
             "file": "src/stories/Buttons/icon-button/ft.icon.button.component.ts",
@@ -2507,7 +2794,7 @@
         },
         {
             "name": "FTInputComponent",
-            "id": "component-FTInputComponent-ea2f05504d11d99d8affbaa727f9cd5608805785cfd4b0b466149e08597276d323de2cfc7f031e6e30281c9e952c7b999f0682b199eca81d6a131adc4c59c9ea",
+            "id": "component-FTInputComponent-29727546d2d1f60fa09d1db1adf9f88bfad592dca3e55e0b88ecf0ae1e9bff035824313d115cf09a03b182b9ff06103ac350db64bce0198754e4ac2d85a436d4",
             "file": "src/stories/inputs/input/ft.input.component.ts",
             "encapsulation": [
                 "ViewEncapsulation.Emulated"
@@ -2694,6 +2981,15 @@
                     "decorators": []
                 },
                 {
+                    "name": "showContent",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 47,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
                     "name": "size",
                     "defaultValue": "'md-size'",
                     "deprecated": false,
@@ -2750,7 +3046,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 47
+                    "line": 48
                 }
             ],
             "methodsClass": [
@@ -2760,7 +3056,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 48,
+                    "line": 49,
                     "deprecated": false,
                     "deprecationMessage": ""
                 }
@@ -2788,7 +3084,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import {Component, Input, ViewEncapsulation} from '@angular/core';\r\nimport {NgClass, NgIf, NgStyle} from '@angular/common';\r\nimport {FormsModule} from '@angular/forms';\r\n\r\n@Component({\r\n  selector: 'ft-input',\r\n  templateUrl: './ft.input.component.html',\r\n  imports: [\r\n    NgClass,\r\n    FormsModule,\r\n    NgIf,\r\n    NgStyle\r\n  ],\r\n  styleUrls: ['./ft.input.component.css'],\r\n  encapsulation: ViewEncapsulation.Emulated // Ensure this is set (default)\r\n})\r\nexport class FTInputComponent {\r\n  // @Input() isLabel = false;\r\n  @Input() isLabel = true;\r\n  @Input() label?: string;\r\n  @Input() size: 'xs-size'|'sm-size'|'md-size'|'lg-size' = 'md-size';\r\n  @Input() color: 'default'|'primary'|'secondary' = 'default';\r\n  @Input() variant: 'flat'|'faded'|'outlined'|'ghost' = 'flat';\r\n  @Input() radius: 'none-radius'|'xs-radius'|'sm-radius'|'md-radius'|'lg-radius'|'full-radius' = 'md-radius';\r\n  @Input() state: 'rest'|'hover'|'focus'|'readonly'|'disabled'|'invalid'|'content'= 'rest';\r\n  @Input() disabled = false;\r\n  @Input() readonly = false;\r\n  @Input() required = false;\r\n  @Input() invalid = false;\r\n  @Input() placeholder?: string;\r\n  @Input() isDescription = false;\r\n  @Input() description?: string;\r\n  @Input() errorMessage?: string;\r\n  @Input() content?: string;\r\n  @Input() labelPlacement: 'label-inside' | 'label-outside' | 'label-outside-left' = 'label-inside';\r\n\r\n  @Input() isPrefixIconClass = false;\r\n  @Input() prefixIconClass = ''; // For icon libraries that use classes\r\n\r\n  @Input() isSuffix1IconClass = true;\r\n  @Input() suffix1IconClass = 'close_small';\r\n\r\n  @Input() isSuffix2IconClass = true;\r\n  @Input() suffix2IconClass = 'keyboard_arrow_down';\r\n\r\n  @Input() isClearable = false;\r\n  value = '';\r\n  clear() { this.value = ''; }\r\n\r\n  get radiusClasses(): string {\r\n    const classes = {\r\n      'none-radius': 'rounded-none',\r\n      'xs-radius': 'rounded-sm',\r\n      'sm-radius': 'rounded-md',\r\n      'md-radius': 'rounded-lg',\r\n      'lg-radius': 'rounded-xl',\r\n      'full-radius': 'rounded-full'\r\n    };\r\n    return classes[this.radius] || 'rounded-md';\r\n  }\r\n\r\n  get hasPlaceholderToShow(): boolean {\r\n    // Basic conditions that prevent showing placeholder\r\n    if (!this.placeholder || this.state === 'readonly' || this.state === 'content') {\r\n      return false;\r\n    }\r\n\r\n    // Special case: don't show placeholder for label-inside fields in normal states\r\n    const isLabelInsideInNormalState = this.labelPlacement === 'label-inside' &&\r\n      this.isNormalOrHoveredState &&\r\n      this.state !== 'invalid';\r\n\r\n    return !isLabelInsideInNormalState;\r\n  }\r\n\r\n  get isNormalOrHoveredState(): boolean {\r\n    return this.state === 'rest' || this.state === 'hover';\r\n  }\r\n}\r\n",
+            "sourceCode": "import { Component, Input, ViewEncapsulation } from '@angular/core';\r\nimport { NgClass, NgIf, NgStyle } from '@angular/common';\r\nimport { FormsModule } from '@angular/forms';\r\n\r\n@Component({\r\n  selector: 'ft-input',\r\n  templateUrl: './ft.input.component.html',\r\n  imports: [\r\n    NgClass,\r\n    FormsModule,\r\n    NgIf,\r\n    NgStyle\r\n  ],\r\n  styleUrls: ['./ft.input.component.css'],\r\n  encapsulation: ViewEncapsulation.Emulated // Ensure this is set (default)\r\n})\r\nexport class FTInputComponent {\r\n  // @Input() isLabel = false;\r\n  @Input() isLabel = true;\r\n  @Input() label?: string;\r\n  @Input() size: 'xs-size' | 'sm-size' | 'md-size' | 'lg-size' = 'md-size';\r\n  @Input() color: 'default' | 'primary' | 'secondary' = 'default';\r\n  @Input() variant: 'flat' | 'faded' | 'outlined' | 'ghost' = 'flat';\r\n  @Input() radius: 'none-radius' | 'xs-radius' | 'sm-radius' | 'md-radius' | 'lg-radius' | 'full-radius' = 'md-radius';\r\n  @Input() state: 'rest' | 'hover' | 'focus' | 'readonly' | 'disabled' | 'invalid' | 'content' = 'rest';\r\n  @Input() disabled = false;\r\n  @Input() readonly = false;\r\n  @Input() required = false;\r\n  @Input() invalid = false;\r\n  @Input() placeholder?: string;\r\n  @Input() isDescription = false;\r\n  @Input() description?: string;\r\n  @Input() errorMessage?: string;\r\n  @Input() content?: string;\r\n  @Input() labelPlacement: 'label-inside' | 'label-outside' | 'label-outside-left' = 'label-inside';\r\n\r\n  @Input() isPrefixIconClass = false;\r\n  @Input() prefixIconClass = ''; // For icon libraries that use classes\r\n\r\n  @Input() isSuffix1IconClass = true;\r\n  @Input() suffix1IconClass = 'close_small';\r\n\r\n  @Input() isSuffix2IconClass = true;\r\n  @Input() suffix2IconClass = 'keyboard_arrow_down';\r\n\r\n  @Input() isClearable = false;\r\n  @Input() showContent = false;\r\n  value = '';\r\n  clear() { this.value = ''; }\r\n\r\n  get radiusClasses(): string {\r\n    const classes = {\r\n      'none-radius': 'rounded-none',\r\n      'xs-radius': 'rounded-sm',\r\n      'sm-radius': 'rounded-md',\r\n      'md-radius': 'rounded-lg',\r\n      'lg-radius': 'rounded-xl',\r\n      'full-radius': 'rounded-full'\r\n    };\r\n    return classes[this.radius] || 'rounded-md';\r\n  }\r\n\r\n  get hasPlaceholderToShow(): boolean {\r\n    // Basic conditions that prevent showing placeholder\r\n    if (!this.placeholder || this.state === 'readonly' || this.state === 'content' || (this.showContent && this.content)) {\r\n      return false;\r\n    }\r\n\r\n    // Special case: don't show placeholder for label-inside fields in normal states\r\n    const isLabelInsideInNormalState = this.labelPlacement === 'label-inside' &&\r\n      this.isNormalOrHoveredState &&\r\n      this.state !== 'invalid';\r\n\r\n    return !isLabelInsideInNormalState;\r\n  }\r\n\r\n  get isNormalOrHoveredState(): boolean {\r\n    return this.state === 'rest' || this.state === 'hover';\r\n  }\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -2805,7 +3101,7 @@
                         "name": "radiusClasses",
                         "type": "string",
                         "returnType": "string",
-                        "line": 50
+                        "line": 51
                     }
                 },
                 "hasPlaceholderToShow": {
@@ -2814,7 +3110,7 @@
                         "name": "hasPlaceholderToShow",
                         "type": "boolean",
                         "returnType": "boolean",
-                        "line": 62
+                        "line": 63
                     }
                 },
                 "isNormalOrHoveredState": {
@@ -2823,11 +3119,11 @@
                         "name": "isNormalOrHoveredState",
                         "type": "boolean",
                         "returnType": "boolean",
-                        "line": 76
+                        "line": 77
                     }
                 }
             },
-            "templateData": "<div class=\"field-container\"\r\n     [class]=\"labelPlacement + ' ' + size + ' ' + variant + ' ' + state\"\r\n     [ngStyle]=\"{\r\n    '--_field-container-gap': (!isLabel && (labelPlacement === 'label-outside-left' || labelPlacement === 'label-outside'))\r\n                    ? '0'\r\n                    : null\r\n  }\"\r\n>\r\n  <div *ngIf=\"isLabel && labelPlacement !== 'label-inside'\" class=\"label-row\">\r\n    <span class=\"label leading-none\"\r\n          [ngClass]=\"{\r\n           'content-2xs--semibold': size === 'sm-size' || size === 'md-size' || size === 'xs-size',\r\n           'content-xs--semibold': size === 'lg-size',\r\n           }\"\r\n    >{{ label }} <span *ngIf=\"required && !disabled\">*</span></span>\r\n  </div>\r\n  <div class=\"input-wrapper\" [class]=\"radiusClasses\">\r\n    <div *ngIf=\"isPrefixIconClass && prefixIconClass\" class=\"prefix-icon\">\r\n      <span class=\"material-symbols-rounded\">{{prefixIconClass}}</span>\r\n    </div>\r\n    <div class=\"content-section\">\r\n      <div *ngIf=\"isLabel && labelPlacement === 'label-inside'\" class=\"label-row\">\r\n        <span class=\"label leading-none\"\r\n              [ngClass]=\"{\r\n           'content-2xs--bold': size === 'sm-size' || size === 'md-size' || size === 'xs-size',\r\n           'content-xs--bold': size === 'lg-size',\r\n           }\"\r\n        >{{ label }} <span *ngIf=\"required && !disabled\">*</span></span>\r\n      </div>\r\n      <div *ngIf=\"state === 'content'\" class=\"content-row\">\r\n        <p class=\"content truncate\"\r\n           [ngClass]=\"{\r\n           'content-2xs--medium': size === 'xs-size',\r\n           'content-xs--medium': size === 'sm-size' || size === 'md-size' || size === 'lg-size',\r\n           }\"\r\n        >{{ content }}</p>\r\n      </div>\r\n\r\n      <div *ngIf=\"hasPlaceholderToShow\" class=\"placeholder-row\">\r\n        <p class=\"placeholder truncate\"\r\n           [ngClass]=\"{\r\n           'content-2xs--light': size === 'xs-size',\r\n           'content-xs--light': size === 'sm-size' || size === 'md-size' || size === 'lg-size',\r\n           }\"\r\n        >{{ placeholder }}</p>\r\n      </div>\r\n    </div>\r\n    <div class=\"suffix-icon flex\" *ngIf=\"state !== 'readonly'\">\r\n      <div *ngIf=\"isSuffix1IconClass && suffix1IconClass && !disabled\" class=\"suffix suffix1\">\r\n        <span class=\"material-symbols-rounded\">{{suffix1IconClass}}</span>\r\n      </div>\r\n      <div *ngIf=\"isSuffix2IconClass && suffix2IconClass\" class=\"suffix suffix2\">\r\n        <span class=\"material-symbols-rounded\">{{suffix2IconClass}}</span>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <div *ngIf=\"state === 'invalid' && errorMessage\" class=\"error-message\">\r\n    <p class=\"error-text content-2xs--normal\">{{ errorMessage }}</p>\r\n  </div>\r\n  <div *ngIf=\"isDescription && description && state !== 'invalid'\" class=\"description\">\r\n    <p class=\"highlight content-2xs--normal\">{{ description }}</p>\r\n  </div>\r\n</div>\r\n"
+            "templateData": "<div class=\"field-container\" [class]=\"labelPlacement + ' ' + size + ' ' + variant + ' ' + state\" [ngStyle]=\"{\r\n    '--_field-container-gap': (!isLabel && (labelPlacement === 'label-outside-left' || labelPlacement === 'label-outside'))\r\n                    ? '0'\r\n                    : null\r\n  }\">\r\n  <div *ngIf=\"isLabel && labelPlacement !== 'label-inside'\" class=\"label-row\">\r\n    <span class=\"label leading-none\" [ngClass]=\"{\r\n           'content-2xs--semibold': size === 'sm-size' || size === 'md-size' || size === 'xs-size',\r\n           'content-xs--semibold': size === 'lg-size',\r\n           }\">{{ label }} <span *ngIf=\"required && !disabled\">*</span></span>\r\n  </div>\r\n  <div class=\"input-wrapper\" [class]=\"radiusClasses\">\r\n    <div *ngIf=\"isPrefixIconClass && prefixIconClass\" class=\"prefix-icon\">\r\n      <span class=\"material-symbols-rounded\">{{prefixIconClass}}</span>\r\n    </div>\r\n    <div class=\"content-section\">\r\n      <div *ngIf=\"isLabel && labelPlacement === 'label-inside'\" class=\"label-row\">\r\n        <span class=\"label leading-none\" [ngClass]=\"{\r\n           'content-2xs--bold': size === 'sm-size' || size === 'md-size' || size === 'xs-size',\r\n           'content-xs--bold': size === 'lg-size',\r\n           }\">{{ label }} <span *ngIf=\"required && !disabled\">*</span></span>\r\n      </div>\r\n      <div *ngIf=\"(state === 'content' || showContent) && content\" class=\"content-row\">\r\n        <p class=\"content truncate\" [ngClass]=\"{\r\n           'content-2xs--medium': size === 'xs-size',\r\n           'content-xs--medium': size === 'sm-size' || size === 'md-size' || size === 'lg-size',\r\n           }\">{{ content }}</p>\r\n      </div>\r\n\r\n      <div *ngIf=\"hasPlaceholderToShow\" class=\"placeholder-row\">\r\n        <p class=\"placeholder truncate\" [ngClass]=\"{\r\n           'content-2xs--light': size === 'xs-size',\r\n           'content-xs--light': size === 'sm-size' || size === 'md-size' || size === 'lg-size',\r\n           }\">{{ placeholder }}</p>\r\n      </div>\r\n    </div>\r\n    <div class=\"suffix-icon flex\" *ngIf=\"state !== 'readonly'\">\r\n      <div *ngIf=\"isSuffix1IconClass && suffix1IconClass && !disabled\" class=\"suffix suffix1\">\r\n        <span class=\"material-symbols-rounded\">{{suffix1IconClass}}</span>\r\n      </div>\r\n      <div *ngIf=\"isSuffix2IconClass && suffix2IconClass\" class=\"suffix suffix2\">\r\n        <span class=\"material-symbols-rounded\">{{suffix2IconClass}}</span>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <div *ngIf=\"state === 'invalid' && errorMessage\" class=\"error-message\">\r\n    <p class=\"error-text content-2xs--normal\">{{ errorMessage }}</p>\r\n  </div>\r\n  <div *ngIf=\"isDescription && description && state !== 'invalid'\" class=\"description\">\r\n    <p class=\"highlight content-2xs--normal\">{{ description }}</p>\r\n  </div>\r\n</div>"
         },
         {
             "name": "FtLoginComponent",
@@ -3706,7 +4002,7 @@
         },
         {
             "name": "InputAllCasesComponent",
-            "id": "component-InputAllCasesComponent-3803c47789402a945d17259054c3b54286b844cc9d43b84c5c41aa0a9e23ea08c96aa306212fcddcf17d106ebbe42947478c34f5f0bf1b5cc570d0d125d4a653",
+            "id": "component-InputAllCasesComponent-d37e5b24db180702a1225042442f6572f59af2ebcbf48308ff81e894b780f2d6fecb5be9421a3c40633625d39a12eca2a864c2d2aefec8f6d1867597ab951a12",
             "file": "src/stories/inputs/input-all-cases/input-all-cases.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -3723,7 +4019,17 @@
             ],
             "viewProviders": [],
             "hostDirectives": [],
-            "inputsClass": [],
+            "inputsClass": [
+                {
+                    "name": "showContent",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 21,
+                    "type": "boolean",
+                    "decorators": []
+                }
+            ],
             "outputsClass": [],
             "propertiesClass": [
                 {
@@ -3770,7 +4076,7 @@
                 },
                 {
                     "name": "labelPlacements",
-                    "defaultValue": "[\r\n      'label-inside',\r\n      'label-outside',\r\n      'label-outside-left'\r\n\r\n  ]",
+                    "defaultValue": "[\r\n    'label-inside',\r\n    'label-outside',\r\n    'label-outside-left'\r\n\r\n  ]",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Array<\"label-inside\" | \"label-outside\" | \"label-outside-left\">",
@@ -3803,14 +4109,14 @@
                 },
                 {
                     "name": "states",
-                    "defaultValue": "[\r\n    'rest',\r\n    'hover',\r\n    'focus',\r\n    'readonly',\r\n    'disabled',\r\n    'invalid',\r\n    'content'\r\n  ]",
+                    "defaultValue": "[\r\n    'rest',\r\n    'hover',\r\n    'focus',\r\n    'readonly',\r\n    'disabled',\r\n    'invalid',\r\n  ]",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Array<\"rest\" | \"hover\" | \"focus\" | \"readonly\" | \"disabled\" | \"invalid\" | \"content\">",
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 22
+                    "line": 23
                 },
                 {
                     "name": "variant",
@@ -3853,7 +4159,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import {Component, HostBinding, Input} from '@angular/core';\r\n\r\nimport { CommonModule } from '@angular/common';\r\nimport {FTInputComponent} from '../input/ft.input.component';\r\n\r\n@Component({\r\n  selector: 'app-input-showcase',\r\n  templateUrl: './input-all-cases.component.html',\r\n  styleUrls: ['./input-all-cases.component.css'],\r\n  standalone: true,\r\n  imports: [CommonModule, FTInputComponent]\r\n})\r\nexport class InputAllCasesComponent {\r\n  @HostBinding('class') class = 'showcase';\r\n  isPrefixIconClass: boolean = true;\r\n  radius: 'none-radius'|'xs-radius'|'sm-radius'|'md-radius'|'lg-radius'|'full-radius' = 'md-radius';\r\n  size: 'xs-size'|'sm-size'|'md-size'|'lg-size' = 'md-size';\r\n  variant: 'flat'|'faded'|'outlined'|'ghost' = 'flat';\r\n  isDescription = false;\r\n\r\n  states: Array<'rest' | 'hover' | 'focus' | 'readonly' | 'disabled' | 'invalid' | 'content'> = [\r\n    'rest',\r\n    'hover',\r\n    'focus',\r\n    'readonly',\r\n    'disabled',\r\n    'invalid',\r\n    'content'\r\n  ];\r\n\r\n  labelPlacements: Array<'label-inside' | 'label-outside' | 'label-outside-left'> = [\r\n      'label-inside',\r\n      'label-outside',\r\n      'label-outside-left'\r\n\r\n  ];\r\n\r\n\r\n\r\n}\r\n",
+            "sourceCode": "import { Component, HostBinding, Input } from '@angular/core';\r\n\r\nimport { CommonModule } from '@angular/common';\r\nimport { FTInputComponent } from '../input/ft.input.component';\r\n\r\n@Component({\r\n  selector: 'app-input-showcase',\r\n  templateUrl: './input-all-cases.component.html',\r\n  styleUrls: ['./input-all-cases.component.css'],\r\n  standalone: true,\r\n  imports: [CommonModule, FTInputComponent]\r\n})\r\nexport class InputAllCasesComponent {\r\n  @HostBinding('class') class = 'showcase';\r\n  isPrefixIconClass: boolean = true;\r\n  radius: 'none-radius' | 'xs-radius' | 'sm-radius' | 'md-radius' | 'lg-radius' | 'full-radius' = 'md-radius';\r\n  size: 'xs-size' | 'sm-size' | 'md-size' | 'lg-size' = 'md-size';\r\n  variant: 'flat' | 'faded' | 'outlined' | 'ghost' = 'flat';\r\n  isDescription = false;\r\n  @Input() showContent = false;\r\n\r\n  states: Array<'rest' | 'hover' | 'focus' | 'readonly' | 'disabled' | 'invalid' | 'content'> = [\r\n    'rest',\r\n    'hover',\r\n    'focus',\r\n    'readonly',\r\n    'disabled',\r\n    'invalid',\r\n  ];\r\n\r\n  labelPlacements: Array<'label-inside' | 'label-outside' | 'label-outside-left'> = [\r\n    'label-inside',\r\n    'label-outside',\r\n    'label-outside-left'\r\n\r\n  ];\r\n\r\n\r\n\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -3863,7 +4169,7 @@
             ],
             "stylesData": "",
             "extends": [],
-            "templateData": "<div class=\"all-case-container\">\r\n  <h1 class=\"showcase-title\">FT-Input All cases</h1>\r\n  <div class=\"cases-container\">\r\n    <div class=\"case-row case-row-heading\">\r\n      <div class=\"case-item case-item-heading\">\r\n\r\n      </div>\r\n      <div class=\"case-item\">\r\n        labelPlacement: inside\r\n      </div>\r\n      <div class=\"case-item\">\r\n        labelPlacement: outside\r\n      </div>\r\n      <div class=\"case-item\">\r\n        labelPlacement: outside left\r\n      </div>\r\n\r\n    </div>\r\n    @for (state of states; track state) {\r\n    <div class=\"case-row\">\r\n      <div class=\"case-item case-item-heading vertical-text\">\r\n        {{state}}\r\n      </div>\r\n      @for (labelPlacement of labelPlacements; track labelPlacement) {\r\n      <div class=\"case-item\">\r\n        <ft-input\r\n          [isLabel]=\"true\"\r\n          [label]=\"'Username'\"\r\n          [state]=\"state\"\r\n          [size]=\"size\"\r\n          [color]=\"'primary'\"\r\n          [variant]=\"variant\"\r\n          [radius]=\"radius\"\r\n          [required]=\"true\"\r\n          [placeholder]=\"'Enter your username'\"\r\n          [isDescription]=\"isDescription\"\r\n          [description]=\"'This is your public display name.'\"\r\n          [errorMessage]=\"'Username is required.'\"\r\n          [content]=\"'y.amrani'\"\r\n          [labelPlacement]=\"labelPlacement\"\r\n          [isPrefixIconClass]=\"isPrefixIconClass\"\r\n          [prefixIconClass]=\"'person'\"\r\n          [isSuffix1IconClass]=\"true\"\r\n          [suffix1IconClass]=\"'close_small'\"\r\n          [isSuffix2IconClass]=\"true\"\r\n          [suffix2IconClass]=\"'keyboard_arrow_down'\"\r\n          [isClearable]=\"true\"\r\n        >\r\n        </ft-input>\r\n\r\n      </div>\r\n      }\r\n\r\n    </div>\r\n    }\r\n\r\n  </div>\r\n</div>\r\n"
+            "templateData": "<div class=\"all-case-container\">\r\n  <h1 class=\"showcase-title\">FT-Input All cases</h1>\r\n  <div class=\"cases-container\">\r\n    <div class=\"case-row case-row-heading\">\r\n      <div class=\"case-item case-item-heading\">\r\n\r\n      </div>\r\n      <div class=\"case-item\">\r\n        labelPlacement: inside\r\n      </div>\r\n      <div class=\"case-item\">\r\n        labelPlacement: outside\r\n      </div>\r\n      <div class=\"case-item\">\r\n        labelPlacement: outside left\r\n      </div>\r\n\r\n    </div>\r\n    @for (state of states; track state) {\r\n    <div class=\"case-row\">\r\n      <div class=\"case-item case-item-heading vertical-text\">\r\n        {{state}}\r\n      </div>\r\n      @for (labelPlacement of labelPlacements; track labelPlacement) {\r\n      <div class=\"case-item\">\r\n        <ft-input [isLabel]=\"true\" [label]=\"'Username'\" [state]=\"state\" [size]=\"size\" [color]=\"'primary'\"\r\n          [variant]=\"variant\" [radius]=\"radius\" [required]=\"true\" [placeholder]=\"'Enter your username'\"\r\n          [isDescription]=\"isDescription\" [description]=\"'This is your public display name.'\"\r\n          [errorMessage]=\"'Username is required.'\" [content]=\"'y.amrani'\" [labelPlacement]=\"labelPlacement\"\r\n          [isPrefixIconClass]=\"isPrefixIconClass\" [prefixIconClass]=\"'person'\" [isSuffix1IconClass]=\"true\"\r\n          [suffix1IconClass]=\"'close_small'\" [isSuffix2IconClass]=\"true\" [suffix2IconClass]=\"'keyboard_arrow_down'\"\r\n          [isClearable]=\"true\" [showContent]=\"showContent\">\r\n        </ft-input>\r\n\r\n      </div>\r\n      }\r\n\r\n    </div>\r\n    }\r\n\r\n  </div>\r\n</div>"
         },
         {
             "name": "InputShowcaseComponent",
@@ -7072,7 +7378,7 @@
             ],
             "stylesData": "",
             "extends": [],
-            "templateData": "<!-- input-showcase.component.html -->\r\n<div class=\"all-case-container\">\r\n  <h1 class=\"showcase-title\">Radio All Cases</h1>\r\n  <div class=\"cases-container\">\r\n    <div class=\"case-row case-row-heading\">\r\n      <div class=\"case-item case-item-heading\">\r\n\r\n      </div>\r\n      <div class=\"case-item\">\r\n        Selected\r\n      </div>\r\n      <div class=\"case-item\">\r\n        Unselected\r\n      </div>\r\n\r\n\r\n    </div>\r\n\r\n    <div class=\"case-row\">\r\n      <div class=\"case-item case-item-heading vertical-text\">\r\n        Rest\r\n      </div>\r\n      <div class=\"case-item\">\r\n        <ft-radio\r\n          [isLabel]=\"isLabel\"\r\n          [label]=\"label\"\r\n          [isDescription]=\"isDescription\"\r\n          [description]=\"description\"\r\n          [size]=\"size\"\r\n          [state]=\"'rest'\"\r\n          [invalid]=\"false\"\r\n          [select]=\"true\"\r\n          [inactive]=\"false\"\r\n        >\r\n        </ft-radio>\r\n\r\n      </div>\r\n      <div class=\"case-item\">\r\n        <ft-radio\r\n          [isLabel]=\"isLabel\"\r\n          [label]=\"label\"\r\n          [isDescription]=\"isDescription\"\r\n          [description]=\"description\"\r\n          [size]=\"size\"\r\n          [state]=\"'rest'\"\r\n          [invalid]=\"false\"\r\n          [select]=\"false\"\r\n          [inactive]=\"false\"\r\n        >\r\n        </ft-radio>\r\n\r\n\r\n      </div>\r\n\r\n\r\n    </div>\r\n\r\n    <div class=\"case-row\">\r\n      <div class=\"case-item case-item-heading vertical-text\">\r\n        Hover\r\n      </div>\r\n      <div class=\"case-item\">\r\n        <ft-radio\r\n          [isLabel]=\"isLabel\"\r\n          [label]=\"label\"\r\n          [isDescription]=\"isDescription\"\r\n          [description]=\"description\"\r\n          [size]=\"size\"\r\n          [state]=\"'hover'\"\r\n          [invalid]=\"false\"\r\n          [select]=\"true\"\r\n          [inactive]=\"false\"\r\n        >\r\n        </ft-radio>\r\n\r\n      </div>\r\n      <div class=\"case-item\">\r\n        <ft-radio\r\n          [isLabel]=\"isLabel\"\r\n          [label]=\"label\"\r\n          [isDescription]=\"isDescription\"\r\n          [description]=\"description\"\r\n          [size]=\"size\"\r\n          [state]=\"'hover'\"\r\n          [invalid]=\"false\"\r\n          [select]=\"false\"\r\n          [inactive]=\"false\"\r\n        >\r\n        </ft-radio>\r\n\r\n\r\n      </div>\r\n\r\n\r\n    </div>\r\n\r\n    <div class=\"case-row\">\r\n      <div class=\"case-item case-item-heading vertical-text\">\r\n        Press\r\n      </div>\r\n      <div class=\"case-item\">\r\n        <ft-radio\r\n          [isLabel]=\"isLabel\"\r\n          [label]=\"label\"\r\n          [isDescription]=\"isDescription\"\r\n          [description]=\"description\"\r\n          [size]=\"size\"\r\n          [state]=\"'press'\"\r\n          [invalid]=\"false\"\r\n          [select]=\"true\"\r\n          [inactive]=\"false\"\r\n        >\r\n        </ft-radio>\r\n\r\n      </div>\r\n      <div class=\"case-item\">\r\n        <ft-radio\r\n          [isLabel]=\"isLabel\"\r\n          [label]=\"label\"\r\n          [isDescription]=\"isDescription\"\r\n          [description]=\"description\"\r\n          [size]=\"size\"\r\n          [state]=\"'press'\"\r\n          [invalid]=\"false\"\r\n          [select]=\"false\"\r\n          [inactive]=\"false\"\r\n        >\r\n        </ft-radio>\r\n\r\n\r\n      </div>\r\n\r\n\r\n\r\n    </div>\r\n\r\n    <div class=\"case-row\">\r\n      <div class=\"case-item case-item-heading vertical-text\">\r\n        Focus\r\n      </div>\r\n      <div class=\"case-item\">\r\n        <ft-radio\r\n          [isLabel]=\"isLabel\"\r\n          [label]=\"label\"\r\n          [isDescription]=\"isDescription\"\r\n          [description]=\"description\"\r\n          [size]=\"size\"\r\n          [state]=\"'focus'\"\r\n          [invalid]=\"false\"\r\n          [select]=\"true\"\r\n          [inactive]=\"false\"\r\n        >\r\n        </ft-radio>\r\n\r\n      </div>\r\n      <div class=\"case-item\">\r\n        <ft-radio\r\n          [isLabel]=\"isLabel\"\r\n          [label]=\"label\"\r\n          [isDescription]=\"isDescription\"\r\n          [description]=\"description\"\r\n          [size]=\"size\"\r\n          [state]=\"'focus'\"\r\n          [invalid]=\"false\"\r\n          [select]=\"false\"\r\n          [inactive]=\"false\"\r\n        >\r\n        </ft-radio>\r\n\r\n\r\n      </div>\r\n\r\n\r\n\r\n    </div>\r\n\r\n    <div class=\"case-row\">\r\n      <div class=\"case-item case-item-heading vertical-text\">\r\n        Disabled\r\n      </div>\r\n      <div class=\"case-item\">\r\n        <ft-radio\r\n          [isLabel]=\"isLabel\"\r\n          [label]=\"label\"\r\n          [isDescription]=\"isDescription\"\r\n          [description]=\"description\"\r\n          [size]=\"size\"\r\n          [state]=\"'rest'\"\r\n          [invalid]=\"false\"\r\n          [select]=\"true\"\r\n          [inactive]=\"true\"\r\n        >\r\n        </ft-radio>\r\n\r\n      </div>\r\n      <div class=\"case-item\">\r\n        <ft-radio\r\n          [isLabel]=\"isLabel\"\r\n          [label]=\"label\"\r\n          [isDescription]=\"isDescription\"\r\n          [description]=\"description\"\r\n          [size]=\"size\"\r\n          [state]=\"'rest'\"\r\n          [invalid]=\"false\"\r\n          [select]=\"false\"\r\n          [inactive]=\"true\"\r\n        >\r\n        </ft-radio>\r\n\r\n\r\n      </div>\r\n\r\n\r\n    </div>\r\n\r\n    <div class=\"case-row\">\r\n      <div class=\"case-item case-item-heading vertical-text\">\r\n        Invalid\r\n      </div>\r\n      <div class=\"case-item\">\r\n        <ft-radio\r\n          [isLabel]=\"isLabel\"\r\n          [label]=\"label\"\r\n          [isDescription]=\"isDescription\"\r\n          [description]=\"description\"\r\n          [size]=\"size\"\r\n          [state]=\"'rest'\"\r\n          [invalid]=\"true\"\r\n          [select]=\"true\"\r\n          [inactive]=\"false\"\r\n        >\r\n        </ft-radio>\r\n\r\n      </div>\r\n      <div class=\"case-item\">\r\n        <ft-radio\r\n          [isLabel]=\"isLabel\"\r\n          [label]=\"label\"\r\n          [isDescription]=\"isDescription\"\r\n          [description]=\"description\"\r\n          [size]=\"size\"\r\n          [state]=\"'rest'\"\r\n          [invalid]=\"true\"\r\n          [select]=\"false\"\r\n          [inactive]=\"false\"\r\n        >\r\n        </ft-radio>\r\n\r\n\r\n      </div>\r\n\r\n\r\n    </div>\r\n\r\n  </div>\r\n</div>\r\n"
+            "templateData": "<!-- input-showcase.component.html -->\r\n<div class=\"all-case-container\">\r\n  <h1 class=\"showcase-title\">Radio All Cases</h1>\r\n  <div class=\"cases-container\">\r\n    <div class=\"case-row case-row-heading\">\r\n      <div class=\"case-item case-item-heading\">\r\n\r\n      </div>\r\n      <div class=\"case-item\">\r\n        Selected\r\n      </div>\r\n      <div class=\"case-item\">\r\n        Unselected\r\n      </div>\r\n      <div class=\"case-item\">\r\n        With Description\r\n      </div>\r\n\r\n\r\n    </div>\r\n\r\n    <div class=\"case-row\">\r\n      <div class=\"case-item case-item-heading vertical-text\">\r\n        Rest\r\n      </div>\r\n      <div class=\"case-item\">\r\n        <ft-radio [isLabel]=\"isLabel\" [label]=\"label\" [isDescription]=\"isDescription\" [description]=\"description\"\r\n          [size]=\"size\" [state]=\"'rest'\" [invalid]=\"false\" [select]=\"true\" [inactive]=\"false\">\r\n        </ft-radio>\r\n\r\n      </div>\r\n      <div class=\"case-item\">\r\n        <ft-radio [isLabel]=\"isLabel\" [label]=\"label\" [isDescription]=\"isDescription\" [description]=\"description\"\r\n          [size]=\"size\" [state]=\"'rest'\" [invalid]=\"false\" [select]=\"false\" [inactive]=\"false\">\r\n        </ft-radio>\r\n\r\n\r\n      </div>\r\n\r\n      <div class=\"case-item\">\r\n        <ft-radio [isLabel]=\"true\" label=\"With Description\" [isDescription]=\"true\"\r\n          description=\"Providing additional context.\" [size]=\"size\" [state]=\"'rest'\" [invalid]=\"false\" [select]=\"true\"\r\n          [inactive]=\"false\">\r\n        </ft-radio>\r\n      </div>\r\n\r\n\r\n    </div>\r\n\r\n    <div class=\"case-row\">\r\n      <div class=\"case-item case-item-heading vertical-text\">\r\n        Hover\r\n      </div>\r\n      <div class=\"case-item\">\r\n        <ft-radio [isLabel]=\"isLabel\" [label]=\"label\" [isDescription]=\"isDescription\" [description]=\"description\"\r\n          [size]=\"size\" [state]=\"'hover'\" [invalid]=\"false\" [select]=\"true\" [inactive]=\"false\">\r\n        </ft-radio>\r\n\r\n      </div>\r\n      <div class=\"case-item\">\r\n        <ft-radio [isLabel]=\"isLabel\" [label]=\"label\" [isDescription]=\"isDescription\" [description]=\"description\"\r\n          [size]=\"size\" [state]=\"'hover'\" [invalid]=\"false\" [select]=\"false\" [inactive]=\"false\">\r\n        </ft-radio>\r\n\r\n\r\n      </div>\r\n\r\n      <div class=\"case-item\">\r\n        <ft-radio [isLabel]=\"true\" label=\"With Description\" [isDescription]=\"true\"\r\n          description=\"Providing additional context.\" [size]=\"size\" [state]=\"'hover'\" [invalid]=\"false\" [select]=\"true\"\r\n          [inactive]=\"false\">\r\n        </ft-radio>\r\n      </div>\r\n\r\n\r\n    </div>\r\n\r\n    <div class=\"case-row\">\r\n      <div class=\"case-item case-item-heading vertical-text\">\r\n        Press\r\n      </div>\r\n      <div class=\"case-item\">\r\n        <ft-radio [isLabel]=\"isLabel\" [label]=\"label\" [isDescription]=\"isDescription\" [description]=\"description\"\r\n          [size]=\"size\" [state]=\"'press'\" [invalid]=\"false\" [select]=\"true\" [inactive]=\"false\">\r\n        </ft-radio>\r\n\r\n      </div>\r\n      <div class=\"case-item\">\r\n        <ft-radio [isLabel]=\"isLabel\" [label]=\"label\" [isDescription]=\"isDescription\" [description]=\"description\"\r\n          [size]=\"size\" [state]=\"'press'\" [invalid]=\"false\" [select]=\"false\" [inactive]=\"false\">\r\n        </ft-radio>\r\n\r\n\r\n      </div>\r\n\r\n      <div class=\"case-item\">\r\n        <ft-radio [isLabel]=\"true\" label=\"With Description\" [isDescription]=\"true\"\r\n          description=\"Providing additional context.\" [size]=\"size\" [state]=\"'press'\" [invalid]=\"false\" [select]=\"true\"\r\n          [inactive]=\"false\">\r\n        </ft-radio>\r\n      </div>\r\n\r\n\r\n\r\n    </div>\r\n\r\n    <div class=\"case-row\">\r\n      <div class=\"case-item case-item-heading vertical-text\">\r\n        Focus\r\n      </div>\r\n      <div class=\"case-item\">\r\n        <ft-radio [isLabel]=\"isLabel\" [label]=\"label\" [isDescription]=\"isDescription\" [description]=\"description\"\r\n          [size]=\"size\" [state]=\"'focus'\" [invalid]=\"false\" [select]=\"true\" [inactive]=\"false\">\r\n        </ft-radio>\r\n\r\n      </div>\r\n      <div class=\"case-item\">\r\n        <ft-radio [isLabel]=\"isLabel\" [label]=\"label\" [isDescription]=\"isDescription\" [description]=\"description\"\r\n          [size]=\"size\" [state]=\"'focus'\" [invalid]=\"false\" [select]=\"false\" [inactive]=\"false\">\r\n        </ft-radio>\r\n\r\n\r\n      </div>\r\n\r\n      <div class=\"case-item\">\r\n        <ft-radio [isLabel]=\"true\" label=\"With Description\" [isDescription]=\"true\"\r\n          description=\"Providing additional context.\" [size]=\"size\" [state]=\"'focus'\" [invalid]=\"false\" [select]=\"true\"\r\n          [inactive]=\"false\">\r\n        </ft-radio>\r\n      </div>\r\n\r\n\r\n\r\n    </div>\r\n\r\n    <div class=\"case-row\">\r\n      <div class=\"case-item case-item-heading vertical-text\">\r\n        Disabled\r\n      </div>\r\n      <div class=\"case-item\">\r\n        <ft-radio [isLabel]=\"isLabel\" [label]=\"label\" [isDescription]=\"isDescription\" [description]=\"description\"\r\n          [size]=\"size\" [state]=\"'rest'\" [invalid]=\"false\" [select]=\"true\" [inactive]=\"true\">\r\n        </ft-radio>\r\n\r\n      </div>\r\n      <div class=\"case-item\">\r\n        <ft-radio [isLabel]=\"isLabel\" [label]=\"label\" [isDescription]=\"isDescription\" [description]=\"description\"\r\n          [size]=\"size\" [state]=\"'rest'\" [invalid]=\"false\" [select]=\"false\" [inactive]=\"true\">\r\n        </ft-radio>\r\n\r\n\r\n      </div>\r\n\r\n      <div class=\"case-item\">\r\n        <ft-radio [isLabel]=\"true\" label=\"With Description\" [isDescription]=\"true\"\r\n          description=\"Providing additional context.\" [size]=\"size\" [state]=\"'rest'\" [invalid]=\"false\" [select]=\"true\"\r\n          [inactive]=\"true\">\r\n        </ft-radio>\r\n      </div>\r\n\r\n\r\n    </div>\r\n\r\n    <div class=\"case-row\">\r\n      <div class=\"case-item case-item-heading vertical-text\">\r\n        Invalid\r\n      </div>\r\n      <div class=\"case-item\">\r\n        <ft-radio [isLabel]=\"isLabel\" [label]=\"label\" [isDescription]=\"isDescription\" [description]=\"description\"\r\n          [size]=\"size\" [state]=\"'rest'\" [invalid]=\"true\" [select]=\"true\" [inactive]=\"false\">\r\n        </ft-radio>\r\n\r\n      </div>\r\n      <div class=\"case-item\">\r\n        <ft-radio [isLabel]=\"isLabel\" [label]=\"label\" [isDescription]=\"isDescription\" [description]=\"description\"\r\n          [size]=\"size\" [state]=\"'rest'\" [invalid]=\"true\" [select]=\"false\" [inactive]=\"false\">\r\n        </ft-radio>\r\n\r\n\r\n      </div>\r\n\r\n      <div class=\"case-item\">\r\n        <ft-radio [isLabel]=\"true\" label=\"With Description\" [isDescription]=\"true\"\r\n          description=\"Providing additional context.\" [size]=\"size\" [state]=\"'rest'\" [invalid]=\"true\" [select]=\"true\"\r\n          [inactive]=\"false\">\r\n        </ft-radio>\r\n      </div>\r\n\r\n\r\n    </div>\r\n\r\n  </div>\r\n</div>"
         },
         {
             "name": "RiskAssessmentDialogComponent",
@@ -8042,7 +8348,7 @@
         },
         {
             "name": "ToggleAllCasesComponent",
-            "id": "component-ToggleAllCasesComponent-dad4d66c7d428425008cac677673b34e839d94388b049ab24ba9d9874512b11a7ebdc2c18bf02bf494187592fadd771205fb3198342c1c6365e77a03b0a8d420",
+            "id": "component-ToggleAllCasesComponent-4fc48737d44ba731bc9183bda2446a330eb03dded2f08e873635d7c9f3c6fc91a5c17c498ef9469c99144c2e2d8d4b00f731c21b95d59062300cf73d2e665383",
             "file": "src/stories/toggles/toggle-all-cases/toggle-all-cases.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -8059,7 +8365,71 @@
             ],
             "viewProviders": [],
             "hostDirectives": [],
-            "inputsClass": [],
+            "inputsClass": [
+                {
+                    "name": "description",
+                    "defaultValue": "'Enable or disable this feature'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 18,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "isDescription",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 17,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "isLabel",
+                    "defaultValue": "true",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 15,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "label",
+                    "defaultValue": "'Feature Toggle'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 16,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "labelPosition",
+                    "defaultValue": "'right'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 21,
+                    "type": "\"left\" | \"right\" | \"top\"",
+                    "decorators": []
+                },
+                {
+                    "name": "size",
+                    "defaultValue": "'sm-size'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 19,
+                    "type": "\"sm-size\" | \"md-size\" | \"lg-size\"",
+                    "decorators": []
+                },
+                {
+                    "name": "variant",
+                    "defaultValue": "'default'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 20,
+                    "type": "\"default\" | \"icon\" | \"label\"",
+                    "decorators": []
+                }
+            ],
             "outputsClass": [],
             "propertiesClass": [
                 {
@@ -8083,59 +8453,15 @@
                     ]
                 },
                 {
-                    "name": "description",
-                    "defaultValue": "'Enable or disable this feature'",
+                    "name": "states",
+                    "defaultValue": "[\r\n        'rest',\r\n        'hover',\r\n        'press',\r\n        'focus',\r\n        'disabled',\r\n        'invalid'\r\n    ]",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "string",
+                    "type": "Array<\"rest\" | \"hover\" | \"press\" | \"focus\" | \"disabled\" | \"invalid\">",
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 18
-                },
-                {
-                    "name": "isDescription",
-                    "defaultValue": "false",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "unknown",
-                    "indexKey": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 17
-                },
-                {
-                    "name": "isLabel",
-                    "defaultValue": "false",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "unknown",
-                    "indexKey": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 15
-                },
-                {
-                    "name": "label",
-                    "defaultValue": "'Feature Toggle'",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "string",
-                    "indexKey": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 16
-                },
-                {
-                    "name": "size",
-                    "defaultValue": "'md-size'",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "\"xs-size\" | \"sm-size\" | \"md-size\" | \"lg-size\"",
-                    "indexKey": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 19
+                    "line": 23
                 }
             ],
             "methodsClass": [],
@@ -8167,7 +8493,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, HostBinding, Input } from '@angular/core';\r\nimport { CommonModule } from '@angular/common';\r\nimport { FtToggleComponent } from '../toggle/ft.toggle.component';\r\n\r\n@Component({\r\n    selector: 'app-toggle-showcase',\r\n    templateUrl: './toggle-all-cases.component.html',\r\n    styleUrls: ['./toggle-all-cases.component.css'],\r\n    standalone: true,\r\n    imports: [CommonModule, FtToggleComponent]\r\n})\r\nexport class ToggleAllCasesComponent {\r\n    @HostBinding('class') class = 'showcase';\r\n\r\n    isLabel = false;\r\n    label = 'Feature Toggle';\r\n    isDescription = false;\r\n    description = 'Enable or disable this feature';\r\n    size: 'xs-size' | 'sm-size' | 'md-size' | 'lg-size' = 'md-size';\r\n}\r\n",
+            "sourceCode": "import { Component, HostBinding, Input } from '@angular/core';\r\nimport { CommonModule } from '@angular/common';\r\nimport { FtToggleComponent } from '../toggle/ft.toggle.component';\r\n\r\n@Component({\r\n    selector: 'app-toggle-showcase',\r\n    templateUrl: './toggle-all-cases.component.html',\r\n    styleUrls: ['./toggle-all-cases.component.css'],\r\n    standalone: true,\r\n    imports: [CommonModule, FtToggleComponent]\r\n})\r\nexport class ToggleAllCasesComponent {\r\n    @HostBinding('class') class = 'showcase';\r\n\r\n    @Input() isLabel = true;\r\n    @Input() label = 'Feature Toggle';\r\n    @Input() isDescription = false;\r\n    @Input() description = 'Enable or disable this feature';\r\n    @Input() size: 'sm-size' | 'md-size' | 'lg-size' = 'sm-size';\r\n    @Input() variant: 'default' | 'icon' | 'label' = 'default';\r\n    @Input() labelPosition: 'left' | 'right' | 'top' = 'right';\r\n\r\n    states: Array<'rest' | 'hover' | 'press' | 'focus' | 'disabled' | 'invalid'> = [\r\n        'rest',\r\n        'hover',\r\n        'press',\r\n        'focus',\r\n        'disabled',\r\n        'invalid'\r\n    ];\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -8177,7 +8503,7 @@
             ],
             "stylesData": "",
             "extends": [],
-            "templateData": "<div class=\"all-case-container\">\r\n    <h1 class=\"showcase-title\">Toggle Component Showcase</h1>\r\n\r\n    <div class=\"showcase-grid\">\r\n\r\n        @for (v of ['default', 'icon', 'label']; track v) {\r\n        <div class=\"variant-section\">\r\n            <h2>Variant: {{v}}</h2>\r\n\r\n            <div class=\"table-scroll-container\">\r\n                <table class=\"color-common-table\">\r\n                    <thead>\r\n                        <tr class=\"header-row\">\r\n                            <th class=\"state-heading\">State / Position</th>\r\n                            @for (pos of ['left', 'right', 'top']; track pos) {\r\n                            <th colspan=\"3\" class=\"pos-heading\" [ngClass]=\"{\r\n                                    'bg-pos-left': pos === 'left',\r\n                                    'bg-pos-right': pos === 'right',\r\n                                    'bg-pos-top': pos === 'top'\r\n                                }\">\r\n                                <div class=\"pos-content\">\r\n                                    <span class=\"material-symbols-rounded\">\r\n                                        {{pos === 'left' ? 'format_align_left' : (pos === 'right' ? 'format_align_right'\r\n                                        : 'vertical_align_top')}}\r\n                                    </span>\r\n                                    Label: {{pos}}\r\n                                </div>\r\n                            </th>\r\n                            }\r\n                        </tr>\r\n                        <tr class=\"sub-header-row\">\r\n                            <th class=\"empty-heading\"></th>\r\n                            @for (pos of ['left', 'right', 'top']; track pos) {\r\n                            <th class=\"size-heading border-left-group\">SM</th>\r\n                            <th class=\"size-heading\">MD</th>\r\n                            <th class=\"size-heading\">LG</th>\r\n                            }\r\n                        </tr>\r\n                    </thead>\r\n                    <tbody>\r\n                        <!-- Row: Selected (ON) -->\r\n                        <tr>\r\n                            <td class=\"state-cell\">Selected (ON)</td>\r\n                            @for (pos of ['left', 'right', 'top']; track pos) {\r\n                            @for (s of ['sm-size', 'md-size', 'lg-size']; track s; let first = $first) {\r\n                            <td class=\"toggle-cell\" [ngClass]=\"{\r\n                                    'border-left-group': first,\r\n                                    'cell-bg-pos-left': pos === 'left',\r\n                                    'cell-bg-pos-right': pos === 'right',\r\n                                    'cell-bg-pos-top': pos === 'top'\r\n                                }\">\r\n                                <ft-toggle [size]=\"$any(s)\" [variant]=\"$any(v)\" [labelPosition]=\"$any(pos)\"\r\n                                    [isLabel]=\"true\" label=\"Toggle On\" [select]=\"true\"></ft-toggle>\r\n                            </td>\r\n                            }\r\n                            }\r\n                        </tr>\r\n                        <!-- Row: Unselected (OFF) -->\r\n                        <tr>\r\n                            <td class=\"state-cell\">Unselected (OFF)</td>\r\n                            @for (pos of ['left', 'right', 'top']; track pos) {\r\n                            @for (s of ['sm-size', 'md-size', 'lg-size']; track s; let first = $first) {\r\n                            <td class=\"toggle-cell\" [ngClass]=\"{\r\n                                    'border-left-group': first,\r\n                                    'cell-bg-pos-left': pos === 'left',\r\n                                    'cell-bg-pos-right': pos === 'right',\r\n                                    'cell-bg-pos-top': pos === 'top'\r\n                                }\">\r\n                                <ft-toggle [size]=\"$any(s)\" [variant]=\"$any(v)\" [labelPosition]=\"$any(pos)\"\r\n                                    [isLabel]=\"true\" label=\"Toggle Off\" [select]=\"false\"></ft-toggle>\r\n                            </td>\r\n                            }\r\n                            }\r\n                        </tr>\r\n                        <!-- Row: Invalid -->\r\n                        <tr class=\"invalid-row\">\r\n                            <td class=\"state-cell\">Invalid</td>\r\n                            @for (pos of ['left', 'right', 'top']; track pos) {\r\n                            @for (s of ['sm-size', 'md-size', 'lg-size']; track s; let first = $first) {\r\n                            <td class=\"toggle-cell\" [ngClass]=\"{'border-left-group': first}\">\r\n                                <ft-toggle [size]=\"$any(s)\" [variant]=\"$any(v)\" [labelPosition]=\"$any(pos)\"\r\n                                    [isLabel]=\"true\" label=\"Invalid\" [select]=\"true\" [invalid]=\"true\"></ft-toggle>\r\n                            </td>\r\n                            }\r\n                            }\r\n                        </tr>\r\n                        <!-- Row: Disabled -->\r\n                        <tr class=\"disabled-row\">\r\n                            <td class=\"state-cell\">Disabled</td>\r\n                            @for (pos of ['left', 'right', 'top']; track pos) {\r\n                            @for (s of ['sm-size', 'md-size', 'lg-size']; track s; let first = $first) {\r\n                            <td class=\"toggle-cell\" [ngClass]=\"{'border-left-group': first}\">\r\n                                <ft-toggle [size]=\"$any(s)\" [variant]=\"$any(v)\" [labelPosition]=\"$any(pos)\"\r\n                                    [isLabel]=\"true\" label=\"Disabled\" [select]=\"true\" [inactive]=\"true\"></ft-toggle>\r\n                            </td>\r\n                            }\r\n                            }\r\n                        </tr>\r\n                        <!-- Row: With Description -->\r\n                        <tr>\r\n                            <td class=\"state-cell\">With Description</td>\r\n                            @for (pos of ['left', 'right', 'top']; track pos) {\r\n                            @for (s of ['sm-size', 'md-size', 'lg-size']; track s; let first = $first) {\r\n                            <td class=\"toggle-cell\" [ngClass]=\"{\r\n                                    'border-left-group': first,\r\n                                    'cell-bg-pos-left': pos === 'left',\r\n                                    'cell-bg-pos-right': pos === 'right',\r\n                                    'cell-bg-pos-top': pos === 'top'\r\n                                }\">\r\n                                <ft-toggle [size]=\"$any(s)\" [variant]=\"$any(v)\" [labelPosition]=\"$any(pos)\"\r\n                                    [isLabel]=\"true\" label=\"Toggle Label\" [isDescription]=\"true\"\r\n                                    description=\"Detailed context.\" [select]=\"true\"></ft-toggle>\r\n                            </td>\r\n                            }\r\n                            }\r\n                        </tr>\r\n                    </tbody>\r\n                </table>\r\n            </div>\r\n        </div>\r\n        }\r\n\r\n    </div>\r\n</div>"
+            "templateData": "<div class=\"all-case-container\">\r\n    <h1 class=\"showcase-title\">Toggle All Cases</h1>\r\n    <div class=\"cases-container\">\r\n        <div class=\"case-row case-row-heading\">\r\n            <div class=\"case-item case-item-heading\"></div>\r\n            <div class=\"case-item\">Selected (ON)</div>\r\n            <div class=\"case-item\">Unselected (OFF)</div>\r\n            <div class=\"case-item\">With Description</div>\r\n        </div>\r\n\r\n        @for (state of states; track state) {\r\n        <div class=\"case-row\">\r\n            <div class=\"case-item case-item-heading vertical-text\">\r\n                {{state}}\r\n            </div>\r\n\r\n            <!-- Selected (ON) -->\r\n            <div class=\"case-item\">\r\n                <ft-toggle [isLabel]=\"isLabel\" [label]=\"label\" [labelPosition]=\"labelPosition\" [variant]=\"variant\"\r\n                    [size]=\"size\" [state]=\"state === 'disabled' || state === 'invalid' ? 'rest' : state\"\r\n                    [invalid]=\"state === 'invalid'\" [select]=\"true\" [inactive]=\"state === 'disabled'\">\r\n                </ft-toggle>\r\n            </div>\r\n\r\n            <!-- Unselected (OFF) -->\r\n            <div class=\"case-item\">\r\n                <ft-toggle [isLabel]=\"isLabel\" [label]=\"label\" [labelPosition]=\"labelPosition\" [variant]=\"variant\"\r\n                    [size]=\"size\" [state]=\"state === 'disabled' || state === 'invalid' ? 'rest' : state\"\r\n                    [invalid]=\"state === 'invalid'\" [select]=\"false\" [inactive]=\"state === 'disabled'\">\r\n                </ft-toggle>\r\n            </div>\r\n\r\n            <!-- With Description -->\r\n            <div class=\"case-item\">\r\n                <ft-toggle [isLabel]=\"true\" label=\"With Description\" [isDescription]=\"true\"\r\n                    description=\"Detailed context.\" [labelPosition]=\"labelPosition\" [variant]=\"variant\" [size]=\"size\"\r\n                    [state]=\"state === 'disabled' || state === 'invalid' ? 'rest' : state\"\r\n                    [invalid]=\"state === 'invalid'\" [select]=\"true\" [inactive]=\"state === 'disabled'\">\r\n                </ft-toggle>\r\n            </div>\r\n        </div>\r\n        }\r\n    </div>\r\n</div>"
         },
         {
             "name": "TreatmentDialogComponent",
@@ -10420,12 +10746,30 @@
                 "status": "low"
             },
             {
+                "filePath": "src/stories/checkbox-all-cases/checkbox-all-cases.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "CheckboxAllCasesComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/9",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/checkbox/ft.checkbox.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "FtCheckboxComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/11",
+                "status": "low"
+            },
+            {
                 "filePath": "src/stories/inputs/input-all-cases/input-all-cases.component.ts",
                 "type": "component",
                 "linktype": "component",
                 "name": "InputAllCasesComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/10",
+                "coverageCount": "0/11",
                 "status": "low"
             },
             {
@@ -10443,7 +10787,7 @@
                 "linktype": "component",
                 "name": "FTInputComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/27",
+                "coverageCount": "0/28",
                 "status": "low"
             },
             {
@@ -10488,7 +10832,7 @@
                 "linktype": "component",
                 "name": "ToggleAllCasesComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/8",
+                "coverageCount": "0/11",
                 "status": "low"
             },
             {

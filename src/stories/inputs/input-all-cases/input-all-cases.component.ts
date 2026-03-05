@@ -1,8 +1,8 @@
 // input-showcase.component.ts
-import {Component, HostBinding, Input} from '@angular/core';
+import { Component, HostBinding, Input } from '@angular/core';
 
 import { CommonModule } from '@angular/common';
-import {FTInputComponent} from '../input/ft.input.component';
+import { FTInputComponent } from '../input/ft.input.component';
 
 @Component({
   selector: 'app-input-showcase',
@@ -14,10 +14,11 @@ import {FTInputComponent} from '../input/ft.input.component';
 export class InputAllCasesComponent {
   @HostBinding('class') class = 'showcase';
   isPrefixIconClass: boolean = true;
-  radius: 'none-radius'|'xs-radius'|'sm-radius'|'md-radius'|'lg-radius'|'full-radius' = 'md-radius';
-  size: 'xs-size'|'sm-size'|'md-size'|'lg-size' = 'md-size';
-  variant: 'flat'|'faded'|'outlined'|'ghost' = 'flat';
+  radius: 'none-radius' | 'xs-radius' | 'sm-radius' | 'md-radius' | 'lg-radius' | 'full-radius' = 'md-radius';
+  size: 'xs-size' | 'sm-size' | 'md-size' | 'lg-size' = 'md-size';
+  variant: 'flat' | 'faded' | 'outlined' | 'ghost' = 'flat';
   isDescription = false;
+  @Input() showContent = false;
 
   states: Array<'rest' | 'hover' | 'focus' | 'readonly' | 'disabled' | 'invalid' | 'content'> = [
     'rest',
@@ -26,13 +27,12 @@ export class InputAllCasesComponent {
     'readonly',
     'disabled',
     'invalid',
-    'content'
   ];
 
   labelPlacements: Array<'label-inside' | 'label-outside' | 'label-outside-left'> = [
-      'label-inside',
-      'label-outside',
-      'label-outside-left'
+    'label-inside',
+    'label-outside',
+    'label-outside-left'
 
   ];
 

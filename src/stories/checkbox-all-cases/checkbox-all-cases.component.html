@@ -1,0 +1,54 @@
+<div class="all-case-container">
+    <h1 class="showcase-title">Checkbox All Cases</h1>
+    <div class="cases-container">
+        <div class="case-row case-row-heading">
+            <div class="case-item case-item-heading"></div>
+            <div class="case-item">Checked</div>
+            <div class="case-item">Unchecked</div>
+            <div class="case-item">Indeterminate</div>
+            <div class="case-item">With Description</div>
+        </div>
+
+        @for (state of states; track state) {
+        <div class="case-row">
+            <div class="case-item case-item-heading vertical-text">
+                {{state === 'disabled' || state === 'invalid' ? state : state}}
+            </div>
+
+            <!-- Checked -->
+            <div class="case-item">
+                <ft-checkbox [isLabel]="isLabel" [label]="label" [size]="size"
+                    [state]="state === 'disabled' || state === 'invalid' ? 'rest' : state"
+                    [invalid]="state === 'invalid'" [checked]="true" [inactive]="state === 'disabled'">
+                </ft-checkbox>
+            </div>
+
+            <!-- Unchecked -->
+            <div class="case-item">
+                <ft-checkbox [isLabel]="isLabel" [label]="label" [size]="size"
+                    [state]="state === 'disabled' || state === 'invalid' ? 'rest' : state"
+                    [invalid]="state === 'invalid'" [checked]="false" [inactive]="state === 'disabled'">
+                </ft-checkbox>
+            </div>
+
+            <!-- Indeterminate -->
+            <div class="case-item">
+                <ft-checkbox [isLabel]="isLabel" [label]="label" [size]="size"
+                    [state]="state === 'disabled' || state === 'invalid' ? 'rest' : state"
+                    [invalid]="state === 'invalid'" [checked]="false" [indeterminate]="true"
+                    [inactive]="state === 'disabled'">
+                </ft-checkbox>
+            </div>
+
+            <!-- With Description -->
+            <div class="case-item">
+                <ft-checkbox [isLabel]="true" label="With Description" [isDescription]="true"
+                    description="Providing additional context." [size]="size"
+                    [state]="state === 'disabled' || state === 'invalid' ? 'rest' : state"
+                    [invalid]="state === 'invalid'" [checked]="true" [inactive]="state === 'disabled'">
+                </ft-checkbox>
+            </div>
+        </div>
+        }
+    </div>
+</div>
