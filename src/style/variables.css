@@ -865,8 +865,11 @@
     --ft-form-field-content-muted: var(--ft-color-n-on-surface-40);
     --ft-form-field-label-muted: var(--ft-color-n-on-surface-20);
     --ft-switch-100: var(--color-teal-500);
+    --ft-switch-on-100: var(--ft-color-n-surface-100);
     --ft-switch-200: var(--ft-color-n-on-surface-30);
+    --ft-switch-on-200: var(--ft-color-n-surface-100);
     --ft-switch-muted: var(--ft-color-n-on-surface-15);
+    --ft-switch-on-muted: var(--ft-color-n-on-surface-30);
     --ft-dialog-v-padding: var(--ft-unit-400);
     --ft-dialog-h-padding: var(--ft-unit-800);
     --ft-icon-100: var(--ft-color-n-on-surface-100);
@@ -942,6 +945,12 @@
       var(--ft-color-primary-800),
       var(--ft-color-secondary-950)
     );
+
+    /* Mapped */
+
+    --ft-switch-on-100: var(--ft-color-n-on-surface-100);
+    --ft-switch-on-200: var(--ft-color-n-on-surface-100);
+    --ft-switch-on-muted: var(--ft-color-n-on-surface-40);
 
     /* --- Background Image --- */
 

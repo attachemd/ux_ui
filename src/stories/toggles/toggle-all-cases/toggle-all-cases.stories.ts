@@ -22,9 +22,3 @@ type Story = StoryObj<ToggleAllCasesComponent>;
 export const Default: Story = {
     args: {}
 };
-
-export const WithDescription: Story = {
-    args: {
-        isDescription: true
-    }
-}

@@ -1,16 +1,16 @@
 .showcase-grid {
     display: flex;
     flex-direction: column;
-    gap: 60px;
-    padding: 20px;
+    gap: var(--ft-unit-1500);
+    padding: var(--ft-unit-500);
 }
 
 .variant-section h2 {
-    font-weight: 800;
-    color: #333;
+    font-weight: var(--font-weight-extrabold);
+    color: var(--ft-color-on-surface-level-200);
     text-transform: uppercase;
-    margin-bottom: 20px;
-    border-bottom: 2px solid var(--ft-color-primary);
+    margin-bottom: var(--ft-unit-500);
+    border-bottom: var(--ft-border-secondary) solid var(--ft-color-primary);
     display: inline-block;
     padding-bottom: 5px;
 }
@@ -35,13 +35,13 @@ thead tr.header-row th.state-heading {
 }
 
 thead tr.header-row th.pos-heading {
-    padding: 12px;
+    padding: var(--ft-unit-300);
     border: 1px solid var(--ft-color-border-200);
-    border-left: 4px solid var(--ft-color-border-300);
+    border-left: var(--ft-unit-100) solid var(--ft-color-border-200);
     text-transform: uppercase;
-    font-size: 11px;
-    font-weight: 900;
-    color: #444;
+    font-size: var(--ft-text-3xs);
+    font-weight: var(--font-weight-black);
+    color: var(--ft-color-on-surface-level-200);
 }
 
 thead tr.header-row th.pos-heading .pos-content {
@@ -52,11 +52,11 @@ thead tr.header-row th.pos-heading .pos-content {
 }
 
 thead tr.header-row th.pos-heading .material-symbols-rounded {
-    font-size: 16px;
+    font-size: var(--ft-unit-400);
 }
 
 thead tr.sub-header-row {
-    background-color: var(--ft-color-surface-level-50);
+    background-color: var(--ft-color-n-surface-3);
 }
 
 thead tr.sub-header-row th.empty-heading {
@@ -64,11 +64,11 @@ thead tr.sub-header-row th.empty-heading {
 }
 
 thead tr.sub-header-row th.size-heading {
-    padding: 8px;
+    padding: var(--ft-unit-200);
     border: 1px solid var(--ft-color-border-200);
     font-size: 9px;
-    font-weight: 700;
-    color: #888;
+    font-weight: var(--font-weight-bold);
+    color: var(--ft-color-on-surface-muted);
 }
 
 tbody tr {
@@ -76,25 +76,25 @@ tbody tr {
 }
 
 tbody td.state-cell {
-    padding: 12px;
+    padding: var(--ft-unit-300);
     border: 1px solid var(--ft-color-border-200);
-    font-weight: 600;
-    font-size: 11px;
-    background-color: var(--ft-color-surface-level-50);
+    font-weight: var(--font-weight-semibold);
+    font-size: var(--ft-text-3xs);
+    background-color: var(--ft-color-n-surface-3);
 }
 
 tbody td.toggle-cell {
-    padding: 20px 10px;
+    padding: var(--ft-unit-500) var(--ft-unit-300);
     border: 1px solid var(--ft-color-border-200);
     text-align: center;
 }
 
 tr.invalid-row {
-    background-color: rgba(244, 67, 54, 0.03);
+    background-color: color-mix(in srgb, var(--ft-color-danger) 3%, transparent);
 }
 
 tr.invalid-row td.state-cell {
-    color: #f44336;
+    color: var(--ft-color-danger);
 }
 
 tr.disabled-row {
@@ -103,35 +103,35 @@ tr.disabled-row {
 }
 
 tr.disabled-row td.state-cell {
-    color: #888;
+    color: var(--ft-color-on-surface-muted);
 }
 
 /* Position-specific background colors */
 .bg-pos-left {
-    background-color: rgba(var(--ft-color-primary-rgb, 59, 130, 246), 0.08) !important;
+    background-color: color-mix(in srgb, var(--ft-color-primary) 8%, transparent) !important;
 }
 
 .bg-pos-right {
-    background-color: rgba(16, 185, 129, 0.05) !important;
+    background-color: color-mix(in srgb, var(--ft-color-success) 5%, transparent) !important;
 }
 
 .bg-pos-top {
-    background-color: rgba(245, 158, 11, 0.05) !important;
+    background-color: color-mix(in srgb, var(--ft-color-warning) 5%, transparent) !important;
 }
 
 /* Position-specific cell background colors */
 .cell-bg-pos-left {
-    background-color: rgba(59, 130, 246, 0.02) !important;
+    background-color: color-mix(in srgb, var(--ft-color-primary) 2%, transparent) !important;
 }
 
 .cell-bg-pos-right {
-    background-color: rgba(16, 185, 129, 0.01) !important;
+    background-color: color-mix(in srgb, var(--ft-color-success) 1%, transparent) !important;
 }
 
 .cell-bg-pos-top {
-    background-color: rgba(245, 158, 11, 0.01) !important;
+    background-color: color-mix(in srgb, var(--ft-color-warning) 1%, transparent) !important;
 }
 
 .border-left-group {
-    border-left: 4px solid var(--ft-color-border-300) !important;
+    border-left: var(--ft-unit-100) solid var(--ft-color-border-200) !important;
 }

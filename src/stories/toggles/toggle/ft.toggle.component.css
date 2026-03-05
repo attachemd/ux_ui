@@ -3,11 +3,13 @@
     --_field-bg: transparent;
     --_field-border-color: var(--ft-color-border-200);
     --_field-border-width: var(--ft-border-secondary);
-    --_field-thumb-bg: var(--ft-color-white, #fff);
+    --_field-thumb-bg: var(--ft-color-on-tertiary);
     --_field-track-bg: var(--ft-switch-200);
     --_field-text: var(--ft-color-solid-on-surface);
     --_field-description: var(--ft-color-on-surface-level-300);
     --_field-icon-color: var(--ft-switch-200);
+  --_field-on-label: var(--ft-switch-on-200);
+  --_field-off-label: var(--ft-switch-on-100);
 
     /* Transitions & Opacities */
     --_on-opacity: 0;
@@ -135,14 +137,14 @@
 
                     .on-label {
                         left: calc(var(--_thumb-offset) + var(--_on-offset));
-                        color: white;
+                        color: var(--_field-on-label);
                         opacity: var(--_on-opacity);
                         transform: translateY(-50%) translateX(calc((1 - var(--_on-opacity)) * -4px));
                     }
 
                     .off-label {
                         right: calc(var(--_thumb-offset) + var(--_off-offset));
-                        color: var(--ft-color-on-surface-level-300);
+                        color: var(--_field-off-label);
                         opacity: var(--_off-opacity);
                         transform: translateY(-50%) translateX(calc((1 - var(--_off-opacity)) * 4px));
                     }
@@ -160,7 +162,6 @@
                 align-items: center;
                 justify-content: center;
                 transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-                box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
                 z-index: 2;
 
                 .material-symbols-rounded {
@@ -208,6 +209,8 @@
         opacity: 0.5;
         --_field-track-bg: var(--ft-switch-muted);
         --_field-icon-color: var(--ft-switch-muted);
+      --_field-on-label: var(--ft-switch-on-muted);
+      --_field-off-label: var(--ft-switch-on-muted);
     }
 
     /* 5. SIZE LOGIC SCALING */
