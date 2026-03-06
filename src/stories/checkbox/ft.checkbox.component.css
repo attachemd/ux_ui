@@ -1,4 +1,4 @@
-.field-container {
+.ft-checkbox-field-container {
     /* 1. INTERNAL VARIABLE DEFAULTS */
     --_field-bg: transparent;
     --_field-border-color: var(--ft-color-border-200);
@@ -8,9 +8,10 @@
     --_field-description: var(--ft-color-on-surface-level-300);
     --_checkmark-color: var(--ft-color-mix-a);
 
-    --_field-size: 34px;
+    --_field-size: var(--ft-unit-900);
     --_field-scale: 0.9;
     --_checkbox-scale: 0.7;
+    --_checkbox-radius: var(--ft-radius-400);
     --_control-scale: 1;
 
     display: flex;
@@ -30,11 +31,11 @@
         transition: background-color 0.2s ease;
 
         .checkbox {
-            width: 100%;
-            height: 100%;
+            width: calc(100% - var(--ft-unit-100));
+            height: calc(100% - var(--ft-unit-100));
             transform: scale(var(--_checkbox-scale));
             border: var(--_field-border-width) solid var(--_field-border-color);
-            border-radius: var(--ft-radius-200);
+            border-radius: var(--_checkbox-radius);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -50,7 +51,7 @@
                 color: var(--_checkmark-color);
 
                 .material-symbols-rounded {
-                    font-size: 24px;
+                    font-size: var(--ft-unit-600);
                     font-weight: 900;
                 }
             }
@@ -100,36 +101,41 @@
         --_field-text: var(--ft-color-on-surface-muted);
         --_field-description: var(--ft-color-on-surface-muted);
         --_field-border-color: var(--ft-radio-muted);
+      --_checkmark-color: var(--ft-color-on-surface-muted);
 
         &.checked,
         &.indeterminate {
             --_field-control-bg: var(--ft-radio-muted);
             --_field-border-color: var(--ft-radio-muted);
+          --_field-border-width: 0;
         }
     }
 
     /* 6. SIZE LOGIC */
     &.xs-size {
-        --_field-size: 24px;
+        --_field-size: var(--ft-unit-700);
+        --_checkbox-radius: var(--ft-radius-400);
 
         .material-symbols-rounded {
-            font-size: 16px !important;
+            font-size: var(--ft-unit-400) !important;
         }
     }
 
     &.sm-size {
-        --_field-size: 28px;
-
+        --_field-size: var(--ft-unit-800);
+      --_checkbox-radius: var(--ft-radius-400);
         .material-symbols-rounded {
-            font-size: 20px !important;
+            font-size: var(--ft-unit-500) !important;
         }
     }
 
     &.md-size {
-        --_field-size: 32px;
+        --_field-size: var(--ft-unit-900);
+      --_checkbox-radius: var(--ft-radius-400);
     }
 
     &.lg-size {
-        --_field-size: 36px;
+        --_field-size: var(--ft-unit-1000);
+      --_checkbox-radius: var(--ft-radius-500);
     }
 }

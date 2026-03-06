@@ -1,0 +1,51 @@
+.group-field-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--ft-unit-200);
+
+    .group-field-label {
+        font-weight: 600;
+        color: var(--ft-color-solid-on-surface);
+    }
+
+    .group-field-content-container {
+        display: flex;
+        flex-direction: column;
+
+        .group-field-content {
+            display: flex;
+            gap: var(--ft-unit-100);
+
+            &.flex-row {
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+
+            &.flex-col {
+                flex-direction: column;
+            }
+        }
+    }
+
+    .error-message {
+        margin-top: var(--ft-unit-150);
+
+        .error-text {
+            color: var(--ft-color-danger);
+        }
+    }
+
+    .description {
+        margin-top: var(--ft-unit-150);
+
+        .highlight {
+            color: var(--ft-color-on-surface-muted);
+        }
+    }
+
+    &.inactive {
+        .group-field-label {
+            color: var(--ft-color-on-surface-muted);
+        }
+    }
+}
