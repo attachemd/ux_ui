@@ -1,58 +1,131 @@
-import {Meta, Unstyled} from "@storybook/addon-docs/blocks";
+import { Meta, Unstyled } from "@storybook/addon-docs/blocks";
 
 <Meta title="Theme/Colors/Surface Colors"/>
 
-**Surface color** is the background color of UI containers—cards, sheets, dialogs, sidebars, etc.
+# Surface Colors
 
+**Surface colors** are the background colors of UI containers—cards, sheets, dialogs, sidebars, etc. Our system uses a numerical scale where lower numbers represent higher transparency levels on top of the base neutral surface.
+
+<Unstyled>
+  <style>{`
+    .color-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 24px;
+      padding: 24px 0;
+    }
+
+    .color-card {
+      background: var(--ft-color-solid-surface);
+      border: 1px solid var(--ft-color-n-surface-15);
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    }
+
+    .color-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      border-color: var(--ft-color-n-surface-30);
+    }
+
+    .swatch-container {
+      height: 120px;
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      background: #f0f0f0; /* Checkered mesh for transparency view */
+      background-image: 
+        linear-gradient(45deg, #e5e5e5 25%, transparent 25%), 
+        linear-gradient(-45deg, #e5e5e5 25%, transparent 25%), 
+        linear-gradient(45deg, transparent 75%, #e5e5e5 75%), 
+        linear-gradient(-45deg, transparent 75%, #e5e5e5 75%);
+      background-size: 20px 20px;
+      background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+    }
+
+    .swatch-fill {
+      position: absolute;
+      inset: 0;
+      mix-blend-mode: normal;
+    }
+
+    .contrast-test {
+      z-index: 1;
+      padding: 12px 24px;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      backdrop-filter: blur(4px);
+      color: var(--ft-color-solid-on-surface);
+      border: 1px solid var(--ft-color-n-surface-10);
+    }
+
+    .card-info {
+      padding: 16px;
+      background: var(--ft-color-solid-surface);
+    }
+
+    .variable-name {
+      font-family: 'Fira Code', 'Roboto Mono', monospace;
+      font-size: 0.85rem;
+      color: var(--ft-color-on-surface-muted);
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .level-label {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--ft-color-solid-on-surface);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .level-badge {
+      font-size: 0.7rem;
+      padding: 2px 8px;
+      background: var(--ft-color-n-on-surface-10);
+      border-radius: 99px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+  `}</style>
+</Unstyled>
 
 export const surfaceLevels = [
-  '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10',
-  '15', '20', '25', '30', '35', '40', '45', '50', '55',
-  '60', '65', '70', '75', '80', '85', '90', '100'
+  '0', '5', '10', '15', '20', '30', '40', '50', '60', '70', '80', '90', '100'
 ];
 
-
-export const ColorSample = ({level}) => (
-  <div class="cell">
-    <div class="color-sample-outer-container">
-      <div class="color-sample-container">
-        <div class="color-sample solid"
-             style={{
-               backgroundColor: 'var(--ft-color-n-surface-100)',
-             }}
-        ></div>
-        <div class="color-sample transparent"
-             style={{
-               backgroundColor: 'var(--ft-color-n-surface-' + level + ')',
-             }}
-        ></div>
+export const ColorCard = ({ level }) => (
+  <div class="color-card">
+    <div class="swatch-container">
+      <div class="swatch-fill" style={{ backgroundColor: 'var(--ft-color-n-surface-' + level + ')' }}></div>
+      <div class="contrast-test" style={{ backgroundColor: 'var(--ft-color-n-surface-' + level + ')' }}>
+        Surface {level}
       </div>
     </div>
-    <div class="color-desc">
-      {'--ft-color-n-surface-' + level}
+    <div class="card-info">
+      <code class="variable-name">--ft-color-n-surface-{level}</code>
+      <div class="level-label">
+        Level {level}
+        <span class="level-badge">{parseInt(level) < 20 ? 'Sheet/Card' : 'Layer/Overlay'}</span>
+      </div>
     </div>
-
   </div>
 );
 
 <Unstyled>
-
-  <table class="color-surface-table custom-docs">
-    <thead>
-    <tr>
-      <th>Variation\Color</th>
-      <th>Surface</th>
-    </tr>
-    </thead>
-    <tbody>
+  <div class="color-grid">
     {surfaceLevels.map((level) => (
-      <tr>
-        <td>{level}</td>
-        <td>
-          <ColorSample level={level}/>
-        </td>
-      </tr>
+      <ColorCard key={level} level={level}/>
     ))}
-    </tbody>
-  </table>
+  </div>
 </Unstyled>
