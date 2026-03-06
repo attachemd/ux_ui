@@ -1,5 +1,6 @@
 import { FtSideNavComponent } from './ft.side-nav.component';
 import type { Meta, StoryObj } from '@storybook/angular';
+import { within, userEvent, expect } from '@storybook/test';
 
 const meta: Meta<FtSideNavComponent> = {
     title: 'Components/Side Nav',
@@ -72,4 +73,38 @@ export const CustomItems: Story = {
             { id: 'settings', label: 'Settings', icon: 'settings' }
         ]
     }
+};
+export const InteractionTest: Story = {
+    args: {
+        activeId: 'patients',
+        isExpanded: false,
+    },
+    play: async ({ canvasElement }) => {
+        const canvas = within(canvasElement);
+
+        // 1. Verify initial state
+        const patientsBtn = canvas.getByRole('button', { name: /patients/i });
+        await expect(patientsBtn).toHaveClass('active');
+
+        // 2. Expand Sidebar
+        const menuBtn = canvas.getByRole('button', { name: /expand sidebar/i });
+        await userEvent.click(menuBtn);
+
+        // Verify label is visible (this depends on CSS transitions, but we can check if class expanded is added)
+        const sidebar = canvasElement.querySelector('.sidebar');
+        await expect(sidebar).toHaveClass('expanded');
+
+        // 3. Select 'Visites' (checkups)
+        const checkupsBtn = canvas.getByRole('button', { name: /visites/i });
+        await userEvent.click(checkupsBtn);
+
+        // 4. Verify 'Visites' is active
+        await expect(checkupsBtn).toHaveClass('active');
+        await expect(patientsBtn).not.toHaveClass('active');
+
+        // 5. Collapse Sidebar
+        const collapseBtn = canvas.getByRole('button', { name: /collapse sidebar/i });
+        await userEvent.click(collapseBtn);
+        await expect(sidebar).not.toHaveClass('expanded');
+    },
 };
