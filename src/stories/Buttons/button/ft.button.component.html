@@ -1,29 +1,26 @@
-<div class="button-container"
-     [class]="size + ' ' + variant + ' ' + state + ' ' + color"
->
+<button class="button-container" [class]="size + ' ' + variant + ' ' + state + ' ' + color"
+  [disabled]="state === 'disabled'" type="button">
   <div class="button-wrapper" [class]="radiusClasses">
     <div *ngIf="isPrefixIconClass && prefixIconClass" class="prefix-icon">
-<!--      <i [class]="prefixIconClass"></i>-->
+      <!--      <i [class]="prefixIconClass"></i>-->
       <span class="material-symbols-rounded">{{prefixIconClass}}</span>
     </div>
     <div *ngIf="isLabel" class="content-section">
       <div *ngIf="isLabel" class="label-row">
-        <span class="label truncate"
-              [ngClass]="{
+        <span class="label truncate" [ngClass]="{
            'content-3xs--bold': size === 'xs-size',
            'content-2xs--bold': size === 'sm-size',
            'content-xs--bold': size === 'md-size',
            'content-sm--bold': size === 'lg-size',
-           }"
-        >{{ label }}</span>
+           }">{{ label }}</span>
       </div>
 
     </div>
     <div *ngIf="isSuffixIconClass && suffixIconClass" class="suffix-icon flex">
       <div class="suffix">
-<!--        <i [class]="suffixIconClass"></i>-->
+        <!--        <i [class]="suffixIconClass"></i>-->
         <span class="material-symbols-rounded">{{suffixIconClass}}</span>
       </div>
     </div>
   </div>
-</div>
+</button>
