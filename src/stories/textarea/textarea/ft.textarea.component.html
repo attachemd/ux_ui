@@ -1,0 +1,48 @@
+<div class="field-container" [class]="labelPlacement + ' ' + size + ' ' + variant + ' ' + state">
+  
+  <div *ngIf="isLabel && labelPlacement !== 'inside'" class="label-row">
+    <span class="label leading-none" [ngClass]="{
+           'content-2xs--semibold': size === 'sm-size' || size === 'md-size' || size === 'xs-size',
+           'content-xs--semibold': size === 'lg-size',
+           }">{{ label }} <span *ngIf="required && !disabled">*</span></span>
+  </div>
+
+  <div class="textarea-wrapper" [class]="radiusClasses">
+    <div class="content-section">
+      <div *ngIf="isLabel && labelPlacement === 'inside'" class="label-row">
+        <span class="label leading-none" [ngClass]="{
+           'content-2xs--bold': size === 'sm-size' || size === 'md-size' || size === 'xs-size',
+           'content-xs--bold': size === 'lg-size',
+           }">{{ label }} <span *ngIf="required && !disabled">*</span></span>
+      </div>
+      
+      <textarea
+        [rows]="rows"
+        [(ngModel)]="value"
+        (ngModelChange)="onValueChange($event)"
+        [placeholder]="placeholder || ''"
+        [disabled]="disabled || state === 'disabled'"
+        [readonly]="readonly || state === 'readonly'"
+        class="textarea-element"
+        [ngClass]="{
+           'content-2xs--medium': size === 'xs-size',
+           'content-xs--medium': size === 'sm-size' || size === 'md-size' || size === 'lg-size',
+        }"
+      ></textarea>
+    </div>
+
+    <div class="suffix-icon flex" *ngIf="state !== 'readonly' && state !== 'disabled' && isClearable && value">
+      <div class="suffix clear-btn" (click)="clear()">
+        <span class="material-symbols-rounded">close_small</span>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="state === 'invalid' && errorMessage" class="error-message">
+    <p class="error-text content-2xs--normal">{{ errorMessage }}</p>
+  </div>
+  
+  <div *ngIf="isDescription && description && state !== 'invalid'" class="description">
+    <p class="highlight content-2xs--normal">{{ description }}</p>
+  </div>
+</div>

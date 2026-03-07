@@ -1,0 +1,32 @@
+<div class="all-case-container">
+  <h1 class="showcase-title">Textarea All Cases</h1>
+  <div class="cases-container">
+    <div class="case-row case-row-heading">
+      <div class="case-item case-item-heading"></div>
+      <div *ngFor="let placement of labelPlacements" class="case-item">
+        {{ placement | titlecase }}
+      </div>
+    </div>
+    
+    <div *ngFor="let state of states" class="case-row">
+      <div class="case-item case-item-heading vertical-text">
+        {{ state }}
+      </div>
+      <div *ngFor="let placement of labelPlacements" class="case-item">
+        <ft-textarea
+          [state]="state === 'with-description' ? 'rest' : state"
+          [variant]="variant"
+          [size]="size"
+          [label]="label"
+          [placeholder]="placeholder"
+          [labelPlacement]="placement"
+          [errorMessage]="state === 'invalid' ? 'Error message' : ''"
+          [isDescription]="state === 'with-description'"
+          [description]="state === 'with-description' ? 'This is a helpful description.' : ''"
+          [value]="(state !== 'rest' && state !== 'with-description') ? 'Some content here to see the clear button' : ''"
+        >
+        </ft-textarea>
+      </div>
+    </div>
+  </div>
+</div>

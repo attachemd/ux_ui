@@ -1,0 +1,177 @@
+:host {
+  width: 100%;
+  display: block;
+}
+
+.field-container {
+  /* INTERNAL VARIABLE DEFAULTS */
+  --_field-bg: transparent;
+  --_field-border-color: var(--ft-color-border-200);
+  --_field-border-width: var(--ft-border-secondary);
+  --_field-text: var(--ft-color-solid-on-surface);
+  --_field-placeholder: var(--ft-color-on-surface-level-300);
+  --_field-label: var(--ft-color-on-surface-level-100);
+
+  --_field-padding-y: var(--ft-unit-300);
+  --_field-padding-x: var(--ft-unit-400);
+  --_field-gap: var(--ft-unit-300);
+  --_field-container-gap: var(--ft-unit-100);
+  --_field-icon-size: 20px;
+  --_field-content-gap: var(--ft-unit-100);
+
+  display: grid;
+  width: 100%;
+  gap: var(--_field-container-gap);
+
+  .textarea-wrapper {
+    display: flex;
+    min-width: 100%;
+    padding: 0; 
+    gap: 0;
+    background-color: var(--_field-bg);
+    border: var(--_field-border-width) solid var(--_field-border-color);
+    color: var(--_field-text);
+    transition: all 0.2s ease;
+    align-items: stretch;
+    position: relative;
+    box-sizing: border-box;
+
+    .content-section {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      min-width: 0;
+    }
+
+    .textarea-element {
+      width: 100%;
+      background: transparent;
+      border: none;
+      outline: none;
+      color: inherit;
+      font-family: inherit;
+      resize: vertical;
+      padding: var(--_field-padding-y) var(--_field-padding-x); 
+      padding-right: calc(var(--_field-padding-x) + var(--_field-icon-size));
+      margin: 0;
+      box-sizing: border-box;
+      display: block;
+
+      &::placeholder {
+        color: var(--_field-placeholder);
+      }
+    }
+
+    .suffix-icon {
+      position: absolute;
+      top: var(--_field-padding-y);
+      right: var(--_field-padding-x);
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .clear-btn {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      color: var(--ft-color-on-surface-level-300);
+      pointer-events: auto;
+      
+      &:hover {
+        color: var(--ft-color-on-surface-level-100);
+      }
+    }
+
+    [class*="material-symbols-rounded"] {
+      font-size: var(--_field-icon-size);
+    }
+  }
+
+  .label-row {
+    color: var(--_field-label);
+  }
+
+  .error-text {
+    color: var(--ft-color-danger);
+  }
+
+  &.inside {
+    --_field-label: var(--ft-color-on-surface-level-300);
+    
+    .label-row {
+      padding: var(--_field-padding-y) var(--_field-padding-x) 0 var(--_field-padding-x);
+    }
+
+    .textarea-element {
+      padding-top: var(--ft-unit-100);
+    }
+  }
+
+  /* STATE LOGIC */
+  &.invalid {
+    --_field-label: var(--ft-color-danger);
+    --_field-bg: var(--ft-color-danger-50);
+    --_field-border-color: var(--ft-color-danger);
+  }
+
+  &.disabled {
+    pointer-events: none;
+    opacity: 0.6;
+    --_field-bg: var(--ft-form-field-muted);
+    --_field-border-color: var(--ft-color-border-muted);
+  }
+
+  &.focus {
+    --_field-border-color: var(--ft-color-primary);
+    --_field-label: var(--ft-color-primary);
+  }
+
+  &.hover {
+    --_field-border-color: var(--ft-color-border-300);
+    
+    &.invalid {
+      --_field-border-color: var(--ft-color-danger);
+    }
+  }
+
+  /* LAYOUT MODES */
+  &.left {
+    grid-template-columns: fit-content(30%) auto;
+    column-gap: var(--ft-unit-400); /* Better separation between label and field */
+    align-items: start;
+
+    .label-row { 
+      grid-area: 1 / 1;
+      padding-top: var(--ft-unit-200); 
+    }
+    .textarea-wrapper {
+      grid-area: 1 / 2;
+    }
+    .error-message, .description {
+      grid-area: 2 / 2; /* Positioned directly under the field */
+    }
+  }
+
+  /* VARIANT LOGIC */
+  &.flat {
+    --_field-bg: var(--ft-form-field-100);
+    --_field-border-width: 0px;
+    &.hover { --_field-bg: var(--ft-form-field-200); }
+  }
+
+  &.outlined {
+    --_field-bg: transparent;
+    &.hover { --_field-border-color: var(--ft-color-border-300); }
+  }
+
+  &.faded {
+    --_field-bg: var(--ft-form-field-100);
+    &.hover { --_field-bg: var(--ft-form-field-200); }
+  }
+
+  &.ghost {
+    --_field-border-width: 0px;
+    --_field-bg: transparent;
+    &.hover, &.focus { --_field-bg: var(--ft-form-field-100); }
+  }
+}
