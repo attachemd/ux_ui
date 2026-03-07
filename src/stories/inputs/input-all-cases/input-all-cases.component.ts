@@ -20,13 +20,14 @@ export class InputAllCasesComponent {
   isDescription = false;
   @Input() showContent = false;
 
-  states: Array<'rest' | 'hover' | 'focus' | 'readonly' | 'disabled' | 'invalid' | 'content'> = [
+  states: Array<'rest' | 'hover' | 'focus' | 'readonly' | 'disabled' | 'invalid' | 'content' | 'with-description'> = [
     'rest',
     'hover',
     'focus',
     'readonly',
     'disabled',
     'invalid',
+    'with-description',
   ];
 
   labelPlacements: Array<'label-inside' | 'label-outside' | 'label-outside-left'> = [
