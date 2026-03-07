@@ -66,3 +66,27 @@ export const ColumnLayout: Story = {
         variant: 'faded'
     }
 };
+
+export const HoverFirstButton: Story = {
+    args: {
+        variant: 'outlined',
+        color: 'primary',
+        buttons: [
+            { isLabel: true, label: 'Hovered', state: 'hover' },
+            { isLabel: true, label: 'Resting', state: 'rest' },
+            { isLabel: true, label: 'Resting', state: 'rest' },
+        ]
+    }
+};
+
+export const HoverMiddleButton: Story = {
+    args: {
+        variant: 'outlined',
+        color: 'primary',
+        buttons: [
+            { isLabel: true, label: 'Resting', state: 'rest' },
+            { isLabel: true, label: 'Hovered', state: 'hover' },
+            { isLabel: true, label: 'Resting', state: 'rest' },
+        ]
+    }
+};
