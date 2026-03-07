@@ -1,0 +1,28 @@
+<div class="all-case-container">
+    <h1 class="showcase-title">Switch Button All Cases</h1>
+    
+    <div class="cases-container">
+        <!-- Header Row -->
+        <div class="case-row case-row-heading">
+            <div class="case-item case-item-heading"></div>
+            <div *ngFor="let variant of variants" class="case-item">{{ variant.name }}</div>
+        </div>
+
+        <!-- Data Rows -->
+        <div *ngFor="let state of states" class="case-row">
+            <div class="case-item case-item-heading vertical-text">
+                {{ state }}
+            </div>
+            <div *ngFor="let variant of variants" class="case-item">
+                <ft-switch-button 
+                    [size]="size" 
+                    [state]="state"
+                    [color]="color"
+                    [radius]="radius"
+                    [options]="variant.options"
+                    [selectedId]="1">
+                </ft-switch-button>
+            </div>
+        </div>
+    </div>
+</div>
