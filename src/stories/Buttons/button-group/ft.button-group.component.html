@@ -1,0 +1,8 @@
+<div class="button-group-container" [ngClass]="flexDirection">
+    <ft-button *ngFor="let btn of buttons; let isFirst = first; let isLast = last; let i = index"
+        [class.first-btn]="isFirst" [class.last-btn]="isLast" [class.middle-btn]="!isFirst && !isLast" [size]="size"
+        [color]="color" [variant]="variant" [radius]="radius" [state]="getButtonState(btn, i)"
+        [isLabel]="btn.isLabel ?? true" [label]="btn.label" [isPrefixIconClass]="btn.isPrefixIconClass ?? false"
+        [prefixIconClass]="btn.prefixIconClass ?? ''" [isSuffixIconClass]="btn.isSuffixIconClass ?? false"
+        [suffixIconClass]="btn.suffixIconClass ?? ''"></ft-button>
+</div>

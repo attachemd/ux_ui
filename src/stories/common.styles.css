@@ -1,31 +1,35 @@
-
 #storybook-docs {
 
-.sbdocs-content:has(.custom-docs)  {
-  max-width: 100%;
-}
-.sbdocs-wrapper {
-  background-color: var(--ft-color-solid-surface);
-}
-.sbdocs-wrapper:has(.custom-docs) {
-  background-color: var(--ft-color-solid-surface);
-  flex-direction: row;
-  justify-content: start;
-  padding: 0;
-  > h2, p {
-    padding: 0 var(--ft-unit-400);
+  .sbdocs-content:has(.custom-docs) {
+    max-width: 100%;
   }
 
-  p {
-    font-family: 'Google Sans Flex', sans-serif;
-    font-size: 13px;
-    margin: var(--ft-unit-400) 0;
-    -webkit-font-smoothing: antialiased;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    line-height: 1;
-    color: var(--ft-color-on-surface-level-200);
+  .sbdocs-wrapper {
+    background-color: var(--ft-color-solid-surface);
   }
-}}
+
+  .sbdocs-wrapper:has(.custom-docs) {
+    background-color: var(--ft-color-solid-surface);
+    flex-direction: row;
+    justify-content: start;
+    padding: 0;
+
+    >h2,
+    p {
+      padding: 0 var(--ft-unit-400);
+    }
+
+    p {
+      font-family: 'Google Sans Flex', sans-serif;
+      font-size: 13px;
+      margin: var(--ft-unit-400) 0;
+      -webkit-font-smoothing: antialiased;
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+      line-height: 1;
+      color: var(--ft-color-on-surface-level-200);
+    }
+  }
+}
 
 /* Status styles */
 .done {
@@ -81,39 +85,46 @@
 
 .roadmap {
   max-width: var(--container-3xl);
-  /*display: grid;*/
-  /*grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));*/
-
-  /*grid-auto-flow: column dense;*/
-  /*grid-template-rows: repeat(auto-fill, minmax(100px, 1fr));*/
-  /*grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));*/
-
-  /*!* Define the minimum width for each column. The browser calculates the max number of columns that fit. *!*/
-  /*columns: 200px;*/
-
-  /*!* This prevents the columns from stretching to fill the entire vertical height of the container, which is often desirable. *!*/
-  /*height: max-content;*/
-
-  display: flex;
-
-  /* Items flow top-to-bottom first */
-  flex-direction: column;
-
-  /* When the container's height is met, items wrap to the next column */
-  flex-wrap: wrap;
-
-  /* REQUIRED: Define a fixed height for the wrapping to occur */
-  height: 500px;
-
-  gap: var(--ft-unit-400);
-  padding: var(--ft-unit-400);
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: var(--ft-unit-500);
+  padding: var(--ft-unit-600) 0;
   font-size: var(--ft-text-xs);
+  margin-top: var(--ft-unit-400);
+
   .component {
     display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     gap: var(--ft-unit-400);
-    align-items: center;
+    padding: var(--ft-unit-500);
+    background-color: var(--ft-color-surface-level-100);
+    border: 1px solid var(--ft-color-border-200);
+    border-radius: var(--ft-radius-400);
+    box-shadow: 0 2px 4px var(--ft-color-shadow-100);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px var(--ft-color-shadow-200);
+      border-color: var(--ft-color-border-active);
+    }
+
     .component-name {
-      color: var(--ft-color-on-surface-level-300);
+      color: var(--ft-color-on-surface-level-100);
+      font-weight: 600;
+      font-size: var(--ft-text-sm);
+      word-break: normal;
+      /* Prevent long names from pushing badges out */
+      /* Allow name to take available space */
+    }
+
+    .status-badge {
+      width: max-content;
+      white-space: nowrap;
+      /* Prevent the badge from being squished */
+      /* Keep the badge text on one line if possible */
+      text-align: center;
     }
   }
 }
@@ -130,6 +141,7 @@ table.color-common-table {
     font-weight: 500;
     padding: var(--ft-unit-200) var(--ft-unit-400);
   }
+
   tr td,
   tr th {
     border-right: var(--ft-border-primary) solid var(--ft-color-border-200);
@@ -166,6 +178,7 @@ table.color-common-table {
     padding: var(--ft-unit-400) var(--ft-unit-200);
     align-items: center;
     color: var(--ft-color-on-surface-level-300);
+
     .color-sample {
       width: 60px;
       height: 30px;
@@ -191,6 +204,7 @@ table.color-surface-table {
     font-weight: 700;
     padding: var(--ft-unit-200) var(--ft-unit-400);
   }
+
   tr td,
   tr th {
     border-right: var(--ft-border-primary) solid var(--ft-color-border-200);
@@ -220,13 +234,16 @@ table.color-surface-table {
     gap: var(--ft-unit-400);
     padding: var(--ft-unit-400);
     align-items: center;
+
     .color-sample-outer-container {
       /* Define the size of the square unit */
       --square-size: 6px;
 
       /* Define the two colors */
-      --color-light: var(--ft-color-surface-level-300); /* Light gray */
-      --color-dark: var(--ft-color-n-on-surface-20); /* Dark gray */
+      --color-light: var(--ft-color-surface-level-300);
+      /* Light gray */
+      --color-dark: var(--ft-color-n-on-surface-20);
+      /* Dark gray */
 
       display: flex;
       width: 200px;
@@ -242,10 +259,8 @@ table.color-surface-table {
       /*background-position: 0 0, 0 10px, 10px -10px, -10px 0px;*/
 
       /* --- SIMPLER CHECKERBOARD using repeating-conic-gradient --- */
-      background-image: repeating-conic-gradient(
-        var(--color-light) 0% 25%,
-        var(--color-dark) 25% 50%
-      );
+      background-image: repeating-conic-gradient(var(--color-light) 0% 25%,
+          var(--color-dark) 25% 50%);
 
       /* Set the size of the repeating tile (2x2 squares) */
       background-size: calc(2 * var(--square-size)) calc(2 * var(--square-size));
@@ -260,6 +275,7 @@ table.color-surface-table {
         width: 100%;
         height: 100%;
         display: flex;
+
         /*gap: var(--ft-border-primary);*/
         /*position: relative;*/
         .color-sample {
@@ -304,11 +320,13 @@ table.color-surface-table {
   .cases-container {
     width: 100%;
     max-width: 100%;
+
     /*overflow: auto;*/
     .case-row {
       display: flex;
       width: fit-content;
       border-bottom: 1px solid var(--ft-color-border-200);
+
       .case-item {
         /*width: fit-content;*/
         width: 360px;
@@ -318,6 +336,7 @@ table.color-surface-table {
         display: flex;
         justify-content: center;
         align-items: center;
+
         &.case-item-heading {
           width: var(--ft-unit-800);
           /*background-colors: var(--ft-colors-secondary);*/
@@ -325,17 +344,21 @@ table.color-surface-table {
           font-size: var(--ft-text-2xs);
           padding: 0;
           border-right: 1px solid var(--ft-color-border-200);
+
           &.vertical-text {
-            writing-mode: vertical-rl; /* Right to left */
+            writing-mode: vertical-rl;
+            /* Right to left */
           }
         }
       }
+
       &.case-row-heading {
         height: var(--ft-unit-800);
         /*background-colors: var(--ft-colors-primary);*/
         color: var(--ft-color-on-surface-level-300);
         padding: 0;
         font-size: var(--ft-text-2xs);
+
         /*border-bottom: 1px solid var(--ft-colors-border-200);*/
         .case-item {
           /*padding-inline: var(--ft-unit-400);*/
@@ -364,4 +387,3 @@ table.color-surface-table {
   border-bottom: 2px solid #edf2f7;
   padding-bottom: 0.5rem;
 }
-

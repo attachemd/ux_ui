@@ -1,0 +1,8 @@
+/* Same layout styles as other all-case components */
+.showcase-title {
+    margin-bottom: var(--ft-unit-400);
+}
+
+.cases-container {
+    overflow-x: auto;
+}

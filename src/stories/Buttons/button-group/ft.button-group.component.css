@@ -1,0 +1,86 @@
+.button-group-container {
+    display: flex;
+    width: max-content;
+}
+
+.button-group-container.flex-row {
+    flex-direction: row;
+}
+
+.button-group-container.flex-col {
+    flex-direction: column;
+}
+
+::ng-deep .button-group-container ft-button {
+    display: flex;
+    position: relative;
+}
+
+/* 
+ * Use negative margins to perfectly align borders, 
+ * but hide the "overlapping" side to avoid color stacking (darkening) with semi-transparent colors.
+ * We only hide the border when the button is NOT in an active state.
+ */
+
+/* Row layout: Hide right border of all but the last button when NOT active */
+::ng-deep .button-group-container.flex-row ft-button + ft-button {
+    margin-left: -1px;
+}
+
+::ng-deep .button-group-container.flex-row ft-button:not(.last-btn):not(:hover):not(:focus-within):not(:has(.hover)):not(:has(.press)):not(:has(.focus)) .button-wrapper {
+    border-right-color: transparent !important;
+}
+
+/* Col layout: Hide bottom border of all but the last button when NOT active */
+::ng-deep .button-group-container.flex-col ft-button + ft-button {
+    margin-top: -1px;
+}
+
+::ng-deep .button-group-container.flex-col ft-button:not(.last-btn):not(:hover):not(:focus-within):not(:has(.hover)):not(:has(.press)):not(:has(.focus)) .button-wrapper {
+    border-bottom-color: transparent !important;
+}
+
+/* 
+ * Raise z-index on hover/focus so the active button's border is always the one visible on top.
+ */
+::ng-deep .button-group-container ft-button:hover,
+::ng-deep .button-group-container ft-button:focus-within,
+::ng-deep .button-group-container ft-button:has(.hover),
+::ng-deep .button-group-container ft-button:has(.press),
+::ng-deep .button-group-container ft-button:has(.focus) {
+    z-index: 1;
+}
+
+/*
+ * Style overrides for connecting buttons
+ */
+::ng-deep .button-group-container.flex-row .first-btn:not(.last-btn) .button-wrapper {
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+}
+
+::ng-deep .button-group-container.flex-row .last-btn:not(.first-btn) .button-wrapper {
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+}
+
+::ng-deep .button-group-container.flex-row .middle-btn .button-wrapper {
+    border-radius: 0 !important;
+}
+
+/*
+ * Column direction overrides
+ */
+::ng-deep .button-group-container.flex-col .first-btn:not(.last-btn) .button-wrapper {
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+}
+
+::ng-deep .button-group-container.flex-col .last-btn:not(.first-btn) .button-wrapper {
+    border-top-left-radius: 0 !important;
+    border-top-right-radius: 0 !important;
+}
+
+::ng-deep .button-group-container.flex-col .middle-btn .button-wrapper {
+    border-radius: 0 !important;
+}

@@ -19,7 +19,7 @@ export const componentStatusArray = [
   {name: "Switch", status: "Not started"},
   {name: "Dropdown", status: "Not started"},
   {name: "Textarea", status: "Not started"},
-  {name: "Datelnput", status: "Not started"},
+  {name: "DateInput", status: "Not started"},
   {name: "TimeInput", status: "Not started"},
   {name: "DateRangePicker", status: "Not started"},
   {name: "Card", status: "Not started"},
@@ -95,14 +95,13 @@ export const ColorSample = ({level}) => (
   `}</style>
 
 
-  <div class="roadmap custom-docs">
+  <div class="roadmap">
     {componentStatusArray.map((componentStatus) => (
       <div class="component">
-        <div class="component-name">{componentStatus.name}</div>
-        <div class={`status-badge ${toCssClass(componentStatus.status)}`}>{componentStatus.status}</div>
+        <span class="component-name">{componentStatus.name}</span>
+        <span class={`status-badge ${toCssClass(componentStatus.status)}`}>{componentStatus.status}</span>
       </div>
     ))}
   </div>
-
 
 </Unstyled>
