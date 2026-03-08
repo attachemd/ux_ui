@@ -225,6 +225,38 @@
           placeholder="secondary color">
         </ft-input>
       </div>
+
+      <div class="example-item">
+        <ft-input
+          label="Tertiary Color"
+          color="tertiary"
+          placeholder="tertiary color">
+        </ft-input>
+      </div>
+
+      <div class="example-item">
+        <ft-input
+          label="Success Color"
+          color="success"
+          placeholder="success color">
+        </ft-input>
+      </div>
+
+      <div class="example-item">
+        <ft-input
+          label="Warning Color"
+          color="warning"
+          placeholder="warning color">
+        </ft-input>
+      </div>
+
+      <div class="example-item">
+        <ft-input
+          label="Danger Color"
+          color="danger"
+          placeholder="danger color">
+        </ft-input>
+      </div>
     </div>
   </section>
 
@@ -254,7 +286,7 @@
         <ft-input
           label="Password *"
           placeholder="Enter password"
-          type="password"
+          inputType="password"
           [(value)]="user.password"
           [required]="true"
           description="Minimum 8 characters">
@@ -269,8 +301,8 @@
       </div>
 
       <div class="form-actions">
-        <button class="btn btn-primary" (click)="onSubmit()">Submit Form</button>
-        <button class="btn btn-secondary" (click)="resetForm()">Reset All</button>
+        <ft-button label="Submit Form" (click)="onSubmit()"></ft-button>
+        <ft-button label="Reset All" color="secondary" (click)="resetForm()"></ft-button>
       </div>
     </div>
   </section>
@@ -284,7 +316,7 @@
           label="Search"
           [(value)]="searchTerm"
           [isPrefixIconClass]="true"
-          prefixIconClass="icon-search"
+          prefixIconClass="search"
           [isClearable]="true"
           placeholder="Search...">
         </ft-input>
@@ -295,9 +327,7 @@
           label="Email with Icons"
           [(value)]="email"
           [isPrefixIconClass]="true"
-          prefixIconClass="icon-email"
-          [isSuffix1IconClass]="true"
-          suffix1IconClass="icon-close"
+          prefixIconClass="mail"
           placeholder="email@example.com">
         </ft-input>
       </div>
@@ -307,9 +337,7 @@
           label="Phone Number"
           [(value)]="phone"
           [isPrefixIconClass]="true"
-          prefixIconClass="icon-phone"
-          [isSuffix2IconClass]="true"
-          suffix2IconClass="icon-arrow-down"
+          prefixIconClass="call"
           placeholder="+1 (555) 000-0000">
         </ft-input>
       </div>

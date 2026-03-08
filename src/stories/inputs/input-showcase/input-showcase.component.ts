@@ -2,14 +2,15 @@
 import {Component, HostBinding} from '@angular/core';
 
 import { CommonModule } from '@angular/common';
-import {FTInputComponent} from '../input/ft.input.component';
+import { FTInputComponent } from '../input/ft.input.component';
+import { FtButtonComponent } from '../../Buttons/button/ft.button.component';
 
 @Component({
   selector: 'app-input-showcase',
   templateUrl: './input-showcase.component.html',
   styleUrls: ['./input-showcase.component.css'],
   standalone: true,
-  imports: [CommonModule, FTInputComponent]
+  imports: [CommonModule, FTInputComponent, FtButtonComponent]
 })
 export class InputShowcaseComponent {
   @HostBinding('class') class = 'showcase';

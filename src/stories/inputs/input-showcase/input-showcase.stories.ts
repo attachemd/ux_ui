@@ -9,16 +9,11 @@ import {FTInputComponent} from '../input/ft.input.component';
 const meta: Meta<InputShowcaseComponent> = {
   title: 'Inputs/Input Showcase',
   component: InputShowcaseComponent,
-  decorators: [
-    moduleMetadata({
-      imports: [FormsModule, FTInputComponent],
-    }),
-  ],
   parameters: {
     layout: 'fullscreen',
     docs: {
       description: {
-        component: 'A comprehensive showcase of all ft-input component variations and use cases.'
+        component: 'A comprehensive showcase of all FT-Input component variations, including sizes, variants, labels, icons, and validation states.'
       }
     }
   },
@@ -27,13 +22,7 @@ const meta: Meta<InputShowcaseComponent> = {
 export default meta;
 type Story = StoryObj<InputShowcaseComponent>;
 
-export const Default: Story = {
+export const Showcase: Story = {
+  name: 'Component Showcase',
   args: {}
 };
-
-// export const AllVariations: Story = {
-//   name: 'All Input Variations',
-//   render: () => ({
-//     template: `<app-input-showcase></app-input-showcase>`
-//   })
-// };
