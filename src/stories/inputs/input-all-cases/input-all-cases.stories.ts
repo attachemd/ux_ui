@@ -41,6 +41,30 @@ const meta: Meta<InputAllCasesComponent> = {
     },
     showContent: {
       control: 'boolean',
+    },
+    startContent: {
+      control: 'text',
+    },
+    endContent: {
+      control: 'text',
+    },
+    isSuffix1IconClass: {
+      control: 'boolean',
+    },
+    suffix1IconClass: {
+      control: 'select',
+      options: ['visibility', 'visibility_off', 'close_small', 'search', 'edit', 'check'],
+    },
+    isSuffix2IconClass: {
+      control: 'boolean',
+    },
+    suffix2IconClass: {
+      control: 'select',
+      options: ['search', 'keyboard_arrow_down', 'calendar_today', 'tune', 'filter_list'],
+    },
+    inputType: {
+      control: 'select',
+      options: ['text', 'password'],
     }
   },
   args: {
@@ -49,7 +73,12 @@ const meta: Meta<InputAllCasesComponent> = {
     size: 'md-size',
     variant: 'flat',
     isDescription: false,
-    showContent: false
+    showContent: false,
+    isSuffix1IconClass: false,
+    suffix1IconClass: 'edit',
+    isSuffix2IconClass: false,
+    suffix2IconClass: 'search',
+    inputType: 'text',
   }
 };
 
@@ -66,9 +95,27 @@ export const WithContent: Story = {
   }
 };
 
-// export const AllVariations: Story = {
-//   name: 'All Input Variations',
-//   render: () => ({
-//     template: `<app-input-showcase></app-input-showcase>`
-//   })
-// };
+export const WithStartContent: Story = {
+  args: {
+    startContent: '$',
+  }
+};
+
+export const WithEndContent: Story = {
+  args: {
+    endContent: '@gmail.com',
+  }
+};
+
+export const WithStartAndEndContent: Story = {
+  args: {
+    startContent: 'https://',
+    endContent: '.org',
+  }
+};
+
+export const PasswordType: Story = {
+  args: {
+    inputType: 'password',
+  }
+};

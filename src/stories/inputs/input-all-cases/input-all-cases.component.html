@@ -23,13 +23,14 @@
       </div>
       @for (labelPlacement of labelPlacements; track labelPlacement) {
       <div class="case-item">
-        <ft-input [isLabel]="true" [label]="'Username'" [state]="state === 'with-description' ? 'rest' : state" [size]="size" [color]="'primary'"
-          [variant]="variant" [radius]="radius" [required]="true" [placeholder]="'Enter your username'"
-          [isDescription]="isDescription || state === 'with-description'" [description]="'This is your public display name.'"
-          [errorMessage]="'Username is required.'" [content]="'y.amrani'" [labelPlacement]="labelPlacement"
-          [isPrefixIconClass]="isPrefixIconClass" [prefixIconClass]="'person'" [isSuffix1IconClass]="true"
-          [suffix1IconClass]="'close_small'" [isSuffix2IconClass]="true" [suffix2IconClass]="'keyboard_arrow_down'"
-          [isClearable]="true" [showContent]="showContent">
+        <ft-input [isLabel]="true" [label]="'Username'" [state]="state === 'with-description' ? 'rest' : state"
+          [size]="size" [color]="'primary'" [variant]="variant" [radius]="radius" [required]="true"
+          [placeholder]="'Enter your username'" [isDescription]="isDescription || state === 'with-description'"
+          [description]="'This is your public display name.'" [errorMessage]="'Username is required.'"
+          [content]="'y.amrani'" [labelPlacement]="labelPlacement" [isPrefixIconClass]="isPrefixIconClass"
+          [prefixIconClass]="'person'" [isSuffix1IconClass]="isSuffix1IconClass" [suffix1IconClass]="suffix1IconClass"
+          [isSuffix2IconClass]="isSuffix2IconClass" [suffix2IconClass]="suffix2IconClass" [isClearable]="true"
+          [showContent]="showContent" [startContent]="startContent" [endContent]="endContent" [inputType]="inputType">
         </ft-input>
 
       </div>

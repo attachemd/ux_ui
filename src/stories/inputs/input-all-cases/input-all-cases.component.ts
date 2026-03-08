@@ -19,6 +19,14 @@ export class InputAllCasesComponent {
   variant: 'flat' | 'faded' | 'outlined' | 'ghost' = 'flat';
   isDescription = false;
   @Input() showContent = false;
+  @Input() startContent?: string;
+  @Input() endContent?: string;
+
+  @Input() isSuffix1IconClass = true;
+  @Input() suffix1IconClass = 'visibility';
+  @Input() isSuffix2IconClass = true;
+  @Input() suffix2IconClass = 'search';
+  @Input() inputType: 'text' | 'password' = 'text';
 
   states: Array<'rest' | 'hover' | 'focus' | 'readonly' | 'disabled' | 'invalid' | 'content' | 'with-description'> = [
     'rest',
