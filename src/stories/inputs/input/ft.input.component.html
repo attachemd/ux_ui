@@ -20,21 +20,23 @@
            'content-xs--bold': size === 'lg-size',
            }">{{ label }} <span *ngIf="required && !disabled">*</span></span>
       </div>
-      <div *ngIf="(state === 'content' || showContent) && content" class="content-row">
-        <p class="content truncate" [ngClass]="{
-           'content-2xs--medium': size === 'xs-size',
-           'content-xs--medium': size === 'sm-size' || size === 'md-size' || size === 'lg-size',
-           }">{{ content }}</p>
-      </div>
-
-      <div *ngIf="hasPlaceholderToShow" class="placeholder-row">
-        <p class="placeholder truncate" [ngClass]="{
-           'content-2xs--light': size === 'xs-size',
-           'content-xs--light': size === 'sm-size' || size === 'md-size' || size === 'lg-size',
-           }">{{ placeholder }}</p>
+      <div class="input-row">
+        <span *ngIf="startContent" class="start-content">{{ startContent }}</span>
+        <input class="native-input" [placeholder]="placeholder || ''" [(ngModel)]="value"
+          (ngModelChange)="onValueChange($event)" [disabled]="state === 'disabled' || disabled"
+          [readonly]="state === 'readonly' || readonly" [required]="required" [type]="currentInputType" />
+        <span *ngIf="endContent" class="end-content">{{ endContent }}</span>
       </div>
     </div>
     <div class="suffix-icon flex" *ngIf="state !== 'readonly'">
+      <button *ngIf="isClearable && value && state !== 'disabled' && !disabled" class="clear-btn" type="button"
+        (click)="clear()" aria-label="Clear input">
+        <span class="material-symbols-rounded">close_small</span>
+      </button>
+      <button *ngIf="inputType === 'password' && state !== 'disabled' && !disabled" class="clear-btn" type="button"
+        (click)="togglePasswordVisibility()" [attr.aria-label]="passwordVisible ? 'Hide password' : 'Show password'">
+        <span class="material-symbols-rounded">{{ passwordVisible ? 'visibility_off' : 'visibility' }}</span>
+      </button>
       <div *ngIf="isSuffix1IconClass && suffix1IconClass && !disabled" class="suffix suffix1">
         <span class="material-symbols-rounded">{{suffix1IconClass}}</span>
       </div>

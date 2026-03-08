@@ -1,4 +1,4 @@
-import { Component, Input, ViewEncapsulation } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit, ViewEncapsulation } from '@angular/core';
 import { NgClass, NgIf, NgStyle } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
@@ -14,7 +14,7 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./ft.input.component.css'],
   encapsulation: ViewEncapsulation.Emulated // Ensure this is set (default)
 })
-export class FTInputComponent {
+export class FTInputComponent implements OnInit {
   // @Input() isLabel = false;
   @Input() isLabel = true;
   @Input() label?: string;
@@ -27,12 +27,16 @@ export class FTInputComponent {
   @Input() readonly = false;
   @Input() required = false;
   @Input() invalid = false;
+  @Input() inputType: 'text' | 'password' = 'text';
   @Input() placeholder?: string;
   @Input() isDescription = false;
   @Input() description?: string;
   @Input() errorMessage?: string;
   @Input() content?: string;
   @Input() labelPlacement: 'label-inside' | 'label-outside' | 'label-outside-left' = 'label-inside';
+
+  @Input() startContent?: string;  // e.g. '$', 'https://'
+  @Input() endContent?: string;    // e.g. '.org', 'kg', '@gmail.com'
 
   @Input() isPrefixIconClass = false;
   @Input() prefixIconClass = ''; // For icon libraries that use classes
@@ -46,7 +50,36 @@ export class FTInputComponent {
   @Input() isClearable = false;
   @Input() showContent = false;
   value = '';
-  clear() { this.value = ''; }
+  @Output() valueChange = new EventEmitter<string>();
+
+  ngOnInit() {
+    if (this.content && this.showContent) {
+      this.value = this.content;
+    }
+  }
+
+  onValueChange(newValue: string) {
+    this.value = newValue;
+    this.valueChange.emit(this.value);
+  }
+
+  clear() {
+    this.value = '';
+    this.valueChange.emit(this.value);
+  }
+
+  passwordVisible = false;
+
+  togglePasswordVisibility() {
+    this.passwordVisible = !this.passwordVisible;
+  }
+
+  get currentInputType(): string {
+    if (this.inputType === 'password') {
+      return this.passwordVisible ? 'text' : 'password';
+    }
+    return this.inputType;
+  }
 
   get radiusClasses(): string {
     const classes = {
@@ -60,21 +93,4 @@ export class FTInputComponent {
     return classes[this.radius] || 'rounded-md';
   }
 
-  get hasPlaceholderToShow(): boolean {
-    // Basic conditions that prevent showing placeholder
-    if (!this.placeholder || this.state === 'readonly' || this.state === 'content' || (this.showContent && this.content)) {
-      return false;
-    }
-
-    // Special case: don't show placeholder for label-inside fields in normal states
-    const isLabelInsideInNormalState = this.labelPlacement === 'label-inside' &&
-      this.isNormalOrHoveredState &&
-      this.state !== 'invalid';
-
-    return !isLabelInsideInNormalState;
-  }
-
-  get isNormalOrHoveredState(): boolean {
-    return this.state === 'rest' || this.state === 'hover';
-  }
 }
