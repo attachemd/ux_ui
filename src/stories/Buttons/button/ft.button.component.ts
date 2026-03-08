@@ -26,7 +26,7 @@ export class FtButtonComponent {
   @Input() isPrefixIconClass = false;
   @Input() prefixIconClass = 'person'; // For icon libraries that use classes
 
-  @Input() isSuffixIconClass = true;
+  @Input() isSuffixIconClass = false;
   @Input() suffixIconClass = 'face';
 
   get radiusClasses(): string {
