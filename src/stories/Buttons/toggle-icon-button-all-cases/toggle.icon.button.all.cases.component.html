@@ -1,0 +1,44 @@
+<div class="all-case-container">
+    <h1 class="showcase-title">Toggle Icon Button All Cases</h1>
+    <div class="cases-container">
+        <div class="case-row case-row-heading">
+            <div class="case-item case-item-heading">
+
+            </div>
+            <div class="case-item">
+                Unselected ({{ unselectedVariant }})
+            </div>
+            <div class="case-item">
+                Selected ({{ selectedVariant }})
+            </div>
+        </div>
+
+        @for (state of states; track state) {
+        <div class="case-row">
+            <div class="case-item case-item-heading vertical-text">
+                {{state}}
+            </div>
+
+            <!-- Unselected State -->
+            <div class="case-item">
+                <ft-toggle-icon-button [state]="state" [size]="size" [color]="color" [unselectedColor]="unselectedColor"
+                    [selectedColor]="selectedColor" [unselectedVariant]="unselectedVariant"
+                    [selectedVariant]="selectedVariant" [radius]="radius" [iconClass]="'favorite_border'"
+                    [selectedIconClass]="'favorite'" [selected]="false">
+                </ft-toggle-icon-button>
+            </div>
+
+            <!-- Selected State -->
+            <div class="case-item">
+                <ft-toggle-icon-button [state]="state" [size]="size" [color]="color" [unselectedColor]="unselectedColor"
+                    [selectedColor]="selectedColor" [unselectedVariant]="unselectedVariant"
+                    [selectedVariant]="selectedVariant" [radius]="radius" [iconClass]="'favorite_border'"
+                    [selectedIconClass]="'favorite'" [selected]="true">
+                </ft-toggle-icon-button>
+            </div>
+
+        </div>
+        }
+
+    </div>
+</div>

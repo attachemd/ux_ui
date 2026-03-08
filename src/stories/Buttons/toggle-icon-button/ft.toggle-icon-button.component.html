@@ -1,0 +1,7 @@
+<button class="button-container toggle-icon-button"
+    [class]="size + ' ' + currentVariant + ' ' + state + ' ' + currentColor" [class.selected]="selected"
+    [disabled]="state === 'disabled'" type="button" (click)="toggle()">
+    <div class="icon-wrapper" [class]="radiusClasses">
+        <span class="material-symbols-rounded">{{ currentIcon }}</span>
+    </div>
+</button>

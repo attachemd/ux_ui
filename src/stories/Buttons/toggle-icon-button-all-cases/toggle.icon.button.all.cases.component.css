@@ -1,0 +1,13 @@
+:host {
+    width: fit-content;
+}
+
+::ng-deep .case-row-heading .case-item:not(.case-item-heading) {
+    width: 360px;
+}
+
+::ng-deep .case-row:not(.case-row-heading) .case-item:not(.case-item-heading) {
+    width: 360px;
+    min-height: 150px;
+}
+
