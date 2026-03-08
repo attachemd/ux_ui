@@ -27,6 +27,9 @@ const meta: Meta<InputAllCasesComponent> = {
     showContent: {
       control: 'boolean',
     },
+    placeholder: {
+      control: 'text',
+    },
     isPrefixIconClass: {
       control: 'boolean',
     },
@@ -59,10 +62,11 @@ const meta: Meta<InputAllCasesComponent> = {
     isPrefixIconClass: false,
     radius: 'md-radius',
     size: 'md-size',
-    color: 'default',
+    color: 'primary',
     variant: 'flat',
     isDescription: false,
     showContent: false,
+    placeholder: 'Enter your username',
     isSuffix1IconClass: false,
     suffix1IconClass: 'edit',
     isSuffix2IconClass: false,

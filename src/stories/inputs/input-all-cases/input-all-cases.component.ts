@@ -5,7 +5,7 @@ import { CommonModule } from '@angular/common';
 import { FTInputComponent } from '../input/ft.input.component';
 
 @Component({
-  selector: 'app-input-showcase',
+  selector: 'app-input-all-cases',
   templateUrl: './input-all-cases.component.html',
   styleUrls: ['./input-all-cases.component.css'],
   standalone: true,
@@ -22,6 +22,7 @@ export class InputAllCasesComponent {
   @Input() variant: 'flat' | 'faded' | 'outlined' | 'ghost' = 'flat';
   @Input() isDescription = false;
   @Input() showContent = false;
+  @Input() placeholder = 'Enter your username';
   @Input() startContent?: string;
   @Input() endContent?: string;
 
