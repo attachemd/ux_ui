@@ -91,13 +91,51 @@
             width: 100%;
             height: 100%;
             display: flex;
-            align-items: center;
+            align-items: stretch;
             justify-content: center;
             flex-direction: column;
-            gap: var(--ft-unit-600);
-            .field-container.md-size {
-              /*--_balanced_small_padding: var(--ft-unit-300);*/
-              /*--_field-gap: var(--ft-unit-300);*/
+            gap: var(--ft-unit-400);
+
+            .login__title {
+              font-size: var(--text-xl);
+              font-weight: 700;
+              color: var(--ft-color-on-surface-level-100);
+              margin-bottom: var(--ft-unit-200);
+              text-align: left;
+            }
+
+            .login__options {
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              margin-top: var(--ft-unit-100);
+              gap: var(--ft-unit-400);
+
+              .login__forgot-link {
+                appearance: none;
+                background: none;
+                border: none;
+                padding: 0;
+                margin: 0;
+                font-family: inherit;
+                font-size: var(--text-2xs);
+                color: var(--ft-color-primary);
+                cursor: pointer;
+                text-decoration: underline;
+                white-space: nowrap;
+
+                &:hover {
+                  color: var(--ft-color-primary-600);
+                }
+              }
+            }
+
+            .login__submit {
+              margin-top: var(--ft-unit-600);
+              ::ng-deep .button-wrapper {
+                width: 100% !important;
+                justify-content: center;
+              }
             }
           }
         }

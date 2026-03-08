@@ -21,30 +21,21 @@ type Story = StoryObj<FtLoginComponent>;
 
 export const Default: Story = {
   args: {
-
-  }
-};
-
-export const Focus: Story = {
-  args: {
-    inputState: {
-      username: "focus" as const,
-      password: "rest"
+    loginData: {
+      username: '',
+      password: '',
+      rememberMe: false
     }
   }
 };
 
-export const Content: Story = {
+export const PreFilled: Story = {
   args: {
-    inputState: {
-      username: "content",
-      password: "content"
-    },
-    content: {
-      username: 'root',
-      password: 'password'
-    },
-    buttonState: 'rest'
+    loginData: {
+      username: 'y.amrani',
+      password: 'mypassword123',
+      rememberMe: true
+    }
   }
 };
 
