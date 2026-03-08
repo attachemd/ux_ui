@@ -341,11 +341,6 @@
       --_field-text: var(--ft-color-danger);
       /*--_field-placeholder: var(--ft-color-danger);*/
     }
-
-    &.hover,
-    &.focus {
-      /*--_field-bg: var(--ft-form-field-50);*/
-    }
   }
 
   /* LAYOUT MODES (Grid Positioning) */
