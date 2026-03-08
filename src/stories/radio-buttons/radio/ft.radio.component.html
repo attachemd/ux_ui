@@ -1,26 +1,19 @@
-<div class="field-container"
-     [class]="size + ' ' + state"
-     [class.select]="select"
-     [class.inactive]="inactive"
-     [class.invalid]="invalid"
->
-  <div class="field"
+<label class="field-container" [class]="size + ' ' + state" [class.select]="select" [class.inactive]="inactive"
+  [class.invalid]="invalid">
+  <input type="radio" class="native-radio" [name]="name" [value]="value" [checked]="select"
+    [disabled]="inactive || state === 'disabled'" (change)="onRadioChange($event)" />
 
-  >
-    <div
-      class="radio"
-    >
+  <div class="field">
+    <div class="radio">
       <div class="control"></div>
     </div>
 
   </div>
-  <div class="content"
-       [ngClass]="{
+  <div class="content" [ngClass]="{
            'content-2xs--normal': size === 'xs-size',
            'content-xs--normal': size === 'sm-size' || size === 'md-size',
            'content-sm--normal': size === 'lg-size',
-           }"
-  >
+           }">
     <div *ngIf="isLabel" class="label">
       {{label}}
     </div>
@@ -29,5 +22,4 @@
     </div>
   </div>
 
-</div>
-
+</label>

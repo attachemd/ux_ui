@@ -1,6 +1,6 @@
-import {Component, Input, ViewEncapsulation} from '@angular/core';
-import {NgClass, NgIf} from '@angular/common';
-import {FormsModule} from '@angular/forms';
+import { Component, Input, Output, EventEmitter, ViewEncapsulation } from '@angular/core';
+import { NgClass, NgIf } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'ft-radio',
@@ -22,7 +22,17 @@ export class FtRadioComponent {
   @Input() select = false;
   @Input() inactive = false;
   @Input() invalid = false;
-  @Input() size: 'xs-size'|'sm-size'|'md-size'|'lg-size' = 'md-size';
-  @Input() state: 'hover'|'press'|'focus'|'rest'= 'rest';
+  @Input() size: 'xs-size' | 'sm-size' | 'md-size' | 'lg-size' = 'md-size';
+  @Input() state: 'hover' | 'press' | 'focus' | 'rest' | 'disabled' = 'rest';
+
+  @Input() name: string = '';
+  @Input() value: any;
+  @Output() selectChange = new EventEmitter<boolean>();
+
+  onRadioChange(event: Event) {
+    const target = event.target as HTMLInputElement;
+    this.select = target.checked;
+    this.selectChange.emit(this.select);
+  }
 
 }

@@ -1,10 +1,10 @@
-
 .field-container {
   /* 1. INTERNAL VARIABLE DEFAULTS */
   --_field-bg: transparent;
   --_field-border-color: var(--ft-color-border-200);
   --_field-border-width: var(--ft-border-tertiary);
-  --_field-control-bg: transparent; /* The inner dot */
+  --_field-control-bg: transparent;
+  /* The inner dot */
   --_field-text: var(--ft-color-solid-on-surface);
   --_field-description: var(--ft-color-on-surface-level-300);
 
@@ -16,6 +16,19 @@
   display: flex;
   align-items: center;
   gap: var(--ft-unit-200);
+  cursor: pointer;
+  position: relative;
+
+  .native-radio {
+    position: absolute;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+    z-index: 10;
+  }
 
   /* 2. COMPONENT STRUCTURE */
   .field {
@@ -62,11 +75,32 @@
   }
 
   /* 3. INTERACTION STATES */
-  &.hover { --_field-bg: var(--ft-form-field-100); }
-  &.press, &.focus { --_field-bg: var(--ft-form-field-200); }
+  &.hover,
+  &:hover {
+    --_field-bg: var(--ft-form-field-100);
+  }
+
+  &.press,
+  &:active {
+    --_field-bg: var(--ft-form-field-200);
+  }
+
+  &.focus {
+    --_field-bg: var(--ft-form-field-200);
+  }
+
+  &:has(.native-radio:focus-visible) {
+    --_field-bg: var(--ft-form-field-200);
+
+    .field {
+      outline: 2px solid var(--ft-color-primary);
+      outline-offset: 2px;
+    }
+  }
 
   /* 4. SELECTION LOGIC (Changes Border and Control Dot) */
-  &.select {
+  &.select,
+  &:has(.native-radio:checked) {
     --_field-border-color: var(--ft-color-primary);
     --_field-border-width: var(--ft-border-secondary);
     --_field-control-bg: var(--ft-color-primary);
@@ -78,7 +112,10 @@
     --_field-border-color: var(--ft-color-danger);
     --_field-border-width: var(--ft-border-secondary);
 
-    &.select { --_field-control-bg: var(--ft-color-danger); }
+    &.select,
+    &:has(.native-radio:checked) {
+      --_field-control-bg: var(--ft-color-danger);
+    }
   }
 
   &.inactive {
@@ -88,7 +125,10 @@
     --_field-border-color: var(--ft-radio-muted);
     --_field-border-width: var(--ft-border-secondary);
 
-    &.select { --_field-control-bg: var(--ft-radio-muted); }
+    &.select,
+    &:has(.native-radio:checked) {
+      --_field-control-bg: var(--ft-radio-muted);
+    }
   }
 
   /* 6. SIZE LOGIC */
@@ -113,5 +153,3 @@
     --_radio-scale: 0.7;
   }
 }
-
-
