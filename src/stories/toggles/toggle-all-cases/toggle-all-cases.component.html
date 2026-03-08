@@ -18,7 +18,7 @@
             <div class="case-item">
                 <ft-toggle [isLabel]="isLabel" [label]="label" [labelPosition]="labelPosition" [variant]="variant"
                     [size]="size" [state]="state === 'disabled' || state === 'invalid' ? 'rest' : state"
-                    [invalid]="state === 'invalid'" [select]="true" [inactive]="state === 'disabled'">
+                    [invalid]="state === 'invalid'" [value]="true" [disabled]="state === 'disabled'">
                 </ft-toggle>
             </div>
 
@@ -26,7 +26,7 @@
             <div class="case-item">
                 <ft-toggle [isLabel]="isLabel" [label]="label" [labelPosition]="labelPosition" [variant]="variant"
                     [size]="size" [state]="state === 'disabled' || state === 'invalid' ? 'rest' : state"
-                    [invalid]="state === 'invalid'" [select]="false" [inactive]="state === 'disabled'">
+                    [invalid]="state === 'invalid'" [value]="false" [disabled]="state === 'disabled'">
                 </ft-toggle>
             </div>
 
@@ -35,7 +35,7 @@
                 <ft-toggle [isLabel]="true" label="With Description" [isDescription]="true"
                     description="Detailed context." [labelPosition]="labelPosition" [variant]="variant" [size]="size"
                     [state]="state === 'disabled' || state === 'invalid' ? 'rest' : state"
-                    [invalid]="state === 'invalid'" [select]="true" [inactive]="state === 'disabled'">
+                    [invalid]="state === 'invalid'" [value]="true" [disabled]="state === 'disabled'">
                 </ft-toggle>
             </div>
         </div>

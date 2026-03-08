@@ -4,7 +4,8 @@
     rel="stylesheet" />
 
 <div class="ft-toggle-field-container" [class]="size + ' ' + state + ' ' + variant + ' pos-' + labelPosition"
-    [class.select]="select" [class.inactive]="inactive" [class.invalid]="invalid">
+    [class.select]="value" [class.inactive]="disabled || state === 'disabled'" [class.invalid]="invalid"
+    (click)="toggle()">
 
     <!-- THE LABEL/CONTENT AREA IS NOW A CORE FLEX ITEM -->
     <div class="content" *ngIf="isLabel || isDescription" [ngClass]="{
@@ -28,7 +29,7 @@
             <div class="thumb">
                 <!-- Icon for Icon variant -->
                 <span *ngIf="variant === 'icon'" class="material-symbols-rounded icon">
-                    {{select ? onIcon : offIcon}}
+                    {{value ? onIcon : offIcon}}
                 </span>
             </div>
         </div>

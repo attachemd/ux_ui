@@ -38,14 +38,14 @@ export const LabelTop: Story = {
 export const IconVariant: Story = {
     args: {
         variant: 'icon',
-        select: true
+        value: true
     }
 };
 
 export const BinaryVariant: Story = {
     args: {
         variant: 'label',
-        select: true,
+        value: true,
         onLabel: 'ON',
         offLabel: 'OFF'
     }
