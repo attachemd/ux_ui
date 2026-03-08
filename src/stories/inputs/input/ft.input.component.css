@@ -20,6 +20,14 @@
   --_field-placeholder: var(--ft-color-on-surface-level-300);
   --_field-label: var(--ft-color-on-surface-level-100);
 
+  --_field-accent: var(--ft-color-primary);
+  --_field-bg-base: var(--ft-color-primary);
+
+  --_field-bg-50: color-mix(in srgb, var(--_field-bg-base) 2%, transparent);
+  --_field-bg-100: color-mix(in srgb, var(--_field-bg-base) 4%, transparent);
+  --_field-bg-200: color-mix(in srgb, var(--_field-bg-base) 8%, transparent);
+  --_field-bg-300: color-mix(in srgb, var(--_field-bg-base) 12%, transparent);
+
   --_balanced_small_padding: var(--ft-unit-400);
   --_field-height: var(--ft-unit-800);
   --_field-padding: 0 var(--ft-unit-400);
@@ -276,35 +284,79 @@
     }
   }
 
+  /* COLOR VARIATIONS */
+  &.default {
+    --_field-bg-base: var(--ft-color-border-200);
+    --_field-accent: var(--ft-color-primary);
+  }
+
+  &.primary {
+    --_field-bg-base: var(--ft-color-primary);
+    --_field-accent: var(--ft-color-primary);
+  }
+
+  &.secondary {
+    --_field-bg-base: var(--ft-color-secondary);
+    --_field-accent: var(--ft-color-secondary);
+  }
+
+  &.tertiary {
+    --_field-bg-base: var(--ft-color-tertiary);
+    --_field-accent: var(--ft-color-tertiary);
+  }
+
+  &.success {
+    --_field-bg-base: var(--ft-color-success);
+    --_field-accent: var(--ft-color-success);
+  }
+
+  &.warning {
+    --_field-bg-base: var(--ft-color-warning);
+    --_field-accent: var(--ft-color-warning);
+  }
+
+  &.danger {
+    --_field-bg-base: var(--ft-color-danger);
+    --_field-accent: var(--ft-color-danger);
+  }
+
   /* VARIANT LOGIC */
 
   &.flat {
-    --_field-bg: var(--ft-form-field-100);
+    --_field-bg: var(--_field-bg-100);
     --_field-border-width: 0px;
 
-    &.hover {
-      --_field-bg: var(--ft-form-field-200);
+    &:is(:hover, .hover) {
+      --_field-bg: var(--_field-bg-200);
+    }
+
+    &:is(:active, .press) {
+      --_field-bg: var(--_field-bg-300);
     }
 
     &.readonly {
-      --_field-bg: var(--ft-form-field-50);
+      --_field-bg: var(--_field-bg-50);
     }
   }
 
   &.faded {
-    --_field-bg: var(--ft-form-field-100);
+    --_field-bg: var(--_field-bg-100);
 
-    &.hover {
-      --_field-bg: var(--ft-form-field-200);
+    &:is(:hover, .hover) {
+      --_field-bg: var(--_field-bg-200);
     }
 
-    &.focus {
-      --_field-bg: var(--ft-form-field-200);
-      --_field-border-color: var(--ft-color-primary);
+    &:is(:focus-within, .focus) {
+      --_field-bg: var(--_field-bg-200);
+      --_field-border-color: var(--_field-accent);
+    }
+
+    &:is(:active, .press) {
+      --_field-bg: var(--_field-bg-300);
     }
 
     &.readonly {
-      --_field-bg: var(--ft-form-field-50);
+      --_field-bg: var(--_field-bg-50);
       --_field-border-color: var(--ft-color-border-100);
     }
   }
@@ -312,12 +364,16 @@
   &.outlined {
     --_field-bg: transparent !important;
 
-    &.hover {
+    &:is(:hover, .hover) {
       --_field-border-color: var(--ft-color-border-300);
     }
 
-    &.focus {
-      --_field-border-color: var(--ft-color-primary);
+    &:is(:focus-within, .focus) {
+      --_field-border-color: var(--_field-accent);
+    }
+
+    &:is(:active, .press) {
+      --_field-bg: var(--_field-bg-50) !important;
     }
 
     &.readonly {
@@ -328,6 +384,19 @@
   &.ghost {
     --_field-border-width: 0px;
     --_field-bg: transparent;
+
+    &:is(:hover, .hover) {
+      --_field-bg: var(--_field-bg-50);
+    }
+
+    &:is(:focus-within, .focus) {
+      --_field-border-color: var(--_field-accent);
+      --_field-border-width: var(--ft-border-primary);
+    }
+
+    &:is(:active, .press) {
+      --_field-bg: var(--_field-bg-100);
+    }
 
     &.label-outside-left,
     &.label-outside {
@@ -394,8 +463,8 @@
     /*--_field-bg: var(--ft-color-danger-50);*/
   }
 
-  &.focus {
-    --_field-label: var(--ft-color-primary)
+  &:is(:focus-within, .focus) {
+    --_field-label: var(--_field-accent)
   }
 }
 

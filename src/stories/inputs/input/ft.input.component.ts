@@ -19,10 +19,10 @@ export class FTInputComponent implements OnInit {
   @Input() isLabel = true;
   @Input() label?: string;
   @Input() size: 'xs-size' | 'sm-size' | 'md-size' | 'lg-size' = 'md-size';
-  @Input() color: 'default' | 'primary' | 'secondary' = 'default';
+  @Input() color: 'default' | 'primary' | 'secondary' | 'tertiary' | 'success' | 'warning' | 'danger' = 'default';
   @Input() variant: 'flat' | 'faded' | 'outlined' | 'ghost' = 'flat';
   @Input() radius: 'none-radius' | 'xs-radius' | 'sm-radius' | 'md-radius' | 'lg-radius' | 'full-radius' = 'md-radius';
-  @Input() state: 'rest' | 'hover' | 'focus' | 'readonly' | 'disabled' | 'invalid' | 'content' = 'rest';
+  @Input() state: 'rest' | 'hover' | 'press' | 'focus' | 'readonly' | 'disabled' | 'invalid' | 'content' = 'rest';
   @Input() disabled = false;
   @Input() readonly = false;
   @Input() required = false;
@@ -41,19 +41,19 @@ export class FTInputComponent implements OnInit {
   @Input() isPrefixIconClass = false;
   @Input() prefixIconClass = ''; // For icon libraries that use classes
 
-  @Input() isSuffix1IconClass = true;
+  @Input() isSuffix1IconClass = false;
   @Input() suffix1IconClass = 'close_small';
 
-  @Input() isSuffix2IconClass = true;
+  @Input() isSuffix2IconClass = false;
   @Input() suffix2IconClass = 'keyboard_arrow_down';
 
   @Input() isClearable = false;
   @Input() showContent = false;
-  value = '';
+  @Input() value = '';
   @Output() valueChange = new EventEmitter<string>();
 
   ngOnInit() {
-    if (this.content && this.showContent) {
+    if (this.content && (this.showContent || this.content !== '')) {
       this.value = this.content;
     }
   }
