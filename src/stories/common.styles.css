@@ -340,10 +340,13 @@ table.color-surface-table {
           color: var(--ft-color-on-surface-level-300);
           font-size: var(--ft-text-2xs);
           padding: 0;
-          border-right: 1px solid var(--ft-color-border-200);
+          border-left: 1px solid var(--ft-color-border-200);
+          border-right-width: 0;
+          transform: rotate(180deg);
 
           &.vertical-text {
             writing-mode: vertical-rl;
+            /*transform: rotate(180deg);*/
             /* Right to left */
           }
         }
