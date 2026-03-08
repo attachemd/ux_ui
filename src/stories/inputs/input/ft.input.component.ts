@@ -53,7 +53,7 @@ export class FTInputComponent implements OnInit {
   @Output() valueChange = new EventEmitter<string>();
 
   ngOnInit() {
-    if (this.content && (this.showContent || this.content !== '')) {
+    if (this.content && this.showContent) {
       this.value = this.content;
     }
   }
