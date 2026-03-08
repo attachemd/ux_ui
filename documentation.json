@@ -2455,7 +2455,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "",
+                    "data": "::ng-deep .case-item {\r\n    width: 360px;\r\n    height: 150px;\r\n}",
                     "styleUrl": "./button-all-cases.component.css"
                 }
             ],
@@ -2616,7 +2616,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "/* Same layout styles as other all-case components */\r\n.showcase-title {\r\n    margin-bottom: var(--ft-unit-400);\r\n}\r\n\r\n.cases-container {\r\n    overflow-x: auto;\r\n}",
+                    "data": "/* Same layout styles as other all-case components */\r\n.showcase-title {\r\n    margin-bottom: var(--ft-unit-400);\r\n}\r\n\r\n.cases-container {\r\n    overflow-x: auto;\r\n}\r\n\r\n::ng-deep .case-item {\r\n    width: 360px;\r\n    height: 150px;\r\n}",
                     "styleUrl": "./button-group-all-cases.component.css"
                 }
             ],
@@ -2757,7 +2757,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "",
+                    "data": "::ng-deep .case-item {\r\n    width: 360px;\r\n    height: 150px;\r\n}",
                     "styleUrl": "./checkbox-all-cases.component.css"
                 }
             ],
@@ -3536,7 +3536,7 @@
         },
         {
             "name": "FTInputComponent",
-            "id": "component-FTInputComponent-52140fb01bce64e9f1db396ab72c6dfc088fc540a2cb6b8eeb18eebe66fdd4fdd8af86d86cb74a836ff9dbd72a8d71af3b28633a4a31eb35a204e86996a6e104",
+            "id": "component-FTInputComponent-48f289b843e25c5e483523287d8a5d6f95fa6bc307d0dff5a4b6a35f6908847a46e45d8f02745b66e995996750bf16bde0e97d252fa2fc78589be4c2c5720558",
             "file": "src/stories/inputs/input/ft.input.component.ts",
             "encapsulation": [
                 "ViewEncapsulation.Emulated"
@@ -3569,7 +3569,7 @@
                     "name": "content",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 34,
+                    "line": 35,
                     "type": "string",
                     "decorators": []
                 },
@@ -3577,7 +3577,7 @@
                     "name": "description",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 32,
+                    "line": 33,
                     "type": "string",
                     "decorators": []
                 },
@@ -3594,7 +3594,7 @@
                     "name": "endContent",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 38,
+                    "line": 39,
                     "type": "string",
                     "decorators": []
                 },
@@ -3602,8 +3602,17 @@
                     "name": "errorMessage",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 33,
+                    "line": 34,
                     "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "inputType",
+                    "defaultValue": "'text'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 30,
+                    "type": "\"text\" | \"password\"",
                     "decorators": []
                 },
                 {
@@ -3620,7 +3629,7 @@
                     "defaultValue": "false",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 49,
+                    "line": 50,
                     "type": "boolean",
                     "decorators": []
                 },
@@ -3629,7 +3638,7 @@
                     "defaultValue": "false",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 31,
+                    "line": 32,
                     "type": "boolean",
                     "decorators": []
                 },
@@ -3647,7 +3656,7 @@
                     "defaultValue": "false",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 40,
+                    "line": 41,
                     "type": "boolean",
                     "decorators": []
                 },
@@ -3656,7 +3665,7 @@
                     "defaultValue": "true",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 43,
+                    "line": 44,
                     "type": "boolean",
                     "decorators": []
                 },
@@ -3665,7 +3674,7 @@
                     "defaultValue": "true",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 46,
+                    "line": 47,
                     "type": "boolean",
                     "decorators": []
                 },
@@ -3682,7 +3691,7 @@
                     "defaultValue": "'label-inside'",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 35,
+                    "line": 36,
                     "type": "\"label-inside\" | \"label-outside\" | \"label-outside-left\"",
                     "decorators": []
                 },
@@ -3690,7 +3699,7 @@
                     "name": "placeholder",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 30,
+                    "line": 31,
                     "type": "string",
                     "decorators": []
                 },
@@ -3699,7 +3708,7 @@
                     "defaultValue": "''",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 41,
+                    "line": 42,
                     "type": "string",
                     "decorators": []
                 },
@@ -3735,7 +3744,7 @@
                     "defaultValue": "false",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 50,
+                    "line": 51,
                     "type": "boolean",
                     "decorators": []
                 },
@@ -3752,7 +3761,7 @@
                     "name": "startContent",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 37,
+                    "line": 38,
                     "type": "string",
                     "decorators": []
                 },
@@ -3770,7 +3779,7 @@
                     "defaultValue": "'close_small'",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 44,
+                    "line": 45,
                     "type": "string",
                     "decorators": []
                 },
@@ -3779,7 +3788,7 @@
                     "defaultValue": "'keyboard_arrow_down'",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 47,
+                    "line": 48,
                     "type": "string",
                     "decorators": []
                 },
@@ -3799,11 +3808,22 @@
                     "defaultValue": "new EventEmitter<string>()",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 52,
+                    "line": 53,
                     "type": "EventEmitter"
                 }
             ],
             "propertiesClass": [
+                {
+                    "name": "passwordVisible",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "unknown",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 71
+                },
                 {
                     "name": "value",
                     "defaultValue": "''",
@@ -3813,7 +3833,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 51
+                    "line": 52
                 }
             ],
             "methodsClass": [
@@ -3823,7 +3843,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 65,
+                    "line": 66,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -3833,7 +3853,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 54,
+                    "line": 55,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -3850,7 +3870,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 60,
+                    "line": 61,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -3864,6 +3884,16 @@
                             }
                         }
                     ]
+                },
+                {
+                    "name": "togglePasswordVisibility",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 73,
+                    "deprecated": false,
+                    "deprecationMessage": ""
                 }
             ],
             "deprecated": false,
@@ -3889,11 +3919,11 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input, Output, EventEmitter, OnInit, ViewEncapsulation } from '@angular/core';\r\nimport { NgClass, NgIf, NgStyle } from '@angular/common';\r\nimport { FormsModule } from '@angular/forms';\r\n\r\n@Component({\r\n  selector: 'ft-input',\r\n  templateUrl: './ft.input.component.html',\r\n  imports: [\r\n    NgClass,\r\n    FormsModule,\r\n    NgIf,\r\n    NgStyle\r\n  ],\r\n  styleUrls: ['./ft.input.component.css'],\r\n  encapsulation: ViewEncapsulation.Emulated // Ensure this is set (default)\r\n})\r\nexport class FTInputComponent implements OnInit {\r\n  // @Input() isLabel = false;\r\n  @Input() isLabel = true;\r\n  @Input() label?: string;\r\n  @Input() size: 'xs-size' | 'sm-size' | 'md-size' | 'lg-size' = 'md-size';\r\n  @Input() color: 'default' | 'primary' | 'secondary' = 'default';\r\n  @Input() variant: 'flat' | 'faded' | 'outlined' | 'ghost' = 'flat';\r\n  @Input() radius: 'none-radius' | 'xs-radius' | 'sm-radius' | 'md-radius' | 'lg-radius' | 'full-radius' = 'md-radius';\r\n  @Input() state: 'rest' | 'hover' | 'focus' | 'readonly' | 'disabled' | 'invalid' | 'content' = 'rest';\r\n  @Input() disabled = false;\r\n  @Input() readonly = false;\r\n  @Input() required = false;\r\n  @Input() invalid = false;\r\n  @Input() placeholder?: string;\r\n  @Input() isDescription = false;\r\n  @Input() description?: string;\r\n  @Input() errorMessage?: string;\r\n  @Input() content?: string;\r\n  @Input() labelPlacement: 'label-inside' | 'label-outside' | 'label-outside-left' = 'label-inside';\r\n\r\n  @Input() startContent?: string;  // e.g. '$', 'https://'\r\n  @Input() endContent?: string;    // e.g. '.org', 'kg', '@gmail.com'\r\n\r\n  @Input() isPrefixIconClass = false;\r\n  @Input() prefixIconClass = ''; // For icon libraries that use classes\r\n\r\n  @Input() isSuffix1IconClass = true;\r\n  @Input() suffix1IconClass = 'close_small';\r\n\r\n  @Input() isSuffix2IconClass = true;\r\n  @Input() suffix2IconClass = 'keyboard_arrow_down';\r\n\r\n  @Input() isClearable = false;\r\n  @Input() showContent = false;\r\n  value = '';\r\n  @Output() valueChange = new EventEmitter<string>();\r\n\r\n  ngOnInit() {\r\n    if (this.content && this.showContent) {\r\n      this.value = this.content;\r\n    }\r\n  }\r\n\r\n  onValueChange(newValue: string) {\r\n    this.value = newValue;\r\n    this.valueChange.emit(this.value);\r\n  }\r\n\r\n  clear() {\r\n    this.value = '';\r\n    this.valueChange.emit(this.value);\r\n  }\r\n\r\n  get radiusClasses(): string {\r\n    const classes = {\r\n      'none-radius': 'rounded-none',\r\n      'xs-radius': 'rounded-sm',\r\n      'sm-radius': 'rounded-md',\r\n      'md-radius': 'rounded-lg',\r\n      'lg-radius': 'rounded-xl',\r\n      'full-radius': 'rounded-full'\r\n    };\r\n    return classes[this.radius] || 'rounded-md';\r\n  }\r\n\r\n}\r\n",
+            "sourceCode": "import { Component, Input, Output, EventEmitter, OnInit, ViewEncapsulation } from '@angular/core';\r\nimport { NgClass, NgIf, NgStyle } from '@angular/common';\r\nimport { FormsModule } from '@angular/forms';\r\n\r\n@Component({\r\n  selector: 'ft-input',\r\n  templateUrl: './ft.input.component.html',\r\n  imports: [\r\n    NgClass,\r\n    FormsModule,\r\n    NgIf,\r\n    NgStyle\r\n  ],\r\n  styleUrls: ['./ft.input.component.css'],\r\n  encapsulation: ViewEncapsulation.Emulated // Ensure this is set (default)\r\n})\r\nexport class FTInputComponent implements OnInit {\r\n  // @Input() isLabel = false;\r\n  @Input() isLabel = true;\r\n  @Input() label?: string;\r\n  @Input() size: 'xs-size' | 'sm-size' | 'md-size' | 'lg-size' = 'md-size';\r\n  @Input() color: 'default' | 'primary' | 'secondary' = 'default';\r\n  @Input() variant: 'flat' | 'faded' | 'outlined' | 'ghost' = 'flat';\r\n  @Input() radius: 'none-radius' | 'xs-radius' | 'sm-radius' | 'md-radius' | 'lg-radius' | 'full-radius' = 'md-radius';\r\n  @Input() state: 'rest' | 'hover' | 'focus' | 'readonly' | 'disabled' | 'invalid' | 'content' = 'rest';\r\n  @Input() disabled = false;\r\n  @Input() readonly = false;\r\n  @Input() required = false;\r\n  @Input() invalid = false;\r\n  @Input() inputType: 'text' | 'password' = 'text';\r\n  @Input() placeholder?: string;\r\n  @Input() isDescription = false;\r\n  @Input() description?: string;\r\n  @Input() errorMessage?: string;\r\n  @Input() content?: string;\r\n  @Input() labelPlacement: 'label-inside' | 'label-outside' | 'label-outside-left' = 'label-inside';\r\n\r\n  @Input() startContent?: string;  // e.g. '$', 'https://'\r\n  @Input() endContent?: string;    // e.g. '.org', 'kg', '@gmail.com'\r\n\r\n  @Input() isPrefixIconClass = false;\r\n  @Input() prefixIconClass = ''; // For icon libraries that use classes\r\n\r\n  @Input() isSuffix1IconClass = true;\r\n  @Input() suffix1IconClass = 'close_small';\r\n\r\n  @Input() isSuffix2IconClass = true;\r\n  @Input() suffix2IconClass = 'keyboard_arrow_down';\r\n\r\n  @Input() isClearable = false;\r\n  @Input() showContent = false;\r\n  value = '';\r\n  @Output() valueChange = new EventEmitter<string>();\r\n\r\n  ngOnInit() {\r\n    if (this.content && this.showContent) {\r\n      this.value = this.content;\r\n    }\r\n  }\r\n\r\n  onValueChange(newValue: string) {\r\n    this.value = newValue;\r\n    this.valueChange.emit(this.value);\r\n  }\r\n\r\n  clear() {\r\n    this.value = '';\r\n    this.valueChange.emit(this.value);\r\n  }\r\n\r\n  passwordVisible = false;\r\n\r\n  togglePasswordVisibility() {\r\n    this.passwordVisible = !this.passwordVisible;\r\n  }\r\n\r\n  get currentInputType(): string {\r\n    if (this.inputType === 'password') {\r\n      return this.passwordVisible ? 'text' : 'password';\r\n    }\r\n    return this.inputType;\r\n  }\r\n\r\n  get radiusClasses(): string {\r\n    const classes = {\r\n      'none-radius': 'rounded-none',\r\n      'xs-radius': 'rounded-sm',\r\n      'sm-radius': 'rounded-md',\r\n      'md-radius': 'rounded-lg',\r\n      'lg-radius': 'rounded-xl',\r\n      'full-radius': 'rounded-full'\r\n    };\r\n    return classes[this.radius] || 'rounded-md';\r\n  }\r\n\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "::ng-deep storybook-root {\r\n  >ft-input {\r\n    min-width: 200px;\r\n    width: fit-content !important;\r\n    display: block;\r\n  }\r\n}\r\n\r\n:host {\r\n  width: 100%;\r\n}\r\n\r\n\r\n.field-container {\r\n  /* INTERNAL VARIABLE DEFAULTS (The \"Mixin\" Arguments) */\r\n  --_field-bg: transparent;\r\n  --_field-border-color: var(--ft-color-border-200);\r\n  --_field-border-width: var(--ft-border-secondary);\r\n  --_field-text: var(--ft-color-solid-on-surface);\r\n  --_field-placeholder: var(--ft-color-on-surface-level-300);\r\n  --_field-label: var(--ft-color-on-surface-level-100);\r\n\r\n  --_balanced_small_padding: var(--ft-unit-400);\r\n  --_field-height: var(--ft-unit-800);\r\n  --_field-padding: 0 var(--ft-unit-400);\r\n  --_field-gap: var(--ft-unit-300);\r\n  --_field-container-gap: var(--ft-unit-100);\r\n  --_field-icon-size: 20px;\r\n  --_field-content-gap: var(--ft-unit-100);\r\n  --_field-font-size: var(--ft-text-xs);\r\n  --_field-font-weight: 500;\r\n\r\n  display: grid;\r\n  width: 100%;\r\n  gap: var(--_field-container-gap);\r\n\r\n  /* BASE LAYOUT & CHILD STYLES */\r\n\r\n  .input-wrapper {\r\n    display: flex;\r\n    align-items: center;\r\n    min-width: 100%;\r\n    height: var(--_field-height);\r\n    padding: var(--_field-padding);\r\n    gap: var(--_field-gap);\r\n    background-color: var(--_field-bg);\r\n    border: var(--_field-border-width) solid var(--_field-border-color);\r\n    color: var(--_field-text);\r\n    transition: all 0.2s ease;\r\n\r\n    .content-section {\r\n      display: flex;\r\n      flex-direction: column;\r\n      flex-grow: 1;\r\n      gap: var(--_field-content-gap);\r\n      min-width: 0;\r\n\r\n      .input-row {\r\n        display: flex;\r\n        align-items: center;\r\n        gap: var(--ft-unit-100);\r\n        min-width: 0;\r\n      }\r\n\r\n      .start-content,\r\n      .end-content {\r\n        color: var(--_field-placeholder);\r\n        font-family: inherit;\r\n        font-size: var(--_field-font-size);\r\n        font-weight: 400;\r\n        white-space: nowrap;\r\n        flex-shrink: 0;\r\n        line-height: normal;\r\n      }\r\n\r\n      .native-input {\r\n        /* Reset native <input> defaults */\r\n        appearance: none;\r\n        -webkit-appearance: none;\r\n        border: none;\r\n        background: none;\r\n        outline: none;\r\n        padding: 0;\r\n        margin: 0;\r\n        font-family: inherit;\r\n        font-size: var(--_field-font-size);\r\n        font-weight: var(--_field-font-weight);\r\n        color: var(--_field-text);\r\n        width: 100%;\r\n        min-width: 0;\r\n        line-height: normal;\r\n\r\n        &::placeholder {\r\n          color: var(--_field-placeholder);\r\n          font-weight: 300;\r\n        }\r\n\r\n        &:disabled {\r\n          cursor: not-allowed;\r\n        }\r\n      }\r\n    }\r\n\r\n    .prefix-icon,\r\n    .suffix-icon .suffix {\r\n      display: flex;\r\n      align-items: center;\r\n    }\r\n\r\n    .suffix-icon {\r\n      gap: var(--ft-unit-100);\r\n    }\r\n\r\n    &:has(.prefix-icon) {\r\n      padding-left: var(--_balanced_small_padding);\r\n    }\r\n\r\n    &:has(.suffix-icon) {\r\n      padding-right: var(--_balanced_small_padding);\r\n    }\r\n\r\n    [class*=\"material-symbols-rounded\"] {\r\n      font-size: var(--_field-icon-size);\r\n    }\r\n  }\r\n\r\n  .label-row {\r\n    color: var(--_field-label);\r\n    display: contents;\r\n  }\r\n\r\n  .description p,\r\n  .error-text {\r\n    line-height: 1;\r\n  }\r\n\r\n  .error-text {\r\n    color: var(--ft-color-danger);\r\n  }\r\n\r\n  &.label-inside {\r\n    --_field-label: var(--ft-color-on-surface-level-300);\r\n  }\r\n\r\n\r\n  /* STATE LOGIC (Overrides variants) */\r\n\r\n  &.invalid {\r\n    --_field-label: var(--ft-color-danger);\r\n    --_field-bg: var(--ft-color-danger-50);\r\n    --_field-border-color: var(--ft-color-danger);\r\n    --_field-border-width: var(--ft-border-secondary);\r\n  }\r\n\r\n  &.disabled {\r\n    pointer-events: none;\r\n    --_field-text: var(--ft-color-on-surface-muted);\r\n    --_field-label: var(--ft-color-on-surface-muted);\r\n    --_field-placeholder: var(--ft-color-on-surface-muted);\r\n    --_field-bg: var(--ft-form-field-muted);\r\n    --_field-border-color: var(--ft-color-border-muted);\r\n  }\r\n\r\n  /* SIZE LOGIC */\r\n\r\n  &.xs-size {\r\n    --_field-height: var(--ft-unit-500);\r\n    --_balanced_small_padding: var(--ft-unit-150);\r\n    --_field-padding: 0 var(--ft-unit-200);\r\n    --_field-gap: var(--ft-unit-200);\r\n    --_field-icon-size: 16px;\r\n    --_field-content-gap: var(--ft-unit-0);\r\n    --_field-border-width: var(--ft-border-primary);\r\n    --_field-font-size: var(--ft-text-2xs);\r\n\r\n    &.label-inside {\r\n      --_field-height: var(--ft-unit-1000);\r\n      --_balanced_small_padding: var(--ft-unit-200);\r\n      --_field-padding: 0 var(--ft-unit-300);\r\n\r\n      .rounded-full {\r\n        --_balanced_small_padding: var(--ft-unit-300);\r\n        --_field-padding: 0 var(--ft-unit-400);\r\n      }\r\n    }\r\n  }\r\n\r\n  &.sm-size {\r\n    --_field-height: var(--ft-unit-600);\r\n    --_balanced_small_padding: var(--ft-unit-200);\r\n    --_field-padding: 0 var(--ft-unit-300);\r\n    --_field-gap: var(--ft-unit-200);\r\n    --_field-icon-size: 16px;\r\n    --_field-content-gap: var(--ft-unit-50);\r\n    --_field-font-size: var(--ft-text-xs);\r\n\r\n    &.label-inside {\r\n      --_field-height: var(--ft-unit-1200);\r\n      --_balanced_small_padding: var(--ft-unit-300);\r\n      --_field-padding: 0 var(--ft-unit-400);\r\n      --_field-gap: var(--ft-unit-300);\r\n\r\n      .rounded-full {\r\n        --_balanced_small_padding: var(--ft-unit-400);\r\n        --_field-padding: 0 var(--ft-unit-500);\r\n      }\r\n    }\r\n  }\r\n\r\n  &.md-size {\r\n    --_field-height: var(--ft-unit-800);\r\n    --_balanced_small_padding: var(--ft-unit-200);\r\n    --_field-padding: 0 var(--ft-unit-300);\r\n    --_field-gap: var(--ft-unit-200);\r\n    --_field-container-gap: var(--ft-unit-200);\r\n    --_field-icon-size: 20px;\r\n    --_field-content-gap: var(--ft-unit-100);\r\n    --_field-font-size: var(--ft-text-xs);\r\n\r\n    &.label-inside {\r\n      --_field-height: var(--ft-unit-1400);\r\n      --_balanced_small_padding: var(--ft-unit-300);\r\n      --_field-padding: 0 var(--ft-unit-400);\r\n      --_field-gap: var(--ft-unit-300);\r\n\r\n      .rounded-full {\r\n        --_balanced_small_padding: var(--ft-unit-400);\r\n        --_field-padding: 0 var(--ft-unit-500);\r\n      }\r\n    }\r\n  }\r\n\r\n  &.lg-size {\r\n    --_field-height: var(--ft-unit-900);\r\n    --_balanced_small_padding: var(--ft-unit-300);\r\n    --_field-padding: 0 var(--ft-unit-400);\r\n    --_field-gap: var(--ft-unit-300);\r\n    --_field-container-gap: var(--ft-unit-300);\r\n    --_field-icon-size: 20px;\r\n    --_field-content-gap: var(--ft-unit-150);\r\n    --_field-font-size: var(--ft-text-xs);\r\n\r\n    &.label-inside {\r\n      --_field-height: var(--ft-unit-1600);\r\n      --_balanced_small_padding: var(--ft-unit-400);\r\n      --_field-padding: 0 var(--ft-unit-500);\r\n      --_field-gap: var(--ft-unit-400);\r\n\r\n      .rounded-full {\r\n        --_balanced_small_padding: var(--ft-unit-500);\r\n        --_field-padding: 0 var(--ft-unit-600);\r\n      }\r\n    }\r\n  }\r\n\r\n  /* VARIANT LOGIC */\r\n\r\n  &.flat {\r\n    --_field-bg: var(--ft-form-field-100);\r\n    --_field-border-width: 0px;\r\n\r\n    &.hover {\r\n      --_field-bg: var(--ft-form-field-200);\r\n    }\r\n\r\n    &.readonly {\r\n      --_field-bg: var(--ft-form-field-50);\r\n    }\r\n  }\r\n\r\n  &.faded {\r\n    --_field-bg: var(--ft-form-field-100);\r\n\r\n    &.hover {\r\n      --_field-bg: var(--ft-form-field-200);\r\n    }\r\n\r\n    &.focus {\r\n      --_field-bg: var(--ft-form-field-200);\r\n      --_field-border-color: var(--ft-color-primary);\r\n    }\r\n\r\n    &.readonly {\r\n      --_field-bg: var(--ft-form-field-50);\r\n      --_field-border-color: var(--ft-color-border-100);\r\n    }\r\n  }\r\n\r\n  &.outlined {\r\n    --_field-bg: transparent !important;\r\n\r\n    &.hover {\r\n      --_field-border-color: var(--ft-color-border-300);\r\n    }\r\n\r\n    &.focus {\r\n      --_field-border-color: var(--ft-color-primary);\r\n    }\r\n\r\n    &.readonly {\r\n      --_field-border-color: var(--ft-color-border-100);\r\n    }\r\n  }\r\n\r\n  &.ghost {\r\n    --_field-border-width: 0px;\r\n    --_field-bg: transparent;\r\n\r\n    &.label-outside-left,\r\n    &.label-outside {\r\n      .content {\r\n        --_field-text: var(--ft-color-on-surface-level-300);\r\n      }\r\n    }\r\n\r\n\r\n    &.invalid {\r\n      --_field-text: var(--ft-color-danger);\r\n      /*--_field-placeholder: var(--ft-color-danger);*/\r\n    }\r\n\r\n    &.hover,\r\n    &.focus {\r\n      /*--_field-bg: var(--ft-form-field-50);*/\r\n    }\r\n  }\r\n\r\n  /* LAYOUT MODES (Grid Positioning) */\r\n\r\n  &.label-inside {\r\n    .input-wrapper {\r\n      grid-area: 1 / 1;\r\n    }\r\n\r\n    .error-message,\r\n    .description {\r\n      grid-area: 2 / 1;\r\n    }\r\n  }\r\n\r\n  &.label-outside {\r\n    .label-row {\r\n      grid-area: 1 / 1;\r\n    }\r\n\r\n    .input-wrapper {\r\n      grid-area: 2 / 1;\r\n    }\r\n\r\n    .error-message,\r\n    .description {\r\n      grid-area: 3 / 1;\r\n    }\r\n  }\r\n\r\n  &.label-outside-left {\r\n    grid-template-columns: fit-content(50%) auto;\r\n    column-gap: var(--_field-container-gap);\r\n\r\n    .label-row {\r\n      grid-area: 1 / 1;\r\n    }\r\n\r\n    .input-wrapper {\r\n      grid-area: 1 / 2;\r\n    }\r\n\r\n    .error-message,\r\n    .description {\r\n      grid-area: 2 / 2;\r\n    }\r\n  }\r\n\r\n  &.invalid {\r\n    --_field-border-color: var(--ft-color-danger);\r\n    /*--_field-bg: var(--ft-color-danger-50);*/\r\n  }\r\n\r\n  &.focus {\r\n    --_field-label: var(--ft-color-primary)\r\n  }\r\n}\r\n\r\n\r\nbody:has(.input-wrapper) {\r\n  background: #fff;\r\n}",
+                    "data": "::ng-deep storybook-root {\r\n  >ft-input {\r\n    min-width: 200px;\r\n    width: fit-content !important;\r\n    display: block;\r\n  }\r\n}\r\n\r\n:host {\r\n  width: 100%;\r\n}\r\n\r\n\r\n.field-container {\r\n  /* INTERNAL VARIABLE DEFAULTS (The \"Mixin\" Arguments) */\r\n  --_field-bg: transparent;\r\n  --_field-border-color: var(--ft-color-border-200);\r\n  --_field-border-width: var(--ft-border-secondary);\r\n  --_field-text: var(--ft-color-solid-on-surface);\r\n  --_field-placeholder: var(--ft-color-on-surface-level-300);\r\n  --_field-label: var(--ft-color-on-surface-level-100);\r\n\r\n  --_balanced_small_padding: var(--ft-unit-400);\r\n  --_field-height: var(--ft-unit-800);\r\n  --_field-padding: 0 var(--ft-unit-400);\r\n  --_field-gap: var(--ft-unit-300);\r\n  --_field-container-gap: var(--ft-unit-100);\r\n  --_field-icon-size: 20px;\r\n  --_field-content-gap: var(--ft-unit-100);\r\n  --_field-font-size: var(--ft-text-xs);\r\n  --_field-font-weight: 500;\r\n\r\n  display: grid;\r\n  width: 100%;\r\n  gap: var(--_field-container-gap);\r\n\r\n  /* BASE LAYOUT & CHILD STYLES */\r\n\r\n  .input-wrapper {\r\n    display: flex;\r\n    align-items: center;\r\n    min-width: 100%;\r\n    height: var(--_field-height);\r\n    padding: var(--_field-padding);\r\n    gap: var(--_field-gap);\r\n    background-color: var(--_field-bg);\r\n    border: var(--_field-border-width) solid var(--_field-border-color);\r\n    color: var(--_field-text);\r\n    transition: all 0.2s ease;\r\n\r\n    .content-section {\r\n      display: flex;\r\n      flex-direction: column;\r\n      flex-grow: 1;\r\n      gap: var(--_field-content-gap);\r\n      min-width: 0;\r\n\r\n      .input-row {\r\n        display: flex;\r\n        align-items: center;\r\n        gap: var(--ft-unit-100);\r\n        min-width: 0;\r\n      }\r\n\r\n      .start-content,\r\n      .end-content {\r\n        color: var(--_field-placeholder);\r\n        font-family: inherit;\r\n        font-size: var(--_field-font-size);\r\n        font-weight: 400;\r\n        white-space: nowrap;\r\n        flex-shrink: 0;\r\n        line-height: normal;\r\n      }\r\n\r\n      .native-input {\r\n        /* Reset native <input> defaults */\r\n        appearance: none;\r\n        -webkit-appearance: none;\r\n        border: none;\r\n        background: none;\r\n        outline: none;\r\n        padding: 0;\r\n        margin: 0;\r\n        font-family: inherit;\r\n        font-size: var(--_field-font-size);\r\n        font-weight: var(--_field-font-weight);\r\n        color: var(--_field-text);\r\n        width: 100%;\r\n        min-width: 0;\r\n        line-height: normal;\r\n\r\n        &::placeholder {\r\n          color: var(--_field-placeholder);\r\n          font-weight: 300;\r\n        }\r\n\r\n        &:disabled {\r\n          cursor: not-allowed;\r\n        }\r\n      }\r\n    }\r\n\r\n    .prefix-icon,\r\n    .suffix-icon .suffix {\r\n      display: flex;\r\n      align-items: center;\r\n    }\r\n\r\n    .clear-btn {\r\n      appearance: none;\r\n      border: none;\r\n      background: none;\r\n      padding: 0;\r\n      margin: 0;\r\n      cursor: pointer;\r\n      display: flex;\r\n      align-items: center;\r\n      justify-content: center;\r\n      color: var(--_field-placeholder);\r\n      opacity: 0.7;\r\n      transition: opacity 0.15s ease;\r\n\r\n      &:hover {\r\n        opacity: 1;\r\n      }\r\n\r\n      [class*=\"material-symbols-rounded\"] {\r\n        font-size: var(--_field-icon-size);\r\n      }\r\n    }\r\n\r\n    .suffix-icon {\r\n      gap: var(--ft-unit-100);\r\n    }\r\n\r\n    &:has(.prefix-icon) {\r\n      padding-left: var(--_balanced_small_padding);\r\n    }\r\n\r\n    &:has(.suffix-icon) {\r\n      padding-right: var(--_balanced_small_padding);\r\n    }\r\n\r\n    [class*=\"material-symbols-rounded\"] {\r\n      font-size: var(--_field-icon-size);\r\n    }\r\n  }\r\n\r\n  .label-row {\r\n    color: var(--_field-label);\r\n    display: contents;\r\n  }\r\n\r\n  .description p,\r\n  .error-text {\r\n    line-height: 1;\r\n  }\r\n\r\n  .error-text {\r\n    color: var(--ft-color-danger);\r\n  }\r\n\r\n  &.label-inside {\r\n    --_field-label: var(--ft-color-on-surface-level-300);\r\n  }\r\n\r\n\r\n  /* STATE LOGIC (Overrides variants) */\r\n\r\n  &.invalid {\r\n    --_field-label: var(--ft-color-danger);\r\n    --_field-bg: var(--ft-color-danger-50);\r\n    --_field-border-color: var(--ft-color-danger);\r\n    --_field-border-width: var(--ft-border-secondary);\r\n  }\r\n\r\n  &.disabled {\r\n    pointer-events: none;\r\n    --_field-text: var(--ft-color-on-surface-muted);\r\n    --_field-label: var(--ft-color-on-surface-muted);\r\n    --_field-placeholder: var(--ft-color-on-surface-muted);\r\n    --_field-bg: var(--ft-form-field-muted);\r\n    --_field-border-color: var(--ft-color-border-muted);\r\n  }\r\n\r\n  /* SIZE LOGIC */\r\n\r\n  &.xs-size {\r\n    --_field-height: var(--ft-unit-500);\r\n    --_balanced_small_padding: var(--ft-unit-150);\r\n    --_field-padding: 0 var(--ft-unit-200);\r\n    --_field-gap: var(--ft-unit-200);\r\n    --_field-icon-size: 16px;\r\n    --_field-content-gap: var(--ft-unit-0);\r\n    --_field-border-width: var(--ft-border-primary);\r\n    --_field-font-size: var(--ft-text-2xs);\r\n\r\n    &.label-inside {\r\n      --_field-height: var(--ft-unit-1000);\r\n      --_balanced_small_padding: var(--ft-unit-200);\r\n      --_field-padding: 0 var(--ft-unit-300);\r\n\r\n      .rounded-full {\r\n        --_balanced_small_padding: var(--ft-unit-300);\r\n        --_field-padding: 0 var(--ft-unit-400);\r\n      }\r\n    }\r\n  }\r\n\r\n  &.sm-size {\r\n    --_field-height: var(--ft-unit-600);\r\n    --_balanced_small_padding: var(--ft-unit-200);\r\n    --_field-padding: 0 var(--ft-unit-300);\r\n    --_field-gap: var(--ft-unit-200);\r\n    --_field-icon-size: 16px;\r\n    --_field-content-gap: var(--ft-unit-50);\r\n    --_field-font-size: var(--ft-text-xs);\r\n\r\n    &.label-inside {\r\n      --_field-height: var(--ft-unit-1200);\r\n      --_balanced_small_padding: var(--ft-unit-300);\r\n      --_field-padding: 0 var(--ft-unit-400);\r\n      --_field-gap: var(--ft-unit-300);\r\n\r\n      .rounded-full {\r\n        --_balanced_small_padding: var(--ft-unit-400);\r\n        --_field-padding: 0 var(--ft-unit-500);\r\n      }\r\n    }\r\n  }\r\n\r\n  &.md-size {\r\n    --_field-height: var(--ft-unit-800);\r\n    --_balanced_small_padding: var(--ft-unit-200);\r\n    --_field-padding: 0 var(--ft-unit-300);\r\n    --_field-gap: var(--ft-unit-200);\r\n    --_field-container-gap: var(--ft-unit-200);\r\n    --_field-icon-size: 20px;\r\n    --_field-content-gap: var(--ft-unit-100);\r\n    --_field-font-size: var(--ft-text-xs);\r\n\r\n    &.label-inside {\r\n      --_field-height: var(--ft-unit-1400);\r\n      --_balanced_small_padding: var(--ft-unit-300);\r\n      --_field-padding: 0 var(--ft-unit-400);\r\n      --_field-gap: var(--ft-unit-300);\r\n\r\n      .rounded-full {\r\n        --_balanced_small_padding: var(--ft-unit-400);\r\n        --_field-padding: 0 var(--ft-unit-500);\r\n      }\r\n    }\r\n  }\r\n\r\n  &.lg-size {\r\n    --_field-height: var(--ft-unit-900);\r\n    --_balanced_small_padding: var(--ft-unit-300);\r\n    --_field-padding: 0 var(--ft-unit-400);\r\n    --_field-gap: var(--ft-unit-300);\r\n    --_field-container-gap: var(--ft-unit-300);\r\n    --_field-icon-size: 20px;\r\n    --_field-content-gap: var(--ft-unit-150);\r\n    --_field-font-size: var(--ft-text-xs);\r\n\r\n    &.label-inside {\r\n      --_field-height: var(--ft-unit-1600);\r\n      --_balanced_small_padding: var(--ft-unit-400);\r\n      --_field-padding: 0 var(--ft-unit-500);\r\n      --_field-gap: var(--ft-unit-400);\r\n\r\n      .rounded-full {\r\n        --_balanced_small_padding: var(--ft-unit-500);\r\n        --_field-padding: 0 var(--ft-unit-600);\r\n      }\r\n    }\r\n  }\r\n\r\n  /* VARIANT LOGIC */\r\n\r\n  &.flat {\r\n    --_field-bg: var(--ft-form-field-100);\r\n    --_field-border-width: 0px;\r\n\r\n    &.hover {\r\n      --_field-bg: var(--ft-form-field-200);\r\n    }\r\n\r\n    &.readonly {\r\n      --_field-bg: var(--ft-form-field-50);\r\n    }\r\n  }\r\n\r\n  &.faded {\r\n    --_field-bg: var(--ft-form-field-100);\r\n\r\n    &.hover {\r\n      --_field-bg: var(--ft-form-field-200);\r\n    }\r\n\r\n    &.focus {\r\n      --_field-bg: var(--ft-form-field-200);\r\n      --_field-border-color: var(--ft-color-primary);\r\n    }\r\n\r\n    &.readonly {\r\n      --_field-bg: var(--ft-form-field-50);\r\n      --_field-border-color: var(--ft-color-border-100);\r\n    }\r\n  }\r\n\r\n  &.outlined {\r\n    --_field-bg: transparent !important;\r\n\r\n    &.hover {\r\n      --_field-border-color: var(--ft-color-border-300);\r\n    }\r\n\r\n    &.focus {\r\n      --_field-border-color: var(--ft-color-primary);\r\n    }\r\n\r\n    &.readonly {\r\n      --_field-border-color: var(--ft-color-border-100);\r\n    }\r\n  }\r\n\r\n  &.ghost {\r\n    --_field-border-width: 0px;\r\n    --_field-bg: transparent;\r\n\r\n    &.label-outside-left,\r\n    &.label-outside {\r\n      .content {\r\n        --_field-text: var(--ft-color-on-surface-level-300);\r\n      }\r\n    }\r\n\r\n\r\n    &.invalid {\r\n      --_field-text: var(--ft-color-danger);\r\n      /*--_field-placeholder: var(--ft-color-danger);*/\r\n    }\r\n  }\r\n\r\n  /* LAYOUT MODES (Grid Positioning) */\r\n\r\n  &.label-inside {\r\n    .input-wrapper {\r\n      grid-area: 1 / 1;\r\n    }\r\n\r\n    .error-message,\r\n    .description {\r\n      grid-area: 2 / 1;\r\n    }\r\n  }\r\n\r\n  &.label-outside {\r\n    .label-row {\r\n      grid-area: 1 / 1;\r\n    }\r\n\r\n    .input-wrapper {\r\n      grid-area: 2 / 1;\r\n    }\r\n\r\n    .error-message,\r\n    .description {\r\n      grid-area: 3 / 1;\r\n    }\r\n  }\r\n\r\n  &.label-outside-left {\r\n    grid-template-columns: fit-content(50%) auto;\r\n    column-gap: var(--_field-container-gap);\r\n\r\n    .label-row {\r\n      grid-area: 1 / 1;\r\n    }\r\n\r\n    .input-wrapper {\r\n      grid-area: 1 / 2;\r\n    }\r\n\r\n    .error-message,\r\n    .description {\r\n      grid-area: 2 / 2;\r\n    }\r\n  }\r\n\r\n  &.invalid {\r\n    --_field-border-color: var(--ft-color-danger);\r\n    /*--_field-bg: var(--ft-color-danger-50);*/\r\n  }\r\n\r\n  &.focus {\r\n    --_field-label: var(--ft-color-primary)\r\n  }\r\n}\r\n\r\n\r\nbody:has(.input-wrapper) {\r\n  background: #fff;\r\n}",
                     "styleUrl": "./ft.input.component.css"
                 }
             ],
@@ -3903,17 +3933,26 @@
                 "OnInit"
             ],
             "accessors": {
+                "currentInputType": {
+                    "name": "currentInputType",
+                    "getSignature": {
+                        "name": "currentInputType",
+                        "type": "string",
+                        "returnType": "string",
+                        "line": 77
+                    }
+                },
                 "radiusClasses": {
                     "name": "radiusClasses",
                     "getSignature": {
                         "name": "radiusClasses",
                         "type": "string",
                         "returnType": "string",
-                        "line": 70
+                        "line": 84
                     }
                 }
             },
-            "templateData": "<div class=\"field-container\" [class]=\"labelPlacement + ' ' + size + ' ' + variant + ' ' + state\" [ngStyle]=\"{\r\n    '--_field-container-gap': (!isLabel && (labelPlacement === 'label-outside-left' || labelPlacement === 'label-outside'))\r\n                    ? '0'\r\n                    : null\r\n  }\">\r\n  <div *ngIf=\"isLabel && labelPlacement !== 'label-inside'\" class=\"label-row\">\r\n    <span class=\"label leading-none\" [ngClass]=\"{\r\n           'content-2xs--semibold': size === 'sm-size' || size === 'md-size' || size === 'xs-size',\r\n           'content-xs--semibold': size === 'lg-size',\r\n           }\">{{ label }} <span *ngIf=\"required && !disabled\">*</span></span>\r\n  </div>\r\n  <div class=\"input-wrapper\" [class]=\"radiusClasses\">\r\n    <div *ngIf=\"isPrefixIconClass && prefixIconClass\" class=\"prefix-icon\">\r\n      <span class=\"material-symbols-rounded\">{{prefixIconClass}}</span>\r\n    </div>\r\n    <div class=\"content-section\">\r\n      <div *ngIf=\"isLabel && labelPlacement === 'label-inside'\" class=\"label-row\">\r\n        <span class=\"label leading-none\" [ngClass]=\"{\r\n           'content-2xs--bold': size === 'sm-size' || size === 'md-size' || size === 'xs-size',\r\n           'content-xs--bold': size === 'lg-size',\r\n           }\">{{ label }} <span *ngIf=\"required && !disabled\">*</span></span>\r\n      </div>\r\n      <div class=\"input-row\">\r\n        <span *ngIf=\"startContent\" class=\"start-content\">{{ startContent }}</span>\r\n        <input class=\"native-input\" [placeholder]=\"placeholder || ''\" [(ngModel)]=\"value\"\r\n          (ngModelChange)=\"onValueChange($event)\" [disabled]=\"state === 'disabled' || disabled\"\r\n          [readonly]=\"state === 'readonly' || readonly\" [required]=\"required\" type=\"text\" />\r\n        <span *ngIf=\"endContent\" class=\"end-content\">{{ endContent }}</span>\r\n      </div>\r\n    </div>\r\n    <div class=\"suffix-icon flex\" *ngIf=\"state !== 'readonly'\">\r\n      <div *ngIf=\"isSuffix1IconClass && suffix1IconClass && !disabled\" class=\"suffix suffix1\">\r\n        <span class=\"material-symbols-rounded\">{{suffix1IconClass}}</span>\r\n      </div>\r\n      <div *ngIf=\"isSuffix2IconClass && suffix2IconClass\" class=\"suffix suffix2\">\r\n        <span class=\"material-symbols-rounded\">{{suffix2IconClass}}</span>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <div *ngIf=\"state === 'invalid' && errorMessage\" class=\"error-message\">\r\n    <p class=\"error-text content-2xs--normal\">{{ errorMessage }}</p>\r\n  </div>\r\n  <div *ngIf=\"isDescription && description && state !== 'invalid'\" class=\"description\">\r\n    <p class=\"highlight content-2xs--normal\">{{ description }}</p>\r\n  </div>\r\n</div>"
+            "templateData": "<div class=\"field-container\" [class]=\"labelPlacement + ' ' + size + ' ' + variant + ' ' + state\" [ngStyle]=\"{\r\n    '--_field-container-gap': (!isLabel && (labelPlacement === 'label-outside-left' || labelPlacement === 'label-outside'))\r\n                    ? '0'\r\n                    : null\r\n  }\">\r\n  <div *ngIf=\"isLabel && labelPlacement !== 'label-inside'\" class=\"label-row\">\r\n    <span class=\"label leading-none\" [ngClass]=\"{\r\n           'content-2xs--semibold': size === 'sm-size' || size === 'md-size' || size === 'xs-size',\r\n           'content-xs--semibold': size === 'lg-size',\r\n           }\">{{ label }} <span *ngIf=\"required && !disabled\">*</span></span>\r\n  </div>\r\n  <div class=\"input-wrapper\" [class]=\"radiusClasses\">\r\n    <div *ngIf=\"isPrefixIconClass && prefixIconClass\" class=\"prefix-icon\">\r\n      <span class=\"material-symbols-rounded\">{{prefixIconClass}}</span>\r\n    </div>\r\n    <div class=\"content-section\">\r\n      <div *ngIf=\"isLabel && labelPlacement === 'label-inside'\" class=\"label-row\">\r\n        <span class=\"label leading-none\" [ngClass]=\"{\r\n           'content-2xs--bold': size === 'sm-size' || size === 'md-size' || size === 'xs-size',\r\n           'content-xs--bold': size === 'lg-size',\r\n           }\">{{ label }} <span *ngIf=\"required && !disabled\">*</span></span>\r\n      </div>\r\n      <div class=\"input-row\">\r\n        <span *ngIf=\"startContent\" class=\"start-content\">{{ startContent }}</span>\r\n        <input class=\"native-input\" [placeholder]=\"placeholder || ''\" [(ngModel)]=\"value\"\r\n          (ngModelChange)=\"onValueChange($event)\" [disabled]=\"state === 'disabled' || disabled\"\r\n          [readonly]=\"state === 'readonly' || readonly\" [required]=\"required\" [type]=\"currentInputType\" />\r\n        <span *ngIf=\"endContent\" class=\"end-content\">{{ endContent }}</span>\r\n      </div>\r\n    </div>\r\n    <div class=\"suffix-icon flex\" *ngIf=\"state !== 'readonly'\">\r\n      <button *ngIf=\"isClearable && value && state !== 'disabled' && !disabled\" class=\"clear-btn\" type=\"button\"\r\n        (click)=\"clear()\" aria-label=\"Clear input\">\r\n        <span class=\"material-symbols-rounded\">close_small</span>\r\n      </button>\r\n      <button *ngIf=\"inputType === 'password' && state !== 'disabled' && !disabled\" class=\"clear-btn\" type=\"button\"\r\n        (click)=\"togglePasswordVisibility()\" [attr.aria-label]=\"passwordVisible ? 'Hide password' : 'Show password'\">\r\n        <span class=\"material-symbols-rounded\">{{ passwordVisible ? 'visibility_off' : 'visibility' }}</span>\r\n      </button>\r\n      <div *ngIf=\"isSuffix1IconClass && suffix1IconClass && !disabled\" class=\"suffix suffix1\">\r\n        <span class=\"material-symbols-rounded\">{{suffix1IconClass}}</span>\r\n      </div>\r\n      <div *ngIf=\"isSuffix2IconClass && suffix2IconClass\" class=\"suffix suffix2\">\r\n        <span class=\"material-symbols-rounded\">{{suffix2IconClass}}</span>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <div *ngIf=\"state === 'invalid' && errorMessage\" class=\"error-message\">\r\n    <p class=\"error-text content-2xs--normal\">{{ errorMessage }}</p>\r\n  </div>\r\n  <div *ngIf=\"isDescription && description && state !== 'invalid'\" class=\"description\">\r\n    <p class=\"highlight content-2xs--normal\">{{ description }}</p>\r\n  </div>\r\n</div>"
         },
         {
             "name": "FtLoginComponent",
@@ -5267,7 +5306,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "",
+                    "data": "::ng-deep .case-item {\r\n    width: 360px;\r\n    height: 150px;\r\n}",
                     "styleUrl": "./icon.button.all.cases.component.css"
                 }
             ],
@@ -5277,7 +5316,7 @@
         },
         {
             "name": "InputAllCasesComponent",
-            "id": "component-InputAllCasesComponent-5690dd955124780220609c2dc5b59015aa5929610fa9899857d28d7249f6a07cb16e0a22e45277ea4b885ee837b8457f99499c38c38b567077bae3b6138bebb9",
+            "id": "component-InputAllCasesComponent-b4a068d1fe13b97a0c94251e534f7c0261d1dc4bfdaf20179eede7a9953f3a4856fb8198d2614737e84f70197865a662e692d1553aed4cb955cd09c64471c54c",
             "file": "src/stories/inputs/input-all-cases/input-all-cases.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -5296,12 +5335,127 @@
             "hostDirectives": [],
             "inputsClass": [
                 {
+                    "name": "endContent",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 25,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "inputType",
+                    "defaultValue": "'text'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 31,
+                    "type": "\"text\" | \"password\"",
+                    "decorators": []
+                },
+                {
+                    "name": "isDescription",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 22,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "isPrefixIconClass",
+                    "defaultValue": "true",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 17,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "isSuffix1IconClass",
+                    "defaultValue": "true",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 27,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "isSuffix2IconClass",
+                    "defaultValue": "true",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 29,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "prefixIconClass",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 18,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "radius",
+                    "defaultValue": "'md-radius'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 19,
+                    "type": "\"none-radius\" | \"xs-radius\" | \"sm-radius\" | \"md-radius\" | \"lg-radius\" | \"full-radius\"",
+                    "decorators": []
+                },
+                {
                     "name": "showContent",
                     "defaultValue": "false",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 21,
+                    "line": 23,
                     "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "size",
+                    "defaultValue": "'md-size'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 20,
+                    "type": "\"xs-size\" | \"sm-size\" | \"md-size\" | \"lg-size\"",
+                    "decorators": []
+                },
+                {
+                    "name": "startContent",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 24,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "suffix1IconClass",
+                    "defaultValue": "'visibility'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 28,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "suffix2IconClass",
+                    "defaultValue": "'search'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 30,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "variant",
+                    "defaultValue": "'flat'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 21,
+                    "type": "\"flat\" | \"faded\" | \"outlined\" | \"ghost\"",
                     "decorators": []
                 }
             ],
@@ -5328,81 +5482,26 @@
                     ]
                 },
                 {
-                    "name": "isDescription",
-                    "defaultValue": "false",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "unknown",
-                    "indexKey": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 20
-                },
-                {
-                    "name": "isPrefixIconClass",
-                    "defaultValue": "true",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "boolean",
-                    "indexKey": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 16
-                },
-                {
                     "name": "labelPlacements",
-                    "defaultValue": "[\r\n    'label-inside',\r\n    'label-outside',\r\n    'label-outside-left'\r\n\r\n  ]",
+                    "defaultValue": "[\r\n    'label-inside',\r\n    'label-outside',\r\n    'label-outside-left',\r\n  ]",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Array<\"label-inside\" | \"label-outside\" | \"label-outside-left\">",
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 33
-                },
-                {
-                    "name": "radius",
-                    "defaultValue": "'md-radius'",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "\"none-radius\" | \"xs-radius\" | \"sm-radius\" | \"md-radius\" | \"lg-radius\" | \"full-radius\"",
-                    "indexKey": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 17
-                },
-                {
-                    "name": "size",
-                    "defaultValue": "'md-size'",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "\"xs-size\" | \"sm-size\" | \"md-size\" | \"lg-size\"",
-                    "indexKey": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 18
+                    "line": 43
                 },
                 {
                     "name": "states",
                     "defaultValue": "[\r\n    'rest',\r\n    'hover',\r\n    'focus',\r\n    'readonly',\r\n    'disabled',\r\n    'invalid',\r\n    'with-description',\r\n  ]",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "Array<\"rest\" | \"hover\" | \"focus\" | \"readonly\" | \"disabled\" | \"invalid\" | \"content\" | \"with-description\">",
+                    "type": "Array<\"rest\" | \"hover\" | \"focus\" | \"readonly\" | \"disabled\" | \"invalid\" | \"with-description\">",
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 23
-                },
-                {
-                    "name": "variant",
-                    "defaultValue": "'flat'",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "\"flat\" | \"faded\" | \"outlined\" | \"ghost\"",
-                    "indexKey": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 19
+                    "line": 33
                 }
             ],
             "methodsClass": [],
@@ -5434,17 +5533,17 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, HostBinding, Input } from '@angular/core';\r\n\r\nimport { CommonModule } from '@angular/common';\r\nimport { FTInputComponent } from '../input/ft.input.component';\r\n\r\n@Component({\r\n  selector: 'app-input-showcase',\r\n  templateUrl: './input-all-cases.component.html',\r\n  styleUrls: ['./input-all-cases.component.css'],\r\n  standalone: true,\r\n  imports: [CommonModule, FTInputComponent]\r\n})\r\nexport class InputAllCasesComponent {\r\n  @HostBinding('class') class = 'showcase';\r\n  isPrefixIconClass: boolean = true;\r\n  radius: 'none-radius' | 'xs-radius' | 'sm-radius' | 'md-radius' | 'lg-radius' | 'full-radius' = 'md-radius';\r\n  size: 'xs-size' | 'sm-size' | 'md-size' | 'lg-size' = 'md-size';\r\n  variant: 'flat' | 'faded' | 'outlined' | 'ghost' = 'flat';\r\n  isDescription = false;\r\n  @Input() showContent = false;\r\n\r\n  states: Array<'rest' | 'hover' | 'focus' | 'readonly' | 'disabled' | 'invalid' | 'content' | 'with-description'> = [\r\n    'rest',\r\n    'hover',\r\n    'focus',\r\n    'readonly',\r\n    'disabled',\r\n    'invalid',\r\n    'with-description',\r\n  ];\r\n\r\n  labelPlacements: Array<'label-inside' | 'label-outside' | 'label-outside-left'> = [\r\n    'label-inside',\r\n    'label-outside',\r\n    'label-outside-left'\r\n\r\n  ];\r\n\r\n\r\n\r\n}\r\n",
+            "sourceCode": "import { Component, HostBinding, Input } from '@angular/core';\r\n\r\nimport { CommonModule } from '@angular/common';\r\nimport { FTInputComponent } from '../input/ft.input.component';\r\n\r\n@Component({\r\n  selector: 'app-input-showcase',\r\n  templateUrl: './input-all-cases.component.html',\r\n  styleUrls: ['./input-all-cases.component.css'],\r\n  standalone: true,\r\n  imports: [CommonModule, FTInputComponent]\r\n})\r\nexport class InputAllCasesComponent {\r\n  @HostBinding('class') class = 'showcase';\r\n\r\n  @Input() isPrefixIconClass = true;\r\n  @Input() prefixIconClass = '';\r\n  @Input() radius: 'none-radius' | 'xs-radius' | 'sm-radius' | 'md-radius' | 'lg-radius' | 'full-radius' = 'md-radius';\r\n  @Input() size: 'xs-size' | 'sm-size' | 'md-size' | 'lg-size' = 'md-size';\r\n  @Input() variant: 'flat' | 'faded' | 'outlined' | 'ghost' = 'flat';\r\n  @Input() isDescription = false;\r\n  @Input() showContent = false;\r\n  @Input() startContent?: string;\r\n  @Input() endContent?: string;\r\n\r\n  @Input() isSuffix1IconClass = true;\r\n  @Input() suffix1IconClass = 'visibility';\r\n  @Input() isSuffix2IconClass = true;\r\n  @Input() suffix2IconClass = 'search';\r\n  @Input() inputType: 'text' | 'password' = 'text';\r\n\r\n  states: Array<'rest' | 'hover' | 'focus' | 'readonly' | 'disabled' | 'invalid' | 'with-description'> = [\r\n    'rest',\r\n    'hover',\r\n    'focus',\r\n    'readonly',\r\n    'disabled',\r\n    'invalid',\r\n    'with-description',\r\n  ];\r\n\r\n  labelPlacements: Array<'label-inside' | 'label-outside' | 'label-outside-left'> = [\r\n    'label-inside',\r\n    'label-outside',\r\n    'label-outside-left',\r\n  ];\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "",
+                    "data": "::ng-deep .case-item {\r\n    width: 360px;\r\n    height: 150px;\r\n}",
                     "styleUrl": "./input-all-cases.component.css"
                 }
             ],
             "stylesData": "",
             "extends": [],
-            "templateData": "<div class=\"all-case-container\">\r\n  <h1 class=\"showcase-title\">FT-Input All cases</h1>\r\n  <div class=\"cases-container\">\r\n    <div class=\"case-row case-row-heading\">\r\n      <div class=\"case-item case-item-heading\">\r\n\r\n      </div>\r\n      <div class=\"case-item\">\r\n        labelPlacement: inside\r\n      </div>\r\n      <div class=\"case-item\">\r\n        labelPlacement: outside\r\n      </div>\r\n      <div class=\"case-item\">\r\n        labelPlacement: outside left\r\n      </div>\r\n\r\n    </div>\r\n    @for (state of states; track state) {\r\n    <div class=\"case-row\">\r\n      <div class=\"case-item case-item-heading vertical-text\">\r\n        {{state}}\r\n      </div>\r\n      @for (labelPlacement of labelPlacements; track labelPlacement) {\r\n      <div class=\"case-item\">\r\n        <ft-input [isLabel]=\"true\" [label]=\"'Username'\" [state]=\"state === 'with-description' ? 'rest' : state\" [size]=\"size\" [color]=\"'primary'\"\r\n          [variant]=\"variant\" [radius]=\"radius\" [required]=\"true\" [placeholder]=\"'Enter your username'\"\r\n          [isDescription]=\"isDescription || state === 'with-description'\" [description]=\"'This is your public display name.'\"\r\n          [errorMessage]=\"'Username is required.'\" [content]=\"'y.amrani'\" [labelPlacement]=\"labelPlacement\"\r\n          [isPrefixIconClass]=\"isPrefixIconClass\" [prefixIconClass]=\"'person'\" [isSuffix1IconClass]=\"true\"\r\n          [suffix1IconClass]=\"'close_small'\" [isSuffix2IconClass]=\"true\" [suffix2IconClass]=\"'keyboard_arrow_down'\"\r\n          [isClearable]=\"true\" [showContent]=\"showContent\">\r\n        </ft-input>\r\n\r\n      </div>\r\n      }\r\n\r\n    </div>\r\n    }\r\n\r\n  </div>\r\n</div>"
+            "templateData": "<div class=\"all-case-container\">\r\n  <h1 class=\"showcase-title\">FT-Input All cases</h1>\r\n  <div class=\"cases-container\">\r\n    <div class=\"case-row case-row-heading\">\r\n      <div class=\"case-item case-item-heading\"></div>\r\n      <div *ngFor=\"let placement of labelPlacements\" class=\"case-item\">\r\n        {{ placement }}\r\n      </div>\r\n    </div>\r\n    @for (state of states; track state) {\r\n    <div class=\"case-row\">\r\n      <div class=\"case-item case-item-heading vertical-text\">\r\n        {{state}}\r\n      </div>\r\n      @for (labelPlacement of labelPlacements; track labelPlacement) {\r\n      <div class=\"case-item\">\r\n        <ft-input [isLabel]=\"true\" [label]=\"'Username'\" [state]=\"state === 'with-description' ? 'rest' : state\"\r\n          [size]=\"size\" [color]=\"'primary'\" [variant]=\"variant\" [radius]=\"radius\" [required]=\"true\"\r\n          [placeholder]=\"'Enter your username'\" [isDescription]=\"isDescription || state === 'with-description'\"\r\n          [description]=\"'This is your public display name.'\" [errorMessage]=\"'Username is required.'\"\r\n          [content]=\"'y.amrani'\" [labelPlacement]=\"labelPlacement\" [isPrefixIconClass]=\"isPrefixIconClass\"\r\n          [prefixIconClass]=\"prefixIconClass\" [isSuffix1IconClass]=\"isSuffix1IconClass\" [suffix1IconClass]=\"suffix1IconClass\"\r\n          [isSuffix2IconClass]=\"isSuffix2IconClass\" [suffix2IconClass]=\"suffix2IconClass\" [isClearable]=\"true\"\r\n          [showContent]=\"showContent\" [startContent]=\"startContent\" [endContent]=\"endContent\" [inputType]=\"inputType\">\r\n        </ft-input>\r\n\r\n      </div>\r\n      }\r\n\r\n    </div>\r\n    }\r\n\r\n  </div>\r\n</div>\r\n"
         },
         {
             "name": "InputShowcaseComponent",
@@ -8647,7 +8746,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "",
+                    "data": "::ng-deep .case-item {\r\n    width: 360px;\r\n    height: 150px;\r\n}",
                     "styleUrl": "./radio-all-cases.component.css"
                 }
             ],
@@ -9680,7 +9779,7 @@
         },
         {
             "name": "TextareaAllCasesComponent",
-            "id": "component-TextareaAllCasesComponent-45c25a4a245f4b6027e0a8ee7e69c9cd66ffc979e993ee63850974330bd4ec5bcaf27f5aec1e8d5030bf2175b0ad80dcd36868b8abd38a194b2743d32a914349",
+            "id": "component-TextareaAllCasesComponent-f35aaa6882e01e6834d648045135ff136c7f6a1a20518e6b0fca6494cc2fd45421cd61630224503301e97638d21285adab2f29af1cca5c05e99ef701aeaca9ee",
             "file": "src/stories/textarea/textarea-all-cases/textarea-all-cases.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -9714,6 +9813,15 @@
                     "deprecationMessage": "",
                     "line": 18,
                     "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "showContent",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 19,
+                    "type": "boolean",
                     "decorators": []
                 },
                 {
@@ -9766,7 +9874,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 20
+                    "line": 21
                 },
                 {
                     "name": "states",
@@ -9777,7 +9885,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 21
+                    "line": 22
                 }
             ],
             "methodsClass": [],
@@ -9809,17 +9917,17 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, HostBinding, Input } from '@angular/core';\r\nimport { CommonModule } from '@angular/common';\r\nimport { FTTextareaComponent } from '../textarea/ft.textarea.component';\r\n\r\n@Component({\r\n  selector: 'app-textarea-all-cases',\r\n  templateUrl: './textarea-all-cases.component.html',\r\n  styleUrls: ['./textarea-all-cases.component.css'],\r\n  standalone: true,\r\n  imports: [CommonModule, FTTextareaComponent]\r\n})\r\nexport class TextareaAllCasesComponent {\r\n  @HostBinding('class') class = 'showcase';\r\n\r\n  @Input() size: 'xs-size' | 'sm-size' | 'md-size' | 'lg-size' = 'md-size';\r\n  @Input() variant: 'flat' | 'faded' | 'outlined' | 'ghost' = 'flat';\r\n  @Input() label = 'Description';\r\n  @Input() placeholder = 'Type something...';\r\n\r\n  labelPlacements: Array<'top' | 'left' | 'inside'> = ['inside', 'top', 'left'];\r\n  states: Array<'rest' | 'hover' | 'focus' | 'readonly' | 'disabled' | 'invalid' | 'with-description'> = [\r\n    'rest', 'hover', 'focus', 'readonly', 'disabled', 'invalid', 'with-description'\r\n  ];\r\n}\r\n",
+            "sourceCode": "import { Component, HostBinding, Input } from '@angular/core';\r\nimport { CommonModule } from '@angular/common';\r\nimport { FTTextareaComponent } from '../textarea/ft.textarea.component';\r\n\r\n@Component({\r\n  selector: 'app-textarea-all-cases',\r\n  templateUrl: './textarea-all-cases.component.html',\r\n  styleUrls: ['./textarea-all-cases.component.css'],\r\n  standalone: true,\r\n  imports: [CommonModule, FTTextareaComponent]\r\n})\r\nexport class TextareaAllCasesComponent {\r\n  @HostBinding('class') class = 'showcase';\r\n\r\n  @Input() size: 'xs-size' | 'sm-size' | 'md-size' | 'lg-size' = 'md-size';\r\n  @Input() variant: 'flat' | 'faded' | 'outlined' | 'ghost' = 'flat';\r\n  @Input() label = 'Description';\r\n  @Input() placeholder = 'Type something...';\r\n  @Input() showContent = false;\r\n\r\n  labelPlacements: Array<'top' | 'left' | 'inside'> = ['inside', 'top', 'left'];\r\n  states: Array<'rest' | 'hover' | 'focus' | 'readonly' | 'disabled' | 'invalid' | 'with-description'> = [\r\n    'rest', 'hover', 'focus', 'readonly', 'disabled', 'invalid', 'with-description'\r\n  ];\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": ".all-case-container {\r\n  padding: var(--ft-unit-600);\r\n  overflow-x: auto;\r\n}\r\n\r\n.showcase-title {\r\n  margin-bottom: var(--ft-unit-600);\r\n}\r\n\r\n.cases-container {\r\n  display: flex;\r\n  flex-direction: column;\r\n  border: 1px solid var(--ft-color-border-200);\r\n  background: var(--ft-color-solid-surface);\r\n  width: max-content; /* Ensure the container fits the fixed width cells */\r\n}\r\n\r\n.case-row {\r\n  display: flex;\r\n  border-bottom: 1px solid var(--ft-color-border-200);\r\n}\r\n\r\n.case-item {\r\n  flex: 0 0 500px; /* Fixed width, no shrinking or growing */\r\n  width: 500px;\r\n  padding: var(--ft-unit-1000);\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: center;\r\n}\r\n\r\n.case-item-heading {\r\n  flex: 0 0 100px;\r\n  min-width: 100px;\r\n  background-color: var(--ft-color-surface-level-100);\r\n  border-right: 1px solid var(--ft-color-border-200);\r\n  font-weight: 600;\r\n  font-size: var(--ft-text-2xs);\r\n  color: var(--ft-color-on-surface-level-200);\r\n}\r\n\r\n.case-row-heading {\r\n  background-color: var(--ft-color-surface-level-100);\r\n  font-weight: 600;\r\n}\r\n\r\n.vertical-text {\r\n  text-align: center;\r\n}\r\n",
+                    "data": "::ng-deep .case-item {\r\n  width: 500px;\r\n  height: 200px;\r\n}",
                     "styleUrl": "./textarea-all-cases.component.css"
                 }
             ],
             "stylesData": "",
             "extends": [],
-            "templateData": "<div class=\"all-case-container\">\r\n  <h1 class=\"showcase-title\">Textarea All Cases</h1>\r\n  <div class=\"cases-container\">\r\n    <div class=\"case-row case-row-heading\">\r\n      <div class=\"case-item case-item-heading\"></div>\r\n      <div *ngFor=\"let placement of labelPlacements\" class=\"case-item\">\r\n        {{ placement | titlecase }}\r\n      </div>\r\n    </div>\r\n    \r\n    <div *ngFor=\"let state of states\" class=\"case-row\">\r\n      <div class=\"case-item case-item-heading vertical-text\">\r\n        {{ state }}\r\n      </div>\r\n      <div *ngFor=\"let placement of labelPlacements\" class=\"case-item\">\r\n        <ft-textarea\r\n          [state]=\"state === 'with-description' ? 'rest' : state\"\r\n          [variant]=\"variant\"\r\n          [size]=\"size\"\r\n          [label]=\"label\"\r\n          [placeholder]=\"placeholder\"\r\n          [labelPlacement]=\"placement\"\r\n          [errorMessage]=\"state === 'invalid' ? 'Error message' : ''\"\r\n          [isDescription]=\"state === 'with-description'\"\r\n          [description]=\"state === 'with-description' ? 'This is a helpful description.' : ''\"\r\n          [value]=\"(state !== 'rest' && state !== 'with-description') ? 'Some content here to see the clear button' : ''\"\r\n        >\r\n        </ft-textarea>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
+            "templateData": "<div class=\"all-case-container\">\r\n  <h1 class=\"showcase-title\">Textarea All Cases</h1>\r\n  <div class=\"cases-container\">\r\n    <div class=\"case-row case-row-heading\">\r\n      <div class=\"case-item case-item-heading\"></div>\r\n      <div *ngFor=\"let placement of labelPlacements\" class=\"case-item\">\r\n        {{ placement | titlecase }}\r\n      </div>\r\n    </div>\r\n\r\n    <div *ngFor=\"let state of states\" class=\"case-row\">\r\n      <div class=\"case-item case-item-heading vertical-text\">\r\n        {{ state }}\r\n      </div>\r\n      <div *ngFor=\"let placement of labelPlacements\" class=\"case-item\">\r\n        <ft-textarea [state]=\"state === 'with-description' ? 'rest' : state\" [variant]=\"variant\" [size]=\"size\"\r\n          [label]=\"label\" [placeholder]=\"placeholder\" [labelPlacement]=\"placement\"\r\n          [errorMessage]=\"state === 'invalid' ? 'Error message' : ''\" [isDescription]=\"state === 'with-description'\"\r\n          [description]=\"state === 'with-description' ? 'This is a helpful description.' : ''\"\r\n          [value]=\"showContent ? 'Some content here to see the clear button' : ''\">\r\n        </ft-textarea>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>"
         },
         {
             "name": "ThemeSwitcherComponent",
@@ -10049,7 +10157,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": ".showcase-grid {\r\n    display: flex;\r\n    flex-direction: column;\r\n    gap: var(--ft-unit-1500);\r\n    padding: var(--ft-unit-500);\r\n}\r\n\r\n.variant-section h2 {\r\n    font-weight: var(--font-weight-extrabold);\r\n    color: var(--ft-color-on-surface-level-200);\r\n    text-transform: uppercase;\r\n    margin-bottom: var(--ft-unit-500);\r\n    border-bottom: var(--ft-border-secondary) solid var(--ft-color-primary);\r\n    display: inline-block;\r\n    padding-bottom: 5px;\r\n}\r\n\r\n.table-scroll-container {\r\n    overflow-x: auto;\r\n}\r\n\r\n.color-common-table {\r\n    width: 100%;\r\n    border-collapse: collapse;\r\n}\r\n\r\nthead tr.header-row {\r\n    background-color: var(--ft-color-surface-level-100);\r\n}\r\n\r\nthead tr.header-row th.state-heading {\r\n    padding: 12px;\r\n    border: 1px solid var(--ft-color-border-200);\r\n    min-width: 150px;\r\n}\r\n\r\nthead tr.header-row th.pos-heading {\r\n    padding: var(--ft-unit-300);\r\n    border: 1px solid var(--ft-color-border-200);\r\n    border-left: var(--ft-unit-100) solid var(--ft-color-border-200);\r\n    text-transform: uppercase;\r\n    font-size: var(--ft-text-3xs);\r\n    font-weight: var(--font-weight-black);\r\n    color: var(--ft-color-on-surface-level-200);\r\n}\r\n\r\nthead tr.header-row th.pos-heading .pos-content {\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n    gap: 8px;\r\n}\r\n\r\nthead tr.header-row th.pos-heading .material-symbols-rounded {\r\n    font-size: var(--ft-unit-400);\r\n}\r\n\r\nthead tr.sub-header-row {\r\n    background-color: var(--ft-color-n-surface-3);\r\n}\r\n\r\nthead tr.sub-header-row th.empty-heading {\r\n    border: 1px solid var(--ft-color-border-200);\r\n}\r\n\r\nthead tr.sub-header-row th.size-heading {\r\n    padding: var(--ft-unit-200);\r\n    border: 1px solid var(--ft-color-border-200);\r\n    font-size: 9px;\r\n    font-weight: var(--font-weight-bold);\r\n    color: var(--ft-color-on-surface-muted);\r\n}\r\n\r\ntbody tr {\r\n    transition: background-color 0.2s;\r\n}\r\n\r\ntbody td.state-cell {\r\n    padding: var(--ft-unit-300);\r\n    border: 1px solid var(--ft-color-border-200);\r\n    font-weight: var(--font-weight-semibold);\r\n    font-size: var(--ft-text-3xs);\r\n    background-color: var(--ft-color-n-surface-3);\r\n}\r\n\r\ntbody td.toggle-cell {\r\n    padding: var(--ft-unit-500) var(--ft-unit-300);\r\n    border: 1px solid var(--ft-color-border-200);\r\n    text-align: center;\r\n}\r\n\r\ntr.invalid-row {\r\n    background-color: color-mix(in srgb, var(--ft-color-danger) 3%, transparent);\r\n}\r\n\r\ntr.invalid-row td.state-cell {\r\n    color: var(--ft-color-danger);\r\n}\r\n\r\ntr.disabled-row {\r\n    background-color: var(--ft-color-surface-level-100);\r\n    opacity: 0.8;\r\n}\r\n\r\ntr.disabled-row td.state-cell {\r\n    color: var(--ft-color-on-surface-muted);\r\n}\r\n\r\n/* Position-specific background colors */\r\n.bg-pos-left {\r\n    background-color: color-mix(in srgb, var(--ft-color-primary) 8%, transparent) !important;\r\n}\r\n\r\n.bg-pos-right {\r\n    background-color: color-mix(in srgb, var(--ft-color-success) 5%, transparent) !important;\r\n}\r\n\r\n.bg-pos-top {\r\n    background-color: color-mix(in srgb, var(--ft-color-warning) 5%, transparent) !important;\r\n}\r\n\r\n/* Position-specific cell background colors */\r\n.cell-bg-pos-left {\r\n    background-color: color-mix(in srgb, var(--ft-color-primary) 2%, transparent) !important;\r\n}\r\n\r\n.cell-bg-pos-right {\r\n    background-color: color-mix(in srgb, var(--ft-color-success) 1%, transparent) !important;\r\n}\r\n\r\n.cell-bg-pos-top {\r\n    background-color: color-mix(in srgb, var(--ft-color-warning) 1%, transparent) !important;\r\n}\r\n\r\n.border-left-group {\r\n    border-left: var(--ft-unit-100) solid var(--ft-color-border-200) !important;\r\n}\r\n",
+                    "data": "::ng-deep .case-item {\r\n    width: 360px;\r\n    height: 150px;\r\n}",
                     "styleUrl": "./toggle-all-cases.component.css"
                 }
             ],
@@ -12366,7 +12474,7 @@
                 "linktype": "component",
                 "name": "InputAllCasesComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/11",
+                "coverageCount": "0/19",
                 "status": "low"
             },
             {
@@ -12384,7 +12492,7 @@
                 "linktype": "component",
                 "name": "FTInputComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/33",
+                "coverageCount": "0/36",
                 "status": "low"
             },
             {
@@ -12456,7 +12564,7 @@
                 "linktype": "component",
                 "name": "TextareaAllCasesComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/9",
+                "coverageCount": "0/10",
                 "status": "low"
             },
             {
