@@ -17,6 +17,7 @@
     display: flex;
     align-items: center;
     gap: var(--ft-unit-200);
+    cursor: pointer;
 
     /* 2. COMPONENT STRUCTURE */
     .field {
@@ -69,17 +70,22 @@
     }
 
     /* 3. INTERACTION STATES */
-    &.hover {
+    &:is(:hover, .hover):not(.inactive, .disabled) {
         --_field-bg: var(--ft-form-field-100);
     }
 
-    &.press,
-    &.focus {
+    &:is(:active, .press):not(.inactive, .disabled) {
+        --_field-bg: var(--ft-form-field-200);
+        --_field-scale: 0.85;
+    }
+
+    &:is(:focus-visible, .focus):not(.inactive, .disabled) {
         --_field-bg: var(--ft-form-field-200);
     }
 
     /* 4. SELECTION LOGIC */
     &.checked,
+    &.select,
     &.indeterminate {
         --_field-border-color: var(--ft-color-primary);
         --_field-control-bg: var(--ft-color-primary);
@@ -91,23 +97,27 @@
         --_field-border-color: var(--ft-color-danger);
 
         &.checked,
+        &.select,
         &.indeterminate {
             --_field-control-bg: var(--ft-color-danger);
         }
     }
 
-    &.inactive {
-        pointer-events: none;
+    &.inactive,
+    &.disabled {
+        cursor: not-allowed;
+        opacity: 0.6;
         --_field-text: var(--ft-color-on-surface-muted);
         --_field-description: var(--ft-color-on-surface-muted);
         --_field-border-color: var(--ft-radio-muted);
-      --_checkmark-color: var(--ft-color-on-surface-muted);
+        --_checkmark-color: var(--ft-color-on-surface-muted);
 
         &.checked,
+        &.select,
         &.indeterminate {
             --_field-control-bg: var(--ft-radio-muted);
             --_field-border-color: var(--ft-radio-muted);
-          --_field-border-width: 0;
+            --_field-border-width: 0;
         }
     }
 

@@ -1,9 +1,10 @@
-<div class="ft-checkbox-field-container" [class]="size + ' ' + state" [class.checked]="checked"
-    [class.indeterminate]="indeterminate" [class.inactive]="inactive" [class.invalid]="invalid">
+<div class="ft-checkbox-field-container" [class]="size + ' ' + state" [class.checked]="value"
+    [class.indeterminate]="indeterminate" [class.inactive]="disabled || state === 'disabled'" [class.invalid]="invalid"
+    (click)="toggle()">
     <div class="field">
         <div class="checkbox">
             <div class="control">
-                <span *ngIf="checked && !indeterminate" class="material-symbols-rounded check-icon">check</span>
+                <span *ngIf="value && !indeterminate" class="material-symbols-rounded check-icon">check</span>
                 <span *ngIf="indeterminate" class="material-symbols-rounded indeterminate-icon">remove</span>
             </div>
         </div>

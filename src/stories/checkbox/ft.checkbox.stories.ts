@@ -11,7 +11,7 @@ const meta: Meta<FtCheckboxComponent> = {
         },
         state: {
             control: 'select',
-            options: ['rest', 'hover', 'press', 'focus'],
+            options: ['rest', 'hover', 'press', 'focus', 'disabled'],
         },
     },
     args: {
@@ -19,9 +19,9 @@ const meta: Meta<FtCheckboxComponent> = {
         label: 'Checkbox Label',
         isDescription: false,
         description: 'Checkbox description goes here.',
-        checked: false,
+        value: false,
         indeterminate: false,
-        inactive: false,
+        disabled: false,
         invalid: false,
         size: 'md-size',
         state: 'rest',
@@ -37,7 +37,7 @@ export const Default: Story = {
 
 export const Checked: Story = {
     args: {
-        checked: true,
+        value: true,
     },
 };
 

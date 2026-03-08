@@ -19,7 +19,7 @@
             <div class="case-item">
                 <ft-checkbox [isLabel]="isLabel" [label]="label" [size]="size"
                     [state]="state === 'disabled' || state === 'invalid' ? 'rest' : state"
-                    [invalid]="state === 'invalid'" [checked]="true" [inactive]="state === 'disabled'">
+                    [invalid]="state === 'invalid'" [value]="true" [disabled]="state === 'disabled'">
                 </ft-checkbox>
             </div>
 
@@ -27,7 +27,7 @@
             <div class="case-item">
                 <ft-checkbox [isLabel]="isLabel" [label]="label" [size]="size"
                     [state]="state === 'disabled' || state === 'invalid' ? 'rest' : state"
-                    [invalid]="state === 'invalid'" [checked]="false" [inactive]="state === 'disabled'">
+                    [invalid]="state === 'invalid'" [value]="false" [disabled]="state === 'disabled'">
                 </ft-checkbox>
             </div>
 
@@ -35,8 +35,8 @@
             <div class="case-item">
                 <ft-checkbox [isLabel]="isLabel" [label]="label" [size]="size"
                     [state]="state === 'disabled' || state === 'invalid' ? 'rest' : state"
-                    [invalid]="state === 'invalid'" [checked]="false" [indeterminate]="true"
-                    [inactive]="state === 'disabled'">
+                    [invalid]="state === 'invalid'" [value]="false" [indeterminate]="true"
+                    [disabled]="state === 'disabled'">
                 </ft-checkbox>
             </div>
 
@@ -45,7 +45,7 @@
                 <ft-checkbox [isLabel]="true" label="With Description" [isDescription]="true"
                     description="Providing additional context." [size]="size"
                     [state]="state === 'disabled' || state === 'invalid' ? 'rest' : state"
-                    [invalid]="state === 'invalid'" [checked]="true" [inactive]="state === 'disabled'">
+                    [invalid]="state === 'invalid'" [value]="true" [disabled]="state === 'disabled'">
                 </ft-checkbox>
             </div>
         </div>

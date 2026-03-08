@@ -1,4 +1,4 @@
-import { Component, Input, ViewEncapsulation } from '@angular/core';
+import { Component, Input, Output, EventEmitter, ViewEncapsulation, HostBinding, HostListener } from '@angular/core';
 import { NgClass, NgIf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
@@ -20,11 +20,31 @@ export class FtCheckboxComponent {
     @Input() label?: string;
     @Input() isDescription = false;
     @Input() description?: string;
-    @Input() checked = false;
+    @Input() value = false;
     @Input() indeterminate = false;
-    @Input() inactive = false;
+    @Input() disabled = false;
     @Input() invalid = false;
     @Input() size: 'xs-size' | 'sm-size' | 'md-size' | 'lg-size' = 'md-size';
-    @Input() state: 'hover' | 'press' | 'focus' | 'rest' = 'rest';
+    @Input() state: 'hover' | 'press' | 'focus' | 'rest' | 'disabled' = 'rest';
+
+    @Output() valueChange = new EventEmitter<boolean>();
+
+    @HostBinding('attr.tabindex') get tabIndex() {
+        return this.disabled || this.state === 'disabled' ? '-1' : '0';
+    }
+
+    @HostListener('keydown.space', ['$event'])
+    onSpaceDown(event: KeyboardEvent) {
+        event.preventDefault();
+        this.toggle();
+    }
+
+    toggle() {
+        if (!this.disabled && this.state !== 'disabled') {
+            this.value = !this.value;
+            this.indeterminate = false; // Toggling always clears indeterminate state
+            this.valueChange.emit(this.value);
+        }
+    }
 
 }
