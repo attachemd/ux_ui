@@ -1,7 +1,6 @@
-<div class="button-container"
-     [class]="size + ' ' + variant + ' ' + state + ' ' + color"
->
+<button class="button-container" [class]="size + ' ' + variant + ' ' + state + ' ' + color"
+  [disabled]="state === 'disabled'" [type]="type">
   <div class="icon-wrapper" [class]="radiusClasses">
-    <span  class="material-symbols-rounded">{{iconClass}}</span>
+    <span class="material-symbols-rounded">{{iconClass}}</span>
   </div>
-</div>
+</button>

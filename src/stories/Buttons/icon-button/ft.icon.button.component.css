@@ -4,6 +4,18 @@
 
 /* 1. GLOBAL BASE STYLES & LAYOUT (Write once) */
 .button-container {
+  /* Reset native <button> element defaults */
+  appearance: none;
+  -webkit-appearance: none;
+  border: none;
+  background: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: none;
+  text-align: left;
+
   /* Default Internal Variables (The "Mixin" Arguments) */
   --_brand: var(--ft-color-primary);
   --_text: var(--ft-color-solid-on-surface);
@@ -33,7 +45,8 @@
     box-shadow: var(--_shadow);
 
 
-    .suffix-icon .suffix, .prefix-icon {
+    .suffix-icon .suffix,
+    .prefix-icon {
       align-items: center;
       justify-content: center;
       display: flex;
@@ -83,17 +96,17 @@
 
     --_shadow: 0 var(--_vertical-offset) var(--_shadow-blur) color-mix(in srgb, var(--_brand_variant) 30%, transparent);
 
-    &.hover {
+    &:is(:hover, .hover) {
       --_brand_variant: color-mix(in srgb, var(--_brand) 80%, var(--ft-color-mix-z));
       --_bg: var(--_brand_variant);
     }
 
-    &.press {
+    &:is(:active, .press) {
       --_brand_variant: color-mix(in srgb, var(--_brand) 60%, var(--ft-color-mix-z));
       --_bg: var(--_brand_variant);
     }
 
-    &.focus {
+    &:is(:focus-visible, .focus) {
       --_brand_variant: color-mix(in srgb, var(--_brand) 40%, var(--ft-color-mix-z));
       --_bg: var(--_brand_variant);
     }
@@ -102,21 +115,21 @@
   /* OUTLINED: Border changes on hover/press */
 
   &.outlined {
-    &.hover {
+    &:is(:hover, .hover) {
       --_border-color: var(--_brand);
     }
 
-    &.press {
+    &:is(:active, .press) {
       --_border-color: var(--_brand);
       --_bg: color-mix(in srgb, var(--_brand) 10%, transparent);
     }
 
-    &.focus {
+    &:is(:focus-visible, .focus) {
       --_border-color: var(--_brand);
       --_bg: color-mix(in srgb, var(--_brand) 20%, transparent);
     }
 
-    &.disabled {
+    &:is(:disabled, .disabled) {
       --_bg: transparent;
     }
   }
@@ -128,18 +141,18 @@
     --_text: var(--_brand);
     --_border-color: transparent;
 
-    &.hover {
-      --_text: var(--_brand-600, color-mix(in srgb, var(--_brand) 80%,--ft-color-mix-z));
+    &:is(:hover, .hover) {
+      --_text: var(--_brand-600, color-mix(in srgb, var(--_brand) 80%, --ft-color-mix-z));
       --_bg: color-mix(in srgb, var(--_brand) 20%, transparent);
     }
 
-    &.press {
-      --_text: var(--_brand-700, color-mix(in srgb, var(--_brand) 60%,--ft-color-mix-z));
+    &:is(:active, .press) {
+      --_text: var(--_brand-700, color-mix(in srgb, var(--_brand) 60%, --ft-color-mix-z));
       --_bg: color-mix(in srgb, var(--_brand) 30%, transparent);
     }
 
-    &.focus {
-      --_text: var(--_brand-900, color-mix(in srgb, var(--_brand) 40%,--ft-color-mix-z));
+    &:is(:focus-visible, .focus) {
+      --_text: var(--_brand-900, color-mix(in srgb, var(--_brand) 40%, --ft-color-mix-z));
       --_bg: color-mix(in srgb, var(--_brand) 40%, transparent);
     }
   }
@@ -150,19 +163,19 @@
     --_border-color: transparent;
     --_shadow: none;
 
-    &.hover {
-      --_text: var(--_brand-600, color-mix(in srgb, var(--_brand) 80%,--ft-color-mix-z));
+    &:is(:hover, .hover) {
+      --_text: var(--_brand-600, color-mix(in srgb, var(--_brand) 80%, --ft-color-mix-z));
     }
 
-    &.press {
-      --_text: var(--_brand-700, color-mix(in srgb, var(--_brand) 60%,--ft-color-mix-z));
+    &:is(:active, .press) {
+      --_text: var(--_brand-700, color-mix(in srgb, var(--_brand) 60%, --ft-color-mix-z));
     }
 
-    &.focus {
-      --_text: var(--_brand-900, color-mix(in srgb, var(--_brand) 40%,--ft-color-mix-z));
+    &:is(:focus-visible, .focus) {
+      --_text: var(--_brand-900, color-mix(in srgb, var(--_brand) 40%, --ft-color-mix-z));
     }
 
-    &.disabled {
+    &:is(:disabled, .disabled) {
       --_bg: transparent;
     }
   }
@@ -199,15 +212,16 @@
 
   /* 5. SPECIAL CASE: DISABLED */
 
-  &.disabled {
+  &:is(:disabled, .disabled) {
     --_text: var(--ft-color-on-surface-muted);
     --_bg: var(--ft-form-field-100);
+    --_border-color: transparent;
     --_shadow: none;
     pointer-events: none;
+    cursor: not-allowed;
   }
 }
 
 body:has(.input-wrapper) {
   background: #fff;
 }
-
