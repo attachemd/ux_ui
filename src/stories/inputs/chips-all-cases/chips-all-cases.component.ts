@@ -36,5 +36,5 @@ export class ChipsAllCasesComponent {
     'label-outside-left',
   ];
 
-  items = ['toutes les 8h', 'Après chaque repas'];
+  items = ['toutes les 8h', 'Après chaque repas', 'À jeun', 'Avant le coucher'];
 }

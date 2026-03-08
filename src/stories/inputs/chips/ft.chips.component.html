@@ -13,37 +13,46 @@
 
   <div class="input-wrapper" [class]="radiusClasses">
     <div class="content-section">
-      <div *ngIf="isLabel && labelPlacement === 'label-inside'" class="label-row">
-        <span class="label leading-none" [ngClass]="{
-               'content-2xs--bold': size === 'sm-size' || size === 'md-size' || size === 'xs-size',
-               'content-xs--bold': size === 'lg-size',
-               }">{{ label }} <span *ngIf="required && !disabled">*</span></span>
+      <div class="top-row"
+        *ngIf="(isLabel && labelPlacement === 'label-inside') || (!(disabled || state === 'disabled') && state !== 'readonly')">
+        <div *ngIf="isLabel && labelPlacement === 'label-inside'" class="label-row">
+          <span class="label leading-none" [ngClass]="{
+                 'content-2xs--bold': size === 'sm-size' || size === 'md-size' || size === 'xs-size',
+                 'content-xs--bold': size === 'lg-size',
+                 }">{{ label }} <span *ngIf="required && !disabled">*</span></span>
+        </div>
+
+        <div class="suffix-row" *ngIf="!(disabled || state === 'disabled') && state !== 'readonly'">
+          <div class="suffix-icon">
+            <span *ngIf="isClearable && items.length > 0" class="material-symbols-rounded cursor-pointer"
+              (click)="clearAll()">close</span>
+            <span class="material-symbols-rounded">settings</span>
+          </div>
+        </div>
       </div>
 
       <div class="chips-list">
         <div *ngFor="let item of items; let i = index" class="chip">
           <span class="chip-text">{{ item }}</span>
-          <div class="chip-remove" (click)="removeItem(i)" *ngIf="!disabled && state !== 'readonly'">
+          <div class="chip-remove" (click)="removeItem(i)"
+            *ngIf="!(disabled || state === 'disabled') && state !== 'readonly'">
             <span class="material-symbols-rounded">close</span>
           </div>
         </div>
 
         <div class="input-section">
-          <input class="native-input" [placeholder]="items.length === 0 ? (placeholder || '') : ''" [(ngModel)]="inputValue"
-            (ngModelChange)="onInputChange($event)" (keydown.enter)="addItemFromInput()" (keydown.backspace)="handleBackspace($event)"
-            [disabled]="state === 'disabled' || disabled" [readonly]="state === 'readonly' || readonly" />
+          <input class="native-input" [placeholder]="items.length === 0 ? (placeholder || '') : ''"
+            [(ngModel)]="inputValue" (ngModelChange)="onInputChange($event)" (keydown.enter)="addItemFromInput()"
+            (keydown.backspace)="handleBackspace($event)" [disabled]="state === 'disabled' || disabled"
+            [readonly]="state === 'readonly' || readonly" />
         </div>
       </div>
     </div>
 
-    <div class="suffix-icon" *ngIf="!disabled && state !== 'readonly'">
-      <span *ngIf="isClearable && items.length > 0" class="material-symbols-rounded cursor-pointer" (click)="clearAll()">close</span>
-      <span class="material-symbols-rounded">settings</span>
-    </div>
-
     <!-- Autocomplete Dropdown -->
     <div *ngIf="showSuggestions && filteredSuggestions.length > 0" class="suggestions-dropdown">
-      <div *ngFor="let suggestion of filteredSuggestions" class="suggestion-item" (click)="selectSuggestion(suggestion)">
+      <div *ngFor="let suggestion of filteredSuggestions" class="suggestion-item"
+        (click)="selectSuggestion(suggestion)">
         {{ suggestion }}
       </div>
     </div>

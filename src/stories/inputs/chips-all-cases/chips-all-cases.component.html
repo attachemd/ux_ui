@@ -3,9 +3,11 @@
   <div class="cases-container">
     <div class="case-row case-row-heading">
       <div class="case-item case-item-heading"></div>
-      <div *ngFor="let placement of labelPlacements" class="case-item">
+      @for (placement of labelPlacements; track placement) {
+      <div class="case-item">
         {{ placement }}
       </div>
+      }
     </div>
     @for (state of states; track state) {
     <div class="case-row">

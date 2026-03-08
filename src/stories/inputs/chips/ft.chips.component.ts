@@ -80,7 +80,7 @@ export class FTChipsComponent {
     this.itemsChange.emit(this.items);
   }
 
-  handleBackspace(event: KeyboardEvent) {
+  handleBackspace(event: Event) {
     if (!this.inputValue && this.items.length > 0) {
       this.removeItem(this.items.length - 1);
     }

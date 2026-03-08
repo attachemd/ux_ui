@@ -32,7 +32,7 @@ const meta: Meta<ChipsAllCasesComponent> = {
     radius: 'md-radius',
     size: 'md-size',
     color: 'primary',
-    variant: 'outlined',
+    variant: 'flat',
     isDescription: false,
     isClearable: true,
   },

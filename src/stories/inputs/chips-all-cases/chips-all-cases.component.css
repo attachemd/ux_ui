@@ -1,4 +1,10 @@
-::ng-deep .case-item {
+::ng-deep .case-row-heading .case-item:not(.case-item-heading)  {
     width: 360px;
-    height: 150px;
 }
+
+::ng-deep .case-row:not(.case-row-heading) .case-item:not(.case-item-heading) {
+    width: 360px;
+    min-height: 150px;
+}
+
+
