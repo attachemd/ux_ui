@@ -13,6 +13,10 @@ const meta: Meta<InputAllCasesComponent> = {
       control: 'select',
       options: ['xs-size', 'sm-size', 'md-size', 'lg-size'],
     },
+    color: {
+      control: 'select',
+      options: ['default', 'primary', 'secondary', 'tertiary', 'success', 'warning', 'danger'],
+    },
     variant: {
       control: 'select',
       options: ['flat', 'faded', 'outlined', 'ghost'],
@@ -55,6 +59,7 @@ const meta: Meta<InputAllCasesComponent> = {
     isPrefixIconClass: false,
     radius: 'md-radius',
     size: 'md-size',
+    color: 'default',
     variant: 'flat',
     isDescription: false,
     showContent: false,

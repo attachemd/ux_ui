@@ -18,6 +18,7 @@ export class InputAllCasesComponent {
   @Input() prefixIconClass = '';
   @Input() radius: 'none-radius' | 'xs-radius' | 'sm-radius' | 'md-radius' | 'lg-radius' | 'full-radius' = 'md-radius';
   @Input() size: 'xs-size' | 'sm-size' | 'md-size' | 'lg-size' = 'md-size';
+  @Input() color: 'default' | 'primary' | 'secondary' | 'tertiary' | 'success' | 'warning' | 'danger' = 'default';
   @Input() variant: 'flat' | 'faded' | 'outlined' | 'ghost' = 'flat';
   @Input() isDescription = false;
   @Input() showContent = false;
@@ -30,9 +31,10 @@ export class InputAllCasesComponent {
   @Input() suffix2IconClass = 'search';
   @Input() inputType: 'text' | 'password' = 'text';
 
-  states: Array<'rest' | 'hover' | 'focus' | 'readonly' | 'disabled' | 'invalid' | 'with-description'> = [
+  states: Array<'rest' | 'hover' | 'press' | 'focus' | 'readonly' | 'disabled' | 'invalid' | 'with-description'> = [
     'rest',
     'hover',
+    'press',
     'focus',
     'readonly',
     'disabled',
