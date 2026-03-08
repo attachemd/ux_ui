@@ -25,5 +25,13 @@ export default meta;
 type Story = StoryObj<TextareaAllCasesComponent>;
 
 export const Default: Story = {
-  args: {}
+  args: {
+    showContent: false,
+  }
+};
+
+export const WithContent: Story = {
+  args: {
+    showContent: true,
+  }
 };

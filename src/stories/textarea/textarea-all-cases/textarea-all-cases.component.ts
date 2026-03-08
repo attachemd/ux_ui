@@ -16,6 +16,7 @@ export class TextareaAllCasesComponent {
   @Input() variant: 'flat' | 'faded' | 'outlined' | 'ghost' = 'flat';
   @Input() label = 'Description';
   @Input() placeholder = 'Type something...';
+  @Input() showContent = false;
 
   labelPlacements: Array<'top' | 'left' | 'inside'> = ['inside', 'top', 'left'];
   states: Array<'rest' | 'hover' | 'focus' | 'readonly' | 'disabled' | 'invalid' | 'with-description'> = [
