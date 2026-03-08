@@ -13,11 +13,13 @@ import { FTInputComponent } from '../input/ft.input.component';
 })
 export class InputAllCasesComponent {
   @HostBinding('class') class = 'showcase';
-  isPrefixIconClass: boolean = true;
-  radius: 'none-radius' | 'xs-radius' | 'sm-radius' | 'md-radius' | 'lg-radius' | 'full-radius' = 'md-radius';
-  size: 'xs-size' | 'sm-size' | 'md-size' | 'lg-size' = 'md-size';
-  variant: 'flat' | 'faded' | 'outlined' | 'ghost' = 'flat';
-  isDescription = false;
+
+  @Input() isPrefixIconClass = true;
+  @Input() prefixIconClass = '';
+  @Input() radius: 'none-radius' | 'xs-radius' | 'sm-radius' | 'md-radius' | 'lg-radius' | 'full-radius' = 'md-radius';
+  @Input() size: 'xs-size' | 'sm-size' | 'md-size' | 'lg-size' = 'md-size';
+  @Input() variant: 'flat' | 'faded' | 'outlined' | 'ghost' = 'flat';
+  @Input() isDescription = false;
   @Input() showContent = false;
   @Input() startContent?: string;
   @Input() endContent?: string;
@@ -28,7 +30,7 @@ export class InputAllCasesComponent {
   @Input() suffix2IconClass = 'search';
   @Input() inputType: 'text' | 'password' = 'text';
 
-  states: Array<'rest' | 'hover' | 'focus' | 'readonly' | 'disabled' | 'invalid' | 'content' | 'with-description'> = [
+  states: Array<'rest' | 'hover' | 'focus' | 'readonly' | 'disabled' | 'invalid' | 'with-description'> = [
     'rest',
     'hover',
     'focus',
@@ -41,10 +43,6 @@ export class InputAllCasesComponent {
   labelPlacements: Array<'label-inside' | 'label-outside' | 'label-outside-left'> = [
     'label-inside',
     'label-outside',
-    'label-outside-left'
-
+    'label-outside-left',
   ];
-
-
-
 }

@@ -1,27 +1,9 @@
-// input-showcase.stories.ts
 import type { Meta, StoryObj } from '@storybook/angular';
-import { moduleMetadata } from '@storybook/angular';
 import { InputAllCasesComponent } from './input-all-cases.component';
-
-import { FormsModule } from '@angular/forms';
-import { FTInputComponent } from '../input/ft.input.component';
 
 const meta: Meta<InputAllCasesComponent> = {
   title: 'Inputs/Input All Cases',
   component: InputAllCasesComponent,
-  // decorators: [
-  //   moduleMetadata({
-  //     imports: [FormsModule, FtRadioComponent],
-  //   }),
-  // ],
-  // parameters: {
-  //   layout: 'fullscreen',
-  //   docs: {
-  //     description: {
-  //       component: 'A comprehensive showcase of all ft-input component variations and use cases.'
-  //     }
-  //   }
-  // },
   argTypes: {
     radius: {
       control: 'select',
@@ -36,10 +18,12 @@ const meta: Meta<InputAllCasesComponent> = {
       options: ['flat', 'faded', 'outlined', 'ghost'],
     },
     isDescription: {
-      control: "boolean",
-      options: [true, false],
+      control: 'boolean',
     },
     showContent: {
+      control: 'boolean',
+    },
+    isPrefixIconClass: {
       control: 'boolean',
     },
     startContent: {
@@ -65,7 +49,7 @@ const meta: Meta<InputAllCasesComponent> = {
     inputType: {
       control: 'select',
       options: ['text', 'password'],
-    }
+    },
   },
   args: {
     isPrefixIconClass: false,
@@ -79,43 +63,73 @@ const meta: Meta<InputAllCasesComponent> = {
     isSuffix2IconClass: false,
     suffix2IconClass: 'search',
     inputType: 'text',
-  }
+  },
 };
 
 export default meta;
 type Story = StoryObj<InputAllCasesComponent>;
 
 export const Default: Story = {
-  args: {}
+  args: {},
 };
 
 export const WithContent: Story = {
   args: {
-    showContent: true
-  }
+    showContent: true,
+  },
 };
 
 export const WithStartContent: Story = {
   args: {
     startContent: '$',
-  }
+  },
 };
 
 export const WithEndContent: Story = {
   args: {
     endContent: '@gmail.com',
-  }
+  },
 };
 
 export const WithStartAndEndContent: Story = {
   args: {
     startContent: 'https://',
     endContent: '.org',
-  }
+  },
 };
 
 export const PasswordType: Story = {
   args: {
     inputType: 'password',
-  }
+    isPrefixIconClass: true,
+    prefixIconClass: 'lock',
+  },
+};
+
+export const WithPrefixIcon: Story = {
+  args: {
+    isPrefixIconClass: true,
+  },
+};
+
+export const WithSuffixIcons: Story = {
+  args: {
+    isSuffix1IconClass: true,
+    suffix1IconClass: 'edit',
+    isSuffix2IconClass: true,
+    suffix2IconClass: 'search',
+  },
+};
+
+export const FullyLoaded: Story = {
+  args: {
+    showContent: true,
+    isPrefixIconClass: true,
+    isSuffix1IconClass: true,
+    suffix1IconClass: 'edit',
+    isSuffix2IconClass: true,
+    suffix2IconClass: 'search',
+    startContent: 'https://',
+    endContent: '.com',
+  },
 };

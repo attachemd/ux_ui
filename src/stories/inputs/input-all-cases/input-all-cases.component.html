@@ -2,19 +2,10 @@
   <h1 class="showcase-title">FT-Input All cases</h1>
   <div class="cases-container">
     <div class="case-row case-row-heading">
-      <div class="case-item case-item-heading">
-
+      <div class="case-item case-item-heading"></div>
+      <div *ngFor="let placement of labelPlacements" class="case-item">
+        {{ placement }}
       </div>
-      <div class="case-item">
-        labelPlacement: inside
-      </div>
-      <div class="case-item">
-        labelPlacement: outside
-      </div>
-      <div class="case-item">
-        labelPlacement: outside left
-      </div>
-
     </div>
     @for (state of states; track state) {
     <div class="case-row">
@@ -28,7 +19,7 @@
           [placeholder]="'Enter your username'" [isDescription]="isDescription || state === 'with-description'"
           [description]="'This is your public display name.'" [errorMessage]="'Username is required.'"
           [content]="'y.amrani'" [labelPlacement]="labelPlacement" [isPrefixIconClass]="isPrefixIconClass"
-          [prefixIconClass]="'person'" [isSuffix1IconClass]="isSuffix1IconClass" [suffix1IconClass]="suffix1IconClass"
+          [prefixIconClass]="prefixIconClass" [isSuffix1IconClass]="isSuffix1IconClass" [suffix1IconClass]="suffix1IconClass"
           [isSuffix2IconClass]="isSuffix2IconClass" [suffix2IconClass]="suffix2IconClass" [isClearable]="true"
           [showContent]="showContent" [startContent]="startContent" [endContent]="endContent" [inputType]="inputType">
         </ft-input>
