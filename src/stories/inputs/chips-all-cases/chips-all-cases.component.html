@@ -1,0 +1,28 @@
+<div class="all-case-container">
+  <h1 class="showcase-title">FT-Chips All cases</h1>
+  <div class="cases-container">
+    <div class="case-row case-row-heading">
+      <div class="case-item case-item-heading"></div>
+      <div *ngFor="let placement of labelPlacements" class="case-item">
+        {{ placement }}
+      </div>
+    </div>
+    @for (state of states; track state) {
+    <div class="case-row">
+      <div class="case-item case-item-heading vertical-text">
+        {{state}}
+      </div>
+      @for (labelPlacement of labelPlacements; track labelPlacement) {
+      <div class="case-item">
+        <ft-chips [isLabel]="true" [label]="'Instructions'" [state]="state === 'with-description' ? 'rest' : state"
+          [size]="size" [color]="color" [variant]="variant" [radius]="radius" [required]="true"
+          [placeholder]="'Ajouter...'" [isDescription]="isDescription || state === 'with-description'"
+          [description]="'Provide medication instructions.'" [errorMessage]="'Au moins une instruction est requise.'"
+          [items]="items" [labelPlacement]="labelPlacement" [isClearable]="isClearable">
+        </ft-chips>
+      </div>
+      }
+    </div>
+    }
+  </div>
+</div>
