@@ -1,5 +1,5 @@
-import {FTInputComponent} from './ft.input.component';
-import type {Meta, StoryObj} from '@storybook/angular';
+import { FTInputComponent } from './ft.input.component';
+import type { Meta, StoryObj } from '@storybook/angular';
 
 const meta: Meta<FTInputComponent> = {
   title: 'Inputs/Input',
@@ -47,7 +47,7 @@ const meta: Meta<FTInputComponent> = {
     },
     state: {
       control: 'select',
-      options: ['rest','hover','focus','readonly','disabled','invalid','content'],
+      options: ['rest', 'hover', 'focus', 'readonly', 'disabled', 'invalid', 'content'],
     },
     radius: {
       control: 'select',
@@ -56,6 +56,10 @@ const meta: Meta<FTInputComponent> = {
     labelPlacement: {
       control: 'select',
       options: ['label-inside', 'label-outside', 'label-outside-left'],
+    },
+    inputType: {
+      control: 'select',
+      options: ['text', 'password'],
     }
   },
   args: {
@@ -74,6 +78,7 @@ const meta: Meta<FTInputComponent> = {
     suffix2IconClass: 'keyboard_arrow_down',
     isDescription: false,
     errorMessage: 'error',
+    placeholder: 'Enter value...',
   },
 };
 
@@ -253,5 +258,41 @@ export const WithDescription: Story = {
     isDescription: true,
     description: 'This is a description.',
     label: 'With Description',
+  },
+};
+
+export const WithStartContent: Story = {
+  args: {
+    label: 'Price',
+    startContent: '$',
+    placeholder: 'Amount',
+  },
+};
+
+export const WithEndContent: Story = {
+  args: {
+    label: 'Email',
+    endContent: '@gmail.com',
+    placeholder: 'username',
+  },
+};
+
+export const WithStartAndEndContent: Story = {
+  args: {
+    label: 'Website',
+    startContent: 'https://',
+    endContent: '.org',
+    placeholder: 'firehis',
+  },
+};
+
+export const PasswordInput: Story = {
+  args: {
+    label: 'Password',
+    inputType: 'password',
+    placeholder: 'Enter your password',
+    isSuffix1IconClass: false,
+    isSuffix2IconClass: false,
+    isClearable: true,
   },
 };
