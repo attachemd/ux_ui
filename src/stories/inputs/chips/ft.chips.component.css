@@ -1,0 +1,248 @@
+::ng-deep storybook-root {
+  >ft-chips {
+    min-width: 300px;
+    width: fit-content !important;
+    display: block;
+  }
+}
+
+:host {
+  width: 100%;
+}
+
+
+.field-container {
+  /* INTERNAL VARIABLE DEFAULTS */
+  --_field-bg: transparent;
+  --_field-border-color: var(--ft-color-border-200);
+  --_field-border-width: var(--ft-border-secondary);
+  --_field-text: var(--ft-color-solid-on-surface);
+  --_field-placeholder: var(--ft-color-on-surface-level-300);
+  --_field-label: var(--ft-color-on-surface-level-100);
+
+  --_field-accent: var(--ft-color-primary);
+  --_field-bg-base: var(--ft-color-primary);
+
+  --_field-bg-50: color-mix(in srgb, var(--_field-bg-base) 2%, transparent);
+  --_field-bg-100: color-mix(in srgb, var(--_field-bg-base) 4%, transparent);
+  --_field-bg-200: color-mix(in srgb, var(--_field-bg-base) 8%, transparent);
+  --_field-bg-300: color-mix(in srgb, var(--_field-bg-base) 12%, transparent);
+
+  --_balanced_small_padding: var(--ft-unit-400);
+  --_field-height: auto;
+  --_field-min-height: var(--ft-unit-800);
+  --_field-padding: var(--ft-unit-150) var(--ft-unit-400);
+  --_field-gap: var(--ft-unit-300);
+  --_field-container-gap: var(--ft-unit-100);
+  --_field-icon-size: 20px;
+  --_field-content-gap: var(--ft-unit-100);
+  --_field-font-size: var(--ft-text-xs);
+  --_field-font-weight: 500;
+
+  /* CHIP SPECIFIC */
+  --_chip-bg: var(--ft-color-surface-level-100);
+  --_chip-text: var(--ft-color-solid-on-surface);
+  --_chip-border: var(--ft-color-border-100);
+  --_chip-radius: var(--ft-radius-400);
+  --_chip-padding: 4px 12px;
+  --_chip-gap: 8px;
+
+  display: grid;
+  width: 100%;
+  gap: var(--_field-container-gap);
+
+  /* BASE LAYOUT & CHILD STYLES */
+
+  .input-wrapper {
+    display: flex;
+    align-items: flex-start; /* Align chips to top */
+    flex-wrap: wrap;
+    min-width: 100%;
+    min-height: var(--_field-min-height);
+    padding: 8px 16px;
+    gap: 12px;
+    background-color: var(--ft-color-surface-level-200);
+    border: var(--_field-border-width) solid var(--_field-border-color);
+    color: var(--_field-text);
+    transition: all 0.2s ease;
+    position: relative;
+
+    .content-section {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      gap: 8px;
+    }
+
+    .chips-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .chip {
+      display: flex;
+      align-items: center;
+      gap: var(--_chip-gap);
+      background-color: #ffffff;
+      border: 1px solid var(--_chip-border);
+      color: var(--_chip-text);
+      padding: var(--_chip-padding);
+      border-radius: var(--_chip-radius);
+      font-size: 14px;
+      font-weight: 400;
+      white-space: nowrap;
+      height: 32px;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+
+      .chip-remove {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        color: #000;
+        font-weight: 700;
+
+        .material-symbols-rounded {
+          font-size: 16px;
+        }
+      }
+    }
+
+    .input-section {
+      display: flex;
+      align-items: center;
+      min-width: 120px;
+      height: 32px;
+
+      .native-input {
+        appearance: none;
+        -webkit-appearance: none;
+        border: none;
+        background: none;
+        outline: none;
+        padding: 0;
+        margin: 0;
+        font-family: inherit;
+        font-size: 14px;
+        color: var(--_field-text);
+        width: 100%;
+        line-height: normal;
+
+        &::placeholder {
+          color: var(--_field-placeholder);
+          font-weight: 300;
+        }
+      }
+    }
+
+    .suffix-icon {
+      position: absolute;
+      right: 16px;
+      top: 12px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #000;
+
+      .material-symbols-rounded {
+        font-size: 20px;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .label-row {
+    color: var(--_field-label);
+    display: contents;
+  }
+
+  /* COLOR VARIATIONS */
+  &.default {
+    --_field-bg-base: var(--ft-color-border-200);
+    --_field-accent: var(--ft-color-primary);
+  }
+
+  &.primary {
+    --_field-bg-base: var(--ft-color-primary);
+    --_field-accent: var(--ft-color-primary);
+  }
+
+  &.secondary {
+    --_field-bg-base: var(--ft-color-secondary);
+    --_field-accent: var(--ft-color-secondary);
+  }
+
+  /* VARIANT LOGIC */
+
+  &.flat {
+    --_field-bg: var(--_field-bg-100);
+    --_field-border-width: 0px;
+
+    &:is(:hover, .hover) {
+      --_field-bg: var(--_field-bg-200);
+    }
+
+    &:is(:active, .press) {
+      --_field-bg: var(--_field-bg-300);
+    }
+  }
+
+  &.faded {
+    --_field-bg: var(--_field-bg-100);
+
+    &:is(:hover, .hover) {
+      --_field-bg: var(--_field-bg-200);
+    }
+
+    &:is(:focus-within, .focus) {
+      --_field-bg: var(--_field-bg-200);
+      --_field-border-color: var(--_field-accent);
+    }
+  }
+
+  &.outlined {
+    --_field-bg: transparent !important;
+
+    &:is(:hover, .hover) {
+      --_field-border-color: var(--ft-color-border-300);
+    }
+
+    &:is(:focus-within, .focus) {
+      --_field-border-color: var(--_field-accent);
+    }
+  }
+
+  /* AUTOCOMPLETE SUGGESTIONS */
+  .suggestions-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: var(--ft-color-surface-level-100);
+    border: 1px solid var(--ft-color-border-200);
+    border-radius: var(--ft-radius-400);
+    box-shadow: 0 4px 12px var(--ft-color-shadow-200);
+    z-index: 100;
+    margin-top: 4px;
+    max-height: 200px;
+    overflow-y: auto;
+
+    .suggestion-item {
+      padding: var(--ft-unit-200) var(--ft-unit-400);
+      cursor: pointer;
+      font-size: var(--ft-text-xs);
+      color: var(--ft-color-solid-on-surface);
+
+      &:hover {
+        background: var(--ft-color-surface-level-200);
+      }
+    }
+  }
+
+  &.disabled {
+    pointer-events: none;
+    opacity: 0.6;
+  }
+}
