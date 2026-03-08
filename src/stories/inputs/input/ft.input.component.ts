@@ -19,7 +19,7 @@ export class FTInputComponent implements OnInit {
   @Input() isLabel = true;
   @Input() label?: string;
   @Input() size: 'xs-size' | 'sm-size' | 'md-size' | 'lg-size' = 'md-size';
-  @Input() color: 'default' | 'primary' | 'secondary' | 'tertiary' | 'success' | 'warning' | 'danger' = 'default';
+  @Input() color: 'default' | 'primary' | 'secondary' | 'tertiary' | 'success' | 'warning' | 'danger' = 'primary';
   @Input() variant: 'flat' | 'faded' | 'outlined' | 'ghost' = 'flat';
   @Input() radius: 'none-radius' | 'xs-radius' | 'sm-radius' | 'md-radius' | 'lg-radius' | 'full-radius' = 'md-radius';
   @Input() state: 'rest' | 'hover' | 'press' | 'focus' | 'readonly' | 'disabled' | 'invalid' | 'content' = 'rest';
