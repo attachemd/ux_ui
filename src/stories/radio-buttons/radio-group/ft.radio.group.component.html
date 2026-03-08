@@ -1,25 +1,17 @@
-<div class="group-field-container"
-     [class.inactive]="inactive"
->
+<div class="group-field-container" [class.inactive]="inactive">
   <div class="group-field-label content-xs--normal">
     {{label}}
   </div>
   <div class="group-field-content-container">
-    <div class="group-field-content"
-         [ngClass]="flexDirection"
-    >
-      <ft-radio
-        *ngFor="let option of options"
-        [isLabel]="option.isLabel"
-        [label]="option.label"
-        [isDescription]="isDescription ?? option.isDescription"
-        [description]="option.description"
-        [size]="option.size || size"
-        [state]="option.state || 'rest'"
-        [invalid]="invalid ?? option.invalid ?? false"
-        [select]="option.select !== undefined ? option.select : true"
-        [inactive]="inactive ?? option.inactive ?? false"
-      >
+    <div class="group-field-content" [ngClass]="flexDirection">
+      <ft-radio *ngFor="let option of options; let i = index" [name]="name"
+        [value]="option.value !== undefined ? option.value : option.label" [isLabel]="option.isLabel"
+        [label]="option.label" [isDescription]="isDescription || option.isDescription"
+        [description]="option.description" [size]="option.size || size" [state]="option.state || 'rest'"
+        [invalid]="invalid !== undefined ? invalid : (option.invalid || false)"
+        [select]="value === (option.value !== undefined ? option.value : option.label)"
+        (selectChange)="onOptionSelected(option.value !== undefined ? option.value : option.label)"
+        [inactive]="inactive || (option.inactive || false)">
       </ft-radio>
     </div>
     <div *ngIf="invalid && errorMessage" class="error-message">
@@ -31,5 +23,3 @@
   </div>
 
 </div>
-
-
