@@ -13,7 +13,7 @@ export interface CheckboxOption {
     invalid?: boolean;
     checked?: boolean;
     indeterminate?: boolean;
-    inactive?: boolean;
+    disabled?: boolean;
 }
 
 @Component({
@@ -36,7 +36,7 @@ export class FtCheckboxGroupComponent {
     @Input() isDescription = false;
     @Input() description?: string;
     @Input() errorMessage?: string;
-    @Input() inactive = false;
+    @Input() disabled = false;
     @Input() invalid?: boolean;
     @Input() size: 'xs-size' | 'sm-size' | 'md-size' | 'lg-size' = 'md-size';
     @Input() flexDirection: 'flex-row' | 'flex-col' = 'flex-col';

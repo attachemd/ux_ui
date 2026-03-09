@@ -33,18 +33,18 @@ export class FtCheckboxComponent {
         return this.disabled || this.state === 'disabled' ? '-1' : '0';
     }
 
-    @HostListener('keydown.space', ['$event'])
-    onSpaceDown(event: KeyboardEvent) {
-        event.preventDefault();
-        this.toggle();
-    }
-
-    toggle() {
+    public toggle() {
         if (!this.disabled && this.state !== 'disabled') {
             this.value = !this.value;
             this.indeterminate = false; // Toggling always clears indeterminate state
             this.valueChange.emit(this.value);
         }
+    }
+
+    @HostListener('keydown.space', ['$event'])
+    onSpaceDown(event: any) {
+        event.preventDefault();
+        this.toggle();
     }
 
 }

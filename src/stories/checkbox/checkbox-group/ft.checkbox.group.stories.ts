@@ -24,7 +24,7 @@ const meta: Meta<FtCheckboxGroupComponent> = {
             { isLabel: true, label: 'Technology', isDescription: false, description: '' },
             { isLabel: true, label: 'Travel', isDescription: true, description: 'International or domestic' },
             { isLabel: true, label: 'Design', isDescription: false, description: '', checked: true },
-            { isLabel: true, label: 'Sports', isDescription: false, description: '', inactive: true }
+            { isLabel: true, label: 'Sports', isDescription: false, description: '', disabled: true }
         ]
     }
 };
@@ -49,9 +49,9 @@ export const Invalid: Story = {
     }
 };
 
-export const Inactive: Story = {
+export const Disabled: Story = {
     args: {
-        inactive: true
+        disabled: true
     }
 };
 

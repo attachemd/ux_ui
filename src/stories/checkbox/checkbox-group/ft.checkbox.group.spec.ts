@@ -53,10 +53,10 @@ describe('FtCheckboxGroupComponent', () => {
         expect(errorEl.nativeElement.textContent.trim()).toBe('Error');
     });
 
-    it('should apply inactive class to container when inactive is true', () => {
-        component.inactive = true;
+    it('should apply disabled class to container when disabled is true', () => {
+        component.disabled = true;
         fixture.detectChanges();
         const container = fixture.debugElement.query(By.css('.group-field-container'));
-        expect(container.classes['inactive']).toBeTrue();
+        expect(container.classes['disabled']).toBeTrue();
     });
 });

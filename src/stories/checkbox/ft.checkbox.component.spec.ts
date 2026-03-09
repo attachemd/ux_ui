@@ -43,8 +43,8 @@ describe('FtCheckboxComponent', () => {
         expect(descEl.nativeElement.textContent.trim()).toBe('Test Description');
     });
 
-    it('should apply checked class when checked is true', () => {
-        component.checked = true;
+    it('should apply checked class when value is true', () => {
+        component.value = true;
         fixture.detectChanges();
         const container = fixture.debugElement.query(By.css('.ft-checkbox-field-container'));
         expect(container.classes['checked']).toBeTrue();
@@ -64,8 +64,8 @@ describe('FtCheckboxComponent', () => {
         expect(container.classes['invalid']).toBeTrue();
     });
 
-    it('should apply inactive class when inactive is true', () => {
-        component.inactive = true;
+    it('should apply inactive class when disabled is true', () => {
+        component.disabled = true;
         fixture.detectChanges();
         const container = fixture.debugElement.query(By.css('.ft-checkbox-field-container'));
         expect(container.classes['inactive']).toBeTrue();

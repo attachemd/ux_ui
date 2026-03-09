@@ -43,7 +43,7 @@
         }
     }
 
-    &.inactive {
+    &.disabled {
         .group-field-label {
             color: var(--ft-color-on-surface-muted);
         }
