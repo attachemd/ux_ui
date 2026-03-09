@@ -16,7 +16,7 @@ export class MedicalHistoryComponent {
   medicalHistoryEntities: MedicalHistoryEntity[] = medicalHistoryEntities;
   comments: Note[] = notes;
 
-  ref: DynamicDialogRef | undefined;
+  ref: DynamicDialogRef | null | undefined;
 
   constructor(public elementRef: ElementRef,
     public dialogService: DialogService,
@@ -38,20 +38,22 @@ export class MedicalHistoryComponent {
       transitionOptions: 'ease',
     });
 
-    this.ref.onClose.subscribe((data: any) => {
-      let summary_and_detail;
-      if (data) {
-        const buttonType = data?.buttonType;
-        summary_and_detail = buttonType ? { summary: 'No Product Selected', detail: `Pressed '${buttonType}' button` } : { summary: 'Product Selected', detail: data?.name };
-      } else {
-        summary_and_detail = { summary: 'No Product Selected', detail: 'Pressed Close button' };
-      }
-      this.messageService.add({ severity: 'info', ...summary_and_detail, life: 3000 });
-    });
+    if (this.ref) {
+      this.ref.onClose.subscribe((data: any) => {
+        let summary_and_detail;
+        if (data) {
+          const buttonType = data?.buttonType;
+          summary_and_detail = buttonType ? { summary: 'No Product Selected', detail: `Pressed '${buttonType}' button` } : { summary: 'Product Selected', detail: data?.name };
+        } else {
+          summary_and_detail = { summary: 'No Product Selected', detail: 'Pressed Close button' };
+        }
+        this.messageService.add({ severity: 'info', ...summary_and_detail, life: 3000 });
+      });
 
-    this.ref.onMaximize.subscribe((value) => {
-      this.messageService.add({ severity: 'info', summary: 'Maximized', detail: `maximized: ${value.maximized}` });
-    });
+      this.ref.onMaximize.subscribe((value) => {
+        this.messageService.add({ severity: 'info', summary: 'Maximized', detail: `maximized: ${value.maximized}` });
+      });
+    }
   }
 
   /**
@@ -63,3 +65,4 @@ export class MedicalHistoryComponent {
     return this.comments.find((comment) => comment.id === id);
   }
 }
+

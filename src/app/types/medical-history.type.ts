@@ -25,3 +25,4 @@ export interface Note {
 export interface MedicalConditionStatus {
   name: string;
 }
+

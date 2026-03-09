@@ -60,3 +60,4 @@ describe('FtCheckboxGroupComponent', () => {
         expect(container.classes['disabled']).toBeTrue();
     });
 });
+

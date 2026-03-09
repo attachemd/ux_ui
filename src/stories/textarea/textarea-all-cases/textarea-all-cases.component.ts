@@ -23,3 +23,4 @@ export class TextareaAllCasesComponent {
     'rest', 'hover', 'focus', 'readonly', 'disabled', 'invalid', 'with-description'
   ];
 }
+

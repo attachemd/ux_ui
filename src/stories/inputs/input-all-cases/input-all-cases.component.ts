@@ -49,3 +49,4 @@ export class InputAllCasesComponent {
     'label-outside-left',
   ];
 }
+

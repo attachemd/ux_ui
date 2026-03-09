@@ -38,3 +38,4 @@ export class ButtonGroupAllCasesComponent {
         { isLabel: true, label: 'Three' }
     ];
 }
+

@@ -5,7 +5,7 @@
       <div class="form-group">
         <div class="field-container lg:min-w-[200px] lg:w-[200px]">
           <p-floatlabel variant="in" class="w-full">
-            <p-dropdown
+            <p-select
               formControlName="riskCategory"
               [options]="riskCategories"
               optionLabel="name"
@@ -67,7 +67,7 @@
 
         <div class="field-container">
           <p-floatlabel variant="in" class="w-full">
-            <p-dropdown
+            <p-select
               formControlName="riskLevel"
               [options]="riskLevels"
               optionLabel="name"
@@ -118,3 +118,4 @@
               [disabled]="!riskFactorForm.valid"/>
   </div>
 </form>
+

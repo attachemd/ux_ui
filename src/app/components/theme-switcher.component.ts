@@ -11,3 +11,4 @@ import { ThemeService } from '../services/theme.service';
 export class ThemeSwitcherComponent {
   constructor(public themeService: ThemeService) {}
 }
+

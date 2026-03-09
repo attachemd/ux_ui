@@ -21,3 +21,4 @@ describe('VaccinationDialogComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+

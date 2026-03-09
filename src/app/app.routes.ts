@@ -25,3 +25,4 @@ export const routes: Routes = [
   },
   { path: 'medical-history-status', component: MedicalHistoryStatusComponent },
 ];
+

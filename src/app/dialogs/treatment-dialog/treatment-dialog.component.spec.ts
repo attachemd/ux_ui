@@ -21,3 +21,4 @@ describe('TreatmentDialogComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+

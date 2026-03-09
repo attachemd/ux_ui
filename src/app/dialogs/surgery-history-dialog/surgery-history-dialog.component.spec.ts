@@ -21,3 +21,4 @@ describe('SurgeryHistoryDialogComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+

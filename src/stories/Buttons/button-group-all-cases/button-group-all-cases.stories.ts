@@ -36,3 +36,4 @@ type Story = StoryObj<ButtonGroupAllCasesComponent>;
 export const Default: Story = {
     args: {}
 };
+

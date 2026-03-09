@@ -5,15 +5,14 @@ import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { Subject } from 'rxjs';
 import { AutoCompleteModule } from 'primeng/autocomplete';
 import { ButtonModule } from 'primeng/button';
-import { CalendarModule } from 'primeng/calendar'; // Use p-calendar
+import { DatePickerModule } from 'primeng/datepicker'; // Use p-calendar
 import { FloatLabelModule } from 'primeng/floatlabel';
 import { MultiSelectModule } from 'primeng/multiselect';
 import { InputGroupModule } from 'primeng/inputgroup';
 import { CommonModule, NgIf } from '@angular/common'; // Import CommonModule for NgIf
 import { MessageService } from 'primeng/api';
 import {TextareaModule} from 'primeng/textarea';
-import {Select} from 'primeng/select';
-import {DatePickerModule} from 'primeng/datepicker';
+import {SelectModule} from 'primeng/select';
 
 // Define interfaces for dropdown options if needed for stricter typing
 interface Option {
@@ -35,14 +34,13 @@ interface AllergenOption {
     ReactiveFormsModule,
     AutoCompleteModule,
     ButtonModule,
-    CalendarModule,
+    DatePickerModule,
     FloatLabelModule,
     MultiSelectModule,
     TextareaModule,
     InputGroupModule,
     NgIf,
-    Select,
-    DatePickerModule,
+    SelectModule,
     // Explicitly imported if standalone
   ],
   providers: [MessageService], // Provide MessageService if not provided globally
@@ -334,3 +332,4 @@ export class AllergyDialogComponent implements OnInit, OnDestroy {
   }
 
 }
+

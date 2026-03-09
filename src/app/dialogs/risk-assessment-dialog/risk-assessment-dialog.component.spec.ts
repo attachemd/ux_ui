@@ -21,3 +21,4 @@ describe('RiskAssessmentDialogComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+

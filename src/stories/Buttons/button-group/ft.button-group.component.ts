@@ -49,3 +49,4 @@ export class FtButtonGroupComponent {
         return index === targetIndex ? this.state : 'rest';
     }
 }
+

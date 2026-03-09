@@ -29,3 +29,4 @@ type Story = StoryObj<CheckboxAllCasesComponent>;
 export const Default: Story = {
     args: {}
 };
+

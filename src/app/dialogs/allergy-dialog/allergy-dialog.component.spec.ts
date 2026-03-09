@@ -21,3 +21,4 @@ describe('AllergyDialogComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+

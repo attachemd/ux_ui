@@ -103,7 +103,7 @@
         <div class="p-field p-col-12 p-md-6">
           <div class="field-container">
             <p-floatlabel variant="in">
-              <p-calendar
+              <p-datepicker
                 formControlName="dateOfBirth"
                 id="dateOfBirth"
                 showIcon="true"
@@ -113,7 +113,7 @@
                 [showClear]="true"
                 variant="filled"
                 appendTo="body"
-              ></p-calendar>
+              ></p-datepicker>
               <label for="dateOfBirth">Date de naissance <span>*</span></label>
             </p-floatlabel>
             <small class="p-error" *ngIf="shouldShowError(dateOfBirthControl)">
@@ -465,3 +465,4 @@
 <ng-template #safeUrl let-file>
   {{ file | blobToUrl }}
 </ng-template>
+

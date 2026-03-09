@@ -21,3 +21,4 @@ describe('MedicalHistoryStatusComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+

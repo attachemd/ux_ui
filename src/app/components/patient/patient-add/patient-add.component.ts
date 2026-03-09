@@ -13,8 +13,8 @@ import { MessageService, ConfirmationService } from 'primeng/api'; // Import Con
 import { ToastModule } from 'primeng/toast';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
-import { CalendarModule } from 'primeng/calendar';
-import { DropdownModule } from 'primeng/dropdown';
+import { DatePickerModule } from 'primeng/datepicker';
+import { SelectModule } from 'primeng/select';
 import { AutoCompleteModule } from 'primeng/autocomplete';
 import { MultiSelectModule } from 'primeng/multiselect';
 import { FileUploadModule } from 'primeng/fileupload';
@@ -30,12 +30,9 @@ import { TableModule } from 'primeng/table';
 import {TextareaModule} from 'primeng/textarea';
 import {BlobToUrlPipe} from '../../../pipes/blob-to-url.pipe';
 import {DialogModule} from 'primeng/dialog';
-import {SelectModule} from 'primeng/select';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatIconModule} from '@angular/material/icon';
-import {ChipsModule} from 'primeng/chips';
 import {MatChipsModule} from '@angular/material/chips';
-import {DatePickerModule} from 'primeng/datepicker';
 // --- Custom Validators ---
 // Basic pattern validator (allows letters, numbers, space, and specified special chars)
 const allowedCharsPattern = /^[a-zA-Z0-9\s\-&`_´]*$/;
@@ -157,8 +154,8 @@ export function addressSpecialCharactersValidator(control: AbstractControl): Val
     ToastModule,
     ButtonModule,
     InputTextModule,
-    CalendarModule,
-    DropdownModule,
+    DatePickerModule,
+    SelectModule,
     AutoCompleteModule,
     MultiSelectModule,
     TextareaModule,
@@ -173,12 +170,9 @@ export function addressSpecialCharactersValidator(control: AbstractControl): Val
     TableModule,
     BlobToUrlPipe,
     DialogModule,
-    SelectModule,
     MatExpansionModule,
     MatIconModule,
-    ChipsModule,
     MatChipsModule,
-    DatePickerModule
   ],
   providers: [MessageService, ConfirmationService, DialogService], // Provide services
   templateUrl: './patient-add.component.html',
@@ -968,3 +962,4 @@ export class PatientAddComponent implements OnInit, OnDestroy {
 
   protected readonly HTMLImageElement = HTMLImageElement;
 }
+

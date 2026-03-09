@@ -21,3 +21,4 @@ export class CheckboxGroupAllCasesComponent {
     sizes: Array<'xs-size' | 'sm-size' | 'md-size' | 'lg-size'> = ['xs-size', 'sm-size', 'md-size', 'lg-size'];
     orientations: Array<'flex-row' | 'flex-col'> = ['flex-col', 'flex-row'];
 }
+

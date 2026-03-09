@@ -66,3 +66,4 @@ export class FTTextareaComponent {
     return this.state === 'rest' || this.state === 'hover';
   }
 }
+

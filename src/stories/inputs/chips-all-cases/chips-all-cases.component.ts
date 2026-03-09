@@ -38,3 +38,4 @@ export class ChipsAllCasesComponent {
 
   items = ['toutes les 8h', 'Après chaque repas', 'À jeun', 'Avant le coucher'];
 }
+

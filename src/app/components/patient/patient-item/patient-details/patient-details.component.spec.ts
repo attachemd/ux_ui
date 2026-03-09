@@ -21,3 +21,4 @@ describe('PatientDetailsComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+

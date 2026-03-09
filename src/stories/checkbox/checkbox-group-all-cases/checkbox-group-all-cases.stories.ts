@@ -15,3 +15,4 @@ type Story = StoryObj<CheckboxGroupAllCasesComponent>;
 export const AllCases: Story = {
     args: {},
 };
+

@@ -130,7 +130,7 @@
 
             <!--              <div class="field-container">-->
             <!--                <p-floatlabel variant="in">-->
-            <!--                  <p-calendar-->
+            <!--                  <p-datepicker-->
             <!--                    formControlName="dateOfBirth"-->
             <!--                    id="dateOfBirth"-->
             <!--                    showIcon="true"-->
@@ -140,7 +140,7 @@
             <!--                    [showClear]="true"-->
             <!--                    variant="filled"-->
             <!--                    appendTo="body"-->
-            <!--                  ></p-calendar>-->
+            <!--                  ></p-datepicker>-->
             <!--                  <label for="dateOfBirth">Date de naissance <span>*</span></label>-->
             <!--                </p-floatlabel>-->
             <!--                <small class="p-error" *ngIf="shouldShowError(dateOfBirthControl)">-->
@@ -495,13 +495,13 @@
 
             <!--            <div class="field-container">-->
             <!--              <p-floatlabel variant="in">-->
-            <!--                <p-chips-->
+            <!--                <p-autocomplete [multiple]="true" [typeahead]="false"-->
             <!--                  formControlName="spokenLanguages"-->
             <!--                  inputId="spokenLanguages"-->
             <!--                  [allowDuplicate]="false"-->
             <!--                  [autocomplete]="true"-->
             <!--                  [suggestions]="filteredLanguages"-->
-            <!--                  (completeMethod)="filteredLanguages = filteredLanguages"> </p-chips>-->
+            <!--                  (completeMethod)="filteredLanguages = filteredLanguages"> </p-autocomplete>-->
             <!--                <label for="spokenLanguages">Langues parlées</label>-->
             <!--              </p-floatlabel>-->
             <!--              <small class="p-info">-->
@@ -835,3 +835,4 @@
 <ng-template #safeUrl let-file>
   {{ file | blobToUrl }}
 </ng-template>
+

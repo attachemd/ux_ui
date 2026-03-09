@@ -33,3 +33,4 @@ export class FtSideNavComponent {
         this.isExpanded.set(!this.isExpanded());
     }
 }
+

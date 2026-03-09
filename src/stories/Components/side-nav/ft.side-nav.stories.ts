@@ -108,3 +108,4 @@ export const InteractionTest: Story = {
         await expect(sidebar).not.toHaveClass('expanded');
     },
 };
+

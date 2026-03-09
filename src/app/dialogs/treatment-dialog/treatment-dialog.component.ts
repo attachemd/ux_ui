@@ -5,9 +5,9 @@ import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { Subject, takeUntil } from 'rxjs';
 import { AutoCompleteModule } from 'primeng/autocomplete';
 import { ButtonModule } from 'primeng/button';
-import { CalendarModule } from 'primeng/calendar';
+import { DatePickerModule } from 'primeng/datepicker';
 import { FloatLabelModule } from 'primeng/floatlabel';
-import { DropdownModule } from 'primeng/dropdown';
+import { SelectModule } from 'primeng/select';
 import { InputTextModule } from 'primeng/inputtext'; // Use p-inputtext
 import { InputGroupModule } from 'primeng/inputgroup';
 import { CommonModule, NgIf } from '@angular/common';
@@ -77,9 +77,9 @@ const futureDateValidator: ValidatorFn = (control: AbstractControl): ValidationE
     ReactiveFormsModule,
     AutoCompleteModule,
     ButtonModule,
-    CalendarModule,
+    DatePickerModule,
     FloatLabelModule,
-    DropdownModule,
+    SelectModule,
     InputTextModule, // Added InputTextModule
     InputGroupModule,
     SelectButtonModule, // Added SelectButtonModule
@@ -323,3 +323,4 @@ export class TreatmentDialogComponent implements OnInit, OnDestroy {
   }
 
 }
+

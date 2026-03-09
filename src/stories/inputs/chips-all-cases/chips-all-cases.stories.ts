@@ -44,3 +44,4 @@ type Story = StoryObj<ChipsAllCasesComponent>;
 export const Default: Story = {
   args: {},
 };
+

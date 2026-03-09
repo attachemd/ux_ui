@@ -42,3 +42,4 @@ export class FtSwitchButtonComponent {
         return this.selectedId === id;
     }
 }
+

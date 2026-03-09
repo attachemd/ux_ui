@@ -19,3 +19,4 @@ export class BlobToUrlPipe implements PipeTransform {
     return ''; // Return empty string for null or other types
   }
 }
+

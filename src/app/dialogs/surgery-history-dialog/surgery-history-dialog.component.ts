@@ -5,7 +5,7 @@ import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { Subject, takeUntil } from 'rxjs';
 import { AutoCompleteModule } from 'primeng/autocomplete';
 import { ButtonModule } from 'primeng/button';
-import { CalendarModule } from 'primeng/calendar';
+import { DatePickerModule } from 'primeng/datepicker';
 import { FloatLabelModule } from 'primeng/floatlabel';
 import { InputGroupModule } from 'primeng/inputgroup';
 import { CommonModule, NgIf } from '@angular/common';
@@ -62,7 +62,7 @@ const noSpecialCharactersValidator: ValidatorFn = (control: AbstractControl): Va
     ReactiveFormsModule,
     AutoCompleteModule,
     ButtonModule,
-    CalendarModule,
+    DatePickerModule,
     FloatLabelModule,
     InputGroupModule,
     NgIf,
@@ -236,3 +236,4 @@ export class SurgeryHistoryDialogComponent implements OnInit, OnDestroy { // Ren
   }
 
 }
+

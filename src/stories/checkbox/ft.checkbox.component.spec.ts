@@ -78,3 +78,4 @@ describe('FtCheckboxComponent', () => {
         expect(container.classes['lg-size']).toBeTrue();
     });
 });
+

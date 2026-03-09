@@ -24,3 +24,4 @@ export class SwitchButtonAllCasesComponent {
 
     states: Array<'rest' | 'disabled'> = ['rest', 'disabled'];
 }
+

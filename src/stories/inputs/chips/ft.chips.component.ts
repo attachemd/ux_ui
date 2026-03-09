@@ -103,3 +103,4 @@ export class FTChipsComponent {
     return classes[this.radius] || 'rounded-md';
   }
 }
+

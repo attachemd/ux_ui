@@ -80,3 +80,4 @@ export const Invalid: Story = {
     errorMessage: 'Veuillez ajouter au moins une instruction.'
   }
 };
+

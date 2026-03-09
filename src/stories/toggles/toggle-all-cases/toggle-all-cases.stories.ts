@@ -41,3 +41,4 @@ type Story = StoryObj<ToggleAllCasesComponent>;
 export const Default: Story = {
     args: {}
 };
+

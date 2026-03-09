@@ -47,3 +47,4 @@ export class FtLoginComponent {
     console.log('Redirecting to forgot password...');
   }
 }
+

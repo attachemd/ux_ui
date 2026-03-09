@@ -5,9 +5,9 @@ import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { Subject, takeUntil } from 'rxjs';
 import { AutoCompleteModule } from 'primeng/autocomplete';
 import { ButtonModule } from 'primeng/button';
-import { CalendarModule } from 'primeng/calendar';
+import { DatePickerModule } from 'primeng/datepicker';
 import { FloatLabelModule } from 'primeng/floatlabel';
-import { DropdownModule } from 'primeng/dropdown';
+import { SelectModule } from 'primeng/select';
 import { InputGroupModule } from 'primeng/inputgroup';
 import { CommonModule, NgIf } from '@angular/common';
 import { MessageService } from 'primeng/api';
@@ -35,9 +35,9 @@ interface RiskFactorOption {
     ReactiveFormsModule,
     AutoCompleteModule,
     ButtonModule,
-    CalendarModule,
+    DatePickerModule,
     FloatLabelModule,
-    DropdownModule,
+    SelectModule,
     InputGroupModule,
     NgIf,
     Textarea,
@@ -255,3 +255,4 @@ export class RiskAssessmentDialogComponent implements OnInit, OnDestroy { // Ren
   }
 
 }
+

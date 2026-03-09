@@ -21,3 +21,4 @@ describe('MedicalConditionComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+
