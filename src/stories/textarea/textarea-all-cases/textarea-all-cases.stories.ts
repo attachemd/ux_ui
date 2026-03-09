@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/angular';
 import { TextareaAllCasesComponent } from './textarea-all-cases.component';
 
 const meta: Meta<TextareaAllCasesComponent> = {
-  title: 'Inputs/Textarea All Cases',
+  title: 'Core/Textarea/Textarea All Cases',
   component: TextareaAllCasesComponent,
   argTypes: {
     size: {

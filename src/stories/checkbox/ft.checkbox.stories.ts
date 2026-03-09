@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/angular';
 import { FtCheckboxComponent } from './ft.checkbox.component';
 
 const meta: Meta<FtCheckboxComponent> = {
-    title: 'Checkbox/Checkbox',
+    title: 'Core/Checkbox/Checkbox',
     component: FtCheckboxComponent,
     argTypes: {
         size: {

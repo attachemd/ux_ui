@@ -2,7 +2,7 @@ import { ToggleIconButtonAllCasesComponent } from './toggle.icon.button.all.case
 import type { Meta, StoryObj } from '@storybook/angular';
 
 const meta: Meta<ToggleIconButtonAllCasesComponent> = {
-    title: 'Buttons/Toggle Icon Button All Cases',
+    title: 'Core/Toggle Icon Button/Toggle Icon Button All Cases',
     component: ToggleIconButtonAllCasesComponent,
     argTypes: {
         size: {

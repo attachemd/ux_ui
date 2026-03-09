@@ -2,7 +2,7 @@ import { Meta, StoryObj } from '@storybook/angular';
 import { FTTextareaComponent } from './ft.textarea.component';
 
 const meta: Meta<FTTextareaComponent> = {
-  title: 'Inputs/Textarea',
+  title: 'Core/Textarea/Textarea',
   component: FTTextareaComponent,
   tags: ['autodocs'],
   argTypes: {

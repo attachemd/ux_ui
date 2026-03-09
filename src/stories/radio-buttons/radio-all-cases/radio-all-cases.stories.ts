@@ -7,7 +7,7 @@ import { FormsModule } from '@angular/forms';
 import {FtRadioComponent} from '../radio/ft.radio.component';
 
 const meta: Meta<RadioAllCasesComponent> = {
-  title: 'Radio Buttons/Radio All Cases',
+  title: 'Core/Radio/Radio All Cases',
   component: RadioAllCasesComponent,
   // decorators: [
   //   moduleMetadata({

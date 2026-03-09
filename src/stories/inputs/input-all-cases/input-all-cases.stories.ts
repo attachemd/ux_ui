@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/angular';
 import { InputAllCasesComponent } from './input-all-cases.component';
 
 const meta: Meta<InputAllCasesComponent> = {
-  title: 'Inputs/Input All Cases',
+  title: 'Core/Input/Input All Cases',
   component: InputAllCasesComponent,
   argTypes: {
     radius: {

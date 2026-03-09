@@ -3,7 +3,7 @@ import { IconButtonAllCasesComponent } from './icon.button.all.cases.component';
 
 
 const meta: Meta<IconButtonAllCasesComponent> = {
-  title: 'Buttons/Icon Button All Cases',
+  title: 'Core/Icon Button/Icon Button All Cases',
   component: IconButtonAllCasesComponent,
   // decorators: [
   //   moduleMetadata({

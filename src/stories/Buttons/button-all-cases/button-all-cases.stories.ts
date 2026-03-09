@@ -3,7 +3,7 @@ import { ButtonAllCasesComponent } from './button-all-cases.component';
 
 
 const meta: Meta<ButtonAllCasesComponent> = {
-  title: 'Buttons/Button All Cases',
+  title: 'Core/Button/Button All Cases',
   component: ButtonAllCasesComponent,
   // decorators: [
   //   moduleMetadata({

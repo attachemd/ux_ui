@@ -2,7 +2,7 @@ import { FtToggleIconButtonComponent } from './ft.toggle-icon-button.component';
 import type { Meta, StoryObj } from '@storybook/angular';
 
 const meta: Meta<FtToggleIconButtonComponent> = {
-    title: 'Buttons/Toggle Icon Button',
+    title: 'Core/Toggle Icon Button/Toggle Icon Button',
     component: FtToggleIconButtonComponent,
     tags: ['autodocs'],
     argTypes: {

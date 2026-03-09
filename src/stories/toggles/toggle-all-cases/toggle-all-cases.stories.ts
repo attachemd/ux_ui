@@ -2,7 +2,7 @@ import { ToggleAllCasesComponent } from './toggle-all-cases.component';
 import type { Meta, StoryObj } from '@storybook/angular';
 
 const meta: Meta<ToggleAllCasesComponent> = {
-    title: 'Toggles/Toggle All Cases',
+    title: 'Core/Toggle/Toggle All Cases',
     component: ToggleAllCasesComponent,
     argTypes: {
         size: {

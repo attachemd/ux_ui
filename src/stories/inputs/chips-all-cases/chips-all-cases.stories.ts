@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/angular';
 import { ChipsAllCasesComponent } from './chips-all-cases.component';
 
 const meta: Meta<ChipsAllCasesComponent> = {
-  title: 'Inputs/Chips All Cases',
+  title: 'Core/Chips/Chips All Cases',
   component: ChipsAllCasesComponent,
   argTypes: {
     radius: {

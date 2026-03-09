@@ -2,7 +2,7 @@ import {FtIconButtonComponent} from './ft.icon.button.component';
 import type {Meta, StoryObj} from '@storybook/angular';
 
 const meta: Meta<FtIconButtonComponent> = {
-  title: 'Buttons/Icon Button',
+  title: 'Core/Icon Button/Icon Button',
   component: FtIconButtonComponent,
   tags: ['autodocs'],
   argTypes: {

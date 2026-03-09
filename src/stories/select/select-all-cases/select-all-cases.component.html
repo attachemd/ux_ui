@@ -1,0 +1,40 @@
+<div class="all-case-container">
+    <h1 class="showcase-title">FT-Select All cases</h1>
+    <div class="cases-container">
+        <!-- Header Row: Label Placements -->
+        <div class="case-row case-row-heading">
+            <div class="case-item case-item-heading"></div>
+            @for (placement of labelPlacements; track placement) {
+            <div class="case-item">
+                {{ placement }}
+            </div>
+            }
+        </div>
+
+        <!-- Body Rows: States -->
+        @for (state of states; track state) {
+        <div class="case-row">
+            <div class="case-item case-item-heading vertical-text">
+                {{state}}
+            </div>
+
+            @for (labelPlacement of labelPlacements; track labelPlacement) {
+            <div class="case-item">
+                <ft-select [isLabel]="true" [label]="'Select Label'"
+                    [state]="state === 'with-description' ? 'rest' : state" [size]="size" [color]="color"
+                    [variant]="variant" [radius]="radius" [required]="true" [placeholder]="placeholder"
+                    [multiple]="multiple" [value]="multiple ? mockValueMultiple : mockValueSingle"
+                    [options]="defaultOptions" [isDescription]="isDescription || state === 'with-description'"
+                    [description]="'This is a helpful description.'" [errorMessage]="'This field is required.'"
+                    [labelPlacement]="labelPlacement" [isPrefixIconClass]="isPrefixIconClass"
+                    [prefixIconClass]="prefixIconClass" [isSuffix1IconClass]="isSuffix1IconClass"
+                    [suffix1IconClass]="suffix1IconClass" [isSuffix2IconClass]="isSuffix2IconClass"
+                    [suffix2IconClass]="suffix2IconClass" [isClearable]="true" [startContent]="startContent"
+                    [endContent]="endContent">
+                </ft-select>
+            </div>
+            }
+        </div>
+        }
+    </div>
+</div>

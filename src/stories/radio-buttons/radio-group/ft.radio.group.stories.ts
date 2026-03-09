@@ -2,7 +2,7 @@ import {FtRadioGroupComponent} from './ft.radio.group.component';
 import type {Meta, StoryObj} from '@storybook/angular';
 
 const meta: Meta<FtRadioGroupComponent> = {
-  title: 'Radio Buttons/Radio Group',
+  title: 'Core/Radio Group/Radio Group',
   component: FtRadioGroupComponent,
   tags: ['autodocs'],
   argTypes: {

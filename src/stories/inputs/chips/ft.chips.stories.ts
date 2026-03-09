@@ -2,7 +2,7 @@ import { FTChipsComponent } from './ft.chips.component';
 import type { Meta, StoryObj } from '@storybook/angular';
 
 const meta: Meta<FTChipsComponent> = {
-  title: 'Inputs/Chips',
+  title: 'Core/Chips/Chips',
   component: FTChipsComponent,
   tags: ['autodocs'],
   argTypes: {

@@ -2,7 +2,7 @@ import { Meta, StoryObj } from '@storybook/angular';
 import { FtCheckboxGroupComponent } from './ft.checkbox.group.component';
 
 const meta: Meta<FtCheckboxGroupComponent> = {
-    title: 'Checkbox/Checkbox Group',
+    title: 'Core/Checkbox Group/Checkbox Group',
     component: FtCheckboxGroupComponent,
     tags: ['autodocs'],
     argTypes: {

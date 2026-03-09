@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/angular";
 import { SwitchButtonAllCasesComponent } from "./switch-button-all-cases.component";
 
 const meta: Meta<SwitchButtonAllCasesComponent> = {
-    title: "Buttons/Switch Button All Cases",
+    title: 'Core/Switch Button/Switch Button All Cases',
     component: SwitchButtonAllCasesComponent,
     tags: ["autodocs"],
     argTypes: {

@@ -2,7 +2,7 @@ import { Meta, StoryObj } from '@storybook/angular';
 import { FtSwitchButtonComponent } from './ft.switch-button.component';
 
 const meta: Meta<FtSwitchButtonComponent> = {
-    title: 'Buttons/Switch Button',
+    title: 'Core/Switch Button/Switch Button',
     component: FtSwitchButtonComponent,
     tags: ['autodocs'],
     argTypes: {

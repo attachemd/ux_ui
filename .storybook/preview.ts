@@ -32,13 +32,30 @@ const preview: Preview = {
     options: {
       storySort: {
         order: [
-          'Theme', ['Roadmap', 'Colors', ['Common Colors', 'Surface Colors', 'On Surface Colors', '*']],
-          'Radio Buttons', ['Radio', 'Radio Group', 'Radio All Cases', '*'],
-          'Inputs', ['Input', 'Textarea', 'Select', '*'],
-          'Buttons', ['Button', 'Button All Cases', 'Icon Button', 'Icon Button All Cases', 'Textarea', 'Select', '*'],
-          'Toggles', ['Toggle', 'Toggle All Cases', '*'],
-          'Components', ['Login', '*'],
-          ['*', '**'],  // All other stories
+          'Roadmap',
+          'Theme',
+          ['Colors', ['Common Colors', 'Surface Colors', 'On Surface Colors', '*']],
+          'Core',
+          [
+            'Button', 'Button All Cases',
+            'Icon Button', 'Icon Button All Cases',
+            'Toggle Icon Button', 'Toggle Icon Button All Cases',
+            'Button Group', 'Button Group All Cases',
+            'Input', 'Input All Cases', 'Input Showcase',
+            'Textarea', 'Textarea All Cases',
+            'Select', 'Select (Core)', 'Select (All Cases)',
+            'Radio', 'Radio All Cases',
+            'Radio Group', 'Radio Group All Cases',
+            'Checkbox', 'Checkbox All Cases',
+            'Checkbox Group', 'Checkbox Group All Cases',
+            'Switch Button', 'Switch Button All Cases',
+            'Toggle', 'Toggle All Cases',
+            'Chips', 'Chips All Cases',
+            '*'
+          ],
+          'Components',
+          ['Login', 'Side Nav', '*'],
+          '*',
         ],
       },
     },

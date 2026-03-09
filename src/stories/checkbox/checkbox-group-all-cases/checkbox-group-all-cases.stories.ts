@@ -2,7 +2,7 @@ import { Meta, StoryObj } from '@storybook/angular';
 import { CheckboxGroupAllCasesComponent } from './checkbox-group-all-cases.component';
 
 const meta: Meta<CheckboxGroupAllCasesComponent> = {
-    title: 'Checkbox/Checkbox Group All Cases',
+    title: 'Core/Checkbox Group/Checkbox Group All Cases',
     component: CheckboxGroupAllCasesComponent,
     parameters: {
         layout: 'fullscreen',

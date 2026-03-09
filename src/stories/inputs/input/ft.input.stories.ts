@@ -2,7 +2,7 @@ import { FTInputComponent } from './ft.input.component';
 import type { Meta, StoryObj } from '@storybook/angular';
 
 const meta: Meta<FTInputComponent> = {
-  title: 'Inputs/Input',
+  title: 'Core/Input/Input',
   component: FTInputComponent,
   tags: ['autodocs'],
   argTypes: {

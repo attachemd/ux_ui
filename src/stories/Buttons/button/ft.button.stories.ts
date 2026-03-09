@@ -1,8 +1,8 @@
-import {FtButtonComponent} from './ft.button.component';
-import type {Meta, StoryObj} from '@storybook/angular';
+import { FtButtonComponent } from './ft.button.component';
+import type { Meta, StoryObj } from '@storybook/angular';
 
 const meta: Meta<FtButtonComponent> = {
-  title: 'Buttons/Button',
+  title: 'Core/Button/Button',
   component: FtButtonComponent,
   tags: ['autodocs'],
   argTypes: {

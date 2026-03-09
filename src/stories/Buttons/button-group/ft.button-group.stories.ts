@@ -2,7 +2,7 @@ import { Meta, StoryObj } from '@storybook/angular';
 import { FtButtonGroupComponent } from './ft.button-group.component';
 
 const meta: Meta<FtButtonGroupComponent> = {
-    title: 'Buttons/Button Group',
+    title: 'Core/Button Group/Button Group',
     component: FtButtonGroupComponent,
     tags: ['autodocs'],
     argTypes: {

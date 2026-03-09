@@ -2,7 +2,7 @@ import { FtToggleComponent } from './ft.toggle.component';
 import type { Meta, StoryObj } from '@storybook/angular';
 
 const meta: Meta<FtToggleComponent> = {
-    title: 'Toggles/Toggle',
+    title: 'Core/Toggle/Toggle',
     component: FtToggleComponent,
     tags: ['autodocs'],
     parameters: {

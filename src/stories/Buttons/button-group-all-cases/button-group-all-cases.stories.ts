@@ -2,7 +2,7 @@ import { ButtonGroupAllCasesComponent } from './button-group-all-cases.component
 import type { Meta, StoryObj } from '@storybook/angular';
 
 const meta: Meta<ButtonGroupAllCasesComponent> = {
-    title: 'Buttons/Button Group All Cases',
+    title: 'Core/Button Group/Button Group All Cases',
     component: ButtonGroupAllCasesComponent,
     argTypes: {
         size: {
