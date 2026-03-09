@@ -1,6 +1,6 @@
 import { FtSideNavComponent } from './ft.side-nav.component';
 import type { Meta, StoryObj } from '@storybook/angular';
-import { within, userEvent, expect } from '@storybook/test';
+import { within, userEvent, expect } from 'storybook/test';
 
 const meta: Meta<FtSideNavComponent> = {
     title: 'Components/Side Nav',
