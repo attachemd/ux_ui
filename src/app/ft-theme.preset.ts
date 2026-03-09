@@ -33,61 +33,6 @@ export const FTThemePreset = definePreset(Aura, {
       950: "#0A0619"
     },
     colorScheme: {
-      root: {
-        // toggleswitch: {
-        //   checked: {
-        //     background: 'red',
-        //   }
-        // },
-        // overlay: {
-        //   modal: {
-        //     background: 'transparent',
-        //   }
-        // },
-        // formField: {
-        //   hoverBorderColor: '{primary.colors}',
-        //   filled: {
-        //     background: 'var(--ft-colors-background-tertiary)',
-        //     hover: {
-        //       background: 'var(--ft-colors-background-quaternary)',
-        //     },
-        //     focus: {
-        //       background: 'var(--ft-colors-background-quaternary)',
-        //     },
-        //   },
-        //   colors: 'var(--ft-colors-text-primary)',
-        //   icon: {
-        //     colors: 'var(--ft-colors-text-primary)',
-        //   },
-        //   float: {
-        //     label: {
-        //       colors: 'var(--ft-colors-text-secondary)',
-        //       focus: {
-        //         colors: 'var(--ft-colors-text-tertairy)',
-        //       },
-        //       active: {
-        //         colors: 'var(--ft-colors-text-tertairy)',
-        //       }
-        //     },
-        //   },
-        //   padding: {
-        //     x: 'var(--ft-spacing-md)',
-        //     y: 'var(--ft-spacing-sm)',
-        //   }
-        // },
-        // inputtext: {
-        //   filled: {
-        //     background: 'var(--ft-colors-background-tertiary)',
-        //     hover: {
-        //       background: 'var(--ft-colors-background-quaternary)',
-        //     },
-        //     focus: {
-        //       background: 'var(--ft-colors-background-quaternary)',
-        //     },
-        //   },
-        //   colors: 'red',
-        // },
-      },
       light: {
         // surface: {
         //   0: '#ffffff',
@@ -234,3 +179,4 @@ export const FTThemePreset = definePreset(Aura, {
 
 
 });
+
