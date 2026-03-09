@@ -3,23 +3,23 @@
   <input type="radio" class="native-radio" [name]="name" [value]="value" [checked]="select"
     [disabled]="inactive || state === 'disabled'" (change)="onRadioChange($event)" />
 
-  <div class="field">
-    <div class="radio">
-      <div class="control"></div>
-    </div>
+  <span class="field">
+    <span class="radio">
+      <span class="control"></span>
+    </span>
 
-  </div>
-  <div class="content" [ngClass]="{
+  </span>
+  <span class="content" [ngClass]="{
            'content-2xs--normal': size === 'xs-size',
            'content-xs--normal': size === 'sm-size' || size === 'md-size',
            'content-sm--normal': size === 'lg-size',
            }">
-    <div *ngIf="isLabel" class="label">
+    <span *ngIf="isLabel" class="label">
       {{label}}
-    </div>
-    <div *ngIf="isDescription" class="description">
+    </span>
+    <span *ngIf="isDescription" class="description">
       {{description}}
-    </div>
-  </div>
+    </span>
+  </span>
 
 </label>

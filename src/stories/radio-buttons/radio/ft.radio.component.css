@@ -108,26 +108,40 @@
 
   /* 5. VALIDATION & STATUS LOGIC (Overrides selection/rest) */
   &.invalid {
-    --_field-text: var(--ft-color-danger);
-    --_field-border-color: var(--ft-color-danger);
+    --_field-text: var(--ft-color-danger) !important;
+    --_field-border-color: var(--ft-color-danger) !important;
     --_field-border-width: var(--ft-border-secondary);
+
+    &:has(.native-radio:focus-visible) {
+      .field {
+        outline-color: var(--ft-color-danger) !important;
+      }
+    }
 
     &.select,
     &:has(.native-radio:checked) {
-      --_field-control-bg: var(--ft-color-danger);
+      --_field-control-bg: var(--ft-color-danger) !important;
+      --_field-border-width: var(--ft-border-secondary);
     }
   }
 
   &.inactive {
     pointer-events: none;
-    --_field-text: var(--ft-color-on-surface-muted);
-    --_field-description: var(--ft-color-on-surface-muted);
-    --_field-border-color: var(--ft-radio-muted);
+    --_field-text: var(--ft-color-on-surface-muted) !important;
+    --_field-description: var(--ft-color-on-surface-muted) !important;
+    --_field-border-color: var(--ft-radio-muted) !important;
     --_field-border-width: var(--ft-border-secondary);
+
+    &:has(.native-radio:focus-visible) {
+      .field {
+        outline: none !important;
+      }
+    }
 
     &.select,
     &:has(.native-radio:checked) {
-      --_field-control-bg: var(--ft-radio-muted);
+      --_field-control-bg: var(--ft-radio-muted) !important;
+      --_field-border-width: var(--ft-border-secondary);
     }
   }
 
