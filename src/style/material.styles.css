@@ -236,7 +236,7 @@
           display: flex;
           align-items: center;
           .mat-mdc-icon-button:first-child {
-            --mdc-icon-button-state-layer-size: var(--ft-spacing-3xl);
+            --mat-icon-button-state-layer-size: var(--ft-spacing-3xl);
             width: var(--ft-spacing-6xl) !important;
             background: var(--ft-color-background-tertiary) !important;
             border-radius: var(--radius-lg) 0 0 var(--radius-lg) !important;

@@ -3,14 +3,14 @@
 
     /* Surface properties */
 
-    --mdc-theme-surface: #ffffff;
-    --mdc-theme-on-surface: #000000;
-    --mdc-theme-background: #ffffff;
-    --mdc-theme-on-background: #000000;
-    --mdc-theme-primary: #6200ee;
-    --mdc-theme-on-primary: #ffffff;
-    --mdc-theme-secondary: #03dac6;
-    --mdc-theme-on-secondary: #000000;
+    --mat-theme-surface: #ffffff;
+    --mat-theme-on-surface: #000000;
+    --mat-theme-background: #ffffff;
+    --mat-theme-on-background: #000000;
+    --mat-theme-primary: #6200ee;
+    --mat-theme-on-primary: #ffffff;
+    --mat-theme-secondary: #03dac6;
+    --mat-theme-on-secondary: #000000;
 
     /* SideNav */
     /*--mat-sidenav-container-width: 250px;*/
@@ -34,32 +34,32 @@
 
     /* button */
 
-    --mdc-filled-button-container-color: var(--ft-color-background-secondary);
-    --mdc-filled-button-label-text-color: var(--ft-color-text-primary);
-    --mdc-filled-button-container-height: var(--ft-spacing-3xl);
-    --mdc-filled-button-label-text-font: var(--ft-font-family-base);
-    --mdc-filled-button-container-shape: var(--radius-lg);
-    --mdc-filled-button-label-text-size: var(--ft-text-xs);
-    --mat-filled-button-horizontal-padding: var(--ft-spacing-md);
-    --mat-filled-button-state-layer-color: var(--ft-color-primary);
-    --mat-filled-button-hover-state-layer-opacity: 8%;
-    --mat-filled-button-pressed-state-layer-opacity: 8%;
-    --mdc-filled-button-disabled-label-text-color: var(--ft-color-text-muted);
+    --mat-button-filled-container-color: var(--ft-color-background-secondary);
+    --mat-button-filled-label-text-color: var(--ft-color-text-primary);
+    --mat-button-filled-container-height: var(--ft-spacing-3xl);
+    --mat-button-filled-label-text-font: var(--ft-font-family-base);
+    --mat-button-filled-container-shape: var(--radius-lg);
+    --mat-button-filled-label-text-size: var(--ft-text-xs);
+    --mat-button-filled-horizontal-padding: var(--ft-spacing-md);
+    --mat-button-filled-state-layer-color: var(--ft-color-primary);
+    --mat-button-filled-hover-state-layer-opacity: 8%;
+    --mat-button-filled-pressed-state-layer-opacity: 8%;
+    --mat-button-filled-disabled-label-text-color: var(--ft-color-text-muted);
 
-    --mdc-text-button-label-text-color: var(--ft-color-primary);
-    --mdc-text-button-label-text-font: var(--ft-font-family-base);
-    --mdc-text-button-label-text-size: var(--ft-text-xs);
-    --mat-text-button-state-layer-color: var(--ft-color-primary);
-    /*--mat-text-button-focus-state-layer-opacity: 8%;*/
-    /*--mat-text-button-pressed-state-layer-opacity: 8%;*/
-    --mdc-text-button-container-height: var(--ft-spacing-3xl);
-    --mat-text-button-ripple-color: var(--ft-color-background-quinary);
+    --mat-button-text-label-text-color: var(--ft-color-primary);
+    --mat-button-text-label-text-font: var(--ft-font-family-base);
+    --mat-button-text-label-text-size: var(--ft-text-xs);
+    --mat-button-text-state-layer-color: var(--ft-color-primary);
+    /*--mat-button-text-focus-state-layer-opacity: 8%;*/
+    /*--mat-button-text-pressed-state-layer-opacity: 8%;*/
+    --mat-button-text-container-height: var(--ft-spacing-3xl);
+    --mat-button-text-ripple-color: var(--ft-color-background-quinary);
 
 
 
     /* Button icons */
 
-    --mdc-icon-button-state-layer-size: var(--ft-spacing-3xl);
+    --mat-icon-button-state-layer-size: var(--ft-spacing-3xl);
 
     /* Overlay properties */
 
@@ -67,15 +67,15 @@
     /* FormField properties */
     --mat-form-field-container-height: var(--ft-spacing-3xl);
     --mat-form-field-container-vertical-padding: var(--ft-spacing-2xs);
-    /*--mdc-filled-text-field-container-colors: var(--ft-colors-background-tertiary);*/
-    --mdc-filled-text-field-container-color: transparent;
-    --mdc-filled-text-field-container-shape: var(--ft-radius-pill);
-    --mdc-filled-text-field-active-indicator-height: 0;
-    --mdc-filled-text-field-focus-active-indicator-height: 0;
+    /*--mat-form-field-filled-container-colors: var(--ft-colors-background-tertiary);*/
+    --mat-form-field-filled-container-color: transparent;
+    --mat-form-field-filled-container-shape: var(--ft-radius-pill);
+    --mat-form-field-filled-active-indicator-height: 0;
+    --mat-form-field-filled-focus-active-indicator-height: 0;
     --mat-form-field-leading-icon-color: var(--ft-color-text-primary);
     --mat-form-field-trailing-icon-color: var(--ft-color-text-primary);
-    --mdc-filled-text-field-input-text-color: var(--ft-color-text-primary);
-    --mdc-filled-text-field-caret-color: var(--ft-color-text-primary);
+    --mat-form-field-filled-input-text-color: var(--ft-color-text-primary);
+    --mat-form-field-filled-caret-color: var(--ft-color-text-primary);
 
     /* chip */
 
@@ -103,20 +103,20 @@
     --mat-select-trigger-text-font: var(--ft-font-family-base);
     --mat-paginator-enabled-icon-color: var(--ft-color-text-primary);
     --mat-paginator-disabled-icon-color: var(--ft-color-text-muted);
-    --mdc-outlined-text-field-outline-width: 0;
+    --mat-form-field-outlined-outline-width: 0;
     --mat-select-enabled-arrow-color: var(--ft-color-text-primary);
 
     /* Checkbox */
-    --mdc-checkbox-unselected-icon-color: var(--ft-color-dark-alpha-secondary);
-    --mdc-checkbox-selected-icon-color: var(--ft-color-primary);
-    --mdc-checkbox-selected-focus-icon-color: var(--ft-color-primary);
-    --mdc-checkbox-selected-hover-icon-color: var(--ft-color-primary);
-    --mdc-checkbox-selected-checkmark-color: var(--ft-color-on-primary);
-    --mdc-checkbox-selected-focus-state-layer-color: var(--ft-color-on-primary);
-    /*--mdc-checkbox-unselected-focus-state-layer-colors: var(--ft-colors-primary);*/
-    --mdc-checkbox-selected-hover-state-layer-color: var(--ft-color-primary);
-    --mdc-checkbox-unselected-hover-state-layer-color: var(--ft-color-primary);
-    --mdc-checkbox-unselected-pressed-state-layer-color: var(--ft-color-primary);
+    --mat-checkbox-unselected-icon-color: var(--ft-color-dark-alpha-secondary);
+    --mat-checkbox-selected-icon-color: var(--ft-color-primary);
+    --mat-checkbox-selected-focus-icon-color: var(--ft-color-primary);
+    --mat-checkbox-selected-hover-icon-color: var(--ft-color-primary);
+    --mat-checkbox-selected-checkmark-color: var(--ft-color-on-primary);
+    --mat-checkbox-selected-focus-state-layer-color: var(--ft-color-on-primary);
+    /*--mat-checkbox-unselected-focus-state-layer-colors: var(--ft-colors-primary);*/
+    --mat-checkbox-selected-hover-state-layer-color: var(--ft-color-primary);
+    --mat-checkbox-unselected-hover-state-layer-color: var(--ft-color-primary);
+    --mat-checkbox-unselected-pressed-state-layer-color: var(--ft-color-primary);
 
     /*  Expansion Panel */
     --mat-expansion-container-background-color: transparent;
