@@ -46,12 +46,14 @@ export class SelectAllCasesComponent {
         'label-outside-left',
     ];
 
-    defaultOptions = [
+    @Input() defaultOptions = [
         { label: 'Option 1', value: 'opt1' },
-        { label: 'Option 2', value: 'opt2' },
-        { label: 'Option 3', value: 'opt3' }
+        { label: 'Option 2 (Longer Text)', value: 'opt2' },
+        { label: 'Option 3', value: 'opt3' },
+        { label: 'Option 4 (Super Long Text To Force Overflow)', value: 'opt4' },
+        { label: 'Option 5', value: 'opt5' }
     ];
 
-    mockValueSingle = '';
-    mockValueMultiple: string[] = ['opt1', 'opt2'];
+    @Input() mockValueSingle = '';
+    @Input() mockValueMultiple: string[] = ['opt1', 'opt2'];
 }

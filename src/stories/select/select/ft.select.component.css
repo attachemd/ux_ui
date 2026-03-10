@@ -116,49 +116,10 @@
                     overflow: hidden;
                     text-overflow: ellipsis;
                     white-space: nowrap;
-                }
-
-                .selected-chips {
-                    display: flex;
-                    flex-wrap: wrap;
-                    gap: 4px;
-                }
-
-                .select-chip {
-                    display: inline-flex;
-                    align-items: center;
-                    gap: 4px;
-                    background-color: var(--_field-bg-200);
-                    color: var(--ft-color-solid-on-surface);
-                    padding: 2px 6px;
-                    border-radius: var(--ft-border-radius-xs);
-                    font-size: 0.85em;
-                    /* Slightly smaller than main text */
-                    font-weight: 500;
-                    cursor: default;
-
-                    .chip-remove {
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        appearance: none;
-                        background: none;
-                        border: none;
-                        padding: 0;
-                        margin: 0;
-                        cursor: pointer;
-                        color: var(--ft-color-solid-on-surface);
-                        opacity: 0.6;
-                        transition: opacity 0.2s;
-
-                        &:hover {
-                            opacity: 1;
-                        }
-
-                        span {
-                            font-size: 14px;
-                        }
-                    }
+                    flex: 1;
+                    /* allow it to grow and shrink appropriately */
+                    min-width: 0;
+                    /* allows text-overflow to engage in flex containers */
                 }
             }
         }
@@ -223,17 +184,21 @@
             top: calc(100% + 4px);
             left: 0;
             right: 0;
-            background-color: var(--ft-surface-100);
-            border: var(--ft-border-secondary) solid var(--ft-color-border-200);
-            border-radius: var(--ft-border-radius-md);
-            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            background-color: var(--ft-color-solid-surface);
+            border: var(--ft-border-primary) solid var(--ft-color-border-100);
+            border-radius: var(--ft-radius-400);
+            box-shadow: 0 4px 8px var(--ft-color-n-on-surface-10);
             z-index: 50;
             /* Ensure on top */
             max-height: 250px;
             overflow-y: auto;
-            padding: var(--ft-unit-100) 0;
+            padding: var(--ft-unit-150);
+            /* Padding around the entire list */
 
             .options-list {
+                display: flex;
+                flex-direction: column;
+                gap: var(--ft-unit-150);
                 list-style: none;
                 padding: 0;
                 margin: 0;
@@ -242,20 +207,22 @@
                     display: flex;
                     align-items: center;
                     justify-content: space-between;
-                    padding: var(--ft-unit-200) var(--ft-unit-400);
+                    padding: var(--ft-unit-200) var(--ft-unit-300);
+                    border-radius: var(--ft-radius-300);
+                    /* Rounded items */
                     cursor: pointer;
                     font-size: var(--_field-font-size);
                     color: var(--ft-color-solid-on-surface);
-                    transition: background-color 0.15s;
+                    transition: background-color 0.15s, color 0.15s;
 
                     &:hover {
                         background-color: var(--ft-color-surface-hover);
                     }
 
                     &.selected {
-                        background-color: var(--_field-bg-50);
+                        background-color: var(--_field-bg-100);
                         color: var(--_field-accent);
-                        font-weight: 600;
+                        font-weight: 500;
                     }
 
                     &.no-options {
@@ -268,7 +235,7 @@
                     }
 
                     .check-icon {
-                        font-size: 18px;
+                        font-size: var(--_field-icon-size);
                     }
                 }
             }

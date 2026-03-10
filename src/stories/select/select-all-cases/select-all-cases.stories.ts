@@ -84,6 +84,13 @@ export const MultipleSelection: Story = {
     }
 };
 
+export const MultipleSelectionOverflow: Story = {
+    args: {
+        multiple: true,
+        mockValueMultiple: ['opt1', 'opt2', 'opt3', 'opt4', 'opt5']
+    }
+};
+
 export const WithStartContent: Story = {
     args: {
         startContent: '$'

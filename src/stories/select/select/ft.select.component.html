@@ -40,31 +40,10 @@
                 }
 
                 <div class="native-input select-display-area" [class.multiple-mode]="multiple">
-                    @if (!multiple) {
                     @if (displayValue) {
-                    <span class="selected-text">{{ displayValue }}</span>
-                    } @else {
-                    @if (placeholder) {
-                    <span class="placeholder-text">{{ placeholder }}</span>
-                    }
-                    }
-                    } @else {
-                    @if (selectedMultipleOptions.length > 0) {
-                    <div class="selected-chips">
-                        @for (opt of selectedMultipleOptions; track opt.value) {
-                        <span class="select-chip">
-                            {{ opt.label }}
-                            <button type="button" class="chip-remove" (click)="removeMultipleOption(opt.value, $event)">
-                                <span class="material-symbols-rounded">close</span>
-                            </button>
-                        </span>
-                        }
-                    </div>
-                    } @else {
-                    @if (placeholder) {
-                    <span class="placeholder-text">{{ placeholder }}</span>
-                    }
-                    }
+                    <span class="selected-text" [title]="displayValue">{{ displayValue }}</span>
+                    } @else if (placeholder) {
+                    <span class="placeholder-text" [title]="placeholder">{{ placeholder }}</span>
                     }
                 </div>
 

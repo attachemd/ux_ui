@@ -164,18 +164,14 @@ export class FTSelectComponent implements OnInit {
     }
 
     get displayValue(): string {
-        if (this.multiple) {
-            return ''; // Handled in template via chips
-        }
-        const selectedObj = this.options.find(opt => opt.value === this.value);
-        return selectedObj ? selectedObj.label : '';
-    }
-
-    get selectedMultipleOptions(): SelectOption[] {
         if (this.multiple && Array.isArray(this.value)) {
-            return this.value.map(val => this.options.find(opt => opt.value === val)).filter(opt => opt) as SelectOption[];
+            const labels = this.value
+                .map((val) => this.options.find((opt) => opt.value === val)?.label)
+                .filter((label) => label); // Filter out undefined
+            return labels.join(', ');
         }
-        return [];
+        const selectedObj = this.options.find((opt) => opt.value === this.value);
+        return selectedObj ? selectedObj.label : '';
     }
 
     get radiusClasses(): string {
