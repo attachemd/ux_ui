@@ -1,15 +1,28 @@
-<div class="ft-tabs-container" [class]="size + ' ' + color + ' ' + variant" [class.is-disabled]="disabled"
-    [class.full-width]="fullWidth" [class.radius-applied]="true" [ngClass]="radiusClasses">
-    <div class="tabs-list" role="tablist">
-        @for (tab of tabs; track tab.value) {
-        <button type="button" role="tab" class="tab-item" [attr.aria-selected]="activeTabValue === tab.value"
-            [attr.aria-disabled]="tab.disabled || disabled" [class.is-active]="activeTabValue === tab.value"
-            [class.is-disabled]="tab.disabled" [ngClass]="radiusClasses" (click)="selectTab(tab)">
-            @if (tab.icon) {
-            <span class="material-symbols-rounded tab-icon">{{ tab.icon }}</span>
+<div class="ft-tabs-wrapper" [class]="size + ' ' + color + ' ' + variant + ' ' + radius" [class.full-width]="fullWidth">
+    <div class="ft-tabs-container" [class.is-disabled]="disabled">
+        <div class="tabs-list" role="tablist">
+            <!-- Sliding Cursor -->
+            <div class="tab-cursor" [ngStyle]="cursorStyle"></div>
+
+            @for (tab of effectiveTabs; track tab.value; let i = $index) {
+            <button type="button" role="tab" class="tab-item" #tabRef
+                [attr.aria-selected]="activeTabValue === tab.value || (state === 'active' && i === stateIndex)"
+                [attr.aria-disabled]="tab.disabled || disabled || (state === 'disabled' && i === stateIndex)"
+                [class.is-active]="activeTabValue === tab.value || (state === 'active' && i === stateIndex)"
+                [class.hover]="state === 'hover' && i === stateIndex"
+                [class.press]="state === 'press' && i === stateIndex"
+                [class.focus]="state === 'focus' && i === stateIndex"
+                [class.is-disabled]="tab.disabled || (state === 'disabled' && i === stateIndex)"
+                (click)="selectTab(tab)">
+                @if (tab.icon) {
+                <span class="material-symbols-rounded tab-icon">{{ tab.icon }}</span>
+                }
+                <span class="tab-label" [attr.data-text]="tab.label">{{ tab.label }}</span>
+            </button>
             }
-            <span class="tab-label">{{ tab.label }}</span>
-        </button>
-        }
+        </div>
+    </div>
+    <div class="tabs-panels">
+        <ng-content select="ft-tab"></ng-content>
     </div>
 </div>

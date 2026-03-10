@@ -4,51 +4,50 @@
         <!-- Header Row -->
         <div class="case-row case-row-heading">
             <div class="case-item case-item-heading"></div>
-            @for (size of sizes; track size) {
-            <div class="case-item heading-text">
-                {{ size.replace('-size', '') }}
-            </div>
-            }
+            <div class="case-item heading-text">Component</div>
         </div>
 
-        <!-- Body Rows: Variants -->
-        @for (variant of variants; track variant) {
+        <!-- Body Rows: States -->
+        @for (state of states; track state) {
         <div class="case-row">
             <div class="case-item case-item-heading vertical-text">
-                {{ variant }}
+                {{ state }}
             </div>
-            @for (size of sizes; track size) {
             <div class="case-item">
-                <ft-tabs [tabs]="medicalTabs" [variant]="variant" [size]="size" color="primary" radius="full-radius"
-                    [(activeTabValue)]="activeTab1">
+                <ft-tabs [tabs]="tabsToDisplay" [variant]="variant" [size]="size" [color]="color" [radius]="radius"
+                    [(activeTabValue)]="activeTab1" [state]="state">
                 </ft-tabs>
             </div>
-            }
         </div>
         }
-
     </div>
 
-    <!-- Colors Section -->
-    <h2 class="showcase-title mt-8">Colors (Solid Variant)</h2>
+    <!-- Content Panels Section -->
+    <h2 class="showcase-title mt-8">Tabs with Content Panels</h2>
     <div class="cases-container">
         <div class="case-row case-row-heading">
             <div class="case-item case-item-heading"></div>
-            <div class="case-item heading-text">Solid Variant Colors</div>
+            <div class="case-item heading-text">Dynamic Projection</div>
         </div>
-        @for (color of colors; track color) {
         <div class="case-row">
             <div class="case-item case-item-heading vertical-text">
-                {{ color }}
+                <p>Default</p>
             </div>
-
             <div class="case-item align-start">
-                <ft-tabs [tabs]="medicalTabs" variant="solid" size="md-size" [color]="color" radius="full-radius"
-                    [(activeTabValue)]="activeTab2">
+                <ft-tabs [(activeTabValue)]="activeTab1" [variant]="variant" [color]="color" [size]="size"
+                    [radius]="radius">
+                    <ft-tab label="Patient Info" value="consultation" icon="person">
+                        <div class="text-sm font-medium">Hello there, this is the patient information tab showcasing
+                            content.</div>
+                    </ft-tab>
+                    <ft-tab label="Vitals" value="prescription" icon="monitor_heart">
+                        <div class="text-sm">Patient's vital metrics over the last 24 hours. Normal.</div>
+                    </ft-tab>
+                    <ft-tab label="Notes" value="cerficat" icon="edit_note">
+                        <div class="text-sm text-gray-500 italic">No notes found for this visit.</div>
+                    </ft-tab>
                 </ft-tabs>
             </div>
-
         </div>
-        }
     </div>
 </div>
