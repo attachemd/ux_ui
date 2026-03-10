@@ -1,0 +1,54 @@
+<div class="all-case-container">
+    <h1 class="showcase-title">Tabs All cases</h1>
+    <div class="cases-container">
+        <!-- Header Row -->
+        <div class="case-row case-row-heading">
+            <div class="case-item case-item-heading"></div>
+            @for (size of sizes; track size) {
+            <div class="case-item heading-text">
+                {{ size.replace('-size', '') }}
+            </div>
+            }
+        </div>
+
+        <!-- Body Rows: Variants -->
+        @for (variant of variants; track variant) {
+        <div class="case-row">
+            <div class="case-item case-item-heading vertical-text">
+                {{ variant }}
+            </div>
+            @for (size of sizes; track size) {
+            <div class="case-item">
+                <ft-tabs [tabs]="medicalTabs" [variant]="variant" [size]="size" color="primary" radius="full-radius"
+                    [(activeTabValue)]="activeTab1">
+                </ft-tabs>
+            </div>
+            }
+        </div>
+        }
+
+    </div>
+
+    <!-- Colors Section -->
+    <h2 class="showcase-title mt-8">Colors (Solid Variant)</h2>
+    <div class="cases-container">
+        <div class="case-row case-row-heading">
+            <div class="case-item case-item-heading"></div>
+            <div class="case-item heading-text">Solid Variant Colors</div>
+        </div>
+        @for (color of colors; track color) {
+        <div class="case-row">
+            <div class="case-item case-item-heading vertical-text">
+                {{ color }}
+            </div>
+
+            <div class="case-item align-start">
+                <ft-tabs [tabs]="medicalTabs" variant="solid" size="md-size" [color]="color" radius="full-radius"
+                    [(activeTabValue)]="activeTab2">
+                </ft-tabs>
+            </div>
+
+        </div>
+        }
+    </div>
+</div>

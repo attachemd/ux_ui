@@ -1,0 +1,15 @@
+<div class="ft-tabs-container" [class]="size + ' ' + color + ' ' + variant" [class.is-disabled]="disabled"
+    [class.full-width]="fullWidth" [class.radius-applied]="true" [ngClass]="radiusClasses">
+    <div class="tabs-list" role="tablist">
+        @for (tab of tabs; track tab.value) {
+        <button type="button" role="tab" class="tab-item" [attr.aria-selected]="activeTabValue === tab.value"
+            [attr.aria-disabled]="tab.disabled || disabled" [class.is-active]="activeTabValue === tab.value"
+            [class.is-disabled]="tab.disabled" [ngClass]="radiusClasses" (click)="selectTab(tab)">
+            @if (tab.icon) {
+            <span class="material-symbols-rounded tab-icon">{{ tab.icon }}</span>
+            }
+            <span class="tab-label">{{ tab.label }}</span>
+        </button>
+        }
+    </div>
+</div>
