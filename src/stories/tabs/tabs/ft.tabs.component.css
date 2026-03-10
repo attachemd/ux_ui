@@ -36,7 +36,7 @@
 
     /* Core Base Mixins */
     --_tabs-accent: var(--ft-color-primary);
-    --_tabs-bg-base: var(--ft-color-primary);
+    --_tabs-bg-base: #fff;
 
     --_tabs-bg-50: color-mix(in srgb, var(--_tabs-bg-base) 2%, transparent);
     --_tabs-bg-100: color-mix(in srgb, var(--_tabs-bg-base) 4%, transparent);
@@ -93,7 +93,8 @@
 
     .tab-cursor {
         position: absolute;
-        height: 100%;
+        height: var(--_cursor-height, 100%);
+        bottom: var(--_cursor-bottom, 0);
         background-color: var(--_cursor-bg);
         border: var(--_cursor-border-width) solid var(--_cursor-border-color);
         box-sizing: border-box;
@@ -159,6 +160,7 @@
             color: var(--_tabs-accent);
             outline: 2px solid var(--_tabs-accent);
             outline-offset: 2px;
+            z-index: 10;
         }
 
         &:is(:active, .press):not(.is-disabled) {
@@ -175,7 +177,7 @@
             color: var(--_tab-text-active);
             background-color: var(--_tab-bg-active);
             box-shadow: var(--_tab-shadow-active);
-            font-weight: 600;
+            font-weight: 500;
         }
     }
 
@@ -245,9 +247,9 @@
 
     /* COLOR VARIANTS */
     &.default {
-        --_tabs-bg-base: var(--ft-color-border-200);
+        --_tabs-bg-base: var(--ft-color-solid-on-surface);
         --_tabs-accent: var(--ft-color-solid-on-surface);
-        --_tab-text-active: var(--ft-color-solid-on-surface);
+      --_tab-text-active: var(--ft-color-solid-on-surface);
     }
 
     &.primary {
@@ -289,30 +291,34 @@
     /* STYLING VARIANTS */
     &.flat {
         --_tabs-bg: var(--_tabs-bg-100);
-        --_cursor-bg: var(--_tabs-bg-200);
+        --_cursor-bg: var(--ft-color-solid-surface);
         --_cursor-border-width: 0px;
         --_tab-bg-active: transparent;
         --_tab-text: var(--ft-color-solid-on-surface);
+        --_tab-text-active: var(--_tabs-accent);
+        --_tab-shadow-active: var(--shadow-sm);
     }
 
     &.faded {
         --_tabs-bg: var(--_tabs-bg-50);
         --_tabs-border-width: var(--ft-border-secondary);
         --_tabs-border-color: var(--_tabs-bg-100);
-        --_cursor-bg: var(--_tabs-bg-200);
+        --_cursor-bg: var(--ft-color-solid-surface);
         --_cursor-border-width: var(--ft-border-primary);
-        --_cursor-border-color: color-mix(in srgb, var(--_tabs-bg-base) 60%, transparent);
+        --_cursor-border-color: color-mix(in srgb, var(--_tabs-bg-base) 20%, transparent);
         --_tab-bg-active: transparent;
         --_tab-text: var(--ft-color-solid-on-surface);
+        --_tab-text-active: var(--_tabs-accent);
+        --_tab-shadow-active: var(--shadow-sm);
     }
 
     &.outlined {
         --_tabs-bg: transparent;
         --_tabs-border-width: var(--ft-border-primary);
-        --_tabs-border-color: var(--_tabs-bg-200);
+        --_tabs-border-color: color-mix(in srgb, var(--_tabs-bg-base) 30%, transparent);
         --_cursor-bg: transparent;
         --_cursor-border-width: var(--ft-border-primary);
-        --_cursor-border-color: color-mix(in srgb, var(--_tabs-bg-base) 60%, transparent);
+        --_cursor-border-color: color-mix(in srgb, var(--_tabs-bg-base) 30%, transparent);
         --_tab-bg-active: transparent;
     }
 
@@ -322,5 +328,45 @@
         --_cursor-bg: var(--_tabs-bg-100);
         --_cursor-border-width: 0px;
         --_tab-bg-active: transparent;
+    }
+
+    &.underlined {
+        --_tabs-bg: transparent;
+        --_tabs-border-width: 0px;
+        --_tabs-padding: 0px;
+        --_cursor-height: 4px;
+        --_cursor-bg: var(--_tabs-accent);
+        --_cursor-border-width: 0px;
+        --_tab-text-active: var(--_tabs-accent);
+        --_tab-bg-active: transparent;
+        --_tab-shadow-active: none;
+        --_tab-padding: var(--ft-unit-200) var(--ft-unit-200);
+
+        .tabs-list {
+            /*border-bottom: var(--ft-border-primary) solid var(--ft-color-border-200);*/
+        }
+
+        .tab-cursor {
+            background-color: transparent;
+
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 25%;
+                width: 50%;
+                height: 100%;
+                background-color: var(--_cursor-bg);
+                border-radius: var(--ft-radius-pill);
+            }
+        }
+
+        .tab-item {
+            border-radius: 0px;
+
+            &:is(:focus-visible, .focus) {
+                outline-offset: -2px;
+            }
+        }
     }
 }

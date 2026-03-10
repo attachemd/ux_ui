@@ -15,7 +15,7 @@
             </div>
             <div class="case-item">
                 <ft-tabs [tabs]="tabsToDisplay" [variant]="variant" [size]="size" [color]="color" [radius]="radius"
-                    [(activeTabValue)]="activeTab1" [state]="state">
+                    [(activeTabValue)]="activeTabValues[state]" [state]="state" [stateIndex]="3">
                 </ft-tabs>
             </div>
         </div>
@@ -34,7 +34,7 @@
                 <p>Default</p>
             </div>
             <div class="case-item align-start">
-                <ft-tabs [(activeTabValue)]="activeTab1" [variant]="variant" [color]="color" [size]="size"
+                <ft-tabs [(activeTabValue)]="activeTabContentPanels" [variant]="variant" [color]="color" [size]="size"
                     [radius]="radius">
                     <ft-tab label="Patient Info" value="consultation" icon="person">
                         <div class="text-sm font-medium">Hello there, this is the patient information tab showcasing

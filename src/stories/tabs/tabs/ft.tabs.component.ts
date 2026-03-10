@@ -32,7 +32,7 @@ export class FTabsComponent implements AfterContentInit, OnChanges, AfterViewIni
 
     @Input() size: 'xs-size' | 'sm-size' | 'md-size' | 'lg-size' = 'md-size';
     @Input() color: 'default' | 'primary' | 'secondary' | 'tertiary' | 'success' | 'warning' | 'danger' = 'primary';
-    @Input() variant: 'flat' | 'faded' | 'outlined' | 'ghost' = 'flat';
+    @Input() variant: 'flat' | 'faded' | 'outlined' | 'ghost' | 'underlined' = 'flat';
     @Input() radius: 'none-radius' | 'xs-radius' | 'sm-radius' | 'md-radius' | 'lg-radius' | 'full-radius' = 'md-radius';
     @Input() state: 'rest' | 'hover' | 'press' | 'focus' | 'active' | 'disabled' = 'rest';
     @Input() stateIndex: number = 1;

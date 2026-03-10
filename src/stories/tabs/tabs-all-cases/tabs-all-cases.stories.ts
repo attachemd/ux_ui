@@ -7,7 +7,7 @@ const meta: Meta<TabsAllCasesComponent> = {
     argTypes: {
         variant: {
             control: 'select',
-            options: ['flat', 'faded', 'outlined', 'ghost'],
+            options: ['flat', 'faded', 'outlined', 'ghost', 'underlined'],
         },
         size: {
             control: 'select',
@@ -34,8 +34,8 @@ export const Default: Story = {
     args: {
         variant: 'flat',
         size: 'md-size',
-        color: 'primary',
+        color: 'default',
         radius: 'md-radius',
-        withIcon: true,
+        withIcon: false,
     }
 };

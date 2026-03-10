@@ -13,7 +13,7 @@ import { FTabComponent } from '../tabs/ft.tab.component';
 export class TabsAllCasesComponent {
     @Input() size: 'xs-size' | 'sm-size' | 'md-size' | 'lg-size' = 'md-size';
     @Input() color: 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger' = 'primary';
-    @Input() variant: 'flat' | 'faded' | 'outlined' | 'ghost' = 'flat';
+    @Input() variant: 'flat' | 'faded' | 'outlined' | 'ghost' | 'underlined' = 'flat';
     @Input() radius: 'none-radius' | 'xs-radius' | 'sm-radius' | 'md-radius' | 'lg-radius' | 'full-radius' = 'md-radius';
     @Input() withIcon: boolean = true;
 
@@ -34,7 +34,16 @@ export class TabsAllCasesComponent {
         { label: 'Examens', value: 'examens', icon: 'clinical_notes' },
     ];
 
-    activeTab1 = 'consultation';
+    activeTabValues: { [key: string]: string } = {
+        'rest': 'consultation',
+        'hover': 'consultation',
+        'press': 'consultation',
+        'focus': 'consultation',
+        'active': 'consultation',
+        'disabled': 'consultation'
+    };
+
+    activeTabContentPanels = 'consultation';
 
     get tabsToDisplay(): TabOption[] {
         if (this.withIcon) {
