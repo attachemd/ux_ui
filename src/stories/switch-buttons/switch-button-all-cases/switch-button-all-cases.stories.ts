@@ -4,7 +4,6 @@ import { SwitchButtonAllCasesComponent } from "./switch-button-all-cases.compone
 const meta: Meta<SwitchButtonAllCasesComponent> = {
     title: 'Core/Switch Button/Switch Button All Cases',
     component: SwitchButtonAllCasesComponent,
-    tags: ["autodocs"],
     argTypes: {
         size: {
             control: "select",
