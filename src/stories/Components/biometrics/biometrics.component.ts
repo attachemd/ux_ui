@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FTAccordionComponent } from '../ft.accordion.component';
-import { FTAccordionItemComponent } from '../ft.accordion-item.component';
+import { FTAccordionComponent } from '../../accordion/ft.accordion.component';
+import { FTAccordionItemComponent } from '../../accordion/ft.accordion-item.component';
 
 interface AccordionItem {
     label: string;
@@ -13,13 +13,13 @@ interface AccordionItem {
 }
 
 @Component({
-    selector: 'accordion-all-cases',
+    selector: 'biometrics',
     standalone: true,
     imports: [CommonModule, FTAccordionComponent, FTAccordionItemComponent],
-    templateUrl: './accordion-all-cases.component.html',
-    styleUrl: './accordion-all-cases.component.css'
+    templateUrl: './biometrics.component.html',
+    styleUrl: './biometrics.component.css'
 })
-export class AccordionAllCasesComponent {
+export class BiometricsComponent {
     biometrics: AccordionItem[] = [
         { label: 'FC (bpm)', value: 64, subValue: '22/05/2025 - 18:20', trendIcon: 'arrow_downward', trendColor: 'neutral' },
         { label: 'Poids (KG)', value: 70, subValue: '15/09/2023 - 07:55', trendIcon: 'arrow_upward', trendColor: 'neutral' },

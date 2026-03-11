@@ -1,4 +1,7 @@
-<div class="ft-accordion-item" [class.is-expanded]="expanded" [class.is-disabled]="disabled">
+<div class="ft-accordion-item" [class.is-expanded]="expanded" [class.is-disabled]="disabled"
+     [class]="borderClass"
+     [style.--_accordion-border-color-custom]="borderColor && !isSemanticColor(borderColor) ? borderColor : null"
+     [style.--_accordion-expanded-border-color-custom]="expandedBorderColor && !isSemanticColor(expandedBorderColor) ? expandedBorderColor : null">
     <div class="accordion-header" (click)="toggle()">
         <div class="header-content">
             <div class="header-start">
@@ -17,9 +20,11 @@
             </div>
 
             <div class="header-end">
-                <div class="action-icons">
-                    <i class="material-symbols-rounded action-icon">add</i>
+                @if (actionIcon) {
+                <div class="action-icons" (click)="onActionClick($event)">
+                    <i class="material-symbols-rounded action-icon">{{ actionIcon }}</i>
                 </div>
+                }
                 <i class="material-symbols-rounded toggle-icon">
                     {{ expanded ? 'expand_less' : 'expand_more' }}
                 </i>

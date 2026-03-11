@@ -51,10 +51,11 @@ const preview: Preview = {
             'Switch Button', 'Switch Button All Cases',
             'Toggle', 'Toggle All Cases',
             'Chips', 'Chips All Cases',
+            'Accordion',
             '*'
           ],
           'Components',
-          ['Login', 'Side Nav', '*'],
+          ['Login', 'Side Nav', 'Biometrics', '*'],
           '*',
         ],
       },
