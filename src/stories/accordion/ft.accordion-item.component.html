@@ -1,0 +1,35 @@
+<div class="ft-accordion-item" [class.is-expanded]="expanded" [class.is-disabled]="disabled">
+    <div class="accordion-header" (click)="toggle()">
+        <div class="header-content">
+            <div class="header-start">
+                @if (icon) {
+                <i class="material-symbols-rounded header-icon">{{ icon }}</i>
+                }
+                <span class="header-label">{{ label }}</span>
+            </div>
+
+            <div class="header-middle">
+                <span class="header-value">{{ value }}</span>
+                <span class="header-sub-value">{{ subValue }}</span>
+                @if (trendIcon) {
+                <i class="material-symbols-rounded trend-icon" [class]="trendColor">{{ trendIcon }}</i>
+                }
+            </div>
+
+            <div class="header-end">
+                <div class="action-icons">
+                    <i class="material-symbols-rounded action-icon">add</i>
+                </div>
+                <i class="material-symbols-rounded toggle-icon">
+                    {{ expanded ? 'expand_less' : 'expand_more' }}
+                </i>
+            </div>
+        </div>
+    </div>
+
+    <div class="accordion-content" [class.show]="expanded">
+        <div class="content-wrapper">
+            <ng-content></ng-content>
+        </div>
+    </div>
+</div>
