@@ -1,50 +1,65 @@
-<div class="button-dropdown-container" [class]="size + ' ' + variant + ' ' + state + ' ' + color" [class.is-open]="isOpen" [class.is-split]="isSplit">
+<div class="button-dropdown-container" 
+     [ngClass]="[size, variant, state, color]" 
+     [class.is-open]="isOpen" 
+     [class.is-split]="isSplit">
     
     <!-- Split Button: Main Part -->
     @if (isSplit) {
-        <button class="button-wrapper main-button" [class]="radiusClasses" (click)="onMainButtonClick($event)" [disabled]="disabled || state === 'disabled'">
+        <button class="button-wrapper main-button" 
+                [class.is-icon-only]="isIconOnly"
+                [ngClass]="radiusClasses" 
+                (click)="$event.stopPropagation(); handleMainButtonClick($event)" 
+                [disabled]="disabled || state === 'disabled'">
             @if (isPrefixIconClass && prefixIconClass) {
                 <div class="prefix-icon">
                     <span class="material-symbols-rounded">{{prefixIconClass}}</span>
                 </div>
             }
-            <div class="content-section">
-                <div class="label-row">
-                    <span class="label" [ngClass]="{
-                        'content-3xs--bold': size === 'xs-size',
-                        'content-2xs--bold': size === 'sm-size',
-                        'content-xs--bold': size === 'md-size',
-                        'content-sm--bold': size === 'lg-size'
-                    }">{{ label }}</span>
+            @if (!isIconOnly) {
+                <div class="content-section">
+                    <div class="label-row">
+                        <span class="label" [ngClass]="{
+                            'content-3xs--bold': size === 'xs-size',
+                            'content-2xs--bold': size === 'sm-size',
+                            'content-xs--bold': size === 'md-size',
+                            'content-sm--bold': size === 'lg-size'
+                        }">{{ label }}</span>
+                    </div>
                 </div>
-            </div>
+            }
         </button>
 
         <!-- Split Button: Dropdown Trigger -->
-        <button class="button-wrapper dropdown-trigger" [class]="radiusClasses" (click)="toggleDropdown($event)" [disabled]="disabled || state === 'disabled'">
+        <button class="button-wrapper dropdown-trigger" [ngClass]="radiusClasses" (click)="toggleDropdown(); $event.stopPropagation()" [disabled]="disabled || state === 'disabled'">
             <div class="suffix-icon">
                 <span class="material-symbols-rounded" [class.rotated]="isOpen">{{suffixIconClass}}</span>
             </div>
         </button>
     } @else {
         <!-- Regular Button Dropdown -->
-        <button class="button-wrapper single-button" [class]="radiusClasses" (click)="onMainButtonClick($event)" [disabled]="disabled || state === 'disabled'">
+        <button class="button-wrapper single-button" 
+                [class.is-icon-only]="isIconOnly"
+                [ngClass]="radiusClasses" 
+                (click)="$event.stopPropagation(); handleMainButtonClick($event)" 
+                [disabled]="disabled || state === 'disabled'">
             @if (isPrefixIconClass && prefixIconClass) {
                 <div class="prefix-icon">
                     <span class="material-symbols-rounded">{{prefixIconClass}}</span>
                 </div>
             }
-            <div class="content-section">
-                <div class="label-row">
-                    <span class="label" [ngClass]="{
-                        'content-3xs--bold': size === 'xs-size',
-                        'content-2xs--bold': size === 'sm-size',
-                        'content-xs--bold': size === 'md-size',
-                        'content-sm--bold': size === 'lg-size'
-                    }">{{ label }}</span>
+            @if (!isIconOnly) {
+                <div class="content-section">
+                    <div class="label-row">
+                        <span class="label" [ngClass]="{
+                            'content-3xs--bold': size === 'xs-size',
+                            'content-2xs--bold': size === 'sm-size',
+                            'content-xs--bold': size === 'md-size',
+                            'content-sm--bold': size === 'lg-size'
+                        }">{{ label }}</span>
+                    </div>
                 </div>
-            </div>
-            @if (isSuffixIconClass && suffixIconClass) {
+            }
+            @if (isSuffixIconClass && suffixIconClass && !isIconOnly) {
                 <div class="suffix-icon">
                     <span class="material-symbols-rounded" [class.rotated]="isOpen">{{suffixIconClass}}</span>
                 </div>
@@ -64,7 +79,7 @@
                         <span class="option-label">{{ opt.label }}</span>
                     </li>
                 }
-                @if (options.length === 0) {
+                @if (!options || options.length === 0) {
                     <li class="option-item no-options">No options available</li>
                 }
             </ul>

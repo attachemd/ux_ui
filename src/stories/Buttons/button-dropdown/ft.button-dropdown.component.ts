@@ -6,6 +6,7 @@ import {
     ViewEncapsulation,
     ElementRef,
     HostListener,
+    ChangeDetectorRef,
 } from '@angular/core';
 import { CommonModule, NgClass, NgStyle } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -22,13 +23,14 @@ export interface DropdownOption {
     templateUrl: './ft.button-dropdown.component.html',
     styleUrls: ['./ft.button-dropdown.component.css'],
     standalone: true,
-    imports: [CommonModule, NgClass, NgStyle, FormsModule],
+    imports: [CommonModule, NgClass, FormsModule],
     encapsulation: ViewEncapsulation.Emulated,
 })
 export class FTButtonDropdownComponent {
     @Input() label?: string;
-    @Input() options: DropdownOption[] = [];
+    
     @Input() isSplit = false;
+    @Input() isIconOnly = false;
     
     // Standard button inputs
     @Input() size: 'xs-size' | 'sm-size' | 'md-size' | 'lg-size' = 'md-size';
@@ -49,28 +51,40 @@ export class FTButtonDropdownComponent {
     @Output() mainButtonClicked = new EventEmitter<void>();
 
     isOpen = false;
+    private optionsVal: DropdownOption[] = [];
 
-    constructor(private elementRef: ElementRef) { }
+    @Input() 
+    set options(val: DropdownOption[]) {
+        this.optionsVal = val || [];
+        this.cdr.markForCheck();
+    }
+    get options(): DropdownOption[] {
+        return this.optionsVal;
+    }
+
+    constructor(
+        private elementRef: ElementRef,
+        private cdr: ChangeDetectorRef
+    ) { }
 
     @HostListener('document:click', ['$event'])
-    onDocumentClick(event: MouseEvent) {
+    handleOutsideClick(event: MouseEvent) {
         if (this.isOpen && !this.elementRef.nativeElement.contains(event.target)) {
             this.closeDropdown();
         }
     }
 
-    toggleDropdown(event?: Event) {
-        if (event) {
-            event.stopPropagation();
-        }
+    toggleDropdown() {
         if (this.disabled || this.state === 'disabled') {
             return;
         }
         this.isOpen = !this.isOpen;
+        this.cdr.markForCheck();
     }
 
     closeDropdown() {
         this.isOpen = false;
+        this.cdr.markForCheck();
     }
 
     selectOption(option: DropdownOption, event: Event) {
@@ -82,12 +96,12 @@ export class FTButtonDropdownComponent {
         this.closeDropdown();
     }
 
-    onMainButtonClick(event: Event) {
+    handleMainButtonClick(event: Event) {
+        event.stopPropagation();
         if (this.isSplit) {
-            event.stopPropagation();
             this.mainButtonClicked.emit();
         } else {
-            this.toggleDropdown(event);
+            this.toggleDropdown();
         }
     }
 

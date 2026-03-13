@@ -1,9 +1,14 @@
-import type { Meta, StoryObj } from '@storybook/angular';
+import { Meta, StoryObj, moduleMetadata } from '@storybook/angular';
 import { FTButtonDropdownComponent } from './ft.button-dropdown.component';
 
 const meta: Meta<FTButtonDropdownComponent> = {
     title: 'Core/Buttons/Button Dropdown',
     component: FTButtonDropdownComponent,
+    decorators: [
+        moduleMetadata({
+            imports: [FTButtonDropdownComponent],
+        }),
+    ],
     tags: ['autodocs'],
     argTypes: {
         size: {
@@ -65,11 +70,11 @@ export const Colors: Story = {
         props: args,
         template: `
       <div style="display: flex; gap: 16px; flex-wrap: wrap;">
-        <ft-button-dropdown label="Primary" color="primary" [options]="options"></ft-button-dropdown>
-        <ft-button-dropdown label="Secondary" color="secondary" [options]="options"></ft-button-dropdown>
-        <ft-button-dropdown label="Success" color="success" [options]="options"></ft-button-dropdown>
-        <ft-button-dropdown label="Warning" color="warning" [options]="options"></ft-button-dropdown>
-        <ft-button-dropdown label="Danger" color="danger" [options]="options"></ft-button-dropdown>
+        <ft-button-dropdown label="Primary" color="primary" [options]="options" [size]="size" [radius]="radius" [variant]="variant" [state]="state"></ft-button-dropdown>
+        <ft-button-dropdown label="Secondary" color="secondary" [options]="options" [size]="size" [radius]="radius" [variant]="variant" [state]="state"></ft-button-dropdown>
+        <ft-button-dropdown label="Success" color="success" [options]="options" [size]="size" [radius]="radius" [variant]="variant" [state]="state"></ft-button-dropdown>
+        <ft-button-dropdown label="Warning" color="warning" [options]="options" [size]="size" [radius]="radius" [variant]="variant" [state]="state"></ft-button-dropdown>
+        <ft-button-dropdown label="Danger" color="danger" [options]="options" [size]="size" [radius]="radius" [variant]="variant" [state]="state"></ft-button-dropdown>
       </div>
     `,
     }),
@@ -80,10 +85,10 @@ export const Variants: Story = {
         props: args,
         template: `
       <div style="display: flex; gap: 16px; flex-wrap: wrap;">
-        <ft-button-dropdown label="Flat" variant="flat" [options]="options"></ft-button-dropdown>
-        <ft-button-dropdown label="Outlined" variant="outlined" [options]="options"></ft-button-dropdown>
-        <ft-button-dropdown label="Faded" variant="faded" [options]="options"></ft-button-dropdown>
-        <ft-button-dropdown label="Ghost" variant="ghost" [options]="options"></ft-button-dropdown>
+        <ft-button-dropdown label="Flat" variant="flat" [options]="options" [color]="color" [size]="size" [radius]="radius" [state]="state"></ft-button-dropdown>
+        <ft-button-dropdown label="Outlined" variant="outlined" [options]="options" [color]="color" [size]="size" [radius]="radius" [state]="state"></ft-button-dropdown>
+        <ft-button-dropdown label="Faded" variant="faded" [options]="options" [color]="color" [size]="size" [radius]="radius" [state]="state"></ft-button-dropdown>
+        <ft-button-dropdown label="Ghost" variant="ghost" [options]="options" [color]="color" [size]="size" [radius]="radius" [state]="state"></ft-button-dropdown>
       </div>
     `,
     }),
@@ -94,11 +99,26 @@ export const Sizes: Story = {
         props: args,
         template: `
       <div style="display: flex; gap: 16px; align-items: center; flex-wrap: wrap;">
-        <ft-button-dropdown label="Extra Small" size="xs-size" [options]="options"></ft-button-dropdown>
-        <ft-button-dropdown label="Small" size="sm-size" [options]="options"></ft-button-dropdown>
-        <ft-button-dropdown label="Medium" size="md-size" [options]="options"></ft-button-dropdown>
-        <ft-button-dropdown label="Large" size="lg-size" [options]="options"></ft-button-dropdown>
+        <ft-button-dropdown label="Extra Small" size="xs-size" [options]="options" [color]="color" [variant]="variant" [radius]="radius" [state]="state"></ft-button-dropdown>
+        <ft-button-dropdown label="Small" size="sm-size" [options]="options" [color]="color" [variant]="variant" [radius]="radius" [state]="state"></ft-button-dropdown>
+        <ft-button-dropdown label="Medium" size="md-size" [options]="options" [color]="color" [variant]="variant" [radius]="radius" [state]="state"></ft-button-dropdown>
+        <ft-button-dropdown label="Large" size="lg-size" [options]="options" [color]="color" [variant]="variant" [radius]="radius" [state]="state"></ft-button-dropdown>
       </div>
     `,
     }),
 };
+
+export const IconOnly: Story = {
+    render: (args) => ({
+        props: args,
+        template: `
+      <div style="display: flex; gap: 16px; align-items: center; flex-wrap: wrap;">
+        <ft-button-dropdown [isIconOnly]="true" [isPrefixIconClass]="true" prefixIconClass="more_vert" [options]="options" [color]="color" [variant]="variant" [radius]="radius" [state]="state"></ft-button-dropdown>
+        <ft-button-dropdown [isIconOnly]="true" [isPrefixIconClass]="true" prefixIconClass="settings" color="secondary" [options]="options" [variant]="variant" [radius]="radius" [state]="state"></ft-button-dropdown>
+        <ft-button-dropdown [isIconOnly]="true" [isSplit]="true" [isPrefixIconClass]="true" prefixIconClass="add" color="success" [options]="options" [variant]="variant" [radius]="radius" [state]="state"></ft-button-dropdown>
+        <ft-button-dropdown [isIconOnly]="true" [isSplit]="true" [isPrefixIconClass]="true" prefixIconClass="download" color="warning" [options]="options" [variant]="variant" [radius]="radius" [state]="state"></ft-button-dropdown>
+      </div>
+    `,
+    }),
+};
+

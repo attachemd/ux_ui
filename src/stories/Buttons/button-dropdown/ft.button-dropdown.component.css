@@ -24,6 +24,7 @@
   --_balanced_small_padding: 0;
   --_gap: var(--ft-unit-300);
   --_icon-size: 20px;
+  --_divider-color: color-mix(in srgb, var(--_brand) 20%, transparent);
 
   /* 2. COLOR THEME LOGIC */
   &.primary { --_brand: var(--ft-color-primary); }
@@ -39,6 +40,7 @@
     --_text: var(--ft-color-on-primary);
     --_border-color: transparent;
     --_brand_variant: var(--_brand);
+    --_divider-color: color-mix(in srgb, var(--ft-color-on-primary) 30%, transparent);
     --_shadow: 0 var(--_vertical-offset) var(--_shadow-blur) color-mix(in srgb, var(--_brand_variant) 30%, transparent);
 
     &:is(.hover, .is-open) .button-wrapper {
@@ -55,6 +57,15 @@
     &:is(:hover, .is-open) .button-wrapper {
       --_border-color: var(--_brand);
     }
+    &.press .button-wrapper {
+      --_border-color: color-mix(in srgb, var(--_brand) 80%, var(--ft-color-mix-z));
+      --_text: color-mix(in srgb, var(--_brand) 80%, var(--ft-color-mix-z));
+      --_bg: color-mix(in srgb, var(--_brand) 10%, transparent);
+    }
+    &.focus .button-wrapper {
+      --_border-color: var(--_brand);
+      --_shadow: 0 0 0 2px var(--ft-color-surface-hover, color-mix(in srgb, var(--_brand) 20%, transparent));
+    }
   }
 
   &.faded {
@@ -66,6 +77,12 @@
       --_text: color-mix(in srgb, var(--_brand) 80%, var(--ft-color-mix-z));
       --_bg: color-mix(in srgb, var(--_brand) 20%, transparent);
     }
+    &.press .button-wrapper {
+      --_bg: color-mix(in srgb, var(--_brand) 30%, transparent);
+    }
+    &.focus .button-wrapper {
+      --_shadow: 0 0 0 2px var(--ft-color-surface-hover, color-mix(in srgb, var(--_brand) 20%, transparent));
+    }
   }
 
   &.ghost {
@@ -75,6 +92,12 @@
 
     &:is(:hover, .is-open) .button-wrapper {
       --_text: color-mix(in srgb, var(--_brand) 80%, var(--ft-color-mix-z));
+    }
+    &.press .button-wrapper {
+      --_bg: color-mix(in srgb, var(--_brand) 15%, transparent);
+    }
+    &.focus .button-wrapper {
+      --_shadow: 0 0 0 2px var(--ft-color-surface-hover, color-mix(in srgb, var(--_brand) 15%, transparent));
     }
   }
 
@@ -155,6 +178,20 @@
         transform: rotate(180deg);
       }
     }
+
+    &.is-icon-only {
+      width: var(--_height);
+      padding: 0;
+      justify-content: center;
+      
+      .prefix-icon {
+        margin: 0;
+      }
+
+      &.main-button {
+        width: var(--_height);
+      }
+    }
   }
 
   /* Split Mode Specifics */
@@ -168,10 +205,23 @@
       border-top-left-radius: 0 !important;
       border-bottom-left-radius: 0 !important;
       padding: 0 var(--_balanced_small_padding);
+      position: relative;
+
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 20%;
+        height: 60%;
+        width: 1px;
+        background-color: var(--_divider-color);
+        z-index: 1;
+      }
     }
     
+    /* Variant specific divider adjustments */
     &.outlined .dropdown-trigger {
-       border-left: 1px solid var(--_border-color);
+       border-left: none; /* Remove the extra border we had before */
     }
   }
 
