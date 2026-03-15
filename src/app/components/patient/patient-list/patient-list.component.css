@@ -68,6 +68,7 @@
   border: 1px solid var(--ft-color-border-100);
   border-radius: var(--ft-radius-400);
   background-color: var(--ft-color-solid-surface);
+  padding: var(--ft-unit-400); /* Floating effect padding */
 }
 
 .ft-table {
@@ -89,9 +90,24 @@
 }
 
 .ft-table thead th {
-  background-color: var(--ft-color-surface-level-100);
+  background-color: var(--color-neutral-100) !important;
   color: var(--ft-color-on-surface-level-200);
   font-weight: var(--font-weight-semibold);
+  cursor: pointer;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* Remove individual cell radius - handled by container overflow */
+.ft-table thead tr:first-child th:first-child,
+.ft-table thead tr:first-child th:last-child {
+  border-radius: 0;
+}
+
+/* Add separation between header and first row */
+.ft-table tbody tr:first-child td {
+  padding-top: var(--ft-unit-600);
 }
 
 .ft-table tbody tr:hover {
@@ -134,7 +150,7 @@
 /* Specific background for header sticky columns to match header bg */
 .ft-table thead th.sticky-column,
 .ft-table thead th.sticky-column-right {
-  background-color: var(--ft-color-surface-level-100);
+  background-color: var(--color-neutral-100) !important;
 }
 
 /* Specific left positions for multiple sticky columns */
