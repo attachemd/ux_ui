@@ -1,159 +1,231 @@
-import {AfterViewInit, Component, ElementRef, ViewChild} from '@angular/core';
-import {
-  MatTableDataSource, MatTableModule
-} from '@angular/material/table';
-import {MatSort, MatSortModule} from '@angular/material/sort';
-import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material/input';
-import {MatIconModule} from '@angular/material/icon';
-import {NgIf} from '@angular/common';
-import {MatButton, MatIconButton} from '@angular/material/button';
-import {MatCheckbox} from '@angular/material/checkbox';
-import {SelectionModel} from '@angular/cdk/collections';
-import {SelectModule} from 'primeng/select';
+import {AfterViewInit, Component, ElementRef, ViewChild, signal, computed} from '@angular/core';
+import {NgIf, NgFor, DatePipe} from '@angular/common';
+import {FTInputComponent} from '../../../../stories/inputs/input/ft.input.component';
+import {FtButtonComponent} from '../../../../stories/Buttons/button/ft.button.component';
+import {FtIconButtonComponent} from '../../../../stories/Buttons/icon-button/ft.icon.button.component';
+import {FtCheckboxComponent} from '../../../../stories/checkbox/ft.checkbox.component';
+import {FTSelectComponent, SelectOption} from '../../../../stories/select/select/ft.select.component';
+import {FTPaginationComponent} from '../../../../stories/pagination/ft.pagination.component';
 import {FormControl, FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {InputGroupModule} from 'primeng/inputgroup';
-import {ButtonModule} from 'primeng/button';
+import {Patient} from '../../../types/patient.type';
+
 interface View {
   name: string;
   id: string;
 }
-export interface UserData {
-  id: string;
-  name: string;
-  progress: string;
-  fruit: string;
-}
 
 /** Constants used to fill up our data base. */
-const FRUITS: string[] = [
-  'blueberry',
-  'lychee',
-  'kiwi',
-  'mango',
-  'peach',
-  'lime',
-  'pomegranate',
-  'pineapple',
-];
-const NAMES: string[] = [
-  'Maia',
-  'Asher',
-  'Olivia',
-  'Atticus',
-  'Amelia',
-  'Jack',
-  'Charlotte',
-  'Theodore',
-  'Isla',
-  'Oliver',
-  'Isabella',
-  'Jasper',
-  'Cora',
-  'Levi',
-  'Violet',
-  'Arthur',
-  'Mia',
-  'Thomas',
-  'Elizabeth',
-];
+const STATUSES: string[] = ['ANONYME', 'CONFIDENTIEL', 'VIP'];
+const TITLES: string[] = ['M', 'Mme', 'Mlle', 'Enf', 'Autre'];
+const SEXES: string[] = ['MALE', 'FEMALE', 'OTHER'];
+const COUNTRIES: string[] = ['Maroc', 'France', 'Spain', 'Germany'];
+const CITIES: { [key: string]: string[] } = {
+  'Maroc': ['Casablanca', 'Rabat', 'Marrakech'],
+  'France': ['Paris', 'Lyon', 'Marseille'],
+  'Spain': ['Madrid', 'Barcelona'],
+  'Germany': ['Berlin', 'Munich']
+};
+const LANGUAGES: string[] = ['Français', 'Anglais', 'Espagnol', 'Arabe', 'Berbère'];
+const MARITAL_STATUSES: string[] = ['SINGLE', 'MARRIED'];
+const ETHNICITIES: string[] = ['CAUCASIAN', 'ARAB', 'AFRICAN', 'OTHER'];
+const PROFESSIONS: string[] = ['ENGINEER', 'DOCTOR', 'TEACHER', 'OTHER'];
+
+const FIRST_NAMES: string[] = ['Maia', 'Asher', 'Olivia', 'Atticus', 'Amelia', 'Jack', 'Charlotte', 'Theodore', 'Isla', 'Oliver', 'Isabella', 'Jasper', 'Cora', 'Levi', 'Violet', 'Arthur', 'Mia', 'Thomas', 'Elizabeth'];
+const LAST_NAMES: string[] = ['Dupont', 'Martin', 'Bernard', 'Dubois', 'Thomas', 'Robert', 'Richard', 'Petit', 'Durand', 'Leroy', 'Moreau', 'Simon', 'Laurent', 'Lefebvre', 'Michel', 'Garcia', 'David', 'Bertrand', 'Roux'];
 @Component({
   selector: 'app-patient-list',
   imports: [
-    MatFormFieldModule, MatInputModule, MatTableModule, MatSortModule, MatPaginatorModule, MatIconModule, NgIf, MatIconButton, MatButton,
-    MatCheckbox, SelectModule, FormsModule, ReactiveFormsModule, InputGroupModule, ButtonModule
-
+    NgIf, NgFor, DatePipe,
+    FTInputComponent, FtButtonComponent, FtIconButtonComponent, FtCheckboxComponent,
+    FTSelectComponent, FTPaginationComponent, FormsModule, ReactiveFormsModule
   ],
   templateUrl: './patient-list.component.html',
   styleUrl: './patient-list.component.css'
 })
-export class PatientListComponent implements AfterViewInit {
-  displayedColumns: string[] = ['select', 'id', 'name', 'progress', 'fruit'];
-  dataSource: MatTableDataSource<UserData>;
-  selection = new SelectionModel<UserData>(true, []);
+export class PatientListComponent {
+  protected readonly Math = Math;
+  displayedColumns: string[] = [
+    'select', 'id', 'status', 'title', 'firstName', 'lastName', 'dateOfBirth', 'age', 'sexe', 
+    'email', 'primaryPhoneNumber', 'secondaryPhoneNumber', 'country', 'city', 'postalCode', 
+    'address', 'maritalStatus', 'nationality', 'ethnicity', 'occupation', 'spokenLanguages', 
+    'emergencyContactPhone', 'nationalId', 'passportNumber', 'placeOfBirth', 'employer', 
+    'socialSecurityNumber', 'insuranceProvider', 'insuranceNumber', 'otherField1', 'otherField2'
+  ];
+  
+  users = signal<Patient[]>([]);
+  filter = signal<string>('');
+  sortKey = signal<keyof Patient>('id');
+  sortDirection = signal<'asc' | 'desc'>('asc');
+  
+  pageSize = signal<number>(10);
+  currentPage = signal<number>(0);
+  
+  pageSizeOptions: SelectOption[] = [
+    { label: '5 par page', value: 5 },
+    { label: '10 par page', value: 10 },
+    { label: '25 par page', value: 25 },
+    { label: '50 par page', value: 50 },
+  ];
+  
+  selection = signal<Set<string>>(new Set());
 
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
-  @ViewChild(MatSort) sort!: MatSort;
-  @ViewChild('input') input!: ElementRef<HTMLInputElement>;
+  filteredUsers = computed(() => {
+    const filterValue = this.filter().toLowerCase();
+    const sorted = [...this.users()].filter(user => 
+      user.firstName.toLowerCase().includes(filterValue) || 
+      user.lastName.toLowerCase().includes(filterValue) || 
+      (user.id && user.id.toLowerCase().includes(filterValue)) ||
+      (user.email && user.email.toLowerCase().includes(filterValue))
+    );
 
-  // selectedCity = new FormControl('');
-  views: View[] | undefined;
-  selectedView = new FormControl<View | null>(null);
+    const key = this.sortKey();
+    const dir = this.sortDirection() === 'asc' ? 1 : -1;
+
+    return sorted.sort((a, b) => {
+      const valA = (a[key] ?? '') as any;
+      const valB = (b[key] ?? '') as any;
+      return valA < valB ? -dir : valA > valB ? dir : 0;
+    });
+  });
+
+  paginatedUsers = computed(() => {
+    const startIndex = this.currentPage() * this.pageSize();
+    return this.filteredUsers().slice(startIndex, startIndex + this.pageSize());
+  });
+
+  totalPages = computed(() => {
+    return Math.ceil(this.filteredUsers().length / this.pageSize());
+  });
+
+  pageOptions = computed<SelectOption[]>(() => {
+    const total = this.totalPages();
+    return Array.from({ length: total }, (_, i) => ({
+      label: `Page ${i + 1}`,
+      value: i
+    }));
+  });
+
+  views: SelectOption[] | undefined;
+  selectedView = new FormControl<any>(null);
 
   constructor() {
-    // Create 100 users
-    const users = Array.from({length: 100}, (_, k) => createNewUser(k + 1));
-
-    // Assign the data to the data source for the table to render
-    this.dataSource = new MatTableDataSource(users);
-    this.selectedView.setValue({ name: 'New York', id: 'NY' });
+    const initialUsers = Array.from({length: 100}, (_, k) => createNewPatient(k + 1));
+    this.users.set(initialUsers);
+    this.selectedView.setValue('1');
     this.views = [
-      { name: 'Vue standard', id: '1' },
-      { name: 'Compact', id: '2' },
-      { name: 'Date de naissance en premier', id: '3'},
-      { name: 'Filtrer par ville', id: '11'},
+      { label: 'Vue standard', value: '1' },
+      { label: 'Compact', value: '2' },
+      { label: 'Date de naissance en premier', value: '3'},
+      { label: 'Filtrer par ville', value: '11'},
     ];
   }
 
-  ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
+  onSearchChange(value: string) {
+    this.filter.set(value.trim());
+    this.currentPage.set(0); // Reset to first page on search
   }
 
-  applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
-
-    if (this.dataSource.paginator) {
-      this.dataSource.paginator.firstPage();
+  nextPage() {
+    if (this.currentPage() < this.totalPages() - 1) {
+      this.currentPage.update(p => p + 1);
     }
   }
 
-  clearInput() {
-    this.input.nativeElement.value = '';
-    this.applyFilter({ target: this.input.nativeElement } as unknown as Event); // Trigger filter after clearing
+  prevPage() {
+    if (this.currentPage() > 0) {
+      this.currentPage.update(p => p - 1);
+    }
   }
 
-  /** Whether the number of selected elements matches the total number of rows. */
+  goToPage(page: number) {
+    this.currentPage.set(page);
+  }
+
+  onPageSizeChange(size: number) {
+    this.pageSize.set(size);
+    this.currentPage.set(0);
+  }
+
   isAllSelected() {
-    const numSelected = this.selection.selected.length;
-    const numRows = this.dataSource.data.length;
-    return numSelected === numRows;
+    return this.selection().size === this.filteredUsers().length && this.filteredUsers().length > 0;
   }
 
-  /** Selects all rows if they are not all selected; otherwise clear selection. */
   toggleAllRows() {
     if (this.isAllSelected()) {
-      this.selection.clear();
-      return;
+      this.selection.set(new Set());
+    } else {
+      this.selection.set(new Set(this.filteredUsers().map(u => u.id!)));
     }
-
-    this.selection.select(...this.dataSource.data);
   }
 
-  /** The label for the checkbox on the passed row */
-  checkboxLabel(row?: UserData): string {
-    if (!row) {
-      return `${this.isAllSelected() ? 'deselect' : 'select'} all`;
+  toggleRow(row: Patient) {
+    const newSelection = new Set(this.selection());
+    if (row.id) {
+      if (newSelection.has(row.id)) {
+        newSelection.delete(row.id);
+      } else {
+        newSelection.add(row.id);
+      }
+      this.selection.set(newSelection);
     }
-    return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${row.id + 1}`;
+  }
+
+  isSelected(row: Patient) {
+    return !!row.id && this.selection().has(row.id);
+  }
+
+  setSort(key: keyof Patient) {
+    if (this.sortKey() === key) {
+      this.sortDirection.set(this.sortDirection() === 'asc' ? 'desc' : 'asc');
+    } else {
+      this.sortKey.set(key);
+      this.sortDirection.set('asc');
+    }
   }
 }
 
-/** Builds and returns a new User. */
-function createNewUser(id: number): UserData {
-  const name =
-    NAMES[Math.round(Math.random() * (NAMES.length - 1))] +
-    ' ' +
-    NAMES[Math.round(Math.random() * (NAMES.length - 1))].charAt(0) +
-    '.';
-
+/** Builds and returns a new Patient. */
+function createNewPatient(id: number): Patient {
+  const firstName = FIRST_NAMES[Math.floor(Math.random() * FIRST_NAMES.length)];
+  const lastName = LAST_NAMES[Math.floor(Math.random() * LAST_NAMES.length)];
+  const status = STATUSES[Math.floor(Math.random() * STATUSES.length)] as any;
+  const title = TITLES[Math.floor(Math.random() * TITLES.length)];
+  const sexe = SEXES[Math.floor(Math.random() * SEXES.length)];
+  const country = COUNTRIES[Math.floor(Math.random() * COUNTRIES.length)];
+  const city = CITIES[country][Math.floor(Math.random() * CITIES[country].length)];
+  const birthDate = new Date(1950 + Math.random() * 70, Math.floor(Math.random() * 12), Math.floor(Math.random() * 28));
+  
   return {
-    id: id.toString(),
-    name: name,
-    progress: Math.round(Math.random() * 100).toString(),
-    fruit: FRUITS[Math.round(Math.random() * (FRUITS.length - 1))],
+    id: `PAT-${id.toString().padStart(4, '0')}`,
+    status: status,
+    title: title,
+    firstName: firstName,
+    lastName: lastName,
+    dateOfBirth: birthDate,
+    age: new Date().getFullYear() - birthDate.getFullYear(),
+    sexe: sexe,
+    email: `${firstName.toLowerCase()}.${lastName.toLowerCase()}@example.com`,
+    primaryPhoneNumber: `+212 6${Math.floor(10000000 + Math.random() * 90000000)}`,
+    country: country,
+    city: city,
+    postalCode: Math.floor(10000 + Math.random() * 90000).toString(),
+    address: `${Math.floor(Math.random() * 100)}, Rue des Fleurs`,
+    maritalStatus: MARITAL_STATUSES[Math.floor(Math.random() * MARITAL_STATUSES.length)],
+    nationality: country === 'Maroc' ? 'Marocaine' : 'Étrangère',
+    ethnicity: ETHNICITIES[Math.floor(Math.random() * ETHNICITIES.length)],
+    occupation: PROFESSIONS[Math.floor(Math.random() * PROFESSIONS.length)],
+    spokenLanguages: [LANGUAGES[0], LANGUAGES[Math.floor(1 + Math.random() * (LANGUAGES.length - 1))]],
+    emergencyContactPhone: `+212 6${Math.floor(10000000 + Math.random() * 90000000)}`,
+    nationalId: `ID${Math.floor(100000 + Math.random() * 900000)}`,
+    passportNumber: `PS${Math.floor(100000 + Math.random() * 900000)}`,
+    secondaryPhoneNumber: `+212 5${Math.floor(10000000 + Math.random() * 90000000)}`,
+    placeOfBirth: city,
+    employer: 'Entreprise ABC',
+    socialSecurityNumber: `SSN-${Math.floor(1000000 + Math.random() * 9000000)}`,
+    insuranceProvider: 'Assurance XYZ',
+    insuranceNumber: `INS-${Math.floor(1000000 + Math.random() * 9000000)}`,
+    otherField1: 'Note additionnelle',
+    otherField2: null
   };
 }
 
