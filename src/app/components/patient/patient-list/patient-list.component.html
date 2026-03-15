@@ -1,200 +1,122 @@
 <div class="list-container ft-panel">
   <div class="list-header">
-    <!--    <div>-->
-    <!--      <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>-->
-    <!--    </div>-->
     <div class="table-search-container">
       <div class="table-view-container">
-        <button mat-icon-button id="menuButton2" popovertarget="myMenu2" popovertargetaction="toggle">
-          <mat-icon><i class="icon-setting"></i></mat-icon>
-        </button>
-        <div id="myMenu2" popover class="popover-menu">
-          <ul>
-            <li>
-              <button mat-flat-button>
-                <mat-icon><i class="icon-setting"></i></mat-icon>
-                <span>Configurer la vue</span>
-              </button>
-            </li>
-            <li>
-              <button mat-flat-button>
-                <mat-icon><i class="icon-table"></i></mat-icon>
-                <span>Modifier les colonnes</span>
-              </button>
-            </li>
-            <li>
-              <button mat-flat-button>
-                <mat-icon class="updated"><i class="icon-save"></i></mat-icon>
-                <span>Enregistrer</span>
-              </button>
-            </li>
-            <li>
-              <button mat-flat-button>
-                <mat-icon class="updated"><i class="icon-save"></i></mat-icon>
-                <span>Enregistrer sous</span>
-              </button>
-            </li>
-            <li>
-              <button mat-flat-button>
-                <mat-icon><i class="icon-back"></i></mat-icon>
-                <span>réinitialiser la vue</span>
-              </button>
-            </li>
-            <li>
-              <button mat-flat-button disabled>
-                <mat-icon><i class="icon-delete"></i></mat-icon>
-                <span>Supprimer</span>
-              </button>
-            </li>
-          </ul>
-        </div>
-        <!--        [showClear]="true"-->
-        <p-select formControlName="selectedView"
-                  [options]="views"
-
-                  optionLabel="name"
-                  variant="filled"/>
-<!--        <button mat-icon-button class="save">-->
-<!--          <mat-icon><i class="icon-save"></i></mat-icon>-->
-<!--        </button>-->
+        <ft-button variant="ghost" icon="settings"></ft-button>
+        <p-select [options]="views" optionLabel="name" variant="filled"/>
       </div>
 
-      <mat-form-field class="table-search">
-        <mat-icon matPrefix><i class="icon-search"></i></mat-icon>
-        <!--      <i matPrefix class="icon-close"></i>-->
-        <input matInput placeholder="Rechercher les patients" (keyup)="applyFilter($event)" #input/>
-        <button *ngIf="input.value" matSuffix mat-icon-button aria-label="Clear" (click)="clearInput()">
-          <mat-icon><i class="icon-close"></i></mat-icon>
-        </button>
-      </mat-form-field>
+      <div class="search-input-field">
+        <ft-input-all-cases [showClear]="true" placeholder="Rechercher les patients" #searchInput></ft-input-all-cases>
+      </div>
     </div>
 
     <div class="table-actions-container">
-      <div class="flex gap-2 items-center">
-        <button mat-button>Réinitialiser les filtres</button>
-        <button mat-flat-button class="filter-button">
-          <mat-icon><i matSuffix class="icon-filter"></i></mat-icon>
-          <span>Filtrer</span>
-          <span class="filter-number">2</span>
-        </button>
+      <div class="header-actions-group">
+        <ft-button variant="ghost" label="Réinitialiser"></ft-button>
+        <ft-button label="Filtrer" icon="filter_list"></ft-button>
       </div>
 
-      <button mat-flat-button>
-        <mat-icon><i class="icon-plus"></i></mat-icon>
-        <span>Nouveau patient</span>
-      </button>
-      <button id="menuButton1" popovertarget="myMenu1" popovertargetaction="toggle" mat-icon-button
-              aria-label="Example icon button with a vertical three dot icon">
-        <mat-icon><i class="icon-vertical-dots"></i></mat-icon>
-      </button>
-      <div id="myMenu1" popover class="popover-menu">
-        <ul>
-          <!--          <li><a href="#"><i class="icon-setting"></i><span>Configurer la vue</span></a></li>-->
-          <!--          <li><a href="#"><i class="icon-table"></i><span>Modifier les colonnes</span></a></li>-->
-          <!--          <li><a href="#"><i class="icon-save"></i><span>Enregistrer</span></a></li>-->
-          <!--          <li><a href="#"><i class="icon-save"></i><span>Enregistrer sous</span></a></li>-->
-          <!--          <li><a href="#"><i class="icon-export"></i><span>Exporter</span></a></li>-->
-          <!--          <li><a href="#"><i class="icon-delete"></i><span>Supprimer</span></a></li>-->
-
-          <li>
-            <button mat-flat-button disabled>
-              <mat-icon><i class="icon-export"></i></mat-icon>
-              <span>Exporter</span>
-            </button>
-          </li>
-        </ul>
-      </div>
-
-      <!--      <div class="menu-container">-->
-      <!--        <button id="menuButton1" popovertarget="myMenu1" popovertargetaction="toggle" style="font-size: 1.2em; padding: 10px 15px;">-->
-      <!--          Open Menu 1-->
-      <!--        </button>-->
-      <!--        <div id="myMenu1" popover class="popover-menu">-->
-      <!--          <ul>-->
-      <!--            <li><a href="#">Item 1</a></li>-->
-      <!--            <li><a href="#">Item 2</a></li>-->
-      <!--            <li><a href="#">Item 3 is a bit longer</a></li>-->
-      <!--            <li><a href="#">Item 4</a></li>-->
-      <!--          </ul>-->
-      <!--        </div>-->
-      <!--        <button id="menuButton2" popovertarget="myMenu2" popovertargetaction="toggle" style="font-size: 1.2em; padding: 10px 15px;">-->
-      <!--          Open Menu 2 (Near Edge)-->
-      <!--        </button>-->
-      <!--        <div id="myMenu2" popover class="popover-menu">-->
-      <!--          <ul>-->
-      <!--            <li><a href="#">Option A</a></li>-->
-      <!--            <li><a href="#">Option B</a></li>-->
-      <!--            <li><a href="#">Option C is very long</a></li>-->
-      <!--            <li><a href="#">Option D</a></li>-->
-      <!--          </ul>-->
-      <!--        </div>-->
-      <!--      </div>-->
-
+      <ft-button variant="primary" label="Nouveau" icon="add"></ft-button>
+      <ft-button variant="ghost" icon="more_vert"></ft-button>
     </div>
   </div>
+
   <div class="list-body">
     <div class="table-container">
-      <table mat-table [dataSource]="dataSource" matSort>
-
-        <!-- Checkbox Column -->
-        <ng-container matColumnDef="select" sticky>
-          <th mat-header-cell *matHeaderCellDef>
-            <mat-checkbox (change)="$event ? toggleAllRows() : null"
-                          [checked]="selection.hasValue() && isAllSelected()"
-                          [indeterminate]="selection.hasValue() && !isAllSelected()"
-                          [aria-label]="checkboxLabel()">
-            </mat-checkbox>
-          </th>
-          <td mat-cell *matCellDef="let row">
-            <mat-checkbox (click)="$event.stopPropagation()"
-                          (change)="$event ? selection.toggle(row) : null"
-                          [checked]="selection.isSelected(row)"
-                          [aria-label]="checkboxLabel(row)">
-            </mat-checkbox>
-          </td>
-        </ng-container>
-
-        <!-- ID Column -->
-        <ng-container matColumnDef="id">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> ID</th>
-          <td mat-cell *matCellDef="let row"> {{ row.id }}</td>
-        </ng-container>
-
-        <!-- Progress Column -->
-        <ng-container matColumnDef="progress">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> Progress</th>
-          <td mat-cell *matCellDef="let row"> {{ row.progress }}%</td>
-        </ng-container>
-
-        <!-- Name Column -->
-        <ng-container matColumnDef="name">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> Name</th>
-          <td mat-cell *matCellDef="let row"> {{ row.name }}</td>
-        </ng-container>
-
-        <!-- Fruit Column -->
-        <ng-container matColumnDef="fruit">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> Fruit</th>
-          <td mat-cell *matCellDef="let row"> {{ row.fruit }}</td>
-        </ng-container>
-
-        <!--        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>-->
-        <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-
-        <!-- Row shown when there is no matching data. -->
-        <tr class="mat-row" *matNoDataRow>
-          <td class="mat-cell" colspan="4">No data matching the filter "{{ input.value }}"</td>
-        </tr>
+      <table class="ft-table">
+        <thead>
+          <tr>
+            <th class="col-checkbox">
+              <ft-checkbox (change)="toggleAllRows($event)"
+                           [checked]="isAllSelected()"
+                           [indeterminate]="isPartiallySelected()">
+              </ft-checkbox>
+            </th>
+            <th class="col-id">ID</th>
+            <th class="col-status">Statut</th>
+            <th class="col-title">Civilité</th>
+            <th class="col-firstName">Prénom</th>
+            <th class="col-lastName">Nom</th>
+            <th class="col-dob">Date de naissance</th>
+            <th class="col-age">Âge</th>
+            <th class="col-sexe">Sexe</th>
+            <th class="col-email">Email</th>
+            <th class="col-phone1">Téléphone 1</th>
+            <th class="col-phone2">Téléphone 2</th>
+            <th class="col-country">Pays</th>
+            <th class="col-city">Ville</th>
+            <th class="col-cp">Code Postal</th>
+            <th class="col-address">Adresse</th>
+            <th class="col-marital">État civil</th>
+            <th class="col-nationality">Nationalité</th>
+            <th class="col-ethnicity">Ethnicité</th>
+            <th class="col-occupation">Profession</th>
+            <th class="col-languages">Langues parlées</th>
+            <th class="col-emergency">Contact d'urgence</th>
+            <th class="col-cin">CIN/National ID</th>
+            <th class="col-passport">Passeport</th>
+            <th class="col-pob">Lieu de naissance</th>
+            <th class="col-employer">Employeur</th>
+            <th class="col-nss">N° Sécurité Sociale</th>
+            <th class="col-insurance-provider">Assurance</th>
+            <th class="col-insurance-number">N° Assurance</th>
+            <th class="col-other1">Champ libre 1</th>
+            <th class="col-other2">Champ libre 2</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (user of paginatedUsers(); track user.id) {
+            <tr [class.selected]="selection.isSelected(user)" (click)="selection.toggle(user)" class="clickable-row">
+              <td class="col-checkbox" (click)="$event.stopPropagation()">
+                <ft-checkbox [checked]="selection.isSelected(user)"
+                             (change)="selection.toggle(user)">
+                </ft-checkbox>
+              </td>
+              <td class="col-id">{{ user.id }}</td>
+              <td class="col-status">{{ user.status }}</td>
+              <td class="col-title">{{ user.title }}</td>
+              <td class="col-firstName">{{ user.firstName }}</td>
+              <td class="col-lastName">{{ user.lastName }}</td>
+              <td class="col-dob">{{ user.dob  }}</td>
+              <td class="col-age">{{ user.age }}</td>
+              <td class="col-sexe">{{ user.sexe }}</td>
+              <td class="col-email">{{ user.email }}</td>
+              <td class="col-phone1">{{ user.phoneNumber }}</td>
+              <td class="col-phone2">{{ user.secondaryPhoneNumber }}</td>
+              <td class="col-country">{{ user.country }}</td>
+              <td class="col-city">{{ user.city }}</td>
+              <td class="col-cp">{{ user.postalCode }}</td>
+              <td class="col-address">{{ user.address }}</td>
+              <td class="col-marital">{{ user.maritalStatus }}</td>
+              <td class="col-nationality">{{ user.nationality }}</td>
+              <td class="col-ethnicity">{{ user.ethnicity }}</td>
+              <td class="col-occupation">{{ user.occupation }}</td>
+              <td class="col-languages">{{ user.spokenLanguages.join(', ') }}</td>
+              <td class="col-emergency">{{ user.emergencyContactPhone }}</td>
+              <td class="col-cin">{{ user.nationalId }}</td>
+              <td class="col-passport">{{ user.passportNumber }}</td>
+              <td class="col-pob">{{ user.placeOfBirth }}</td>
+              <td class="col-employer">{{ user.employer }}</td>
+              <td class="col-nss">{{ user.socialSecurityNumber }}</td>
+              <td class="col-insurance-provider">{{ user.insuranceProvider }}</td>
+              <td class="col-insurance-number">{{ user.insuranceNumber }}</td>
+              <td class="col-other1">{{ user.otherField1 }}</td>
+              <td class="col-other2">{{ user.otherField2 }}</td>
+            </tr>
+          }
+          <tr *ngIf="filteredUsers().length === 0">
+            <td colspan="31" class="empty-state">Aucun patient correspondant</td>
+          </tr>
+        </tbody>
       </table>
     </div>
-
-    <mat-paginator
-      [pageSize]="25"
-      [pageSizeOptions]="[5, 10, 25, 100]"
-      showFirstLastButtons
-      aria-label="Select page of users"
-    ></mat-paginator>
   </div>
-</div>
 
+  <ft-pagination [totalItems]="filteredUsers().length"
+                   [pageSize]="pageSize()"
+                   [currentPage]="currentPage()"
+                   (pageChange)="goToPage($event)"
+                   (pageSizeChange)="onPageSizeChange($event)">
+    </ft-pagination>
+</div>

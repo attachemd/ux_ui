@@ -1,160 +1,161 @@
+.list-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
 :host {
   display: flex;
   flex-direction: column;
   height: 100%;
-  padding: 0 var(--ft-spacing-md) var(--ft-spacing-md);
-  /*::ng-deep {*/
-  /*  .mat-column-id {*/
-  /*    flex: 0 0 60px;*/
-  /*  }*/
-  /*}*/
+
+  /* Internal Column Widths */
+  --_col-width-checkbox: var(--ft-unit-1600); /* 64px */
+  --_col-width-id: var(--ft-unit-2000); /* 80px */
 }
 
-.mat-column-id {
-  /*flex: 0 0 60px;*/
-  width: 60px;
+.list-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--ft-unit-400);
+  padding: var(--ft-unit-400) 0;
+  border-bottom: 1px solid var(--ft-color-border-100);
 }
 
-.menu-container {
-  /*position: relative; !* Needed for --anchor-name on the button to work implicitly, or you can explicitly set it on the button *!*/
-  /*display: inline-block; !* Keep button and menu together *!*/
+.table-search-container {
+  display: flex;
+  align-items: center;
+  gap: var(--ft-unit-400);
+  flex-grow: 1;
 }
 
-/*#menuButton1 {*/
-/*  anchor-name: --menu-button-1;*/
-/*}*/
-
-/*#myMenu1 {*/
-/*  !*position: relative;*!*/
-/*  top: anchor(--menu-button-1 bottom);*/
-/*  !*left: anchor(--menu-button-1 left);*!*/
-/*  margin: 0;*/
-/*  margin-right: 10px;*/
-/*  justify-self: anchor-center;*/
-/*  !*position-area: bottom;*!*/
-/*  !*position: fixed;*!*/
-/*  !*inset: 0;*!*/
-/*}*/
-
-/*.myMenu {*/
-/*  top: anchor( bottom);*/
-/*  margin: 0;*/
-/*  margin-right: 10px;*/
-/*  justify-self: anchor-center;*/
-/*}*/
-
-/*#menuButton2 {*/
-/*  --anchor-name: --menu-button-2;*/
-/*}*/
-
-/* Style the button */
-/*button {*/
-/*  !*background-colors: #007bff;*!*/
-/*  !*colors: white;*!*/
-/*  !*border: none;*!*/
-/*  !*border-radius: 5px;*!*/
-/*  !*cursor: pointer;*!*/
-/*  transition: background-colors 0.3s ease;*/
-/*  !*position: relative;*!*/
-/*}*/
-
-/*button:hover {*/
-/*  background-colors: #0056b3;*/
-/*}*/
-
-/*:popover-open {*/
-/*  width: 200px;*/
-/*  height: 100px;*/
-/*  position: absolute;*/
-/*  inset: unset;*/
-/*  bottom: 5px;*/
-/*  right: 5px;*/
-/*  margin: 0;*/
-/*}*/
-
-/*
-   POPover Menu Styling
-   Note: The `popover` attribute automatically promotes the element to the top layer,
-   so you don't need z-index.
-*/
-.popover-menu {
-  border: 1px solid #e3e3e3;
-  background-color: white;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 12px;
-  padding: 8px;
-  min-width: 150px;
-  max-width: 250px;
-
-  top: anchor( bottom);
-  margin: 0;
-  margin-right: 10px;
-  justify-self: anchor-center;
-
-
-  /* Important for anchor positioning */
-  /*position: absolute; !* Required for anchor() to work *!*/
-  /*inset: auto; !* Reset default popover positioning *!*/
-
-  /* Implicit anchor association:
-     When a popover is controlled by a button using `popovertarget`,
-     the button becomes an implicit anchor. We can name it using --anchor-name.
-     This is implicitly linked if the popover is controlled by the button via popovertarget.
-     If you want to explicitly declare an anchor, you'd use `anchor="id-of-anchor"` on the popover.
-  */
-  /*position-anchor: var(--anchor-name); !* Link to the anchor defined on the button's style *!*/
-
-  /* Positioning rules with fallbacks */
-  /* Try to place the top of the popover at the bottom of the anchor */
-  /*top: anchor(bottom);*/
-  /* Try to place the left of the popover at the left of the anchor */
-  /*left: anchor(left);*/
-
-  /* Fallback positioning if it goes off-screen: */
-  /* If the primary position doesn't fit, try to place it at the top of the anchor */
-  /* (This example prioritizes bottom-placement, but if not enough space, it will try top) */
-  /* You can list multiple anchor() values. The browser will pick the first one that fits. */
-  /* Example: top: anchor(bottom) anchor(top, 100%); will try bottom, then top if bottom doesn't fit */
-  /* For horizontal, if left goes off-screen, try placing right edge of menu at right edge of anchor */
-  /*right: anchor(right); !* This will be a fallback if left goes off-screen *!*/
-
-  /* Optional: Add some offset */
-  /*margin-top: 8px; !* Space between button and menu *!*/
+.table-view-container {
+  display: flex;
+  align-items: center;
+  gap: var(--ft-unit-200);
 }
 
-.popover-menu ul {
-  list-style: none;
-  padding: 8px 0;
-  margin: 0;
+.table-actions-container {
+  display: flex;
+  align-items: center;
+  gap: var(--ft-unit-400);
+}
+
+.search-input-field {
+  flex-grow: 1;
+  max-width: 400px;
+}
+
+.header-actions-group {
+  display: flex;
+  gap: var(--ft-unit-200);
+  align-items: center;
+}
+
+.list-body {
+  flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  min-height: 0;
+  width: 100%;
 }
 
-/*::ng-deep .mdc-button.mat-mdc-unelevated-button:not(:disabled) {*/
-/*  border: var(--ft-border-secondary) solid red !important;*/
-/*}*/
+.table-container {
+  flex: 1;
+  overflow: auto;
+  border: 1px solid var(--ft-color-border-100);
+  border-radius: var(--ft-radius-400);
+  background-color: var(--ft-color-solid-surface);
+}
 
-/*::ng-deep .popover-menu li button {*/
-/*  padding: 4px 8px;*/
-/*  text-decoration: none;*/
-/*  colors: #333;*/
-/*  border-radius: 6px;*/
-/*  white-space: nowrap; !* Prevent menu items from wrapping *!*/
-/*  display: flex;*/
-/*  align-items: center;*/
-/*  gap: 8px;*/
-/*  border: 0 solid red !important;*/
-/*  > * {*/
-/*    line-height: 1;*/
-/*  }*/
-/*}*/
+.ft-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  min-width: 4600px;
+  font-size: var(--ft-text-sm);
+}
 
-/*.popover-menu li a:hover {*/
-/*  background-colors: #f0f0f0;*/
-/*}*/
+.ft-table thead th,
+.ft-table tbody td {
+  text-align: left;
+  padding: var(--ft-unit-300) var(--ft-unit-400);
+  border-bottom: 1px solid var(--ft-color-border-100);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 
-/* Hide the popover by default. The `popover` attribute handles toggling. */
-.popover-menu:not(:popover-open) {
-  display: none;
+.ft-table thead th {
+  background-color: var(--ft-color-surface-level-100);
+  color: var(--ft-color-on-surface-level-200);
+  font-weight: var(--font-weight-semibold);
+}
+
+.ft-table tbody tr:hover {
+  background-color: var(--ft-color-surface-level-200);
+}
+
+.ft-table tbody tr.selected {
+  background-color: var(--ft-color-surface-level-100);
+}
+
+/* Column Widths */
+.col-checkbox {
+  width: var(--_col-width-checkbox);
+  min-width: var(--_col-width-checkbox);
+  max-width: var(--_col-width-checkbox);
+  padding: 0 !important;
+  vertical-align: middle;
+}
+
+.col-checkbox ft-checkbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.col-id { width: var(--_col-width-id); min-width: var(--_col-width-id); }
+.col-status { width: 120px; min-width: 120px; }
+.col-title { width: 100px; min-width: 100px; }
+.col-firstName { width: 150px; min-width: 150px; }
+.col-lastName { width: 150px; min-width: 150px; }
+.col-dob { width: 160px; min-width: 160px; }
+.col-age { width: 70px; min-width: 70px; }
+.col-sexe { width: 80px; min-width: 80px; }
+.col-email { width: 240px; min-width: 240px; }
+.col-phone1 { width: 150px; min-width: 150px; }
+.col-phone2 { width: 150px; min-width: 150px; }
+.col-country { width: 150px; min-width: 150px; }
+.col-city { width: 150px; min-width: 150px; }
+.col-cp { width: 100px; min-width: 100px; }
+.col-address { width: 300px; min-width: 300px; }
+.col-marital { width: 150px; min-width: 150px; }
+.col-nationality { width: 150px; min-width: 150px; }
+.col-ethnicity { width: 150px; min-width: 150px; }
+.col-occupation { width: 180px; min-width: 180px; }
+.col-languages { width: 200px; min-width: 200px; }
+.col-emergency { width: 150px; min-width: 150px; }
+.col-cin { width: 150px; min-width: 150px; }
+.col-passport { width: 150px; min-width: 150px; }
+.col-pob { width: 180px; min-width: 180px; }
+.col-employer { width: 150px; min-width: 150px; }
+.col-nss { width: 150px; min-width: 150px; }
+.col-insurance-provider { width: 180px; min-width: 180px; }
+.col-insurance-number { width: 150px; min-width: 150px; }
+.col-other1 { width: 150px; min-width: 150px; }
+.col-other2 { width: 150px; min-width: 150px; }
+
+.clickable-row {
+  cursor: pointer;
+}
+
+.empty-state {
+  text-align: center;
+  padding: var(--ft-unit-1000);
+  color: var(--ft-color-on-surface-muted);
 }
