@@ -3,11 +3,11 @@
     <div class="table-search-container">
       <div class="table-view-container">
         <ft-button variant="ghost" icon="settings"></ft-button>
-        <p-select [options]="views" optionLabel="name" variant="filled"/>
+        <ft-select [options]="views || []" [formControl]="selectedView"></ft-select>
       </div>
 
       <div class="search-input-field">
-        <ft-input-all-cases [showClear]="true" placeholder="Rechercher les patients" #searchInput></ft-input-all-cases>
+        <ft-input [isClearable]="true" placeholder="Rechercher les patients" (valueChange)="onSearchChange($event)" #searchInput></ft-input>
       </div>
     </div>
 
@@ -17,7 +17,7 @@
         <ft-button label="Filtrer" icon="filter_list"></ft-button>
       </div>
 
-      <ft-button variant="primary" label="Nouveau" icon="add"></ft-button>
+      <ft-button variant="flat" label="Nouveau" icon="add"></ft-button>
       <ft-button variant="ghost" icon="more_vert"></ft-button>
     </div>
   </div>
@@ -27,13 +27,12 @@
       <table class="ft-table">
         <thead>
           <tr>
-            <th class="col-checkbox">
-              <ft-checkbox (change)="toggleAllRows($event)"
-                           [checked]="isAllSelected()"
-                           [indeterminate]="isPartiallySelected()">
+            <th class="col-checkbox sticky-column">
+              <ft-checkbox (change)="toggleAllRows()"
+                           [value]="isAllSelected()">
               </ft-checkbox>
             </th>
-            <th class="col-id">ID</th>
+            <th class="col-id sticky-column">ID</th>
             <th class="col-status">Statut</th>
             <th class="col-title">Civilité</th>
             <th class="col-firstName">Prénom</th>
@@ -63,26 +62,27 @@
             <th class="col-insurance-number">N° Assurance</th>
             <th class="col-other1">Champ libre 1</th>
             <th class="col-other2">Champ libre 2</th>
+            <th class="col-actions sticky-column-right">Actions</th>
           </tr>
         </thead>
         <tbody>
           @for (user of paginatedUsers(); track user.id) {
-            <tr [class.selected]="selection.isSelected(user)" (click)="selection.toggle(user)" class="clickable-row">
-              <td class="col-checkbox" (click)="$event.stopPropagation()">
-                <ft-checkbox [checked]="selection.isSelected(user)"
-                             (change)="selection.toggle(user)">
+            <tr [class.selected]="isSelected(user)" (click)="toggleRow(user)" class="clickable-row">
+              <td class="col-checkbox sticky-column" (click)="$event.stopPropagation()">
+                <ft-checkbox [value]="isSelected(user)"
+                             (change)="toggleRow(user)">
                 </ft-checkbox>
               </td>
-              <td class="col-id">{{ user.id }}</td>
+              <td class="col-id sticky-column">{{ user.id }}</td>
               <td class="col-status">{{ user.status }}</td>
               <td class="col-title">{{ user.title }}</td>
               <td class="col-firstName">{{ user.firstName }}</td>
               <td class="col-lastName">{{ user.lastName }}</td>
-              <td class="col-dob">{{ user.dob  }}</td>
+              <td class="col-dob">{{ user.dateOfBirth | date:'dd/MM/yyyy' }}</td>
               <td class="col-age">{{ user.age }}</td>
               <td class="col-sexe">{{ user.sexe }}</td>
               <td class="col-email">{{ user.email }}</td>
-              <td class="col-phone1">{{ user.phoneNumber }}</td>
+              <td class="col-phone1">{{ user.primaryPhoneNumber }}</td>
               <td class="col-phone2">{{ user.secondaryPhoneNumber }}</td>
               <td class="col-country">{{ user.country }}</td>
               <td class="col-city">{{ user.city }}</td>
@@ -103,10 +103,15 @@
               <td class="col-insurance-number">{{ user.insuranceNumber }}</td>
               <td class="col-other1">{{ user.otherField1 }}</td>
               <td class="col-other2">{{ user.otherField2 }}</td>
+              <td class="col-actions sticky-column-right" (click)="$event.stopPropagation()">
+                <div class="action-button-container">
+                  <ft-button variant="ghost" icon="more_vert"></ft-button>
+                </div>
+              </td>
             </tr>
           }
           <tr *ngIf="filteredUsers().length === 0">
-            <td colspan="31" class="empty-state">Aucun patient correspondant</td>
+            <td colspan="32" class="empty-state">Aucun patient correspondant</td>
           </tr>
         </tbody>
       </table>

@@ -98,8 +98,52 @@
   background-color: var(--ft-color-surface-level-200);
 }
 
+/* Column Widths */
+.col-actions {
+  width: var(--_col-width-actions);
+  min-width: var(--_col-width-actions);
+  max-width: var(--_col-width-actions);
+}
+
+.col-actions .action-button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .ft-table tbody tr.selected {
   background-color: var(--ft-color-surface-level-100);
+}
+
+.sticky-column {
+  position: sticky;
+  left: 0;
+  background-color: var(--ft-color-solid-surface);
+  z-index: 10;
+  box-shadow: 2px 0 5px -2px rgba(0, 0, 0, 0.1);
+}
+
+.sticky-column-right {
+  position: sticky;
+  right: 0;
+  background-color: var(--ft-color-solid-surface);
+  z-index: 10;
+  box-shadow: -2px 0 5px -2px rgba(0, 0, 0, 0.1);
+}
+
+/* Specific background for header sticky columns to match header bg */
+.ft-table thead th.sticky-column,
+.ft-table thead th.sticky-column-right {
+  background-color: var(--ft-color-surface-level-100);
+}
+
+/* Specific left positions for multiple sticky columns */
+.col-checkbox {
+  left: 0;
+}
+
+.col-id {
+  left: var(--_col-width-checkbox);
 }
 
 /* Column Widths */
