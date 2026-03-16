@@ -3,6 +3,14 @@
   display: block;
 }
 
+.label.line-none {
+  line-height: 1;
+}
+
+.suffix-icon.flex {
+  display: flex;
+}
+
 .field-container {
   /* INTERNAL VARIABLE DEFAULTS */
   --_field-bg: transparent;
@@ -22,11 +30,19 @@
   display: grid;
   width: 100%;
   gap: var(--_field-container-gap);
+  row-gap: 0;
+
+  .helper-text-container {
+    min-height: 1.25em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
 
   .textarea-wrapper {
     display: flex;
     min-width: 100%;
-    padding: 0; 
+    padding: 0;
     gap: 0;
     background-color: var(--_field-bg);
     border: var(--_field-border-width) solid var(--_field-border-color);
@@ -51,8 +67,9 @@
       color: inherit;
       font-family: inherit;
       resize: vertical;
-      padding: var(--_field-padding-y) var(--_field-padding-x); 
+      padding: var(--_field-padding-y) var(--_field-padding-x);
       padding-right: calc(var(--_field-padding-x) + var(--_field-icon-size));
+      padding-top: 0;
       margin: 0;
       box-sizing: border-box;
       display: block;
@@ -76,7 +93,7 @@
       align-items: center;
       color: var(--ft-color-on-surface-level-300);
       pointer-events: auto;
-      
+
       &:hover {
         color: var(--ft-color-on-surface-level-100);
       }
@@ -97,13 +114,27 @@
 
   &.inside {
     --_field-label: var(--ft-color-on-surface-level-300);
-    
+
     .label-row {
       padding: var(--_field-padding-y) var(--_field-padding-x) 0 var(--_field-padding-x);
     }
 
     .textarea-element {
       padding-top: var(--ft-unit-100);
+    }
+
+    .error-message,
+    .description,
+    .helper-text-container {
+      grid-area: 2 / 1;
+    }
+
+    .helper-text-container {
+      min-height: 1.25em;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0 var(--_field-padding-x);
     }
   }
 
@@ -128,27 +159,43 @@
 
   &.hover {
     --_field-border-color: var(--ft-color-border-300);
-    
+
     &.invalid {
       --_field-border-color: var(--ft-color-danger);
     }
   }
 
   /* LAYOUT MODES */
+  &.top {
+    .label-row {
+      display: flex;
+      margin-bottom: var(--_field-container-gap);
+    }
+  }
+
   &.left {
     grid-template-columns: fit-content(30%) auto;
     column-gap: var(--ft-unit-400); /* Better separation between label and field */
     align-items: start;
 
-    .label-row { 
+    .label-row {
       grid-area: 1 / 1;
-      padding-top: var(--ft-unit-200); 
+      padding-top: var(--ft-unit-200);
     }
     .textarea-wrapper {
       grid-area: 1 / 2;
     }
-    .error-message, .description {
+    .error-message,
+    .description,
+    .helper-text-container {
       grid-area: 2 / 2; /* Positioned directly under the field */
+    }
+
+    .helper-text-container {
+      min-height: 1.25em;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
   }
 

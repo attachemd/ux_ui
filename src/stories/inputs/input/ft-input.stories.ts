@@ -2,83 +2,104 @@ import { FTInputComponent } from './ft.input.component';
 import type { Meta, StoryObj } from '@storybook/angular';
 
 const meta: Meta<FTInputComponent> = {
-  title: 'Core/Input/Input',
+  title: 'Core/Inputs/Input',
   component: FTInputComponent,
-  tags: ['autodocs'],
+  tags: [],
   argTypes: {
-    prefixIconClass: {
-      control: 'select',
-      options: [
-        'keyboard_arrow_down',
-        'export',
-        'close',
-      ],
-      description: 'Select an icon class for the component',
-    },
-    suffix1IconClass: {
-      control: 'select',
-      options: [
-        'keyboard_arrow_down',
-        'export',
-        'close',
-      ],
-      description: 'Select an icon class for the component',
-    },
-    suffix2IconClass: {
-      control: 'select',
-      options: [
-        'keyboard_arrow_down',
-        'export',
-        'close',
-      ],
-      description: 'Select an icon class for the component',
-    },
+    // Styling Category
     size: {
       control: 'select',
       options: ['xs-size', 'sm-size', 'md-size', 'lg-size'],
+      table: { category: 'Styling' },
     },
     color: {
       control: 'select',
-      options: ['default', 'primary', 'secondary'],
+      options: ['default', 'primary', 'secondary', 'tertiary', 'success', 'warning', 'danger'],
+      table: { category: 'Styling' },
     },
     variant: {
       control: 'select',
-      options: ['flat', 'ghost', 'faded', 'outlined'],
-    },
-    state: {
-      control: 'select',
-      options: ['rest', 'hover', 'focus', 'readonly', 'disabled', 'invalid', 'content'],
+      options: ['flat', 'faded', 'outlined', 'ghost'],
+      table: { category: 'Styling' },
     },
     radius: {
       control: 'select',
       options: ['none-radius', 'xs-radius', 'sm-radius', 'md-radius', 'lg-radius', 'full-radius'],
+      table: { category: 'Styling' },
     },
     labelPlacement: {
       control: 'select',
       options: ['label-inside', 'label-outside', 'label-outside-left'],
+      table: { category: 'Styling' },
     },
+
+    // Content Category
+    label: { table: { category: 'Content' } },
+    isLabel: { table: { category: 'Content' } },
+    placeholder: { table: { category: 'Content' } },
+    content: { table: { category: 'Content' } },
+    description: { table: { category: 'Content' } },
+    isDescription: { table: { category: 'Content' } },
+    startContent: { table: { category: 'Content' } },
+    endContent: { table: { category: 'Content' } },
+    errorMessage: { table: { category: 'Content' } },
+
+    // Icons Category
+    isPrefixIconClass: { table: { category: 'Icons' } },
+    prefixIconClass: {
+      control: 'text',
+      table: { category: 'Icons' },
+    },
+    isSuffix1IconClass: { table: { category: 'Icons' } },
+    suffix1IconClass: {
+      control: 'text',
+      table: { category: 'Icons' },
+    },
+    isSuffix2IconClass: { table: { category: 'Icons' } },
+    suffix2IconClass: {
+      control: 'text',
+      table: { category: 'Icons' },
+    },
+
+    // State Category
+    state: {
+      control: 'select',
+      options: ['rest', 'hover', 'press', 'focus', 'readonly', 'disabled', 'invalid', 'content'],
+      table: { category: 'State' },
+    },
+    disabled: { table: { category: 'State' } },
+    readonly: { table: { category: 'State' } },
+    required: { table: { category: 'State' } },
+    invalid: { table: { category: 'State' } },
+    isClearable: { table: { category: 'State' } },
+
+    // Configuration
     inputType: {
       control: 'select',
       options: ['text', 'password'],
-    }
+      table: { category: 'Configuration' },
+    },
+    showContent: { table: { category: 'Configuration' } },
   },
   args: {
     isLabel: true,
     label: 'Label',
     labelPlacement: 'label-inside',
-    content: 'content',
+    content: '',
     size: 'md-size',
     radius: 'md-radius',
     state: 'rest',
     isPrefixIconClass: false,
     prefixIconClass: 'person',
-    isSuffix1IconClass: true,
-    suffix1IconClass: 'close_small',
-    isSuffix2IconClass: true,
-    suffix2IconClass: 'keyboard_arrow_down',
+    isSuffix1IconClass: false,
+    suffix1IconClass: '',
+    isSuffix2IconClass: false,
+    suffix2IconClass: '',
     isDescription: false,
-    errorMessage: 'error',
+    errorMessage: 'Field is required',
     placeholder: 'Enter value...',
+    inputType: 'text',
+    isClearable: false,
   },
 };
 
@@ -163,6 +184,13 @@ export const OutlinedVariant: Story = {
   },
 };
 
+export const GhostVariant: Story = {
+  args: {
+    variant: 'ghost',
+    label: 'Ghost Input',
+  },
+};
+
 export const NoRadius: Story = {
   args: {
     radius: 'none-radius',
@@ -238,18 +266,17 @@ export const LabelOutsideLeft: Story = {
 export const WithPrefixIcon: Story = {
   args: {
     isPrefixIconClass: true,
-    prefixIconClass: 'icon-search',
-    label: 'With Prefix Icon',
+    prefixIconClass: 'search',
+    label: 'Search Input',
+    placeholder: 'Type to search...',
   },
 };
 
 export const WithSuffixIcons: Story = {
   args: {
-    isSuffix1IconClass: true,
-    suffix1IconClass: 'icon-close',
-    isSuffix2IconClass: true,
-    suffix2IconClass: 'icon-arrow-down',
-    label: 'With Suffix Icons',
+    isSuffix1IconClass: false,
+    isSuffix2IconClass: false,
+    label: 'No Suffix Icons',
   },
 };
 

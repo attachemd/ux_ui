@@ -1,6 +1,6 @@
-import { Component, Input, Output, EventEmitter, ViewEncapsulation } from '@angular/core';
-import { NgClass, NgIf, NgStyle } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { Component, Input, Output, EventEmitter, ViewEncapsulation, forwardRef } from '@angular/core';
+import { NgClass, NgIf } from '@angular/common';
+import { FormsModule, ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
   selector: 'ft-textarea',
@@ -10,12 +10,18 @@ import { FormsModule } from '@angular/forms';
     NgClass,
     FormsModule,
     NgIf,
-    NgStyle
   ],
   styleUrls: ['./ft.textarea.component.css'],
-  encapsulation: ViewEncapsulation.Emulated
+  encapsulation: ViewEncapsulation.Emulated,
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => FTTextareaComponent),
+      multi: true
+    }
+  ]
 })
-export class FTTextareaComponent {
+export class FTTextareaComponent implements ControlValueAccessor {
   @Input() isLabel = true;
   @Input() label?: string;
   @Input() size: 'xs-size' | 'sm-size' | 'md-size' | 'lg-size' = 'md-size';
@@ -40,14 +46,37 @@ export class FTTextareaComponent {
   @Input() value = '';
   @Output() valueChange = new EventEmitter<string>();
 
+  onChange: any = () => { };
+  onTouched: any = () => { };
+
+  writeValue(value: any): void {
+    this.value = value || '';
+  }
+
+  registerOnChange(fn: any): void {
+    this.onChange = fn;
+  }
+
+  registerOnTouched(fn: any): void {
+    this.onTouched = fn;
+  }
+
+  setDisabledState(isDisabled: boolean): void {
+    this.disabled = isDisabled;
+    this.state = isDisabled ? 'disabled' : 'rest';
+  }
+
   clear() {
     this.value = '';
     this.valueChange.emit(this.value);
+    this.onChange(this.value);
+    this.onTouched();
   }
 
   onValueChange(newValue: string) {
     this.value = newValue;
     this.valueChange.emit(this.value);
+    this.onChange(this.value);
   }
 
   get radiusClasses(): string {

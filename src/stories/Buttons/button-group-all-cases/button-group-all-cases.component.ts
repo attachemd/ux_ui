@@ -33,9 +33,9 @@ export class ButtonGroupAllCasesComponent {
     ];
 
     buttons: ButtonGroupOption[] = [
-        { isLabel: true, label: 'One' },
-        { isLabel: true, label: 'Two' },
-        { isLabel: true, label: 'Three' }
+        { isLabel: true, label: 'One', value: 1 },
+        { isLabel: true, label: 'Two', value: 2 },
+        { isLabel: true, label: 'Three', value: 3 }
     ];
 }
 

@@ -1,0 +1,29 @@
+@if (config()) {
+<div class="ft-dialog-mask">
+  <div class="ft-dialog" role="dialog" aria-modal="true">
+    <div class="ft-dialog-header">
+      <span class="ft-dialog-title">{{ config()?.header || 'Confirmation' }}</span>
+    </div>
+    <div class="ft-dialog-content">
+      @if (config()?.icon) {
+        <span class="material-symbols-rounded icon">{{ config()?.icon }}</span>
+      }
+      <span class="message">{{ config()?.message }}</span>
+    </div>
+    <div class="ft-dialog-footer">
+      <ft-button 
+        [label]="config()?.rejectLabel || 'Non'" 
+        variant="ghost" 
+        color="tertiary"
+        (click)="reject()"
+      ></ft-button>
+      <ft-button 
+        [label]="config()?.acceptLabel || 'Oui'" 
+        variant="flat" 
+        color="primary"
+        (click)="accept()"
+      ></ft-button>
+    </div>
+  </div>
+</div>
+}

@@ -122,7 +122,7 @@
 
 .volume-slider-container {
     width: 0;
-    overflow: hidden;
+    /*overflow: hidden;*/
     transition: width var(--_progress-transition), opacity var(--_progress-transition);
     opacity: 0;
     display: flex;
@@ -256,11 +256,13 @@
     cursor: pointer;
     transition: height var(--_progress-transition);
     background-color: var(--_progress-bg);
+    --_current-width: var(--ft-unit-200);
 }
 
 .player-container:hover .progress-container,
 .progress-container.dragging {
     height: var(--ft-unit-150);
+    --_current-width: var(--ft-unit-300);
 }
 
 .progress-bar {
@@ -271,6 +273,7 @@
     background-color: var(--_progress-fill);
     transition: width 75ms linear;
     pointer-events: none;
+    width: calc(var(--_progress-percent, 0) * 1% + (0.5 - var(--_progress-percent, 0) / 100) * var(--_current-width));
 }
 
 .progress-handle {
@@ -281,18 +284,12 @@
     border-radius: var(--ft-radius-pill);
     box-shadow: var(--shadow-md);
     z-index: 10;
-    transition: width var(--_progress-transition), height var(--_progress-transition), margin-left var(--_progress-transition);
-    width: var(--ft-unit-200);
-    height: var(--ft-unit-200);
-    margin-left: calc(var(--ft-unit-100) * -1);
+    transition: width var(--_progress-transition), height var(--_progress-transition);
+    width: var(--_current-width);
+    height: var(--_current-width);
+    left: calc((100% - var(--_current-width)) * (var(--_progress-percent, 0) / 100));
 }
 
-.player-container:hover .progress-handle,
-.progress-container.dragging .progress-handle {
-    width: var(--ft-unit-300);
-    height: var(--ft-unit-300);
-    margin-left: calc(var(--ft-unit-150) * -1);
-}
 
 .material-symbols-rounded {
     font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;

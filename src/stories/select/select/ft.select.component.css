@@ -1,6 +1,6 @@
 ::ng-deep storybook-root {
     >ft-select {
-        min-width: 200px;
+        min-width: var(--ft-unit-5200);
         width: fit-content !important;
         display: block;
     }
@@ -33,14 +33,15 @@
     --_field-padding: 0 var(--ft-unit-400);
     --_field-gap: var(--ft-unit-300);
     --_field-container-gap: var(--ft-unit-100);
-    --_field-icon-size: 20px;
+    --_field-icon-size: var(--ft-unit-500);
     --_field-content-gap: var(--ft-unit-100);
     --_field-font-size: var(--ft-text-xs);
-    --_field-font-weight: 500;
+    --_field-font-weight: var(--font-weight-medium);
 
     display: grid;
     width: 100%;
     gap: var(--_field-container-gap);
+    row-gap: var(--ft-unit-0);
 
     /* BASE LAYOUT & CHILD STYLES */
 
@@ -58,7 +59,7 @@
         background-color: var(--_field-bg);
         border: var(--_field-border-width) solid var(--_field-border-color);
         color: var(--_field-text);
-        transition: all 0.2s ease;
+        transition: all 0.2s var(--ease-in-out);
         cursor: pointer;
 
         .content-section {
@@ -66,13 +67,13 @@
             flex-direction: column;
             flex-grow: 1;
             gap: var(--_field-content-gap);
-            min-width: 0;
+            min-width: var(--ft-unit-0);
 
             .input-row.select-row {
                 display: flex;
                 align-items: center;
                 gap: var(--ft-unit-100);
-                min-width: 0;
+                min-width: var(--ft-unit-0);
                 width: 100%;
             }
 
@@ -81,7 +82,7 @@
                 color: var(--_field-placeholder);
                 font-family: inherit;
                 font-size: var(--_field-font-size);
-                font-weight: 400;
+                font-weight: var(--font-weight-normal);
                 white-space: nowrap;
                 flex-shrink: 0;
                 line-height: normal;
@@ -92,16 +93,13 @@
                 align-items: center;
                 flex-wrap: wrap;
                 flex: 1;
-                min-width: 0;
+                min-width: var(--ft-unit-0);
                 font-family: inherit;
                 font-size: var(--_field-font-size);
                 font-weight: var(--_field-font-weight);
                 color: var(--_field-text);
                 line-height: normal;
-                gap: 6px;
-                padding-top: 4px;
-                /* Space for chips */
-                padding-bottom: 4px;
+                gap: var(--ft-unit-150);
 
                 &.multiple-mode {
                     align-items: flex-start;
@@ -109,7 +107,7 @@
 
                 .placeholder-text {
                     color: var(--_field-placeholder);
-                    font-weight: 300;
+                    font-weight: var(--font-weight-light);
                 }
 
                 .selected-text {
@@ -118,7 +116,7 @@
                     white-space: nowrap;
                     flex: 1;
                     /* allow it to grow and shrink appropriately */
-                    min-width: 0;
+                    min-width: var(--ft-unit-0);
                     /* allows text-overflow to engage in flex containers */
                 }
             }
@@ -134,15 +132,15 @@
             appearance: none;
             border: none;
             background: none;
-            padding: 0;
-            margin: 0;
+            padding: var(--ft-unit-0);
+            margin: var(--ft-unit-0);
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--_field-placeholder);
             opacity: 0.7;
-            transition: opacity 0.15s ease;
+            transition: opacity 0.15s var(--ease-in-out);
 
             &:hover {
                 opacity: 1;
@@ -159,11 +157,11 @@
 
         .suffix2.rotated {
             transform: rotate(180deg);
-            transition: transform 0.2s ease;
+            transition: transform 0.2s var(--ease-in-out);
         }
 
         .suffix2:not(.rotated) {
-            transition: transform 0.2s ease;
+            transition: transform 0.2s var(--ease-in-out);
         }
 
         &:has(.prefix-icon) {
@@ -181,27 +179,35 @@
         /* DROPDOWN MENU */
         .dropdown-menu {
             position: absolute;
-            top: calc(100% + 4px);
-            left: 0;
-            right: 0;
+            top: calc(100% + var(--ft-unit-100));
+            left: var(--ft-unit-0);
+            right: var(--ft-unit-0);
             background-color: var(--ft-color-solid-surface);
             border: var(--ft-border-primary) solid var(--ft-color-border-100);
             border-radius: var(--ft-radius-400);
-            box-shadow: 0 4px 8px var(--ft-color-n-on-surface-10);
+            box-shadow: var(--shadow-md);
             z-index: 50;
             /* Ensure on top */
-            max-height: 250px;
+            max-height: var(--ft-unit-6400);
             overflow-y: auto;
             padding: var(--ft-unit-150);
             /* Padding around the entire list */
+            transform-origin: top;
+            transition: all 0.2s var(--ease-in-out);
+
+            &.position-top {
+                top: auto;
+                bottom: calc(100% + var(--ft-unit-100));
+                transform-origin: bottom;
+            }
 
             .options-list {
                 display: flex;
                 flex-direction: column;
                 gap: var(--ft-unit-150);
                 list-style: none;
-                padding: 0;
-                margin: 0;
+                padding: var(--ft-unit-0);
+                margin: var(--ft-unit-0);
 
                 .option-item {
                     display: flex;
@@ -212,7 +218,7 @@
                     cursor: pointer;
                     font-size: var(--_field-font-size);
                     color: var(--ft-color-solid-on-surface);
-                    transition: background-color 0.1s ease, color 0.1s ease, transform 0.1s ease;
+                    transition: background-color 0.1s var(--ease-in-out), color 0.1s var(--ease-in-out), transform 0.1s var(--ease-in-out);
 
                     &:hover:not(.disabled) {
                         background-color: var(--ft-color-surface-hover, color-mix(in srgb, var(--_field-accent) 10%, transparent));
@@ -227,7 +233,7 @@
                     &.selected {
                         background-color: var(--_field-bg-100);
                         color: var(--_field-accent);
-                        font-weight: 500;
+                        font-weight: var(--font-weight-medium);
                     }
 
                     &.no-options {
@@ -254,7 +260,7 @@
 
     .description p,
     .error-text {
-        line-height: 1;
+        line-height: var(--ft-unit-0);
     }
 
     .error-text {
@@ -304,7 +310,7 @@
         --_balanced_small_padding: var(--ft-unit-150);
         --_field-padding: 0 var(--ft-unit-200);
         --_field-gap: var(--ft-unit-200);
-        --_field-icon-size: 16px;
+        --_field-icon-size: var(--ft-unit-400);
         --_field-content-gap: var(--ft-unit-0);
         --_field-border-width: var(--ft-border-primary);
         --_field-font-size: var(--ft-text-2xs);
@@ -326,7 +332,7 @@
         --_balanced_small_padding: var(--ft-unit-200);
         --_field-padding: 0 var(--ft-unit-300);
         --_field-gap: var(--ft-unit-200);
-        --_field-icon-size: 16px;
+        --_field-icon-size: var(--ft-unit-400);
         --_field-content-gap: var(--ft-unit-50);
         --_field-font-size: var(--ft-text-xs);
 
@@ -349,7 +355,7 @@
         --_field-padding: 0 var(--ft-unit-300);
         --_field-gap: var(--ft-unit-200);
         --_field-container-gap: var(--ft-unit-200);
-        --_field-icon-size: 20px;
+        --_field-icon-size: var(--ft-unit-500);
         --_field-content-gap: var(--ft-unit-100);
         --_field-font-size: var(--ft-text-xs);
 
@@ -372,7 +378,7 @@
         --_field-padding: 0 var(--ft-unit-400);
         --_field-gap: var(--ft-unit-300);
         --_field-container-gap: var(--ft-unit-300);
-        --_field-icon-size: 20px;
+        --_field-icon-size: var(--ft-unit-500);
         --_field-content-gap: var(--ft-unit-150);
         --_field-font-size: var(--ft-text-xs);
 
@@ -428,7 +434,7 @@
     /* VARIANT LOGIC */
     &.flat {
         --_field-bg: var(--_field-bg-100);
-        --_field-border-width: 0px;
+        --_field-border-width: var(--ft-unit-0);
 
         &:is(:hover, .hover, .is-open) {
             --_field-bg: var(--_field-bg-200);
@@ -486,7 +492,7 @@
     }
 
     &.ghost {
-        --_field-border-width: 0px;
+        --_field-border-width: var(--ft-unit-0);
         --_field-bg: transparent;
 
         &:is(:hover, .hover) {
@@ -521,14 +527,24 @@
         }
 
         .error-message,
-        .description {
+        .description,
+        .helper-text-container {
             grid-area: 2 / 1;
+        }
+
+        .helper-text-container {
+            min-height: 1.25em;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
     }
 
     &.label-outside {
         .label-row {
+            display: flex;
             grid-area: 1 / 1;
+            margin-bottom: var(--_field-container-gap);
         }
 
         .input-wrapper {
@@ -536,8 +552,16 @@
         }
 
         .error-message,
-        .description {
+        .description,
+        .helper-text-container {
             grid-area: 3 / 1;
+        }
+
+        .helper-text-container {
+            min-height: 1.25em;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
     }
 
@@ -554,8 +578,16 @@
         }
 
         .error-message,
-        .description {
+        .description,
+        .helper-text-container {
             grid-area: 2 / 2;
+        }
+
+        .helper-text-container {
+            min-height: 1.25em;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
     }
 
@@ -566,4 +598,4 @@
     &:is(:focus-within, .focus, .is-open) {
         --_field-label: var(--_field-accent)
     }
-}
+}

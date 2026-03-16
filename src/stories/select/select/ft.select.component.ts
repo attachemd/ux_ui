@@ -7,8 +7,10 @@ import {
     ViewEncapsulation,
     ElementRef,
     HostListener,
+    forwardRef,
 } from '@angular/core';
 import { CommonModule, NgClass, NgStyle } from '@angular/common';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 export interface SelectOption {
     label: string;
@@ -22,8 +24,15 @@ export interface SelectOption {
     standalone: true,
     imports: [CommonModule, NgClass, NgStyle],
     encapsulation: ViewEncapsulation.Emulated,
+    providers: [
+        {
+            provide: NG_VALUE_ACCESSOR,
+            useExisting: forwardRef(() => FTSelectComponent),
+            multi: true,
+        },
+    ],
 })
-export class FTSelectComponent implements OnInit {
+export class FTSelectComponent implements OnInit, ControlValueAccessor {
     @Input() options: SelectOption[] = [];
     @Input() multiple = false;
 
@@ -43,8 +52,7 @@ export class FTSelectComponent implements OnInit {
     @Input() radius:
         | 'none-radius'
         | 'xs-radius'
-        | 'sm-radius'
-        | 'md-radius'
+        | 'sm-radius' | 'md-radius'
         | 'lg-radius'
         | 'full-radius' = 'md-radius';
     @Input() state:
@@ -85,6 +93,10 @@ export class FTSelectComponent implements OnInit {
     @Output() valueChange = new EventEmitter<any | any[]>();
 
     isOpen = false;
+    dropdownPosition: 'top' | 'bottom' = 'bottom';
+
+    onChange: any = () => {};
+    onTouched: any = () => {};
 
     constructor(private elementRef: ElementRef) { }
 
@@ -92,6 +104,26 @@ export class FTSelectComponent implements OnInit {
         if (this.multiple && !Array.isArray(this.value)) {
             this.value = this.value ? [this.value] : [];
         }
+    }
+
+    // ControlValueAccessor methods
+    writeValue(value: any): void {
+        this.value = value;
+        if (this.multiple && !Array.isArray(this.value)) {
+            this.value = this.value ? [this.value] : [];
+        }
+    }
+
+    registerOnChange(fn: any): void {
+        this.onChange = fn;
+    }
+
+    registerOnTouched(fn: any): void {
+        this.onTouched = fn;
+    }
+
+    setDisabledState?(isDisabled: boolean): void {
+        this.disabled = isDisabled;
     }
 
     @HostListener('document:click', ['$event'])
@@ -107,9 +139,29 @@ export class FTSelectComponent implements OnInit {
         }
         this.isOpen = !this.isOpen;
         if (this.isOpen) {
+            this.updateDropdownPosition();
             this.state = 'focus';
         } else {
             this.state = 'rest';
+        }
+        this.onTouched();
+    }
+
+    private updateDropdownPosition() {
+        const trigger = this.elementRef.nativeElement.querySelector('.select-wrapper');
+        if (!trigger) return;
+
+        const rect = trigger.getBoundingClientRect();
+        const viewportHeight = window.innerHeight;
+        const spaceBelow = viewportHeight - rect.bottom;
+        const spaceAbove = rect.top;
+        const dropdownHeight = 250; // Max height from CSS is 16rem = 256px + padding
+
+        // Prefer bottom, but flip to top if there's more space above than below AND below is tight
+        if (spaceBelow < dropdownHeight && spaceAbove > spaceBelow) {
+            this.dropdownPosition = 'top';
+        } else {
+            this.dropdownPosition = 'bottom';
         }
     }
 
@@ -118,6 +170,7 @@ export class FTSelectComponent implements OnInit {
         if (this.state === 'focus') {
             this.state = 'rest';
         }
+        this.onTouched();
     }
 
     selectOption(option: SelectOption, event: Event) {
@@ -135,11 +188,14 @@ export class FTSelectComponent implements OnInit {
 
             this.value = currentValues;
             this.valueChange.emit(this.value);
+            this.onChange(this.value);
         } else {
             this.value = option.value;
             this.valueChange.emit(this.value);
+            this.onChange(this.value);
             this.closeDropdown();
         }
+        this.onTouched();
     }
 
     removeMultipleOption(optionValue: any, event: Event) {
@@ -147,6 +203,8 @@ export class FTSelectComponent implements OnInit {
         if (this.multiple && Array.isArray(this.value)) {
             this.value = this.value.filter(val => val !== optionValue);
             this.valueChange.emit(this.value);
+            this.onChange(this.value);
+            this.onTouched();
         }
     }
 
@@ -154,6 +212,8 @@ export class FTSelectComponent implements OnInit {
         event.stopPropagation();
         this.value = this.multiple ? [] : null;
         this.valueChange.emit(this.value);
+        this.onChange(this.value);
+        this.onTouched();
     }
 
     isSelected(optionValue: any): boolean {

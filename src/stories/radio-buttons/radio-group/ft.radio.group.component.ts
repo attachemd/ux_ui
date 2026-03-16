@@ -1,6 +1,6 @@
-import { Component, Input, Output, EventEmitter, ViewEncapsulation } from '@angular/core';
+import { Component, Input, Output, EventEmitter, ViewEncapsulation, forwardRef } from '@angular/core';
 import { NgClass, NgForOf, NgIf } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { FtRadioComponent } from '../radio/ft.radio.component';
 
 interface RadioOption {
@@ -8,12 +8,12 @@ interface RadioOption {
   label: string;
   isDescription: boolean;
   description: string;
-  size?: 'xs-size' | 'sm-size' | 'md-size' | 'lg-size'; // optional if you want to control size per option
-  state?: 'hover' | 'press' | 'focus' | 'rest'; // optional
-  invalid?: boolean; // optional
-  select?: boolean; // optional (deprecated, use value matching)
-  inactive?: boolean; // optional
-  value?: any; // The native value for this specific radio
+  size?: 'xs-size' | 'sm-size' | 'md-size' | 'lg-size';
+  state?: 'hover' | 'press' | 'focus' | 'rest';
+  invalid?: boolean;
+  select?: boolean;
+  inactive?: boolean;
+  value?: any;
 }
 
 @Component({
@@ -27,9 +27,16 @@ interface RadioOption {
     NgForOf
   ],
   styleUrls: ['./ft.radio.group.component.css'],
-  encapsulation: ViewEncapsulation.Emulated // Ensure this is set (default)
+  encapsulation: ViewEncapsulation.Emulated,
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => FtRadioGroupComponent),
+      multi: true
+    }
+  ]
 })
-export class FtRadioGroupComponent {
+export class FtRadioGroupComponent implements ControlValueAccessor {
 
   @Input() isLabel = false;
   @Input() label?: string;
@@ -54,10 +61,31 @@ export class FtRadioGroupComponent {
     value: 'A'
   }];
 
+  onChange: any = () => { };
+  onTouched: any = () => { };
+
+  writeValue(value: any): void {
+    this.value = value;
+  }
+
+  registerOnChange(fn: any): void {
+    this.onChange = fn;
+  }
+
+  registerOnTouched(fn: any): void {
+    this.onTouched = fn;
+  }
+
+  setDisabledState(isDisabled: boolean): void {
+    this.inactive = isDisabled;
+  }
+
   onOptionSelected(val: any) {
     if (!this.inactive) {
       this.value = val;
       this.valueChange.emit(this.value);
+      this.onChange(this.value);
+      this.onTouched();
     }
   }
 

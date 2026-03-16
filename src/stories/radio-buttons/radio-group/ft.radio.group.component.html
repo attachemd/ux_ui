@@ -14,11 +14,13 @@
         [inactive]="inactive || (option.inactive || false)">
       </ft-radio>
     </div>
-    <div *ngIf="invalid && errorMessage" class="error-message">
-      <p class="error-text content-2xs--normal">{{ errorMessage }}</p>
-    </div>
-    <div *ngIf="description && !invalid" class="description">
-      <p class="highlight content-2xs--normal">{{ description }}</p>
+    <div class="helper-text-container">
+      <div *ngIf="invalid && errorMessage" class="error-message">
+        <p class="error-text content-2xs--normal">{{ errorMessage }}</p>
+      </div>
+      <div *ngIf="description && !invalid" class="description">
+        <p class="highlight content-2xs--normal">{{ description }}</p>
+      </div>
     </div>
   </div>
 

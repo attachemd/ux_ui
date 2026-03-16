@@ -1,0 +1,9 @@
+<div class="search-wrapper" [class.active]="isOpen()" [class.disabled]="disabled" [class]="color" (focusout)="onSearchBlur($event)"
+  (click)="!isOpen() && toggleSearch()">
+  <div class="search-input-container" [style.width]="width">
+    <ft-input #searchInput [placeholder]="placeholder" [variant]="variant" [radius]="radius" [size]="size"
+      [color]="color" [disabled]="disabled" [isLabel]="false" [isPrefixIconClass]="true" prefixIconClass="search"
+      [isClearable]="isClearable" (valueChange)="onValueChange($event)" (keyup.escape)="isOpen.set(false)">
+    </ft-input>
+  </div>
+</div>

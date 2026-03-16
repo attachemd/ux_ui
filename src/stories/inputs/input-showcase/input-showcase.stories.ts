@@ -7,7 +7,7 @@ import { FormsModule } from '@angular/forms';
 import {FTInputComponent} from '../input/ft.input.component';
 
 const meta: Meta<InputShowcaseComponent> = {
-  title: 'Core/Input/Input Showcase',
+  title: 'Core/Inputs/Input Showcase',
   component: InputShowcaseComponent,
   parameters: {
     layout: 'fullscreen',

@@ -266,3 +266,13 @@
 body:has(.input-wrapper) {
   background: #fff;
 }
+
+.label.truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.suffix-icon.flex {
+  display: flex;
+}

@@ -75,10 +75,10 @@
 
     <div class="progress-container" [class.dragging]="isDragging()" (pointerdown)="handleProgressBarMouseDown($event)"
       #progressBar>
-      <div class="progress-bar" [style.width.%]="progress()"></div>
+      <div class="progress-bar" [style.--_progress-percent]="progress()"></div>
 
       <!-- Handle/Thumb -->
-      <div class="progress-handle" [style.left.%]="progress()"></div>
+      <div class="progress-handle" [style.--_progress-percent]="progress()"></div>
     </div>
   </div>
 </div>

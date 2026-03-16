@@ -11,7 +11,7 @@ import { Component, ChangeDetectionStrategy, signal, computed, ElementRef, ViewC
 export class AudioPlayerComponent {
     @ViewChild('audioElement') audioRef!: ElementRef<HTMLAudioElement>;
     @ViewChild('progressBar') progressRef!: ElementRef<HTMLDivElement>;
-    
+
     constructor(private cdr: ChangeDetectorRef) {}
 
     audioSrc = input('https://www.w3schools.com/html/horse.mp3');
@@ -84,32 +84,32 @@ export class AudioPlayerComponent {
     handleProgressBarMouseDown(event: PointerEvent) {
         this.isDragging.set(true);
         this.seek(event);
-        
+
         // Capture pointer to continue receiving events even if mouse leaves the element
         const el = event.target as HTMLElement;
         el.setPointerCapture(event.pointerId);
     }
 
     @HostListener('window:pointermove', ['$event'])
-    onWindowPointerMove(event: PointerEvent) {
+    handleWindowPointerMove(event: PointerEvent) {
         if (this.isDragging()) {
             this.seek(event);
         }
     }
 
     @HostListener('window:pointerup', ['$event'])
-    onWindowPointerUp(event: PointerEvent) {
+    handleWindowPointerUp(event: PointerEvent) {
         if (this.isDragging()) {
             this.isDragging.set(false);
             const audio = this.audioRef.nativeElement;
             audio.currentTime = this.currentTime();
-            
+
             // Release pointer capture
             const el = event.target as HTMLElement;
             if (el.releasePointerCapture) {
                 el.releasePointerCapture(event.pointerId);
             }
-            
+
             this.cdr.detectChanges();
         }
     }
@@ -122,12 +122,12 @@ export class AudioPlayerComponent {
         const time = percentage * this.duration();
 
         this.currentTime.set(time);
-        
+
         // Only update audio element directly if not dragging to avoid stutter
         if (!this.isDragging()) {
             this.audioRef.nativeElement.currentTime = time;
         }
-        
+
         this.cdr.detectChanges();
     }
 
@@ -162,10 +162,10 @@ export class AudioPlayerComponent {
         const input = event.target as HTMLInputElement;
         const value = parseFloat(input.value);
         const audio = this.audioRef.nativeElement;
-        
+
         this.volume.set(value);
         audio.volume = value;
-        
+
         if (value > 0) {
             this.isMuted.set(false);
             audio.muted = false;
@@ -179,10 +179,10 @@ export class AudioPlayerComponent {
     adjustVolume(step: number) {
         const audio = this.audioRef.nativeElement;
         let newVolume = Math.max(0, Math.min(1, this.volume() + step));
-        
+
         this.volume.set(newVolume);
         audio.volume = newVolume;
-        
+
         if (newVolume > 0) {
             this.isMuted.set(false);
             audio.muted = false;

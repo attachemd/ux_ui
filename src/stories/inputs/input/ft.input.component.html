@@ -1,28 +1,28 @@
-<div class="field-container" [class]="labelPlacement + ' ' + size + ' ' + variant + ' ' + state + ' ' + color" [ngStyle]="{
+<div class="field-container" [class]="labelPlacement + ' ' + size + ' ' + variant + ' ' + state + ' ' + color" [class.invalid]="state === 'invalid' || invalid" [ngStyle]="{
     '--_field-container-gap': (!isLabel && (labelPlacement === 'label-outside-left' || labelPlacement === 'label-outside'))
                     ? '0'
                     : null
   }">
   <div *ngIf="isLabel && labelPlacement !== 'label-inside'" class="label-row">
-    <span class="label leading-none" [ngClass]="{
+    <span class="label line-none" [ngClass]="{
            'content-2xs--semibold': size === 'sm-size' || size === 'md-size' || size === 'xs-size',
            'content-xs--semibold': size === 'lg-size',
            }">{{ label }} <span *ngIf="required && !disabled">*</span></span>
   </div>
-  <div class="input-wrapper" [class]="radiusClasses">
+  <div class="input-wrapper" [class]="radiusClasses" (mousedown)="handleMousedown($event)" (click)="focus()">
     <div *ngIf="isPrefixIconClass && prefixIconClass" class="prefix-icon">
       <span class="material-symbols-rounded">{{prefixIconClass}}</span>
     </div>
     <div class="content-section">
       <div *ngIf="isLabel && labelPlacement === 'label-inside'" class="label-row">
-        <span class="label leading-none" [ngClass]="{
+        <span class="label line-none" [ngClass]="{
            'content-2xs--bold': size === 'sm-size' || size === 'md-size' || size === 'xs-size',
            'content-xs--bold': size === 'lg-size',
            }">{{ label }} <span *ngIf="required && !disabled">*</span></span>
       </div>
       <div class="input-row">
         <span *ngIf="startContent" class="start-content">{{ startContent }}</span>
-        <input class="native-input" [placeholder]="placeholder || ''" [(ngModel)]="value"
+        <input #inputRef class="native-input" [placeholder]="placeholder || ''" [(ngModel)]="value"
           (ngModelChange)="onValueChange($event)" [disabled]="state === 'disabled' || disabled"
           [readonly]="state === 'readonly' || readonly" [required]="required" [type]="currentInputType" />
         <span *ngIf="endContent" class="end-content">{{ endContent }}</span>
@@ -45,10 +45,12 @@
       </div>
     </div>
   </div>
-  <div *ngIf="state === 'invalid' && errorMessage" class="error-message">
-    <p class="error-text content-2xs--normal">{{ errorMessage }}</p>
-  </div>
-  <div *ngIf="isDescription && description && state !== 'invalid'" class="description">
-    <p class="highlight content-2xs--normal">{{ description }}</p>
+  <div class="helper-text-container">
+    <div *ngIf="(state === 'invalid' || invalid) && errorMessage" class="error-message">
+      <p class="error-text content-2xs--normal">{{ errorMessage }}</p>
+    </div>
+    <div *ngIf="isDescription && description && state !== 'invalid'" class="description">
+      <p class="highlight content-2xs--normal">{{ description }}</p>
+    </div>
   </div>
 </div>

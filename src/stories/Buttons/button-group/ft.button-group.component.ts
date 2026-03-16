@@ -1,5 +1,6 @@
-import { Component, Input, ViewEncapsulation } from '@angular/core';
+import { Component, Input, Output, EventEmitter, ViewEncapsulation, forwardRef } from '@angular/core';
 import { NgClass, NgForOf, NgIf } from '@angular/common';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { FtButtonComponent } from '../button/ft.button.component';
 
 export interface ButtonGroupOption {
@@ -10,6 +11,7 @@ export interface ButtonGroupOption {
     isSuffixIconClass?: boolean;
     suffixIconClass?: string;
     state?: 'rest' | 'hover' | 'press' | 'focus' | 'disabled';
+    value?: any;
 }
 
 @Component({
@@ -22,9 +24,16 @@ export interface ButtonGroupOption {
         FtButtonComponent
     ],
     standalone: true,
-    encapsulation: ViewEncapsulation.Emulated
+    encapsulation: ViewEncapsulation.Emulated,
+    providers: [
+        {
+            provide: NG_VALUE_ACCESSOR,
+            useExisting: forwardRef(() => FtButtonGroupComponent),
+            multi: true
+        }
+    ]
 })
-export class FtButtonGroupComponent {
+export class FtButtonGroupComponent implements ControlValueAccessor {
     // Global settings for all buttons in the group
     @Input() size: 'xs-size' | 'sm-size' | 'md-size' | 'lg-size' = 'md-size';
     @Input() color: 'primary' | 'secondary' | 'tertiary' | 'success' | 'warning' | 'danger' = 'primary';
@@ -35,18 +44,50 @@ export class FtButtonGroupComponent {
 
     // Individual button configurations
     @Input() buttons: ButtonGroupOption[] = [
-        { isLabel: true, label: 'Option 1' },
-        { isLabel: true, label: 'Option 2' },
-        { isLabel: true, label: 'Option 3' }
+        { isLabel: true, label: 'Option 1', value: '1' },
+        { isLabel: true, label: 'Option 2', value: '2' },
+        { isLabel: true, label: 'Option 3', value: '3' }
     ];
 
-    getButtonState(btn: ButtonGroupOption, index: number): 'rest' | 'hover' | 'press' | 'focus' | 'disabled' {
-        if (btn.state) return btn.state;
-        if (this.state === 'disabled' || this.state === 'rest') return this.state;
+    @Input() value: any;
+    @Output() valueChange = new EventEmitter<any>();
 
-        // For interactive states, apply only to the second button (or the first if only one exists)
-        const targetIndex = this.buttons.length > 1 ? 1 : 0;
-        return index === targetIndex ? this.state : 'rest';
+    onChange: any = () => { };
+    onTouched: any = () => { };
+
+    writeValue(value: any): void {
+        this.value = value;
+    }
+
+    registerOnChange(fn: any): void {
+        this.onChange = fn;
+    }
+
+    registerOnTouched(fn: any): void {
+        this.onTouched = fn;
+    }
+
+    setDisabledState(isDisabled: boolean): void {
+        this.state = isDisabled ? 'disabled' : 'rest';
+    }
+
+    selectOption(btn: ButtonGroupOption) {
+        if (this.state !== 'disabled') {
+            this.value = btn.value;
+            this.valueChange.emit(this.value);
+            this.onChange(this.value);
+            this.onTouched();
+        }
+    }
+
+    getButtonState(btn: ButtonGroupOption, index: number): 'rest' | 'hover' | 'press' | 'focus' | 'disabled' {
+        if (this.state === 'disabled') return 'disabled';
+        if (btn.state) return btn.state;
+        return this.state;
+    }
+
+    isOptionSelected(btn: ButtonGroupOption): boolean {
+        return this.value === btn.value;
     }
 }
 

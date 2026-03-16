@@ -1,0 +1,120 @@
+import { Meta, Primary, Controls, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { FTInputComponent } from './ft.input.component';
+import { 
+  Default, 
+  FlatVariant, 
+  FadedVariant, 
+  OutlinedVariant, 
+  GhostVariant,
+  SmallSize,
+  MediumSize,
+  LargeSize,
+  WithClear,
+  WithSuffixIcons,
+  PasswordInput,
+  WithStartAndEndContent,
+  LabelOutsideLeft
+} from './ft-input.stories';
+import * as InputStories from './ft-input.stories';
+
+<Meta of={InputStories} />
+
+# Input
+
+A fundamental UI component that allows users to enter and edit text. The `ft-input` is built with a "mixin-like" CSS architecture, offering high performance and deep customization through CSS variables.
+
+## When to use
+- To collect user data such as names, emails, or numbers.
+- For search functionality.
+- For sensitive data like passwords (using the `inputType="password"`).
+
+---
+
+## Basic Usage
+
+The most basic input requires only a `label` or a `placeholder`.
+
+<Canvas of={Default} />
+
+## Variants
+
+The input supports four visual variants to fit different UI contexts.
+
+### Flat
+The default variant with a subtle background and no border.
+<Canvas of={FlatVariant} />
+
+### Faded
+Combines a background with a subtle border that highlights on focus.
+<Canvas of={FadedVariant} />
+
+### Outlined
+A classic outlined style with no background.
+<Canvas of={OutlinedVariant} />
+
+### Ghost
+A minimalist style with no borders or background, useful for high-density interfaces.
+<Canvas of={GhostVariant} />
+
+---
+
+## Sizes
+
+Available in four sizes: `xs`, `sm`, `md` (default), and `lg`.
+
+<Canvas>
+  <Story of={SmallSize} />
+  <Story of={MediumSize} />
+  <Story of={LargeSize} />
+</Canvas>
+
+---
+
+## Features
+
+### Clearable
+Enabling `isClearable` adds a button to clear the input value instantly.
+<Canvas of={WithClear} />
+
+### Icons
+Support for prefix and suffix icons using Material Symbols.
+<Canvas of={WithSuffixIcons} />
+
+### Password Toggle
+Automatic visibility toggle when `inputType` is set to `password`.
+<Canvas of={PasswordInput} />
+
+### Custom Content (Start/End)
+Add static text decorators like currency symbols or domain names.
+<Canvas of={WithStartAndEndContent} />
+
+---
+
+## Label Placements
+
+Labels can be placed inside the input, outside, or to the left.
+
+### Outside Left
+<Canvas of={LabelOutsideLeft} />
+
+### Inside
+<Canvas of={Default} />
+
+---
+
+## API Reference
+
+<Controls />
+
+---
+
+## Design Tokens
+
+The component uses several CSS custom properties for internal styling. You can override these for specific instances:
+
+| Variable | Description | Default |
+| :--- | :--- | :--- |
+| `--_field-bg` | Background color of the input wrapper | `transparent` |
+| `--_field-border-color` | Border color | `var(--ft-color-border-200)` |
+| `--_field-height` | Height of the field | `var(--ft-unit-800)` |
+| `--_field-font-size` | Font size of the text | `var(--ft-text-xs)` |

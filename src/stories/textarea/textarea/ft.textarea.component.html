@@ -1,7 +1,7 @@
-<div class="field-container" [class]="labelPlacement + ' ' + size + ' ' + variant + ' ' + state">
+<div class="field-container" [class]="labelPlacement + ' ' + size + ' ' + variant + ' ' + state" [class.invalid]="state === 'invalid' || invalid">
   
   <div *ngIf="isLabel && labelPlacement !== 'inside'" class="label-row">
-    <span class="label leading-none" [ngClass]="{
+    <span class="label line-none" [ngClass]="{
            'content-2xs--semibold': size === 'sm-size' || size === 'md-size' || size === 'xs-size',
            'content-xs--semibold': size === 'lg-size',
            }">{{ label }} <span *ngIf="required && !disabled">*</span></span>
@@ -10,7 +10,7 @@
   <div class="textarea-wrapper" [class]="radiusClasses">
     <div class="content-section">
       <div *ngIf="isLabel && labelPlacement === 'inside'" class="label-row">
-        <span class="label leading-none" [ngClass]="{
+        <span class="label line-none" [ngClass]="{
            'content-2xs--bold': size === 'sm-size' || size === 'md-size' || size === 'xs-size',
            'content-xs--bold': size === 'lg-size',
            }">{{ label }} <span *ngIf="required && !disabled">*</span></span>
@@ -38,12 +38,14 @@
     </div>
   </div>
 
-  <div *ngIf="state === 'invalid' && errorMessage" class="error-message">
-    <p class="error-text content-2xs--normal">{{ errorMessage }}</p>
-  </div>
-  
-  <div *ngIf="isDescription && description && state !== 'invalid'" class="description">
-    <p class="highlight content-2xs--normal">{{ description }}</p>
+  <div class="helper-text-container">
+    <div *ngIf="(state === 'invalid' || invalid) && errorMessage" class="error-message">
+      <p class="error-text content-2xs--normal">{{ errorMessage }}</p>
+    </div>
+    
+    <div *ngIf="isDescription && description && state !== 'invalid'" class="description">
+      <p class="highlight content-2xs--normal">{{ description }}</p>
+    </div>
   </div>
 </div>
 

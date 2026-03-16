@@ -1,0 +1,18 @@
+<div class="ft-toast-container">
+  @for (toast of toasts(); track toast.id) {
+    <div class="ft-toast" [class]="'ft-toast-' + toast.severity" role="alert">
+      <span class="material-symbols-rounded icon">{{ getIcon(toast.severity) }}</span>
+      <div class="ft-toast-content">
+        @if (toast.summary) {
+          <div class="ft-toast-summary">{{ toast.summary }}</div>
+        }
+        @if (toast.detail) {
+          <div class="ft-toast-detail">{{ toast.detail }}</div>
+        }
+      </div>
+      <button class="ft-toast-close" (click)="remove(toast.id)">
+        <span class="material-symbols-rounded">close</span>
+      </button>
+    </div>
+  }
+</div>

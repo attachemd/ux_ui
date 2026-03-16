@@ -10,8 +10,8 @@ const meta: Meta<FtButtonComponent> = {
       control: 'select',
       options: [
         'person',
-        'icon-menu',
-        'icon-export'
+        'menu',
+        'output'
       ],
       description: 'Select an icon class for the component',
     },
@@ -19,10 +19,10 @@ const meta: Meta<FtButtonComponent> = {
       control: 'select',
       options: [
         'face',
-        'icon-menu',
-        'icon-export',
-        'icon-close',
-        'icon-arrow-down'
+        'menu',
+        'output',
+        'close',
+        'expand_more'
       ],
       description: 'Select an icon class for the component',
     },
