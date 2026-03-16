@@ -2,3 +2,10 @@
   overflow: auto;
   display: flex;
 }
+
+.dialog-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--ft-unit-200);
+  margin-top: var(--ft-unit-600);
+}

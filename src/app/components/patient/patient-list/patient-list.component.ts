@@ -1,13 +1,13 @@
-import {AfterViewInit, Component, ElementRef, ViewChild, signal, computed} from '@angular/core';
-import {NgIf, NgFor, DatePipe} from '@angular/common';
-import {FTInputComponent} from '../../../../stories/inputs/input/ft.input.component';
-import {FtButtonComponent} from '../../../../stories/Buttons/button/ft.button.component';
-import {FtIconButtonComponent} from '../../../../stories/Buttons/icon-button/ft.icon.button.component';
-import {FtCheckboxComponent} from '../../../../stories/checkbox/ft.checkbox.component';
-import {FTSelectComponent, SelectOption} from '../../../../stories/select/select/ft.select.component';
-import {FTPaginationComponent} from '../../../../stories/pagination/ft.pagination.component';
-import {FormControl, FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {Patient} from '../../../types/patient.type';
+import { AfterViewInit, Component, ElementRef, ViewChild, signal, computed } from '@angular/core';
+import { NgIf, NgFor, DatePipe } from '@angular/common';
+import { FTInputComponent } from '../../../../stories/inputs/input/ft.input.component';
+import { FtButtonComponent } from '../../../../stories/Buttons/button/ft.button.component';
+import { FtIconButtonComponent } from '../../../../stories/Buttons/icon-button/ft.icon.button.component';
+import { FtCheckboxComponent } from '../../../../stories/checkbox/ft.checkbox.component';
+import { FTSelectComponent, SelectOption } from '../../../../stories/select/select/ft.select.component';
+import { FTPaginationComponent } from '../../../../stories/pagination/ft.pagination.component';
+import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Patient } from '../../../types/patient.type';
 
 interface View {
   name: string;
@@ -45,35 +45,35 @@ const LAST_NAMES: string[] = ['Dupont', 'Martin', 'Bernard', 'Dubois', 'Thomas',
 export class PatientListComponent {
   protected readonly Math = Math;
   displayedColumns: string[] = [
-    'select', 'id', 'status', 'title', 'firstName', 'lastName', 'dateOfBirth', 'age', 'sexe', 
-    'email', 'primaryPhoneNumber', 'secondaryPhoneNumber', 'country', 'city', 'postalCode', 
-    'address', 'maritalStatus', 'nationality', 'ethnicity', 'occupation', 'spokenLanguages', 
-    'emergencyContactPhone', 'nationalId', 'passportNumber', 'placeOfBirth', 'employer', 
+    'select', 'id', 'status', 'title', 'firstName', 'lastName', 'dateOfBirth', 'age', 'sexe',
+    'email', 'primaryPhoneNumber', 'secondaryPhoneNumber', 'country', 'city', 'postalCode',
+    'address', 'maritalStatus', 'nationality', 'ethnicity', 'occupation', 'spokenLanguages',
+    'emergencyContactPhone', 'nationalId', 'passportNumber', 'placeOfBirth', 'employer',
     'socialSecurityNumber', 'insuranceProvider', 'insuranceNumber', 'otherField1', 'otherField2'
   ];
-  
+
   users = signal<Patient[]>([]);
   filter = signal<string>('');
   sortKey = signal<keyof Patient>('id');
   sortDirection = signal<'asc' | 'desc'>('asc');
-  
+
   pageSize = signal<number>(10);
   currentPage = signal<number>(0);
-  
+
   pageSizeOptions: SelectOption[] = [
     { label: '5 par page', value: 5 },
     { label: '10 par page', value: 10 },
     { label: '25 par page', value: 25 },
     { label: '50 par page', value: 50 },
   ];
-  
+
   selection = signal<Set<string>>(new Set());
 
   filteredUsers = computed(() => {
     const filterValue = this.filter().toLowerCase();
-    const sorted = [...this.users()].filter(user => 
-      user.firstName.toLowerCase().includes(filterValue) || 
-      user.lastName.toLowerCase().includes(filterValue) || 
+    const sorted = [...this.users()].filter(user =>
+      user.firstName.toLowerCase().includes(filterValue) ||
+      user.lastName.toLowerCase().includes(filterValue) ||
       (user.id && user.id.toLowerCase().includes(filterValue)) ||
       (user.email && user.email.toLowerCase().includes(filterValue))
     );
@@ -109,14 +109,14 @@ export class PatientListComponent {
   selectedView = new FormControl<any>(null);
 
   constructor() {
-    const initialUsers = Array.from({length: 100}, (_, k) => createNewPatient(k + 1));
+    const initialUsers = Array.from({ length: 100 }, (_, k) => createNewPatient(k + 1));
     this.users.set(initialUsers);
     this.selectedView.setValue('1');
     this.views = [
       { label: 'Vue standard', value: '1' },
       { label: 'Compact', value: '2' },
-      { label: 'Date de naissance en premier', value: '3'},
-      { label: 'Filtrer par ville', value: '11'},
+      { label: 'Date de naissance en premier', value: '3' },
+      { label: 'Filtrer par ville', value: '11' },
     ];
   }
 
@@ -194,7 +194,7 @@ function createNewPatient(id: number): Patient {
   const country = COUNTRIES[Math.floor(Math.random() * COUNTRIES.length)];
   const city = CITIES[country][Math.floor(Math.random() * CITIES[country].length)];
   const birthDate = new Date(1950 + Math.random() * 70, Math.floor(Math.random() * 12), Math.floor(Math.random() * 28));
-  
+
   return {
     id: `PAT-${id.toString().padStart(4, '0')}`,
     status: status,

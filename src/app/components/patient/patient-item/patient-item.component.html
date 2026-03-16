@@ -1,105 +1,47 @@
 <div class="patient-info ft-panel">
-  <button><i class="icon-arrow-left text-4xl!"> </i></button>
-  <span
-    class="truncate grow justify-start items-center lg:grow-0 ft-text"
-  >
+  <ft-icon-button iconClass="arrow_back" variant="ghost" size="lg-size"></ft-icon-button>
+  <div class="patient-name-container">
+    <span class="patient-name ft-text">
         Mr. AHMED IBRAHIMI
-      </span>
-  <span class="hidden lg:inline-block chip-color-info chip"
-  >Première hospitalisation
-      </span>
-  <div class="hidden lg:flex sub-info">
-    <div class="flex items-center gap-2">
-      <i class="icon-gender2"></i>
-      <span class="leading-none">Homme</span>
+    </span>
+  </div>
+  <ft-badge value="Première hospitalisation" severity="primary" size="sm-size"></ft-badge>
+  <div class="sub-info">
+    <div class="sub-info-item">
+      <span class="material-symbols-rounded">wc</span>
+      <span class="line-none">Homme</span>
     </div>
     <div class="ft-vdivider h-5"></div>
-    <div class="flex grow items-center gap-2 w-0 max-w-fit">
-      <i class="icon-birthday"></i>
-      <span class="truncate leading-none grow">
+    <div class="sub-info-item-grow">
+      <span class="material-symbols-rounded">cake</span>
+      <span class="text-truncate line-none">
             24 ans et 4 mois
           </span>
     </div>
     <div class="ft-vdivider h-5"></div>
-    <div class="flex items-center gap-2">
-      <span class="font-bold leading-none">Chambre:</span>
-      <span class="leading-none">305</span>
+    <div class="sub-info-item">
+      <span class="info-label line-none">Chambre:</span>
+      <span class="line-none">305</span>
     </div>
     <div class="ft-vdivider h-5"></div>
-    <div class="flex items-center gap-2">
-      <span class="font-bold leading-none">Lit:</span>
-      <span class="leading-none">A</span>
+    <div class="sub-info-item">
+      <span class="info-label line-none">Lit:</span>
+      <span class="line-none">A</span>
     </div>
   </div>
 
-  <button class="ft-icon-button ft-flex-center">
-    <i class="icon-vertical-dots"></i>
-  </button>
+  <ft-icon-button iconClass="more_vert" variant="ghost" size="md-size"></ft-icon-button>
 </div>
 
-<div class="lg:hidden! ft-panel secondary-navbar">
-  <div class="flex grow gap-1 h-full">
-    <div
-      class="ft-flex-center grow xxl:justify-center gap-2 w-0 relative"
-    >
-      <div class="ft-flex-center w-full h-full">
-            <span class="truncate font-normal inline-block active">
-              Historique Medical
-            </span>
-      </div>
-    </div>
-  </div>
-  <button class="more">
-    <i class="icon-arrow-down"></i>
-  </button>
-</div>
 
-<div class="hidden! lg:flex! ft-panel gap-1 secondary-navbar">
-  <div class="flex grow gap-1 h-full">
-    <div class="ft-flex-center grow gap-2 w-0">
-      <div class="ft-flex-center w-full h-full">
-        <span class="ft-text"> Détails du patient </span>
-      </div>
-    </div>
-    <div class="ft-flex-center grow gap-2 w-0">
-      <div class="ft-flex-center w-full h-full">
-        <span class="ft-text"> Assurance </span>
-      </div>
-    </div>
-    <div
-      class="ft-flex-center flex-col grow xxl:justify-center w-0 relative"
-    >
-      <div
-        class="ft-flex-center w-full h-full"
-      >
-            <span class="ft-text text-(--ft-color-primary)!">
-              Historique Medical
-            </span>
-      </div>
-      <div
-        class="tab-border"
-      ></div>
-      <div
-        class="w-full border-b border-(--ft-color-primary) absolute bottom-0 blur-[3px] opacity-20"
-      ></div>
-      <div
-        class="w-full border-b-2 border-(--ft-color-primary) absolute bottom-0 blur-2xl"
-      ></div>
-    </div>
-    <div class="ft-flex-center grow gap-2 w-0">
-      <div class="ft-flex-center w-full h-full">
-        <span class="ft-text"> Biométrie </span>
-      </div>
-    </div>
-    <div class="ft-flex-center grow gap-2 w-0">
-      <div class="ft-flex-center w-full h-full">
-        <span class="ft-text"> Pièces jointes </span>
-      </div>
-    </div>
-  </div>
-  <button class="more">
-    <i class="icon-arrow-down"></i>
-  </button>
+<div class="ft-panel secondary-navbar">
+  <ft-tabs [activeTabValue]="activeTabValue()" (activeTabValueChange)="activeTabValue.set($event)" variant="underlined" color="primary" [fullWidth]="true">
+    <ft-tab label="Détails du patient" value="details"></ft-tab>
+    <ft-tab label="Assurance" value="assurance"></ft-tab>
+    <ft-tab label="Historique Medical" value="medical-history"></ft-tab>
+    <ft-tab label="Biométrie" value="biometrie"></ft-tab>
+    <ft-tab label="Pièces jointes" value="attachments"></ft-tab>
+  </ft-tabs>
 </div>
 
 

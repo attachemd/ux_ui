@@ -1,140 +1,85 @@
 <form [formGroup]="allergyForm">
   <div class="dialog-form-body-container">
     <div class="dialog-form-body">
-      <div class="form-group">
-        <div class="field-container lg:min-w-[200px] lg:w-[200px]">
-          <p-floatlabel variant="in" class="w-full">
-            <p-select
-              formControlName="allergyType"
-              [options]="allergyTypes"
-              optionLabel="name"
-              [showClear]="true"
-              id="allergyType"
-              styleClass="w-full"
-              variant="filled"
-              (onChange)="onAllergyTypeChange()"
-            />
-            <label for="allergyType">Type d'allergie</label>
-          </p-floatlabel>
+      <div class="form-group dialog-form-row two-cols">
+        <div class="field-container">
+          <ft-select
+            label="Type d'allergie"
+            formControlName="allergyType"
+            [options]="allergyTypes"
+            variant="flat"
+            (valueChange)="onAllergyTypeChange()"
+          ></ft-select>
         </div>
 
         <div class="field-container">
-          <p-floatlabel variant="in" class="w-full">
-            <p-autocomplete
-              [required]="true"
-              formControlName="allergen"
-              [suggestions]="allergenSuggestions"
-              field="name"
-              (completeMethod)="searchAllergens($event)"
-              (onSelect)="onAllergenSelect($event)"
-              [showClear]="true"
-              class="grow"
-              id="allergen"
-              variant="filled"
-            >
-            </p-autocomplete>
-            <label
-              for="allergen">Allergène {{ (allergyTypeControl?.value ? '(Filtré par ' + allergyTypeControl?.value.name + ') ' : ' ') }}
-              <span>*</span></label>
-          </p-floatlabel>
-          <small
-            class="p-error"
-            *ngIf="shouldShowError(allergenControl)"
-          >
-            <span *ngIf="allergenControl?.errors?.['required']"
-            >L'allergène est obligatoire.</span
-            >
-          </small>
+          <ft-input
+            label="Allergène"
+            [required]="true"
+            formControlName="allergen"
+            variant="flat"
+            placeholder="Ex. Pénicilline"
+          ></ft-input>
         </div>
       </div>
 
-
-      <div class="field-container">
-        <p-floatlabel variant="in" class="w-full">
-          <p-multiSelect
-            formControlName="reactions"
-            [options]="reactions"
-            display="chip"
-            optionLabel="name"
-            [maxSelectedLabels]=10
-            [showClear]="true"
-            id="reactions"
-            styleClass="w-full"
-            variant="filled"
-          />
-          <label for="reactions">Réaction(s)</label>
-        </p-floatlabel>
+      <div class="field-container spacer-mt-4">
+        <ft-select
+          label="Réaction(s)"
+          formControlName="reactions"
+          [options]="reactions"
+          [multiple]="true"
+          variant="flat"
+        ></ft-select>
       </div>
 
-      <div class="form-group">
-
+      <div class="form-group dialog-form-row two-cols spacer-mt-4">
         <div class="field-container">
-          <p-floatlabel variant="in" class="w-full">
-            <p-select
-              formControlName="severity"
-              [options]="severities"
-              optionLabel="name"
-              [showClear]="true"
-              id="severity"
-              styleClass="w-full"
-              variant="filled"
-            />
-            <label for="severity">Sévérité</label>
-          </p-floatlabel>
+          <ft-select
+            label="Sévérité"
+            formControlName="severity"
+            [options]="severities"
+            variant="flat"
+          ></ft-select>
         </div>
 
         <div class="field-container">
-          <p-floatlabel variant="in" class="w-full">
-            <p-datepicker
-              formControlName="diagnosticDate"
-              [showClear]="true"
-              id="diagnosticDate"
-              showIcon
-              iconDisplay="input"
-              variant="filled"
-              dateFormat="dd/mm/yy"
-            ></p-datepicker>
-            <label for="diagnosticDate">Date de diagnostic</label>
-          </p-floatlabel>
+          <ft-input
+            label="Date de diagnostic"
+            formControlName="diagnosticDate"
+            type="date"
+            variant="flat"
+          ></ft-input>
         </div>
       </div>
 
-
-      <div class="form-container">
-        <p-floatlabel variant="in">
-          <div class="p-inputgroup w-full">
-              <textarea
-                pTextarea
-                id="note"
-                formControlName="note"
-                rows="3"
-                cols="30"
-                style="resize: none"
-                class="w-full"
-                variant="filled"
-              ></textarea>
-            <p-button icon="pi pi-times" severity="secondary"
-                      [rounded]="true"
-                      [text]="true"
-                      (click)="clearField('note')"
-                      *ngIf="noteControl?.value"></p-button>
-          </div>
-          <label for="note">Note</label>
-        </p-floatlabel>
+      <div class="field-container spacer-mt-4">
+        <ft-input
+          label="Note"
+          formControlName="note"
+          type="textarea"
+          variant="flat"
+          [isClearable]="true"
+        ></ft-input>
       </div>
-
     </div>
   </div>
 
-  <div class="flex justify-end gap-2 dialog-footer">
-    <p-button
+  <div class="dialog-footer">
+    <ft-button
       label="Annuler"
-      severity="secondary"
-      (click)="closeDialog(null)"
-      size="small"
-    />
-    <p-button label="Enregistrer" (click)="saveAllergy()" size="small"
-              [disabled]="!allergyForm.valid"/>
+      variant="ghost"
+      (click)="closeDialog()"
+      size="sm-size"
+    ></ft-button>
+    <ft-button 
+      label="Enregistrer" 
+      variant="flat" 
+      color="primary" 
+      (click)="saveAllergy()" 
+      size="sm-size"
+      [state]="!allergyForm.valid ? 'disabled' : 'rest'"
+    ></ft-button>
   </div>
 </form>
 

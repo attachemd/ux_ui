@@ -1,18 +1,12 @@
-// src/app/dialogs/risk-assessment-dialog/risk-assessment-dialog.component.ts
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
+import { FtDynamicDialogService } from '../../../stories/Components/dialog/ft-dynamic-dialog.service';
+import { FtToastService } from '../../../stories/Components/toast/ft-toast.service';
 import { Subject, takeUntil } from 'rxjs';
-import { AutoCompleteModule } from 'primeng/autocomplete';
-import { ButtonModule } from 'primeng/button';
-import { DatePickerModule } from 'primeng/datepicker';
-import { FloatLabelModule } from 'primeng/floatlabel';
-import { SelectModule } from 'primeng/select';
-import { InputGroupModule } from 'primeng/inputgroup';
 import { CommonModule, NgIf } from '@angular/common';
-import { MessageService } from 'primeng/api';
-import {Textarea} from 'primeng/textarea';
-import {DatePicker} from 'primeng/datepicker';
+import { FTInputComponent } from '../../../stories/inputs/input/ft.input.component';
+import { FTSelectComponent, SelectOption } from '../../../stories/select/select/ft.select.component';
+import { FtButtonComponent } from '../../../stories/Buttons/button/ft.button.component';
 
 
 // Define interfaces for options
@@ -28,44 +22,38 @@ interface RiskFactorOption {
 
 
 @Component({
-  selector: 'app-risk-assessment-dialog', // Renamed selector
+  selector: 'app-risk-assessment-dialog',
   standalone: true,
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    AutoCompleteModule,
-    ButtonModule,
-    DatePickerModule,
-    FloatLabelModule,
-    SelectModule,
-    InputGroupModule,
+    FTInputComponent,
+    FTSelectComponent,
+    FtButtonComponent,
     NgIf,
-    Textarea,
-    DatePicker,
   ],
-  providers: [MessageService],
-  templateUrl: './risk-assessment-dialog.component.html', // Updated template path
-  styleUrl: './risk-assessment-dialog.component.css' // Updated style path
+  templateUrl: './risk-assessment-dialog.component.html',
+  styleUrl: './risk-assessment-dialog.component.css'
 })
 export class RiskAssessmentDialogComponent implements OnInit, OnDestroy { // Renamed class
 
   riskFactorForm: FormGroup;
 
   // Options
-  riskCategories: Option[] = [
-    { name: 'Génétique', value: 'Génétique' },
-    { name: 'Famille', value: 'Famille' },
-    { name: 'Lifestyle', value: 'Lifestyle' },
-    { name: 'Environnement', value: 'Environnement' },
-    { name: 'Médical', value: 'Médical' },
-    { name: 'Autre', value: 'Autre' },
+  riskCategories: SelectOption[] = [
+    { label: 'Génétique', value: 'Génétique' },
+    { label: 'Famille', value: 'Famille' },
+    { label: 'Lifestyle', value: 'Lifestyle' },
+    { label: 'Environnement', value: 'Environnement' },
+    { label: 'Médical', value: 'Médical' },
+    { label: 'Autre', value: 'Autre' },
   ];
 
-  riskLevels: Option[] = [
-    { name: 'Critique', value: 'Critique' },
-    { name: 'Haute', value: 'Haute' },
-    { name: 'Moyenne', value: 'Moyenne' },
-    { name: 'Faible', value: 'Faible' },
+  riskLevels: SelectOption[] = [
+    { label: 'Critique', value: 'Critique' },
+    { label: 'Haute', value: 'Haute' },
+    { label: 'Moyenne', value: 'Moyenne' },
+    { label: 'Faible', value: 'Faible' },
   ];
 
 
@@ -84,18 +72,17 @@ export class RiskAssessmentDialogComponent implements OnInit, OnDestroy { // Ren
   riskFactorSuggestions: RiskFactorOption[] = [];
 
 
+  private dialogService = inject(FtDynamicDialogService);
+  private toastService = inject(FtToastService);
   private destroy$ = new Subject<void>();
 
   constructor(
     private fb: FormBuilder,
-    public ref: DynamicDialogRef,
-    public config: DynamicDialogConfig,
-    private messageService: MessageService
   ) {
     this.riskFactorForm = this.fb.group({
       riskCategory: [null],
       riskFactorName: [null, Validators.required],
-      evaluationDate: [new Date()],
+      evaluationDate: [new Date().toISOString().split('T')[0]],
       riskLevel: [null],
       note: [''],
     });
@@ -148,7 +135,7 @@ export class RiskAssessmentDialogComponent implements OnInit, OnDestroy { // Ren
     const correspondingCategory = this.riskCategories.find(category => category.value === selectedFactor.category);
 
     if (correspondingCategory && this.riskCategoryControl) {
-      this.riskCategoryControl.setValue(correspondingCategory);
+      this.riskCategoryControl.setValue(correspondingCategory.value);
     }
   }
 
@@ -216,18 +203,19 @@ export class RiskAssessmentDialogComponent implements OnInit, OnDestroy { // Ren
 
       console.log('Saving risk factor data:', riskFactorData);
 
-      this.messageService.add({
+      // On successful save:
+      this.toastService.add({
         severity: 'success',
         summary: 'Succès',
         detail: 'Facteur de risque enregistré avec succès.',
         life: 3000
       });
 
-      this.ref.close(riskFactorData);
+      this.closeDialog(riskFactorData);
 
     } else {
       console.log('Form is invalid. Cannot save risk factor.');
-      this.messageService.add({
+      this.toastService.add({
         severity: 'error',
         summary: 'Erreur',
         detail: 'Veuillez corriger les erreurs dans le formulaire.',
@@ -236,8 +224,8 @@ export class RiskAssessmentDialogComponent implements OnInit, OnDestroy { // Ren
     }
   }
 
-  closeDialog(data: any = null) {
-    this.ref.close(data);
+  closeDialog(data?: any) {
+    this.dialogService.close(data);
   }
 
   clearField(controlName: string) {

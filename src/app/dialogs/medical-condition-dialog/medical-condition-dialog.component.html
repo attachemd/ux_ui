@@ -2,144 +2,93 @@
   <div class="dialog-form-body-container">
     <div class="dialog-form-body">
       <div class="field-container">
-        <p-floatlabel variant="in" class="w-full">
-          <p-autocomplete
-            [required]="true"
-            formControlName="medicalConditionName"
-            [suggestions]="medicalConditionSuggestions"
-            (completeMethod)="searchMedicalConditions($event)"
-            [showClear]="true"
-            class="grow"
-            id="medicalConditionName"
-            variant="filled"
-          >
-          </p-autocomplete>
-          <label for="medicalConditionName">Valeur *</label>
-        </p-floatlabel>
-        <small
-          class="p-error"
-          *ngIf="shouldShowError(medicalConditionNameControl)"
-        >
-            <span *ngIf="medicalConditionNameControl?.errors?.['required']"
-            >La valeur est obligatoire.</span
-            >
-        </small>
+        <ft-input
+          label="Valeur"
+          [required]="true"
+          formControlName="medicalConditionName"
+          variant="flat"
+          placeholder="Ex. Hypertension"
+        ></ft-input>
       </div>
 
-      <div class="form-group">
+      <div class="form-group dialog-form-row two-cols">
         <div class="field-container">
-          <p-floatlabel variant="in" class="w-full">
-            <p-datepicker
-              formControlName="diagnosticDate"
-              [showClear]="true"
-              id="diagnosticDate"
-              showIcon
-              iconDisplay="input"
-              dateFormat="dd/mm/yy"
-              variant="filled"
-            ></p-datepicker>
-            <label for="diagnosticDate">Date de diagnostic</label>
-          </p-floatlabel>
+          <ft-input
+            label="Date de diagnostic"
+            formControlName="diagnosticDate"
+            type="date"
+            variant="flat"
+          ></ft-input>
         </div>
 
         <div class="field-container">
-          <p-floatlabel class="w-full" variant="in">
-            <p-select
-              formControlName="status"
-              [showClear]="true"
-              id="status"
-              [options]="statusOptions"
-              optionLabel="name"
-              styleClass="w-full"
-              variant="filled"
-            />
-            <label for="status">Status</label>
-          </p-floatlabel>
+          <ft-select
+            label="Status"
+            formControlName="status"
+            [options]="statusOptions"
+            variant="flat"
+          ></ft-select>
         </div>
       </div>
 
-      <div class="form-group flex-col">
-        <div class="field-container flex-row w-auto items-center gap-4">
+      <div class="form-group flex-col-container">
+        <div class="field-container flex items-center gap-4">
           <label for="isFamilial">Antécédent familial</label>
-          <p-toggleswitch
-            class="flex"
-            formControlName="isFamilial"
-            id="isFamilial"
-          />
+          <ft-toggle
+            [value]="medicalAntecedentForm.get('isFamilial')?.value"
+            (valueChange)="medicalAntecedentForm.get('isFamilial')?.setValue($event)"
+          ></ft-toggle>
         </div>
-        <div
-          class="form-sub-group flex flex-col lg:flex-row align-center gap-4"
-        >
-          <div class="field-container w-full">
-            <p-floatlabel class="w-full" variant="in">
-              <p-select
-                formControlName="relation"
-                [showClear]="true"
-                id="relation"
-                [options]="relationOptions"
-                optionLabel="name"
-                class="w-full"
-                variant="filled"
-              />
-              <label for="relation">Relation <span *ngIf="isFamilialControl?.value">*</span></label>
-            </p-floatlabel>
-            <small
-              class="p-error"
-              *ngIf="shouldShowError(relationControl)"
-            >
-              <span *ngIf="relationControl?.errors?.['required']"
-              >La relation est obligatoire.</span
-              >
-            </small>
+
+        <div class="field-sub-group">
+          <div class="field-container">
+            <ft-select
+              label="Relation"
+              formControlName="relation"
+              [options]="relationOptions"
+              variant="flat"
+              [disabled]="!medicalAntecedentForm.get('isFamilial')?.value"
+              [required]="medicalAntecedentForm.get('isFamilial')?.value"
+            ></ft-select>
           </div>
-          <div class="field-container w-auto flex-row items-center gap-4">
+          <div class="field-container field-group-row">
             <label for="isDeceased">Décédé</label>
-            <p-toggleswitch
-              class="flex"
-              formControlName="isDeceased"
-              id="isDeceased"
-            />
+            <ft-toggle
+              [value]="medicalAntecedentForm.get('isDeceased')?.value"
+              (valueChange)="medicalAntecedentForm.get('isDeceased')?.setValue($event)"
+              [disabled]="!medicalAntecedentForm.get('isFamilial')?.value"
+            ></ft-toggle>
           </div>
         </div>
       </div>
 
-      <div class="form-container">
-        <p-floatlabel variant="in">
-          <div class="p-inputgroup w-full">
-              <textarea
-                pTextarea
-                id="note"
-                formControlName="note"
-                rows="5"
-                cols="30"
-                style="resize: none"
-                class="w-full"
-                variant="filled"
-              ></textarea>
-            <p-button
-              icon="pi pi-times"
-              severity="secondary"
-              [rounded]="true"
-              [text]="true"
-              (click)="clearNoteTextarea()"
-              *ngIf="noteControl?.value"
-            />
-          </div>
-          <label for="note">Note</label>
-        </p-floatlabel>
+      <div class="field-container spacer-mt-4">
+        <ft-input
+          label="Note"
+          formControlName="note"
+          type="textarea"
+          variant="flat"
+          [isClearable]="true"
+        ></ft-input>
       </div>
     </div>
   </div>
 
-  <div class="flex justify-end gap-2 dialog-footer">
-    <p-button
+  <div class="dialog-footer">
+    <ft-button
       label="Annuler"
-      severity="secondary"
-      (click)="closeDialog({ buttonType: 'Cancel', summary: 'No Product Selected' })"
-      size="small"
-    />
-    <p-button label="Enregistrer" (click)="saveMedicalAntecedent()" size="small"
-              [disabled]="!medicalAntecedentForm.valid" />
+      variant="ghost"
+      (click)="closeDialog()"
+      size="sm-size"
+    ></ft-button>
+    <ft-button 
+      label="Enregistrer" 
+      variant="flat" 
+      color="primary" 
+      (click)="saveMedicalAntecedent()" 
+      size="sm-size"
+      [state]="!medicalAntecedentForm.valid ? 'disabled' : 'rest'"
+    ></ft-button>
   </div>
 </form>
 

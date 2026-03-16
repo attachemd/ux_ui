@@ -2,3 +2,49 @@
   overflow: auto;
   display: flex;
 }
+
+.field-group-row {
+  display: flex;
+  align-items: center;
+  gap: var(--ft-unit-400);
+}
+
+.text-sm-medium {
+  font-size: var(--ft-text-xs);
+  font-weight: var(--font-weight-medium);
+}
+
+.dialog-form-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--ft-unit-400);
+}
+
+@media (min-width: 1024px) {
+  .dialog-form-row.two-cols {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .dialog-form-row.three-cols {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.spacer-mt-4 {
+  margin-top: var(--ft-unit-400);
+}
+
+.spacer-mb-4 {
+  margin-bottom: var(--ft-unit-400);
+}
+
+.error-text {
+  color: var(--ft-color-danger);
+  font-size: var(--ft-text-xs);
+}
+
+.dialog-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--ft-unit-200);
+  margin-top: var(--ft-unit-600);
+}

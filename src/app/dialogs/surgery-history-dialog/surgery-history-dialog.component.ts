@@ -1,17 +1,11 @@
-// src/app/dialogs/surgery-history-dialog/surgery-history-dialog.component.ts
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, ReactiveFormsModule, Validators, ValidationErrors, ValidatorFn } from '@angular/forms';
-import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
+import { FtDynamicDialogService } from '../../../stories/Components/dialog/ft-dynamic-dialog.service';
+import { FtToastService } from '../../../stories/Components/toast/ft-toast.service';
 import { Subject, takeUntil } from 'rxjs';
-import { AutoCompleteModule } from 'primeng/autocomplete';
-import { ButtonModule } from 'primeng/button';
-import { DatePickerModule } from 'primeng/datepicker';
-import { FloatLabelModule } from 'primeng/floatlabel';
-import { InputGroupModule } from 'primeng/inputgroup';
 import { CommonModule, NgIf } from '@angular/common';
-import { MessageService } from 'primeng/api';
-import { TextareaModule } from 'primeng/textarea';
-import {DatePicker} from 'primeng/datepicker';
+import { FTInputComponent } from '../../../stories/inputs/input/ft.input.component';
+import { FtButtonComponent } from '../../../stories/Buttons/button/ft.button.component';
 
 
 // Define interface for surgery name options
@@ -55,23 +49,17 @@ const noSpecialCharactersValidator: ValidatorFn = (control: AbstractControl): Va
 };
 
 @Component({
-  selector: 'app-surgery-history-dialog', // Renamed selector
+  selector: 'app-surgery-history-dialog',
   standalone: true,
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    AutoCompleteModule,
-    ButtonModule,
-    DatePickerModule,
-    FloatLabelModule,
-    InputGroupModule,
+    FTInputComponent,
+    FtButtonComponent,
     NgIf,
-    TextareaModule,
-    DatePicker,
   ],
-  providers: [MessageService],
-  templateUrl: './surgery-history-dialog.component.html', // Updated template path
-  styleUrl: './surgery-history-dialog.component.css' // Updated style path
+  templateUrl: './surgery-history-dialog.component.html',
+  styleUrl: './surgery-history-dialog.component.css'
 })
 export class SurgeryHistoryDialogComponent implements OnInit, OnDestroy { // Renamed class
 
@@ -90,13 +78,12 @@ export class SurgeryHistoryDialogComponent implements OnInit, OnDestroy { // Ren
   surgeryNameSuggestions: SurgeryNameOption[] = [];
 
 
+  private dialogService = inject(FtDynamicDialogService);
+  private toastService = inject(FtToastService);
   private destroy$ = new Subject<void>();
 
   constructor(
     private fb: FormBuilder,
-    public ref: DynamicDialogRef,
-    public config: DynamicDialogConfig,
-    private messageService: MessageService
   ) {
     this.surgicalHistoryForm = this.fb.group({
       surgeryName: [
@@ -107,7 +94,7 @@ export class SurgeryHistoryDialogComponent implements OnInit, OnDestroy { // Ren
           noSpecialCharactersValidator
         ]
       ],
-      surgeryDate: [new Date()],
+      surgeryDate: [new Date().toISOString().split('T')[0]],
       note: [''],
     });
   }
@@ -197,18 +184,19 @@ export class SurgeryHistoryDialogComponent implements OnInit, OnDestroy { // Ren
 
       console.log('Saving surgical history data:', surgicalHistoryData);
 
-      this.messageService.add({
+      // On successful save:
+      this.toastService.add({
         severity: 'success',
         summary: 'Succès',
         detail: 'Historique chirurgical enregistré avec succès.',
         life: 3000
       });
 
-      this.ref.close(surgicalHistoryData);
+      this.closeDialog(surgicalHistoryData);
 
     } else {
       console.log('Form is invalid. Cannot save surgical history.');
-      this.messageService.add({
+      this.toastService.add({
         severity: 'error',
         summary: 'Erreur',
         detail: 'Veuillez corriger les erreurs dans le formulaire.',
@@ -217,8 +205,8 @@ export class SurgeryHistoryDialogComponent implements OnInit, OnDestroy { // Ren
     }
   }
 
-  closeDialog(data: any = null) {
-    this.ref.close(data);
+  closeDialog(data?: any) {
+    this.dialogService.close(data);
   }
 
   clearField(controlName: string) {

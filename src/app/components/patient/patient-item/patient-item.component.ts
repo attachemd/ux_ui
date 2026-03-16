@@ -1,17 +1,26 @@
 import {Component, ElementRef, OnDestroy, Renderer2, ViewChild} from '@angular/core';
-import {DynamicDialogRef} from 'primeng/dynamicdialog';
 import {RouterOutlet} from '@angular/router';
+import {FtIconButtonComponent} from '../../../../stories/Buttons/icon-button/ft.icon.button.component';
+import {FTBadgeComponent} from '../../../../stories/Components/badge/ft-badge.component';
+import {FTabsComponent} from '../../../../stories/tabs/tabs/ft.tabs.component';
+import {FTabComponent} from '../../../../stories/tabs/tabs/ft.tab.component';
+import {signal} from '@angular/core';
 
 @Component({
   selector: 'app-patient-item',
   imports: [
-    RouterOutlet
+    RouterOutlet,
+    FtIconButtonComponent,
+    FTBadgeComponent,
+    FTabsComponent,
+    FTabComponent
   ],
   templateUrl: './patient-item.component.html',
   styleUrl: './patient-item.component.css'
 })
 export class PatientItemComponent implements OnDestroy {
   @ViewChild(RouterOutlet) routerOutlet!: RouterOutlet;
+  activeTabValue = signal('medical-history');
   // @ViewChild('mainContent') parent!: ElementRef<HTMLElement>;
   // @ViewChild('tabBodyContent') child!: ElementRef<HTMLElement>;
 child!: HTMLElement;

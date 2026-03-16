@@ -2,184 +2,105 @@
   <div class="dialog-form-body-container">
     <div class="dialog-form-body">
 
-      <div class="field-container flex flex-row items-center gap-4">
-        <label>Type de saisie</label>
-        <p-selectButton formControlName="entryType" [options]="entryTypes" optionLabel="name" optionValue="value" />
+      <div class="field-container field-group-row spacer-mb-4">
+        <label class="text-sm-medium">Type de saisie</label>
+        <ft-switch-button 
+          [options]="entryTypes" 
+          [selectedId]="treatmentForm.get('entryType')?.value"
+          (selectionChange)="treatmentForm.get('entryType')?.setValue($event)"
+          size="sm-size"
+        ></ft-switch-button>
       </div>
 
-      <div class="form-group">
+      <div class="form-group dialog-form-row two-cols">
         <div class="field-container">
-          <p-floatlabel variant="in" class="w-full">
-            <p-autocomplete
-              [required]="true"
-              formControlName="treatmentName"
-              [suggestions]="treatmentSuggestions"
-              field="name"
-              (completeMethod)="searchTreatments($event)"
-              [showClear]="true"
-              class="grow"
-              id="treatmentName"
-              variant="filled"
-            >
-            </p-autocomplete>
-            <label for="treatmentName">{{ treatmentNameLabel }} <span>*</span></label>
-          </p-floatlabel>
-          <small
-            class="p-error"
-            *ngIf="shouldShowError(treatmentNameControl)"
-          >
-            <span *ngIf="treatmentNameControl?.errors?.['required']"
-            >Ce champ est obligatoire.</span
-            >
-          </small>
+          <ft-input
+            [label]="treatmentNameLabel"
+            [required]="true"
+            formControlName="treatmentName"
+            variant="flat"
+            placeholder="Ex. Paracétamol"
+          ></ft-input>
         </div>
 
-        <div class="field-container lg:w-[200px] w-full">
-          <p-floatlabel variant="in" class="w-full">
-            <p-select
-              formControlName="status"
-              [options]="statuses"
-              optionLabel="name"
-              [showClear]="true"
-              id="status"
-              styleClass="w-full"
-              variant="filled"
-            />
-            <label for="status">Statut</label>
-          </p-floatlabel>
+        <div class="field-container">
+          <ft-select
+            label="Statut"
+            formControlName="status"
+            [options]="statuses"
+            variant="flat"
+          ></ft-select>
         </div>
       </div>
 
-      <div class="form-group flex-col">
+      <div class="form-group dialog-form-row two-cols spacer-mt-4">
         <div class="field-container">
-          <p-floatlabel variant="in" class="w-full">
-            <p-datepicker
-              formControlName="startDate"
-              [showClear]="true"
-              id="startDate"
-              showIcon
-              iconDisplay="input"
-              variant="filled"
-              dateFormat="dd/mm/yy"
-            ></p-datepicker>
-            <label for="startDate">Date de début</label>
-          </p-floatlabel>
-          <small class="p-error" *ngIf="shouldShowError(treatmentForm) && treatmentForm.errors?.['dateRangeInvalid']">
+          <ft-input
+            label="Date de début"
+            formControlName="startDate"
+            type="date"
+            variant="flat"
+          ></ft-input>
+          <small class="error-text" *ngIf="shouldShowError(treatmentForm) && treatmentForm.errors?.['dateRangeInvalid']">
             La date de début doit être antérieure à la date de fin.
           </small>
-          <small class="p-error" *ngIf="shouldShowError(startDateControl) && startDateControl?.errors?.['futureDate']">
-            La date ne peut pas être dans le futur.
-          </small>
         </div>
 
         <div class="field-container">
-          <p-floatlabel variant="in" class="w-full">
-            <p-datepicker
-              formControlName="endDate"
-              [showClear]="true"
-              id="endDate"
-              showIcon
-              iconDisplay="input"
-              variant="filled"
-              dateFormat="dd/mm/yy"
-            ></p-datepicker>
-            <label for="endDate">Date de fin</label>
-          </p-floatlabel>
-          <small class="p-error" *ngIf="shouldShowError(treatmentForm) && treatmentForm.errors?.['dateRangeInvalid']">
+          <ft-input
+            label="Date de fin"
+            formControlName="endDate"
+            type="date"
+            variant="flat"
+          ></ft-input>
+          <small class="error-text" *ngIf="shouldShowError(treatmentForm) && treatmentForm.errors?.['dateRangeInvalid']">
             La date de fin doit être postérieure à la date de début.
           </small>
-          <small class="p-error" *ngIf="shouldShowError(endDateControl) && endDateControl?.errors?.['futureDate']">
-            La date ne peut pas être dans le futur.
-          </small>
         </div>
       </div>
 
-      <div class="form-group">
+      <div class="form-group dialog-form-row three-cols spacer-mt-4">
         <div class="field-container">
-          <p-floatlabel variant="in" class="w-full">
-            <div class="p-inputgroup w-full">
-              <input pInputText id="dosage" formControlName="dosage" class="w-full" variant="filled"/>
-              <p-button icon="pi pi-times" severity="secondary"
-                        [rounded]="true"
-                        [text]="true"
-                        (click)="clearField('dosage')"
-                        *ngIf="dosageControl?.value"></p-button>
-            </div>
-            <label for="dosage">Posologie</label>
-          </p-floatlabel>
+          <ft-input label="Posologie" formControlName="dosage" variant="flat" [isClearable]="true"></ft-input>
         </div>
 
         <div class="field-container">
-          <p-floatlabel variant="in" class="w-full">
-            <div class="p-inputgroup w-full">
-              <input pInputText id="indication" formControlName="indication" class="w-full" variant="filled"/>
-              <p-button icon="pi pi-times" severity="secondary"
-                        [rounded]="true"
-                        [text]="true"
-                        (click)="clearField('indication')"
-                        *ngIf="indicationControl?.value"></p-button>
-            </div>
-            <label for="indication">Indication</label>
-          </p-floatlabel>
+          <ft-input label="Indication" formControlName="indication" variant="flat" [isClearable]="true"></ft-input>
         </div>
 
         <div class="field-container">
-          <p-floatlabel variant="in" class="w-full">
-            <div class="p-inputgroup w-full">
-              <input pInputText id="prescriber" formControlName="prescriber" class="w-full" variant="filled"/>
-              <p-button icon="pi pi-times" severity="secondary"
-                        [rounded]="true"
-                        [text]="true"
-                        (click)="clearField('prescriber')"
-                        *ngIf="prescriberControl?.value"></p-button>
-            </div>
-
-            <label for="prescriber">Prescripteur</label>
-          </p-floatlabel>
+          <ft-input label="Prescripteur" formControlName="prescriber" variant="flat" [isClearable]="true"></ft-input>
         </div>
       </div>
 
-
-
-
-      <div class="form-container">
-        <p-floatlabel variant="in">
-          <div class="p-inputgroup w-full">
-              <textarea
-                pTextarea
-                id="note"
-                formControlName="note"
-                rows="3"
-                cols="30"
-                style="resize: none"
-                class="w-full"
-                variant="filled"
-              ></textarea>
-            <p-button
-              icon="pi pi-times"
-              severity="secondary"
-              [rounded]="true"
-              [text]="true"
-              (click)="clearField('note')"
-              *ngIf="noteControl?.value"
-            />
-          </div>
-          <label for="note">Note</label>
-        </p-floatlabel>
+      <div class="field-container spacer-mt-4">
+        <ft-input
+          label="Note"
+          formControlName="note"
+          type="textarea"
+          variant="flat"
+          [isClearable]="true"
+        ></ft-input>
       </div>
 
     </div>
   </div>
 
-  <div class="flex justify-end gap-2 dialog-footer">
-    <p-button
+  <div class="dialog-footer">
+    <ft-button
       label="Annuler"
-      severity="secondary"
-      (click)="closeDialog(null)"
-      size="small"
-    />
-    <p-button label="Enregistrer" (click)="saveTreatment()" size="small"
-              [disabled]="!treatmentForm.valid"/>
+      variant="ghost"
+      (click)="closeDialog()"
+      size="sm-size"
+    ></ft-button>
+    <ft-button 
+      label="Enregistrer" 
+      variant="flat" 
+      color="primary" 
+      (click)="saveTreatment()" 
+      size="sm-size"
+      [state]="!treatmentForm.valid ? 'disabled' : 'rest'"
+    ></ft-button>
   </div>
 </form>
 

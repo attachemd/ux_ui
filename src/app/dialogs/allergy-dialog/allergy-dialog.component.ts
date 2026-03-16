@@ -1,18 +1,11 @@
-// src/app/dialogs/allergy-dialog/allergy-dialog.component.ts
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
+import { FtDynamicDialogService } from '../../../stories/Components/dialog/ft-dynamic-dialog.service';
+import { FtToastService } from '../../../stories/Components/toast/ft-toast.service';
 import { Subject } from 'rxjs';
-import { AutoCompleteModule } from 'primeng/autocomplete';
-import { ButtonModule } from 'primeng/button';
-import { DatePickerModule } from 'primeng/datepicker'; // Use p-calendar
-import { FloatLabelModule } from 'primeng/floatlabel';
-import { MultiSelectModule } from 'primeng/multiselect';
-import { InputGroupModule } from 'primeng/inputgroup';
-import { CommonModule, NgIf } from '@angular/common'; // Import CommonModule for NgIf
-import { MessageService } from 'primeng/api';
-import {TextareaModule} from 'primeng/textarea';
-import {SelectModule} from 'primeng/select';
+import { FTInputComponent } from '../../../stories/inputs/input/ft.input.component';
+import { FtButtonComponent } from '../../../stories/Buttons/button/ft.button.component';
+import { FTSelectComponent, SelectOption } from '../../../stories/select/select/ft.select.component';
 
 // Define interfaces for dropdown options if needed for stricter typing
 interface Option {
@@ -28,22 +21,13 @@ interface AllergenOption {
 
 @Component({
   selector: 'app-allergy-dialog',
-  standalone: true, // Mark as standalone if not used in a traditional module
+  standalone: true,
   imports: [
-    CommonModule, // Required for NgIf
     ReactiveFormsModule,
-    AutoCompleteModule,
-    ButtonModule,
-    DatePickerModule,
-    FloatLabelModule,
-    MultiSelectModule,
-    TextareaModule,
-    InputGroupModule,
-    NgIf,
-    SelectModule,
-    // Explicitly imported if standalone
+    FTInputComponent,
+    FtButtonComponent,
+    FTSelectComponent,
   ],
-  providers: [MessageService], // Provide MessageService if not provided globally
   templateUrl: './allergy-dialog.component.html',
   styleUrl: './allergy-dialog.component.css'
 })
@@ -52,11 +36,11 @@ export class AllergyDialogComponent implements OnInit, OnDestroy {
   allergyForm: FormGroup;
 
   // Options for dropdowns and autocomplete
-  allergyTypes: Option[] = [
-    { name: 'Médicament', value: 'Médicament' },
-    { name: 'Aliment', value: 'Aliment' },
-    { name: 'Environnement', value: 'Environnement' },
-    { name: 'Autre', value: 'Autre' },
+  allergyTypes: SelectOption[] = [
+    { label: 'Médicament', value: 'Médicament' },
+    { label: 'Aliment', value: 'Aliment' },
+    { label: 'Environnement', value: 'Environnement' },
+    { label: 'Autre', value: 'Autre' },
   ];
 
   // Store all possible allergens with their types
@@ -77,38 +61,37 @@ export class AllergyDialogComponent implements OnInit, OnDestroy {
 
   allergenSuggestions: AllergenOption[] = []; // Suggestions filtered for the autocomplete
 
-  reactions: Option[] = [
-    { name: 'Éruption cutanée', value: 'Éruption cutanée' },
-    { name: 'Démangeaisons', value: 'Démangeaisons' },
-    { name: 'Œdème', value: 'Œdème' },
-    { name: 'Difficulté à respirer', value: 'Difficulté à respirer' },
-    { name: 'Anaphylaxie', value: 'Anaphylaxie' },
-    { name: 'Nausées', value: 'Nausées' },
-    // Add more reactions
+  reactions: SelectOption[] = [
+    { label: 'Éruption cutanée', value: 'Éruption cutanée' },
+    { label: 'Démangeaisons', value: 'Démangeaisons' },
+    { label: 'Œdème', value: 'Œdème' },
+    { label: 'Difficulté à respirer', value: 'Difficulté à respirer' },
+    { label: 'Anaphylaxie', value: 'Anaphylaxie' },
+    { label: 'Nausées', value: 'Nausées' },
   ];
 
-  severities: Option[] = [
-    { name: 'Faible', value: 'Faible' },
-    { name: 'Modéré', value: 'Modéré' },
-    { name: 'Sévère', value: 'Sévère' },
+  severities: SelectOption[] = [
+    { label: 'Faible', value: 'Faible' },
+    { label: 'Modéré', value: 'Modéré' },
+    { label: 'Sévère', value: 'Sévère' },
   ];
 
 
-  private destroy$ = new Subject<void>(); // Subject for managing subscriptions
+  private dialogService = inject(FtDynamicDialogService);
+  private toastService = inject(FtToastService);
+  private destroy$ = new Subject<void>();
 
   constructor(
     private fb: FormBuilder,
-    public ref: DynamicDialogRef,
-    private messageService: MessageService // For toast messages
   ) {
     // Initialize the form
     this.allergyForm = this.fb.group({
-      allergyType: [null], // Type d'allergie
-      allergen: [null, Validators.required], // Allergène (required)
-      reactions: [null], // Réaction(s) (multi-select)
-      severity: [null], // Sévérité
-      diagnosticDate: [new Date()], // Date de diagnostic (default to today)
-      note: [''], // Note
+      allergyType: [null],
+      allergen: [null, Validators.required],
+      reactions: [null],
+      severity: [null],
+      diagnosticDate: [new Date().toISOString().split('T')[0]],
+      note: [''],
     });
   }
 
@@ -291,7 +274,7 @@ export class AllergyDialogComponent implements OnInit, OnDestroy {
       // Example API call: this.apiService.saveAllergy(allergyData).subscribe(...)
 
       // On successful save:
-      this.messageService.add({
+      this.toastService.add({
         severity: 'success',
         summary: 'Succès',
         detail: 'Allergie enregistrée avec succès.',
@@ -299,18 +282,16 @@ export class AllergyDialogComponent implements OnInit, OnDestroy {
       });
 
       // Close the dialog and pass the saved data back to the parent
-      this.ref.close(allergyData);
+      this.closeDialog(allergyData);
 
     } else {
       console.log('Form is invalid. Cannot save allergy.');
-      this.messageService.add({
+      this.toastService.add({
         severity: 'error',
         summary: 'Erreur',
         detail: 'Veuillez corriger les erreurs dans le formulaire.',
         life: 3000
       });
-      // Optional: Scroll to the first invalid field
-      // this.scrollToFirstInvalidControl();
     }
   }
 
@@ -327,8 +308,8 @@ export class AllergyDialogComponent implements OnInit, OnDestroy {
 
 
   // --- Cancel Logic ---
-  closeDialog(data: any = null) {
-    this.ref.close(data); // Pass null or specific data if needed on cancel
+  closeDialog(data?: any) {
+    this.dialogService.close(data);
   }
 
 }

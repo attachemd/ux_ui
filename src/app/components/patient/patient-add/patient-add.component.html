@@ -1,838 +1,208 @@
-<p-toast></p-toast>
-<p-confirmDialog></p-confirmDialog>
-
 <div class="add-patient-container ft-panel">
   <div class="page-header">
-    <h2>Ajouter un nouveau patient</h2>
+    <div class="header-content-left">
+      <h2>Ajouter un nouveau patient</h2>
+    </div>
     <div class="header-actions">
-      <p-button
-        label="Annuler"
-        severity="secondary"
-        (click)="cancel()"
-        size="small"
-      />
-      <p-button
-        label="Enregistrer"
-        (click)="savePatient()"
-        size="small"
-        [disabled]="!patientForm.valid || isSaving"
-        [loading]="isSaving"
-      />
+      <ft-button label="Annuler" variant="outlined" color="secondary" (click)="cancel()" size="sm-size"></ft-button>
+      <ft-button label="Enregistrer" (click)="savePatient()" size="sm-size"
+        [state]="(patientForm.invalid || isSaving) ? 'disabled' : 'rest'"></ft-button>
     </div>
   </div>
 
-  <form [formGroup]="patientForm" class="patient-form">
-
-    <mat-accordion class="section-accordion" multi>
-
-      <div class="section-container">
-        <mat-expansion-panel expanded [disabled]="true" #heading>
-          <mat-expansion-panel-header>
-            <mat-panel-title>
-              Entête
-            </mat-panel-title>
-            <button mat-icon-button (click)="heading.toggle()">
-              <mat-icon><i class="icon-arrow-down"></i></mat-icon>
-            </button>
-          </mat-expansion-panel-header>
-
-          <div class="p-grid p-nogutter p-align-center">
-            <div class="p-col-12 p-md-2 p-lg-1 flex justify-content-center">
-              <div class="photo-upload-container text-center">
-                <!--              <img-->
-                <!--                [src]="uploadedPhoto ? (uploadedPhoto | blobToUrl) : 'assets/images/default-avatar.png'"-->
-                <!--                alt="Patient Photo"-->
-                <!--                class="patient-photo"-->
-                <!--                (error)="handleImageError($event)"-->
-                <!--              >-->
-                <!--              <p-fileUpload-->
-                <!--                #photoUploader-->
-                <!--                mode="basic"-->
-                <!--                accept="image/*"-->
-                <!--                [maxFileSize]="maxFileSize"-->
-                <!--                (onSelect)="onPhotoSelect($event)"-->
-                <!--                (onClear)="onPhotoRemove()"-->
-                <!--                [auto]="false"-->
-                <!--                [showUploadButton]="false"-->
-                <!--                [showCancelButton]="false"-->
-                <!--                chooseLabel="Choisir une photo"-->
-                <!--              ></p-fileUpload>-->
-                <small class="p-text-secondary">Max {{ maxFileSize / (1024 * 1024) }} Mo</small>
-              </div>
-            </div>
-            <div class="p-col-12 p-md-10 p-lg-11">
-              <div class="field-container">
-                <p-floatlabel variant="in">
-                  <p-multiSelect
-                    formControlName="mentions"
-                    [options]="mentionsOptions"
-                    optionLabel="name"
-                    display="chip"
-                    [showClear]="true"
-                    id="mentions"
-                    styleClass="w-full"
-                    variant="filled"
-                  ></p-multiSelect>
-                  <label for="mentions">Mentions</label>
-                </p-floatlabel>
-              </div>
-            </div>
-          </div>
-
-        </mat-expansion-panel>
-      </div>
-
-
-      <div class="section-container">
-        <mat-expansion-panel expanded [disabled]="true" #generalInfo>
-          <mat-expansion-panel-header>
-            <mat-panel-title>
-              Informations générales
-            </mat-panel-title>
-            <button mat-icon-button (click)="generalInfo.toggle()">
-              <mat-icon><i class="icon-arrow-down"></i></mat-icon>
-            </button>
-          </mat-expansion-panel-header>
-
-          <div class="fluid-form">
-
-            <!--              <div class="field-container">-->
-            <!--                <p-floatlabel variant="in">-->
-            <!--                  <input pInputText formControlName="lastName" id="lastName" type="text" variant="filled"/>-->
-            <!--                  <label for="lastName">Nom <span>*</span></label>-->
-            <!--                </p-floatlabel>-->
-            <!--                <small-->
-            <!--                  class="p-error"-->
-            <!--                  *ngIf="shouldShowError(lastNameControl)">-->
-            <!--                  <span *ngIf="lastNameControl?.errors?.['required']">Le nom est obligatoire.</span>-->
-            <!--                  <span *ngIf="lastNameControl?.errors?.['leadingTrailingSpaces']">Les espaces au début/fin ne sont pas autorisés.</span>-->
-            <!--                  <span-->
-            <!--                    *ngIf="lastNameControl?.errors?.['pattern']">Caractères autorisés: a-z, A-Z, -, &, `, _, ´</span>-->
-            <!--                </small>-->
-            <!--              </div>-->
-
-
-            <!--              <div class="field-container">-->
-            <!--                <p-floatlabel variant="in">-->
-            <!--                  <input pInputText formControlName="firstName" id="firstName" type="text" variant="filled"/>-->
-            <!--                  <label for="firstName">Prénom <span>*</span></label>-->
-            <!--                </p-floatlabel>-->
-            <!--                <small-->
-            <!--                  class="p-error"-->
-            <!--                  *ngIf="shouldShowError(firstNameControl)">-->
-            <!--                  <span *ngIf="firstNameControl?.errors?.['required']">Le prénom est obligatoire.</span>-->
-            <!--                  <span *ngIf="firstNameControl?.errors?.['leadingTrailingSpaces']">Les espaces au début/fin ne sont pas autorisés.</span>-->
-            <!--                  <span-->
-            <!--                    *ngIf="firstNameControl?.errors?.['pattern']">Caractères autorisés: a-z, A-Z, -, &, `, _, ´</span>-->
-            <!--                </small>-->
-            <!--              </div>-->
-
-
-            <!--              <div class="field-container">-->
-            <!--                <p-floatlabel variant="in">-->
-            <!--                  <p-datepicker-->
-            <!--                    formControlName="dateOfBirth"-->
-            <!--                    id="dateOfBirth"-->
-            <!--                    showIcon="true"-->
-            <!--                    iconDisplay="input"-->
-            <!--                    dateFormat="dd/mm/yy"-->
-            <!--                    [showButtonBar]="true"-->
-            <!--                    [showClear]="true"-->
-            <!--                    variant="filled"-->
-            <!--                    appendTo="body"-->
-            <!--                  ></p-datepicker>-->
-            <!--                  <label for="dateOfBirth">Date de naissance <span>*</span></label>-->
-            <!--                </p-floatlabel>-->
-            <!--                <small class="p-error" *ngIf="shouldShowError(dateOfBirthControl)">-->
-            <!--                  <span *ngIf="dateOfBirthControl?.errors?.['required']">La date de naissance est obligatoire.</span>-->
-            <!--                </small>-->
-            <!--              </div>-->
-
-
-            <!--              <div class="field-container">-->
-            <!--                <p-floatlabel variant="in">-->
-            <!--                  <p-inputNumber-->
-            <!--                    formControlName="age"-->
-            <!--                    id="age"-->
-            <!--                    mode="decimal"-->
-            <!--                    [useGrouping]="false"-->
-            <!--                    [min]="0"-->
-            <!--                    [max]="150"-->
-            <!--                    variant="filled"-->
-            <!--                    suffix=" ans"-->
-            <!--                  ></p-inputNumber>-->
-            <!--                  <label for="age">Age</label>-->
-            <!--                </p-floatlabel>-->
-            <!--              </div>-->
-
-
-            <!--              <div class="field-container">-->
-            <!--                <p-floatlabel variant="in">-->
-            <!--                  <p-select-->
-            <!--                    formControlName="gender"-->
-            <!--                    [options]="genders"-->
-            <!--                    optionLabel="name"-->
-            <!--                    [showClear]="true"-->
-            <!--                    id="gender"-->
-            <!--                    styleClass="w-full"-->
-            <!--                    variant="filled"-->
-            <!--                  ></p-select>-->
-            <!--                  <label for="gender">Genre</label>-->
-            <!--                </p-floatlabel>-->
-            <!--              </div>-->
-
-
-            <!--              <div class="field-container">-->
-            <!--                <p-floatlabel variant="in">-->
-            <!--                  <p-autocomplete-->
-            <!--                    formControlName="nationality"-->
-            <!--                    [suggestions]="filteredNationalities"-->
-            <!--                    (completeMethod)="searchNationalities($event)"-->
-            <!--                    field="name"-->
-            <!--                    [dropdown]="true"-->
-            <!--                    [showClear]="true"-->
-            <!--                    id="nationality"-->
-
-            <!--                    variant="filled"-->
-            <!--                  ></p-autocomplete>-->
-            <!--                  <label for="nationality">Nationalité</label>-->
-            <!--                </p-floatlabel>-->
-            <!--              </div>-->
-
-
-            <!--              <div class="field-container">-->
-            <!--                <p-floatlabel variant="in">-->
-            <!--                  <input pInputText formControlName="placeOfBirth" id="placeOfBirth" type="text" variant="filled"/>-->
-            <!--                  <label for="placeOfBirth">Lieu de naissance</label>-->
-            <!--                </p-floatlabel>-->
-            <!--              </div>-->
-
-
-            <!--              <div class="field-container">-->
-            <!--                <p-floatlabel variant="in">-->
-            <!--                  <p-select-->
-            <!--                    formControlName="maritalStatus"-->
-            <!--                    [options]="maritalStatuses"-->
-            <!--                    optionLabel="name"-->
-            <!--                    [showClear]="true"-->
-            <!--                    id="maritalStatus"-->
-            <!--                    styleClass="w-full"-->
-            <!--                    variant="filled"-->
-            <!--                  ></p-select>-->
-            <!--                  <label for="maritalStatus">Situation familiale</label>-->
-            <!--                </p-floatlabel>-->
-            <!--              </div>-->
-
-
-            <!--              <div class="field-container">-->
-            <!--                <p-floatlabel variant="in">-->
-            <!--                  <p-multiSelect-->
-            <!--                    formControlName="spokenLanguages"-->
-            <!--                    [options]="spokenLanguagesOptions"-->
-            <!--                    display="chip"-->
-            <!--                    optionLabel="name"-->
-            <!--                    [maxSelectedLabels]="5"-->
-            <!--                    [showClear]="true"-->
-            <!--                    id="spokenLanguages"-->
-            <!--                    styleClass="w-full"-->
-            <!--                    variant="filled"-->
-            <!--                  ></p-multiSelect>-->
-            <!--                  <label for="spokenLanguages">Langues parlées</label>-->
-            <!--                </p-floatlabel>-->
-            <!--              </div>-->
-
-
-            <!--              <div class="field-container">-->
-            <!--                <p-floatlabel variant="in">-->
-            <!--                  <input pInputText formControlName="occupation" id="occupation" type="text" variant="filled"/>-->
-            <!--                  <label for="occupation">Profession</label>-->
-            <!--                </p-floatlabel>-->
-            <!--              </div>-->
-
-
-            <!--              <div class="field-container">-->
-            <!--                <p-floatlabel variant="in">-->
-            <!--                  <input pInputText formControlName="employer" id="employer" type="text" variant="filled"/>-->
-            <!--                  <label for="employer">Employeur</label>-->
-            <!--                </p-floatlabel>-->
-            <!--              </div>-->
-
-
-            <div class="field-container">
-              <p-floatlabel variant="in" class="w-full">
-                <p-select
-                  [options]="titles"
-                  formControlName="title"
-                  id="title"
-                  class="w-full"
-                  variant="filled"
-                  [showClear]="true">
-                </p-select>
-                <label for="title">Civilité</label>
-              </p-floatlabel>
-            </div>
-
-            <div class="field-container">
-              <p-floatlabel variant="in">
-                <div class="p-inputgroup w-full">
-                  <input pInputText id="firstName" formControlName="firstName" class="w-full" variant="filled"/>
-                  <p-button icon="pi pi-times" severity="secondary"
-                            [rounded]="true"
-                            [text]="true"
-                            (click)="clearField('firstName')"
-                            *ngIf="firstNameControl?.value"></p-button>
-                </div>
-                <label for="firstName">Prénom <span>*</span></label>
-              </p-floatlabel>
-              <small
-                class="p-error"
-                *ngIf="shouldShowError(firstNameControl)">
-                <span *ngIf="firstNameControl?.errors?.['required']">Le prénom est obligatoire.</span>
-                <span *ngIf="firstNameControl?.errors?.['leadingTrailingSpaces']">Les espaces au début/fin ne sont pas autorisés.</span>
-                <span
-                  *ngIf="firstNameControl?.errors?.['pattern']">Caractères autorisés: a-z, A-Z, -, &, `, _, ´</span>
-              </small>
-            </div>
-
-            <div class="field-container">
-              <p-floatlabel variant="in">
-                <div class="p-inputgroup w-full">
-                  <input pInputText id="lastName" formControlName="lastName" class="w-full" variant="filled"/>
-                  <p-button icon="pi pi-times" severity="secondary"
-                            [rounded]="true"
-                            [text]="true"
-                            (click)="clearField('lastName')"
-                            *ngIf="lastNameControl?.value"></p-button>
-                </div>
-                <label for="lastName">Nom <span>*</span></label>
-              </p-floatlabel>
-              <small
-                class="p-error"
-                *ngIf="shouldShowError(lastNameControl)">
-                <span *ngIf="lastNameControl?.errors?.['required']">Le nom est obligatoire.</span>
-                <span *ngIf="lastNameControl?.errors?.['leadingTrailingSpaces']">Les espaces au début/fin ne sont pas autorisés.</span>
-                <span
-                  *ngIf="lastNameControl?.errors?.['pattern']">Caractères autorisés: a-z, A-Z, -, &, `, _, ´</span>
-              </small>
-            </div>
-
-            <!--            <div class="field-container">-->
-            <!--              <p-floatlabel variant="in">-->
-            <!--                <input-->
-            <!--                  pInputText-->
-            <!--                  formControlName="alias"-->
-            <!--                  id="alias"-->
-            <!--                  type="text"-->
-            <!--                  variant="filled"/>-->
-            <!--                <label for="alias">Pseudonyme</label>-->
-            <!--              </p-floatlabel>-->
-            <!--            </div>-->
-
-
-            <div class="field-container">
-              <p-floatlabel variant="in">
-                <p-select
-                  [options]="genders"
-                  formControlName="gender"
-                  variant="filled"
-                  [showClear]="true"
-                  id="gender">
-                </p-select>
-                <label for="gender">Sexe</label>
-              </p-floatlabel>
-            </div>
-
-            <div class="field-container">
-              <p-floatlabel variant="in">
-                <p-datepicker
-                  formControlName="dateOfBirth"
-                  id="dateOfBirth"
-                  dateFormat="dd/mm/yy"
-                  [showClear]="true"
-                  showIcon
-                  iconDisplay="input"
-                  variant="filled">
-                </p-datepicker>
-                <label for="dateOfBirth">Date de naissance <span>*</span></label>
-              </p-floatlabel>
-              <small
-                class="p-error"
-                *ngIf="shouldShowError(dateOfBirthControl)">
-                <span *ngIf="dateOfBirthControl?.errors?.['required']">La date de naissance est obligatoire.</span>
-              </small>
-            </div>
-
-            <div class="field-container">
-              <p-floatlabel variant="in">
-                <div class="p-inputgroup w-full">
-                  <input pInputText id="age" formControlName="age" class="w-full" variant="filled"/>
-                  <p-button icon="pi pi-times" severity="secondary"
-                            [rounded]="true"
-                            [text]="true"
-                            (click)="clearField('age')"
-                            *ngIf="ageControl?.value"></p-button>
-                </div>
-                <label for="age">Age (Années)</label>
-              </p-floatlabel>
-            </div>
-
-
-            <div class="field-container">
-              <p-floatlabel variant="in">
-                <p-select
-                  [options]="ethnicities"
-                  formControlName="ethnicity"
-                  id="ethnicity"
-                  [showClear]="true"
-                  variant="filled"
-                >
-                </p-select>
-                <label for="ethnicity">Ethnie</label>
-              </p-floatlabel>
-            </div>
-
-            <div class="field-container">
-              <p-floatlabel variant="in">
-                <p-select
-                  [options]="occupations"
-                  formControlName="occupation"
-                  id="occupation"
-                  [showClear]="true"
-                  variant="filled"
-                >
-                </p-select>
-                <label for="occupation">Profession</label>
-              </p-floatlabel>
-            </div>
-
-
-            <div class="field-container">
-              <p-floatlabel variant="in">
-                <p-select
-                  [options]="countries"
-                  formControlName="country"
-                  id="country"
-                  [showClear]="true"
-                  variant="filled"
-                >
-                </p-select>
-                <label for="country">Pays</label>
-              </p-floatlabel>
-            </div>
-
-
-            <div class="field-container">
-              <p-floatlabel variant="in">
-                <p-select
-                  [options]="filteredCities"
-                  formControlName="city"
-                  id="city"
-                  [showClear]="true"
-                  variant="filled"
-                >
-                </p-select>
-                <label for="city">Ville</label>
-              </p-floatlabel>
-              <small class="p-info" *ngIf="!cityControl?.value && countryControl?.value">
-                Les villes sont filtrées par pays.
-              </small>
-            </div>
-
-            <div class="field-container">
-              <p-floatlabel variant="in">
-                <p-select
-                  [options]="nationalities"
-                  formControlName="nationality"
-                  id="nationality"
-                  [showClear]="true"
-                  variant="filled"
-                >
-                </p-select>
-                <label for="nationality">Nationalité</label>
-              </p-floatlabel>
-            </div>
-
-            <div class="field-container">
-              <p-floatlabel variant="in">
-                <div class="p-inputgroup w-full">
-                  <input pInputText id="postalCode" formControlName="postalCode" class="w-full" variant="filled"/>
-                  <p-button icon="pi pi-times" severity="secondary"
-                            [rounded]="true"
-                            [text]="true"
-                            (click)="clearField('postalCode')"
-                            *ngIf="postalCodeControl?.value"></p-button>
-                </div>
-                <label for="postalCode">Code postal</label>
-              </p-floatlabel>
-              <small
-                class="p-error"
-                *ngIf="shouldShowError(postalCodeControl)">
-                <span
-                  *ngIf="postalCodeControl?.errors?.['minlength']">Le code postal doit contenir au moins {{ postalCodeControl?.errors?.['minlength']?.requiredLength }}
-                  caractères.</span>
-                <span
-                  *ngIf="postalCodeControl?.errors?.['maxlength']">Le code postal ne doit pas dépasser {{ postalCodeControl?.errors?.['maxlength']?.requiredLength }}
-                  caractères.</span>
-                <span *ngIf="postalCodeControl?.errors?.['pattern']">Caractères autorisés pour le code postal: a-z, A-Z, 0-9.</span>
-              </small>
-            </div>
-
-            <div class="field-container">
-              <p-floatlabel variant="in">
-                <p-select
-                  [options]="maritalStatuses"
-                  formControlName="maritalStatus"
-                  id="maritalStatus"
-                  [showClear]="true"
-                  variant="filled"
-                >
-                </p-select>
-                <label for="maritalStatus">Etat civil</label>
-              </p-floatlabel>
-            </div>
-
-
-
-            <!--            <div class="field-container">-->
-            <!--              <p-floatlabel variant="in">-->
-            <!--                <p-autocomplete [multiple]="true" [typeahead]="false"-->
-            <!--                  formControlName="spokenLanguages"-->
-            <!--                  inputId="spokenLanguages"-->
-            <!--                  [allowDuplicate]="false"-->
-            <!--                  [autocomplete]="true"-->
-            <!--                  [suggestions]="filteredLanguages"-->
-            <!--                  (completeMethod)="filteredLanguages = filteredLanguages"> </p-autocomplete>-->
-            <!--                <label for="spokenLanguages">Langues parlées</label>-->
-            <!--              </p-floatlabel>-->
-            <!--              <small class="p-info">-->
-            <!--                Tapez pour chercher et ajouter des langues.-->
-            <!--              </small>-->
-            <!--            </div>-->
-
-            <div class="field-container w-full!">
-              <p-floatlabel variant="in">
-                <div class="p-inputgroup w-full">
-                            <textarea
-                              pTextarea
-                              formControlName="address"
-                              id="address"
-                              style="resize: none"
-                              rows="3"
-                              variant="filled"></textarea>
-                  <p-button icon="pi pi-times" severity="secondary"
-                            [rounded]="true"
-                            [text]="true"
-                            (click)="clearField('note')"
-                            *ngIf="addressControl?.value"></p-button>
-                </div>
-
-                <label for="address">Adresse</label>
-              </p-floatlabel>
-              <small
-                class="p-error"
-                *ngIf="shouldShowError(addressControl)">
-                <span
-                  *ngIf="addressControl?.errors?.['minlength']">L'adresse doit contenir au moins {{ addressControl?.errors?.['minlength']?.requiredLength }}
-                  caractères.</span>
-                <span *ngIf="addressControl?.errors?.['addressSpecialCharacters']">L'adresse ne doit pas contenir de séquences de caractères spéciaux identiques (ex: //, ###).</span>
-                <span
-                  *ngIf="addressControl?.errors?.['pattern']">L'adresse doit contenir au moins une lettre (A-Z).</span>
-              </small>
-            </div>
-
-            <div class="field-container">
-              <p-floatlabel variant="in" class="w-full">
-                <p-multiSelect
-                  [options]="languages"
-                  formControlName="spokenLanguages"
-                  id="spokenLanguages"
-                  display="chip"
-                  [filter]="true"
-                  variant="filled"
-                  styleClass="w-full"
-                />
-                <label for="spokenLanguages">Langues parlées</label>
-              </p-floatlabel>
-            </div>
-
-          </div>
-
-        </mat-expansion-panel>
-      </div>
-
-
-      <div class="section-container">
-        <mat-expansion-panel expanded [disabled]="true" #administrativeData>
-          <mat-expansion-panel-header>
-            <mat-panel-title>
-              Données administratives
-            </mat-panel-title>
-            <button mat-icon-button (click)="administrativeData.toggle()">
-              <mat-icon><i class="icon-arrow-down"></i></mat-icon>
-            </button>
-          </mat-expansion-panel-header>
-
-          <div class="p-fluid p-formgrid p-grid">
-            <div class="p-field p-col-12 p-md-6">
-              <div class="field-container">
-                <p-floatlabel variant="in">
-                  <input pInputText formControlName="nationalId" id="nationalId" type="text" variant="filled"/>
-                  <label for="nationalId">Numéro national</label>
-                </p-floatlabel>
-                <small class="p-error" *ngIf="shouldShowError(nationalIdControl)">
-                  <span *ngIf="nationalIdControl?.errors?.['leadingTrailingSpaces']">Les espaces au début/fin ne sont pas autorisés.</span>
-                </small>
-              </div>
-            </div>
-            <div class="p-field p-col-12 p-md-6">
-              <div class="field-container">
-                <p-floatlabel variant="in">
-                  <input pInputText formControlName="passportNumber" id="passportNumber" type="text" variant="filled"/>
-                  <label for="passportNumber">Numéro de passeport</label>
-                </p-floatlabel>
-                <small class="p-error" *ngIf="shouldShowError(passportNumberControl)">
-                  <span *ngIf="passportNumberControl?.errors?.['invalidPassport']">Doit être alphanumérique et en majuscule.</span>
-                </small>
-              </div>
-            </div>
-            <div class="p-field p-col-12 p-md-6">
-              <div class="field-container">
-                <p-floatlabel variant="in">
-                  <input pInputText formControlName="socialSecurityNumber" id="socialSecurityNumber" type="text"
-                         variant="filled"/>
-                  <label for="socialSecurityNumber">Numéro sécurité sociale</label>
-                </p-floatlabel>
-              </div>
-            </div>
-            <div class="p-field p-col-12 p-md-6">
-              <div class="field-container">
-                <p-floatlabel variant="in">
-                  <input pInputText formControlName="insuranceProvider" id="insuranceProvider" type="text"
-                         variant="filled"/>
-                  <label for="insuranceProvider">Mutuelle</label>
-                </p-floatlabel>
-              </div>
-            </div>
-            <div class="p-field p-col-12 p-md-6">
-              <div class="field-container">
-                <p-floatlabel variant="in">
-                  <input pInputText formControlName="insuranceNumber" id="insuranceNumber" type="text"
-                         variant="filled"/>
-                  <label for="insuranceNumber">Numéro mutuelle</label>
-                </p-floatlabel>
-              </div>
-            </div>
-          </div>
-
-        </mat-expansion-panel>
-      </div>
-
-      <div class="section-container">
-        <mat-expansion-panel expanded [disabled]="true" #contactsAndRelations>
-          <mat-expansion-panel-header>
-            <mat-panel-title>
-              Contacts et Relations
-            </mat-panel-title>
-            <button mat-icon-button (click)="contactsAndRelations.toggle()">
-              <mat-icon><i class="icon-arrow-down"></i></mat-icon>
-            </button>
-          </mat-expansion-panel-header>
-
-          <div class="p-fluid p-formgrid p-grid">
-            <div class="p-field p-col-12 p-md-6">
-              <div class="field-container">
-                <p-floatlabel variant="in">
-                  <input pInputText formControlName="email" id="email" type="text" variant="filled"/>
-                  <label for="email">Email</label>
-                </p-floatlabel>
-                <small class="p-error" *ngIf="shouldShowError(emailControl)">
-                  <span *ngIf="emailControl?.errors?.['invalidEmail']">Ce champ est invalide (format email).</span>
-                </small>
-              </div>
-            </div>
-            <div class="p-field p-col-12 p-md-6">
-              <div class="field-container">
-                <p-floatlabel variant="in">
-                  <input pInputText formControlName="primaryPhoneNumber" id="primaryPhoneNumber" type="text"
-                         variant="filled"/>
-                  <label for="primaryPhoneNumber">Téléphone principal</label>
-                </p-floatlabel>
-                <small class="p-error" *ngIf="shouldShowError(primaryPhoneNumberControl)">
-                  <span *ngIf="primaryPhoneNumberControl?.errors?.['invalidPhone']">Ce champ est invalide (format téléphone).</span>
-                </small>
-              </div>
-            </div>
-            <div class="p-field p-col-12 p-md-6">
-              <div class="field-container">
-                <p-floatlabel variant="in">
-                  <input pInputText formControlName="secondaryPhoneNumber" id="secondaryPhoneNumber" type="text"
-                         variant="filled"/>
-                  <label for="secondaryPhoneNumber">Téléphone secondaire</label>
-                </p-floatlabel>
-                <small class="p-error" *ngIf="shouldShowError(secondaryPhoneNumberControl)">
-                  <span *ngIf="secondaryPhoneNumberControl?.errors?.['invalidPhone']">Ce champ est invalide (format téléphone).</span>
-                </small>
-              </div>
-            </div>
-
-            <div class="p-col-12">
-              <h4>Relations</h4>
-              <p-button label="Ajouter une relation" icon="pi pi-plus" size="small"
-                        (click)="openAddRelationDialog()"></p-button>
-
-              <p-table [value]="patientRelations" [tableStyle]="{'margin-top':'15px'}">
-                <ng-template pTemplate="header">
-                  <tr>
-                    <th>Type de lien</th>
-                    <th>Patient lié</th>
-                    <th style="width: 5rem"></th>
-                  </tr>
-                </ng-template>
-                <ng-template pTemplate="body" let-relation let-rowIndex="rowIndex">
-                  <tr>
-                    <td>{{ getRelationTypeName(relation) }}</td>
-                    <td>{{ getRelatedPatientName(relation) }}</td>
-                    <td>
-                      <p-button icon="pi pi-trash" severity="danger" [text]="true" [rounded]="true"
-                                (click)="removeRelation(rowIndex)"></p-button>
-                    </td>
-                  </tr>
-                </ng-template>
-                <ng-template pTemplate="emptyMessage">
-                  <tr>
-                    <td colspan="3" class="text-center">Aucune relation ajoutée.</td>
-                  </tr>
-                </ng-template>
-              </p-table>
-            </div>
-          </div>
-
-        </mat-expansion-panel>
-      </div>
-
-      <div class="section-container">
-        <mat-expansion-panel expanded [disabled]="true" #others>
-          <mat-expansion-panel-header>
-            <mat-panel-title>
-              Autres
-            </mat-panel-title>
-            <button mat-icon-button (click)="others.toggle()">
-              <mat-icon><i class="icon-arrow-down"></i></mat-icon>
-            </button>
-          </mat-expansion-panel-header>
-
-          <div class="p-fluid p-formgrid p-grid">
-            <div class="p-field p-col-12 p-md-6">
-              <div class="field-container">
-                <p-floatlabel variant="in">
-                  <input pInputText formControlName="otherField1" id="otherField1" type="text" variant="filled"/>
-                  <label for="otherField1">Champ autre 1 (Texte)</label>
-                </p-floatlabel>
-              </div>
-            </div>
-            <div class="p-field p-col-12 p-md-6">
-              <div class="field-container">
-                <p-floatlabel variant="in">
-                  <p-select
-                    formControlName="otherField2"
-                    [options]="maritalStatuses" optionLabel="name"
-                    [showClear]="true"
-                    id="otherField2"
-                    styleClass="w-full"
-                    variant="filled"
-                  ></p-select>
-                  <label for="otherField2">Champ autre 2 (Liste)</label>
-                </p-floatlabel>
-              </div>
-            </div>
-          </div>
-
-        </mat-expansion-panel>
-      </div>
-
-    </mat-accordion>
-
-
-    <p-dialog header="Ajouter une relation" [(visible)]="displayAddRelationDialog" [modal]="true"
-              [style]="{width: '50vw'}" [breakpoints]="{'1199px': '75vw', '575px': '90vw'}">
-      <form [formGroup]="newRelationForm" class="p-fluid">
-        <div class="p-field">
-          <div class="field-container">
-            <p-floatlabel variant="in">
-              <p-select
-                formControlName="type"
-                [options]="relationTypes"
-                optionLabel="name"
-                [showClear]="true"
-                id="relationType"
-                styleClass="w-full"
-                variant="filled"
-              ></p-select>
-              <label for="relationType">Type de lien <span>*</span></label>
-            </p-floatlabel>
-            <small class="p-error" *ngIf="shouldShowRelationError(getRelationControl('type'))">
-              Ce champ est obligatoire.
-            </small>
-          </div>
+  <form [formGroup]="patientForm" class="patient-form-wrapper">
+    <!-- Header Section: Profile & Status -->
+    <div class="form-header-section">
+      <div class="profile-container">
+        <div class="profile-silhouette">
+          <span class="material-symbols-rounded">person</span>
+          <ft-icon-button iconClass="edit" size="xs-size" variant="flat" color="primary" class="edit-btn" (click)="onPhotoSelect($event)"></ft-icon-button>
         </div>
-        <div class="p-field">
-          <div class="field-container">
-            <p-floatlabel variant="in">
-              <p-autocomplete
-                formControlName="relatedPatient"
-                [suggestions]="filteredExistingPatients"
-                (completeMethod)="searchExistingPatients($event)"
-                field="lastName" [forceSelection]="true"
-                [dropdown]="true"
-                [showClear]="true"
-                id="relatedPatient"
-                styleClass="w-full"
-                variant="filled"
-              >
-                <ng-template let-patient pTemplate="item">
-                  <div>{{ patient.lastName }} {{ patient.firstName }} <span *ngIf="isDateInstance(patient.dateOfBirth)">({{ patient.dateOfBirth | date:'dd/MM/yyyy' }}
-                    )</span></div>
-                </ng-template>
-              </p-autocomplete>
-              <label for="relatedPatient">Rechercher un patient <span>*</span></label>
-            </p-floatlabel>
-            <small class="p-error" *ngIf="shouldShowRelationError(getRelationControl('relatedPatient'))">
-              Ce champ est obligatoire.
-            </small>
-            <small class="p-text-secondary">Commencez à saisir le nom ou prénom.</small>
-          </div>
+      </div>
+
+      <div class="status-segmented-control">
+        <ft-button-group formControlName="status" [buttons]="statusOptions" color="tertiary" variant="outlined"
+          radius="full-radius" size="sm-size"></ft-button-group>
+      </div>
+    </div>
+
+    <div class="form-body-container">
+
+      <div class="section-header">
+        <h4>Informations Personnelles</h4>
+      </div>
+      <!-- Row 1 (Personal) -->
+      <div class="form-row three-cols civility-row">
+        <div class="field-container civility-field">
+          <ft-select label="Civilité" formControlName="title" [options]="titles" variant="flat"
+            labelPlacement="label-inside" [isLabel]="true" placeholder="Choisir (M, Mme, Mlle...)"></ft-select>
         </div>
-      </form>
-      <ng-template pTemplate="footer">
-        <p-button label="Annuler" icon="pi pi-times" severity="secondary" (click)="displayAddRelationDialog=false"
-                  size="small"></p-button>
-        <p-button label="Ajouter" icon="pi pi-check" (click)="addRelation()" [disabled]="!newRelationForm.valid"
-                  size="small"></p-button>
-      </ng-template>
-    </p-dialog>
+        <div class="field-container">
+          <ft-input label="Prénom" formControlName="firstName" variant="flat" labelPlacement="label-inside"
+            [isLabel]="true" placeholder="Prénom du patient" [required]="true"
+            [invalid]="shouldShowError(firstNameControl)" errorMessage="Ce champs n’est pas valide"
+            (valueChange)="onValueUppercase('firstName', $event)"></ft-input>
+        </div>
+        <div class="field-container">
+          <ft-input label="Nom" formControlName="lastName" variant="flat" labelPlacement="label-inside" [isLabel]="true"
+            placeholder="Nom de famille" [required]="true" [invalid]="shouldShowError(lastNameControl)"
+            errorMessage="Ce champs n’est pas valide" (valueChange)="onValueUppercase('lastName', $event)"></ft-input>
+        </div>
+      </div>
 
+      <!-- Row 2 (Demographics) -->
+      <div class="form-row three-cols">
+        <div class="field-container">
+          <ft-input label="Date de naissance*" formControlName="dateOfBirth" variant="flat"
+            labelPlacement="label-inside" [isLabel]="true" placeholder="Format: JJ/MM/AAAA" [required]="true"
+            [invalid]="shouldShowError(dateOfBirthControl)" errorMessage="Ce champs n’est pas valide"></ft-input>
+        </div>
+        <div class="field-container">
+          <ft-input label="Age" formControlName="age" variant="flat" labelPlacement="label-inside" [isLabel]="true"
+            [value]="formattedAge" [readonly]="true"></ft-input>
+        </div>
+        <div class="field-container">
+          <ft-radio-group label="Sexe*" formControlName="sexe" [options]="sexeOptions" [isLabel]="true"
+            [flexDirection]="'flex-row'" [invalid]="shouldShowError(sexeControl)"
+            errorMessage="Ce champs n’est pas valide"></ft-radio-group>
+        </div>
+      </div>
 
+<!--      <div class="gradient-divider"></div>-->
+      <div class="section-header">
+        <h4>Documents & Identification</h4>
+      </div>
+
+      <!-- Row 3 (Identity) -->
+      <div class="form-row two-cols">
+        <div class="field-container">
+          <ft-input label="Le numéro national" formControlName="nationalId" variant="flat" labelPlacement="label-inside"
+            [isLabel]="true" placeholder="Ex: AB123456" [invalid]="shouldShowError(nationalIdControl)"
+            errorMessage="Ce champs n’est pas valide" (valueChange)="onValueUppercase('nationalId', $event)"></ft-input>
+        </div>
+        <div class="field-container">
+          <ft-input label="Le numéro du passeport" formControlName="passportNumber" variant="flat"
+            labelPlacement="label-inside" [isLabel]="true" placeholder="Ex: N1234567"
+            [invalid]="shouldShowError(passportNumberControl)" errorMessage="Ce champs n’est pas valide"
+            (valueChange)="onValueUppercase('passportNumber', $event)"></ft-input>
+        </div>
+      </div>
+
+<!--      <div class="gradient-divider"></div>-->
+      <div class="section-header">
+        <h4>Contact & Localisation</h4>
+      </div>
+
+      <!-- Row 4 (Contact) -->
+      <div class="form-row two-cols">
+        <div class="field-container">
+          <ft-input label="Email" formControlName="email" variant="flat" labelPlacement="label-inside" [isLabel]="true"
+            placeholder="exemple@domaine.com" [invalid]="shouldShowError(emailControl)"
+            errorMessage="Ce champs n’est pas valide"></ft-input>
+        </div>
+        <div class="field-container">
+          <ft-input label="Téléphone" formControlName="primaryPhoneNumber" variant="flat" labelPlacement="label-inside"
+            [isLabel]="true" placeholder="+212 6XX-XXXXXX" [invalid]="shouldShowError(primaryPhoneNumberControl)"
+            errorMessage="Ce champs n’est pas valide"></ft-input>
+        </div>
+      </div>
+
+      <!-- Row 5 (Location) -->
+      <div class="form-row three-cols">
+        <div class="field-container">
+          <ft-input label="Pays" formControlName="country" variant="flat" labelPlacement="label-inside" [isLabel]="true"
+            placeholder="Ex: Maroc" [invalid]="shouldShowError(countryControl)"
+            errorMessage="Ce champs n’est pas valide"></ft-input>
+        </div>
+        <div class="field-container">
+          <ft-input label="Ville" formControlName="city" variant="flat" labelPlacement="label-inside" [isLabel]="true"
+            placeholder="Ex: Casablanca" [invalid]="shouldShowError(cityControl)"
+            errorMessage="Ce champs n’est pas valide"></ft-input>
+        </div>
+        <div class="field-container">
+          <ft-input label="Code postal" formControlName="postalCode" variant="flat" labelPlacement="label-inside"
+            [isLabel]="true" placeholder="Ex: 20600" [invalid]="shouldShowError(postalCodeControl)"
+            errorMessage="Ce champs n’est pas valide"></ft-input>
+        </div>
+      </div>
+
+      <!-- Row 6 (Address) -->
+      <div class="form-row full-width">
+        <div class="field-container">
+          <ft-textarea label="Address" formControlName="address" variant="flat" labelPlacement="inside" [isLabel]="true"
+            placeholder="Numéro de rue, Appartement, Quartier..." [invalid]="shouldShowError(addressControl)"
+            errorMessage="Ce champs n’est pas valide"></ft-textarea>
+        </div>
+      </div>
+
+<!--      <div class="gradient-divider"></div>-->
+      <div class="section-header">
+        <h4>Profil Social & Professionnel</h4>
+      </div>
+
+      <!-- Row 7 (Status) -->
+      <div class="form-row two-cols">
+        <div class="field-container">
+          <ft-select label="État civil" formControlName="maritalStatus" [options]="maritalStatuses" variant="flat"
+            labelPlacement="label-inside" [isLabel]="true" placeholder="Célibataire, Marié(e)..."
+            [invalid]="shouldShowError(maritalStatusControl)" errorMessage="Ce champs n’est pas valide"></ft-select>
+        </div>
+        <div class="field-container">
+          <ft-select label="Nationalité" formControlName="nationality" [options]="nationalities" variant="flat"
+            labelPlacement="label-inside" [isLabel]="true" placeholder="Ex: Marocaine"
+            [invalid]="shouldShowError(nationalityControl)" errorMessage="Ce champs n’est pas valide"></ft-select>
+        </div>
+      </div>
+
+      <!-- Row 8 (Social) -->
+      <div class="form-row two-cols">
+        <div class="field-container">
+          <ft-select label="Ethnicité" formControlName="ethnicity" [options]="ethnicities" variant="flat"
+            labelPlacement="label-inside" [isLabel]="true" placeholder="Saisir l'ethnicité..."
+            [invalid]="shouldShowError(ethnicityControl)" errorMessage="Ce champs n’est pas valide"></ft-select>
+        </div>
+        <div class="field-container">
+          <ft-select label="Profession" formControlName="occupation" [options]="professions" variant="flat"
+            labelPlacement="label-inside" [isLabel]="true" placeholder="Ex: Ingénieur, Médecin..."
+            [invalid]="shouldShowError(occupationControl)" errorMessage="Ce champs n’est pas valide"></ft-select>
+        </div>
+      </div>
+
+      <!-- Row 9 (Languages) -->
+      <div class="form-row full-width">
+        <div class="field-container">
+          <ft-select label="Langues parlées" formControlName="spokenLanguages" [options]="spokenLanguagesOptions"
+            [multiple]="true" variant="flat" labelPlacement="label-inside" [isLabel]="true"
+            placeholder="Sélectionner des langues (Ex: Arabe, Français)"></ft-select>
+        </div>
+      </div>
+
+      <!-- Emergency Contact Section -->
+      <div class="section-header">
+        <h4>Contact d'urgence</h4>
+      </div>
+
+      <!-- Row 10 (Emergency Contact) -->
+      <div class="form-row three-cols">
+        <div class="field-container">
+          <ft-select label="Type de relation" formControlName="emergencyContactType" [options]="emergencyContactTypes"
+            variant="flat" labelPlacement="label-inside" [isLabel]="true" placeholder="Père, Mère, Conjoint..."
+            [invalid]="shouldShowError(emergencyContactTypeControl)"
+            errorMessage="Ce champs n’est pas valide"></ft-select>
+        </div>
+        <div class="field-container">
+          <ft-input label="Nom complet de la relation" formControlName="emergencyContactName" variant="flat"
+            labelPlacement="label-inside" [isLabel]="true" placeholder="Prénom et Nom"
+            [invalid]="shouldShowError(emergencyContactNameControl)"
+            errorMessage="Ce champs n’est pas valide"></ft-input>
+        </div>
+        <div class="field-container">
+          <ft-input label="Téléphone de la relation" formControlName="emergencyContactPhone" variant="flat"
+            labelPlacement="label-inside" [isLabel]="true" placeholder="+212 6XX-XXXXXX"
+            [invalid]="shouldShowError(emergencyContactPhoneControl)"
+            errorMessage="Ce champs n’est pas valide"></ft-input>
+        </div>
+      </div>
+    </div>
   </form>
-
-  <!--  <div class="page-footer flex justify-content-end gap-2">-->
-  <!--    <p-button-->
-  <!--      label="Annuler"-->
-  <!--      severity="secondary"-->
-  <!--      (click)="cancel()"-->
-  <!--      size="small"-->
-  <!--    />-->
-  <!--    <p-button-->
-  <!--      label="Enregistrer"-->
-  <!--      (click)="savePatient()"-->
-  <!--      size="small"-->
-  <!--      [disabled]="!patientForm.valid || isSaving"-->
-  <!--      [loading]="isSaving"-->
-  <!--    />-->
-  <!--  </div>-->
-
 </div>
-
-<ng-template #safeUrl let-file>
-  {{ file | blobToUrl }}
-</ng-template>
-

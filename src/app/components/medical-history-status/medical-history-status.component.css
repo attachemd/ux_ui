@@ -144,6 +144,12 @@
   padding: 25px;
 }
 
+.status-title {
+  font-size: var(--ft-text-xl);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--ft-unit-600);
+}
+
 h2 {
   margin-top: 30px;
   color: var(--color-slate-800);

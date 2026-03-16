@@ -1,0 +1,33 @@
+export interface Patient {
+  id?: string;
+  photo?: File | string | null;
+  status: 'VIP' | 'ANONYME' | 'CONFIDENTIEL' | 'Anonyme' | 'Confidentiel';
+  title: string;
+  firstName: string;
+  lastName: string;
+  dateOfBirth: Date | string | null;
+  age?: number | null;
+  sexe?: string | null;
+  email?: string | null;
+  primaryPhoneNumber?: string | null;
+  country?: string | null;
+  city?: string | null;
+  postalCode?: string | null;
+  address?: string | null;
+  maritalStatus?: string | null;
+  nationality?: string | null;
+  ethnicity?: string | null;
+  occupation?: string | null;
+  spokenLanguages?: string[];
+  emergencyContactPhone?: string | null;
+  nationalId?: string | null;
+  passportNumber?: string | null;
+  secondaryPhoneNumber?: string | null;
+  placeOfBirth?: string | null;
+  employer?: string | null;
+  socialSecurityNumber?: string | null;
+  insuranceProvider?: string | null;
+  insuranceNumber?: string | null;
+  otherField1?: string | null;
+  otherField2?: string | null;
+}

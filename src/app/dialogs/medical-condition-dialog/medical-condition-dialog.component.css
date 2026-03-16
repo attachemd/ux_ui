@@ -2,3 +2,51 @@
   overflow: auto;
   display: flex;
 }
+
+.dialog-form-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--ft-unit-400);
+}
+
+@media (min-width: 1024px) {
+  .dialog-form-row.two-cols {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.flex-col-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ft-unit-400);
+}
+
+.field-group-row {
+  display: flex;
+  align-items: center;
+  gap: var(--ft-unit-400);
+}
+
+.field-sub-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--ft-unit-400);
+}
+
+@media (min-width: 1024px) {
+    .field-sub-group {
+        flex-direction: row;
+        align-items: center;
+    }
+}
+
+.spacer-mt-4 {
+  margin-top: var(--ft-unit-400);
+}
+
+.dialog-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--ft-unit-200);
+  margin-top: var(--ft-unit-600);
+}

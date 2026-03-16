@@ -1,12 +1,15 @@
 import {Component, ElementRef, HostBinding, ViewChild} from '@angular/core';
 import {MedicalHistoryEntity, Note} from '../../../../types/medical-history.type';
-import {DialogService, DynamicDialogRef} from 'primeng/dynamicdialog';
-import {MessageService} from 'primeng/api';
+import {FtDynamicDialogService} from '../../../../../stories/Components/dialog/ft-dynamic-dialog.service';
+import {FtToastService} from '../../../../../stories/Components/toast/ft-toast.service';
 import {medicalHistoryEntities, notes} from '../../../../fake-data/medical-history.fake';
+
+import {FtIconButtonComponent} from '../../../../../stories/Buttons/icon-button/ft.icon.button.component';
+import {FTBadgeComponent} from '../../../../../stories/Components/badge/ft-badge.component';
 
 @Component({
   selector: 'app-medical-history',
-  imports: [],
+  imports: [FtIconButtonComponent, FTBadgeComponent],
   templateUrl: './medical-history.component.html',
   styleUrl: './medical-history.component.css'
 })
@@ -16,45 +19,20 @@ export class MedicalHistoryComponent {
   medicalHistoryEntities: MedicalHistoryEntity[] = medicalHistoryEntities;
   comments: Note[] = notes;
 
-  ref: DynamicDialogRef | null | undefined;
-
   constructor(public elementRef: ElementRef,
-    public dialogService: DialogService,
-              public messageService: MessageService,) {
+    public dialogService: FtDynamicDialogService,
+              public toastService: FtToastService,) {
   }
 
   showDialog(entity: MedicalHistoryEntity) {
-    // Use the dialogComponent property from the entity to open the correct component
     if (!entity.dialogComponent) {
       console.error(`No dialog component defined for entity: ${entity.title}`);
-      this.messageService.add({ severity: 'error', summary: 'Error', detail: `Could not open dialog for ${entity.title}` });
+      this.toastService.add({ severity: 'error', summary: 'Error', detail: `Could not open dialog for ${entity.title}`, life: 3000 });
       return;
     }
-    this.ref = this.dialogService.open(entity.dialogComponent , {
-      header: `Ajouter - ${entity.title}`,
-      focusOnShow: entity.focusOnShow ?? true,
-      modal: true,
-      dismissableMask: true,
-      transitionOptions: 'ease',
-    });
-
-    if (this.ref) {
-      this.ref.onClose.subscribe((data: any) => {
-        let summary_and_detail;
-        if (data) {
-          const buttonType = data?.buttonType;
-          summary_and_detail = buttonType ? { summary: 'No Product Selected', detail: `Pressed '${buttonType}' button` } : { summary: 'Product Selected', detail: data?.name };
-        } else {
-          summary_and_detail = { summary: 'No Product Selected', detail: 'Pressed Close button' };
-        }
-        this.messageService.add({ severity: 'info', ...summary_and_detail, life: 3000 });
-      });
-
-      this.ref.onMaximize.subscribe((value) => {
-        this.messageService.add({ severity: 'info', summary: 'Maximized', detail: `maximized: ${value.maximized}` });
-      });
-    }
+    this.dialogService.open(entity.dialogComponent);
   }
+
 
   /**
    * Finds a comment by its ID.

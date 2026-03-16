@@ -1,28 +1,23 @@
-import {Component, OnDestroy, OnInit, Renderer2} from '@angular/core';
-import {AutoComplete, AutoCompleteCompleteEvent} from "primeng/autocomplete";
-import {Button} from "primeng/button";
-import {DatePicker} from "primeng/datepicker";
-import {FloatLabel} from "primeng/floatlabel";
-import {NgIf} from "@angular/common";
-import {AbstractControl, FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
-import {Select} from "primeng/select";
-import {Textarea} from "primeng/textarea";
-import {ToggleSwitch} from "primeng/toggleswitch";
-import {DynamicDialogRef} from 'primeng/dynamicdialog';
-import {Subject, takeUntil} from 'rxjs';
+import { Component, OnDestroy, OnInit, inject } from '@angular/core';
+import { CommonModule } from "@angular/common";
+import { AbstractControl, FormBuilder, FormGroup, ReactiveFormsModule, Validators } from "@angular/forms";
+import { FtDynamicDialogService } from '../../../stories/Components/dialog/ft-dynamic-dialog.service';
+import { Subject, takeUntil } from 'rxjs';
+import { FTInputComponent } from '../../../stories/inputs/input/ft.input.component';
+import { FTSelectComponent, SelectOption } from '../../../stories/select/select/ft.select.component';
+import { FtButtonComponent } from '../../../stories/Buttons/button/ft.button.component';
+import { FtToggleComponent } from '../../../stories/toggles/toggle/ft.toggle.component';
 
 @Component({
   selector: 'app-medical-condition-dialog',
+  standalone: true,
   imports: [
-    AutoComplete,
-    Button,
-    DatePicker,
-    FloatLabel,
-    NgIf,
+    CommonModule,
     ReactiveFormsModule,
-    Select,
-    Textarea,
-    ToggleSwitch
+    FTInputComponent,
+    FTSelectComponent,
+    FtButtonComponent,
+    FtToggleComponent
   ],
   templateUrl: './medical-condition-dialog.component.html',
   styleUrl: './medical-condition-dialog.component.css'
@@ -45,9 +40,10 @@ export class MedicalConditionDialogComponent implements OnInit, OnDestroy {
   statusOptions: any[] = []; // Options for the status select
   relationOptions: any[] = []; // Options for the relation select
 
-  private destroy$ = new Subject<void>(); // Subject for managing subscriptions
+  private dialogService = inject(FtDynamicDialogService);
+  private destroy$ = new Subject<void>();
 
-  constructor(private fb: FormBuilder, public ref: DynamicDialogRef) {
+  constructor(private fb: FormBuilder) {
     // Initialize the form with more descriptive control names
     this.medicalAntecedentForm = this.fb.group({
       medicalConditionName: ['', Validators.required], // 'Valeur' is the medical condition name
@@ -64,22 +60,22 @@ export class MedicalConditionDialogComponent implements OnInit, OnDestroy {
     // --- Populate Options ---
     // Populate status options first to set the default
     this.statusOptions = [
-      {name: 'Active'},
-      {name: 'In remission'},
-      {name: 'Resolved'},
+      { label: 'Active', value: 'Active' },
+      { label: 'In remission', value: 'In remission' },
+      { label: 'Resolved', value: 'Resolved' },
     ];
 
     this.relationOptions = [
-      {name: 'Parent'},
-      {name: 'Sibling'},
-      {name: 'Child'},
+      { label: 'Parent', value: 'Parent' },
+      { label: 'Sibling', value: 'Sibling' },
+      { label: 'Child', value: 'Child' },
     ];
 
 
     // --- Set Initial Values and Validators ---
     this.medicalAntecedentForm.patchValue({
-      diagnosticDate: new Date(), // Default to today's date
-      status: this.statusOptions.find(s => s.name === 'Active') || null // Default status to 'Active'
+      diagnosticDate: new Date().toISOString().split('T')[0],
+      status: 'Active'
     });
 
     // --- Subscribe to Value Changes ---
@@ -182,8 +178,8 @@ export class MedicalConditionDialogComponent implements OnInit, OnDestroy {
   //   this.items = [...Array(10).keys()].map((item) => event.query + '-' + item);
   // }
 
-  closeDialog(data: any) {
-    this.ref.close(data);
+  closeDialog(data?: any) {
+    this.dialogService.close(data);
   }
 
 }

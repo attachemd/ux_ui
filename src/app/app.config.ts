@@ -3,9 +3,6 @@ import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { providePrimeNG } from 'primeng/config';
-// import Aura from '@primeng/themes/aura';
-import {FTThemePreset} from './ft-theme.preset';
 import {provideHttpClient} from '@angular/common/http';
 
 export const appConfig: ApplicationConfig = {
@@ -14,24 +11,6 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     provideAnimationsAsync(),
     provideHttpClient(),
-    providePrimeNG({
-      // theme: {
-      //   preset: Aura,
-      //   options: {
-      //     darkModeSelector: '.dark-theme'
-      //   }
-      // },
-      theme: {
-        preset: FTThemePreset,
-        options: {
-          darkModeSelector: '.dark-theme',
-          cssLayer: {
-            name: 'primeng',
-            // order: 'properties, theme, base, components, app-variables, icon-font, app-styles, primeng, primeng2, prime-ng-variables, material-variables, material-styles, utilities'
-          }
-        }
-      }
-    }),
   ],
 };
 

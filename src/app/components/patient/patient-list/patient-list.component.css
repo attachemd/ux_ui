@@ -100,12 +100,50 @@
   /* Padding strictly on the non-scrolling container */
 }
 
+.table-viewport {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  /* Fixed clipping boundary for all content (sticky or scrolling) */
+  border-top-left-radius: var(--ft-radius-400);
+  border-top-right-radius: var(--ft-radius-400);
+  position: relative;
+  z-index: 1;
+}
+
 .table-scroll-area {
   flex: 1;
   overflow: auto;
   /* Scroll area viewport */
   padding: 0;
   /* Remove padding from scroll area to prevent leak */
+}
+
+/* Custom Scrollbar Styling */
+.table-scroll-area::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.table-scroll-area::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.table-scroll-area::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: var(--ft-radius-pill);
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+/* Hover-only visibility with alpha transparency */
+.table-container:hover .table-scroll-area::-webkit-scrollbar-thumb {
+  background-color: color-mix(in srgb, var(--ft-color-on-surface-level-200) 10%, transparent);
+}
+
+.table-container:hover .table-scroll-area::-webkit-scrollbar-thumb:hover {
+  background-color: color-mix(in srgb, var(--ft-color-on-surface-level-200) 20%, transparent);
 }
 
 .ft-table {
@@ -135,7 +173,16 @@
   position: sticky;
   top: 0;
   z-index: 100;
-  /* Extremely high to beat any potential column interference */
+  /* Ensure backgrounds don't bleed during sticky transform */
+  background-clip: padding-box !important;
+}
+
+.ft-table thead tr {
+  background-color: transparent !important;
+}
+
+.ft-table thead {
+  background-color: transparent !important;
 }
 
 /* Remove filter - it breaks stacking context! */
@@ -147,9 +194,21 @@
 }
 
 /* Remove individual cell radius - handled by .table-container overflow:hidden */
-.ft-table thead tr:first-child th:first-child,
-.ft-table thead tr:first-child th:last-child {
-  border-radius: 0;
+/* Corner rounding for the floating header row - SURGICAL CLIPPING */
+.ft-table thead tr:first-child th.sticky-column:first-child {
+  border-top-left-radius: var(--ft-radius-400) !important;
+  /* Force a rounded clipping boundary on the cell itself */
+  clip-path: inset(0 0 0 0 round var(--ft-radius-400) 0 0 0) !important;
+  background-clip: padding-box !important;
+  overflow: hidden !important;
+}
+
+.ft-table thead tr:first-child th.sticky-column-right {
+  border-top-right-radius: var(--ft-radius-400) !important;
+  /* Force a rounded clipping boundary on the cell itself */
+  clip-path: inset(0 0 0 0 round 0 var(--ft-radius-400) 0 0) !important;
+  background-clip: padding-box !important;
+  overflow: hidden !important;
 }
 
 /* Add margin/gap between header and first row */
@@ -360,7 +419,11 @@
   background-color: var(--ft-color-solid-surface) !important;
   z-index: 50;
   /* Lower than header but high enough for body */
-  box-shadow: 2px 0 5px -2px rgba(0, 0, 0, 0.1);
+}
+
+/* General Rule: Last of left sticky group */
+.sticky-column:not(:has(+ .sticky-column)) {
+  border-right: 1px solid var(--ft-color-border-200);
 }
 
 .sticky-column-right {
@@ -368,7 +431,11 @@
   right: 0;
   background-color: var(--ft-color-solid-surface) !important;
   z-index: 50;
-  box-shadow: -2px 0 5px -2px rgba(0, 0, 0, 0.1);
+}
+
+/* General Rule: First of right sticky group */
+.sticky-column-right:not(.sticky-column-right + .sticky-column-right) {
+  border-left: 1px solid var(--ft-color-border-200);
 }
 
 /* Match header bg for sticky columns in header */

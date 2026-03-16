@@ -4,7 +4,77 @@
   flex-direction: column;
   flex-grow: 1;
   height: 100%;
-  padding: 0 var(--ft-spacing-md) var(--ft-spacing-md);
-  gap: var(--ft-spacing-md);
+  padding: 0 var(--ft-unit-400) var(--ft-unit-400);
+  gap: var(--ft-unit-400);
   overflow: auto;
+}
+
+.patient-info {
+  display: flex;
+  align-items: center;
+  gap: var(--ft-unit-400);
+  padding: var(--ft-unit-200) var(--ft-unit-400);
+}
+
+.patient-name-container {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  min-width: 0;
+}
+
+.patient-name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex-grow: 1;
+}
+
+.sub-info {
+  display: none;
+  gap: var(--ft-unit-400);
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .sub-info {
+    display: flex;
+  }
+  
+  .patient-name-container {
+    flex-grow: 0;
+  }
+}
+
+.sub-info-item {
+  display: flex;
+  align-items: center;
+  gap: var(--ft-unit-200);
+}
+
+.sub-info-item-grow {
+  display: flex;
+  align-items: center;
+  gap: var(--ft-unit-200);
+  flex-grow: 1;
+  min-width: 0;
+  max-width: fit-content;
+}
+
+.info-label {
+  font-weight: var(--font-weight-bold);
+}
+
+.text-truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.line-none {
+  line-height: 1;
+}
+
+.secondary-navbar {
+  padding: 0 !important;
 }

@@ -3,28 +3,20 @@
     <div class="dialog-form-body">
 
       <div class="field-container">
-        <p-floatlabel variant="in" class="w-full">
-          <p-autocomplete
-            [required]="true"
-            formControlName="surgeryName"
-            [suggestions]="surgeryNameSuggestions"
-            (completeMethod)="searchSurgeryNames($event)"
-            field="name"
-            [showClear]="true"
-            class="grow"
-            id="surgeryName"
-            variant="filled"
-          >
-          </p-autocomplete>
-          <label for="surgeryName">Nom de la chirurgie <span>*</span></label>
-        </p-floatlabel>
+        <ft-input
+          label="Nom de la chirurgie"
+          [required]="true"
+          formControlName="surgeryName"
+          variant="flat"
+          placeholder="Ex. Appendicectomie"
+        ></ft-input>
         <small
-          class="p-error"
+          class="error-text"
           *ngIf="shouldShowError(surgeryNameControl)"
         >
-            <span *ngIf="surgeryNameControl?.errors?.['required']"
-            >Le nom de la chirurgie est obligatoire.</span
-            >
+          <span *ngIf="surgeryNameControl?.errors?.['required']"
+          >Le nom de la chirurgie est obligatoire.</span
+          >
           <span *ngIf="surgeryNameControl?.errors?.['minlength']"
           >Le nom de la chirurgie doit contenir au moins {{ surgeryNameControl?.errors?.['minlength'].requiredLength }} caractères.</span
           >
@@ -34,57 +26,43 @@
         </small>
       </div>
 
-      <div class="field-container">
-        <p-floatlabel variant="in" class="w-full">
-          <p-datepicker
-            formControlName="surgeryDate"
-            [showClear]="true"
-            id="surgeryDate"
-            showIcon
-            iconDisplay="input"
-            variant="filled"
-            dateFormat="dd/mm/yy"
-            [inputStyle]="{'width': '100%'}"
-          ></p-datepicker>
-          <label for="surgeryDate">Date de la chirurgie</label>
-        </p-floatlabel>
+      <div class="field-container mt-4">
+        <ft-input
+          label="Date de la chirurgie"
+          formControlName="surgeryDate"
+          type="date"
+          variant="flat"
+        ></ft-input>
       </div>
 
-      <div class="form-container">
-        <p-floatlabel variant="in">
-          <div class="p-inputgroup w-full">
-              <textarea
-                pTextarea
-                id="note"
-                formControlName="note"
-                rows="3"
-                cols="30"
-                style="resize: none"
-                class="w-full"
-                variant="filled"
-              ></textarea>
-            <p-button type="button" pButton icon="pi pi-times" severity="secondary"
-                    [rounded]="true"
-                    [text]="true"
-                    (click)="clearField('note')"
-                    *ngIf="noteControl?.value"></p-button>
-          </div>
-          <label for="note">Note</label>
-        </p-floatlabel>
+      <div class="field-container mt-4">
+        <ft-input
+          label="Note"
+          formControlName="note"
+          type="textarea"
+          variant="flat"
+          [isClearable]="true"
+        ></ft-input>
       </div>
 
     </div>
   </div>
 
-  <div class="flex justify-end gap-2 dialog-footer">
-    <p-button
+  <div class="dialog-footer">
+    <ft-button
       label="Annuler"
-      severity="secondary"
-      (click)="closeDialog(null)"
-      size="small"
-    />
-    <p-button label="Enregistrer" (click)="saveSurgicalHistory()" size="small"
-              [disabled]="!surgicalHistoryForm.valid"/>
+      variant="ghost"
+      (click)="closeDialog()"
+      size="sm-size"
+    ></ft-button>
+    <ft-button 
+      label="Enregistrer" 
+      variant="flat" 
+      color="primary" 
+      (click)="saveSurgicalHistory()" 
+      size="sm-size"
+      [state]="!surgicalHistoryForm.valid ? 'disabled' : 'rest'"
+    ></ft-button>
   </div>
 </form>
 

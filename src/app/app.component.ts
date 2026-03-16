@@ -8,32 +8,26 @@ import {
 } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { NgIf } from '@angular/common';
-import { ThemeSwitcherComponent } from './components/theme-switcher.component';
-
-import { ButtonModule } from 'primeng/button';
-import {
-  FormsModule,
-  ReactiveFormsModule,
-} from '@angular/forms';
-import { InputTextModule } from 'primeng/inputtext';
-import {DialogService, DynamicDialogModule} from 'primeng/dynamicdialog';
-import {MessageService} from 'primeng/api';
-import {MatSidenavModule} from '@angular/material/sidenav';
-import {MediaMatcher} from '@angular/cdk/layout';
+import { FtSideNavComponent } from '../stories/Components/side-nav/ft.side-nav.component';
+import { FTHeaderComponent } from '../stories/Components/header/ft-header.component';
+import { FtToastComponent } from '../stories/Components/toast/ft-toast.component';
+import { FtConfirmDialogComponent } from '../stories/Components/dialog/ft-confirm-dialog.component';
+import { FtDynamicDialogComponent } from '../stories/Components/dialog/ft-dynamic-dialog.component';
+import { FtButtonComponent } from '../stories/Buttons/button/ft.button.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @Component({
   selector: 'app-root',
   imports: [
     RouterOutlet,
-    NgIf,
-    ThemeSwitcherComponent,
-    ButtonModule,
-    DynamicDialogModule,
     FormsModule,
-    InputTextModule,
     ReactiveFormsModule,
-    MatSidenavModule,
+    FtSideNavComponent,
+    FTHeaderComponent,
+    FtToastComponent,
+    FtConfirmDialogComponent,
+    FtDynamicDialogComponent,
   ],
-  providers: [DialogService, MessageService],
+  providers: [],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
@@ -50,26 +44,14 @@ export class AppComponent implements OnDestroy {
   isElementVisible = false;
 
   constructor(private renderer: Renderer2) {
-    const media = inject(MediaMatcher);
-
-    this._mobileQuery = media.matchMedia('(max-width: 40rem)');
+    this._mobileQuery = window.matchMedia('(max-width: 40rem)');
     this.isMobile.set(this._mobileQuery.matches);
     this._mobileQueryListener = () => this.isMobile.set(this._mobileQuery.matches);
     this._mobileQuery.addEventListener('change', this._mobileQueryListener);
   }
 
-  fold(snav: any) {
-    if (this.isMobile()){
-      snav.close()
-      return;
-    }
-    this.expanded.update((expanded) => {
-      if(expanded){
-        this.isElementVisible = false;
-      }
-      return !expanded;
-    });
-    // snav.toggle()
+  fold() {
+    this.expanded.update(v => !v);
   }
 
   // Handle transition end event

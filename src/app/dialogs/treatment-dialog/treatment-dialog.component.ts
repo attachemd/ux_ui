@@ -1,20 +1,13 @@
-// src/app/dialogs/treatment-dialog/treatment-dialog.component.ts
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, ReactiveFormsModule, Validators, ValidationErrors, ValidatorFn } from '@angular/forms';
-import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
+import { FtDynamicDialogService } from '../../../stories/Components/dialog/ft-dynamic-dialog.service';
+import { FtToastService } from '../../../stories/Components/toast/ft-toast.service';
 import { Subject, takeUntil } from 'rxjs';
-import { AutoCompleteModule } from 'primeng/autocomplete';
-import { ButtonModule } from 'primeng/button';
-import { DatePickerModule } from 'primeng/datepicker';
-import { FloatLabelModule } from 'primeng/floatlabel';
-import { SelectModule } from 'primeng/select';
-import { InputTextModule } from 'primeng/inputtext'; // Use p-inputtext
-import { InputGroupModule } from 'primeng/inputgroup';
 import { CommonModule, NgIf } from '@angular/common';
-import { MessageService } from 'primeng/api';
-import { SelectButtonModule } from 'primeng/selectbutton';
-import {Textarea} from 'primeng/textarea';
-import {DatePicker} from 'primeng/datepicker'; // Import SelectButtonModule
+import { FTInputComponent } from '../../../stories/inputs/input/ft.input.component';
+import { FTSelectComponent, SelectOption } from '../../../stories/select/select/ft.select.component';
+import { FtButtonComponent } from '../../../stories/Buttons/button/ft.button.component';
+import { FtSwitchButtonComponent, SwitchButtonOption } from '../../../stories/switch-buttons/switch-button/ft.switch-button.component';
 
 // Define interfaces for options
 interface Option {
@@ -75,19 +68,12 @@ const futureDateValidator: ValidatorFn = (control: AbstractControl): ValidationE
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    AutoCompleteModule,
-    ButtonModule,
-    DatePickerModule,
-    FloatLabelModule,
-    SelectModule,
-    InputTextModule, // Added InputTextModule
-    InputGroupModule,
-    SelectButtonModule, // Added SelectButtonModule
+    FTInputComponent,
+    FTSelectComponent,
+    FtButtonComponent,
+    FtSwitchButtonComponent,
     NgIf,
-    Textarea,
-    DatePicker,
   ],
-  providers: [MessageService],
   templateUrl: './treatment-dialog.component.html',
   styleUrl: './treatment-dialog.component.css'
 })
@@ -96,16 +82,16 @@ export class TreatmentDialogComponent implements OnInit, OnDestroy {
   treatmentForm: FormGroup;
 
   // Options
-  entryTypes: Option[] = [
-    { name: 'Substance active', value: 'Substance active' },
-    { name: 'Nom du médicament', value: 'Nom du médicament' },
+  entryTypes: SwitchButtonOption[] = [
+    { id: 'Substance active', label: 'Substance active' },
+    { id: 'Nom du médicament', label: 'Nom du médicament' },
   ];
 
-  statuses: Option[] = [
-    { name: 'En cours', value: 'En cours' },
-    { name: 'Arrêté', value: 'Arrêté' },
-    { name: 'Terminé', value: 'Terminé' },
-    { name: 'Non pris', value: 'Non pris' },
+  statuses: SelectOption[] = [
+    { label: 'En cours', value: 'En cours' },
+    { label: 'Arrêté', value: 'Arrêté' },
+    { label: 'Terminé', value: 'Terminé' },
+    { label: 'Non pris', value: 'Non pris' },
   ];
 
   // Store all potential treatments (substances and drug names)
@@ -122,13 +108,12 @@ export class TreatmentDialogComponent implements OnInit, OnDestroy {
 
   treatmentNameLabel: string = 'Substance active'; // Dynamic label for the autocomplete
 
+  private dialogService = inject(FtDynamicDialogService);
+  private toastService = inject(FtToastService);
   private destroy$ = new Subject<void>();
 
   constructor(
     private fb: FormBuilder,
-    public ref: DynamicDialogRef,
-    public config: DynamicDialogConfig,
-    private messageService: MessageService
   ) {
     // Initialize the form with controls and the date range validator at the group level
     this.treatmentForm = this.fb.group({
@@ -145,11 +130,9 @@ export class TreatmentDialogComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    // Set default status to 'En cours'
-    const defaultStatus = this.statuses.find(s => s.value === 'En cours');
-    if (defaultStatus) {
-      this.statusControl?.setValue(defaultStatus);
-    }
+    this.treatmentForm.patchValue({
+      status: 'En cours'
+    });
 
     // Subscribe to entryType changes to update the label and suggestions filtering
     this.entryTypeControl?.valueChanges.pipe(takeUntil(this.destroy$)).subscribe(type => {
@@ -294,7 +277,7 @@ export class TreatmentDialogComponent implements OnInit, OnDestroy {
 
 
       // On successful save:
-      this.messageService.add({
+      this.toastService.add({
         severity: 'success',
         summary: 'Succès',
         detail: 'Traitement enregistré avec succès.',
@@ -302,24 +285,21 @@ export class TreatmentDialogComponent implements OnInit, OnDestroy {
       });
 
       // Close the dialog and pass the saved data back
-      this.ref.close(treatmentData);
+      this.closeDialog(treatmentData);
 
     } else {
       console.log('Form is invalid. Cannot save treatment.');
-      this.messageService.add({
+      this.toastService.add({
         severity: 'error',
         summary: 'Erreur',
         detail: 'Veuillez corriger les erreurs dans le formulaire.',
         life: 3000
       });
-      // Optional: Scroll to the first invalid field if needed
-      // this.scrollToFirstInvalidControl();
     }
   }
 
-  // --- Cancel Logic ---
-  closeDialog(data: any = null) {
-    this.ref.close(data); // Pass null or specific data on cancel
+  closeDialog(data?: any) {
+    this.dialogService.close(data);
   }
 
 }

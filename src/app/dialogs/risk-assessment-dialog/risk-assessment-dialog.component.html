@@ -2,44 +2,27 @@
   <div class="dialog-form-body-container">
     <div class="dialog-form-body">
 
-      <div class="form-group">
-        <div class="field-container lg:min-w-[200px] lg:w-[200px]">
-          <p-floatlabel variant="in" class="w-full">
-            <p-select
-              formControlName="riskCategory"
-              [options]="riskCategories"
-              optionLabel="name"
-              [showClear]="true"
-              id="riskCategory"
-              styleClass="w-full"
-              variant="filled"
-              (onChange)="onRiskCategoryChange()"
-            />
-            <label for="riskCategory">Catégorie de risque</label>
-          </p-floatlabel>
+      <div class="form-group dialog-form-row two-cols">
+        <div class="field-container">
+          <ft-select
+            label="Catégorie de risque"
+            formControlName="riskCategory"
+            [options]="riskCategories"
+            variant="flat"
+            (onChange)="onRiskCategoryChange()"
+          ></ft-select>
         </div>
 
         <div class="field-container">
-          <p-floatlabel variant="in" class="w-full">
-            <p-autocomplete
-              [required]="true"
-              formControlName="riskFactorName"
-              [suggestions]="riskFactorSuggestions"
-              field="name"
-              (completeMethod)="searchRiskFactors($event)"
-              (onSelect)="onRiskFactorSelect($event)"
-              [showClear]="true"
-              class="grow"
-              id="riskFactorName"
-              variant="filled"
-            >
-            </p-autocomplete>
-            <label
-              for="riskFactorName">Facteur de risque {{ (riskCategoryControl?.value ? '(Filtré par ' + riskCategoryControl?.value.name + ') ' : ' ') }}
-              <span>*</span></label>
-          </p-floatlabel>
+          <ft-input
+            [label]="'Facteur de risque' + (riskCategoryControl?.value ? ' (Filtré)' : '')"
+            [required]="true"
+            formControlName="riskFactorName"
+            variant="flat"
+            placeholder="Ex. Tabagisme"
+          ></ft-input>
           <small
-            class="p-error"
+            class="error-text"
             *ngIf="shouldShowError(riskFactorNameControl)"
           >
             <span *ngIf="riskFactorNameControl?.errors?.['required']"
@@ -49,73 +32,54 @@
         </div>
       </div>
 
-      <div class="form-group">
+      <div class="form-group dialog-form-row two-cols spacer-mt-4">
         <div class="field-container">
-          <p-floatlabel variant="in" class="w-full">
-            <p-datepicker
-              formControlName="evaluationDate"
-              [showClear]="true"
-              id="evaluationDate"
-              showIcon
-              iconDisplay="input"
-              variant="filled"
-              dateFormat="dd/mm/yy"
-            ></p-datepicker>
-            <label for="evaluationDate">Date de l'évaluation</label>
-          </p-floatlabel>
+          <ft-input
+            label="Date de l'évaluation"
+            formControlName="evaluationDate"
+            type="date"
+            variant="flat"
+          ></ft-input>
         </div>
 
         <div class="field-container">
-          <p-floatlabel variant="in" class="w-full">
-            <p-select
-              formControlName="riskLevel"
-              [options]="riskLevels"
-              optionLabel="name"
-              [showClear]="true"
-              id="riskLevel"
-              styleClass="w-full"
-              variant="filled"
-            />
-            <label for="riskLevel">Niveau de risque</label>
-          </p-floatlabel>
+          <ft-select
+            label="Niveau de risque"
+            formControlName="riskLevel"
+            [options]="riskLevels"
+            variant="flat"
+          ></ft-select>
         </div>
       </div>
 
-      <div class="form-container">
-        <p-floatlabel variant="in">
-          <div class="p-inputgroup w-full">
-              <textarea
-                pTextarea
-                id="note"
-                formControlName="note"
-                rows="3"
-                cols="30"
-                style="resize: none"
-                class="w-full"
-                variant="filled"
-              ></textarea>
-            <p-button type="button" pButton icon="pi pi-times" severity="secondary"
-                    [rounded]="true"
-                    [text]="true"
-                    (click)="clearField('note')"
-                    *ngIf="noteControl?.value"></p-button>
-          </div>
-          <label for="note">Note</label>
-        </p-floatlabel>
+      <div class="field-container spacer-mt-4">
+        <ft-input
+          label="Note"
+          formControlName="note"
+          type="textarea"
+          variant="flat"
+          [isClearable]="true"
+        ></ft-input>
       </div>
 
     </div>
   </div>
 
-  <div class="flex justify-end gap-2 dialog-footer">
-    <p-button
+  <div class="dialog-footer">
+    <ft-button
       label="Annuler"
-      severity="secondary"
-      (click)="closeDialog(null)"
-      size="small"
-    />
-    <p-button label="Enregistrer" (click)="saveRiskFactor()" size="small"
-              [disabled]="!riskFactorForm.valid"/>
+      variant="ghost"
+      (click)="closeDialog()"
+      size="sm-size"
+    ></ft-button>
+    <ft-button 
+      label="Enregistrer" 
+      variant="flat" 
+      color="primary" 
+      (click)="saveRiskFactor()" 
+      size="sm-size"
+      [state]="!riskFactorForm.valid ? 'disabled' : 'rest'"
+    ></ft-button>
   </div>
 </form>
 
