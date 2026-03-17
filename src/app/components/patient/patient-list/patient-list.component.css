@@ -2,6 +2,8 @@
   height: 100%;
   display: flex;
   flex-direction: column;
+  background-color: var(--ft-color-solid-surface);
+  border-radius: var(--radius-xl);
 }
 
 :host {
@@ -22,8 +24,9 @@
   justify-content: space-between;
   align-items: center;
   gap: var(--ft-unit-400);
-  padding: var(--ft-unit-400) 0;
-  border-bottom: 1px solid var(--ft-color-border-100);
+  padding: 0;
+  height: var(--ft-unit-1500);
+  width: 100%;
 }
 
 .table-search-container {
@@ -94,7 +97,7 @@
   overflow: hidden;
   /* Clipping container */
   border: 1px solid var(--ft-color-border-100);
-  border-radius: var(--ft-radius-400);
+  border-radius: var(--radius-xl);
   background-color: var(--ft-color-solid-surface);
   padding: var(--ft-unit-400);
   /* Padding strictly on the non-scrolling container */
@@ -105,9 +108,11 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  /* Fixed clipping boundary for all content (sticky or scrolling) */
-  border-top-left-radius: var(--ft-radius-400);
-  border-top-right-radius: var(--ft-radius-400);
+  /* Use inflation (padding + negative margin) to prevent shadow clipping while maintaining overflow:hidden for scrolling */
+  margin: calc(-1 * var(--ft-unit-200));
+  padding: var(--ft-unit-200);
+  border-top-left-radius: var(--radius-xl);
+  border-top-right-radius: var(--radius-xl);
   position: relative;
   z-index: 1;
 }
@@ -159,10 +164,13 @@
 .ft-table tbody td {
   text-align: left;
   padding: var(--ft-unit-300) var(--ft-unit-400);
-  border-bottom: 1px solid var(--ft-color-border-100);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.ft-table tbody td {
+  border-bottom: 1px solid var(--ft-color-border-100);
 }
 
 .ft-table thead th {
@@ -170,26 +178,45 @@
   background-color: transparent !important;
   color: var(--ft-color-on-surface-level-200);
   font-weight: var(--font-weight-semibold);
+  font-size: var(--ft-text-xs);
+  height: var(--ft-unit-1000);
+  padding-top: 0;
+  padding-bottom: 0;
   cursor: pointer;
   position: sticky;
   top: 0;
   z-index: 100;
 }
 
+.ft-table thead::before {
+  content: "";
+  position: absolute;
+  top: var(--ft-unit-200);
+  left: var(--ft-unit-200);
+  width: calc(100% - 2 * var(--ft-unit-200));
+  height: var(--ft-unit-1000);
+  /* Measured header height */
+  background-color: color-mix(in srgb, var(--ft-color-tertiary-100) 75%, transparent);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border-radius: var(--radius-xl);
+  pointer-events: none;
+  z-index: 1;
+}
+
 .ft-table thead::after {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 46px;
+  top: var(--ft-unit-200);
+  left: var(--ft-unit-200);
+  width: calc(100% - 2 * var(--ft-unit-200));
+  height: var(--ft-unit-1000);
   /* Measured header height */
-  background-color: color-mix(in srgb, var(--color-neutral-100) 80%, transparent);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  border-radius: var(--ft-radius-400);
+  border: 1px solid var(--ft-color-border-100);
+  box-shadow: 0 1px 8px 0 rgb(0 0 0 / 0.08);
+  border-radius: var(--radius-xl);
   pointer-events: none;
-  z-index: 1;
+  z-index: 120;
 }
 
 .ft-table thead tr {
@@ -205,9 +232,7 @@
 /* Full rounded corners for the floating header row handled by container overflow */
 
 /* Apply shadow to cells instead */
-.ft-table thead th {
-  /* box-shadow: 0 4px 3px -2px rgba(0, 0, 0, 0.07); */
-}
+
 
 /* Remove individual cell radius - handled by .table-container overflow:hidden */
 /* Corner rounding for the floating header row - SURGICAL CLIPPING (4 Corners) */
@@ -428,17 +453,22 @@
 .ft-table thead th.sticky-column-right {
   z-index: 110;
   /* Highest priority */
-  background-color: var(--color-neutral-100) !important;
+  background-color: var(--ft-color-tertiary-100) !important;
 }
 
 .ft-table tbody tr:hover td {
-  background-color: var(--ft-color-surface-level-200);
+  /* background-color: color-mix(in srgb, var(--ft-color-surface-level-200) 80%, transparent); */
+  background-color: color-mix(in srgb, var(--ft-color-tertiary-100) 75%, transparent) !important;
+  /* backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px); */
 }
 
 .ft-table tbody tr:hover .sticky-column,
 .ft-table tbody tr:hover .sticky-column-right {
-  /* Flatten the hover color over the opaque surface color to maintain opacity while matching perceived color */
-  background-color: color-mix(in srgb, var(--ft-color-surface-level-200), var(--ft-color-solid-surface)) !important;
+  /* background-color: color-mix(in srgb, var(--ft-color-surface-level-200) 80%, transparent) !important; */
+  background-color: color-mix(in srgb, var(--color-neutral-100) 75%, transparent) !important;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
 }
 
 .ft-table tbody tr.selected td {
@@ -448,38 +478,42 @@
 .ft-table tbody tr.selected .sticky-column,
 .ft-table tbody tr.selected .sticky-column-right {
   /* Same flattening for selection state */
-  background-color: color-mix(in srgb, var(--ft-color-surface-level-100), var(--ft-color-solid-surface)) !important;
+  /* background-color: color-mix(in srgb, var(--ft-color-surface-level-100), var(--ft-color-solid-surface)) !important; */
 }
 
 .sticky-column {
   position: sticky;
   left: 0;
-  background-color: var(--ft-color-solid-surface) !important;
+  background-color: color-mix(in srgb, var(--ft-color-solid-surface) 75%, transparent) !important;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   z-index: 50;
   /* Lower than header but high enough for body */
 }
 
 /* General Rule: Last of left sticky group */
 .sticky-column:not(:has(+ .sticky-column)) {
-  border-right: 1px solid var(--ft-color-border-200);
+  border-right: 1px solid var(--ft-color-border-100);
 }
 
 .sticky-column-right {
   position: sticky;
   right: 0;
-  background-color: var(--ft-color-solid-surface) !important;
+  background-color: color-mix(in srgb, var(--ft-color-solid-surface) 75%, transparent) !important;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   z-index: 50;
 }
 
 /* General Rule: First of right sticky group */
 .sticky-column-right:not(.sticky-column-right + .sticky-column-right) {
-  border-left: 1px solid var(--ft-color-border-200);
+  border-left: 1px solid var(--ft-color-border-100);
 }
 
 /* Match header bg for sticky columns in header */
 .ft-table thead th.sticky-column,
 .ft-table thead th.sticky-column-right {
-  background-color: color-mix(in srgb, var(--color-neutral-100) 80%, transparent) !important;
+  background-color: color-mix(in srgb, var(--ft-color-tertiary-100) 80%, transparent) !important;
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
 }
