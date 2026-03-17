@@ -1,28 +1,28 @@
 :host {
   /* Component Tokens */
-  --_pill-bg: var(--ft-color-solid-surface);
-  --_pill-border: 1px solid var(--ft-color-border-100);
-  --_pill-radius: var(--ft-radius-pill);
-  --_pill-shadow: var(--shadow-sm);
-  --_pill-padding: var(--ft-unit-150) var(--ft-unit-300);
-  --_pill-gap: var(--ft-unit-400);
+  --_pill-bg: var(--ft-pagination-pill-bg, var(--ft-color-solid-surface));
+  --_pill-border: var(--ft-pagination-pill-border, 1px solid var(--ft-color-border-100));
+  --_pill-radius: var(--ft-pagination-pill-radius, var(--ft-radius-pill));
+  --_pill-shadow: var(--ft-pagination-pill-shadow, var(--shadow-sm));
+  --_pill-padding: var(--ft-pagination-pill-padding, var(--ft-unit-150) var(--ft-unit-300));
+  --_pill-gap: var(--ft-pagination-pill-gap, var(--ft-unit-400));
 
   --_zone-border: 1px solid var(--ft-color-border-100);
   --_zone-gap: var(--ft-unit-200);
   --_zone-padding: var(--ft-unit-400);
 
-  --_btn-size: var(--ft-unit-800);
-  --_btn-radius: var(--ft-radius-pill);
-  --_btn-color: var(--ft-color-on-surface-level-200);
-  --_btn-font-size: var(--ft-text-xs);
-  --_btn-font-weight: var(--font-weight-medium);
+  --_btn-size: var(--ft-pagination-btn-size, var(--ft-unit-800));
+  --_btn-radius: var(--ft-pagination-btn-radius, var(--ft-radius-pill));
+  --_btn-color: var(--ft-pagination-btn-color, var(--ft-color-on-surface-level-200));
+  --_btn-font-size: var(--ft-pagination-btn-font-size, var(--ft-text-xs));
+  --_btn-font-weight: var(--ft-pagination-btn-font-weight, var(--font-weight-medium));
   
-  --_btn-hover-bg: var(--ft-color-surface-level-100);
-  --_btn-hover-color: var(--ft-color-primary);
+  --_btn-hover-bg: var(--ft-pagination-btn-hover-bg, var(--ft-color-surface-level-100));
+  --_btn-hover-color: var(--ft-pagination-btn-hover-color, var(--ft-color-primary));
 
-  --_btn-active-bg: var(--ft-color-primary-50);
-  --_btn-active-border: var(--ft-color-primary);
-  --_btn-active-color: var(--ft-color-primary);
+  --_btn-active-bg: var(--ft-pagination-btn-active-bg, var(--ft-color-primary-50));
+  --_btn-active-border: var(--ft-pagination-btn-active-border, var(--ft-color-primary));
+  --_btn-active-color: var(--ft-pagination-btn-active-color, var(--ft-color-primary));
 
   --_input-width: var(--ft-unit-1400);
   --_input-bg: var(--ft-color-surface-level-50);
@@ -153,5 +153,6 @@
   margin: 0;
 }
 .jump-input {
+  appearance: textfield;
   -moz-appearance: textfield;
 }

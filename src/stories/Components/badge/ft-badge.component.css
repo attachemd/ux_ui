@@ -17,8 +17,8 @@
   line-height: 1;
   z-index: 10;
   pointer-events: none;
-  background-color: var(--_bg, var(--ft-color-primary));
-  color: var(--_text, var(--ft-color-on-primary));
+  background-color: var(--_bg, var(--ft-badge-bg, var(--ft-color-primary)));
+  color: var(--_text, var(--ft-badge-text, var(--ft-color-on-primary)));
   border: var(--ft-unit-50) solid var(--ft-color-solid-surface);
 }
 

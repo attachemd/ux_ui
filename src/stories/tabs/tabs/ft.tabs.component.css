@@ -13,24 +13,24 @@
     flex-direction: column;
     width: 100%;
     /* Base Variables */
-    --_tabs-bg: transparent;
-    --_tabs-border-color: var(--ft-color-border-200);
-    --_tabs-border-width: 0px;
-    --_tabs-padding: var(--ft-unit-50);
-    --_tabs-radius: var(--ft-radius-300);
+    --_tabs-bg: var(--ft-tabs-bg, transparent);
+    --_tabs-border-color: var(--ft-tabs-border-color, var(--ft-color-border-200));
+    --_tabs-border-width: var(--ft-tabs-border-width, 0px);
+    --_tabs-padding: var(--ft-tabs-padding, var(--ft-unit-50));
+    --_tabs-radius: var(--ft-tabs-radius, var(--ft-radius-300));
 
-    --_tab-text: var(--ft-color-solid-on-surface);
+    --_tab-text: var(--ft-tabs-tab-text, var(--ft-color-solid-on-surface));
+    --_tab-bg: var(--ft-tabs-tab-bg, transparent);
     --_tab-bg-active: transparent;
     --_tab-shadow-active: none;
-    --_tab-text-active: var(--ft-color-primary);
+    --_tab-text-active: var(--ft-tabs-tab-text-active, var(--ft-color-primary));
     --_cursor-bg: transparent;
     --_cursor-border-width: 0px;
     --_cursor-border-color: transparent;
 
-    --_tab-bg: transparent;
-    --_tab-padding: var(--ft-unit-100) var(--ft-unit-200);
-    --_tab-font-size: var(--ft-text-xs);
-    --_tab-radius: var(--ft-radius-200);
+    --_tab-padding: var(--ft-tabs-tab-padding, var(--ft-unit-100) var(--ft-unit-200));
+    --_tab-font-size: var(--ft-tabs-tab-font-size, var(--ft-text-xs));
+    --_tab-radius: var(--ft-tabs-tab-radius, var(--ft-radius-200));
     --_tab-border-width: 0px;
     --_tab-border-color: transparent;
 

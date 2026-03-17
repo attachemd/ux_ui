@@ -1,14 +1,14 @@
 .field-container {
   /* 1. INTERNAL VARIABLE DEFAULTS */
   --_field-bg: transparent;
-  --_field-border-color: var(--ft-color-border-200);
-  --_field-border-width: var(--ft-border-tertiary);
-  --_field-control-bg: transparent;
+  --_field-border-color: var(--ft-selection-border-color, var(--ft-color-border-200));
+  --_field-border-width: var(--ft-selection-border-width, var(--ft-border-tertiary));
+  --_field-control-bg: var(--ft-selection-control-bg, transparent);
   /* The inner dot */
-  --_field-text: var(--ft-color-solid-on-surface);
+  --_field-text: var(--ft-selection-text, var(--ft-color-solid-on-surface));
   --_field-description: var(--ft-color-on-surface-level-300);
 
-  --_field-size: 34px;
+  --_field-size: var(--ft-selection-size, 34px);
   --_field-scale: 0.9;
   --_radio-scale: 0.7;
   --_control-scale: 0.7;

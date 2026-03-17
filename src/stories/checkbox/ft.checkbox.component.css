@@ -1,17 +1,17 @@
 .ft-checkbox-field-container {
     /* 1. INTERNAL VARIABLE DEFAULTS */
     --_field-bg: transparent;
-    --_field-border-color: var(--ft-color-border-200);
-    --_field-border-width: var(--ft-border-tertiary);
-    --_field-control-bg: transparent;
-    --_field-text: var(--ft-color-solid-on-surface);
+    --_field-border-color: var(--ft-selection-border-color, var(--ft-color-border-200));
+    --_field-border-width: var(--ft-selection-border-width, var(--ft-border-tertiary));
+    --_field-control-bg: var(--ft-selection-control-bg, transparent);
+    --_field-text: var(--ft-selection-text, var(--ft-color-solid-on-surface));
     --_field-description: var(--ft-color-on-surface-level-300);
     --_checkmark-color: var(--ft-color-mix-a);
 
-    --_field-size: var(--ft-unit-900);
+    --_field-size: var(--ft-selection-size, var(--ft-unit-900));
     --_field-scale: 0.9;
     --_checkbox-scale: 0.7;
-    --_checkbox-radius: var(--ft-radius-400);
+    --_checkbox-radius: var(--ft-selection-radius, var(--ft-radius-400));
     --_control-scale: 1;
 
     display: flex;

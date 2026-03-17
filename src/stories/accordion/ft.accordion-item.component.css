@@ -4,16 +4,16 @@
 }
 
 .ft-accordion-item {
-    --_brand: var(--ft-color-mauve-500);
+    --_brand: var(--ft-accordion-brand, var(--ft-color-mauve-500));
     --_accordion-bg-base: var(--_brand);
-    --_accordion-bg: color-mix(in srgb, var(--_accordion-bg-base) 4%, var(--ft-color-surface-level-100));
-    --_accordion-text: var(--ft-color-on-surface-level-100);
-    --_accordion-radius: var(--ft-radius-200);
-    --_accordion-padding: var(--ft-unit-300) var(--ft-unit-400);
+    --_accordion-bg: var(--ft-accordion-bg, color-mix(in srgb, var(--_accordion-bg-base) 4%, var(--ft-color-surface-level-100)));
+    --_accordion-text: var(--ft-accordion-text, var(--ft-color-on-surface-level-100));
+    --_accordion-radius: var(--ft-accordion-radius, var(--ft-radius-200));
+    --_accordion-padding: var(--ft-accordion-padding, var(--ft-unit-300) var(--ft-unit-400));
     --_accordion-header-height: auto;
     --_accordion-font-size: var(--ft-text-xs);
-    --_accordion-icon-size: var(--ft-unit-500);
-    --_accordion-transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --_accordion-icon-size: var(--ft-accordion-icon-size, var(--ft-unit-500));
+    --_accordion-transition: var(--ft-accordion-transition, 0.3s cubic-bezier(0.4, 0, 0.2, 1));
     --_accordion-border-width: 0px;
     --_accordion-border-color: color-mix(in srgb, var(--_brand) 8%, var(--ft-color-border-200));
 

@@ -17,19 +17,19 @@
     text-align: left;
 
     /* Default Internal Variables (The "Mixin" Arguments) */
-    --_brand: var(--ft-color-primary);
-    --_text: var(--ft-color-solid-on-surface);
-    --_bg: transparent;
-    --_border-color: var(--ft-color-border-200);
+    --_brand: var(--ft-button-brand, var(--ft-color-primary));
+    --_text: var(--ft-button-text, var(--ft-color-solid-on-surface));
+    --_bg: var(--ft-button-bg, transparent);
+    --_border-color: var(--ft-button-border-color, var(--ft-color-border-200));
     --_shadow: none;
-    --_brand_variant: var(--ft-color-primary);
-    --_shadow-blur: 20px;
-    --_vertical-offset: 8px;
-    --_height: var(--ft-unit-800);
-    --_padding: 0 var(--ft-unit-300);
+    --_brand_variant: var(--_brand);
+    --_shadow-blur: var(--ft-button-shadow-blur, 20px);
+    --_vertical-offset: var(--ft-button-vertical-offset, 8px);
+    --_height: var(--ft-button-height, var(--ft-unit-800));
+    --_padding: var(--ft-button-padding, 0 var(--ft-unit-300));
     --_balanced_small_padding: 0;
-    --_gap: var(--ft-unit-300);
-    --_icon-size: 20px;
+    --_gap: var(--ft-button-gap, var(--ft-unit-300));
+    --_icon-size: var(--ft-button-icon-size, 20px);
 
     display: flex;
     align-items: center;

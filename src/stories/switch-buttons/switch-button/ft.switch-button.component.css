@@ -3,17 +3,17 @@
 }
 
 .switch-button-container {
-    --_brand: var(--ft-color-primary);
-    --_bg: var(--ft-color-surface-level-200);
-    --_selected-bg: var(--_brand);
-    --_text: var(--ft-color-on-surface-level-200);
-    --_selected-text: var(--ft-color-on-primary);
-    --_height: var(--ft-unit-800);
-    --_padding: var(--ft-unit-100);
-    --_gap: var(--ft-unit-100);
+    --_brand: var(--ft-switch-button-brand, var(--ft-color-primary));
+    --_bg: var(--ft-switch-button-bg, var(--ft-color-surface-level-200));
+    --_selected-bg: var(--ft-switch-button-selected-bg, var(--_brand));
+    --_text: var(--ft-switch-button-text, var(--ft-color-on-surface-level-200));
+    --_selected-text: var(--ft-switch-button-selected-text, var(--ft-color-on-primary));
+    --_height: var(--ft-switch-button-height, var(--ft-unit-800));
+    --_padding: var(--ft-switch-button-padding, var(--ft-unit-100));
+    --_gap: var(--ft-switch-button-gap, var(--ft-unit-100));
     --_font-size: var(--ft-text-xs);
     --_icon-size: var(--ft-unit-500);
-    --_radius: var(--ft-radius-pill);
+    --_radius: var(--ft-switch-button-radius, var(--ft-radius-pill));
 
     display: flex;
     background-color: var(--_bg);
