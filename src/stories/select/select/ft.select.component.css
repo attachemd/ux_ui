@@ -13,15 +13,15 @@
 
 .field-container {
     /* INTERNAL VARIABLE DEFAULTS (The "Mixin" Arguments) */
-    --_field-bg: transparent;
-    --_field-border-color: var(--ft-color-border-200);
-    --_field-border-width: var(--ft-border-secondary);
-    --_field-text: var(--ft-color-solid-on-surface);
-    --_field-placeholder: var(--ft-color-on-surface-level-300);
-    --_field-label: var(--ft-color-on-surface-level-100);
+    --_field-bg: var(--ft-input-bg, transparent);
+    --_field-border-color: var(--ft-input-border-color, var(--ft-color-border-200));
+    --_field-border-width: var(--ft-input-border-width, var(--ft-border-secondary));
+    --_field-text: var(--ft-input-text, var(--ft-color-solid-on-surface));
+    --_field-placeholder: var(--ft-input-placeholder, var(--ft-color-on-surface-level-300));
+    --_field-label: var(--ft-input-label, var(--ft-color-on-surface-level-100));
 
-    --_field-accent: var(--ft-color-primary);
-    --_field-bg-base: var(--ft-color-primary);
+    --_field-accent: var(--ft-input-accent, var(--ft-color-primary));
+    --_field-bg-base: var(--_field-accent);
 
     --_field-bg-50: color-mix(in srgb, var(--_field-bg-base) 2%, transparent);
     --_field-bg-100: color-mix(in srgb, var(--_field-bg-base) 4%, transparent);
@@ -29,9 +29,9 @@
     --_field-bg-300: color-mix(in srgb, var(--_field-bg-base) 12%, transparent);
 
     --_balanced_small_padding: var(--ft-unit-400);
-    --_field-height: var(--ft-unit-800);
-    --_field-padding: 0 var(--ft-unit-400);
-    --_field-gap: var(--ft-unit-300);
+    --_field-height: var(--ft-input-height, var(--ft-unit-800));
+    --_field-padding: var(--ft-input-padding, 0 var(--ft-unit-400));
+    --_field-gap: var(--ft-input-gap, var(--ft-unit-300));
     --_field-container-gap: var(--ft-unit-100);
     --_field-icon-size: var(--ft-unit-500);
     --_field-content-gap: var(--ft-unit-100);

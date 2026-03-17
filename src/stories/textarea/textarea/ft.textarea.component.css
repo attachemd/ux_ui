@@ -13,12 +13,12 @@
 
 .field-container {
   /* INTERNAL VARIABLE DEFAULTS */
-  --_field-bg: transparent;
-  --_field-border-color: var(--ft-color-border-200);
-  --_field-border-width: var(--ft-border-secondary);
-  --_field-text: var(--ft-color-solid-on-surface);
-  --_field-placeholder: var(--ft-color-on-surface-level-300);
-  --_field-label: var(--ft-color-on-surface-level-100);
+  --_field-bg: var(--ft-input-bg, transparent);
+  --_field-border-color: var(--ft-input-border-color, var(--ft-color-border-200));
+  --_field-border-width: var(--ft-input-border-width, var(--ft-border-secondary));
+  --_field-text: var(--ft-input-text, var(--ft-color-solid-on-surface));
+  --_field-placeholder: var(--ft-input-placeholder, var(--ft-color-on-surface-level-300));
+  --_field-label: var(--ft-input-label, var(--ft-color-on-surface-level-100));
 
   --_field-padding-y: var(--ft-unit-300);
   --_field-padding-x: var(--ft-unit-400);
