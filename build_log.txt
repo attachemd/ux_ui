@@ -1,0 +1,57 @@
+
+> uxui@0.0.0 build
+> ng build
+
+[33m❯[39m Building...
+[32m✔[39m Building...
+[1mInitial chunk files[22m  [2m | [22m[1mNames[22m        [2m | [22m [1mRaw size[22m[2m | [22m[1mEstimated transfer size[22m
+[32mmain-G6XI54KI.js[39m     [2m | [22m[2mmain[22m         [2m | [22m  [36m1.42 MB[39m[2m | [22m              [36m238.00 kB[39m
+[32mchunk-5OT6S2EE.js[39m    [2m | [22m[2m-[22m            [2m | [22m[36m175.93 kB[39m[2m | [22m               [36m50.76 kB[39m
+[32mstyles-D6D7ADBT.css[39m  [2m | [22m[2mstyles[22m       [2m | [22m[36m136.41 kB[39m[2m | [22m               [36m18.60 kB[39m
+[32mpolyfills-K6DZOUHF.js[39m[2m | [22m[2mpolyfills[22m    [2m | [22m [36m35.77 kB[39m[2m | [22m               [36m11.61 kB[39m
+
+[1m [22m                    [2m | [22m[1mInitial total[22m[2m | [22m  [1m1.77 MB[22m[2m | [22m              [1m318.98 kB[22m
+
+[1mLazy chunk files[22m     [2m | [22m[1mNames[22m        [2m | [22m [1mRaw size[22m[2m | [22m[1mEstimated transfer size[22m
+[32mchunk-RQUIA4IZ.js[39m    [2m | [22m[2mbrowser[22m      [2m | [22m [36m67.79 kB[39m[2m | [22m               [36m17.79 kB[39m
+
+Application bundle generation failed. [8.943 seconds] - 2026-03-14T14:58:35.057Z
+
+▲ [WARNING] NG8113: NgIf is not used within the template of AppComponent [plugin angular-compiler]
+
+    src/app/app.component.ts:28:4:
+      28 │     NgIf,
+         ╵     ~~~~
+
+
+▲ [WARNING] NG8113: ThemeSwitcherComponent is not used within the template of AppComponent [plugin angular-compiler]
+
+    src/app/app.component.ts:29:4:
+      29 │     ThemeSwitcherComponent,
+         ╵     ~~~~~~~~~~~~~~~~~~~~~~
+
+
+▲ [WARNING] src/stories/select/select/ft.select.component.css exceeded maximum budget. Budget 4.00 kB was not met by 9.35 kB with a total of 13.35 kB.
+
+
+▲ [WARNING] src/stories/accordion/ft.accordion-item.component.css exceeded maximum budget. Budget 4.00 kB was not met by 4.31 kB with a total of 8.31 kB.
+
+
+▲ [WARNING] src/stories/Components/side-nav/ft.side-nav.component.css exceeded maximum budget. Budget 4.00 kB was not met by 824 bytes with a total of 4.82 kB.
+
+
+▲ [WARNING] src/stories/inputs/input/ft.input.component.css exceeded maximum budget. Budget 4.00 kB was not met by 6.23 kB with a total of 10.23 kB.
+
+
+▲ [WARNING] src/stories/Buttons/button/ft.button.component.css exceeded maximum budget. Budget 4.00 kB was not met by 1.67 kB with a total of 5.67 kB.
+
+
+X [ERROR] src/stories/select/select/ft.select.component.css exceeded maximum budget. Budget 8.00 kB was not met by 5.35 kB with a total of 13.35 kB.
+
+
+X [ERROR] src/stories/accordion/ft.accordion-item.component.css exceeded maximum budget. Budget 8.00 kB was not met by 313 bytes with a total of 8.31 kB.
+
+
+X [ERROR] src/stories/inputs/input/ft.input.component.css exceeded maximum budget. Budget 8.00 kB was not met by 2.23 kB with a total of 10.23 kB.
+
+

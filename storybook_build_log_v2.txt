@@ -1,0 +1,1116 @@
+
+> uxui@0.0.0 build-storybook
+> ng run uxui:build-storybook
+
+
+[90m┌[39m  Building Storybook
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc:[0m
+[90m│[39m  [0m[0m[0m[0m
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: 1.1.32
+
+[90m│[39m  TypeScript versio
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: Operating system : Window
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc:
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47]
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [33mNo configuration fil
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47]
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [32mUsing tsconfig file
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [33mExcluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [36mIncluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [33mExcluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [33mExcluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [36mIncluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [36mIncluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [33mExcluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [33mExcluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [33mExcluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [33mExcluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [36mIncluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [36mIncluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [36mIncluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [33mExcluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [33mExcluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [33mExcluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [33mExcluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [33mExcluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [33mExcluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [33mExcluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [33mExcluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [33mExcluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [33mExcluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [33mExcluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47]
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [33mExcluding      : C:/
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [33mExcluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [33mExcluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47]
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [33mExcluding      : C:/
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [33mExcluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [33mExcluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [33mExcluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [33mExcluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [33mExcluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [33mExcluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [33mExcluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [36mIncluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [33mExcluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [33mExcluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [33mExcluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [33mExcluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [36mIncluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [33mExcluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [33mExcluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [36mIncluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [33mExcluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [33mExcluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [36mIncluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [33mExcluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [36mIncluding      : C:/
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [33mExcluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [36mIncluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [33mExcluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [33mExcluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [36mIncluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [33mExcluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [33mExcluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [36mIncluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [36mIncluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [33mExcluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [33mExcluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [36mIncluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [33mExcluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [33mExcluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [33mExcluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [33mExcluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [36mIncluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [33mExcluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [33mExcluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [33mExcluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [33mExcluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [36mIncluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [33mExcluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [36mIncluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [33mExcluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [33mExcluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [36mIncluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [33mExcluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [33mExcluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [33mExcluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [36mIncluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [36mIncluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [33mExcluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [36mIncluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [33mExcluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [33mExcluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [36mIncluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [33mExcluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [36mIncluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [33mExcluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [33mExcluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [36mIncluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [33mExcluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [33mExcluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [33mExcluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [33mExcluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [33mExcluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [33mExcluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [33mExcluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [33mExcluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [33mExcluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [33mExcluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [33mExcluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [33mExcluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [33mExcluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [33mExcluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [33mExcluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [33mExcluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [36mIncluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [36mIncluding
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [32mSearching
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [32mpackage.j
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [32mProcessin
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [32mSearching
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47]
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [32mREADME.md file found
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [33mError dur
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [33mContinuing without C
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [33mContinuin
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [33mError dur
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [32mGet depen
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [32mparsing
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [32mparsing
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [36mfound
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47][36m
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47][36m
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47]
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [36mfound          : app
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47]
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [32mAnalysing routes def
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [36mfound
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [32mparsing
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [36mfound
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [32mparsing
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [36mfound
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [36mfound
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47]
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [36mfound          : The
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47]
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [36mfound          : Blo
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47]
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [36mfound          : The
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47]
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [36mfound          : Med
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [36mfound
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47]
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [36mfound          : Not
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [36mfound
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [32mparsing
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [36mfound
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47][36m
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [36mfound
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47][36m
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [36mfound
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47][36m
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [36mfound
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47][36m
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [36mfound
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47][36m
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [36mfound
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [36mfound
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47]
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [36mfound          : All
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47][36m
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [36mfound
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47]
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [36mfound          : Opt
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [36mfound
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47][36m
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47][36m
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [32mparsing
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47]
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [36mfound          : Sur
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [36mfound
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47][36m
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47][36m
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47][36m
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [36mfound
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [36mfound
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [36mfound
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47]
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [36mfound          : Tre
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47][36m
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47][36m
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [36m               : 	-
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47]
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [36mfound          : Vac
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47]
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [36mfound          : Vac
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47][36m
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47][36m
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [36mfound
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47][36m
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [32mparsing
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47]
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [36mfound          : But
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47][36m
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [36mfound
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [36mfound
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47][36m
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47]
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [36mfound          : But
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [32mparsing
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47]
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [36mfound          : But
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [36mfound
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47]
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [36mfound          : But
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47][36m
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [36mfound
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47][36m
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47]
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [36mfound          : Ico
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47][36m
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47]
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [36mfound          : FtT
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [32mparsing
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47]
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [36mfound          : Tog
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47][36m
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [36mfound
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [36mfound
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47][36m
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47][36m
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [36mfound
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47][36m
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [36mfound
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [32mparsing
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [36mfound
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47][36m
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [36mfound
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [36mfound
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47][36m
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [36mfound
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47][36m
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [32mparsing        : C:/
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [36mfound
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47][36m
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47][36m
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [36mfound
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47][36m
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47]
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [36mfound          : Nav
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [36mfound
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [36mfound
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47][36m
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [36mfound
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47][36m
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [36mfound
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47][36m
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [36mfound
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47][36m
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [36mfound
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47][36m
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47]
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [36mfound          : FtR
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47][36m
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [36mfound
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [32mparsing
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47]
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [36mfound          : Rad
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [36mfound
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47][36m
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47][36m
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47]
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [36mfound          : Rad
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [32mparsing
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [36mfound
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [36mfound
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47][36m
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [36mfound
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47][36m
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47][36m
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [36mfound
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [36mfound
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47][36m
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47][36m
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [36mfound
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47]
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [36mfound          : FTa
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [32mparsing
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47]
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [36mfound          : Tab
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47][36m
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [36mfound
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47][36m
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [32mparsing
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47]
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [36mfound          : Tex
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47][36m
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47]
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [36mfound          : FtT
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47][36m
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47]
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [36mfound          : Tog
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47][36m
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [36mfound
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [36mfound
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47]
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [36mfound          : noL
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [36mfound
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [36mfound
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [36mfound
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47]
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [36mfound          : lea
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [36mfound
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [36mfound
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47][36m
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47][36m
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47][36m
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47][36m
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [32mparsing
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47]
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [36mfound          : Pat
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [32mparsing
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47]
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [36mfound          : Vie
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [36mfound
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [36mfound
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47][36m
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [36m               : 	-
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47][36m
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47]
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [36mfound          : Med
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [36mfound
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [32m---------
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [32mProject s
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [32m---------
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [32mPrepare c
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47]
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [32m AllergyDialogCompon
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [32m AppCompo
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47]
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [32m AudioPlayerComponen
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47]
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [32m BiometricsComponent
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47]
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [32m ButtonAllCasesCompo
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47]
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [32m ButtonDropdownAllCa
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [32m ButtonGr
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [32m ButtonGr
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [32m Checkbox
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [32m Checkbox
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [32m Checkbox
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [32m Checkbox
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [32m ChipsAll
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47]
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [32m ChipsAllCasesCompon
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47]
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [32m FTabComponent has s
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [32m FTabsCom
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [32m FTabsCom
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [32m FTAccord
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [32m FTAccord
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [32m FTBadgeC
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [32m FtButton
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [32m FtButton
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [32m FTButton
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [32m FTButton
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [32m FtButton
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [32m FtButton
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [32m FtCheckb
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [32m FtCheckb
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [32m FtCheckb
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [32m FtCheckb
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [32m FTChipsC
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [32m FTChipsC
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47]
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [32m FTHeaderComponent h
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [32m FtIconBu
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47]
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [32m FtIconButtonCompone
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47]
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [32m FTInputComponent ha
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47]
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [32m FtLoginComponent ha
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [32m FtRadioC
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [32m FtRadioC
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [32m FtRadioG
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [32m FtRadioG
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [32m FTSearch
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [32m FTSelect
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [32m FTSelect
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [32m FtSideNa
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [32m FtSwitch
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [32m FtSwitch
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [32m FTTextar
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [32m FTTextar
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [32m FtToggle
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [32m FtToggle
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [32m FtToggleIconButtonC
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [32m IconButt
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [32m IconButt
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47]
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [32m InputAllCasesCompon
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [32m InputAllCasesCompon
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [32m InputSho
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [32m InputSho
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [32m MedicalC
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [32m MedicalH
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47]
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [32m MedicalHistoryStatu
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [32m PatientA
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47]
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [32m PatientComponent ha
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47]
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [32m PatientDetailsCompo
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47]
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [32m PatientItemComponen
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [32m PatientL
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47]
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [32m RadioAllCasesCompon
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47]
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [32m RadioGroupAllCasesC
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47]
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [32m RiskAssessmentDialo
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [32m SelectAl
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [32m SelectAl
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47]
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [32m SurgeryHistoryDialo
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [32m SwitchBu
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [32m SwitchBu
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [32m TabsAllC
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47]
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [32m TextareaAllCasesCom
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47]
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [32m ThemeSwitcherCompon
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [32m ToggleAl
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47]
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [32m ToggleIconButtonAll
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47]
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [32m TreatmentDialogComp
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47]
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [32m VaccinationDialogCo
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [32mPrepare m
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [32mPrepare i
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47]
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [32mProcess routes[39m
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [32mPrepare p
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [32mPrepare i
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [32mPrepare m
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [32mProcess d
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [32mGeneratin
+[90m│[39m
+[90m│[39m  Generating documentation with Compodoc: [09:57:47] [32mDocumenta
+[90m│[39m
+[90m│[39m  Compodoc finished successfully
+[90m│[39m
+[32m◇[39m  Cleaning outputDir: [36mstorybook-static[39m
+[90m│[39m
+[32m◇[39m  Loading presets
+[90m│[39m
+[32m◇[39m  Building manager..
+[90m│[39m
+[34m●[39m  Building preview..
+[90m│[39m
+[34m●[39m  Addon-docs: using MDX3
+[90m│[39m
+[34m●[39m  Using implicit CSS loaders
+[90m│[39m
+[34m●[39m  Using angular browser target options from "uxui:build"
+[90m│[39m
+[34m●[39m  Using angular project with "tsConfig:.storybook/tsconfig.json"
+[90m│[39m
+[34m●[39m  Using default Webpack5 setup
+<s> [webpack.Progress] 0% 
+
+<s> [webpack.Progress] 1% setup before run
+<s> [webpack.Progress] 1% setup before run NodeEnvironmentPlugin
+<s> [webpack.Progress] 1% setup before run storybook-mock-plugin
+<s> [webpack.Progress] 1% setup before run
+<s> [webpack.Progress] 2% setup run
+<s> [webpack.Progress] 2% setup run
+<s> [webpack.Progress] 4% setup normal module factory
+<s> [webpack.Progress] 4% setup normal module factory CaseSensitivePathsPlugin
+<s> [webpack.Progress] 4% setup normal module factory NormalModuleReplacementPlugin
+<s> [webpack.Progress] 4% setup normal module factory
+<s> [webpack.Progress] 5% setup context module factory
+<s> [webpack.Progress] 5% setup context module factory
+<s> [webpack.Progress] 6% setup before compile
+<s> [webpack.Progress] 6% setup before compile angular-compiler
+<s> [webpack.Progress] 6% setup before compile ProgressPlugin
+<s> [webpack.Progress] 6% setup before compile
+<s> [webpack.Progress] 7% setup compile
+<s> [webpack.Progress] 7% setup compile ExternalsPlugin
+<s> [webpack.Progress] 7% setup compile ExternalsPlugin
+<s> [webpack.Progress] 7% setup compile
+<s> [webpack.Progress] 8% setup compilation
+<s> [webpack.Progress] 8% setup compilation angular-occurrences-plugin
+<s> [webpack.Progress] 8% setup compilation CopyPlugin
+<s> [webpack.Progress] 8% setup compilation angular-compiler
+<s> [webpack.Progress] 8% setup compilation styles-webpack-plugin
+<s> [webpack.Progress] 8% setup compilation mini-css-extract-plugin
+<s> [webpack.Progress] 8% setup compilation HtmlWebpackPlugin
+<s> [webpack.Progress] 8% setup compilation storybook-normalize-angular-entry-plugin
+<s> [webpack.Progress] 8% setup compilation ArrayPushCallbackChunkFormatPlugin
+<s> [webpack.Progress] 8% setup compilation JsonpChunkLoadingPlugin
+<s> [webpack.Progress] 8% setup compilation StartupChunkDependenciesPlugin
+<s> [webpack.Progress] 8% setup compilation ImportScriptsChunkLoadingPlugin
+<s> [webpack.Progress] 8% setup compilation WorkerPlugin
+<s> [webpack.Progress] 8% setup compilation SplitChunksPlugin
+<s> [webpack.Progress] 8% setup compilation RuntimeChunkPlugin
+<s> [webpack.Progress] 8% setup compilation ResolverCachePlugin
+<s> [webpack.Progress] 8% setup compilation
+<s> [webpack.Progress] 9% setup compilation
+<s> [webpack.Progress] 9% setup compilation named-chunks-plugin
+<s> [webpack.Progress] 9% setup compilation DedupeModuleResolvePlugin
+<s> [webpack.Progress] 9% setup compilation devtools-ignore-plugin
+<s> [webpack.Progress] 9% setup compilation SourceMapDevToolPlugin
+<s> [webpack.Progress] 9% setup compilation AnyComponentStyleBudgetChecker
+<s> [webpack.Progress] 9% setup compilation mini-css-extract-plugin
+<s> [webpack.Progress] 9% setup compilation SuppressExtractedTextChunks
+<s> [webpack.Progress] 9% setup compilation DefinePlugin
+<s> [webpack.Progress] 9% setup compilation ProgressPlugin
+<s> [webpack.Progress] 9% setup compilation DefinePlugin
+<s> [webpack.Progress] 9% setup compilation WebpackInjectMockerRuntimePlugin
+<s> [webpack.Progress] 9% setup compilation ExternalsPlugin
+<s> [webpack.Progress] 9% setup compilation ExternalsPlugin
+<s> [webpack.Progress] 9% setup compilation ChunkPrefetchPreloadPlugin
+<s> [webpack.Progress] 9% setup compilation SourceMapDevToolPlugin
+<s> [webpack.Progress] 9% setup compilation JavascriptModulesPlugin
+<s> [webpack.Progress] 9% setup compilation JsonModulesPlugin
+<s> [webpack.Progress] 9% setup compilation AssetModulesPlugin
+<s> [webpack.Progress] 9% setup compilation DynamicEntryPlugin
+<s> [webpack.Progress] 9% setup compilation RuntimePlugin
+<s> [webpack.Progress] 9% setup compilation InferAsyncModulesPlugin
+<s> [webpack.Progress] 9% setup compilation DataUriPlugin
+<s> [webpack.Progress] 9% setup compilation FileUriPlugin
+<s> [webpack.Progress] 9% setup compilation CompatibilityPlugin
+<s> [webpack.Progress] 9% setup compilation HarmonyModulesPlugin
+<s> [webpack.Progress] 9% setup compilation AMDPlugin
+<s> [webpack.Progress] 9% setup compilation RequireJsStuffPlugin
+<s> [webpack.Progress] 9% setup compilation CommonJsPlugin
+<s> [webpack.Progress] 9% setup compilation LoaderPlugin
+<s> [webpack.Progress] 9% setup compilation LoaderPlugin
+<s> [webpack.Progress] 9% setup compilation NodeStuffPlugin
+<s> [webpack.Progress] 9% setup compilation APIPlugin
+<s> [webpack.Progress] 9% setup compilation ExportsInfoApiPlugin
+<s> [webpack.Progress] 9% setup compilation WebpackIsIncludedPlugin
+<s> [webpack.Progress] 9% setup compilation ConstPlugin
+<s> [webpack.Progress] 9% setup compilation UseStrictPlugin
+<s> [webpack.Progress] 9% setup compilation RequireIncludePlugin
+<s> [webpack.Progress] 9% setup compilation RequireEnsurePlugin
+<s> [webpack.Progress] 9% setup compilation RequireContextPlugin
+<s> [webpack.Progress] 9% setup compilation ImportPlugin
+<s> [webpack.Progress] 9% setup compilation ImportMetaContextPlugin
+<s> [webpack.Progress] 9% setup compilation SystemPlugin
+<s> [webpack.Progress] 9% setup compilation ImportMetaPlugin
+<s> [webpack.Progress] 9% setup compilation URLPlugin
+<s> [webpack.Progress] 9% setup compilation DefaultStatsFactoryPlugin
+<s> [webpack.Progress] 9% setup compilation DefaultStatsPresetPlugin
+<s> [webpack.Progress] 9% setup compilation DefaultStatsPrinterPlugin
+<s> [webpack.Progress] 9% setup compilation JavascriptMetaInfoPlugin
+<s> [webpack.Progress] 9% setup compilation EnsureChunkConditionsPlugin
+<s> [webpack.Progress] 9% setup compilation RemoveEmptyChunksPlugin
+<s> [webpack.Progress] 9% setup compilation MergeDuplicateChunksPlugin
+<s> [webpack.Progress] 9% setup compilation FlagIncludedChunksPlugin
+<s> [webpack.Progress] 9% setup compilation SideEffectsFlagPlugin
+<s> [webpack.Progress] 9% setup compilation FlagDependencyExportsPlugin
+<s> [webpack.Progress] 9% setup compilation FlagDependencyUsagePlugin
+<s> [webpack.Progress] 9% setup compilation InnerGraphPlugin
+<s> [webpack.Progress] 9% setup compilation MangleExportsPlugin
+<s> [webpack.Progress] 9% setup compilation ModuleConcatenationPlugin
+<s> [webpack.Progress] 9% setup compilation NoEmitOnErrorsPlugin
+<s> [webpack.Progress] 9% setup compilation RealContentHashPlugin
+<s> [webpack.Progress] 9% setup compilation WasmFinalizeExportsPlugin
+<s> [webpack.Progress] 9% setup compilation NamedModuleIdsPlugin
+<s> [webpack.Progress] 9% setup compilation DeterministicChunkIdsPlugin
+<s> [webpack.Progress] 9% setup compilation DefinePlugin
+<s> [webpack.Progress] 9% setup compilation TerserPlugin
+<s> [webpack.Progress] 9% setup compilation TemplatedPathPlugin
+<s> [webpack.Progress] 9% setup compilation RecordIdsPlugin
+<s> [webpack.Progress] 9% setup compilation WarnCaseSensitiveModulesPlugin
+<s> [webpack.Progress] 9% setup compilation IgnoreWarningsPlugin
+<s> [webpack.Progress] 9% setup compilation
+<s> [webpack.Progress] 10% building
+<s> [webpack.Progress] 10% building 0/1 entries 0/0 dependencies 0/0 modules
+<s> [webpack.Progress] 10% building import loader ./node_modules/mini-css-extract-plugin/dist/loader.js
+<s> [webpack.Progress] 10% building import loader ./node_modules/css-loader/dist/cjs.js
+<s> [webpack.Progress] 10% building import loader ./node_modules/postcss-loader/dist/cjs.js
+<s> [webpack.Progress] 10% building 0/4 entries 1/4 dependencies 0/1 modules
+<s> [webpack.Progress] 10% building import loader ./node_modules/@angular-devkit/build-angular/src/tools/babel/webpack-loader.js
+<s> [webpack.Progress] 10% building import loader ./node_modules/source-map-loader/dist/cjs.js
+<s> [webpack.Progress] 10% building 0/4 entries 2/5 dependencies 0/2 modules
+<s> [webpack.Progress] 32% building 1/4 entries 12/21 dependencies 5/12 modules
+<s> [webpack.Progress] 27% building 1/4 entries 19/21 dependencies 6/19 modules
+<s> [webpack.Progress] 37% building 2/4 entries 19/21 dependencies 6/19 modules
+<s> [webpack.Progress] 37% building import loader ./node_modules/@ngtools/webpack/src/ivy/index.js
+<s> [webpack.Progress] 37% building 2/4 entries 20/21 dependencies 6/20 modules
+<s> [webpack.Progress] 40% building import loader ./node_modules/style-loader/dist/cjs.js
+<s> [webpack.Progress] 40% building 2/4 entries 109/124 dependencies 32/58 modules
+<s> [webpack.Progress] 37% building 2/4 entries 428/600 dependencies 54/321 modules
+<s> [webpack.Progress] 37% building 2/4 entries 700/964 dependencies 58/532 modules
+<s> [webpack.Progress] 37% building 2/4 entries 1436/1500 dependencies 104/785 modules
+<s> [webpack.Progress] 37% building 2/4 entries 2264/2300 dependencies 160/902 modules
+<s> [webpack.Progress] 37% building 2/4 entries 2335/2400 dependencies 167/904 modules
+<s> [webpack.Progress] 37% building 2/4 entries 2464/2500 dependencies 185/928 modules
+<s> [webpack.Progress] 51% building 3/4 entries 2950/3263 dependencies 409/1040 modules
+<s> [webpack.Progress] 99% cache begin idle
+<s> [webpack.Progress] 99% cache begin idle
+<s> [webpack.Progress] 100% 
+
+<s> [webpack.Progress] 99% cache shutdown
+<s> [webpack.Progress] 99% cache shutdown
+<s> [webpack.Progress] 100% 
+
+[90m│[39m
+[31m■[39m  Failed to build the preview
+[90m│[39m
+[31m■[39m  [38;2;241;97;97mSB_BUILDER-WEBPACK5_0002 (WebpackInvocationError): Module not found:
+[90m│[39m  Error: Can't resolve '@storybook/blocks' in
+[90m│[39m  '.\src\stories\inputs\input'[39m
+[90m│[39m  at
+[90m│[39m  file:///C:/Users/asus/Documents/ux_ui/node_modules/@storybook/builder-webpack5/dist/index.js:833:35
+[90m│[39m  at .\node_modules\webpack\lib\HookWebpackError.js:96:2
+[90m│[39m  at Hook.eval [as callAsync] (eval at create
+[90m│[39m  (.\node_modules\tapable\lib\HookCodeFactory.js:31:10),
+[90m│[39m  <anonymous>:11:1)
+[90m│[39m  at Hook.CALL_ASYNC_DELEGATE [as _callAsync]
+[90m│[39m  (.\node_modules\tapable\lib\Hook.js:21:14)
+[90m│[39m  at Cache.shutdown (.\node_modules\webpack\lib\Cache.js:157:23)
+[90m│[39m  at .\node_modules\webpack\lib\Compiler.js:1408:15
+[90m│[39m  at Hook.eval [as callAsync] (eval at create
+[90m│[39m  (.\node_modules\tapable\lib\HookCodeFactory.js:31:10),
+[90m│[39m  <anonymous>:15:1)
+[90m│[39m  at Hook.CALL_ASYNC_DELEGATE [as _callAsync]
+[90m│[39m  (.\node_modules\tapable\lib\Hook.js:21:14)
+[90m│[39m  at Compiler.close (.\node_modules\webpack\lib\Compiler.js:1401:23)
+[90m│[39m  at
+[90m│[39m  file:///C:/Users/asus/Documents/ux_ui/node_modules/@storybook/builder-webpack5/dist/index.js:833:18
+[90m│[39m  at finalCallback (.\node_modules\webpack\lib\Compiler.js:519:32)
+[90m│[39m  at onCompiled (.\node_modules\webpack\lib\Compiler.js:533:20)
+[90m│[39m  at .\node_modules\webpack\lib\Compiler.js:1356:21
+[90m│[39m  at eval (eval at create
+[90m│[39m  (.\node_modules\tapable\lib\HookCodeFactory.js:31:10),
+[90m│[39m  <anonymous>:39:1)
+[90m│[39m  at process.processTicksAndRejections
+[90m│[39m  (node:internal/process/task_queues:105:5)
+<s> [webpack.Progress] 64% building 4/4 entries 3263/3263 dependencies 908/1044 modules
+An unhandled exception occurred: Broken build, fix the error above.
+You may need to refresh the browser.
+See "C:\Users\asus\AppData\Local\Temp\ng-d1iSWv\angular-errors.log" for further details.
