@@ -166,15 +166,30 @@
 }
 
 .ft-table thead th {
-  background-color: var(--color-neutral-100) !important;
+  /* Remove individual backgrounds to let the pseudo-element bar show through */
+  background-color: transparent !important;
   color: var(--ft-color-on-surface-level-200);
   font-weight: var(--font-weight-semibold);
   cursor: pointer;
   position: sticky;
   top: 0;
   z-index: 100;
-  /* Ensure backgrounds don't bleed during sticky transform */
-  background-clip: padding-box !important;
+}
+
+.ft-table thead::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 46px;
+  /* Measured header height */
+  background-color: color-mix(in srgb, var(--color-neutral-100) 80%, transparent);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border-radius: var(--ft-radius-400);
+  pointer-events: none;
+  z-index: 1;
 }
 
 .ft-table thead tr {
@@ -183,6 +198,7 @@
 
 .ft-table thead {
   background-color: transparent !important;
+  /* Removed position: relative to allow ::after to anchor to the fixed .table-viewport */
 }
 
 /* Remove filter - it breaks stacking context! */
@@ -194,19 +210,29 @@
 }
 
 /* Remove individual cell radius - handled by .table-container overflow:hidden */
-/* Corner rounding for the floating header row - SURGICAL CLIPPING */
+/* Corner rounding for the floating header row - SURGICAL CLIPPING (4 Corners) */
 .ft-table thead tr:first-child th.sticky-column:first-child {
+  /* Re-enable semi-opaque background for sticky corner to catch scrolling content with blur */
+  background-color: color-mix(in srgb, var(--color-neutral-100) 80%, transparent) !important;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   border-top-left-radius: var(--ft-radius-400) !important;
-  /* Force a rounded clipping boundary on the cell itself */
-  clip-path: inset(0 0 0 0 round var(--ft-radius-400) 0 0 0) !important;
+  border-bottom-left-radius: var(--ft-radius-400) !important;
+  /* Force a rounded clipping boundary on the cell itself - All 4 corners if needed, but here just left */
+  clip-path: inset(0 0 0 0 round var(--ft-radius-400) 0 0 var(--ft-radius-400)) !important;
   background-clip: padding-box !important;
   overflow: hidden !important;
 }
 
 .ft-table thead tr:first-child th.sticky-column-right {
+  /* Re-enable semi-opaque background for sticky corner to catch scrolling content with blur */
+  background-color: color-mix(in srgb, var(--color-neutral-100) 80%, transparent) !important;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   border-top-right-radius: var(--ft-radius-400) !important;
-  /* Force a rounded clipping boundary on the cell itself */
-  clip-path: inset(0 0 0 0 round 0 var(--ft-radius-400) 0 0) !important;
+  border-bottom-right-radius: var(--ft-radius-400) !important;
+  /* Force a rounded clipping boundary on the cell itself - Right side */
+  clip-path: inset(0 0 0 0 round 0 var(--ft-radius-400) var(--ft-radius-400) 0) !important;
   background-clip: padding-box !important;
   overflow: hidden !important;
 }
@@ -405,12 +431,24 @@
   background-color: var(--color-neutral-100) !important;
 }
 
-.ft-table tbody tr:hover {
+.ft-table tbody tr:hover td {
   background-color: var(--ft-color-surface-level-200);
 }
 
-.ft-table tbody tr.selected {
+.ft-table tbody tr:hover .sticky-column,
+.ft-table tbody tr:hover .sticky-column-right {
+  /* Flatten the hover color over the opaque surface color to maintain opacity while matching perceived color */
+  background-color: color-mix(in srgb, var(--ft-color-surface-level-200), var(--ft-color-solid-surface)) !important;
+}
+
+.ft-table tbody tr.selected td {
   background-color: var(--ft-color-surface-level-100);
+}
+
+.ft-table tbody tr.selected .sticky-column,
+.ft-table tbody tr.selected .sticky-column-right {
+  /* Same flattening for selection state */
+  background-color: color-mix(in srgb, var(--ft-color-surface-level-100), var(--ft-color-solid-surface)) !important;
 }
 
 .sticky-column {
@@ -441,7 +479,9 @@
 /* Match header bg for sticky columns in header */
 .ft-table thead th.sticky-column,
 .ft-table thead th.sticky-column-right {
-  background-color: var(--color-neutral-100) !important;
+  background-color: color-mix(in srgb, var(--color-neutral-100) 80%, transparent) !important;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
 }
 
 /* Specific left positions for multiple sticky columns */
