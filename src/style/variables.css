@@ -5,7 +5,7 @@
  */
 
 @layer app-variables {
-  body {
+  :root {
     /* 
      * ----------------------------------------------------------------------
      * 1. PRIMITIVES (Base Tokens)
@@ -290,6 +290,37 @@
     --ft-color-mauve-900: #130a2e;
     --ft-color-mauve-950: #0a0619;
 
+    /* --- Nord Palette Primitives --- */
+    --nord0: #2e3440;
+    --nord1: #3b4252;
+    --nord2: #434c5e;
+    --nord3: #4c566a;
+    --nord4: #d8dee9;
+    --nord5: #e5e9f0;
+    --nord6: #eceff4;
+    --nord7: #8fbcbb;
+    --nord8: #88c0d0;
+    --nord9: #81a1c1;
+    --nord10: #5e81ac;
+    --nord11: #bf616a;
+    --nord12: #d08770;
+    --nord13: #ebcb8b;
+    --nord14: #a3be8c;
+    --nord15: #b48ead;
+
+    /* --- Dracula Palette Primitives --- */
+    --drac-bg: #282a36;
+    --drac-fg: #f8f8f2;
+    --drac-curr: #44475a;
+    --drac-cmt: #6272a4;
+    --drac-cyan: #8be9fd;
+    --drac-green: #50fa7b;
+    --drac-orange: #ffb86c;
+    --drac-pink: #ff79c6;
+    --drac-purple: #bd93f9;
+    --drac-red: #ff5555;
+    --drac-yellow: #f1fa8c;
+
     /* --- Spacing & Units --- */
     --spacing: 0.25rem; /* 4px */
     --ft-unit-0: 0px;
@@ -413,8 +444,13 @@
     --leading-relaxed: 1.625;
     --leading-loose: 2;
 
-    --ft-font-family-base: Inter, "Helvetica Neue", Arial, sans-serif;
+    --ft-font-family-base: 'Google Sans Flex', "Helvetica Neue", Arial, sans-serif;
     --ft-font-family-headings: "Georgia", serif;
+
+    /* --- Icon Variation Settings --- */
+    --ft-icon-wght: 400;
+    --ft-icon-grad: 0;
+    --ft-icon-opsz: 24;
 
     /* --- Border Radius --- */
     --radius-xs: 0.125rem;  /* 2px */
@@ -674,7 +710,7 @@
      * ----------------------------------------------------------------------
      */
 
-    /* --- Form Fields --- */
+    /* --- Form Fields (Base) --- */
     --ft-form-field-50: color-mix(in srgb, var(--ft-color-primary) 2%, transparent);
     --ft-form-field-100: color-mix(in srgb, var(--ft-color-primary) 4%, transparent);
     --ft-form-field-200: color-mix(in srgb, var(--ft-color-primary) 8%, transparent);
@@ -682,6 +718,109 @@
     --ft-form-field-muted: var(--ft-color-n-on-surface-3);
     --ft-form-field-content-muted: var(--ft-color-n-on-surface-40);
     --ft-form-field-label-muted: var(--ft-color-n-on-surface-20);
+
+    /* --- Accordion --- */
+    --ft-accordion-brand: var(--ft-color-mauve-500);
+    --ft-accordion-bg: color-mix(in srgb, var(--ft-accordion-brand) 4%, var(--ft-color-surface-level-100));
+    --ft-accordion-text: var(--ft-color-on-surface-level-100);
+    --ft-accordion-radius: var(--ft-radius-200);
+    --ft-accordion-padding: var(--ft-unit-300) var(--ft-unit-400);
+    --ft-accordion-icon-size: var(--ft-unit-500);
+    --ft-accordion-transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* --- Buttons --- */
+    --ft-button-brand: var(--ft-color-primary);
+    --ft-button-text: var(--ft-color-solid-on-surface);
+    --ft-button-bg: transparent;
+    --ft-button-border-color: var(--ft-color-border-200);
+    --ft-button-height: var(--ft-unit-800);
+    --ft-button-padding: 0 var(--ft-unit-400);
+    --ft-button-gap: var(--ft-unit-300);
+    --ft-button-icon-size: 20px;
+    --ft-button-shadow-blur: 20px;
+    --ft-button-vertical-offset: 8px;
+
+    /* --- Inputs --- */
+    --ft-input-bg: transparent;
+    --ft-input-border-color: var(--ft-color-border-200);
+    --ft-input-border-width: var(--ft-border-secondary);
+    --ft-input-text: var(--ft-color-solid-on-surface);
+    --ft-input-placeholder: var(--ft-color-on-surface-level-300);
+    --ft-input-label: var(--ft-color-on-surface-level-100);
+    --ft-input-accent: var(--ft-color-primary);
+    --ft-input-height: var(--ft-unit-800);
+    --ft-input-padding: 0 var(--ft-unit-400);
+    --ft-input-gap: var(--ft-unit-300);
+
+    /* --- Checkbox & Radio --- */
+    --ft-selection-border-color: var(--ft-color-border-200);
+    --ft-selection-border-width: var(--ft-border-tertiary);
+    --ft-selection-control-bg: transparent;
+    --ft-selection-text: var(--ft-color-solid-on-surface);
+    --ft-selection-radius: var(--ft-radius-400);
+    --ft-selection-size: var(--ft-unit-900);
+
+    /* --- Audio Player --- */
+    --ft-audio-player-bg: var(--ft-color-primary-600);
+    --ft-audio-player-radius: var(--ft-radius-300);
+    --ft-audio-player-shadow: 0 20px 50px -12px rgba(81, 45, 168, 0.6);
+    --ft-audio-player-color: var(--ft-color-n-surface-100);
+
+    /* --- Tabs --- */
+    --ft-tabs-bg: transparent;
+    --ft-tabs-border-color: var(--ft-color-border-200);
+    --ft-tabs-border-width: 0px;
+    --ft-tabs-padding: var(--ft-unit-50);
+    --ft-tabs-radius: var(--ft-radius-300);
+
+    --ft-tabs-tab-text: var(--ft-color-solid-on-surface);
+    --ft-tabs-tab-bg: transparent;
+    --ft-tabs-tab-text-active: var(--ft-color-primary);
+    --ft-tabs-tab-radius: var(--ft-radius-200);
+    --ft-tabs-tab-padding: var(--ft-unit-100) var(--ft-unit-200);
+    --ft-tabs-tab-font-size: var(--ft-text-xs);
+
+    /* --- Pagination --- */
+    --ft-pagination-pill-bg: var(--ft-color-solid-surface);
+    --ft-pagination-pill-border: 1px solid var(--ft-color-border-100);
+    --ft-pagination-pill-radius: var(--ft-radius-pill);
+    --ft-pagination-pill-shadow: var(--shadow-sm);
+    --ft-pagination-pill-padding: var(--ft-unit-150) var(--ft-unit-300);
+    --ft-pagination-pill-gap: var(--ft-unit-400);
+
+    --ft-pagination-btn-size: var(--ft-unit-800);
+    --ft-pagination-btn-radius: var(--ft-radius-pill);
+    --ft-pagination-btn-color: var(--ft-color-on-surface-level-200);
+    --ft-pagination-btn-font-size: var(--ft-text-xs);
+    --ft-pagination-btn-font-weight: var(--font-weight-medium);
+    
+    --ft-pagination-btn-hover-bg: var(--ft-color-surface-level-100);
+    --ft-pagination-btn-hover-color: var(--ft-color-primary);
+
+    --ft-pagination-btn-active-bg: var(--ft-color-primary-50);
+    --ft-pagination-btn-active-border: var(--ft-color-primary);
+    --ft-pagination-btn-active-color: var(--ft-color-primary);
+
+    /* --- Chips --- */
+    --ft-chips-bg: var(--ft-color-surface-level-100);
+    --ft-chips-text: var(--ft-color-solid-on-surface);
+    --ft-chips-radius: var(--ft-radius-400);
+    --ft-chips-height: var(--ft-unit-700);
+
+    /* --- Badges --- */
+    --ft-badge-bg: var(--ft-color-primary);
+    --ft-badge-text: var(--ft-color-on-primary);
+
+    /* --- Switch Button --- */
+    --ft-switch-button-brand: var(--ft-color-primary);
+    --ft-switch-button-bg: var(--ft-color-surface-level-200);
+    --ft-switch-button-selected-bg: var(--ft-switch-button-brand);
+    --ft-switch-button-text: var(--ft-color-on-surface-level-200);
+    --ft-switch-button-selected-text: var(--ft-color-on-primary);
+    --ft-switch-button-height: var(--ft-unit-800);
+    --ft-switch-button-padding: var(--ft-unit-100);
+    --ft-switch-button-gap: var(--ft-unit-100);
+    --ft-switch-button-radius: var(--ft-radius-pill);
 
     /* --- Switch --- */
     --ft-switch-100: var(--color-teal-500);
@@ -692,6 +831,12 @@
     --ft-switch-on-muted: var(--ft-color-n-on-surface-30);
 
     /* --- Dialog --- */
+    --ft-dialog-bg: var(--ft-color-solid-surface);
+    --ft-dialog-radius: var(--ft-radius-600);
+    --ft-dialog-shadow: var(--shadow-2xl);
+    --ft-dialog-min-width: 400px;
+    --ft-dialog-max-width: 500px;
+    --ft-dialog-padding: var(--ft-unit-600);
     --ft-dialog-v-padding: var(--ft-unit-400);
     --ft-dialog-h-padding: var(--ft-unit-800);
 
@@ -716,8 +861,11 @@
    * 4. DARK THEME OVERRIDES
    * ----------------------------------------------------------------------
    */
-  body.dark-theme {
+  [data-mode='dark'] {
     color-scheme: dark;
+
+    /* --- Icon Variation Settings (Irradiation Fix) --- */
+    --ft-icon-grad: -25;
 
     /* --- Base Reference Overrides --- */
     --ft-color-mix-a: #000; /* Dark background reference */
@@ -772,5 +920,68 @@
       linear-gradient(28deg, rgb(0 133 255 / 0%) 0%, rgba(255, 255, 255, 0)),
       linear-gradient(-49deg, rgb(255 0 113 / 0%) 0%, rgb(199 0 255 / 0%)),
       #373737;
+  }
+
+  /* --- Nord Theme Overrides --- */
+  [data-theme='nord'] {
+    --ft-color-primary: var(--nord10);
+    --ft-color-secondary: var(--nord7);
+    --ft-color-tertiary: var(--nord3);
+    --ft-color-success: var(--nord14);
+    --ft-color-danger: var(--nord11);
+    --ft-color-warning: var(--nord13);
+    --ft-color-info: var(--nord8);
+
+    --ft-color-highlight: linear-gradient(90deg, var(--nord10), var(--nord8));
+  }
+
+  [data-theme='nord'][data-mode='light'] {
+    --ft-color-mix-a: var(--nord6);
+    --ft-color-mix-z: var(--nord0);
+    --ft-color-solid-surface: var(--nord6);
+    --ft-color-solid-on-surface: var(--nord0);
+    --ft-color-background-image: none;
+    background-color: var(--nord6);
+  }
+
+  [data-theme='nord'][data-mode='dark'] {
+    --ft-color-mix-a: var(--nord0);
+    --ft-color-mix-z: var(--nord6);
+    --ft-color-solid-surface: var(--nord1);
+    --ft-color-solid-on-surface: var(--nord6);
+    --ft-color-background-image: none;
+    background-color: var(--nord0);
+  }
+
+  /* --- Dracula Theme Overrides --- */
+  [data-theme='dracula'] {
+    --ft-color-primary: var(--drac-purple);
+    --ft-color-secondary: var(--drac-pink);
+    --ft-color-tertiary: var(--drac-cmt);
+    --ft-color-success: var(--drac-green);
+    --ft-color-danger: var(--drac-red);
+    --ft-color-warning: var(--drac-yellow);
+    --ft-color-info: var(--drac-cyan);
+
+    --ft-color-highlight: linear-gradient(90deg, var(--drac-purple), var(--drac-pink));
+  }
+
+  [data-theme='dracula'][data-mode='light'] {
+    /* Dracula doesn't traditionally have a light mode, so we'll use a high-contrast inverted version or something suitable */
+    --ft-color-mix-a: #f8f8f2;
+    --ft-color-mix-z: #282a36;
+    --ft-color-solid-surface: #ffffff;
+    --ft-color-solid-on-surface: #282a36;
+    --ft-color-background-image: none;
+    background-color: #f8f8f2;
+  }
+
+  [data-theme='dracula'][data-mode='dark'] {
+    --ft-color-mix-a: var(--drac-bg);
+    --ft-color-mix-z: var(--drac-fg);
+    --ft-color-solid-surface: #343746;
+    --ft-color-solid-on-surface: var(--drac-fg);
+    --ft-color-background-image: none;
+    background-color: var(--drac-bg);
   }
 }
