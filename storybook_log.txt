@@ -1,8 +1,0 @@
-
-> uxui@0.0.0 storybook
-> ng run uxui:storybook
-
-
-[90m┌[39m  Starting Storybook
-[90m│[39m
-[90m│[39m  Generating documentation with Compodoc

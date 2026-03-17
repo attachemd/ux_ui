@@ -1,5 +1,0 @@
-refactor(ft-switch-button): use design system variables for styles
- 
-- Replaced hardcoded pixel values with CSS variables from the design system (e.g., --ft-unit-*, --ft-radius-pill).
-- Improved consistency and maintainability by aligning with the established design tokens.
-- Cleaned up CSS formatting for better readability.
