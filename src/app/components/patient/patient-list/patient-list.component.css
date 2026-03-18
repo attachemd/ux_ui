@@ -16,6 +16,9 @@
   /* 64px */
   --_col-width-id: var(--ft-unit-2000);
   /* 80px */
+
+  /* Unified Header Background */
+  --_header-bg: color-mix(in srgb, var(--ft-color-primary) 12%, transparent);
 }
 
 .list-header {
@@ -88,6 +91,7 @@
   flex-direction: column;
   min-height: 0;
   width: 100%;
+  padding: var(--ft-unit-400);
 }
 
 .table-container {
@@ -96,9 +100,6 @@
   flex-direction: column;
   overflow: hidden;
   /* Clipping container */
-  border: 1px solid var(--ft-color-border-100);
-  border-radius: var(--radius-xl);
-  background-color: var(--ft-color-solid-surface);
   padding: var(--ft-unit-400);
   /* Padding strictly on the non-scrolling container */
 }
@@ -154,9 +155,10 @@
 .ft-table {
   width: 100%;
   border-collapse: separate;
-  border-spacing: 0;
+  border-spacing: 0 var(--ft-unit-200);
   min-width: 4600px;
   font-size: var(--ft-text-sm);
+  margin-top: calc(-1 * var(--ft-unit-400));
   /* Ensure the table itself doesn't have its own rounding that would cause gaps */
 }
 
@@ -170,12 +172,26 @@
 }
 
 .ft-table tbody td {
+  border-top: 1px solid var(--ft-color-border-100);
   border-bottom: 1px solid var(--ft-color-border-100);
+  background-color: var(--ft-color-primary-50);
+}
+
+.ft-table tbody td:first-child {
+  border-left: 1px solid var(--ft-color-border-100);
+  border-top-left-radius: var(--ft-radius-400);
+  border-bottom-left-radius: var(--ft-radius-400);
+}
+
+.ft-table tbody td:last-child {
+  border-right: 1px solid var(--ft-color-border-100);
+  border-top-right-radius: var(--ft-radius-400);
+  border-bottom-right-radius: var(--ft-radius-400);
 }
 
 .ft-table thead th {
   /* Remove individual backgrounds to let the pseudo-element bar show through */
-  background-color: transparent !important;
+  background-color: transparent;
   color: var(--ft-color-on-surface-level-200);
   font-weight: var(--font-weight-semibold);
   font-size: var(--ft-text-xs);
@@ -196,12 +212,12 @@
   width: calc(100% - 2 * var(--ft-unit-200));
   height: var(--ft-unit-1000);
   /* Measured header height */
-  background-color: color-mix(in srgb, var(--ft-color-tertiary-100) 75%, transparent);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  border-radius: var(--radius-xl);
+  background-color: var(--_header-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: var(--ft-radius-400);
   pointer-events: none;
-  z-index: 1;
+  z-index: 51;
 }
 
 .ft-table thead::after {
@@ -214,57 +230,51 @@
   /* Measured header height */
   border: 1px solid var(--ft-color-border-100);
   box-shadow: 0 1px 8px 0 rgb(0 0 0 / 0.08);
-  border-radius: var(--radius-xl);
+  border-radius: var(--ft-radius-400);
   pointer-events: none;
   z-index: 120;
 }
 
 .ft-table thead tr {
-  background-color: transparent !important;
+  background-color: transparent;
 }
 
 .ft-table thead {
-  background-color: transparent !important;
+  background-color: transparent;
   /* Removed position: relative to allow ::after to anchor to the fixed .table-viewport */
 }
 
-/* Remove filter - it breaks stacking context! */
 /* Full rounded corners for the floating header row handled by container overflow */
-
-/* Apply shadow to cells instead */
-
-
-/* Remove individual cell radius - handled by .table-container overflow:hidden */
 /* Corner rounding for the floating header row - SURGICAL CLIPPING (4 Corners) */
 .ft-table thead tr:first-child th.sticky-column:first-child {
   /* Re-enable semi-opaque background for sticky corner to catch scrolling content with blur */
-  background-color: color-mix(in srgb, var(--color-neutral-100) 80%, transparent) !important;
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  border-top-left-radius: var(--ft-radius-400) !important;
-  border-bottom-left-radius: var(--ft-radius-400) !important;
+  background-color: transparent;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-top-left-radius: var(--ft-radius-400);
+  border-bottom-left-radius: var(--ft-radius-400);
   /* Force a rounded clipping boundary on the cell itself - All 4 corners if needed, but here just left */
-  clip-path: inset(0 0 0 0 round var(--ft-radius-400) 0 0 var(--ft-radius-400)) !important;
-  background-clip: padding-box !important;
-  overflow: hidden !important;
+  clip-path: inset(0 0 0 0 round var(--ft-radius-400) 0 0 var(--ft-radius-400));
+  background-clip: padding-box;
+  overflow: hidden;
 }
 
 .ft-table thead tr:first-child th.sticky-column-right {
   /* Re-enable semi-opaque background for sticky corner to catch scrolling content with blur */
-  background-color: color-mix(in srgb, var(--color-neutral-100) 80%, transparent) !important;
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  border-top-right-radius: var(--ft-radius-400) !important;
-  border-bottom-right-radius: var(--ft-radius-400) !important;
+  background-color: transparent;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-top-right-radius: var(--ft-radius-400);
+  border-bottom-right-radius: var(--ft-radius-400);
   /* Force a rounded clipping boundary on the cell itself - Right side */
-  clip-path: inset(0 0 0 0 round 0 var(--ft-radius-400) var(--ft-radius-400) 0) !important;
-  background-clip: padding-box !important;
-  overflow: hidden !important;
+  clip-path: inset(0 0 0 0 round 0 var(--ft-radius-400) var(--ft-radius-400) 0);
+  background-clip: padding-box;
+  overflow: hidden;
 }
 
 /* Add margin/gap between header and first row */
 .ft-table tbody tr:first-child td {
-  padding-top: var(--ft-unit-600);
+  /* padding-top: var(--ft-unit-600); */
 }
 
 /* Column Widths */
@@ -272,7 +282,7 @@
   width: var(--_col-width-checkbox);
   min-width: var(--_col-width-checkbox);
   max-width: var(--_col-width-checkbox);
-  padding: 0 !important;
+  padding: 0;
   display: table-cell;
   /* Maintain table-cell display */
   vertical-align: middle;
@@ -449,26 +459,16 @@
 }
 
 /* Dual-sticky corner cells (Top-Left, Top-Right) */
-.ft-table thead th.sticky-column,
-.ft-table thead th.sticky-column-right {
-  z-index: 110;
-  /* Highest priority */
-  background-color: var(--ft-color-tertiary-100) !important;
-}
 
 .ft-table tbody tr:hover td {
-  /* background-color: color-mix(in srgb, var(--ft-color-surface-level-200) 80%, transparent); */
-  background-color: color-mix(in srgb, var(--ft-color-tertiary-100) 75%, transparent) !important;
-  /* backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px); */
+  background-color: color-mix(in srgb, var(--ft-color-tertiary-100) 75%, transparent);
 }
 
 .ft-table tbody tr:hover .sticky-column,
 .ft-table tbody tr:hover .sticky-column-right {
-  /* background-color: color-mix(in srgb, var(--ft-color-surface-level-200) 80%, transparent) !important; */
-  background-color: color-mix(in srgb, var(--color-neutral-100) 75%, transparent) !important;
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
+  background-color: color-mix(in srgb, var(--color-neutral-100) 75%, transparent);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
 }
 
 .ft-table tbody tr.selected td {
@@ -484,11 +484,18 @@
 .sticky-column {
   position: sticky;
   left: 0;
-  background-color: color-mix(in srgb, var(--ft-color-solid-surface) 75%, transparent) !important;
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
+  background-color: color-mix(in srgb, var(--ft-color-primary-50) 75%, transparent);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   z-index: 50;
-  /* Lower than header but high enough for body */
+
+  /* Card boundary integration */
+  border-top: 1px solid var(--ft-color-border-100);
+  border-bottom: 1px solid var(--ft-color-border-100);
+}
+
+.ft-table tbody td.sticky-column:first-child {
+  border-left: 1px solid var(--ft-color-border-100);
 }
 
 /* General Rule: Last of left sticky group */
@@ -499,10 +506,18 @@
 .sticky-column-right {
   position: sticky;
   right: 0;
-  background-color: color-mix(in srgb, var(--ft-color-solid-surface) 75%, transparent) !important;
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
+  background-color: color-mix(in srgb, var(--ft-color-primary-50) 75%, transparent);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   z-index: 50;
+
+  /* Card boundary integration */
+  border-top: 1px solid var(--ft-color-border-100);
+  border-bottom: 1px solid var(--ft-color-border-100);
+}
+
+.ft-table tbody td.sticky-column-right:last-child {
+  border-right: 1px solid var(--ft-color-border-100);
 }
 
 /* General Rule: First of right sticky group */
@@ -513,9 +528,11 @@
 /* Match header bg for sticky columns in header */
 .ft-table thead th.sticky-column,
 .ft-table thead th.sticky-column-right {
-  background-color: color-mix(in srgb, var(--ft-color-tertiary-100) 80%, transparent) !important;
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
+  z-index: 110;
+  /* Highest priority */
+  background-color: transparent;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
 }
 
 /* Specific left positions for multiple sticky columns */
@@ -529,12 +546,6 @@
 
 .clickable-row {
   cursor: pointer;
-}
-
-.empty-state {
-  text-align: center;
-  padding: var(--ft-unit-1000);
-  color: var(--ft-color-on-surface-muted);
 }
 
 .empty-state {
