@@ -1,0 +1,12 @@
+{
+  "cssvar.enable": false,
+  "cssVariables.lookupFiles": [
+    "src/style/variables.css"
+  ],
+  "css.variables.completions": false,
+  "scss.variables.completions": false,
+  "less.variables.completions": false,
+  "css.suggest.variables": false,
+  "scss.suggest.variables": false,
+  "less.suggest.variables": false
+}
