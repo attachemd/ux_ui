@@ -157,7 +157,7 @@
   border-collapse: separate;
   border-spacing: 0 var(--ft-unit-200);
   min-width: 4600px;
-  font-size: var(--ft-text-sm);
+  font-size: var(--ft-text-xs);
   margin-top: calc(-1 * var(--ft-unit-400));
   /* Ensure the table itself doesn't have its own rounding that would cause gaps */
 }
@@ -165,26 +165,26 @@
 .ft-table thead th,
 .ft-table tbody td {
   text-align: left;
-  padding: var(--ft-unit-300) var(--ft-unit-400);
+  padding: var(--ft-unit-200) var(--ft-unit-400);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
 .ft-table tbody td {
-  border-top: 1px solid var(--ft-color-border-100);
-  border-bottom: 1px solid var(--ft-color-border-100);
-  background-color: var(--ft-color-primary-50);
+  /* border-top: 1px solid var(--ft-color-border-100);
+  border-bottom: 1px solid var(--ft-color-border-100); */
+  background-color: color-mix(in srgb, var(--ft-color-primary) 3%, transparent);
 }
 
 .ft-table tbody td:first-child {
-  border-left: 1px solid var(--ft-color-border-100);
+  /* border-left: 1px solid var(--ft-color-border-100); */
   border-top-left-radius: var(--ft-radius-400);
   border-bottom-left-radius: var(--ft-radius-400);
 }
 
 .ft-table tbody td:last-child {
-  border-right: 1px solid var(--ft-color-border-100);
+  /* border-right: 1px solid var(--ft-color-border-100); */
   border-top-right-radius: var(--ft-radius-400);
   border-bottom-right-radius: var(--ft-radius-400);
 }
@@ -490,12 +490,12 @@
   z-index: 50;
 
   /* Card boundary integration */
-  border-top: 1px solid var(--ft-color-border-100);
-  border-bottom: 1px solid var(--ft-color-border-100);
+  /* border-top: 1px solid var(--ft-color-border-100);
+  border-bottom: 1px solid var(--ft-color-border-100); */
 }
 
 .ft-table tbody td.sticky-column:first-child {
-  border-left: 1px solid var(--ft-color-border-100);
+  /* border-left: 1px solid var(--ft-color-border-100); */
 }
 
 /* General Rule: Last of left sticky group */
@@ -512,12 +512,12 @@
   z-index: 50;
 
   /* Card boundary integration */
-  border-top: 1px solid var(--ft-color-border-100);
-  border-bottom: 1px solid var(--ft-color-border-100);
+  /* border-top: 1px solid var(--ft-color-border-100);
+  border-bottom: 1px solid var(--ft-color-border-100); */
 }
 
 .ft-table tbody td.sticky-column-right:last-child {
-  border-right: 1px solid var(--ft-color-border-100);
+  /* border-right: 1px solid var(--ft-color-border-100); */
 }
 
 /* General Rule: First of right sticky group */
