@@ -4,6 +4,7 @@
   flex-direction: column;
   background-color: var(--ft-color-solid-surface);
   border-radius: var(--radius-xl);
+  anchor-name: --table-view;
 }
 
 :host {
@@ -18,7 +19,9 @@
   /* 80px */
 
   /* Unified Header Background */
-  --_header-bg: color-mix(in srgb, var(--ft-color-primary) 12%, transparent);
+  --_header-bg: color-mix(in srgb, var(--ft-color-primary) 50%, transparent);
+
+  --_col-width-actions: var(--ft-unit-3600);
 }
 
 .list-header {
@@ -124,6 +127,7 @@
   /* Scroll area viewport */
   padding: 0;
   /* Remove padding from scroll area to prevent leak */
+
 }
 
 /* Custom Scrollbar Styling */
@@ -160,6 +164,7 @@
   font-size: var(--ft-text-xs);
   margin-top: calc(-1 * var(--ft-unit-400));
   /* Ensure the table itself doesn't have its own rounding that would cause gaps */
+
 }
 
 .ft-table thead th,
@@ -169,22 +174,38 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  background-color: transparent !important;
 }
 
-.ft-table tbody td {
-  /* border-top: 1px solid var(--ft-color-border-100);
-  border-bottom: 1px solid var(--ft-color-border-100); */
-  background-color: color-mix(in srgb, var(--ft-color-primary) 3%, transparent);
+.ft-table tbody tr {
+  /* position: relative; */
+}
+
+.ft-table tbody {
+  anchor-scope: --table-view;
+}
+
+.ft-table tbody tr::after {
+  content: "";
+  display: block;
+  position: absolute;
+  position-anchor: --table-view;
+  top: 0;
+  bottom: 0;
+  left: anchor(left);
+  right: anchor(right);
+  background-color: color-mix(in srgb, var(--ft-color-primary) 3%, var(--ft-color-mix-a));
+  border-bottom: 1px solid var(--ft-color-border-100);
+  pointer-events: none;
+  z-index: -1;
 }
 
 .ft-table tbody td:first-child {
-  /* border-left: 1px solid var(--ft-color-border-100); */
   border-top-left-radius: var(--ft-radius-400);
   border-bottom-left-radius: var(--ft-radius-400);
 }
 
 .ft-table tbody td:last-child {
-  /* border-right: 1px solid var(--ft-color-border-100); */
   border-top-right-radius: var(--ft-radius-400);
   border-bottom-right-radius: var(--ft-radius-400);
 }
@@ -192,7 +213,7 @@
 .ft-table thead th {
   /* Remove individual backgrounds to let the pseudo-element bar show through */
   background-color: transparent;
-  color: var(--ft-color-on-surface-level-200);
+  color: var(--ft-color-on-primary);
   font-weight: var(--font-weight-semibold);
   font-size: var(--ft-text-xs);
   height: var(--ft-unit-1000);
@@ -450,41 +471,45 @@
   width: var(--_col-width-actions);
   min-width: var(--_col-width-actions);
   max-width: var(--_col-width-actions);
+  text-align: center !important;
 }
 
 .col-actions .action-button-container {
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: var(--ft-unit-100);
 }
 
 /* Dual-sticky corner cells (Top-Left, Top-Right) */
 
 .ft-table tbody tr:hover td {
-  background-color: color-mix(in srgb, var(--ft-color-tertiary-100) 75%, transparent);
+  background-color: transparent;
+}
+
+.ft-table tbody tr:hover::after {
+  background-color: color-mix(in srgb, var(--ft-color-tertiary-100) 75%, var(--ft-color-mix-a));
+}
+
+.ft-table tbody tr.selected td {
+  background-color: transparent;
+}
+
+.ft-table tbody tr.selected::after {
+  background-color: var(--ft-color-surface-level-100);
 }
 
 .ft-table tbody tr:hover .sticky-column,
 .ft-table tbody tr:hover .sticky-column-right {
-  background-color: color-mix(in srgb, var(--color-neutral-100) 75%, transparent);
+  background-color: color-mix(in srgb, var(--color-neutral-100) 75%, var(--ft-color-mix-a));
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-}
-
-.ft-table tbody tr.selected td {
-  background-color: var(--ft-color-surface-level-100);
-}
-
-.ft-table tbody tr.selected .sticky-column,
-.ft-table tbody tr.selected .sticky-column-right {
-  /* Same flattening for selection state */
-  /* background-color: color-mix(in srgb, var(--ft-color-surface-level-100), var(--ft-color-solid-surface)) !important; */
 }
 
 .sticky-column {
   position: sticky;
   left: 0;
-  background-color: color-mix(in srgb, var(--ft-color-primary-50) 75%, transparent);
+  background-color: color-mix(in srgb, var(--ft-color-primary-50) 75%, var(--ft-color-mix-a));
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   z-index: 50;
@@ -506,7 +531,7 @@
 .sticky-column-right {
   position: sticky;
   right: 0;
-  background-color: color-mix(in srgb, var(--ft-color-primary-50) 75%, transparent);
+  background-color: color-mix(in srgb, var(--ft-color-primary-50) 75%, var(--ft-color-mix-a));
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   z-index: 50;
