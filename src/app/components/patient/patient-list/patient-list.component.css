@@ -127,7 +127,7 @@
   /* Scroll area viewport */
   padding: 0;
   /* Remove padding from scroll area to prevent leak */
-
+  container-type: inline-size;
 }
 
 /* Custom Scrollbar Styling */
@@ -174,30 +174,33 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  background-color: transparent !important;
+  /* background-color: color-mix(in srgb, var(--ft-color-primary) 3%, var(--ft-color-mix-a)); */
 }
 
 .ft-table tbody tr {
-  /* position: relative; */
+  position: relative;
 }
 
 .ft-table tbody {
-  anchor-scope: --table-view;
+  /* anchor-scope: --table-view; */
 }
 
 .ft-table tbody tr::after {
   content: "";
   display: block;
   position: absolute;
-  position-anchor: --table-view;
+  /* position-anchor: --table-view; */
   top: 0;
-  bottom: 0;
-  left: anchor(left);
-  right: anchor(right);
+  left: 0;
+  /* left: anchor(left);
+  right: anchor(right); */
   background-color: color-mix(in srgb, var(--ft-color-primary) 3%, var(--ft-color-mix-a));
   border-bottom: 1px solid var(--ft-color-border-100);
   pointer-events: none;
   z-index: -1;
+  width: 100cqw;
+  height: 100%;
+
 }
 
 .ft-table tbody td:first-child {
@@ -229,9 +232,13 @@
   content: "";
   position: absolute;
   top: var(--ft-unit-200);
-  left: var(--ft-unit-200);
-  width: calc(100% - 2 * var(--ft-unit-200));
+  /* left: var(--ft-unit-200); */
+  /* width: calc(100% - 2 * var(--ft-unit-200)); */
   height: var(--ft-unit-1000);
+  /* top: 0; */
+  left: 0;
+  width: 100cqw;
+  /* height: 100%; */
   /* Measured header height */
   background-color: var(--_header-bg);
   backdrop-filter: blur(16px);
@@ -244,11 +251,14 @@
 .ft-table thead::after {
   content: "";
   position: absolute;
-  top: var(--ft-unit-200);
-  left: var(--ft-unit-200);
-  width: calc(100% - 2 * var(--ft-unit-200));
+  /* width: calc(100% - 2 * var(--ft-unit-200)); */
+  /* height: 100%; */
   height: var(--ft-unit-1000);
   /* Measured header height */
+
+  top: var(--ft-unit-200);
+  left: 0;
+  width: 100cqw;
   border: 1px solid var(--ft-color-border-100);
   box-shadow: 0 1px 8px 0 rgb(0 0 0 / 0.08);
   border-radius: var(--ft-radius-400);
@@ -262,7 +272,13 @@
 
 .ft-table thead {
   background-color: transparent;
+  /* position: relative; */
   /* Removed position: relative to allow ::after to anchor to the fixed .table-viewport */
+}
+
+.ft-table thead tr:first-child th.sticky-column {
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
 }
 
 /* Full rounded corners for the floating header row handled by container overflow */
@@ -502,16 +518,12 @@
 .ft-table tbody tr:hover .sticky-column,
 .ft-table tbody tr:hover .sticky-column-right {
   background-color: color-mix(in srgb, var(--color-neutral-100) 75%, var(--ft-color-mix-a));
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
 }
 
 .sticky-column {
   position: sticky;
   left: 0;
   background-color: color-mix(in srgb, var(--ft-color-primary-50) 75%, var(--ft-color-mix-a));
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
   z-index: 50;
 
   /* Card boundary integration */
@@ -532,8 +544,6 @@
   position: sticky;
   right: 0;
   background-color: color-mix(in srgb, var(--ft-color-primary-50) 75%, var(--ft-color-mix-a));
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
   z-index: 50;
 
   /* Card boundary integration */
@@ -556,8 +566,6 @@
   z-index: 110;
   /* Highest priority */
   background-color: transparent;
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
 }
 
 /* Specific left positions for multiple sticky columns */
