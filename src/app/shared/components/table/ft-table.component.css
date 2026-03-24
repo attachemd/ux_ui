@@ -1,0 +1,247 @@
+/* ==========================================================================
+   TABLE COMPONENT VARIABLES
+   ========================================================================== */
+.ft-table-wrapper {
+  display: flex;
+  flex-direction: column;
+  container-type: inline-size;
+  width: 100%;
+  position: static;
+
+  /* --- Backgrounds --- */
+  --_header-bg: var(--ft-table-header-bg, color-mix(in srgb, var(--ft-color-primary) 50%, transparent));
+
+  --_row-bg: var(--ft-table-row-bg, color-mix(in srgb, var(--ft-color-primary) 4%, var(--ft-color-mix-a)));
+  --_row-bg-even: var(--ft-table-row-bg-even, color-mix(in srgb, var(--ft-color-primary) 8%, var(--ft-color-mix-a)));
+  --_row-bg-hover: var(--ft-table-row-bg-hover, color-mix(in srgb, var(--ft-color-tertiary-100) 75%, var(--ft-color-mix-a)));
+  --_row-bg-selected: var(--ft-table-row-bg-selected, color-mix(in srgb, var(--ft-color-secondary) 10%, var(--ft-color-mix-a)));
+
+  --_sticky-bg: var(--ft-table-sticky-bg, var(--_row-bg));
+  --_sticky-bg-even: var(--ft-table-sticky-bg-even, var(--_row-bg-even));
+  --_sticky-bg-hover: var(--ft-table-sticky-bg-hover, var(--_row-bg-hover));
+  --_sticky-bg-selected: var(--ft-table-sticky-bg-selected, var(--_row-bg-selected));
+
+  /* --- Text Colors --- */
+  --_header-text: var(--ft-table-header-text, var(--ft-color-on-primary));
+  --_row-text: var(--ft-table-row-text, inherit);
+  --_row-text-hover: var(--ft-table-row-text-hover, inherit);
+  --_row-text-selected: var(--ft-table-row-text-selected, var(--ft-color-on-surface-level-100));
+  --_empty-state-text: var(--ft-table-empty-state-text, var(--ft-color-on-surface-muted));
+
+  /* --- Borders & Shadows --- */
+  --_header-border: var(--ft-table-header-border, 1px solid var(--ft-color-border-100));
+  --_header-shadow: var(--ft-table-header-shadow, 0 1px 8px 0 rgb(0 0 0 / 0.08));
+
+  --_row-border: var(--ft-table-row-border, 1px solid transparent);
+  --_row-border-hover: var(--ft-table-row-border-hover, var(--_row-border));
+  --_row-border-selected: var(--ft-table-row-border-selected, 1px solid transparent);
+
+  --_sticky-border: var(--ft-table-sticky-border, 1px solid var(--ft-color-border-100));
+
+  /* --- Radii --- */
+  --_header-radius: var(--ft-table-header-radius, var(--ft-radius-400));
+  --_row-radius: var(--ft-table-row-radius, var(--ft-radius-400));
+
+  /* --- Dimensions & Spacing --- */
+  --_header-height: var(--ft-table-header-height, var(--ft-unit-1300));
+  --_row-height: var(--ft-table-row-height, 52px);
+  --_row-gap: var(--ft-table-row-gap, var(--ft-unit-300));
+  --_cell-padding: var(--ft-table-cell-padding, var(--ft-unit-200) var(--ft-unit-400));
+}
+
+/* ==========================================================================
+   TABLE CORE
+   ========================================================================== */
+.ft-table {
+  table-layout: fixed;
+  width: max-content;
+  border-collapse: separate;
+  border-spacing: 0 var(--_row-gap);
+  font-size: var(--ft-text-xs);
+  margin-top: calc(-3 * var(--_row-gap));
+}
+
+.ft-table thead th,
+.ft-table tbody td {
+  text-align: left;
+  padding: var(--_cell-padding);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ==========================================================================
+   TABLE HEADER (THEAD)
+   ========================================================================== */
+/* .ft-table thead tr.header-row {
+  z-index: 110;
+} */
+
+.ft-table thead th {
+  background-color: transparent;
+  color: var(--_header-text);
+  font-weight: 600;
+  font-size: var(--ft-text-xs);
+  height: var(--_header-height);
+  padding-top: 0;
+  padding-bottom: 0;
+  cursor: pointer;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  user-select: none;
+}
+
+/* Header floating background layer */
+.ft-table thead tr::before {
+  content: "";
+  display: block;
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: calc(100cqw - 8px);
+  height: var(--_header-height);
+  background-color: var(--_header-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: var(--_header-radius);
+  border: var(--_header-border);
+  box-shadow: var(--_header-shadow);
+  pointer-events: none;
+  z-index: 105;
+  margin-left: calc(-1 * 100cqw + 8px);
+}
+
+.th-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--ft-unit-100);
+  position: relative;
+  z-index: 106;
+}
+
+.sort-icon {
+  font-size: var(--ft-text-base, 16px);
+  color: var(--ft-color-on-primary);
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+  display: inline-block;
+  width: 18px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.ft-table thead th:hover .sort-icon {
+  opacity: 0.5;
+}
+
+.sort-icon.active {
+  opacity: 1 !important;
+  color: var(--ft-color-on-primary);
+}
+
+.ft-table thead th.sorted {
+  color: var(--ft-color-on-primary);
+  font-weight: 700;
+  background-color: color-mix(in srgb, var(--ft-color-on-primary) 12%, transparent);
+  border-radius: var(--_header-radius);
+  z-index: 107;
+}
+
+/* ==========================================================================
+   TABLE BODY (TBODY)
+   ========================================================================== */
+.ft-table tbody td {
+  height: var(--_row-height);
+  color: var(--_row-text);
+}
+
+/* Full-width Row Background (via pseudo-element) */
+.ft-table tbody tr::before {
+  content: "";
+  display: block;
+  position: sticky;
+  top: 0;
+  left: 0;
+  background-color: var(--_row-bg);
+  border: var(--_row-border);
+  box-sizing: border-box;
+  pointer-events: none;
+  border-radius: var(--_row-radius);
+  z-index: 1;
+  width: calc(100cqw - 16px);
+  height: var(--_row-height);
+  margin-left: calc(-1 * 100cqw + 8px);
+  transition: border-color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+}
+
+.ft-table tbody td {
+  z-index: 2;
+  position: relative;
+}
+
+.ft-table tbody tr:hover::before {
+  background-color: var(--_row-bg-hover);
+  border-color: var(--ft-color-tertiary-200);
+}
+
+.ft-table tbody tr.selected::before {
+  background-color: var(--_row-bg-selected);
+}
+
+.clickable-row {
+  cursor: pointer;
+}
+
+/* ==========================================================================
+   STICKY COLUMNS
+   ========================================================================== */
+.sticky-column {
+  position: sticky;
+  left: 0;
+  z-index: 10;
+}
+
+.sticky-column-right {
+  position: sticky;
+  right: 0;
+  z-index: 10;
+}
+
+/* Background for sticky columns to prevent content bleed during scroll */
+.ft-table thead th.sticky-column,
+.ft-table thead th.sticky-column-right {
+  background-color: transparent;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 120;
+}
+
+.ft-table tbody td.sticky-column,
+.ft-table tbody td.sticky-column-right {
+  background-color: var(--_sticky-bg);
+}
+
+.ft-table tbody tr:hover td.sticky-column,
+.ft-table tbody tr:hover td.sticky-column-right {
+  background-color: var(--_sticky-bg-hover);
+}
+
+.ft-table tbody tr.selected td.sticky-column,
+.ft-table tbody tr.selected td.sticky-column-right {
+  background-color: var(--_sticky-bg-selected);
+}
+
+/* Checkbox specific */
+.checkbox-cell-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.empty-state {
+  text-align: center;
+  padding: var(--ft-unit-1000);
+  color: var(--_empty-state-text);
+}
