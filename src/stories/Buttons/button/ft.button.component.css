@@ -91,27 +91,27 @@
   /* 2. COLOR THEME LOGIC (The Mixin Logic) */
 
   &.primary {
-    --_brand: var(--ft-color-primary);
+    --_brand: var(--ft-button-brand, var(--ft-color-primary));
   }
 
   &.secondary {
-    --_brand: var(--ft-color-secondary);
+    --_brand: var(--ft-button-brand, var(--ft-color-secondary));
   }
 
   &.tertiary {
-    --_brand: var(--ft-color-tertiary);
+    --_brand: var(--ft-button-brand, var(--ft-color-tertiary));
   }
 
   &.success {
-    --_brand: var(--ft-color-success);
+    --_brand: var(--ft-button-brand, var(--ft-color-success));
   }
 
   &.warning {
-    --_brand: var(--ft-color-warning);
+    --_brand: var(--ft-button-brand, var(--ft-color-warning));
   }
 
   &.danger {
-    --_brand: var(--ft-color-danger);
+    --_brand: var(--ft-button-brand, var(--ft-color-danger));
   }
 
   /* 3. VARIANT LOGIC (Collapsing Flat, Outlined, Faded, Ghost) */
@@ -127,18 +127,18 @@
     --_shadow: 0 var(--_vertical-offset) var(--_shadow-blur) color-mix(in srgb, var(--_brand_variant) 30%, transparent);
 
     &:is(:hover, .hover) {
-      --_brand_variant: color-mix(in srgb, var(--_brand) 80%, var(--ft-color-mix-z));
+      --_brand_variant: var(--ft-button-hover-color, color-mix(in srgb, var(--_brand) 80%, var(--ft-color-mix-z)));
       --_bg: var(--_brand_variant);
     }
 
     &:is(:active, .press) {
-      --_brand_variant: color-mix(in srgb, var(--_brand) 60%, var(--ft-color-mix-z));
-      --_bg: color-mix(in srgb, var(--_brand) 60%, var(--ft-color-mix-z));
+      --_brand_variant: var(--ft-button-active-color, color-mix(in srgb, var(--_brand) 60%, var(--ft-color-mix-z)));
+      --_bg: var(--_brand_variant);
     }
 
     &:is(:focus-visible, .focus) {
-      --_brand_variant: color-mix(in srgb, var(--_brand) 40%, var(--ft-color-mix-z));
-      --_bg: color-mix(in srgb, var(--_brand) 40%, var(--ft-color-mix-z));
+      --_brand_variant: var(--ft-button-focus-color, color-mix(in srgb, var(--_brand) 40%, var(--ft-color-mix-z)));
+      --_bg: var(--_brand_variant);
     }
   }
 
@@ -172,17 +172,17 @@
     --_border-color: transparent;
 
     &:is(:hover, .hover) {
-      --_text: color-mix(in srgb, var(--_brand) 80%, var(--ft-color-mix-z));
+      --_text: var(--ft-button-hover-color, color-mix(in srgb, var(--_brand) 80%, var(--ft-color-mix-z)));
       --_bg: color-mix(in srgb, var(--_brand) 20%, transparent);
     }
 
     &:is(:active, .press) {
-      --_text: color-mix(in srgb, var(--_brand) 60%, var(--ft-color-mix-z));
+      --_text: var(--ft-button-active-color, color-mix(in srgb, var(--_brand) 60%, var(--ft-color-mix-z)));
       --_bg: color-mix(in srgb, var(--_brand) 30%, transparent);
     }
 
     &:is(:focus-visible, .focus) {
-      --_text: color-mix(in srgb, var(--_brand) 40%, var(--ft-color-mix-z));
+      --_text: var(--ft-button-focus-color, color-mix(in srgb, var(--_brand) 40%, var(--ft-color-mix-z)));
       --_bg: color-mix(in srgb, var(--_brand) 40%, transparent);
     }
   }
@@ -193,15 +193,15 @@
     --_shadow: none;
 
     &:is(:hover, .hover) {
-      --_text: color-mix(in srgb, var(--_brand) 80%, var(--ft-color-mix-z));
+      --_text: var(--ft-button-hover-color, color-mix(in srgb, var(--_brand) 80%, var(--ft-color-mix-z)));
     }
 
     &:is(:active, .press) {
-      --_text: color-mix(in srgb, var(--_brand) 60%, var(--ft-color-mix-z));
+      --_text: var(--ft-button-active-color, color-mix(in srgb, var(--_brand) 60%, var(--ft-color-mix-z)));
     }
 
     &:is(:focus-visible, .focus) {
-      --_text: color-mix(in srgb, var(--_brand) 40%, var(--ft-color-mix-z));
+      --_text: var(--ft-button-focus-color, color-mix(in srgb, var(--_brand) 40%, var(--ft-color-mix-z)));
     }
 
     &:is(:disabled, .disabled) {
