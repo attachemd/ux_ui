@@ -58,7 +58,7 @@ export class PatientListComponent {
   protected readonly Math = Math;
 
   allTableColumns: TableColumn[] = [
-    { key: 'select', label: '', type: 'checkbox', width: '64px', sticky: 'left', sortable: false },
+    { key: 'select', label: '', type: 'checkbox', width: '36px', sticky: 'left', sortable: false },
     { key: 'id', label: 'ID', width: '100px', sticky: 'left', minWidth: '100px', maxWidth: '100px' },
     { key: 'status', label: 'Statut', type: 'custom', width: '160px', minWidth: '160px', maxWidth: '160px' },
     { key: 'title', label: 'Titre', width: '100px' },
@@ -93,10 +93,10 @@ export class PatientListComponent {
   ];
 
   visibleColumnKeys = signal<string[]>([
-    'select', 'id', 'status', 'title', 'firstName', 'lastName', 'dateOfBirth', 'age', 'sexe', 
-    'email', 'primaryPhoneNumber', 'secondaryPhoneNumber', 'country', 'city', 'postalCode', 
-    'address', 'maritalStatus', 'nationality', 'ethnicity', 'occupation', 'spokenLanguages', 
-    'emergencyContactPhone', 'nationalId', 'passportNumber', 'placeOfBirth', 'employer', 
+    'select', 'id', 'status', 'title', 'firstName', 'lastName', 'dateOfBirth', 'age', 'sexe',
+    'email', 'primaryPhoneNumber', 'secondaryPhoneNumber', 'country', 'city', 'postalCode',
+    'address', 'maritalStatus', 'nationality', 'ethnicity', 'occupation', 'spokenLanguages',
+    'emergencyContactPhone', 'nationalId', 'passportNumber', 'placeOfBirth', 'employer',
     'socialSecurityNumber', 'insuranceProvider', 'insuranceNumber', 'otherField1', 'otherField2', 'actions'
   ]);
 
@@ -237,22 +237,22 @@ export class PatientListComponent {
     if (event) event.stopPropagation();
     this.activeExpandRow = row;
     this.activeExpandType = col;
-    
+
     if (this.expandDialog) {
       const dialog = this.expandDialog.nativeElement;
       const target = event.currentTarget as HTMLElement;
-      
+
       if (target) {
         const rect = target.getBoundingClientRect();
-        dialog.style.top = `${rect.bottom + 8}px`; 
-        
+        dialog.style.top = `${rect.bottom + 8}px`;
+
         let leftPos = rect.left;
         if (leftPos + 320 > window.innerWidth) {
           leftPos = window.innerWidth - 340;
         }
         dialog.style.left = `${leftPos}px`;
       }
-      
+
       dialog.showModal();
     }
   }

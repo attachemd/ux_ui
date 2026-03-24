@@ -4,7 +4,7 @@
 .ft-table-wrapper {
   display: flex;
   flex-direction: column;
-  container-type: inline-size;
+  /* container-type moved to .table-viewport in parent to avoid breaking position: sticky */
   width: 100%;
   position: static;
 
@@ -30,7 +30,8 @@
 
   /* --- Borders & Shadows --- */
   --_header-border: var(--ft-table-header-border, 1px solid var(--ft-color-border-100));
-  --_header-shadow: var(--ft-table-header-shadow, 0 1px 8px 0 rgb(0 0 0 / 0.08));
+  /*--_header-shadow: var(--ft-table-header-shadow, 0 1px 8px 0 rgb(0 0 0 / 0.08));*/
+  --_header-shadow: var(--ft-table-header-shadow, 0 0 8px 0 red);
 
   --_row-border: var(--ft-table-row-border, 1px solid transparent);
   --_row-border-hover: var(--ft-table-row-border-hover, var(--_row-border));
@@ -43,7 +44,7 @@
   --_row-radius: var(--ft-table-row-radius, var(--ft-radius-400));
 
   /* --- Dimensions & Spacing --- */
-  --_header-height: var(--ft-table-header-height, var(--ft-unit-1300));
+  --_header-height: var(--ft-table-header-height, var(--ft-unit-1000));
   --_row-height: var(--ft-table-row-height, 52px);
   --_row-gap: var(--ft-table-row-gap, var(--ft-unit-300));
   --_cell-padding: var(--ft-table-cell-padding, var(--ft-unit-200) var(--ft-unit-400));
@@ -58,11 +59,12 @@
   border-collapse: separate;
   border-spacing: 0 var(--_row-gap);
   font-size: var(--ft-text-xs);
-  margin-top: calc(-3 * var(--_row-gap));
+  /* margin-top: calc(-1 * var(--_row-gap)); */
 }
 
 .ft-table thead th,
 .ft-table tbody td {
+  box-sizing: content-box;
   text-align: left;
   padding: var(--_cell-padding);
   white-space: nowrap;
@@ -77,19 +79,10 @@
   z-index: 110;
 } */
 
-.ft-table thead th {
-  background-color: transparent;
-  color: var(--_header-text);
-  font-weight: 600;
-  font-size: var(--ft-text-xs);
-  height: var(--_header-height);
-  padding-top: 0;
-  padding-bottom: 0;
-  cursor: pointer;
+.ft-table thead {
   position: sticky;
-  top: 0;
-  z-index: 100;
-  user-select: none;
+  top: 12px;
+  z-index: 11;
 }
 
 /* Header floating background layer */
@@ -97,7 +90,7 @@
   content: "";
   display: block;
   position: sticky;
-  top: 0;
+  top: 12px;
   left: 0;
   width: calc(100cqw - 8px);
   height: var(--_header-height);
@@ -109,7 +102,29 @@
   box-shadow: var(--_header-shadow);
   pointer-events: none;
   z-index: 105;
+  /* margin-top: 8px; */
   margin-left: calc(-1 * 100cqw + 8px);
+}
+
+.ft-table thead tr {
+  /* position: absolute; */
+  top: -12px;
+  z-index: 105;
+}
+
+.ft-table thead th {
+  background-color: transparent;
+  color: var(--_header-text);
+  font-weight: 600;
+  font-size: var(--ft-text-xs);
+  height: var(--_header-height);
+  padding-top: 0;
+  padding-bottom: 0;
+  cursor: pointer;
+  position: sticky;
+  top: 12px;
+  z-index: 105;
+  user-select: none;
 }
 
 .th-content {
@@ -145,7 +160,6 @@
   color: var(--ft-color-on-primary);
   font-weight: 700;
   background-color: color-mix(in srgb, var(--ft-color-on-primary) 12%, transparent);
-  border-radius: var(--_header-radius);
   z-index: 107;
 }
 
@@ -158,10 +172,14 @@
 }
 
 /* Full-width Row Background (via pseudo-element) */
+.ft-table tbody tr {
+  position: relative;
+}
+
 .ft-table tbody tr::before {
   content: "";
   display: block;
-  position: sticky;
+  position: absolute;
   top: 0;
   left: 0;
   background-color: var(--_row-bg);
@@ -169,7 +187,7 @@
   box-sizing: border-box;
   pointer-events: none;
   border-radius: var(--_row-radius);
-  z-index: 1;
+  z-index: 0;
   width: calc(100cqw - 16px);
   height: var(--_row-height);
   margin-left: calc(-1 * 100cqw + 8px);
@@ -218,9 +236,28 @@
   z-index: 120;
 }
 
+.ft-table thead th.sticky-column:first-child {
+  border-top-left-radius: var(--_header-radius);
+  border-bottom-left-radius: var(--_header-radius);
+}
+
+.ft-table thead th.sticky-column-right:last-child {
+  border-top-right-radius: var(--_header-radius);
+  border-bottom-right-radius: var(--_header-radius);
+}
+
 .ft-table tbody td.sticky-column,
 .ft-table tbody td.sticky-column-right {
+  position: sticky;
+  /* Override position: relative from .ft-table tbody td */
+  left: 0;
+  z-index: 10;
   background-color: var(--_sticky-bg);
+}
+
+.ft-table tbody td.sticky-column-right {
+  left: auto;
+  right: 0;
 }
 
 .ft-table tbody tr:hover td.sticky-column,

@@ -81,6 +81,9 @@
   overflow: auto;
   position: relative;
   scrollbar-gutter: stable;
+  container-type: inline-size;
+  /* Provides the 100cqw context for the table's pseudo-elements */
+  padding: 0 12px; /* Provide space for the floating header shadow */
 }
 
 .table-scroll-area {
@@ -104,6 +107,25 @@
 
 .table-viewport::-webkit-scrollbar-thumb:hover {
   background: var(--_scrollbar-thumb-hover);
+}
+
+/* --- Sticky column offsets (specific to this table's layout) --- */
+/* ::ng-deep needed because <td> elements are rendered inside app-table's template */
+:host ::ng-deep .ft-table thead.select.sticky-column {
+  left: 0;
+  z-index: 105;
+}
+
+:host ::ng-deep .id.sticky-column {
+  left: calc(36px + 2 * var(--ft-unit-400));
+  /*
+   * Offset calculation:
+   * - 64px: Width of the checkbox (select) column
+   * - 2 * var(--ft-unit-400): Additional padding/spacing from the checkbox column and cell spacing
+   *
+   * This positions the ID column immediately to the right of the sticky checkbox column,
+   * ensuring both columns remain fixed during horizontal scroll without overlapping.
+   */
 }
 
 .list-footer {
