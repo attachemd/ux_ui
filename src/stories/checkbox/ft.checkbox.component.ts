@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter, ViewEncapsulation, HostBinding, HostListener } from '@angular/core';
-import { NgClass, NgIf } from '@angular/common';
+import { NgClass } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -8,8 +8,7 @@ import { FormsModule } from '@angular/forms';
     standalone: true,
     imports: [
         NgClass,
-        FormsModule,
-        NgIf
+        FormsModule
     ],
     styleUrls: ['./ft.checkbox.component.css'],
     encapsulation: ViewEncapsulation.Emulated

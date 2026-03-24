@@ -4,21 +4,31 @@
     <div class="field">
         <div class="checkbox">
             <div class="control">
-                <span *ngIf="value && !indeterminate" class="material-symbols-rounded check-icon">check</span>
-                <span *ngIf="indeterminate" class="material-symbols-rounded indeterminate-icon">remove</span>
+                @if (value && !indeterminate) {
+                <span class="material-symbols-rounded check-icon">check</span>
+                }
+                @if (indeterminate) {
+                <span class="material-symbols-rounded indeterminate-icon">remove</span>
+                }
             </div>
         </div>
     </div>
+    @if (isLabel || isDescription) {
     <div class="content" [ngClass]="{
            'content-2xs--normal': size === 'xs-size',
            'content-xs--normal': size === 'sm-size' || size === 'md-size',
            'content-sm--normal': size === 'lg-size',
            }">
-        <div *ngIf="isLabel" class="label">
+        @if (isLabel) {
+        <div class="label">
             {{label}}
         </div>
-        <div *ngIf="isDescription" class="description">
+        }
+        @if (isDescription) {
+        <div class="description">
             {{description}}
         </div>
+        }
     </div>
+    }
 </div>
