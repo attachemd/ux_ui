@@ -1,7 +1,7 @@
 export interface Patient {
   id?: string;
   photo?: File | string | null;
-  status: 'VIP' | 'ANONYME' | 'CONFIDENTIEL' | 'Anonyme' | 'Confidentiel';
+  status: 'VIP' | 'ANONYME' | 'CONFIDENTIEL' | 'Anonyme' | 'Confidentiel' | string[];
   title: string;
   firstName: string;
   lastName: string;

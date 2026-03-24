@@ -1,68 +1,35 @@
 <div class="list-container ft-panel">
   <div class="list-header">
     <div class="table-search-container">
-      <div class="table-view-container">
-        <ft-icon-button iconClass="settings" variant="ghost" size="sm-size" id="menuButton2" popovertarget="myMenu2"
-          popovertargetaction="toggle"></ft-icon-button>
-        <div id="myMenu2" popover class="popover-menu">
-          <ul>
-            <li>
-              <ft-button label="Configurer la vue" prefixIconClass="settings" variant="ghost" size="sm-size"
-                [isPrefixIconClass]="true"></ft-button>
-            </li>
-            <li>
-              <ft-button label="Modifier les colonnes" prefixIconClass="table_chart" variant="ghost" size="sm-size"
-                [isPrefixIconClass]="true"></ft-button>
-            </li>
-            <li>
-              <ft-button label="Enregistrer" prefixIconClass="save" variant="ghost" size="sm-size"
-                [isPrefixIconClass]="true"></ft-button>
-            </li>
-            <li>
-              <ft-button label="Enregistrer sous" prefixIconClass="save" variant="ghost" size="sm-size"
-                [isPrefixIconClass]="true"></ft-button>
-            </li>
-            <li>
-              <ft-button label="réinitialiser la vue" prefixIconClass="arrow_back" variant="ghost" size="sm-size"
-                [isPrefixIconClass]="true"></ft-button>
-            </li>
-            <li>
-              <ft-button label="Supprimer" prefixIconClass="delete" variant="ghost" size="sm-size"
-                [isPrefixIconClass]="true" [state]="'disabled'"></ft-button>
-            </li>
-          </ul>
-        </div>
-        <ft-select [formControl]="selectedView" [options]="views || []" variant="flat" [isLabel]="false" size="sm-size"
-          placeholder="Choisir une vue"></ft-select>
-      </div>
+      <app-views-manager
+        [views]="views"
+        [viewControl]="selectedView"
+        (viewChange)="onViewChange($event)"
+        (manageColumns)="columnManager.toggle('columnMenu')">
+      </app-views-manager>
 
-      <ft-input variant="flat" size="sm-size" radius="sm-radius" placeholder="Rechercher les patients"
-        prefixIconClass="search" [isPrefixIconClass]="true" (valueChange)="onSearchChange($event)" [isClearable]="true"
-        class="search-input-field" #searchInput>
-      </ft-input>
+      <app-search
+        placeholder="Rechercher les patients"
+        (search)="onSearchChange($event)">
+      </app-search>
     </div>
 
     <div class="table-actions-container">
-      <div class="header-actions-group">
-        <ft-button label="Réinitialiser" variant="ghost" size="sm-size"></ft-button>
-        <ft-button label="Filtrer" prefixIconClass="filter_alt" variant="flat" color="primary" size="sm-size"
-          [isPrefixIconClass]="true">
-          <span class="filter-number">2</span>
-        </ft-button>
-      </div>
+      <app-filter
+        [activeFiltersCount]="2"
+        (reset)="filter.set('')"
+        (filter)="onSearchChange('')">
+      </app-filter>
 
       <ft-button label="Nouveau" prefixIconClass="add" variant="flat" color="primary" size="sm-size"
         [isPrefixIconClass]="true"></ft-button>
-      <ft-icon-button iconClass="more_vert" variant="ghost" size="sm-size" id="menuButton1" popovertarget="myMenu1"
-        popovertargetaction="toggle"></ft-icon-button>
-      <div id="myMenu1" popover class="popover-menu">
-        <ul>
-          <li>
-            <ft-button label="Exporter" prefixIconClass="output" variant="ghost" size="sm-size"
-              [isPrefixIconClass]="true" [state]="'disabled'"></ft-button>
-          </li>
-        </ul>
-      </div>
+      
+      <app-column-manager
+        #columnManager
+        [allColumns]="allTableColumns"
+        [visibleColumns]="visibleColumnKeys()"
+        (toggleColumn)="toggleColumn($event)">
+      </app-column-manager>
     </div>
   </div>
 
@@ -70,107 +37,115 @@
     <div class="table-container">
       <div class="table-viewport">
         <div class="table-scroll-area">
-          <table class="ft-table">
-            <thead>
-              <tr>
-                <th class="sticky-column checkbox-col col-checkbox">
-                  <ft-checkbox (valueChange)="toggleAllRows()" [value]="isAllSelected()"
-                    [indeterminate]="selection().size > 0 && !isAllSelected()">
-                  </ft-checkbox>
-                </th>
-                <th class="sticky-column col-id" (click)="setSort('id')">ID</th>
-                <th class="col-status" (click)="setSort('status')">Statut</th>
-                <th class="col-title" (click)="setSort('title')">Civilité</th>
-                <th class="col-firstName" (click)="setSort('firstName')">Prénom</th>
-                <th class="col-lastName" (click)="setSort('lastName')">Nom</th>
-                <th class="col-dob" (click)="setSort('dateOfBirth')">Date de naissance</th>
-                <th class="col-age" (click)="setSort('age')">Âge</th>
-                <th class="col-sexe" (click)="setSort('sexe')">Sexe</th>
-                <th class="col-email" (click)="setSort('email')">Email</th>
-                <th class="col-phone1" (click)="setSort('primaryPhoneNumber')">Téléphone 1</th>
-                <th class="col-phone2" (click)="setSort('secondaryPhoneNumber')">Téléphone 2</th>
-                <th class="col-country" (click)="setSort('country')">Pays</th>
-                <th class="col-city" (click)="setSort('city')">Ville</th>
-                <th class="col-cp" (click)="setSort('postalCode')">CP</th>
-                <th class="col-address" (click)="setSort('address')">Adresse</th>
-                <th class="col-marital" (click)="setSort('maritalStatus')">État civil</th>
-                <th class="col-nationality" (click)="setSort('nationality')">Nationalité</th>
-                <th class="col-ethnicity" (click)="setSort('ethnicity')">Ethnicité</th>
-                <th class="col-occupation" (click)="setSort('occupation')">Profession</th>
-                <th class="col-languages" (click)="setSort('spokenLanguages')">Langues</th>
-                <th class="col-emergency" (click)="setSort('emergencyContactPhone')">Contact d'urgence</th>
-                <th class="col-cin" (click)="setSort('nationalId')">CIN</th>
-                <th class="col-passport" (click)="setSort('passportNumber')">Passeport</th>
-                <th class="col-pob" (click)="setSort('placeOfBirth')">Lieu de naissance</th>
-                <th class="col-employer" (click)="setSort('employer')">Employeur</th>
-                <th class="col-nss" (click)="setSort('socialSecurityNumber')">NSS</th>
-                <th class="col-insurance-provider" (click)="setSort('insuranceProvider')">Assurance</th>
-                <th class="col-insurance-number" (click)="setSort('insuranceNumber')">N° Assurance</th>
-                <th class="col-other1" (click)="setSort('otherField1')">Autre 1</th>
-                <th class="col-other2" (click)="setSort('otherField2')">Autre 2</th>
-                <th class="col-actions sticky-column-right">Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let row of paginatedUsers()" [class.selected]="isSelected(row)" (click)="toggleRow(row)"
-                class="clickable-row">
-                <td class="sticky-column col-checkbox" (click)="$event.stopPropagation()">
-                  <ft-checkbox (valueChange)="toggleRow(row)" [value]="isSelected(row)">
-                  </ft-checkbox>
-                </td>
-                <td class="sticky-column col-id">{{ row.id }}</td>
-                <td class="col-status">
-                  <span class="status-pill" [class]="row.status.toLowerCase()">
-                    {{ row.status }}
+          <app-table
+            [data]="paginatedUsers()"
+            [columns]="columns()"
+            [sortKey]="sortKey()"
+            [sortDirection]="sortDirection()"
+            [selection]="selection()"
+            (sort)="onSortChange($event)"
+            (selectionChange)="onSelectionChange($event)">
+
+            <!-- Custom Template: Status -->
+            <ng-template appTableCell="status" let-row>
+              <app-status-pills
+                [pills]="getStatuses(row.status)"
+                (moreClick)="openDialog(row, 'status', $event)">
+              </app-status-pills>
+            </ng-template>
+
+            <!-- Custom Template: Address -->
+            <ng-template appTableCell="address" let-row>
+              <div class="expandable-cell">
+                <span class="cell-text"
+                  appOverflowDetect
+                  (overflowChange)="onOverflowChange(row.id!, 'address', $event)">
+                  {{ row.address }}
+                </span>
+                @if (isOverflowing(row.id!, 'address')) {
+                  <span class="more-link" (click)="openDialog(row, 'address', $event)">+ plus</span>
+                }
+              </div>
+            </ng-template>
+
+            <!-- Custom Template: Languages -->
+            <ng-template appTableCell="spokenLanguages" let-row>
+              <div class="expandable-cell">
+                <span class="cell-text"
+                  appOverflowDetect
+                  (overflowChange)="onOverflowChange(row.id!, 'languages', $event)">
+                  {{ row.spokenLanguages?.join(', ') }}
+                </span>
+                @if (isOverflowing(row.id!, 'languages')) {
+                  <span class="more-link" (click)="openDialog(row, 'languages', $event)">
+                    +{{ (row.spokenLanguages?.length ?? 1) - 1 }}
                   </span>
-                </td>
-                <td class="col-title">{{ row.title }}</td>
-                <td class="col-firstName">{{ row.firstName }}</td>
-                <td class="col-lastName">{{ row.lastName }}</td>
-                <td class="col-dob">{{ row.dateOfBirth | date:'dd/MM/yyyy' }}</td>
-                <td class="col-age">{{ row.age }}</td>
-                <td class="col-sexe">{{ row.sexe }}</td>
-                <td class="col-email">{{ row.email }}</td>
-                <td class="col-phone1">{{ row.primaryPhoneNumber }}</td>
-                <td class="col-phone2">{{ row.secondaryPhoneNumber }}</td>
-                <td class="col-country">{{ row.country }}</td>
-                <td class="col-city">{{ row.city }}</td>
-                <td class="col-cp">{{ row.postalCode }}</td>
-                <td class="col-address">{{ row.address }}</td>
-                <td class="col-marital">{{ row.maritalStatus }}</td>
-                <td class="col-nationality">{{ row.nationality }}</td>
-                <td class="col-ethnicity">{{ row.ethnicity }}</td>
-                <td class="col-occupation">{{ row.occupation }}</td>
-                <td class="col-languages">{{ row.spokenLanguages?.join(', ') }}</td>
-                <td class="col-emergency">{{ row.emergencyContactPhone }}</td>
-                <td class="col-cin">{{ row.nationalId }}</td>
-                <td class="col-passport">{{ row.passportNumber }}</td>
-                <td class="col-pob">{{ row.placeOfBirth }}</td>
-                <td class="col-employer">{{ row.employer }}</td>
-                <td class="col-nss">{{ row.socialSecurityNumber }}</td>
-                <td class="col-insurance-provider">{{ row.insuranceProvider }}</td>
-                <td class="col-insurance-number">{{ row.insuranceNumber }}</td>
-                <td class="col-other1">{{ row.otherField1 }}</td>
-                <td class="col-other2">{{ row.otherField2 }}</td>
-                <td class="col-actions sticky-column-right" (click)="$event.stopPropagation()">
-                  <div class="action-button-container">
-                    <ft-icon-button variant="ghost" iconClass="visibility" size="sm-size"></ft-icon-button>
-                    <ft-icon-button variant="ghost" iconClass="edit" size="sm-size"></ft-icon-button>
-                    <ft-icon-button variant="ghost" iconClass="more_vert" size="sm-size"></ft-icon-button>
-                  </div>
-                </td>
-              </tr>
-              <tr *ngIf="filteredUsers().length === 0">
-                <td colspan="32" class="empty-state">Aucun patient correspondant à "{{ searchInput.value }}"</td>
-              </tr>
-            </tbody>
-          </table>
+                }
+              </div>
+            </ng-template>
+
+            <!-- Custom Template: Actions -->
+            <ng-template appTableCell="actions" let-row>
+              <div class="action-button-container" (click)="$event.stopPropagation()">
+                <ft-icon-button variant="ghost" iconClass="visibility" size="sm-size"></ft-icon-button>
+                <ft-icon-button variant="ghost" iconClass="edit" size="sm-size"></ft-icon-button>
+                <ft-icon-button variant="ghost" iconClass="more_vert" size="sm-size"></ft-icon-button>
+              </div>
+            </ng-template>
+
+          </app-table>
         </div>
       </div>
     </div>
+  </div>
 
-    <ft-pagination [totalItems]="filteredUsers().length" [pageSize]="pageSize()" [currentPage]="currentPage()"
-      (pageChange)="goToPage($event)" (pageSizeChange)="onPageSizeChange($event)">
+  <div class="list-footer">
+    <ft-pagination
+      [totalItems]="filteredUsers().length"
+      [pageSize]="pageSize()"
+      [currentPage]="currentPage()"
+      [pageSizeOptions]="pageSizeOptions"
+      (pageChange)="onPageChange($event)"
+      (pageSizeChange)="onPageSizeChange($event)">
     </ft-pagination>
   </div>
 </div>
+
+<!-- Expansion Dialog -->
+<dialog #expandDialog class="expansion-dialog" (click)="onDialogClick($event)">
+  <div class="dialog-content" (click)="$event.stopPropagation()">
+    <div class="dialog-header">
+      <h3>
+        @switch (activeExpandType) {
+          @case ('status') { Statuts }
+          @case ('address') { Adresse }
+          @case ('languages') { Langues }
+        }
+      </h3>
+      <ft-icon-button iconClass="close" variant="ghost" size="sm-size" (click)="closeDialog()"></ft-icon-button>
+    </div>
+    <div class="dialog-body">
+      @if (activeExpandRow) {
+        @switch (activeExpandType) {
+          @case ('status') {
+            <div class="status-container column">
+              @for (s of getStatuses(activeExpandRow.status); track s) {
+                <span class="status-pill" [class]="s.toLowerCase()">{{ s }}</span>
+              }
+            </div>
+          }
+          @case ('address') {
+            <p class="full-text">{{ activeExpandRow.address }}</p>
+          }
+          @case ('languages') {
+            <div class="languages-list">
+              @for (lang of activeExpandRow.spokenLanguages; track lang) {
+                <span class="language-item">{{ lang }}</span>
+              }
+            </div>
+          }
+        }
+      }
+    </div>
+  </div>
+</dialog>

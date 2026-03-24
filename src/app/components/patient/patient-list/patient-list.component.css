@@ -1,602 +1,242 @@
-.list-container {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  background-color: var(--ft-color-solid-surface);
-  border-radius: var(--radius-xl);
-  anchor-name: --table-view;
-}
+/**
+ * ==========================================================================
+ * PATIENT LIST COMPONENT STYLES
+ * ==========================================================================
+ *
+ * This component now orchestrates several reusable sub-components.
+ * Styles here are primarily for the main layout and expansion dialogs.
+ */
 
+/* ==========================================================================
+   1. HOST & VARIABLES
+   ========================================================================== */
 :host {
   display: flex;
   flex-direction: column;
   height: 100%;
 
-  /* Internal Column Widths */
-  --_col-width-checkbox: var(--ft-unit-1600);
-  /* 64px */
-  --_col-width-id: var(--ft-unit-2000);
-  /* 80px */
+  /* Action Icon spacing */
+  --_actions-gap: var(--ft-unit-100);
 
-  /* Unified Header Background */
-  --_header-bg: color-mix(in srgb, var(--ft-color-primary) 50%, transparent);
+  /* Scrollbar - used by the viewport */
+  --_scrollbar-thumb: var(--ft-table-scrollbar-thumb, color-mix(in srgb, var(--ft-color-on-surface-level-200) 10%, transparent));
+  --_scrollbar-thumb-hover: var(--ft-table-scrollbar-thumb-hover, color-mix(in srgb, var(--ft-color-on-surface-level-200) 20%, transparent));
+}
 
-  --_col-width-actions: var(--ft-unit-3600);
+/* ==========================================================================
+   2. MAIN LAYOUT CONTAINERS
+   ========================================================================== */
+.list-container {
+  padding: var(--ft-unit-200);
+  background-color: var(--ft-color-surface-level-100);
+  border-radius: var(--ft-radius-400);
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+  gap: var(--ft-unit-100);
 }
 
 .list-header {
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  gap: var(--ft-unit-400);
-  padding: 0;
-  height: var(--ft-unit-1500);
-  width: 100%;
+  padding: var(--ft-unit-200) var(--ft-unit-400);
+  background: var(--ft-color-surface);
+  border-bottom: 1px solid var(--ft-color-border-100);
+  border-radius: var(--ft-radius-400) var(--ft-radius-400) 0 0;
 }
 
 .table-search-container {
   display: flex;
   align-items: center;
-  gap: var(--ft-unit-400);
-  flex-grow: 1;
-}
-
-.table-view-container {
-  display: flex;
-  align-items: center;
   gap: var(--ft-unit-200);
+  flex: 1;
 }
 
 .table-actions-container {
   display: flex;
   align-items: center;
-  gap: var(--ft-unit-400);
-}
-
-.search-input-field {
-  flex-grow: 1;
-  max-width: 400px;
-}
-
-.header-actions-group {
-  display: flex;
   gap: var(--ft-unit-200);
-  align-items: center;
-}
-
-.popover-menu {
-  border: 1px solid var(--ft-color-border-100);
-  background-color: var(--ft-color-solid-surface);
-  box-shadow: var(--shadow-md);
-  border-radius: var(--ft-radius-500);
-  padding: var(--ft-unit-200);
-  min-width: 150px;
-  max-width: 250px;
-  top: anchor(bottom);
-  margin-top: var(--ft-unit-100);
-  justify-self: anchor-center;
-}
-
-.popover-menu ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.popover-menu li {
-  padding: var(--ft-unit-50) 0;
 }
 
 .list-body {
   flex: 1;
-  display: flex;
-  flex-direction: column;
   min-height: 0;
   width: 100%;
-  padding: var(--ft-unit-400);
+  overflow: hidden;
+  background-color: var(--ft-color-surface);
+  border-radius: 0 0 var(--ft-radius-400) var(--ft-radius-400);
 }
 
 .table-container {
-  flex: 1;
+  height: 100%;
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  /* Clipping container */
-  padding: var(--ft-unit-400);
-  /* Padding strictly on the non-scrolling container */
 }
 
 .table-viewport {
   flex: 1;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  /* Use inflation (padding + negative margin) to prevent shadow clipping while maintaining overflow:hidden for scrolling */
-  margin: calc(-1 * var(--ft-unit-200));
-  padding: var(--ft-unit-200);
-  border-top-left-radius: var(--radius-xl);
-  border-top-right-radius: var(--radius-xl);
+  overflow: auto;
   position: relative;
-  z-index: 1;
+  scrollbar-gutter: stable;
 }
 
 .table-scroll-area {
-  flex: 1;
-  overflow: auto;
-  /* Scroll area viewport */
-  padding: 0;
-  /* Remove padding from scroll area to prevent leak */
-  container-type: inline-size;
+  min-width: 100%;
 }
 
-/* Custom Scrollbar Styling */
-.table-scroll-area::-webkit-scrollbar {
+/* Custom Scrollbar Styles for the viewport */
+.table-viewport::-webkit-scrollbar {
   width: 8px;
   height: 8px;
 }
 
-.table-scroll-area::-webkit-scrollbar-track {
+.table-viewport::-webkit-scrollbar-track {
   background: transparent;
 }
 
-.table-scroll-area::-webkit-scrollbar-thumb {
-  background: transparent;
-  border-radius: var(--ft-radius-pill);
-  border: 2px solid transparent;
-  background-clip: content-box;
+.table-viewport::-webkit-scrollbar-thumb {
+  background: var(--_scrollbar-thumb);
+  border-radius: 4px;
 }
 
-/* Hover-only visibility with alpha transparency */
-.table-container:hover .table-scroll-area::-webkit-scrollbar-thumb {
-  background-color: color-mix(in srgb, var(--ft-color-on-surface-level-200) 10%, transparent);
+.table-viewport::-webkit-scrollbar-thumb:hover {
+  background: var(--_scrollbar-thumb-hover);
 }
 
-.table-container:hover .table-scroll-area::-webkit-scrollbar-thumb:hover {
-  background-color: color-mix(in srgb, var(--ft-color-on-surface-level-200) 20%, transparent);
-}
-
-.ft-table {
-  width: 100%;
-  border-collapse: separate;
-  border-spacing: 0 var(--ft-unit-200);
-  min-width: 4600px;
-  font-size: var(--ft-text-xs);
-  margin-top: calc(-1 * var(--ft-unit-400));
-  /* Ensure the table itself doesn't have its own rounding that would cause gaps */
-
-}
-
-.ft-table thead th,
-.ft-table tbody td {
-  text-align: left;
+.list-footer {
   padding: var(--ft-unit-200) var(--ft-unit-400);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  /* background-color: color-mix(in srgb, var(--ft-color-primary) 3%, var(--ft-color-mix-a)); */
+  border-top: 1px solid var(--ft-color-border-100);
 }
 
-.ft-table tbody tr {
-  position: relative;
-}
-
-.ft-table tbody {
-  /* anchor-scope: --table-view; */
-}
-
-.ft-table tbody tr::after {
-  content: "";
-  display: block;
-  position: absolute;
-  /* position-anchor: --table-view; */
-  top: 0;
-  left: 0;
-  /* left: anchor(left);
-  right: anchor(right); */
-  background-color: color-mix(in srgb, var(--ft-color-primary) 3%, var(--ft-color-mix-a));
-  border-bottom: 1px solid var(--ft-color-border-100);
-  pointer-events: none;
-  z-index: -1;
-  width: 100cqw;
-  height: 100%;
-
-}
-
-.ft-table tbody td:first-child {
-  border-top-left-radius: var(--ft-radius-400);
-  border-bottom-left-radius: var(--ft-radius-400);
-}
-
-.ft-table tbody td:last-child {
-  border-top-right-radius: var(--ft-radius-400);
-  border-bottom-right-radius: var(--ft-radius-400);
-}
-
-.ft-table thead th {
-  /* Remove individual backgrounds to let the pseudo-element bar show through */
-  background-color: transparent;
-  color: var(--ft-color-on-primary);
-  font-weight: var(--font-weight-semibold);
-  font-size: var(--ft-text-xs);
-  height: var(--ft-unit-1000);
-  padding-top: 0;
-  padding-bottom: 0;
-  cursor: pointer;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-
-.ft-table thead::before {
-  content: "";
-  position: absolute;
-  top: var(--ft-unit-200);
-  /* left: var(--ft-unit-200); */
-  /* width: calc(100% - 2 * var(--ft-unit-200)); */
-  height: var(--ft-unit-1000);
-  /* top: 0; */
-  left: 0;
-  width: 100cqw;
-  /* height: 100%; */
-  /* Measured header height */
-  background-color: var(--_header-bg);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-radius: var(--ft-radius-400);
-  pointer-events: none;
-  z-index: 51;
-}
-
-.ft-table thead::after {
-  content: "";
-  position: absolute;
-  /* width: calc(100% - 2 * var(--ft-unit-200)); */
-  /* height: 100%; */
-  height: var(--ft-unit-1000);
-  /* Measured header height */
-
-  top: var(--ft-unit-200);
-  left: 0;
-  width: 100cqw;
-  border: 1px solid var(--ft-color-border-100);
-  box-shadow: 0 1px 8px 0 rgb(0 0 0 / 0.08);
-  border-radius: var(--ft-radius-400);
-  pointer-events: none;
-  z-index: 120;
-}
-
-.ft-table thead tr {
-  background-color: transparent;
-}
-
-.ft-table thead {
-  background-color: transparent;
-  /* position: relative; */
-  /* Removed position: relative to allow ::after to anchor to the fixed .table-viewport */
-}
-
-.ft-table thead tr:first-child th.sticky-column {
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-}
-
-/* Full rounded corners for the floating header row handled by container overflow */
-/* Corner rounding for the floating header row - SURGICAL CLIPPING (4 Corners) */
-.ft-table thead tr:first-child th.sticky-column:first-child {
-  /* Re-enable semi-opaque background for sticky corner to catch scrolling content with blur */
-  background-color: transparent;
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-top-left-radius: var(--ft-radius-400);
-  border-bottom-left-radius: var(--ft-radius-400);
-  /* Force a rounded clipping boundary on the cell itself - All 4 corners if needed, but here just left */
-  clip-path: inset(0 0 0 0 round var(--ft-radius-400) 0 0 var(--ft-radius-400));
-  background-clip: padding-box;
-  overflow: hidden;
-}
-
-.ft-table thead tr:first-child th.sticky-column-right {
-  /* Re-enable semi-opaque background for sticky corner to catch scrolling content with blur */
-  background-color: transparent;
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-top-right-radius: var(--ft-radius-400);
-  border-bottom-right-radius: var(--ft-radius-400);
-  /* Force a rounded clipping boundary on the cell itself - Right side */
-  clip-path: inset(0 0 0 0 round 0 var(--ft-radius-400) var(--ft-radius-400) 0);
-  background-clip: padding-box;
-  overflow: hidden;
-}
-
-/* Add margin/gap between header and first row */
-.ft-table tbody tr:first-child td {
-  /* padding-top: var(--ft-unit-600); */
-}
-
-/* Column Widths */
-.col-checkbox {
-  width: var(--_col-width-checkbox);
-  min-width: var(--_col-width-checkbox);
-  max-width: var(--_col-width-checkbox);
-  padding: 0;
-  display: table-cell;
-  /* Maintain table-cell display */
-  vertical-align: middle;
-}
-
-.col-checkbox ft-checkbox {
+/* ==========================================================================
+   3. CUSTOM CELL UTILITIES (Used in ng-templates)
+   ========================================================================== */
+.expandable-cell {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  width: 100%;
-}
-
-.col-id {
-  width: var(--_col-width-id);
-  min-width: var(--_col-width-id);
-}
-
-.col-status {
-  width: 120px;
-  min-width: 120px;
-}
-
-.col-title {
-  width: 100px;
-  min-width: 100px;
-}
-
-.col-firstName {
-  width: 150px;
-  min-width: 150px;
-}
-
-.col-lastName {
-  width: 150px;
-  min-width: 150px;
-}
-
-.col-dob {
-  width: 160px;
-  min-width: 160px;
-}
-
-.col-age {
-  width: 70px;
-  min-width: 70px;
-}
-
-.col-sexe {
-  width: 80px;
-  min-width: 80px;
-}
-
-.col-email {
-  width: 240px;
-  min-width: 240px;
-}
-
-.col-phone1 {
-  width: 150px;
-  min-width: 150px;
-}
-
-.col-phone2 {
-  width: 150px;
-  min-width: 150px;
-}
-
-.col-country {
-  width: 150px;
-  min-width: 150px;
-}
-
-.col-city {
-  width: 150px;
-  min-width: 150px;
-}
-
-.col-cp {
-  width: 100px;
-  min-width: 100px;
-}
-
-.col-address {
-  width: 300px;
-  min-width: 300px;
-}
-
-.col-marital {
-  width: 150px;
-  min-width: 150px;
-}
-
-.col-nationality {
-  width: 150px;
-  min-width: 150px;
-}
-
-.col-ethnicity {
-  width: 150px;
-  min-width: 150px;
-}
-
-.col-occupation {
-  width: 180px;
-  min-width: 180px;
-}
-
-.col-languages {
-  width: 200px;
-  min-width: 200px;
-}
-
-.col-emergency {
-  width: 150px;
-  min-width: 150px;
-}
-
-.col-cin {
-  width: 150px;
-  min-width: 150px;
-}
-
-.col-passport {
-  width: 150px;
-  min-width: 150px;
-}
-
-.col-pob {
-  width: 180px;
-  min-width: 180px;
-}
-
-.col-employer {
-  width: 150px;
-  min-width: 150px;
-}
-
-.col-nss {
-  width: 150px;
-  min-width: 150px;
-}
-
-.col-insurance-provider {
-  width: 180px;
-  min-width: 180px;
-}
-
-.col-insurance-number {
-  width: 150px;
-  min-width: 150px;
-}
-
-.col-other1 {
-  width: 150px;
-  min-width: 150px;
-}
-
-.col-other2 {
-  width: 150px;
-  min-width: 150px;
-}
-
-.col-actions {
-  width: var(--_col-width-actions);
-  min-width: var(--_col-width-actions);
-  max-width: var(--_col-width-actions);
-  text-align: center !important;
-}
-
-.col-actions .action-button-container {
-  display: flex;
-  justify-content: center;
   align-items: center;
   gap: var(--ft-unit-100);
+  overflow: hidden;
 }
 
-/* Dual-sticky corner cells (Top-Left, Top-Right) */
-
-.ft-table tbody tr:hover td {
-  background-color: transparent;
+.cell-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
-.ft-table tbody tr:hover::after {
-  background-color: color-mix(in srgb, var(--ft-color-tertiary-100) 75%, var(--ft-color-mix-a));
-}
-
-.ft-table tbody tr.selected td {
-  background-color: transparent;
-}
-
-.ft-table tbody tr.selected::after {
-  background-color: var(--ft-color-surface-level-100);
-}
-
-.ft-table tbody tr:hover .sticky-column,
-.ft-table tbody tr:hover .sticky-column-right {
-  background-color: color-mix(in srgb, var(--color-neutral-100) 75%, var(--ft-color-mix-a));
-}
-
-.sticky-column {
-  position: sticky;
-  left: 0;
-  background-color: color-mix(in srgb, var(--ft-color-primary-50) 75%, var(--ft-color-mix-a));
-  z-index: 50;
-
-  /* Card boundary integration */
-  /* border-top: 1px solid var(--ft-color-border-100);
-  border-bottom: 1px solid var(--ft-color-border-100); */
-}
-
-.ft-table tbody td.sticky-column:first-child {
-  /* border-left: 1px solid var(--ft-color-border-100); */
-}
-
-/* General Rule: Last of left sticky group */
-.sticky-column:not(:has(+ .sticky-column)) {
-  border-right: 1px solid var(--ft-color-border-100);
-}
-
-.sticky-column-right {
-  position: sticky;
-  right: 0;
-  background-color: color-mix(in srgb, var(--ft-color-primary-50) 75%, var(--ft-color-mix-a));
-  z-index: 50;
-
-  /* Card boundary integration */
-  /* border-top: 1px solid var(--ft-color-border-100);
-  border-bottom: 1px solid var(--ft-color-border-100); */
-}
-
-.ft-table tbody td.sticky-column-right:last-child {
-  /* border-right: 1px solid var(--ft-color-border-100); */
-}
-
-/* General Rule: First of right sticky group */
-.sticky-column-right:not(.sticky-column-right + .sticky-column-right) {
-  border-left: 1px solid var(--ft-color-border-100);
-}
-
-/* Match header bg for sticky columns in header */
-.ft-table thead th.sticky-column,
-.ft-table thead th.sticky-column-right {
-  z-index: 110;
-  /* Highest priority */
-  background-color: transparent;
-}
-
-/* Specific left positions for multiple sticky columns */
-.col-checkbox {
-  left: 0;
-}
-
-.col-id {
-  left: var(--_col-width-checkbox);
-}
-
-.clickable-row {
-  cursor: pointer;
-}
-
-.empty-state {
-  text-align: center;
-  padding: var(--ft-unit-1000);
-  color: var(--ft-color-on-surface-muted);
-}
-
-.filter-number {
-  background-color: var(--ft-color-on-primary);
+.more-link {
   color: var(--ft-color-primary);
-  font-size: 10px;
-  font-weight: bold;
-  height: 16px;
-  width: 16px;
-  border-radius: 50%;
+  font-size: var(--ft-text-2xs);
+  cursor: pointer;
+  white-space: nowrap;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.more-link:hover {
+  text-decoration: underline;
+}
+
+.action-button-container {
+  display: flex;
+  gap: var(--_actions-gap);
+  align-items: center;
+}
+
+/* ==========================================================================
+   4. EXPANSION DIALOG (POPOVER)
+   ========================================================================== */
+.expansion-dialog {
+  border: none;
+  border-radius: var(--ft-radius-md);
+  box-shadow: var(--ft-shadow-lg);
+  padding: 0;
+  margin: 0;
+  background: white;
+  min-width: 280px;
+  max-width: 400px;
+  position: fixed;
+  z-index: 1000;
+}
+
+.expansion-dialog::backdrop {
+  background: transparent;
+}
+
+.dialog-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.dialog-header {
+  padding: var(--ft-unit-200) var(--ft-unit-300);
+  background: var(--ft-color-surface-level-100);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--ft-color-border-100);
+}
+
+.dialog-header h3 {
+  margin: 0;
+  font-size: var(--ft-text-sm);
+  font-weight: 600;
+  color: var(--ft-color-on-surface);
+}
+
+.dialog-body {
+  padding: var(--ft-unit-300);
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+/* Duplicate status pill styles for dialog usage */
+.status-pill {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  margin-left: 4px;
+  padding: var(--ft-unit-50) var(--ft-unit-300);
+  border-radius: var(--ft-radius-400);
+  font-size: var(--ft-text-2xs);
+  font-weight: 600;
+  white-space: nowrap;
+  letter-spacing: 0.02em;
+  text-transform: capitalize;
+}
+
+.status-pill.anonyme {
+  background-color: color-mix(in srgb, var(--ft-color-secondary) 15%, transparent);
+  color: color-mix(in srgb, var(--ft-color-secondary) 60%, var(--ft-color-mix-z, #000000));
+}
+
+.status-pill.confidentiel {
+  background-color: color-mix(in srgb, var(--ft-color-warning) 15%, transparent);
+  color: color-mix(in srgb, var(--ft-color-warning) 50%, var(--ft-color-mix-z, #000000));
+}
+
+.status-pill.vip {
+  background-color: color-mix(in srgb, var(--ft-color-danger) 15%, transparent);
+  color: color-mix(in srgb, var(--ft-color-danger) 60%, var(--ft-color-mix-z, #000000));
+}
+
+.full-text {
+  font-size: var(--ft-text-sm);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.languages-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--ft-unit-100);
+}
+
+.language-item {
+  background: var(--ft-color-surface-level-200);
+  padding: var(--ft-unit-50) var(--ft-unit-200);
+  border-radius: var(--ft-radius-sm);
+  font-size: var(--ft-text-2xs);
 }

@@ -1,13 +1,21 @@
 import { AfterViewInit, Component, ElementRef, ViewChild, signal, computed } from '@angular/core';
-import { NgIf, NgFor, DatePipe } from '@angular/common';
-import { FTInputComponent } from '../../../../stories/inputs/input/ft.input.component';
+import { OverflowDetectDirective } from '../../../directives/overflow-detect.directive';
+import { StatusPillsComponent } from './status-pills/status-pills.component';
 import { FtButtonComponent } from '../../../../stories/Buttons/button/ft.button.component';
 import { FtIconButtonComponent } from '../../../../stories/Buttons/icon-button/ft.icon.button.component';
-import { FtCheckboxComponent } from '../../../../stories/checkbox/ft.checkbox.component';
-import { FTSelectComponent, SelectOption } from '../../../../stories/select/select/ft.select.component';
+import { SelectOption } from '../../../../stories/select/select/ft.select.component';
 import { FTPaginationComponent } from '../../../../stories/pagination/ft.pagination.component';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Patient } from '../../../types/patient.type';
+
+// Reusable Sub-components
+import { FTSearchComponent } from '../../../shared/components/search/ft-search.component';
+import { FTFilterComponent } from '../../../shared/components/filter/ft-filter.component';
+import { FTViewsManagerComponent } from '../../../shared/components/views-manager/ft-views-manager.component';
+import { FTColumnManagerComponent } from '../../../shared/components/column-manager/ft-column-manager.component';
+import { FTTableComponent } from '../../../shared/components/table/ft-table.component';
+import { FTTableCellDirective } from '../../../shared/components/table/ft-table-cell.directive';
+import { TableColumn } from '../../../shared/components/table/table-column.interface';
 
 interface View {
   name: string;
@@ -32,33 +40,86 @@ const PROFESSIONS: string[] = ['ENGINEER', 'DOCTOR', 'TEACHER', 'OTHER'];
 
 const FIRST_NAMES: string[] = ['Maia', 'Asher', 'Olivia', 'Atticus', 'Amelia', 'Jack', 'Charlotte', 'Theodore', 'Isla', 'Oliver', 'Isabella', 'Jasper', 'Cora', 'Levi', 'Violet', 'Arthur', 'Mia', 'Thomas', 'Elizabeth'];
 const LAST_NAMES: string[] = ['Dupont', 'Martin', 'Bernard', 'Dubois', 'Thomas', 'Robert', 'Richard', 'Petit', 'Durand', 'Leroy', 'Moreau', 'Simon', 'Laurent', 'Lefebvre', 'Michel', 'Garcia', 'David', 'Bertrand', 'Roux'];
+
 @Component({
   selector: 'app-patient-list',
+  standalone: true,
   imports: [
-    NgIf, NgFor, DatePipe,
-    FTInputComponent, FtButtonComponent, FtIconButtonComponent, FtCheckboxComponent,
-    FTSelectComponent, FTPaginationComponent, FormsModule, ReactiveFormsModule
+    OverflowDetectDirective, StatusPillsComponent,
+    FtButtonComponent, FtIconButtonComponent,
+    FTPaginationComponent, FormsModule, ReactiveFormsModule,
+    FTSearchComponent, FTFilterComponent, FTViewsManagerComponent, FTColumnManagerComponent,
+    FTTableComponent, FTTableCellDirective
   ],
   templateUrl: './patient-list.component.html',
   styleUrl: './patient-list.component.css'
 })
 export class PatientListComponent {
   protected readonly Math = Math;
-  displayedColumns: string[] = [
-    'select', 'id', 'status', 'title', 'firstName', 'lastName', 'dateOfBirth', 'age', 'sexe',
-    'email', 'primaryPhoneNumber', 'secondaryPhoneNumber', 'country', 'city', 'postalCode',
-    'address', 'maritalStatus', 'nationality', 'ethnicity', 'occupation', 'spokenLanguages',
-    'emergencyContactPhone', 'nationalId', 'passportNumber', 'placeOfBirth', 'employer',
-    'socialSecurityNumber', 'insuranceProvider', 'insuranceNumber', 'otherField1', 'otherField2'
+
+  allTableColumns: TableColumn[] = [
+    { key: 'select', label: '', type: 'checkbox', width: '64px', sticky: 'left', sortable: false },
+    { key: 'id', label: 'ID', width: '100px', sticky: 'left', minWidth: '100px', maxWidth: '100px' },
+    { key: 'status', label: 'Statut', type: 'custom', width: '160px', minWidth: '160px', maxWidth: '160px' },
+    { key: 'title', label: 'Titre', width: '100px' },
+    { key: 'firstName', label: 'Prénom', width: '200px' },
+    { key: 'lastName', label: 'Nom', width: '200px' },
+    { key: 'dateOfBirth', label: 'Date de naissance', type: 'date', width: '160px' },
+    { key: 'age', label: 'Âge', width: '70px' },
+    { key: 'sexe', label: 'Sexe', width: '80px' },
+    { key: 'email', label: 'E-mail', width: '240px' },
+    { key: 'primaryPhoneNumber', label: 'Tél. Principal', width: '150px' },
+    { key: 'secondaryPhoneNumber', label: 'Tél. Secondaire', width: '150px' },
+    { key: 'country', label: 'Pays', width: '150px' },
+    { key: 'city', label: 'Ville', width: '150px' },
+    { key: 'postalCode', label: 'CP', width: '100px' },
+    { key: 'address', label: 'Adresse', type: 'custom', width: '300px' },
+    { key: 'maritalStatus', label: 'État civil', width: '150px' },
+    { key: 'nationality', label: 'Nationalité', width: '150px' },
+    { key: 'ethnicity', label: 'Ethnie', width: '150px' },
+    { key: 'occupation', label: 'Profession', width: '180px' },
+    { key: 'spokenLanguages', label: 'Langues', type: 'custom', width: '200px' },
+    { key: 'emergencyContactPhone', label: 'Tél. Urgence', width: '150px' },
+    { key: 'nationalId', label: 'CIN', width: '150px' },
+    { key: 'passportNumber', label: 'Passeport', width: '150px' },
+    { key: 'placeOfBirth', label: 'Lieu de Naiss.', width: '180px' },
+    { key: 'employer', label: 'Employeur', width: '150px' },
+    { key: 'socialSecurityNumber', label: 'NSS', width: '150px' },
+    { key: 'insuranceProvider', label: 'Assurance', width: '180px' },
+    { key: 'insuranceNumber', label: 'N° Assurance', width: '150px' },
+    { key: 'otherField1', label: 'Autre 1', width: '150px' },
+    { key: 'otherField2', label: 'Autre 2', width: '150px' },
+    { key: 'actions', label: 'Actions', type: 'actions', width: '144px', sticky: 'right', sortable: false }
   ];
+
+  visibleColumnKeys = signal<string[]>([
+    'select', 'id', 'status', 'title', 'firstName', 'lastName', 'dateOfBirth', 'age', 'sexe', 
+    'email', 'primaryPhoneNumber', 'secondaryPhoneNumber', 'country', 'city', 'postalCode', 
+    'address', 'maritalStatus', 'nationality', 'ethnicity', 'occupation', 'spokenLanguages', 
+    'emergencyContactPhone', 'nationalId', 'passportNumber', 'placeOfBirth', 'employer', 
+    'socialSecurityNumber', 'insuranceProvider', 'insuranceNumber', 'otherField1', 'otherField2', 'actions'
+  ]);
+
+  columns = computed(() => {
+    return this.allTableColumns.filter(col => this.visibleColumnKeys().includes(col.key));
+  });
 
   users = signal<Patient[]>([]);
   filter = signal<string>('');
   sortKey = signal<keyof Patient>('id');
   sortDirection = signal<'asc' | 'desc'>('asc');
 
-  pageSize = signal<number>(10);
-  currentPage = signal<number>(0);
+  selection = signal<Set<string>>(new Set());
+
+  views: SelectOption[] = [
+    { label: 'Vue standard', value: 'standard' },
+    { label: 'Vue compacte', value: 'compact' },
+    { label: 'Vue détaillée', value: 'detailed' }
+  ];
+  selectedView = new FormControl('standard');
+
+  currentPage = signal(0);
+  pageSize = signal(10);
 
   pageSizeOptions: SelectOption[] = [
     { label: '5 par page', value: 5 },
@@ -67,7 +128,14 @@ export class PatientListComponent {
     { label: '50 par page', value: 50 },
   ];
 
-  selection = signal<Set<string>>(new Set());
+  overflowMap = signal<Map<string, boolean>>(new Map());
+
+  constructor() {
+    const initialUsers = Array.from({ length: 100 }, (_, k) => createNewPatient(k + 1));
+    this.users.set(initialUsers);
+  }
+
+  // --- Computed Data ---
 
   filteredUsers = computed(() => {
     const filterValue = this.filter().toLowerCase();
@@ -97,47 +165,36 @@ export class PatientListComponent {
     return Math.ceil(this.filteredUsers().length / this.pageSize());
   });
 
-  pageOptions = computed<SelectOption[]>(() => {
-    const total = this.totalPages();
-    return Array.from({ length: total }, (_, i) => ({
-      label: `Page ${i + 1}`,
-      value: i
-    }));
-  });
-
-  views: SelectOption[] | undefined;
-  selectedView = new FormControl<any>(null);
-
-  constructor() {
-    const initialUsers = Array.from({ length: 100 }, (_, k) => createNewPatient(k + 1));
-    this.users.set(initialUsers);
-    this.selectedView.setValue('1');
-    this.views = [
-      { label: 'Vue standard', value: '1' },
-      { label: 'Compact', value: '2' },
-      { label: 'Date de naissance en premier', value: '3' },
-      { label: 'Filtrer par ville', value: '11' },
-    ];
-  }
+  // --- Event Handlers ---
 
   onSearchChange(value: string) {
-    this.filter.set(value.trim());
-    this.currentPage.set(0); // Reset to first page on search
+    this.filter.set(value);
+    this.currentPage.set(0);
   }
 
-  nextPage() {
-    if (this.currentPage() < this.totalPages() - 1) {
-      this.currentPage.update(p => p + 1);
+  onSortChange(event: { key: string, direction: 'asc' | 'desc' }) {
+    this.sortKey.set(event.key as keyof Patient);
+    this.sortDirection.set(event.direction);
+  }
+
+  onSelectionChange(newSelection: Set<string>) {
+    this.selection.set(newSelection);
+  }
+
+  onViewChange(viewId: string) {
+    console.log('View changed to:', viewId);
+  }
+
+  toggleColumn(key: string) {
+    const current = this.visibleColumnKeys();
+    if (current.includes(key)) {
+      this.visibleColumnKeys.set(current.filter(k => k !== key));
+    } else {
+      this.visibleColumnKeys.set([...current, key]);
     }
   }
 
-  prevPage() {
-    if (this.currentPage() > 0) {
-      this.currentPage.update(p => p - 1);
-    }
-  }
-
-  goToPage(page: number) {
+  onPageChange(page: number) {
     this.currentPage.set(page);
   }
 
@@ -146,40 +203,76 @@ export class PatientListComponent {
     this.currentPage.set(0);
   }
 
-  isAllSelected() {
-    return this.selection().size === this.filteredUsers().length && this.filteredUsers().length > 0;
-  }
+  // --- Overflow & Custom Cell Logic ---
 
-  toggleAllRows() {
-    if (this.isAllSelected()) {
-      this.selection.set(new Set());
-    } else {
-      this.selection.set(new Set(this.filteredUsers().map(u => u.id!)));
+  onOverflowChange(rowId: string, column: string, overflows: boolean): void {
+    const key = `${rowId}:${column}`;
+    const current = this.overflowMap();
+    if (current.get(key) !== overflows) {
+      const next = new Map(current);
+      next.set(key, overflows);
+      this.overflowMap.set(next);
     }
   }
 
-  toggleRow(row: Patient) {
-    const newSelection = new Set(this.selection());
-    if (row.id) {
-      if (newSelection.has(row.id)) {
-        newSelection.delete(row.id);
-      } else {
-        newSelection.add(row.id);
+  isOverflowing(rowId: string, column: string): boolean {
+    return this.overflowMap().get(`${rowId}:${column}`) ?? false;
+  }
+
+  getStatuses(status: any): string[] {
+    if (!status) return [];
+    if (Array.isArray(status)) return status;
+    if (typeof status === 'string' && status.includes(',')) return status.split(',').map(s => s.trim());
+    return [status];
+  }
+
+  // --- Dialog logic ---
+
+  activeExpandType: 'status' | 'address' | 'languages' | null = null;
+  activeExpandRow: Patient | null = null;
+
+  @ViewChild('expandDialog') expandDialog!: ElementRef<HTMLDialogElement>;
+
+  openDialog(row: Patient, col: 'status' | 'address' | 'languages', event: MouseEvent) {
+    if (event) event.stopPropagation();
+    this.activeExpandRow = row;
+    this.activeExpandType = col;
+    
+    if (this.expandDialog) {
+      const dialog = this.expandDialog.nativeElement;
+      const target = event.currentTarget as HTMLElement;
+      
+      if (target) {
+        const rect = target.getBoundingClientRect();
+        dialog.style.top = `${rect.bottom + 8}px`; 
+        
+        let leftPos = rect.left;
+        if (leftPos + 320 > window.innerWidth) {
+          leftPos = window.innerWidth - 340;
+        }
+        dialog.style.left = `${leftPos}px`;
       }
-      this.selection.set(newSelection);
+      
+      dialog.showModal();
     }
   }
 
-  isSelected(row: Patient) {
-    return !!row.id && this.selection().has(row.id);
+  closeDialog() {
+    if (this.expandDialog) {
+      this.expandDialog.nativeElement.close();
+    }
+    this.activeExpandRow = null;
+    this.activeExpandType = null;
   }
 
-  setSort(key: keyof Patient) {
-    if (this.sortKey() === key) {
-      this.sortDirection.set(this.sortDirection() === 'asc' ? 'desc' : 'asc');
-    } else {
-      this.sortKey.set(key);
-      this.sortDirection.set('asc');
+  onDialogClick(event: MouseEvent) {
+    if (!this.expandDialog) return;
+    const dialog = this.expandDialog.nativeElement;
+    const rect = dialog.getBoundingClientRect();
+    const isInDialog = (rect.top <= event.clientY && event.clientY <= rect.top + rect.height
+      && rect.left <= event.clientX && event.clientX <= rect.left + rect.width);
+    if (!isInDialog) {
+      this.closeDialog();
     }
   }
 }
@@ -188,7 +281,8 @@ export class PatientListComponent {
 function createNewPatient(id: number): Patient {
   const firstName = FIRST_NAMES[Math.floor(Math.random() * FIRST_NAMES.length)];
   const lastName = LAST_NAMES[Math.floor(Math.random() * LAST_NAMES.length)];
-  const status = STATUSES[Math.floor(Math.random() * STATUSES.length)] as any;
+  const shuffledStatuses = [...STATUSES].sort(() => 0.5 - Math.random());
+  const status = shuffledStatuses.slice(0, Math.random() > 0.85 ? 2 : 1) as any;
   const title = TITLES[Math.floor(Math.random() * TITLES.length)];
   const sexe = SEXES[Math.floor(Math.random() * SEXES.length)];
   const country = COUNTRIES[Math.floor(Math.random() * COUNTRIES.length)];
