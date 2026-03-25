@@ -1,0 +1,147 @@
+import { Meta, Unstyled } from "@storybook/addon-docs/blocks";
+
+<Meta title="Theme/Colors/Common Colors"/>
+
+# Common Colors
+
+The common color palette provides a wide range of colors for various UI elements. Each color family contains shades from 50 (lightest) to 950 (darkest).
+
+<Unstyled>
+  <style>{`
+    .palette-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 32px;
+      padding: 24px 0;
+    }
+
+    .palette-card {
+      background: var(--ft-color-solid-surface);
+      border: 1px solid var(--ft-color-n-surface-15);
+      border-radius: 20px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .palette-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 20px -5px rgba(0, 0, 0, 0.15);
+      border-color: var(--ft-color-n-surface-30);
+    }
+
+    .palette-header {
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--ft-color-n-surface-10);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--ft-color-n-surface-5);
+    }
+
+    .palette-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      text-transform: capitalize;
+      color: var(--ft-color-solid-on-surface);
+      margin: 0;
+    }
+
+    .palette-content {
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .shade-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 6px 8px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .shade-row:hover {
+      background: var(--ft-color-n-surface-10);
+    }
+
+    .shade-swatch {
+      width: 48px;
+      height: 24px;
+      border-radius: 4px;
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,0.05);
+    }
+
+    .shade-label {
+      font-family: 'Fira Code', monospace;
+      font-size: 0.75rem;
+      color: var(--ft-color-solid-on-surface);
+      min-width: 30px;
+      font-weight: 600;
+    }
+
+    .shade-var {
+      font-family: 'Fira Code', monospace;
+      font-size: 0.7rem;
+      color: var(--ft-color-on-surface-muted);
+      flex: 1;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .primary-badge {
+      font-size: 0.6rem;
+      padding: 2px 6px;
+      background: var(--ft-color-primary-600);
+      color: white;
+      border-radius: 4px;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-left: auto;
+    }
+  `}</style>
+</Unstyled>
+
+export const colorNames = [
+  'red', 'orange', 'amber', 'yellow', 'lime',
+  'green', 'emerald', 'teal', 'cyan', 'sky',
+  'blue', 'indigo', 'violet', 'purple', 'fuchsia',
+  'pink', 'rose', 'slate', 'gray', 'zinc', 'neutral', 'stone'
+];
+
+export const colorVariations = [
+  '50', '100', '200', '300', '400',
+  '500', '600', '700', '800', '900', '950'
+];
+
+export const PaletteCard = ({ color }) => (
+  <div class="palette-card">
+    <div class="palette-header">
+      <h3 class="palette-title">{color}</h3>
+    </div>
+    <div class="palette-content">
+      {colorVariations.map((variation) => (
+        <div class="shade-row" key={variation} title={`--color-${color}-${variation}`}>
+          <div class="shade-swatch" style={{ backgroundColor: `var(--color-${color}-${variation})` }}></div>
+          <span class="shade-label">{variation}</span>
+          <code class="shade-var">--color-{color}-{variation}</code>
+          {(variation === '500' || variation === '600') && <span class="primary-badge">Base</span>}
+        </div>
+      ))}
+    </div>
+  </div>
+);
+
+<Unstyled>
+  <div class="palette-grid">
+    {colorNames.map((color) => (
+      <PaletteCard key={color} color={color}/>
+    ))}
+  </div>
+</Unstyled>

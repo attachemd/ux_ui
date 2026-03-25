@@ -1,0 +1,83 @@
+import { Meta, Unstyled } from "@storybook/addon-docs/blocks";
+
+<Meta title="Theme/Tokens/Radius"/>
+
+# Border Radius Tokens
+
+The radius scale provides a consistent set of corner rounding values from hairline (2px) to a full pill shape. Use these tokens on all interactive elements and containers.
+
+<Unstyled>
+  <style>{`
+    .radius-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 16px;
+      padding: 24px 0;
+    }
+    .radius-card {
+      background: var(--ft-color-solid-surface);
+      border: 1px solid var(--ft-color-n-surface-15);
+      border-radius: 16px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+      transition: all 0.25s;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+    }
+    .radius-card:hover { transform: translateY(-3px); box-shadow: 0 8px 16px rgba(0,0,0,0.1); }
+    .radius-preview {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, var(--ft-color-primary-300), var(--ft-color-secondary-400));
+    }
+    .radius-info { text-align: center; }
+    .radius-varname {
+      font-family: 'Fira Code', monospace;
+      font-size: 0.75rem;
+      color: var(--ft-color-on-surface-muted);
+      display: block;
+      margin-bottom: 4px;
+    }
+    .radius-px {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--ft-color-solid-on-surface);
+    }
+    .radius-desc {
+      font-size: 0.7rem;
+      color: var(--ft-color-on-surface-muted);
+      margin-top: 2px;
+    }
+  `}</style>
+</Unstyled>
+
+export const radiusTokens = [
+    { name: '--ft-radius-100', rem: '0.125rem', px: '2px', desc: 'Hairline — chips, indicators' },
+    { name: '--ft-radius-200', rem: '0.25rem', px: '4px', desc: 'Subtle — buttons, inputs' },
+    { name: '--ft-radius-300', rem: '0.375rem', px: '6px', desc: 'Gentle — small containers' },
+    { name: '--ft-radius-400', rem: '0.5rem', px: '8px', desc: 'Noticeable — modals, cards' },
+    { name: '--ft-radius-500', rem: '0.75rem', px: '12px', desc: 'Strong — hero sections' },
+    { name: '--ft-radius-600', rem: '1rem', px: '16px', desc: 'Extra — avatars, pills' },
+    { name: '--ft-radius-700', rem: '1.5rem', px: '24px', desc: 'Heavy — circular containers' },
+    { name: '--ft-radius-800', rem: '2rem', px: '32px', desc: 'Maximum — oversized elements' },
+    { name: '--ft-radius-pill', rem: '50rem', px: '800px', desc: 'Full pill / oval shape' },
+];
+
+export const RadiusCard = ({ name, rem, px, desc }) => (
+    <div class="radius-card">
+        <div class="radius-preview" style={{ borderRadius: rem }}></div>
+        <div class="radius-info">
+            <code class="radius-varname">{name}</code>
+            <div class="radius-px">{px}</div>
+            <div class="radius-desc">{desc}</div>
+        </div>
+    </div>
+);
+
+<Unstyled>
+  <div class="radius-grid">
+    {radiusTokens.map(t => <RadiusCard key={t.name} {...t}/>)}
+  </div>
+</Unstyled>

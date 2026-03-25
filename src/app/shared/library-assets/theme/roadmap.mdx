@@ -1,0 +1,110 @@
+import {Meta, Unstyled} from "@storybook/addon-docs/blocks";
+
+<Meta title="Theme/Roadmap"/>
+
+Visually track the development status of a component library
+
+export const componentStatusArray = [
+  {name: "Theme", status: "In progress"},
+  {name: "Input", status: "Review"},
+  {name: "Radio", status: "Review"},
+  {name: "Radio Group", status: "Review"},
+  {name: "Button", status: "Done"},
+  {name: "Button Group", status: "Review"},
+  {name: "Icon Button", status: "Review"},
+  {name: "Switch Button", status: "Review"},
+  {name: "Toggle", status: "Review"},
+  {name: "Checkbox", status: "Review"},
+  {name: "Checkbox Group", status: "Review"},
+  {name: "Select", status: "Review"},
+  {name: "Dropdown", status: "Not started"},
+  {name: "Textarea", status: "Review"},
+  {name: "Chips", status: "Review"},
+  {name: "Tabs", status: "In progress"},
+  {name: "Accordion", status: "In progress"},
+  {name: "DateInput", status: "Not started"},
+  {name: "TimeInput", status: "Not started"},
+  {name: "DateRangePicker", status: "Not started"},
+  {name: "Card", status: "Not started"},
+  {name: "Table", status: "Not started"},
+  {name: "Pagination", status: "Not started"},
+  {name: "Badge", status: "Not started"},
+  {name: "NumberInput", status: "Not started"},
+  {name: "Tooltip", status: "Not started"},
+  {name: "Breadcrumb", status: "Not started"},
+  {name: "Toast", status: "Not started"},
+  {name: "Calendar", status: "Not started"},
+  {name: "RangeCalendar", status: "Not started"},
+  {name: "Progress", status: "Not started"},
+  {name: "Circular Progress", status: "Not started"},
+  {name: "Slider", status: "Not started"},
+  {name: "Kbd", status: "Not started"},
+  {name: "Spinner", status: "Not started"},
+  {name: "Image", status: "Not started"},
+  {name: "Modal/Popup", status: "Not started"},
+  {name: "Popover", status: "Not started"},
+  {name: "Scroll", status: "Not started"},
+  {name: "Navbar", status: "Not started"},
+  {name: "Skeleton", status: "Not started"},
+];
+
+export const statusToClass = {
+  "Done": "done",
+  "Not started": "not-started",
+  "In progress": "in-progress",
+  "Review": "review",
+  "Blocked": "blocked"
+};
+
+export let toCssClass = (status) => {
+  return status.toLowerCase().replace(/\s+/g, '-');
+}
+
+
+export const ColorSample = ({level}) => (
+  <div class="cell">
+    <div class="color-sample-outer-container">
+      <div class="color-sample-container">
+        <div class="color-sample solid"
+             style={{
+               backgroundColor: 'var(--ft-color-n-surface-100)',
+             }}
+        ></div>
+        <div class="color-sample transparent"
+             style={{
+               backgroundColor: 'var(--ft-color-n-surface-' + level + ')',
+             }}
+        ></div>
+      </div>
+    </div>
+    <div class="color-desc">
+      {'--ft-color-n-surface-' + level}
+    </div>
+
+  </div>
+);
+
+<Unstyled>
+
+  {/* -------  theme badge  ------- */}
+
+[//]: # (<span className="theme-label">Active theme: <span className="auto-text" /></span>)
+
+  <style>{`
+    .theme-label { font-size: .875rem; margin-bottom: 1rem; display: inline-block; }
+    .auto-text::before { content: 'light'; }
+    html[data-theme='dark'] .auto-text::before,
+    body.dark-theme   .auto-text::before { content: 'dark'; }
+  `}</style>
+
+
+  <div class="roadmap">
+    {componentStatusArray.map((componentStatus) => (
+      <div class="component">
+        <span class="component-name">{componentStatus.name}</span>
+        <span class={`status-badge ${toCssClass(componentStatus.status)}`}>{componentStatus.status}</span>
+      </div>
+    ))}
+  </div>
+
+</Unstyled>

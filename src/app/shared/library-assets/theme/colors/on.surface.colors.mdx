@@ -1,0 +1,132 @@
+import { Meta, Unstyled } from "@storybook/addon-docs/blocks";
+
+<Meta title="Theme/Colors/On Surface Colors"/>
+
+# On-Surface Colors
+
+**On-surface colors** provide the necessary contrast for text, icons, and foreground content to be readable when placed on various surface backgrounds. Our scale uses a numerical transparency system applied to the base neutral color.
+
+<Unstyled>
+  <style>{`
+    .color-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 24px;
+      padding: 24px 0;
+    }
+
+    .color-card {
+      background: var(--ft-color-solid-surface);
+      border: 1px solid var(--ft-color-n-surface-15);
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    }
+
+    .color-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      border-color: var(--ft-color-n-surface-30);
+    }
+
+    .swatch-container {
+      height: 120px;
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      background: #f0f0f0; /* Light mesh for transparency view */
+      background-image: 
+        linear-gradient(45deg, #e5e5e5 25%, transparent 25%), 
+        linear-gradient(-45deg, #e5e5e5 25%, transparent 25%), 
+        linear-gradient(45deg, transparent 75%, #e5e5e5 75%), 
+        linear-gradient(-45deg, transparent 75%, #e5e5e5 75%);
+      background-size: 20px 20px;
+      background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+    }
+
+    .swatch-fill {
+      position: absolute;
+      inset: 0;
+      mix-blend-mode: normal;
+    }
+
+    .contrast-test {
+      z-index: 1;
+      padding: 12px 24px;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      backdrop-filter: blur(4px);
+    }
+
+    .card-info {
+      padding: 16px;
+      background: var(--ft-color-solid-surface);
+    }
+
+    .variable-name {
+      font-family: 'Fira Code', 'Roboto Mono', monospace;
+      font-size: 0.85rem;
+      color: var(--ft-color-on-surface-muted);
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .level-label {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--ft-color-solid-on-surface);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .level-badge {
+      font-size: 0.7rem;
+      padding: 2px 8px;
+      background: var(--ft-color-n-on-surface-10);
+      border-radius: 99px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+  `}</style>
+</Unstyled>
+
+export const surfaceLevels = [
+  '0', '5', '10', '15', '20', '30', '40', '50', '60', '70', '80', '90', '100'
+];
+
+export const ColorCard = ({ level }) => (
+  <div class="color-card">
+    <div class="swatch-container">
+      <div class="swatch-fill" style={{ backgroundColor: 'var(--ft-color-n-on-surface-' + level + ')' }}></div>
+      <div class="contrast-test" style={{
+        backgroundColor: 'var(--ft-color-solid-surface)',
+        color: 'var(--ft-color-n-on-surface-' + level + ')'
+      }}>
+        Aa (Sample Text)
+      </div>
+    </div>
+    <div class="card-info">
+      <code class="variable-name">--ft-color-n-on-surface-{level}</code>
+      <div class="level-label">
+        Level {level}
+        <span class="level-badge">{parseInt(level) < 50 ? 'High Transparency' : 'Low Transparency'}</span>
+      </div>
+    </div>
+  </div>
+);
+
+<Unstyled>
+  <div class="color-grid">
+    {surfaceLevels.map((level) => (
+      <ColorCard key={level} level={level}/>
+    ))}
+  </div>
+</Unstyled>
