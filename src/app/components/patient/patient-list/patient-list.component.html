@@ -10,6 +10,7 @@
 
       <ft-search
         placeholder="Rechercher les patients"
+        [variant]="themeService.palette() === 'minimalist' ? 'ghost' : 'faded'"
         (search)="onSearchChange($event)">
       </ft-search>
     </div>
@@ -21,7 +22,9 @@
         (filter)="onSearchChange('')">
       </ft-filter>
 
-      <ft-button label="Nouveau" prefixIconClass="add" variant="flat" color="primary" size="sm-size"
+      <ft-button label="Nouveau" prefixIconClass="add" 
+        [variant]="themeService.palette() === 'minimalist' ? 'ghost' : 'flat'" 
+        color="primary" size="sm-size"
         [isPrefixIconClass]="true"></ft-button>
       
       <ft-column-manager
@@ -44,6 +47,7 @@
             [sortDirection]="sortDirection()"
             [selection]="selection()"
             [expandable]="true"
+            [variant]="themeService.palette() === 'minimalist' ? 'minimalist' : 'default'"
             (sort)="onSortChange($event)"
             (selectionChange)="onSelectionChange($event)">
 
