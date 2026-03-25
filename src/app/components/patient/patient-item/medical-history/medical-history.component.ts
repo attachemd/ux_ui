@@ -1,21 +1,21 @@
-import {Component, ElementRef, HostBinding, ViewChild} from '@angular/core';
+import {Component, ElementRef, HostBinding, viewChild} from '@angular/core';
 import {MedicalHistoryEntity, Note} from '../../../../types/medical-history.type';
-import {FtDynamicDialogService} from '../../../../../stories/Components/dialog/ft-dynamic-dialog.service';
-import {FtToastService} from '../../../../../stories/Components/toast/ft-toast.service';
+import {FtDynamicDialogService} from '../../../../shared/components/dialog/dynamic-dialog.service';
+import {FtToastService} from '../../../../shared/components/toast/toast.service';
 import {medicalHistoryEntities, notes} from '../../../../fake-data/medical-history.fake';
 
-import {FtIconButtonComponent} from '../../../../../stories/Buttons/icon-button/ft.icon.button.component';
-import {FTBadgeComponent} from '../../../../../stories/Components/badge/ft-badge.component';
+import {FtIconButtonComponent} from '../../../../shared/components/buttons/icon-button/icon-button.component';
+import {FtBadgeComponent} from '../../../../shared/components/badge/badge.component';
 
 @Component({
-  selector: 'app-medical-history',
-  imports: [FtIconButtonComponent, FTBadgeComponent],
+  selector: 'ft-medical-history',
+  imports: [FtIconButtonComponent, FtBadgeComponent],
   templateUrl: './medical-history.component.html',
   styleUrl: './medical-history.component.css'
 })
 export class MedicalHistoryComponent {
   @HostBinding('class') class = 'ft-panel lg:h-auto lg:overflow-auto! tab-body-container';
-  @ViewChild('tabBodyContent') child!: ElementRef<HTMLElement>;
+  readonly child = viewChild.required<ElementRef<HTMLElement>>('tabBodyContent');
   medicalHistoryEntities: MedicalHistoryEntity[] = medicalHistoryEntities;
   comments: Note[] = notes;
 

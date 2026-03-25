@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-medical-history-status',
+  selector: 'ft-medical-history-status',
   imports: [],
   templateUrl: './medical-history-status.component.html',
   styleUrl: './medical-history-status.component.css'

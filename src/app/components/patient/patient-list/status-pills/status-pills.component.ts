@@ -5,14 +5,13 @@ import {
   ElementRef,
   OnChanges,
   OnDestroy,
-  QueryList,
-  ViewChild,
-  ViewChildren,
   ViewEncapsulation,
   computed,
   input,
   output,
   signal,
+  viewChild,
+  viewChildren
 } from '@angular/core';
 
 /**
@@ -27,7 +26,7 @@ import {
  * from patient-list.component.css are inherited into this component.
  */
 @Component({
-  selector: 'app-status-pills',
+  selector: 'ft-status-pills',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
@@ -181,8 +180,8 @@ export class StatusPillsComponent implements AfterViewInit, OnChanges, OnDestroy
     Math.max(0, this.pills().length - (isFinite(this.visibleCount()) ? this.visibleCount() : this.pills().length))
   );
 
-  @ViewChild('wrapper') wrapper!: ElementRef<HTMLElement>;
-  @ViewChildren('measureRef') measureRefs!: QueryList<ElementRef<HTMLElement>>;
+  readonly wrapper = viewChild.required<ElementRef<HTMLElement>>('wrapper');
+  readonly measureRefs = viewChildren<ElementRef<HTMLElement>>('measureRef');
 
   /** Gap between pills in px — matches --ft-unit-100 */
   private readonly GAP_PX = 4;
@@ -193,7 +192,7 @@ export class StatusPillsComponent implements AfterViewInit, OnChanges, OnDestroy
 
   ngAfterViewInit(): void {
     this.observer = new ResizeObserver(() => this.measure());
-    this.observer.observe(this.wrapper.nativeElement);
+    this.observer.observe(this.wrapper().nativeElement);
     // Initial measurement
     this.measure();
   }
@@ -201,7 +200,7 @@ export class StatusPillsComponent implements AfterViewInit, OnChanges, OnDestroy
   ngOnChanges(): void {
     // When pills input changes, reset to full count and re-measure
     this.visibleCount.set(Infinity as number);
-    if (this.wrapper) {
+    if (this.wrapper()) {
       Promise.resolve().then(() => this.measure());
     }
   }
@@ -211,12 +210,14 @@ export class StatusPillsComponent implements AfterViewInit, OnChanges, OnDestroy
   }
 
   private measure(): void {
-    if (!this.wrapper || !this.measureRefs) return;
+    const wrapper = this.wrapper();
+    const measureRefs = this.measureRefs();
+    if (!wrapper || !measureRefs) return;
 
-    const containerWidth = this.wrapper.nativeElement.getBoundingClientRect().width;
+    const containerWidth = wrapper.nativeElement.getBoundingClientRect().width;
     if (containerWidth === 0) return;
 
-    const pillElements = this.measureRefs.toArray();
+    const pillElements = measureRefs;
     if (pillElements.length === 0) return;
 
     // Use the always-rendered measure row to get real pill widths

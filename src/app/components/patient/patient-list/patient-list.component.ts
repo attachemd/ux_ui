@@ -1,21 +1,21 @@
-import { AfterViewInit, Component, ElementRef, ViewChild, signal, computed } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, signal, computed, viewChild } from '@angular/core';
 import { OverflowDetectDirective } from '../../../directives/overflow-detect.directive';
 import { StatusPillsComponent } from './status-pills/status-pills.component';
-import { FtButtonComponent } from '../../../../stories/Buttons/button/ft.button.component';
-import { FtIconButtonComponent } from '../../../../stories/Buttons/icon-button/ft.icon.button.component';
-import { SelectOption } from '../../../../stories/select/select/ft.select.component';
-import { FTPaginationComponent } from '../../../../stories/pagination/ft.pagination.component';
+import { FtButtonComponent } from '../../../shared/components/buttons/button/button.component';
+import { FtIconButtonComponent } from '../../../shared/components/buttons/icon-button/icon-button.component';
+import { SelectOption } from '../../../shared/components/select/select/select.component';
+import { FtPaginationComponent } from '../../../shared/components/pagination/pagination.component';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Patient } from '../../../types/patient.type';
 
 // Reusable Sub-components
-import { FTSearchComponent } from '../../../shared/components/search/ft-search.component';
-import { FTFilterComponent } from '../../../shared/components/filter/ft-filter.component';
-import { FTViewsManagerComponent } from '../../../shared/components/views-manager/ft-views-manager.component';
-import { FTColumnManagerComponent } from '../../../shared/components/column-manager/ft-column-manager.component';
-import { FTTableComponent } from '../../../shared/components/table/ft-table.component';
-import { FTTableCellDirective } from '../../../shared/components/table/ft-table-cell.directive';
-import { FTTableExpansionDirective } from '../../../shared/components/table/ft-table-expansion.directive';
+import { FtSearchComponent } from '../../../shared/components/search/search.component';
+import { FtFilterComponent } from '../../../shared/components/filter/filter.component';
+import { FtViewsManagerComponent } from '../../../shared/components/views-manager/views-manager.component';
+import { FtColumnManagerComponent } from '../../../shared/components/column-manager/column-manager.component';
+import { FtTableComponent } from '../../../shared/components/table/table.component';
+import { FtTableCellDirective } from '../../../shared/components/table/table-cell.directive';
+import { FtTableExpansionDirective } from '../../../shared/components/table/table-expansion.directive';
 import { TableColumn } from '../../../shared/components/table/table-column.interface';
 
 interface View {
@@ -46,14 +46,14 @@ const EMPLOYERS: string[] = ['OCP Group', 'Maroc Telecom', 'Attijariwafa Bank', 
 const INSURANCES: string[] = ['Saham Assurance', 'Wafa Assurance', 'RMA Watanya', 'AXA Assurance Maroc', 'Mutuelle Agricole Marocaine', 'AtlantaSanad'];
 
 @Component({
-  selector: 'app-patient-list',
+  selector: 'ft-patient-list',
   standalone: true,
   imports: [
     OverflowDetectDirective, StatusPillsComponent,
     FtButtonComponent, FtIconButtonComponent,
-    FTPaginationComponent, FormsModule, ReactiveFormsModule,
-    FTSearchComponent, FTFilterComponent, FTViewsManagerComponent, FTColumnManagerComponent,
-    FTTableComponent, FTTableCellDirective, FTTableExpansionDirective
+    FtPaginationComponent, FormsModule, ReactiveFormsModule,
+    FtSearchComponent, FtFilterComponent, FtViewsManagerComponent, FtColumnManagerComponent,
+    FtTableComponent, FtTableCellDirective, FtTableExpansionDirective
   ],
   templateUrl: './patient-list.component.html',
   styleUrl: './patient-list.component.css'
@@ -235,15 +235,16 @@ export class PatientListComponent {
   activeExpandType: 'status' | 'address' | 'languages' | null = null;
   activeExpandRow: Patient | null = null;
 
-  @ViewChild('expandDialog') expandDialog!: ElementRef<HTMLDialogElement>;
+  readonly expandDialog = viewChild.required<ElementRef<HTMLDialogElement>>('expandDialog');
 
   openDialog(row: Patient, col: 'status' | 'address' | 'languages', event: MouseEvent) {
     if (event) event.stopPropagation();
     this.activeExpandRow = row;
     this.activeExpandType = col;
 
-    if (this.expandDialog) {
-      const dialog = this.expandDialog.nativeElement;
+    const expandDialog = this.expandDialog();
+    if (expandDialog) {
+      const dialog = expandDialog.nativeElement;
       const target = event.currentTarget as HTMLElement;
 
       if (target) {
@@ -268,16 +269,18 @@ export class PatientListComponent {
   }
 
   closeDialog() {
-    if (this.expandDialog) {
-      this.expandDialog.nativeElement.close();
+    const expandDialog = this.expandDialog();
+    if (expandDialog) {
+      expandDialog.nativeElement.close();
     }
     this.activeExpandRow = null;
     this.activeExpandType = null;
   }
 
   onDialogClick(event: MouseEvent) {
-    if (!this.expandDialog) return;
-    const dialog = this.expandDialog.nativeElement;
+    const expandDialog = this.expandDialog();
+    if (!expandDialog) return;
+    const dialog = expandDialog.nativeElement;
     const rect = dialog.getBoundingClientRect();
     const isInDialog = (rect.top <= event.clientY && event.clientY <= rect.top + rect.height
       && rect.left <= event.clientX && event.clientX <= rect.left + rect.width);

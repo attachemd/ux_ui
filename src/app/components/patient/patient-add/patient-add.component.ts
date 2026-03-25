@@ -7,19 +7,17 @@ import {
   ValidationErrors,
   Validators
 } from '@angular/forms';
-import { CommonModule, NgIf, NgFor } from '@angular/common';
+
 import {debounceTime, distinctUntilChanged, filter, map, startWith, Subject, takeUntil} from 'rxjs'; // Import takeUntil
-import { FTAccordionComponent } from '../../../../stories/accordion/ft.accordion.component';
-import { FTAccordionItemComponent } from '../../../../stories/accordion/ft.accordion-item.component';
-import { FtToastService } from '../../../../stories/Components/toast/ft-toast.service';
-import { FtConfirmDialogService } from '../../../../stories/Components/dialog/ft-confirm-dialog.service';
-import { FTInputComponent } from '../../../../stories/inputs/input/ft.input.component';
-import { FTSelectComponent } from '../../../../stories/select/select/ft.select.component';
-import { FtButtonComponent } from '../../../../stories/Buttons/button/ft.button.component';
-import { FtIconButtonComponent } from '../../../../stories/Buttons/icon-button/ft.icon.button.component';
-import { FtRadioGroupComponent } from '../../../../stories/radio-buttons/radio-group/ft.radio.group.component';
-import { ButtonGroupOption, FtButtonGroupComponent } from '../../../../stories/Buttons/button-group/ft.button-group.component';
-import { FTTextareaComponent } from '../../../../stories/textarea/textarea/ft.textarea.component';
+import { FtToastService } from '../../../shared/components/toast/toast.service';
+import { FtConfirmDialogService } from '../../../shared/components/dialog/confirm-dialog.service';
+import { FtInputComponent } from '../../../shared/components/inputs/input/input.component';
+import { FtSelectComponent } from '../../../shared/components/select/select/select.component';
+import { FtButtonComponent } from '../../../shared/components/buttons/button/button.component';
+import { FtIconButtonComponent } from '../../../shared/components/buttons/icon-button/icon-button.component';
+import { FtRadioGroupComponent } from '../../../shared/components/radio-buttons/radio-group/radio-group.component';
+import { ButtonGroupOption, FtButtonGroupComponent } from '../../../shared/components/buttons/button-group/button-group.component';
+import { FtTextareaComponent } from '../../../shared/components/textarea/textarea/textarea.component';
 // --- Custom Validators ---
 // Basic pattern validator (allows letters, numbers, space, and specified special chars)
 const allowedCharsPattern = /^[a-zA-Z0-9\s\-&`_´]*$/;
@@ -104,19 +102,18 @@ export function addressSpecialCharactersValidator(control: AbstractControl): Val
 
 
 @Component({
-  selector: 'app-patient-add',
+  selector: 'ft-patient-add',
   standalone: true,
   imports: [
-    CommonModule,
     ReactiveFormsModule,
-    FTInputComponent,
-    FTSelectComponent,
+    FtInputComponent,
+    FtSelectComponent,
     FtButtonComponent,
     FtIconButtonComponent,
     FtRadioGroupComponent,
     FtButtonGroupComponent,
-    FTTextareaComponent,
-  ],
+    FtTextareaComponent
+],
   providers: [FtToastService, FtConfirmDialogService], 
   templateUrl: './patient-add.component.html',
   styleUrl: './patient-add.component.css'

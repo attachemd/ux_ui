@@ -1,25 +1,25 @@
-import {Component, ElementRef, OnDestroy, Renderer2, ViewChild} from '@angular/core';
+import {Component, ElementRef, OnDestroy, Renderer2, viewChild} from '@angular/core';
 import {RouterOutlet} from '@angular/router';
-import {FtIconButtonComponent} from '../../../../stories/Buttons/icon-button/ft.icon.button.component';
-import {FTBadgeComponent} from '../../../../stories/Components/badge/ft-badge.component';
-import {FTabsComponent} from '../../../../stories/tabs/tabs/ft.tabs.component';
-import {FTabComponent} from '../../../../stories/tabs/tabs/ft.tab.component';
+import {FtIconButtonComponent} from '../../../shared/components/buttons/icon-button/icon-button.component';
+import {FtBadgeComponent} from '../../../shared/components/badge/badge.component';
+import {FtTabsComponent} from '../../../shared/components/tabs/tabs/tabs.component';
+import {FtTabComponent} from '../../../shared/components/tabs/tabs/tab.component';
 import {signal} from '@angular/core';
 
 @Component({
-  selector: 'app-patient-item',
+  selector: 'ft-patient-item',
   imports: [
     RouterOutlet,
     FtIconButtonComponent,
-    FTBadgeComponent,
-    FTabsComponent,
-    FTabComponent
+    FtBadgeComponent,
+    FtTabsComponent,
+    FtTabComponent
   ],
   templateUrl: './patient-item.component.html',
   styleUrl: './patient-item.component.css'
 })
 export class PatientItemComponent implements OnDestroy {
-  @ViewChild(RouterOutlet) routerOutlet!: RouterOutlet;
+  readonly routerOutlet = viewChild.required(RouterOutlet);
   activeTabValue = signal('medical-history');
   // @ViewChild('mainContent') parent!: ElementRef<HTMLElement>;
   // @ViewChild('tabBodyContent') child!: ElementRef<HTMLElement>;

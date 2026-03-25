@@ -1,35 +1,35 @@
 <div class="list-container ft-panel">
   <div class="list-header">
     <div class="table-search-container">
-      <app-views-manager
+      <ft-views-manager
         [views]="views"
         [viewControl]="selectedView"
         (viewChange)="onViewChange($event)"
         (manageColumns)="columnManager.toggle('columnMenu')">
-      </app-views-manager>
+      </ft-views-manager>
 
-      <app-search
+      <ft-search
         placeholder="Rechercher les patients"
         (search)="onSearchChange($event)">
-      </app-search>
+      </ft-search>
     </div>
 
     <div class="table-actions-container">
-      <app-filter
+      <ft-filter
         [activeFiltersCount]="2"
         (reset)="filter.set('')"
         (filter)="onSearchChange('')">
-      </app-filter>
+      </ft-filter>
 
       <ft-button label="Nouveau" prefixIconClass="add" variant="flat" color="primary" size="sm-size"
         [isPrefixIconClass]="true"></ft-button>
       
-      <app-column-manager
+      <ft-column-manager
         #columnManager
         [allColumns]="allTableColumns"
         [visibleColumns]="visibleColumnKeys()"
         (toggleColumn)="toggleColumn($event)">
-      </app-column-manager>
+      </ft-column-manager>
     </div>
   </div>
 
@@ -37,7 +37,7 @@
     <div class="table-container">
       <div class="table-viewport">
         <div class="table-scroll-area">
-          <app-table
+          <ft-table
             [data]="paginatedUsers()"
             [columns]="columns()"
             [sortKey]="sortKey()"
@@ -91,10 +91,10 @@
 
             <!-- Custom Template: Status -->
             <ng-template appTableCell="status" let-row>
-              <app-status-pills
+              <ft-status-pills
                 [pills]="getStatuses(row.status)"
                 (moreClick)="openDialog(row, 'status', $event)">
-              </app-status-pills>
+              </ft-status-pills>
             </ng-template>
 
             <!-- Custom Template: Address -->
@@ -136,7 +136,7 @@
               </div>
             </ng-template>
 
-          </app-table>
+          </ft-table>
         </div>
       </div>
     </div>
