@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ThemeService } from '../services/theme.service';
-import { FtButtonComponent } from '../../stories/Buttons/button/ft.button.component';
+import { FtButtonComponent } from '../shared/components/buttons/button/button.component';
 
 @Component({
   selector: 'ft-theme-switcher',
