@@ -10,59 +10,66 @@
           variant="flat"
           placeholder="Ex. Appendicectomie"
         ></ft-input>
-        <small
-          class="error-text"
-          *ngIf="shouldShowError(surgeryNameControl)"
-        >
-          <span *ngIf="surgeryNameControl?.errors?.['required']"
-          >Le nom de la chirurgie est obligatoire.</span
-          >
-          <span *ngIf="surgeryNameControl?.errors?.['minlength']"
-          >Le nom de la chirurgie doit contenir au moins {{ surgeryNameControl?.errors?.['minlength'].requiredLength }} caractères.</span
-          >
-          <span *ngIf="surgeryNameControl?.errors?.['noSpecialCharacters']"
-          >Le nom de la chirurgie ne doit pas contenir de caractères spéciaux.</span
-          >
-        </small>
-      </div>
+        @if (shouldShowError(surgeryNameControl)) {
+          <small
+            class="error-text"
+            >
+            @if (surgeryNameControl?.errors?.['required']) {
+              <span
+                >Le nom de la chirurgie est obligatoire.</span
+                >
+              }
+              @if (surgeryNameControl?.errors?.['minlength']) {
+                <span
+                  >Le nom de la chirurgie doit contenir au moins {{ surgeryNameControl?.errors?.['minlength'].requiredLength }} caractères.</span
+                  >
+                }
+                @if (surgeryNameControl?.errors?.['noSpecialCharacters']) {
+                  <span
+                    >Le nom de la chirurgie ne doit pas contenir de caractères spéciaux.</span
+                    >
+                  }
+                </small>
+              }
+            </div>
 
-      <div class="field-container mt-4">
-        <ft-input
-          label="Date de la chirurgie"
-          formControlName="surgeryDate"
-          type="date"
-          variant="flat"
-        ></ft-input>
-      </div>
+            <div class="field-container mt-4">
+              <ft-input
+                label="Date de la chirurgie"
+                formControlName="surgeryDate"
+                type="date"
+                variant="flat"
+              ></ft-input>
+            </div>
 
-      <div class="field-container mt-4">
-        <ft-input
-          label="Note"
-          formControlName="note"
-          type="textarea"
-          variant="flat"
-          [isClearable]="true"
-        ></ft-input>
-      </div>
+            <div class="field-container mt-4">
+              <ft-input
+                label="Note"
+                formControlName="note"
+                type="textarea"
+                variant="flat"
+                [isClearable]="true"
+              ></ft-input>
+            </div>
 
-    </div>
-  </div>
+          </div>
+        </div>
 
-  <div class="dialog-footer">
-    <ft-button
-      label="Annuler"
-      variant="ghost"
-      (click)="closeDialog()"
-      size="sm-size"
-    ></ft-button>
-    <ft-button 
-      label="Enregistrer" 
-      variant="flat" 
-      color="primary" 
-      (click)="saveSurgicalHistory()" 
-      size="sm-size"
-      [state]="!surgicalHistoryForm.valid ? 'disabled' : 'rest'"
-    ></ft-button>
-  </div>
-</form>
+        <div class="dialog-footer">
+          <ft-button
+            label="Annuler"
+            variant="ghost"
+            (click)="closeDialog()"
+            size="sm-size"
+          ></ft-button>
+          <ft-button
+            label="Enregistrer"
+            variant="flat"
+            color="primary"
+            (click)="saveSurgicalHistory()"
+            size="sm-size"
+            [state]="!surgicalHistoryForm.valid ? 'disabled' : 'rest'"
+          ></ft-button>
+        </div>
+      </form>
 

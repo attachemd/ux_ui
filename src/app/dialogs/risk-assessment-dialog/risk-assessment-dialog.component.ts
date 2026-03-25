@@ -1,12 +1,12 @@
 import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { FtDynamicDialogService } from '../../../stories/Components/dialog/ft-dynamic-dialog.service';
-import { FtToastService } from '../../../stories/Components/toast/ft-toast.service';
+import { FtDynamicDialogService } from '../../shared/components/dialog/dynamic-dialog.service';
+import { FtToastService } from '../../shared/components/toast/toast.service';
 import { Subject, takeUntil } from 'rxjs';
-import { CommonModule, NgIf } from '@angular/common';
-import { FTInputComponent } from '../../../stories/inputs/input/ft.input.component';
-import { FTSelectComponent, SelectOption } from '../../../stories/select/select/ft.select.component';
-import { FtButtonComponent } from '../../../stories/Buttons/button/ft.button.component';
+
+import { FtInputComponent } from '../../shared/components/inputs/input/input.component';
+import { FtSelectComponent, SelectOption } from '../../shared/components/select/select/select.component';
+import { FtButtonComponent } from '../../shared/components/buttons/button/button.component';
 
 
 // Define interfaces for options
@@ -22,16 +22,14 @@ interface RiskFactorOption {
 
 
 @Component({
-  selector: 'app-risk-assessment-dialog',
+  selector: 'ft-risk-assessment-dialog',
   standalone: true,
   imports: [
-    CommonModule,
     ReactiveFormsModule,
-    FTInputComponent,
-    FTSelectComponent,
-    FtButtonComponent,
-    NgIf,
-  ],
+    FtInputComponent,
+    FtSelectComponent,
+    FtButtonComponent
+],
   templateUrl: './risk-assessment-dialog.component.html',
   styleUrl: './risk-assessment-dialog.component.css'
 })

@@ -1,24 +1,23 @@
 import { Component, OnDestroy, OnInit, inject } from '@angular/core';
-import { CommonModule } from "@angular/common";
+
 import { AbstractControl, FormBuilder, FormGroup, ReactiveFormsModule, Validators } from "@angular/forms";
-import { FtDynamicDialogService } from '../../../stories/Components/dialog/ft-dynamic-dialog.service';
+import { FtDynamicDialogService } from '../../shared/components/dialog/dynamic-dialog.service';
 import { Subject, takeUntil } from 'rxjs';
-import { FTInputComponent } from '../../../stories/inputs/input/ft.input.component';
-import { FTSelectComponent, SelectOption } from '../../../stories/select/select/ft.select.component';
-import { FtButtonComponent } from '../../../stories/Buttons/button/ft.button.component';
-import { FtToggleComponent } from '../../../stories/toggles/toggle/ft.toggle.component';
+import { FtInputComponent } from '../../shared/components/inputs/input/input.component';
+import { FtSelectComponent, SelectOption } from '../../shared/components/select/select/select.component';
+import { FtButtonComponent } from '../../shared/components/buttons/button/button.component';
+import { FtToggleComponent } from '../../shared/components/toggles/toggle/toggle.component';
 
 @Component({
-  selector: 'app-medical-condition-dialog',
+  selector: 'ft-medical-condition-dialog',
   standalone: true,
   imports: [
-    CommonModule,
     ReactiveFormsModule,
-    FTInputComponent,
-    FTSelectComponent,
+    FtInputComponent,
+    FtSelectComponent,
     FtButtonComponent,
     FtToggleComponent
-  ],
+],
   templateUrl: './medical-condition-dialog.component.html',
   styleUrl: './medical-condition-dialog.component.css'
 })

@@ -21,65 +21,68 @@
             variant="flat"
             placeholder="Ex. Tabagisme"
           ></ft-input>
-          <small
-            class="error-text"
-            *ngIf="shouldShowError(riskFactorNameControl)"
-          >
-            <span *ngIf="riskFactorNameControl?.errors?.['required']"
-            >Le facteur de risque est obligatoire.</span
-            >
-          </small>
+          @if (shouldShowError(riskFactorNameControl)) {
+            <small
+              class="error-text"
+              >
+              @if (riskFactorNameControl?.errors?.['required']) {
+                <span
+                  >Le facteur de risque est obligatoire.</span
+                  >
+                }
+              </small>
+            }
+          </div>
         </div>
-      </div>
 
-      <div class="form-group dialog-form-row two-cols spacer-mt-4">
-        <div class="field-container">
+        <div class="form-group dialog-form-row two-cols spacer-mt-4">
+          <div class="field-container">
+            <ft-input
+              label="Date de l'évaluation"
+              formControlName="evaluationDate"
+              type="date"
+              variant="flat"
+            ></ft-input>
+          </div>
+
+          <div class="field-container">
+            <ft-select
+              label="Niveau de risque"
+              formControlName="riskLevel"
+              [options]="riskLevels"
+              variant="flat"
+            ></ft-select>
+          </div>
+        </div>
+
+        <div class="field-container spacer-mt-4">
           <ft-input
-            label="Date de l'évaluation"
-            formControlName="evaluationDate"
-            type="date"
+            label="Note"
+            formControlName="note"
+            type="textarea"
             variant="flat"
+            [isClearable]="true"
           ></ft-input>
         </div>
 
-        <div class="field-container">
-          <ft-select
-            label="Niveau de risque"
-            formControlName="riskLevel"
-            [options]="riskLevels"
-            variant="flat"
-          ></ft-select>
-        </div>
       </div>
-
-      <div class="field-container spacer-mt-4">
-        <ft-input
-          label="Note"
-          formControlName="note"
-          type="textarea"
-          variant="flat"
-          [isClearable]="true"
-        ></ft-input>
-      </div>
-
     </div>
-  </div>
 
-  <div class="dialog-footer">
-    <ft-button
-      label="Annuler"
-      variant="ghost"
-      (click)="closeDialog()"
-      size="sm-size"
-    ></ft-button>
-    <ft-button 
-      label="Enregistrer" 
-      variant="flat" 
-      color="primary" 
-      (click)="saveRiskFactor()" 
-      size="sm-size"
-      [state]="!riskFactorForm.valid ? 'disabled' : 'rest'"
-    ></ft-button>
-  </div>
-</form>
+    <div class="dialog-footer">
+      <ft-button
+        label="Annuler"
+        variant="ghost"
+        (click)="closeDialog()"
+        size="sm-size"
+      ></ft-button>
+      <ft-button
+        label="Enregistrer"
+        variant="flat"
+        color="primary"
+        (click)="saveRiskFactor()"
+        size="sm-size"
+        [state]="!riskFactorForm.valid ? 'disabled' : 'rest'"
+      ></ft-button>
+    </div>
+  </form>
 

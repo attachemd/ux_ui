@@ -4,8 +4,8 @@
 
       <div class="field-container field-group-row spacer-mb-4">
         <label class="text-sm-medium">Type de saisie</label>
-        <ft-switch-button 
-          [options]="entryTypes" 
+        <ft-switch-button
+          [options]="entryTypes"
           [selectedId]="treatmentForm.get('entryType')?.value"
           (selectionChange)="treatmentForm.get('entryType')?.setValue($event)"
           size="sm-size"
@@ -41,9 +41,11 @@
             type="date"
             variant="flat"
           ></ft-input>
-          <small class="error-text" *ngIf="shouldShowError(treatmentForm) && treatmentForm.errors?.['dateRangeInvalid']">
-            La date de début doit être antérieure à la date de fin.
-          </small>
+          @if (shouldShowError(treatmentForm) && treatmentForm.errors?.['dateRangeInvalid']) {
+            <small class="error-text">
+              La date de début doit être antérieure à la date de fin.
+            </small>
+          }
         </div>
 
         <div class="field-container">
@@ -53,9 +55,11 @@
             type="date"
             variant="flat"
           ></ft-input>
-          <small class="error-text" *ngIf="shouldShowError(treatmentForm) && treatmentForm.errors?.['dateRangeInvalid']">
-            La date de fin doit être postérieure à la date de début.
-          </small>
+          @if (shouldShowError(treatmentForm) && treatmentForm.errors?.['dateRangeInvalid']) {
+            <small class="error-text">
+              La date de fin doit être postérieure à la date de début.
+            </small>
+          }
         </div>
       </div>
 
@@ -93,11 +97,11 @@
       (click)="closeDialog()"
       size="sm-size"
     ></ft-button>
-    <ft-button 
-      label="Enregistrer" 
-      variant="flat" 
-      color="primary" 
-      (click)="saveTreatment()" 
+    <ft-button
+      label="Enregistrer"
+      variant="flat"
+      color="primary"
+      (click)="saveTreatment()"
       size="sm-size"
       [state]="!treatmentForm.valid ? 'disabled' : 'rest'"
     ></ft-button>

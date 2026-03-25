@@ -1,13 +1,13 @@
 import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, ReactiveFormsModule, Validators, ValidationErrors, ValidatorFn } from '@angular/forms';
-import { FtDynamicDialogService } from '../../../stories/Components/dialog/ft-dynamic-dialog.service';
-import { FtToastService } from '../../../stories/Components/toast/ft-toast.service';
+import { FtDynamicDialogService } from '../../shared/components/dialog/dynamic-dialog.service';
+import { FtToastService } from '../../shared/components/toast/toast.service';
 import { Subject, takeUntil } from 'rxjs';
-import { CommonModule, NgIf } from '@angular/common';
-import { FTInputComponent } from '../../../stories/inputs/input/ft.input.component';
-import { FTSelectComponent, SelectOption } from '../../../stories/select/select/ft.select.component';
-import { FtButtonComponent } from '../../../stories/Buttons/button/ft.button.component';
-import { FtSwitchButtonComponent, SwitchButtonOption } from '../../../stories/switch-buttons/switch-button/ft.switch-button.component';
+
+import { FtInputComponent } from '../../shared/components/inputs/input/input.component';
+import { FtSelectComponent, SelectOption } from '../../shared/components/select/select/select.component';
+import { FtButtonComponent } from '../../shared/components/buttons/button/button.component';
+import { FtSwitchButtonComponent, SwitchButtonOption } from '../../shared/components/switch-buttons/switch-button/switch-button.component';
 
 // Define interfaces for options
 interface Option {
@@ -63,17 +63,15 @@ const futureDateValidator: ValidatorFn = (control: AbstractControl): ValidationE
 
 
 @Component({
-  selector: 'app-treatment-dialog',
+  selector: 'ft-treatment-dialog',
   standalone: true,
   imports: [
-    CommonModule,
     ReactiveFormsModule,
-    FTInputComponent,
-    FTSelectComponent,
+    FtInputComponent,
+    FtSelectComponent,
     FtButtonComponent,
-    FtSwitchButtonComponent,
-    NgIf,
-  ],
+    FtSwitchButtonComponent
+],
   templateUrl: './treatment-dialog.component.html',
   styleUrl: './treatment-dialog.component.css'
 })
