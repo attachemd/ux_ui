@@ -6,7 +6,20 @@
 
 @layer app-variables {
   :root {
-    /* 
+    /*
+     * ----------------------------------------------------------------------
+     * 0. LAYOUT PRIMITIVES (Density & Scale)
+     * ----------------------------------------------------------------------
+     */
+
+    --ft-layout-scale-compact: 0.85;
+    --ft-layout-scale-comfortable: 1.0;
+    --ft-layout-scale-loose: 1.15;
+
+    /* Internal scale variable (overridden by data-density) */
+    --_layout-scale: var(--ft-layout-scale-comfortable);
+
+    /*
      * ----------------------------------------------------------------------
      * 1. PRIMITIVES (Base Tokens)
      * ----------------------------------------------------------------------
@@ -508,7 +521,7 @@
     --animate-pulse: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
     --animate-bounce: bounce 1s infinite;
 
-    /* 
+    /*
      * ----------------------------------------------------------------------
      * 2. SEMANTIC TOKENS (Project Tokens)
      * ----------------------------------------------------------------------
@@ -580,6 +593,7 @@
     --ft-color-n-surface-80: color-mix(in srgb, var(--ft-color-mix-a) 80%, transparent);
     --ft-color-n-surface-85: color-mix(in srgb, var(--ft-color-mix-a) 85%, transparent);
     --ft-color-n-surface-90: color-mix(in srgb, var(--ft-color-mix-a) 90%, transparent);
+    --ft-color-n-surface-95: color-mix(in srgb, var(--ft-color-mix-a) 95%, transparent);
     --ft-color-n-surface-100: color-mix(in srgb, var(--ft-color-mix-a) 100%, transparent);
 
     /* --- Functional Aliases --- */
@@ -704,7 +718,7 @@
     --ft-border-secondary: 2px;
     --ft-border-tertiary: 3px;
 
-    /* 
+    /*
      * ----------------------------------------------------------------------
      * 3. COMPONENT TOKENS (Mapped Tokens)
      * ----------------------------------------------------------------------
@@ -733,9 +747,9 @@
     --ft-button-text: var(--ft-color-solid-on-surface);
     --ft-button-bg: transparent;
     --ft-button-border-color: var(--ft-color-border-200);
-    --ft-button-height: var(--ft-unit-800);
-    --ft-button-padding: 0 var(--ft-unit-400);
-    --ft-button-gap: var(--ft-unit-300);
+    --ft-button-height: calc(var(--ft-unit-800) * var(--_layout-scale));
+    --ft-button-padding: 0 calc(var(--ft-unit-400) * var(--_layout-scale));
+    --ft-button-gap: calc(var(--ft-unit-300) * var(--_layout-scale));
     --ft-button-icon-size: 20px;
     --ft-button-shadow-blur: 20px;
     --ft-button-vertical-offset: 8px;
@@ -748,9 +762,9 @@
     --ft-input-placeholder: var(--ft-color-on-surface-level-300);
     --ft-input-label: var(--ft-color-on-surface-level-100);
     --ft-input-accent: var(--ft-color-primary);
-    --ft-input-height: var(--ft-unit-800);
-    --ft-input-padding: 0 var(--ft-unit-400);
-    --ft-input-gap: var(--ft-unit-300);
+    --ft-input-height: calc(var(--ft-unit-800) * var(--_layout-scale));
+    --ft-input-padding: 0 calc(var(--ft-unit-400) * var(--_layout-scale));
+    --ft-input-gap: calc(var(--ft-unit-300) * var(--_layout-scale));
 
     /* --- Checkbox & Radio --- */
     --ft-selection-border-color: var(--ft-color-border-200);
@@ -922,66 +936,17 @@
       #373737;
   }
 
-  /* --- Nord Theme Overrides --- */
-  [data-theme='nord'] {
-    --ft-color-primary: var(--nord10);
-    --ft-color-secondary: var(--nord7);
-    --ft-color-tertiary: var(--nord3);
-    --ft-color-success: var(--nord14);
-    --ft-color-danger: var(--nord11);
-    --ft-color-warning: var(--nord13);
-    --ft-color-info: var(--nord8);
 
-    --ft-color-highlight: linear-gradient(90deg, var(--nord10), var(--nord8));
+
+  /* 
+   * Density Modifiers 
+   */
+  [data-density="compact"] {
+    --_layout-scale: var(--ft-layout-scale-compact);
   }
 
-  [data-theme='nord'][data-mode='light'] {
-    --ft-color-mix-a: var(--nord6);
-    --ft-color-mix-z: var(--nord0);
-    --ft-color-solid-surface: var(--nord6);
-    --ft-color-solid-on-surface: var(--nord0);
-    --ft-color-background-image: none;
-    background-color: var(--nord6);
+  [data-density="loose"] {
+    --_layout-scale: var(--ft-layout-scale-loose);
   }
 
-  [data-theme='nord'][data-mode='dark'] {
-    --ft-color-mix-a: var(--nord0);
-    --ft-color-mix-z: var(--nord6);
-    --ft-color-solid-surface: var(--nord1);
-    --ft-color-solid-on-surface: var(--nord6);
-    --ft-color-background-image: none;
-    background-color: var(--nord0);
-  }
-
-  /* --- Dracula Theme Overrides --- */
-  [data-theme='dracula'] {
-    --ft-color-primary: var(--drac-purple);
-    --ft-color-secondary: var(--drac-pink);
-    --ft-color-tertiary: var(--drac-cmt);
-    --ft-color-success: var(--drac-green);
-    --ft-color-danger: var(--drac-red);
-    --ft-color-warning: var(--drac-yellow);
-    --ft-color-info: var(--drac-cyan);
-
-    --ft-color-highlight: linear-gradient(90deg, var(--drac-purple), var(--drac-pink));
-  }
-
-  [data-theme='dracula'][data-mode='light'] {
-    /* Dracula doesn't traditionally have a light mode, so we'll use a high-contrast inverted version or something suitable */
-    --ft-color-mix-a: #f8f8f2;
-    --ft-color-mix-z: #282a36;
-    --ft-color-solid-surface: #ffffff;
-    --ft-color-solid-on-surface: #282a36;
-    --ft-color-background-image: none;
-    background-color: #f8f8f2;
-  }
-
-  [data-theme='dracula'][data-mode='dark'] {
-    --ft-color-mix-a: var(--drac-bg);
-    --ft-color-mix-z: var(--drac-fg);
-    --ft-color-solid-surface: #343746;
-    --ft-color-solid-on-surface: var(--drac-fg);
-    --ft-color-background-image: none;
-    background-color: var(--drac-bg);
-  }
 }
