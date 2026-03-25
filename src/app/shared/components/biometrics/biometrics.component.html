@@ -6,7 +6,8 @@
         <ft-accordion [multiple]="true">
             @for (item of biometrics; track item.label) {
             <ft-accordion-item [label]="item.label" [value]="item.value" [subValue]="item.subValue"
-                [trendIcon]="item.trendIcon" [trendColor]="item.trendColor">
+                [trendIcon]="item.trendIcon" [trendColor]="item.trendColor"
+                [variant]="themeService.palette() === 'minimalist' ? 'ghost' : 'faded'">
                 <div class="p-4 bg-white rounded-lg border border-gray-100">
                     <p class="text-sm">Historical data and charts would go here.</p>
                 </div>
