@@ -1,4 +1,5 @@
-import { AfterViewInit, Component, ElementRef, signal, computed, viewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, signal, computed, viewChild, inject } from '@angular/core';
+import { ThemeService } from '../../../services/theme.service';
 import { OverflowDetectDirective } from '../../../directives/overflow-detect.directive';
 import { StatusPillsComponent } from './status-pills/status-pills.component';
 import { FtButtonComponent } from '../../../shared/components/buttons/button/button.component';
@@ -133,6 +134,8 @@ export class PatientListComponent {
   ];
 
   overflowMap = signal<Map<string, boolean>>(new Map());
+
+  themeService = inject(ThemeService);
 
   constructor() {
     const initialUsers = Array.from({ length: 100 }, (_, k) => createNewPatient(k + 1));
