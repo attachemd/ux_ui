@@ -1,0 +1,57 @@
+<nav class="pagination-pill-container" aria-label="Table navigation">
+  <div class="pagination-pill">
+    <!-- Left Zone: Navigation -->
+    <div class="zone zone-left">
+      <button class="nav-btn prev" (click)="onPrev()" [disabled]="currentPage() === 0" aria-label="Previous page">
+        <span class="material-symbols-rounded">chevron_left</span>
+      </button>
+
+      <div class="page-numbers">
+        @for (page of pages(); track page) {
+          @if (page === '...') {
+            <span class="ellipsis">...</span>
+          } @else {
+            <button class="page-btn"
+              [class.active]="currentPage() + 1 === page"
+              [attr.aria-current]="currentPage() + 1 === page ? 'page' : null"
+              (click)="onPageClick(page)">
+              {{ page }}
+            </button>
+          }
+        }
+      </div>
+
+      <button class="nav-btn next" (click)="onNext()" [disabled]="currentPage() >= totalPages() - 1" aria-label="Next page">
+        <span class="material-symbols-rounded">chevron_right</span>
+      </button>
+    </div>
+
+    <!-- Center Zone: Configuration -->
+    <div class="zone zone-center">
+      <ft-select [options]="pageSizeOptions()"
+        [value]="pageSize()"
+        (valueChange)="onPageSizeChange($event)"
+        variant="ghost"
+        size="sm-size"
+        [isLabel]="false"
+        class="page-size-select">
+      </ft-select>
+    </div>
+
+    <!-- Right Zone: Direct Access -->
+    <div class="zone zone-right">
+      <span class="jump-label">Go to</span>
+      <div class="jump-input-wrapper">
+        <input type="number"
+          class="jump-input"
+          [(ngModel)]="jumpToValue"
+          (keyup.enter)="onJumpSubmit()"
+          (blur)="onJumpSubmit()"
+          [min]="1"
+          [max]="totalPages()"
+          placeholder="Page">
+      </div>
+      <span class="jump-label">Page</span>
+    </div>
+  </div>
+</nav>

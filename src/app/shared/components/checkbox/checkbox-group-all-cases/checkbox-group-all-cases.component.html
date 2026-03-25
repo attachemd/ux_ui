@@ -1,0 +1,53 @@
+<div class="all-case-container">
+  <h1 class="showcase-title">Checkbox Group All Cases</h1>
+
+  <div class="section">
+    <h2 class="section-title">Orientations & Default</h2>
+    <div class="cases-grid">
+      <div class="case">
+        <p class="case-label">Column (Vertical)</p>
+        <ft-checkbox-group [isLabel]="true" label="Vertical Group" [isDescription]="true"
+          description="This is a vertical checkbox group." [options]="defaultOptions"
+          flexDirection="flex-col">
+        </ft-checkbox-group>
+      </div>
+      <div class="case">
+        <p class="case-label">Row (Horizontal)</p>
+        <ft-checkbox-group [isLabel]="true" label="Horizontal Group" [isDescription]="true"
+          description="This is a horizontal checkbox group." [options]="defaultOptions"
+          flexDirection="flex-row">
+        </ft-checkbox-group>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">States</h2>
+    <div class="cases-grid">
+      <div class="case">
+        <p class="case-label">Invalid State</p>
+        <ft-checkbox-group [isLabel]="true" label="Invalid Group" [invalid]="true"
+          errorMessage="This field is required." [options]="defaultOptions">
+        </ft-checkbox-group>
+      </div>
+      <div class="case">
+        <p class="case-label">Disabled State</p>
+        <ft-checkbox-group [isLabel]="true" label="Disabled Group" [disabled]="true" [options]="defaultOptions">
+        </ft-checkbox-group>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">Sizes</h2>
+    <div class="sizes-row">
+      @for (size of sizes; track size) {
+        <div class="case">
+          <p class="case-label">{{size}}</p>
+          <ft-checkbox-group [isLabel]="true" [label]="size" [size]="size" [options]="defaultOptions">
+          </ft-checkbox-group>
+        </div>
+      }
+    </div>
+  </div>
+</div>

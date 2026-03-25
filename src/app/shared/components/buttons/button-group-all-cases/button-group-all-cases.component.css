@@ -1,0 +1,13 @@
+/* Same layout styles as other all-case components */
+.showcase-title {
+    margin-bottom: var(--ft-unit-400);
+}
+
+.cases-container {
+    overflow-x: auto;
+}
+
+::ng-deep .case-item {
+    width: 360px;
+    height: 150px;
+}

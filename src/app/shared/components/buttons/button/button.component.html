@@ -1,0 +1,33 @@
+<button class="button-container" [class]="size() + ' ' + variant() + ' ' + state() + ' ' + color()"
+  [disabled]="state() === 'disabled'" type="button">
+  <div class="button-wrapper" [class]="radiusClasses">
+    @if (isPrefixIconClass() && prefixIconClass) {
+      <div class="prefix-icon">
+        <!--      <i [class]="prefixIconClass"></i>-->
+        <span class="material-symbols-rounded">{{prefixIconClass}}</span>
+      </div>
+    }
+    @if (isLabel) {
+      <div class="content-section">
+        @if (isLabel) {
+          <div class="label-row">
+        <span class="label truncate" [ngClass]="{
+           'content-3xs--bold': size() === 'xs-size',
+           'content-2xs--bold': size() === 'sm-size',
+           'content-xs--bold': size() === 'md-size',
+           'content-sm--bold': size() === 'lg-size',
+           }">{{ label() }}</span>
+          </div>
+        }
+      </div>
+    }
+    @if (isSuffixIconClass() && suffixIconClass) {
+      <div class="suffix-icon flex">
+        <div class="suffix">
+          <!--        <i [class]="suffixIconClass"></i>-->
+          <span class="material-symbols-rounded">{{suffixIconClass}}</span>
+        </div>
+      </div>
+    }
+  </div>
+</button>

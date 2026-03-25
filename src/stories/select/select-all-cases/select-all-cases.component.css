@@ -1,6 +1,0 @@
-::ng-deep .case-item {
-    width: 360px;
-    height: 150px;
-    /* allow the custom dropdown to escape clipping if needed */
-    overflow: visible;
-}

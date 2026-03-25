@@ -1,0 +1,84 @@
+<!-- Load Material Symbols -->
+<link
+  href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+  rel="stylesheet" />
+
+<div class="player-wrapper">
+  <!-- Main Player Container -->
+  <div class="player-container">
+    <!-- Audio Element -->
+    <audio #audioElement [src]="audioSrc()" preload="metadata" (timeupdate)="handleTimeUpdate()"
+      (loadedmetadata)="handleLoadedMetadata()" (canplay)="handleLoadedMetadata()" (playing)="handlePlaying()"
+      (ended)="handleEnded()" (pause)="isPlaying.set(false)" (play)="isPlaying.set(true)"></audio>
+
+    <!-- Player Controls Row -->
+    <div class="controls-row">
+      <!-- Play/Pause Button -->
+      <button (click)="togglePlay()" class="play-pause-btn" aria-label="Toggle Play">
+        @if (isPlaying()) {
+        <span class="material-symbols-rounded">pause</span>
+        } @else {
+        <span class="material-symbols-rounded">play_arrow</span>
+        }
+      </button>
+
+      <!-- Time Display -->
+      <div class="time-display">
+        <span>{{ formatTime(currentTime()) }}</span>
+        <span class="time-separator">/</span>
+        <span class="duration-text">{{ formatTime(duration()) }}</span>
+      </div>
+
+      <!-- Title -->
+      <div class="track-title">
+        {{ trackTitle() }}
+      </div>
+
+      <!-- Right Side Actions -->
+      <div class="actions-group">
+        <!-- Volume Group -->
+        <div class="volume-group">
+          <button (click)="toggleMute()" class="action-btn" aria-label="Volume">
+            <span class="material-symbols-rounded">
+              @if (isMuted() || volume() === 0) { volume_off }
+              @else if (volume() < 0.5) { volume_down }
+              @else { volume_up }
+            </span>
+          </button>
+          
+          <div class="volume-slider-container">
+            <input 
+              type="range" 
+              min="0" 
+              max="1" 
+              step="0.01" 
+              [value]="volume()" 
+              (input)="setVolume($event)"
+              class="volume-slider"
+              aria-label="Volume Slider"
+              [style.--_volume-percent]="(volume() * 100) + '%'"
+            />
+          </div>
+        </div>
+
+        <!-- Playback Speed -->
+        <button (click)="cycleSpeed()" class="speed-btn">
+          {{ playbackRate() }}x
+        </button>
+
+        <!-- Close/Dismiss Button -->
+        <button class="dismiss-btn" aria-label="Close">
+          <span class="material-symbols-rounded">cancel</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="progress-container" [class.dragging]="isDragging()" (pointerdown)="handleProgressBarMouseDown($event)"
+      #progressBar>
+      <div class="progress-bar" [style.--_progress-percent]="progress()"></div>
+
+      <!-- Handle/Thumb -->
+      <div class="progress-handle" [style.--_progress-percent]="progress()"></div>
+    </div>
+  </div>
+</div>

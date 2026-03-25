@@ -1,0 +1,35 @@
+<div class="all-case-container">
+  <h1 class="showcase-title">Switch Button All Cases</h1>
+
+  <div class="cases-container">
+    <!-- Header Row -->
+    <div class="case-row case-row-heading">
+      <div class="case-item case-item-heading"></div>
+      @for (variant of variants; track variant) {
+        <div class="case-item">{{ variant.name }}</div>
+      }
+    </div>
+
+    <!-- Data Rows -->
+    @for (state of states; track state) {
+      <div class="case-row">
+        <div class="case-item case-item-heading vertical-text">
+          {{ state }}
+        </div>
+        @for (variant of variants; track variant) {
+          <div class="case-item">
+            <ft-switch-button
+              [size]="size"
+              [state]="state"
+              [color]="color"
+              [radius]="radius"
+              [options]="variant.options"
+              [selectedId]="1">
+            </ft-switch-button>
+          </div>
+        }
+      </div>
+    }
+  </div>
+</div>
+

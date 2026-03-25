@@ -1,0 +1,86 @@
+<div class="field-container" [class]="labelPlacement() + ' ' + size() + ' ' + variant() + ' ' + state + ' ' + color()" [class.invalid]="state === 'invalid' || invalid" [ngStyle]="{
+    '--_field-container-gap': (!isLabel() && (labelPlacement() === 'label-outside-left' || labelPlacement() === 'label-outside'))
+                    ? '0'
+                    : null
+  }">
+  @if (isLabel() && labelPlacement() !== 'label-inside') {
+    <div class="label-row">
+    <span class="label line-none" [ngClass]="{
+           'content-2xs--semibold': size() === 'sm-size' || size() === 'md-size' || size() === 'xs-size',
+           'content-xs--semibold': size() === 'lg-size',
+           }">{{ label() }} @if (required() && !disabled) {
+        <span>*</span>
+      }</span>
+    </div>
+  }
+  <div class="input-wrapper" [class]="radiusClasses" (mousedown)="handleMousedown($event)" (click)="focus()">
+    @if (isPrefixIconClass() && prefixIconClass) {
+      <div class="prefix-icon">
+        <span class="material-symbols-rounded">{{prefixIconClass}}</span>
+      </div>
+    }
+    <div class="content-section">
+      @if (isLabel() && labelPlacement() === 'label-inside') {
+        <div class="label-row">
+        <span class="label line-none" [ngClass]="{
+           'content-2xs--bold': size() === 'sm-size' || size() === 'md-size' || size() === 'xs-size',
+           'content-xs--bold': size() === 'lg-size',
+           }">{{ label() }} @if (required() && !disabled) {
+            <span>*</span>
+          }</span>
+        </div>
+      }
+      <div class="input-row">
+        @if (startContent) {
+          <span class="start-content">{{ startContent }}</span>
+        }
+        <input #inputRef class="native-input" [placeholder]="placeholder() || ''" [(ngModel)]="value"
+          (ngModelChange)="onValueChange($event)" [disabled]="state === 'disabled' || disabled"
+          [readonly]="state === 'readonly' || readonly()" [required]="required()" [type]="currentInputType" />
+        @if (endContent) {
+          <span class="end-content">{{ endContent }}</span>
+        }
+      </div>
+    </div>
+    @if (state !== 'readonly') {
+      <div class="suffix-icon flex">
+        @if (isClearable() && value && state !== 'disabled' && !disabled) {
+          <button class="clear-btn" type="button"
+            (click)="clear()" aria-label="Clear input">
+            <span class="material-symbols-rounded">close_small</span>
+          </button>
+        }
+        @if (inputType() === 'password' && state !== 'disabled' && !disabled) {
+          <button class="clear-btn" type="button"
+            (click)="togglePasswordVisibility()" [attr.aria-label]="passwordVisible ? 'Hide password' : 'Show password'">
+            <span class="material-symbols-rounded">{{ passwordVisible ? 'visibility_off' : 'visibility' }}</span>
+          </button>
+        }
+        @if (isSuffix1IconClass() && suffix1IconClass && !disabled) {
+          <div class="suffix suffix1">
+            <span class="material-symbols-rounded">{{suffix1IconClass}}</span>
+          </div>
+        }
+        @if (isSuffix2IconClass() && suffix2IconClass) {
+          <div class="suffix suffix2">
+            <span class="material-symbols-rounded">{{suffix2IconClass}}</span>
+          </div>
+        }
+      </div>
+    }
+  </div>
+  @if (((state === 'invalid' || invalid) && errorMessage) || (isDescription && description && state !== 'invalid')) {
+    <div class="helper-text-container">
+      @if ((state === 'invalid' || invalid) && errorMessage) {
+        <div class="error-message">
+          <p class="error-text content-2xs--normal">{{ errorMessage }}</p>
+        </div>
+      }
+      @if (isDescription && description && state !== 'invalid') {
+        <div class="description">
+          <p class="highlight content-2xs--normal">{{ description }}</p>
+        </div>
+      }
+    </div>
+  }
+</div>

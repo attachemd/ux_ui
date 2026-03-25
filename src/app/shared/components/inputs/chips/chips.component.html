@@ -1,0 +1,92 @@
+<div class="field-container" [class]="labelPlacement + ' ' + size + ' ' + variant + ' ' + state + ' ' + color"
+  [class.disabled]="disabled || state === 'disabled'" [ngStyle]="{
+    '--_field-container-gap': (!isLabel && (labelPlacement === 'label-outside-left' || labelPlacement === 'label-outside'))
+                    ? '0'
+                    : null
+  }">
+  @if (isLabel && labelPlacement !== 'label-inside') {
+    <div class="label-row">
+    <span class="label leading-none" [ngClass]="{
+           'content-2xs--semibold': size === 'sm-size' || size === 'md-size' || size === 'xs-size',
+           'content-xs--semibold': size === 'lg-size',
+           }">{{ label }} @if (required && !disabled) {
+        <span>*</span>
+      }</span>
+    </div>
+  }
+
+  <div class="input-wrapper" [class]="radiusClasses">
+    <div class="content-section">
+      @if ((isLabel && labelPlacement === 'label-inside') || (!(disabled || state === 'disabled') && state !== 'readonly')) {
+        <div class="top-row"
+          >
+          @if (isLabel && labelPlacement === 'label-inside') {
+            <div class="label-row">
+          <span class="label leading-none" [ngClass]="{
+                 'content-2xs--bold': size === 'sm-size' || size === 'md-size' || size === 'xs-size',
+                 'content-xs--bold': size === 'lg-size',
+                 }">{{ label }} @if (required && !disabled) {
+                <span>*</span>
+              }</span>
+            </div>
+          }
+          @if (!(disabled || state === 'disabled') && state !== 'readonly') {
+            <div class="suffix-row">
+              <div class="suffix-icon">
+                @if (isClearable && items.length > 0) {
+                  <span class="material-symbols-rounded cursor-pointer"
+                  (click)="clearAll()">close</span>
+                }
+                <span class="material-symbols-rounded">settings</span>
+              </div>
+            </div>
+          }
+        </div>
+      }
+
+      <div class="chips-list">
+        @for (item of items; track item; let i = $index) {
+          <div class="chip">
+            <span class="chip-text">{{ item }}</span>
+            @if (!(disabled || state === 'disabled') && state !== 'readonly') {
+              <div class="chip-remove" (click)="removeItem(i)"
+                >
+                <span class="material-symbols-rounded">close</span>
+              </div>
+            }
+          </div>
+        }
+
+        <div class="input-section">
+          <input class="native-input" [placeholder]="items.length === 0 ? (placeholder || '') : ''"
+            [(ngModel)]="inputValue" (ngModelChange)="onInputChange($event)" (keydown.enter)="addItemFromInput()"
+            (keydown.backspace)="handleBackspace($event)" [disabled]="state === 'disabled' || disabled"
+            [readonly]="state === 'readonly' || readonly" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Autocomplete Dropdown -->
+    @if (showSuggestions && filteredSuggestions.length > 0) {
+      <div class="suggestions-dropdown">
+        @for (suggestion of filteredSuggestions; track suggestion) {
+          <div class="suggestion-item"
+            (click)="selectSuggestion(suggestion)">
+            {{ suggestion }}
+          </div>
+        }
+      </div>
+    }
+  </div>
+
+  @if (state === 'invalid' && errorMessage) {
+    <div class="error-message">
+      <p class="error-text content-2xs--normal">{{ errorMessage }}</p>
+    </div>
+  }
+  @if (isDescription && description && state !== 'invalid') {
+    <div class="description">
+      <p class="highlight content-2xs--normal">{{ description }}</p>
+    </div>
+  }
+</div>

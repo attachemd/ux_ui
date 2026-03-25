@@ -1,0 +1,11 @@
+<div class="badge-container">
+  <ng-content></ng-content>
+  @if (showDot || value) {
+    <span
+      class="badge"
+      [class]="severity() + ' ' + size() + ' ' + position()"
+      [class.dot]="showDot">
+      {{ !showDot ? value : '' }}
+    </span>
+  }
+</div>

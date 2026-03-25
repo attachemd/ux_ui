@@ -1,0 +1,120 @@
+<div class="field-container" [class]="labelPlacement() + ' ' + size() + ' ' + variant() + ' ' + state + ' ' + color()" [class.invalid]="state === 'invalid' || invalid"
+    [ngStyle]="{
+        '--_field-container-gap': (!isLabel() && (labelPlacement() === 'label-outside-left' || labelPlacement() === 'label-outside')) ? '0' : null
+    }">
+
+    <!-- Top Label -->
+    @if (isLabel() && labelPlacement() !== 'label-inside') {
+    <div class="label-row">
+        <span class="label leading-none" [ngClass]="{
+             'content-2xs--semibold': size() === 'sm-size' || size() === 'md-size' || size() === 'xs-size',
+             'content-xs--semibold': size() === 'lg-size',
+             }">{{ label() }} @if (required() && !disabled) { <span>*</span> }</span>
+    </div>
+    }
+
+    <!-- Main Select Box -->
+    <div class="input-wrapper select-wrapper" [class]="radiusClasses" (click)="toggleDropdown()"
+        [class.is-open]="isOpen">
+        <!-- Prefix Icon -->
+        @if (isPrefixIconClass() && prefixIconClass) {
+        <div class="prefix-icon">
+            <span class="material-symbols-rounded">{{prefixIconClass}}</span>
+        </div>
+        }
+
+        <div class="content-section">
+            <!-- Inside Label -->
+            @if (isLabel() && labelPlacement() === 'label-inside') {
+            <div class="label-row">
+                <span class="label leading-none" [ngClass]="{
+                 'content-2xs--bold': size() === 'sm-size' || size() === 'md-size' || size() === 'xs-size',
+                 'content-xs--bold': size() === 'lg-size',
+                 }">{{ label() }} @if (required() && !disabled) { <span>*</span> }</span>
+            </div>
+            }
+
+            <div class="input-row select-row">
+                @if (startContent) {
+                <span class="start-content">{{ startContent }}</span>
+                }
+
+                <div class="native-input select-display-area" [class.multiple-mode]="multiple()">
+                    @if (displayValue) {
+                    <span class="selected-text" [title]="displayValue">{{ displayValue }}</span>
+                    } @else if (placeholder) {
+                    <span class="placeholder-text" [title]="placeholder">{{ placeholder }}</span>
+                    }
+                </div>
+
+                @if (endContent) {
+                <span class="end-content">{{ endContent }}</span>
+                }
+            </div>
+        </div>
+
+        <!-- Suffix Icons -->
+        @if (state !== 'readonly') {
+        <div class="suffix-icon flex">
+            <!-- Clear Button -->
+            @if (isClearable() && ((multiple() && value?.length > 0) || (!multiple() && value)) && state !== 'disabled' &&
+            !disabled) {
+            <button class="clear-btn" type="button" (click)="clear($event)" aria-label="Clear selection">
+                <span class="material-symbols-rounded">close_small</span>
+            </button>
+            }
+
+            <!-- Custom Suffix 1 -->
+            @if (isSuffix1IconClass() && suffix1IconClass && !disabled) {
+            <div class="suffix suffix1">
+                <span class="material-symbols-rounded">{{suffix1IconClass}}</span>
+            </div>
+            }
+
+            <!-- Custom Suffix 2 (Dropdown Arrow Usually) -->
+            @if (isSuffix2IconClass() && suffix2IconClass) {
+            <div class="suffix suffix2" [class.rotated]="isOpen">
+                <span class="material-symbols-rounded">{{suffix2IconClass}}</span>
+            </div>
+            }
+        </div>
+        }
+
+        <!-- Dropdown Menu -->
+        @if (isOpen) {
+        <div class="dropdown-menu" [class.position-top]="dropdownPosition === 'top'" (click)="$event.stopPropagation()">
+            <ul class="options-list">
+                @for (opt of options(); track opt.value) {
+                <li class="option-item" [class.selected]="isSelected(opt.value)" (click)="selectOption(opt, $event)">
+                    <span class="option-label">{{ opt.label }}</span>
+                    @if (multiple() && isSelected(opt.value)) {
+                    <span class="material-symbols-rounded check-icon">check</span>
+                    }
+                </li>
+                }
+                @if (options().length === 0) {
+                <li class="option-item no-options">No options available</li>
+                }
+            </ul>
+        </div>
+        }
+    </div> <!-- /input-wrapper -->
+
+
+    <!-- Error & Description Messages -->
+    @if (((state === 'invalid' || invalid) && errorMessage) || (isDescription && description && state !== 'invalid')) {
+    <div class="helper-text-container">
+        @if ((state === 'invalid' || invalid) && errorMessage) {
+        <div class="error-message">
+            <p class="error-text content-2xs--normal">{{ errorMessage }}</p>
+        </div>
+        }
+
+        @if (isDescription && description && state !== 'invalid') {
+        <div class="description">
+            <p class="highlight content-2xs--normal">{{ description }}</p>
+        </div>
+        }
+    </div>
+    }
+</div>

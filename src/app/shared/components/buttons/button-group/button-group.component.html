@@ -1,0 +1,11 @@
+<div class="button-group-container" [ngClass]="flexDirection()">
+  @for (btn of buttons(); track btn; let isFirst = $first; let isLast = $last; let i = $index) {
+    <ft-button
+      [class.first-btn]="isFirst" [class.last-btn]="isLast" [class.middle-btn]="!isFirst && !isLast" [size]="size()"
+      [color]="color()" [variant]="isOptionSelected(btn) ? 'flat' : variant()" [radius]="radius()" [state]="getButtonState(btn, i)"
+      [isLabel]="btn.isLabel ?? true" [label]="btn.label" [isPrefixIconClass]="isOptionSelected(btn) ? true : (btn.isPrefixIconClass ?? false)"
+      [prefixIconClass]="isOptionSelected(btn) ? 'check' : (btn.prefixIconClass ?? '')"
+      [isSuffixIconClass]="btn.isSuffixIconClass ?? false"
+    [suffixIconClass]="btn.suffixIconClass ?? ''" (click)="selectOption(btn)"></ft-button>
+  }
+</div>

@@ -1,0 +1,17 @@
+<div class="switch-button-container" [ngClass]="[size(), state(), radius(), color()]">
+  @for (option of options(); track option) {
+    <div class="switch-option"
+      [ngClass]="{ 'selected': isSelected(option.id), 'disabled': option.disabled }"
+      (click)="selectOption(option)">
+      <div class="option-content">
+        @if (option.icon) {
+          <span class="material-symbols-rounded">{{ option.icon }}</span>
+        }
+        @if (!option.isIconOnly && option.label) {
+          <span class="label">{{ option.label }}</span>
+        }
+      </div>
+    </div>
+  }
+</div>
+
