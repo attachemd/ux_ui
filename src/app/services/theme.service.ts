@@ -1,5 +1,6 @@
-import { Injectable, RendererFactory2, Renderer2, Inject, signal, computed, effect } from '@angular/core';
+import { Injectable, RendererFactory2, Renderer2, Inject, signal, computed, effect, inject } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
+import { ThemeConfigService } from './theme-config.service';
 
 export type ThemeMode = 'light' | 'dark' | 'system';
 export type ThemePalette = 'default' | 'nord' | 'dracula' | 'minimalist';
@@ -10,11 +11,15 @@ export type ThemeDensity = 'compact' | 'comfortable' | 'loose';
 })
 export class ThemeService {
   private renderer: Renderer2;
+  private themeLink: HTMLLinkElement | null = null;
+  private themeConfigService = inject(ThemeConfigService);
   
   // State signals
   mode = signal<ThemeMode>(this.getInitialMode());
   palette = signal<ThemePalette>(this.getInitialPalette());
   density = signal<ThemeDensity>(this.getInitialDensity());
+
+  readonly config = computed(() => this.themeConfigService.getConfig());
 
   // Resolved mode accounting for system preference
   resolvedMode = computed(() => {
@@ -55,6 +60,9 @@ export class ThemeService {
       } else {
         this.renderer.removeClass(this.document.body, 'dark-theme');
       }
+
+      this.updateThemeLink(palette);
+      this.themeConfigService.loadConfig(palette);
     });
 
     // Listen for system theme changes
@@ -98,6 +106,19 @@ export class ThemeService {
   private getInitialDensity(): ThemeDensity {
     const saved = localStorage.getItem('theme-density') as ThemeDensity;
     return saved || 'comfortable';
+  }
+
+  private updateThemeLink(palette: string): void {
+    if (!this.themeLink) {
+      this.themeLink = this.document.getElementById('ft-theme-link') as HTMLLinkElement;
+      if (!this.themeLink) {
+        this.themeLink = this.renderer.createElement('link', 'http://www.w3.org/1999/xhtml');
+        this.renderer.setAttribute(this.themeLink, 'rel', 'stylesheet');
+        this.renderer.setAttribute(this.themeLink, 'id', 'ft-theme-link');
+        this.renderer.appendChild(this.document.head, this.themeLink);
+      }
+    }
+    this.renderer.setAttribute(this.themeLink, 'href', `/themes/${palette}.css`);
   }
 }
 
