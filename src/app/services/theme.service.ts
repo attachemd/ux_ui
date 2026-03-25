@@ -2,7 +2,8 @@ import { Injectable, RendererFactory2, Renderer2, Inject, signal, computed, effe
 import { DOCUMENT } from '@angular/common';
 
 export type ThemeMode = 'light' | 'dark' | 'system';
-export type ThemePalette = 'default' | 'nord' | 'dracula';
+export type ThemePalette = 'default' | 'nord' | 'dracula' | 'minimalist';
+export type ThemeDensity = 'compact' | 'comfortable' | 'loose';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +14,7 @@ export class ThemeService {
   // State signals
   mode = signal<ThemeMode>(this.getInitialMode());
   palette = signal<ThemePalette>(this.getInitialPalette());
+  density = signal<ThemeDensity>(this.getInitialDensity());
 
   // Resolved mode accounting for system preference
   resolvedMode = computed(() => {
@@ -33,16 +35,19 @@ export class ThemeService {
     effect(() => {
       const mode = this.resolvedMode();
       const palette = this.palette();
+      const density = this.density();
       
       const root = this.document.documentElement;
       
       // Update data attributes
       this.renderer.setAttribute(root, 'data-mode', mode);
       this.renderer.setAttribute(root, 'data-theme', palette);
-
+      this.renderer.setAttribute(root, 'data-density', density);
+ 
       // Persistence
       localStorage.setItem('theme-mode', this.mode());
       localStorage.setItem('theme-palette', palette);
+      localStorage.setItem('theme-density', density);
       
       // Legacy support (optional, remove if not needed)
       if (mode === 'dark') {
@@ -67,10 +72,17 @@ export class ThemeService {
   }
 
   cyclePalette(): void {
-    const palettes: ThemePalette[] = ['default', 'nord', 'dracula'];
+    const palettes: ThemePalette[] = ['default', 'nord', 'dracula', 'minimalist'];
     const currentIndex = palettes.indexOf(this.palette());
     const nextIndex = (currentIndex + 1) % palettes.length;
     this.palette.set(palettes[nextIndex]);
+  }
+
+  cycleDensity(): void {
+    const densities: ThemeDensity[] = ['compact', 'comfortable', 'loose'];
+    const currentIndex = densities.indexOf(this.density());
+    const nextIndex = (currentIndex + 1) % densities.length;
+    this.density.set(densities[nextIndex]);
   }
 
   private getInitialMode(): ThemeMode {
@@ -81,6 +93,11 @@ export class ThemeService {
   private getInitialPalette(): ThemePalette {
     const saved = localStorage.getItem('theme-palette') as ThemePalette;
     return saved || 'default';
+  }
+
+  private getInitialDensity(): ThemeDensity {
+    const saved = localStorage.getItem('theme-density') as ThemeDensity;
+    return saved || 'comfortable';
   }
 }
 
