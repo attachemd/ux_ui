@@ -45,7 +45,7 @@
       </div>
     </div>
   </div>
-  <div class="helper-text-container">
+  <div class="helper-text-container" *ngIf="((state === 'invalid' || invalid) && errorMessage) || (isDescription && description && state !== 'invalid')">
     <div *ngIf="(state === 'invalid' || invalid) && errorMessage" class="error-message">
       <p class="error-text content-2xs--normal">{{ errorMessage }}</p>
     </div>

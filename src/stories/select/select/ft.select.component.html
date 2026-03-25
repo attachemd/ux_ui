@@ -102,6 +102,7 @@
 
 
     <!-- Error & Description Messages -->
+    @if (((state === 'invalid' || invalid) && errorMessage) || (isDescription && description && state !== 'invalid')) {
     <div class="helper-text-container">
         @if ((state === 'invalid' || invalid) && errorMessage) {
         <div class="error-message">
@@ -115,4 +116,5 @@
         </div>
         }
     </div>
+    }
 </div>
