@@ -28,7 +28,7 @@
     </thead>
     <tbody>
       @for (row of data(); track row.id) {
-      <tr [class.selected]="isSelected(row)" (click)="toggleRow(row, $event)" class="clickable-row">
+      <tr [class.selected]="isSelected(row)" [class.expanded]="isExpanded(row.id)" (click)="toggleRow(row, $event)" class="clickable-row">
         @for (col of columns(); track col.key) {
         <td [class]="col.key" [style.width]="col.width" [style.max-width]="col.maxWidth"
           [style.min-width]="col.minWidth" [class.sticky-column]="col.sticky === 'left'"
@@ -57,6 +57,19 @@
         </td>
         }
       </tr>
+
+      <!-- Expansion Row -->
+      @if (expandable() && isExpanded(row.id)) {
+      <tr class="expansion-row" [class.selected]="isSelected(row)" [class.expanded]="isExpanded(row.id)">
+        <td [attr.colspan]="columns().length">
+          <div class="expansion-content">
+            @if (expansionTemplate) {
+            <ng-container *ngTemplateOutlet="expansionTemplate; context: { $implicit: row }"></ng-container>
+            }
+          </div>
+        </td>
+      </tr>
+      }
       }
     </tbody>
   </table>

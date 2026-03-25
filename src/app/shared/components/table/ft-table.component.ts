@@ -9,11 +9,14 @@ import {
   TemplateRef,
   input,
   output,
-  ViewEncapsulation
+  ViewEncapsulation,
+  signal,
+  ContentChild
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TableColumn } from './table-column.interface';
 import { FTTableCellDirective } from './ft-table-cell.directive';
+import { FTTableExpansionDirective } from './ft-table-expansion.directive';
 import { FtCheckboxComponent } from '../../../../stories/checkbox/ft.checkbox.component';
 
 @Component({
@@ -31,18 +34,28 @@ export class FTTableComponent implements AfterContentInit {
   sortDirection = input<'asc' | 'desc'>('asc');
   selection = input<Set<string>>(new Set());
 
+  expandable = input<boolean>(false);
+
   sort = output<{ key: string, direction: 'asc' | 'desc' }>();
   selectionChange = output<Set<string>>();
   rowClick = output<any>();
+  rowExpand = output<{ rowId: string, expanded: boolean }>();
 
   @ContentChildren(FTTableCellDirective) cellTemplates!: QueryList<FTTableCellDirective>;
+  @ContentChild(FTTableExpansionDirective) expansionDirective?: FTTableExpansionDirective;
 
   columnTemplates: { [key: string]: TemplateRef<any> } = {};
+  expansionTemplate?: TemplateRef<any>;
+
+  expandedRows = signal<Set<string>>(new Set());
 
   ngAfterContentInit() {
     this.cellTemplates.forEach(directive => {
       this.columnTemplates[directive.columnKey] = directive.templateRef;
     });
+    if (this.expansionDirective) {
+      this.expansionTemplate = this.expansionDirective.templateRef;
+    }
   }
 
   onSort(key: string) {
@@ -60,9 +73,27 @@ export class FTTableComponent implements AfterContentInit {
   }
 
   toggleRow(row: any, event: MouseEvent) {
-    // Selection logic usually handled by parent if we want it to be "independent"
-    // but we can provide a helper emit.
+    if (this.expandable()) {
+      this.toggleRowExpansion(row.id, event);
+    }
     this.rowClick.emit(row);
+  }
+
+  toggleRowExpansion(rowId: string, event?: Event) {
+    if (event) event.stopPropagation();
+    const current = this.expandedRows();
+    const next = new Set(current);
+    if (next.has(rowId)) {
+      next.delete(rowId);
+    } else {
+      next.add(rowId);
+    }
+    this.expandedRows.set(next);
+    this.rowExpand.emit({ rowId, expanded: next.has(rowId) });
+  }
+
+  isExpanded(rowId: string): boolean {
+    return this.expandedRows().has(rowId);
   }
 
   toggleSelectAll() {
