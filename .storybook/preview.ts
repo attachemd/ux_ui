@@ -6,7 +6,7 @@ import { setCompodocJson } from "@storybook/addon-docs/angular";
 import docJson from "../documentation.json";
 setCompodocJson(docJson);
 
-import '!style-loader!css-loader!../src/stories/common.styles.css';
+import '!style-loader!css-loader!../src/app/shared/library-assets/common.styles.css';
 import { themes } from 'storybook/theming';
 import { useDarkMode } from '@vueless/storybook-dark-mode';
 import { DocsContainer } from '@storybook/addon-docs/blocks';

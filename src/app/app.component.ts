@@ -7,13 +7,13 @@ import {
   ViewChild,
 } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { NgIf } from '@angular/common';
-import { FtSideNavComponent } from '../stories/Components/side-nav/ft.side-nav.component';
-import { FTHeaderComponent } from '../stories/Components/header/ft-header.component';
-import { FtToastComponent } from '../stories/Components/toast/ft-toast.component';
-import { FtConfirmDialogComponent } from '../stories/Components/dialog/ft-confirm-dialog.component';
-import { FtDynamicDialogComponent } from '../stories/Components/dialog/ft-dynamic-dialog.component';
-import { FtButtonComponent } from '../stories/Buttons/button/ft.button.component';
+
+import { FtSideNavComponent } from './shared/components/side-nav/side-nav.component';
+import { FtHeaderComponent } from './shared/components/header/header.component';
+import { FtToastComponent } from './shared/components/toast/toast.component';
+import { FtConfirmDialogComponent } from './shared/components/dialog/confirm-dialog.component';
+import { FtDynamicDialogComponent } from './shared/components/dialog/dynamic-dialog.component';
+import { FtButtonComponent } from './shared/components/buttons/button/button.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @Component({
   selector: 'app-root',
@@ -22,7 +22,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     ReactiveFormsModule,
     FtSideNavComponent,
-    FTHeaderComponent,
+    FtHeaderComponent,
     FtToastComponent,
     FtConfirmDialogComponent,
     FtDynamicDialogComponent,
