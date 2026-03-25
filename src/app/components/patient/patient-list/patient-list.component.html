@@ -10,7 +10,7 @@
 
       <ft-search
         placeholder="Rechercher les patients"
-        [variant]="themeService.palette() === 'minimalist' ? 'ghost' : 'faded'"
+        [variant]="$any(getVariant('ft-search'))"
         (search)="onSearchChange($event)">
       </ft-search>
     </div>
@@ -47,7 +47,7 @@
             [sortDirection]="sortDirection()"
             [selection]="selection()"
             [expandable]="true"
-            [variant]="themeService.palette() === 'minimalist' ? 'minimalist' : 'default'"
+            [variant]="$any(getVariant('ft-table') || 'default')"
             (sort)="onSortChange($event)"
             (selectionChange)="onSelectionChange($event)">
 
