@@ -1,0 +1,89 @@
+/* 
+ * ==========================================================================
+ * MINIMALIST THEME
+ * ==========================================================================
+ */
+
+@layer app-variables {
+  [data-theme="minimalist"] {
+    /* Base Overrides */
+    --_layout-scale: var(--ft-layout-scale-loose);
+    
+    --ft-radius-100: 0px;
+    --ft-radius-200: 0px;
+    --ft-radius-300: 0px;
+    --ft-radius-400: 0px;
+    --ft-radius-500: 0px;
+    --ft-radius-600: 0px;
+    --ft-radius-700: 0px;
+    --ft-radius-800: 0px;
+    --ft-radius-pill: 0px;
+
+    --shadow-sm: none;
+    --shadow-md: none;
+    --shadow-lg: none;
+    --ft-color-shadow-200: transparent;
+    --ft-color-shadow-300: transparent;
+
+    --ft-border-primary: 1px;
+    --ft-border-secondary: 1px;
+    --ft-border-tertiary: 1px;
+
+    /* Component Overrides */
+    --ft-button-bg: transparent;
+    --ft-button-border-color: var(--ft-color-border-solid);
+    --ft-input-bg: transparent;
+    --ft-input-border-width: 1px;
+  }
+
+  [data-theme='minimalist'][data-mode='light'] {
+    --ft-color-mix-a: #ffffff;
+    --ft-color-mix-z: #000000;
+    --ft-color-solid-surface: #ffffff;
+    --ft-color-solid-on-surface: #000000;
+    --ft-color-primary: #000000;
+    --ft-color-on-primary: #ffffff;
+    --ft-color-border-200: #000000;
+  }
+
+  [data-theme='minimalist'][data-mode='dark'] {
+    --ft-color-mix-a: #000000;
+    --ft-color-mix-z: #ffffff;
+    --ft-color-solid-surface: #000000;
+    --ft-color-solid-on-surface: #ffffff;
+    --ft-color-primary: #ffffff;
+    --ft-color-on-primary: #000000;
+    --ft-color-border-200: #ffffff;
+  }
+
+  /* 
+   * Table Minimalist Variant
+   * Moved from table.component.css
+   */
+  [data-theme="minimalist"] .ft-table-wrapper {
+    --_row-gap: 0px;
+    --_header-radius: 0px;
+    --_row-radius: 0px;
+    --_header-shadow: none;
+    --_header-bg: transparent;
+    --_header-text: var(--ft-color-on-surface-level-100);
+    --_header-border: none;
+    --_header-border-bottom: 2px solid var(--ft-color-border-solid);
+    --_row-bg: transparent;
+    --_row-bg-even: transparent;
+    --_row-border: none;
+    --_row-border-bottom: 1px solid var(--ft-color-border-100);
+  }
+
+  [data-theme="minimalist"] .ft-table-wrapper .ft-table thead tr::before {
+    border-bottom: var(--_header-border-bottom);
+    border-radius: 0;
+    box-shadow: none;
+    background: transparent;
+  }
+
+  [data-theme="minimalist"] .ft-table-wrapper .ft-table tbody tr::before {
+    border-bottom: var(--_row-border-bottom);
+    border-radius: 0;
+  }
+}

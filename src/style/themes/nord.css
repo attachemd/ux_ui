@@ -1,0 +1,37 @@
+/* 
+ * ==========================================================================
+ * NORD THEME
+ * ==========================================================================
+ */
+
+@layer app-variables {
+  [data-theme='nord'] {
+    --ft-color-primary: var(--nord10);
+    --ft-color-secondary: var(--nord7);
+    --ft-color-tertiary: var(--nord3);
+    --ft-color-success: var(--nord14);
+    --ft-color-danger: var(--nord11);
+    --ft-color-warning: var(--nord13);
+    --ft-color-info: var(--nord8);
+
+    --ft-color-highlight: linear-gradient(90deg, var(--nord10), var(--nord8));
+  }
+
+  [data-theme='nord'][data-mode='light'] {
+    --ft-color-mix-a: var(--nord6);
+    --ft-color-mix-z: var(--nord0);
+    --ft-color-solid-surface: var(--nord6);
+    --ft-color-solid-on-surface: var(--nord0);
+    --ft-color-background-image: none;
+    /* background-color: var(--nord6); Removal of direct background-color on root to avoid conflicts */
+  }
+
+  [data-theme='nord'][data-mode='dark'] {
+    --ft-color-mix-a: var(--nord0);
+    --ft-color-mix-z: var(--nord6);
+    --ft-color-solid-surface: var(--nord1);
+    --ft-color-solid-on-surface: var(--nord6);
+    --ft-color-background-image: none;
+    /* background-color: var(--nord0); */
+  }
+}

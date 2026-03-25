@@ -1,0 +1,35 @@
+/* 
+ * ==========================================================================
+ * DRACULA THEME
+ * ==========================================================================
+ */
+
+@layer app-variables {
+  [data-theme='dracula'] {
+    --ft-color-primary: var(--drac-purple);
+    --ft-color-secondary: var(--drac-pink);
+    --ft-color-tertiary: var(--drac-cmt);
+    --ft-color-success: var(--drac-green);
+    --ft-color-danger: var(--drac-red);
+    --ft-color-warning: var(--drac-yellow);
+    --ft-color-info: var(--drac-cyan);
+
+    --ft-color-highlight: linear-gradient(90deg, var(--drac-purple), var(--drac-pink));
+  }
+
+  [data-theme='dracula'][data-mode='light'] {
+    --ft-color-mix-a: #f8f8f2;
+    --ft-color-mix-z: #282a36;
+    --ft-color-solid-surface: #ffffff;
+    --ft-color-solid-on-surface: #282a36;
+    --ft-color-background-image: none;
+  }
+
+  [data-theme='dracula'][data-mode='dark'] {
+    --ft-color-mix-a: var(--drac-bg);
+    --ft-color-mix-z: var(--drac-fg);
+    --ft-color-solid-surface: #343746;
+    --ft-color-solid-on-surface: var(--drac-fg);
+    --ft-color-background-image: none;
+  }
+}
