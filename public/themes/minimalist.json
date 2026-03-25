@@ -1,0 +1,8 @@
+{
+  "components": {
+    "ft-table": { "variant": "minimalist" },
+    "ft-search": { "variant": "ghost" },
+    "ft-button": { "variant": "ghost" },
+    "ft-accordion-item": { "variant": "ghost" }
+  }
+}

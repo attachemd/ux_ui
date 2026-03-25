@@ -1,0 +1,8 @@
+{
+  "components": {
+    "ft-table": { "variant": "default" },
+    "ft-search": { "variant": "faded" },
+    "ft-button": { "variant": "flat" },
+    "ft-accordion-item": { "variant": "faded" }
+  }
+}
