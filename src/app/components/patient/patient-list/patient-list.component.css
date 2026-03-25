@@ -45,6 +45,7 @@
   background: var(--ft-color-surface);
   border-bottom: 1px solid var(--ft-color-border-100);
   border-radius: var(--ft-radius-400) var(--ft-radius-400) 0 0;
+  width: 100%;
 }
 
 .table-search-container {
@@ -83,7 +84,7 @@
   scrollbar-gutter: stable;
   container-type: inline-size;
   /* Provides the 100cqw context for the table's pseudo-elements */
-  padding: 0 12px; /* Provide space for the floating header shadow */
+  /* padding: 0 12px; Provide space for the floating header shadow */
 }
 
 .table-scroll-area {
@@ -126,6 +127,11 @@
    * This positions the ID column immediately to the right of the sticky checkbox column,
    * ensuring both columns remain fixed during horizontal scroll without overlapping.
    */
+}
+
+:host ::ng-deep .firstName,
+:host ::ng-deep .lastName {
+  font-weight: 600;
 }
 
 .list-footer {
@@ -172,16 +178,19 @@
    4. EXPANSION DIALOG (POPOVER)
    ========================================================================== */
 .expansion-dialog {
-  border: none;
-  border-radius: var(--ft-radius-md);
-  box-shadow: var(--ft-shadow-lg);
+  border: 1px solid var(--ft-color-border-100);
+  border-radius: var(--ft-radius-lg);
+  box-shadow: 0 12px 32px -4px rgb(0 0 0 / 0.1), 0 4px 12px -2px rgb(0 0 0 / 0.05);
   padding: 0;
   margin: 0;
-  background: white;
-  min-width: 280px;
-  max-width: 400px;
+  background: color-mix(in srgb, var(--ft-color-surface) 90%, transparent);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  min-width: 240px;
+  max-width: 360px;
   position: fixed;
   z-index: 1000;
+  overflow: hidden;
 }
 
 .expansion-dialog::backdrop {
@@ -194,8 +203,8 @@
 }
 
 .dialog-header {
-  padding: var(--ft-unit-200) var(--ft-unit-300);
-  background: var(--ft-color-surface-level-100);
+  padding: var(--ft-unit-300) var(--ft-unit-400);
+  background: color-mix(in srgb, var(--ft-color-surface-level-100) 80%, transparent);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -204,15 +213,28 @@
 
 .dialog-header h3 {
   margin: 0;
-  font-size: var(--ft-text-sm);
-  font-weight: 600;
-  color: var(--ft-color-on-surface);
+  font-size: var(--ft-text-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--ft-color-on-surface-level-200);
 }
 
 .dialog-body {
-  padding: var(--ft-unit-300);
+  padding: var(--ft-unit-400);
   max-height: 400px;
   overflow-y: auto;
+}
+
+.status-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--ft-unit-200);
+}
+
+.status-container.column {
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 /* Duplicate status pill styles for dialog usage */
@@ -261,4 +283,63 @@
   padding: var(--ft-unit-50) var(--ft-unit-200);
   border-radius: var(--ft-radius-sm);
   font-size: var(--ft-text-2xs);
+}
+
+/* ==========================================================================
+   5. PATIENT DETAILS (EXPANSION CONTENT)
+   ========================================================================== */
+.patient-details-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--ft-unit-600);
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.detail-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ft-unit-200);
+  padding-left: var(--ft-unit-600);
+  border-left: 1px solid var(--ft-color-border-100);
+}
+
+.detail-section:first-child {
+  padding-left: 0;
+  border-left: none;
+}
+
+.section-title {
+  font-size: var(--ft-text-2xs);
+  font-weight: 700;
+  color: var(--ft-color-primary);
+  margin-bottom: var(--ft-unit-100);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.detail-row {
+  display: flex;
+  align-items: center;
+  gap: var(--ft-unit-200);
+  font-size: var(--ft-text-xs);
+}
+
+.detail-icon {
+  font-size: 18px;
+  color: var(--ft-color-on-surface-level-200);
+}
+
+.detail-label {
+  font-weight: 600;
+  color: var(--ft-color-on-surface-level-200);
+  min-width: 80px;
+}
+
+.detail-value {
+  color: var(--ft-color-on-surface);
 }

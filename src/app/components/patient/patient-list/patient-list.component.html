@@ -43,8 +43,51 @@
             [sortKey]="sortKey()"
             [sortDirection]="sortDirection()"
             [selection]="selection()"
+            [expandable]="true"
             (sort)="onSortChange($event)"
             (selectionChange)="onSelectionChange($event)">
+
+            <!-- Custom Expansion Template -->
+            <ng-template appTableExpansion let-row>
+              <div class="patient-details-grid">
+                <div class="detail-section">
+                  <h4 class="section-title">Informations de contact</h4>
+                  <div class="detail-row">
+                    <span class="material-symbols-rounded detail-icon">mail</span>
+                    <span class="detail-label">Email:</span>
+                    <span class="detail-value">{{ row.email }}</span>
+                  </div>
+                  <div class="detail-row">
+                    <span class="material-symbols-rounded detail-icon">call</span>
+                    <span class="detail-label">Téléphone:</span>
+                    <span class="detail-value">{{ row.primaryPhoneNumber }}</span>
+                  </div>
+                </div>
+
+                <div class="detail-section">
+                  <h4 class="section-title">Localisation</h4>
+                  <div class="detail-row">
+                    <span class="material-symbols-rounded detail-icon">location_on</span>
+                    <span class="detail-label">Adresse:</span>
+                    <span class="detail-value">{{ row.address }}, {{ row.city }}, {{ row.country }}</span>
+                  </div>
+                </div>
+
+                <div class="detail-section">
+                  <h4 class="section-title">Informations professionnelles</h4>
+                  <div class="detail-row">
+                    <span class="material-symbols-rounded detail-icon">work</span>
+                    <span class="detail-label">Profession:</span>
+                    <span class="detail-value">{{ row.occupation }}</span>
+                  </div>
+                  <div class="detail-row">
+                    <span class="material-symbols-rounded detail-icon">business</span>
+                    <span class="detail-label">Employeur:</span>
+                    <span class="detail-value">{{ row.employer }}</span>
+                  </div>
+                </div>
+              </div>
+            </ng-template>
 
             <!-- Custom Template: Status -->
             <ng-template appTableCell="status" let-row>
