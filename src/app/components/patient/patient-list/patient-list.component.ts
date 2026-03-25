@@ -137,6 +137,13 @@ export class PatientListComponent {
 
   themeService = inject(ThemeService);
 
+  // Helper to get component config
+  compConfig = computed(() => this.themeService.config().components);
+
+  getVariant(component: string): any {
+    return this.compConfig()[component]?.variant;
+  }
+
   constructor() {
     const initialUsers = Array.from({ length: 100 }, (_, k) => createNewPatient(k + 1));
     this.users.set(initialUsers);
