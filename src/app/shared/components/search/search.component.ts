@@ -8,7 +8,7 @@ import { FormsModule } from '@angular/forms';
   imports: [FtInputComponent, FormsModule],
   template: `
     <ft-input
-      variant="flat"
+      [variant]="variant()"
       size="sm-size"
       radius="sm-radius"
       [placeholder]="placeholder()"
@@ -32,6 +32,7 @@ import { FormsModule } from '@angular/forms';
 })
 export class FtSearchComponent {
   placeholder = input('Rechercher...');
+  variant = input<'flat' | 'faded' | 'outlined' | 'ghost'>('flat');
   value = model('');
   search = output<string>();
 
