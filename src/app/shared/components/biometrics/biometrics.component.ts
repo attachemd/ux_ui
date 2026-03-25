@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, computed } from '@angular/core';
 import { ThemeService } from '../../../services/theme.service';
 
 import { FtAccordionComponent } from '../accordion/accordion.component';
@@ -22,6 +22,11 @@ interface AccordionItem {
 })
 export class BiometricsComponent {
     themeService = inject(ThemeService);
+    compConfig = computed(() => this.themeService.config().components);
+
+    getVariant(component: string): any {
+        return this.compConfig()[component]?.variant;
+    }
     biometrics: AccordionItem[] = [
         { label: 'FC (bpm)', value: 64, subValue: '22/05/2025 - 18:20', trendIcon: 'arrow_downward', trendColor: 'neutral' },
         { label: 'Poids (KG)', value: 70, subValue: '15/09/2023 - 07:55', trendIcon: 'arrow_upward', trendColor: 'neutral' },
