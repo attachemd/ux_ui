@@ -1,7 +1,7 @@
 import { Directive, TemplateRef } from '@angular/core';
 
 @Directive({
-  selector: '[appTableExpansion]',
+  selector: '[ftTableExpansion]',
   standalone: true
 })
 export class FtTableExpansionDirective {

@@ -4,7 +4,9 @@
 .ft-table-wrapper {
   display: flex;
   flex-direction: column;
-  /* container-type moved to .table-viewport in parent to avoid breaking position: sticky */
+  flex: 1;
+  min-height: 0;
+  height: 100%;
   width: 100%;
   position: static;
 
@@ -59,6 +61,51 @@
   /* --- Expansion --- */
   --_expansion-bg: var(--ft-table-expansion-bg, color-mix(in srgb, var(--ft-color-surface) 95%, var(--ft-color-primary)));
   --_expansion-padding: var(--ft-table-expansion-padding, var(--ft-unit-400) var(--ft-unit-600));
+
+  /* --- Scrollbar --- */
+  --_scrollbar-thumb: var(--ft-table-scrollbar-thumb, color-mix(in srgb, var(--ft-color-on-surface-level-200) 10%, transparent));
+  --_scrollbar-thumb-hover: var(--ft-table-scrollbar-thumb-hover, color-mix(in srgb, var(--ft-color-on-surface-level-200) 20%, transparent));
+}
+
+:host {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.table-viewport {
+  flex: 1;
+  overflow: auto;
+  position: relative;
+  scrollbar-gutter: stable;
+  container-type: inline-size;
+}
+
+.table-scroll-area {
+  min-width: 100%;
+}
+
+/* Custom Scrollbar Styles for the viewport */
+.table-viewport::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.table-viewport::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.table-viewport::-webkit-scrollbar-thumb {
+  background: var(--_scrollbar-thumb);
+  border-radius: 4px;
+}
+
+.table-viewport::-webkit-scrollbar-thumb:hover {
+  background: var(--_scrollbar-thumb-hover);
 }
 
 /* ==========================================================================
@@ -438,6 +485,13 @@
   background-color: var(--_sticky-bg-expanded);
 }
 
+.cell-content {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
 /* Checkbox specific */
 .checkbox-cell-content {
   display: flex;
@@ -450,4 +504,3 @@
   padding: var(--ft-unit-1000);
   color: var(--_empty-state-text);
 }
-

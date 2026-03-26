@@ -9,8 +9,8 @@ import { FormsModule } from '@angular/forms';
   template: `
     <ft-input
       [variant]="variant()"
-      size="sm-size"
-      radius="sm-radius"
+      size="md-size"
+      [radius]="radius()"
       [placeholder]="placeholder()"
       prefixIconClass="search"
       [isPrefixIconClass]="true"
@@ -23,7 +23,8 @@ import { FormsModule } from '@angular/forms';
   styles: [`
     :host {
       display: block;
-      width: 100%;
+      width: var(--_width, 100%);
+      min-width: var(--_min-width, auto);
     }
     .search-input-field {
       width: 100%;
@@ -33,6 +34,7 @@ import { FormsModule } from '@angular/forms';
 export class FtSearchComponent {
   placeholder = input('Rechercher...');
   variant = input<'flat' | 'faded' | 'outlined' | 'ghost'>('flat');
+  radius = input<'none-radius' | 'xs-radius' | 'sm-radius' | 'md-radius' | 'lg-radius' | 'full-radius'>('sm-radius');
   value = model('');
   search = output<string>();
 

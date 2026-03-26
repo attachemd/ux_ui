@@ -23,8 +23,7 @@ import { FtCheckboxComponent } from '../checkbox/checkbox.component';
   standalone: true,
   imports: [CommonModule, FtCheckboxComponent],
   templateUrl: './table.component.html',
-  styleUrls: ['./table.component.css'],
-  encapsulation: ViewEncapsulation.None
+  styleUrls: ['./table.component.css']
 })
 export class FtTableComponent implements AfterContentInit {
   // Inputs

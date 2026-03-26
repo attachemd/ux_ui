@@ -1,0 +1,66 @@
+<div class="list-header">
+  <div class="table-search-container">
+    @if (showViewsManager()) {
+    <ft-views-manager [views]="views()" [viewControl]="viewControl()" (viewChange)="viewChange.emit($event)"
+      (manageColumns)="columnManager?.toggle('columnMenu')" (toggleFilter)="filterExpanded.set(!filterExpanded())">
+    </ft-views-manager>
+
+    <div class="vertical-divider"></div>
+    }
+
+    <ft-search [placeholder]="searchPlaceholder()" variant="outlined" radius="full-radius"
+      (search)="search.emit($event)">
+    </ft-search>
+
+    @if (showFilterToggle() && !showViewsManager()) {
+    <div class="vertical-divider mini"></div>
+    <ft-button variant="ghost" size="sm-size" prefixIconClass="filter_list" [isPrefixIconClass]="true"
+      (click)="filterExpanded.set(!filterExpanded())" [class.active]="filterExpanded()">
+    </ft-button>
+    }
+  </div>
+
+  <div class="table-actions-container">
+    <!-- <ft-filter [activeFiltersCount]="activeFiltersCount()" (reset)="resetFilters.emit()" (filter)="filter.emit()">
+    </ft-filter> -->
+
+    <ng-content select="[slot=actions]"></ng-content>
+
+    <ft-column-manager #columnManagerRef [allColumns]="allColumns()" [visibleColumns]="visibleColumns()"
+      (toggleColumn)="toggleColumn.emit($event)">
+    </ft-column-manager>
+  </div>
+</div>
+
+@if (filterExpanded()) {
+<div class="filter-expansion-row">
+  <div class="inline-filters">
+    <ft-select [value]="filter1Value()" [options]="filter1Options()" [isLabel]="true" [label]="filter1Label()"
+      [labelPlacement]="'label-outside-left'" variant="ghost" size="sm-size" [multiple]="true"
+      [indeterminateValues]="filter1Indeterminate()" (valueChange)="handleFilterChange('city', $event)">
+    </ft-select>
+
+    <div class="vertical-divider mini"></div>
+
+    <ft-select [value]="filter2Value()" [options]="filter2Options()" [isLabel]="true" [label]="filter2Label()"
+      [labelPlacement]="'label-outside-left'" variant="ghost" size="sm-size" [multiple]="true"
+      [indeterminateValues]="filter2Indeterminate()" (valueChange)="handleFilterChange('country', $event)">
+    </ft-select>
+
+    <div class="vertical-divider mini"></div>
+
+    <ft-select [value]="filter3Value()" [options]="filter3Options()" [isLabel]="true" [label]="filter3Label()"
+      [labelPlacement]="'label-outside-left'" variant="ghost" size="sm-size" [multiple]="true"
+      [indeterminateValues]="filter3Indeterminate()" (valueChange)="handleFilterChange('gender', $event)">
+    </ft-select>
+
+
+
+    <div class="filter-actions">
+      <ft-button label="Réinitialiser" variant="ghost" size="sm-size" prefixIconClass="restart_alt"
+        [isPrefixIconClass]="true" (click)="resetAdvancedFilters()">
+      </ft-button>
+    </div>
+  </div>
+</div>
+}

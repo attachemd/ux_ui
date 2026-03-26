@@ -16,7 +16,7 @@
   --_btn-color: var(--ft-pagination-btn-color, var(--ft-color-on-surface-level-200));
   --_btn-font-size: var(--ft-pagination-btn-font-size, var(--ft-text-xs));
   --_btn-font-weight: var(--ft-pagination-btn-font-weight, var(--font-weight-medium));
-  
+
   --_btn-hover-bg: var(--ft-pagination-btn-hover-bg, var(--ft-color-surface-level-100));
   --_btn-hover-color: var(--ft-pagination-btn-hover-color, var(--ft-color-primary));
 
@@ -29,7 +29,7 @@
   --_input-border: var(--ft-color-border-200);
   --_input-padding: 0 var(--ft-unit-300);
   --_input-focus-bg: var(--ft-color-solid-surface);
-  
+
   --_label-color: var(--ft-color-on-surface-level-300);
   --_ellipsis-color: var(--ft-color-on-surface-muted);
 }
@@ -38,16 +38,15 @@
   display: flex;
   justify-content: center;
   width: 100%;
-  padding: var(--ft-unit-400) 0;
 }
 
 .pagination-pill {
   display: flex;
   align-items: center;
-  background-color: var(--_pill-bg);
-  border: var(--_pill-border);
-  border-radius: var(--_pill-radius);
-  box-shadow: var(--_pill-shadow);
+  /* background-color: var(--_pill-bg);
+  border: var(--_pill-border); */
+  /* border-radius: var(--_pill-radius);
+  box-shadow: var(--_pill-shadow); */
   padding: var(--_pill-padding);
   gap: var(--_pill-gap);
 }
@@ -66,6 +65,10 @@
 .zone-center {
   border-right: var(--_zone-border);
   padding-right: var(--_zone-padding);
+
+  ft-select {
+    --_width: fit-content;
+  }
 }
 
 /* Page Buttons & Ellipsis */
@@ -75,7 +78,8 @@
   gap: var(--ft-unit-100);
 }
 
-.page-btn, .nav-btn {
+.page-btn,
+.nav-btn {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -91,7 +95,8 @@
   transition: all 0.2s var(--ease-in-out);
 }
 
-.page-btn:hover:not(.active), .nav-btn:hover:not(:disabled) {
+.page-btn:hover:not(.active),
+.nav-btn:hover:not(:disabled) {
   background-color: var(--_btn-hover-bg);
   color: var(--_btn-hover-color);
 }
@@ -114,7 +119,8 @@
 
 /* Page Size Select overrides */
 .page-size-select {
-  width: var(--ft-unit-2400); /* 96px, close to previous 100px */
+  /* width: var(--ft-unit-2400); */
+  /* 96px, close to previous 100px */
 }
 
 /* Direct Access Zone */
@@ -152,6 +158,7 @@
   -webkit-appearance: none;
   margin: 0;
 }
+
 .jump-input {
   appearance: textfield;
   -moz-appearance: textfield;

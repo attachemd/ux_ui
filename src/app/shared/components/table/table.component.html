@@ -1,78 +1,82 @@
 <div class="ft-table-wrapper" [class]="variant()">
-  <table class="ft-table">
-    <thead>
-      <tr class="header-row">
-        @for (col of columns(); track col.key) {
-        <th [class]="col.key" [style.width]="col.width" [style.max-width]="col.maxWidth"
-          [style.min-width]="col.minWidth" [class.sticky-column]="col.sticky === 'left'"
-          [class.sticky-column-right]="col.sticky === 'right'" [class.sorted]="isSorted(col.key)"
-          (click)="col.sortable !== false && onSort(col.key)">
+  <div class="table-viewport">
+    <div class="table-scroll-area">
+      <table class="ft-table">
+        <thead>
+          <tr class="header-row">
+            @for (col of columns(); track col.key) {
+            <th [class]="col.key" [style.width]="col.width" [style.max-width]="col.maxWidth"
+              [style.min-width]="col.minWidth" [class.sticky-column]="col.sticky === 'left'"
+              [class.sticky-column-right]="col.sticky === 'right'" [class.sorted]="isSorted(col.key)"
+              (click)="col.sortable !== false && onSort(col.key)">
 
-          @if (col.type === 'checkbox') {
-          <div class="checkbox-cell-content" (click)="$event.stopPropagation()">
-            <ft-checkbox [size]="'sm-size'" [value]="isAllSelected()" (valueChange)="toggleSelectAll()"></ft-checkbox>
-          </div>
-          } @else {
-          <div class="th-content">
-            {{ col.label }}
-            @if (col.sortable !== false) {
-            <span class="sort-icon material-symbols-rounded" [class.active]="isSorted(col.key)">
-              {{ getSortIcon(col.key) }}
-            </span>
+              @if (col.type === 'checkbox') {
+              <div class="checkbox-cell-content" (click)="$event.stopPropagation()">
+                <ft-checkbox [size]="'sm-size'" [value]="isAllSelected()" (valueChange)="toggleSelectAll()"></ft-checkbox>
+              </div>
+              } @else {
+              <div class="th-content">
+                {{ col.label }}
+                @if (col.sortable !== false) {
+                <span class="sort-icon material-symbols-rounded" [class.active]="isSorted(col.key)">
+                  {{ getSortIcon(col.key) }}
+                </span>
+                }
+              </div>
+              }
+            </th>
             }
-          </div>
+          </tr>
+        </thead>
+        <tbody>
+          @for (row of data(); track row.id) {
+          <tr [class.selected]="isSelected(row)" [class.expanded]="isExpanded(row.id)" (click)="toggleRow(row, $event)"
+            class="clickable-row">
+            @for (col of columns(); track col.key) {
+            <td [class]="col.key" [style.width]="col.width" [style.max-width]="col.maxWidth"
+              [style.min-width]="col.minWidth" [class.sticky-column]="col.sticky === 'left'"
+              [class.sticky-column-right]="col.sticky === 'right'">
+
+              <div class="cell-content">
+                @if (columnTemplates[col.key]) {
+                <ng-container
+                  *ngTemplateOutlet="columnTemplates[col.key]; context: { $implicit: row, column: col }"></ng-container>
+                } @else {
+                @switch (col.type) {
+                @case ('checkbox') {
+                <div class="checkbox-cell-content" (click)="$event.stopPropagation()">
+                  <ft-checkbox [size]="'sm-size'" [value]="isSelected(row)"
+                    (valueChange)="onCheckboxChange(row, $event)"></ft-checkbox>
+                </div>
+                }
+                @case ('date') {
+                {{ row[col.key] | date:'dd/MM/yyyy' }}
+                }
+                @default {
+                {{ row[col.key] }}
+                }
+                }
+                }
+              </div>
+            </td>
+            }
+          </tr>
+
+          <!-- Expansion Row -->
+          @if (expandable() && isExpanded(row.id)) {
+          <tr class="expansion-row" [class.selected]="isSelected(row)" [class.expanded]="isExpanded(row.id)">
+            <td [attr.colspan]="columns().length">
+              <div class="expansion-content">
+                @if (expansionTemplate) {
+                <ng-container *ngTemplateOutlet="expansionTemplate; context: { $implicit: row }"></ng-container>
+                }
+              </div>
+            </td>
+          </tr>
           }
-        </th>
-        }
-      </tr>
-    </thead>
-    <tbody>
-      @for (row of data(); track row.id) {
-      <tr [class.selected]="isSelected(row)" [class.expanded]="isExpanded(row.id)" (click)="toggleRow(row, $event)"
-        class="clickable-row">
-        @for (col of columns(); track col.key) {
-        <td [class]="col.key" [style.width]="col.width" [style.max-width]="col.maxWidth"
-          [style.min-width]="col.minWidth" [class.sticky-column]="col.sticky === 'left'"
-          [class.sticky-column-right]="col.sticky === 'right'">
-
-          <div class="cell-content">
-            @if (columnTemplates[col.key]) {
-            <ng-container
-              *ngTemplateOutlet="columnTemplates[col.key]; context: { $implicit: row, column: col }"></ng-container>
-            } @else {
-            @switch (col.type) {
-            @case ('checkbox') {
-            <div class="checkbox-cell-content" (click)="$event.stopPropagation()">
-              <ft-checkbox [size]="'sm-size'" [value]="isSelected(row)"
-                (valueChange)="onCheckboxChange(row, $event)"></ft-checkbox>
-            </div>
-            }
-            @case ('date') {
-            {{ row[col.key] | date:'dd/MM/yyyy' }}
-            }
-            @default {
-            {{ row[col.key] }}
-            }
-            }
-            }
-          </div>
-        </td>
-        }
-      </tr>
-
-      <!-- Expansion Row -->
-      @if (expandable() && isExpanded(row.id)) {
-      <tr class="expansion-row" [class.selected]="isSelected(row)" [class.expanded]="isExpanded(row.id)">
-        <td [attr.colspan]="columns().length">
-          <div class="expansion-content">
-            @if (expansionTemplate) {
-            <ng-container *ngTemplateOutlet="expansionTemplate; context: { $implicit: row }"></ng-container>
-            }
-          </div>
-        </td>
-      </tr>
-      }
-      }
-    </tbody>
-  </table>
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>
