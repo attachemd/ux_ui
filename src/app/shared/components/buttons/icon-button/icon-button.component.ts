@@ -16,7 +16,7 @@ export class FtIconButtonComponent {
   readonly label = input<string>();
   readonly size = input<'xs-size' | 'sm-size' | 'md-size' | 'lg-size'>('md-size');
   readonly color = input<'primary' | 'secondary' | 'tertiary' | 'success' | 'warning' | 'danger'>('primary');
-  readonly variant = input<'flat' | 'faded' | 'outlined' | 'ghost'>('flat');
+  readonly variant = input<'flat' | 'faded' | 'outlined' | 'ghost' | 'icon'>('flat');
   readonly radius = input<'none-radius' | 'xs-radius' | 'sm-radius' | 'md-radius' | 'lg-radius' | 'full-radius'>('md-radius');
   readonly state = input<'rest' | 'hover' | 'press' | 'focus' | 'disabled'>('rest');
   readonly type = input<'button' | 'submit' | 'reset'>('button');

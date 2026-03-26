@@ -16,6 +16,8 @@ export class IconButtonAllCasesComponent {
   size: 'xs-size'|'sm-size'|'md-size'|'lg-size' = 'md-size';
   color: "primary" | "secondary" | "tertiary" | "success" | "warning" | "danger" = "primary";
   radius: "none-radius" | "xs-radius" | "sm-radius" | "md-radius" | "lg-radius" | "full-radius" = "md-radius";
+  isLabel = true;
+  label = 'face';
 
   variants: Array<'flat' | 'outlined' | 'faded' | 'ghost'> = [
     'flat',
