@@ -1,58 +1,29 @@
 <div class="list-container ft-panel">
-  <div class="list-header">
-    <div class="table-search-container">
-      <ft-views-manager
-        [views]="views"
-        [viewControl]="selectedView"
-        (viewChange)="onViewChange($event)"
-        (manageColumns)="columnManager.toggle('columnMenu')">
-      </ft-views-manager>
+  <ft-table-header [views]="views" [viewControl]="selectedView" searchPlaceholder="Rechercher les patients"
+    [activeFiltersCount]="2" [allColumns]="allTableColumns" [visibleColumns]="visibleColumnKeys()"
+    filter1Label="Ville" [filter1Options]="cityOptions" [(filter1Value)]="selectedCities"
+    filter2Label="Pays" [filter2Options]="countryOptions" [(filter2Value)]="selectedCountries"
+    filter3Label="Genre" [filter3Options]="genderOptions" [(filter3Value)]="selectedGenders"
+    (search)="onSearchChange($event)" (viewChange)="onViewChange($event)" (resetFilters)="filter.set('')"
+    (filter)="onSearchChange('')" (toggleColumn)="toggleColumn($event)">
 
-      <ft-search
-        placeholder="Rechercher les patients"
-        [variant]="$any(getVariant('ft-search'))"
-        (search)="onSearchChange($event)">
-      </ft-search>
+    <div slot="actions">
+      <ft-button label="Nouveau" prefixIconClass="add"
+        [variant]="themeService.palette() === 'minimalist' ? 'ghost' : 'outlined'" color="primary" size="sm-size"
+        [isPrefixIconClass]="true">
+      </ft-button>
     </div>
-
-    <div class="table-actions-container">
-      <ft-filter
-        [activeFiltersCount]="2"
-        (reset)="filter.set('')"
-        (filter)="onSearchChange('')">
-      </ft-filter>
-
-      <ft-button label="Nouveau" prefixIconClass="add" 
-        [variant]="themeService.palette() === 'minimalist' ? 'ghost' : 'flat'" 
-        color="primary" size="sm-size"
-        [isPrefixIconClass]="true"></ft-button>
-      
-      <ft-column-manager
-        #columnManager
-        [allColumns]="allTableColumns"
-        [visibleColumns]="visibleColumnKeys()"
-        (toggleColumn)="toggleColumn($event)">
-      </ft-column-manager>
-    </div>
-  </div>
+  </ft-table-header>
 
   <div class="list-body">
     <div class="table-container">
-      <div class="table-viewport">
-        <div class="table-scroll-area">
-          <ft-table
-            [data]="paginatedUsers()"
-            [columns]="columns()"
-            [sortKey]="sortKey()"
-            [sortDirection]="sortDirection()"
-            [selection]="selection()"
-            [expandable]="true"
-            [variant]="$any(getVariant('ft-table') || 'default')"
-            (sort)="onSortChange($event)"
+          <ft-table [data]="paginatedUsers()" [columns]="columns()" [sortKey]="sortKey()"
+            [sortDirection]="sortDirection()" [selection]="selection()" [expandable]="true"
+            [variant]="$any(getVariant('ft-table') || 'default')" (sort)="onSortChange($event)"
             (selectionChange)="onSelectionChange($event)">
 
             <!-- Custom Expansion Template -->
-            <ng-template appTableExpansion let-row>
+            <ng-template ftTableExpansion let-row>
               <div class="patient-details-grid">
                 <div class="detail-section">
                   <h4 class="section-title">Informations de contact</h4>
@@ -95,22 +66,19 @@
 
             <!-- Custom Template: Status -->
             <ng-template appTableCell="status" let-row>
-              <ft-status-pills
-                [pills]="getStatuses(row.status)"
-                (moreClick)="openDialog(row, 'status', $event)">
+              <ft-status-pills [pills]="getStatuses(row.status)" (moreClick)="openDialog(row, 'status', $event)">
               </ft-status-pills>
             </ng-template>
 
             <!-- Custom Template: Address -->
             <ng-template appTableCell="address" let-row>
               <div class="expandable-cell">
-                <span class="cell-text"
-                  appOverflowDetect
+                <span class="cell-text" appOverflowDetect
                   (overflowChange)="onOverflowChange(row.id!, 'address', $event)">
                   {{ row.address }}
                 </span>
                 @if (isOverflowing(row.id!, 'address')) {
-                  <span class="more-link" (click)="openDialog(row, 'address', $event)">+ plus</span>
+                <span class="more-link" (click)="openDialog(row, 'address', $event)">+ plus</span>
                 }
               </div>
             </ng-template>
@@ -118,15 +86,14 @@
             <!-- Custom Template: Languages -->
             <ng-template appTableCell="spokenLanguages" let-row>
               <div class="expandable-cell">
-                <span class="cell-text"
-                  appOverflowDetect
+                <span class="cell-text" appOverflowDetect
                   (overflowChange)="onOverflowChange(row.id!, 'languages', $event)">
                   {{ row.spokenLanguages?.join(', ') }}
                 </span>
                 @if (isOverflowing(row.id!, 'languages')) {
-                  <span class="more-link" (click)="openDialog(row, 'languages', $event)">
-                    +{{ (row.spokenLanguages?.length ?? 1) - 1 }}
-                  </span>
+                <span class="more-link" (click)="openDialog(row, 'languages', $event)">
+                  +{{ (row.spokenLanguages?.length ?? 1) - 1 }}
+                </span>
                 }
               </div>
             </ng-template>
@@ -141,18 +108,12 @@
             </ng-template>
 
           </ft-table>
-        </div>
-      </div>
     </div>
   </div>
 
   <div class="list-footer">
-    <ft-pagination
-      [totalItems]="filteredUsers().length"
-      [pageSize]="pageSize()"
-      [currentPage]="currentPage()"
-      [pageSizeOptions]="pageSizeOptions"
-      (pageChange)="onPageChange($event)"
+    <ft-pagination [totalItems]="filteredUsers().length" [pageSize]="pageSize()" [currentPage]="currentPage()"
+      [pageSizeOptions]="pageSizeOptions" (pageChange)="onPageChange($event)"
       (pageSizeChange)="onPageSizeChange($event)">
     </ft-pagination>
   </div>
@@ -164,34 +125,34 @@
     <div class="dialog-header">
       <h3>
         @switch (activeExpandType) {
-          @case ('status') { Statuts }
-          @case ('address') { Adresse }
-          @case ('languages') { Langues }
+        @case ('status') { Statuts }
+        @case ('address') { Adresse }
+        @case ('languages') { Langues }
         }
       </h3>
       <ft-icon-button iconClass="close" variant="ghost" size="sm-size" (click)="closeDialog()"></ft-icon-button>
     </div>
     <div class="dialog-body">
       @if (activeExpandRow) {
-        @switch (activeExpandType) {
-          @case ('status') {
-            <div class="status-container column">
-              @for (s of getStatuses(activeExpandRow.status); track s) {
-                <span class="status-pill" [class]="s.toLowerCase()">{{ s }}</span>
-              }
-            </div>
-          }
-          @case ('address') {
-            <p class="full-text">{{ activeExpandRow.address }}</p>
-          }
-          @case ('languages') {
-            <div class="languages-list">
-              @for (lang of activeExpandRow.spokenLanguages; track lang) {
-                <span class="language-item">{{ lang }}</span>
-              }
-            </div>
-          }
+      @switch (activeExpandType) {
+      @case ('status') {
+      <div class="status-container column">
+        @for (s of getStatuses(activeExpandRow.status); track s) {
+        <span class="status-pill" [class]="s.toLowerCase()">{{ s }}</span>
         }
+      </div>
+      }
+      @case ('address') {
+      <p class="full-text">{{ activeExpandRow.address }}</p>
+      }
+      @case ('languages') {
+      <div class="languages-list">
+        @for (lang of activeExpandRow.spokenLanguages; track lang) {
+        <span class="language-item">{{ lang }}</span>
+        }
+      </div>
+      }
+      }
       }
     </div>
   </div>

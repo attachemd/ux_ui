@@ -10,13 +10,10 @@ import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Patient } from '../../../types/patient.type';
 
 // Reusable Sub-components
-import { FtSearchComponent } from '../../../shared/components/search/search.component';
-import { FtFilterComponent } from '../../../shared/components/filter/filter.component';
-import { FtViewsManagerComponent } from '../../../shared/components/views-manager/views-manager.component';
-import { FtColumnManagerComponent } from '../../../shared/components/column-manager/column-manager.component';
 import { FtTableComponent } from '../../../shared/components/table/table.component';
 import { FtTableCellDirective } from '../../../shared/components/table/table-cell.directive';
 import { FtTableExpansionDirective } from '../../../shared/components/table/table-expansion.directive';
+import { FtTableHeaderComponent } from '../../../shared/components/table/table-header/table-header.component';
 import { TableColumn } from '../../../shared/components/table/table-column.interface';
 
 interface View {
@@ -53,7 +50,7 @@ const INSURANCES: string[] = ['Saham Assurance', 'Wafa Assurance', 'RMA Watanya'
     OverflowDetectDirective, StatusPillsComponent,
     FtButtonComponent, FtIconButtonComponent,
     FtPaginationComponent, FormsModule, ReactiveFormsModule,
-    FtSearchComponent, FtFilterComponent, FtViewsManagerComponent, FtColumnManagerComponent,
+    FtTableHeaderComponent,
     FtTableComponent, FtTableCellDirective, FtTableExpansionDirective
   ],
   templateUrl: './patient-list.component.html',
@@ -63,7 +60,7 @@ export class PatientListComponent {
   protected readonly Math = Math;
 
   allTableColumns: TableColumn[] = [
-    { key: 'select', label: '', type: 'checkbox', width: '36px', sticky: 'left', sortable: false },
+    { key: 'select', label: '', type: 'checkbox', width: '32px', sticky: 'left', sortable: false },
     { key: 'id', label: 'ID', width: '100px', sticky: 'left', minWidth: '100px', maxWidth: '100px' },
     { key: 'status', label: 'Statut', type: 'custom', width: '160px', minWidth: '160px', maxWidth: '160px' },
     { key: 'title', label: 'Titre', width: '100px' },
@@ -132,6 +129,30 @@ export class PatientListComponent {
     { label: '25 par page', value: 25 },
     { label: '50 par page', value: 50 },
   ];
+
+  // Advanced Filter Options
+  cityOptions: SelectOption[] = [
+    { value: 'all', label: 'Toutes' },
+    ...CITIES['Maroc'].map(c => ({ value: c.toLowerCase(), label: c }))
+  ];
+
+  countryOptions: SelectOption[] = [
+    { value: 'all', label: 'Tous' },
+    { value: 'maroc', label: 'Maroc' },
+    { value: 'france', label: 'France' },
+    { value: 'belgique', label: 'Belgique' }
+  ];
+
+  genderOptions: SelectOption[] = [
+    { value: 'all', label: 'Tous' },
+    { value: 'male', label: 'Homme' },
+    { value: 'female', label: 'Femme' },
+    { value: 'other', label: 'Autre' }
+  ];
+
+  selectedCities = signal<string[]>(['all']);
+  selectedCountries = signal<string[]>(['all']);
+  selectedGenders = signal<string[]>(['all']);
 
   overflowMap = signal<Map<string, boolean>>(new Map());
 
