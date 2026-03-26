@@ -1,4 +1,10 @@
 /* styles.css or design-system-vars.css */
+@property --_ft-sb-thumb-border {
+  syntax: '<length>';
+  inherits: true;
+  initial-value: 2px;
+}
+
 @layer app-styles {
 
   .form-field-label {
@@ -265,6 +271,10 @@
 
   /* ***************************************************************** */
 
+  html {
+    background-color: #fff;
+  }
+
   html,
   body {
     width: 100%;
@@ -315,7 +325,8 @@
         linear-gradient(28deg, rgba(0, 133, 255, 0.1) 0%, rgba(255, 255, 255, 0)),
         linear-gradient(-49deg, #ebebeb 0%, rgba(255, 255, 255, 0)), #ffffff; */
 
-    background: var(--ft-color-background-image);
+    /*background: var(--ft-color-background-image);*/
+    background-color: color-mix(in srgb, var(--ft-color-primary) 10%, var(--ft-color-mix-a));
 
     /*background: linear-gradient(*/
     /*    129deg,*/
@@ -331,29 +342,53 @@
   /*  scrollbar-width: thin;*/
   /*}*/
 
-  /* Let's get this party started */
+  /* ***************************************************************** */
+  /* Animated Scrollbar Expansion (4px to 8px) */
+  /* ***************************************************************** */
+
+  * {
+    --_ft-sb-thumb-border: 2px;
+    transition: --_ft-sb-thumb-border 0.1s ease-in-out;
+  }
+
+  *:hover,
+  *:active {
+    --_ft-sb-thumb-border: 0px;
+  }
+
   *::-webkit-scrollbar {
-    width: 6px;
-    font-weight: var(--font-weight-normal);
+    width: 8px;
+    height: 8px;
   }
 
-  /* Track */
   ::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.0);
-    -webkit-border-radius: 10px;
-    border-radius: 10px;
+    background: transparent;
   }
 
-  /* Handle */
   ::-webkit-scrollbar-thumb {
-    -webkit-border-radius: 10px;
-    border-radius: 10px;
-    background: rgba(0, 0, 0, 0.15);
-    /*-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);*/
+    border: var(--_ft-sb-thumb-border) solid transparent;
+    background-clip: padding-box;
+    border-radius: var(--ft-radius-pill, 10px);
+    background-color: var(--ft-color-on-surface-scroll, rgba(0, 0, 0, 0.04));
+    /* Transition for browsers that support it on pseudo-elements, though Chrome uses @property + inheritance */
+    transition: background-color 0.1s;
+  }
+
+  /* Expand when hovering over the scrollbar handle specifically */
+  ::-webkit-scrollbar-thumb:hover,
+  ::-webkit-scrollbar-thumb:active {
+    --_ft-sb-thumb-border: 0px;
+    background-color: color-mix(in srgb, var(--ft-color-on-surface-scroll, rgba(0, 0, 0, 0.04)), black 4%);
+  }
+
+  /* Specific hover state for the container */
+  *:hover::-webkit-scrollbar-thumb {
+    background-color: color-mix(in srgb, var(--ft-color-on-surface-scroll, rgba(0, 0, 0, 0.04)), black 4%);
   }
 
   ::-webkit-scrollbar-thumb:window-inactive {
-    background: rgba(0, 0, 0, 0.1);
+    background-color: var(--ft-color-on-surface-scroll, rgba(0, 0, 0, 0.1));
+    opacity: 0.5;
   }
 
   @keyframes hueRotation {
@@ -447,8 +482,7 @@
 
   /* Focus state */
   button:focus {
-    /*outline: 2px solid #90c3ff;*/
-    /*outline-offset: 2px;*/
+    outline: none;
   }
 
   /* Disabled state */
@@ -721,6 +755,7 @@
           display: -webkit-box;
           max-width: 100%;
           -webkit-line-clamp: 3;
+          line-clamp: 3;
           -webkit-box-orient: vertical;
           overflow: hidden;
           text-overflow: ellipsis;
@@ -765,7 +800,7 @@
       gap: var(--ft-unit-200);
 
       i {
-        /*colors: rgba(var(--ft-colors-text-base), 0.3);*/
+        display: inline-flex;
       }
     }
   }
