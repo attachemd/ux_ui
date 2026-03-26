@@ -387,3 +387,21 @@ table.color-surface-table {
   border-bottom: 2px solid #edf2f7;
   padding-bottom: 0.5rem;
 }
+
+/* Component Layout Overrides for Storybook */
+storybook-root {
+  > ft-select {
+    --_width: fit-content;
+    --_min-width: var(--ft-unit-5200);
+  }
+  > ft-input {
+    min-width: 200px;
+    width: fit-content !important;
+    display: block;
+  }
+  > ft-chips {
+    min-width: 300px;
+    width: fit-content !important;
+    display: block;
+  }
+}

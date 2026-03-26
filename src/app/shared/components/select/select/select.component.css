@@ -1,13 +1,7 @@
-::ng-deep storybook-root {
-    >ft-select {
-        min-width: var(--ft-unit-5200);
-        width: fit-content !important;
-        display: block;
-    }
-}
-
 :host {
-    width: 100%;
+    display: block;
+    width: var(--_width, 100%);
+    min-width: var(--_min-width, auto);
 }
 
 
@@ -494,6 +488,10 @@
     &.ghost {
         --_field-border-width: var(--ft-unit-0);
         --_field-bg: transparent;
+        
+        &:has(.label-row) {
+            --_field-text: var(--ft-color-on-surface-level-300);
+        }
 
         &:is(:hover, .hover) {
             --_field-bg: var(--_field-bg-50);
@@ -506,13 +504,6 @@
 
         &:is(:active, .press) {
             --_field-bg: var(--_field-bg-100);
-        }
-
-        &.label-outside-left,
-        &.label-outside {
-            .content {
-                --_field-text: var(--ft-color-on-surface-level-300);
-            }
         }
 
         &.invalid {

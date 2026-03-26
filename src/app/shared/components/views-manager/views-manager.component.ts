@@ -43,11 +43,19 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
         [formControl]="viewControl()"
         [options]="views()"
         variant="flat"
+        [labelPlacement]="'label-outside-left'"
         [isLabel]="false"
-        size="sm-size"
+        size="md-size"
         placeholder="Choisir une vue"
         (valueChange)="onViewChange($event)">
       </ft-select>
+
+      <ft-icon-button
+        iconClass="filter_list"
+        variant="ghost"
+        size="md-size"
+        (click)="toggleFilter.emit()">
+      </ft-icon-button>
     </div>
   `,
   styles: [`
@@ -79,12 +87,13 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
 export class FtViewsManagerComponent {
   views = input<SelectOption[]>([]);
   viewControl = input<FormControl>(new FormControl());
-  
+
   viewChange = output<string>();
   configure = output<void>();
   manageColumns = output<void>();
   save = output<void>();
   reset = output<void>();
+  toggleFilter = output<void>();
 
   onViewChange(value: any) {
     this.viewChange.emit(value);

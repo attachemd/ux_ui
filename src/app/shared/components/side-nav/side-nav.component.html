@@ -16,6 +16,7 @@
   <nav class="nav-list">
     @for (item of navItems(); track item.id; let i = $index) {
     <button (click)="setActive(item.id)" class="nav-item group" [class.active]="activeId() === item.id"
+      [routerLink]="['/' + item.id]"
       [attr.aria-current]="activeId() === item.id ? 'page' : null" [style.--item-index]="i">
       <!-- Active Indicator Bar -->
       <!-- <div class="active-indicator"></div> -->

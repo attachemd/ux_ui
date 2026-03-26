@@ -1,4 +1,5 @@
 import { Component, signal, ChangeDetectionStrategy, inject, input, model } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
 interface NavItem {
     id: string;
@@ -9,7 +10,7 @@ interface NavItem {
 @Component({
     selector: 'ft-side-nav',
     standalone: true,
-    imports: [],
+    imports: [RouterModule],
     changeDetection: ChangeDetectionStrategy.OnPush,
     templateUrl: './side-nav.component.html',
     styleUrl: './side-nav.component.css'
@@ -19,7 +20,8 @@ export class FtSideNavComponent {
     isExpanded = model<boolean>(false);
 
     navItems = input<NavItem[]>([
-        { id: 'patients', label: 'Patients', icon: 'group' },
+        { id: 'patient', label: 'Patients', icon: 'group' },
+        { id: 'studies', label: 'Études DICOM', icon: 'clinical_notes' },
         { id: 'checkups', label: 'Visites', icon: 'stethoscope' },
         { id: 'schedule', label: 'Agendas', icon: 'event_note' },
         { id: 'treatment', label: 'Hospitalisation', icon: 'syringe' }

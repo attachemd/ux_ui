@@ -1,5 +1,4 @@
 import { Component, ViewEncapsulation } from '@angular/core';
-import { NgClass } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { FtInputComponent } from '../inputs/input/input.component';
 import { FtButtonComponent } from '../buttons/button/button.component';
@@ -10,7 +9,6 @@ import { FtCheckboxComponent } from '../checkbox/checkbox.component';
   templateUrl: './login.component.html',
   standalone: true,
   imports: [
-    NgClass,
     FormsModule,
     FtInputComponent,
     FtButtonComponent,

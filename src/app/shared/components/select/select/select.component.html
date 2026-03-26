@@ -85,10 +85,14 @@
         <div class="dropdown-menu" [class.position-top]="dropdownPosition === 'top'" (click)="$event.stopPropagation()">
             <ul class="options-list">
                 @for (opt of options(); track opt.value) {
-                <li class="option-item" [class.selected]="isSelected(opt.value)" (click)="selectOption(opt, $event)">
+                <li class="option-item" [class.selected]="isSelected(opt.value)" [class.indeterminate]="isIndeterminate(opt.value)" (click)="selectOption(opt, $event)">
                     <span class="option-label">{{ opt.label }}</span>
-                    @if (multiple() && isSelected(opt.value)) {
+                    @if (multiple()) {
+                    @if (isSelected(opt.value)) {
                     <span class="material-symbols-rounded check-icon">check</span>
+                    } @else if (isIndeterminate(opt.value)) {
+                    <span class="material-symbols-rounded check-icon">indeterminate_check_box</span>
+                    }
                     }
                 </li>
                 }

@@ -69,6 +69,7 @@ export class FtSelectComponent implements OnInit, ControlValueAccessor {
     @Input() suffix2IconClass = 'keyboard_arrow_down';
     readonly isClearable = input(false);
     @Input() value: any | any[] = null;
+    readonly indeterminateValues = input<any[]>([]);
 
     // Outputs
     readonly valueChange = output<any | any[]>();
@@ -186,6 +187,10 @@ export class FtSelectComponent implements OnInit, ControlValueAccessor {
             return this.value.includes(optionValue);
         }
         return this.value === optionValue;
+    }
+
+    isIndeterminate(optionValue: any): boolean {
+        return this.multiple() && this.indeterminateValues().includes(optionValue);
     }
 
     // Getters

@@ -1,21 +1,16 @@
-::ng-deep storybook-root {
-  >ft-input {
-    min-width: 200px;
-    width: fit-content !important;
-    display: block;
-  }
-
-  .label.line-none {
-    line-height: 1;
-  }
-
-  .suffix-icon.flex {
-    display: flex;
-  }
+.label.line-none {
+  line-height: 1;
 }
 
+.suffix-icon.flex {
+  display: flex;
+}
+
+
 :host {
-  width: 100%;
+  display: block;
+  width: var(--_width, 100%);
+  min-width: var(--_min-width, auto);
 }
 
 

@@ -1,13 +1,7 @@
-::ng-deep storybook-root {
-  >ft-chips {
-    min-width: 300px;
-    width: fit-content !important;
-    display: block;
-  }
-}
-
 :host {
-  width: 100%;
+  display: block;
+  width: var(--_width, 100%);
+  min-width: var(--_min-width, auto);
 }
 
 

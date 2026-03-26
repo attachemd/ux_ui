@@ -10,8 +10,8 @@
   /* 64px */
   padding: 0 var(--ft-unit-600);
   /* 24px */
-  background-color: var(--ft-color-solid-surface);
-  border-bottom: var(--ft-unit-25) solid var(--ft-color-n-on-surface-10);
+  /* background-color: var(--ft-color-solid-surface);
+  border-bottom: var(--ft-unit-25) solid var(--ft-color-n-on-surface-10); */
   box-sizing: border-box;
 }
 
