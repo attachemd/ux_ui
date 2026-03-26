@@ -11,6 +11,7 @@
   position: static;
 
   /* --- Backgrounds --- */
+  /*--_header-bg: var(--ft-table-header-bg, color-mix(in srgb, var(--ft-color-primary) 5%, var(--ft-color-mix-a)));*/
   --_header-bg: var(--ft-table-header-bg, color-mix(in srgb, var(--ft-color-primary) 50%, transparent));
 
   --_row-bg: var(--ft-table-row-bg, color-mix(in srgb, var(--ft-color-primary) 4%, var(--ft-color-mix-a)));
@@ -27,6 +28,8 @@
 
   /* --- Text Colors --- */
   --_header-text: var(--ft-table-header-text, var(--ft-color-on-primary));
+  /*--_header-text: var(--ft-table-header-text, color-mix(in srgb, var(--_header-bg) , var(--ft-color-mix-z) 20%));*/
+  /*--_header-text: var(--ft-table-header-text, hsl(from var(--_header-bg) h calc(s / 4) calc(l - 35)));*/
   --_row-text: var(--ft-table-row-text, inherit);
   --_row-text-hover: var(--ft-table-row-text-hover, inherit);
   --_row-text-selected: var(--ft-table-row-text-selected, var(--ft-color-on-surface-level-100));
@@ -89,24 +92,7 @@
   min-width: 100%;
 }
 
-/* Custom Scrollbar Styles for the viewport */
-.table-viewport::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-
-.table-viewport::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.table-viewport::-webkit-scrollbar-thumb {
-  background: var(--_scrollbar-thumb);
-  border-radius: 4px;
-}
-
-.table-viewport::-webkit-scrollbar-thumb:hover {
-  background: var(--_scrollbar-thumb-hover);
-}
+/* Custom Scrollbar Styles for the viewport are now handled globally in globals.css */
 
 /* ==========================================================================
    TABLE CORE
@@ -122,9 +108,8 @@
 
 .ft-table thead th,
 .ft-table tbody td {
-  box-sizing: content-box;
   text-align: left;
-  padding: var(--_cell-padding);
+  padding: 0 var(--ft-unit-400);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -163,7 +148,7 @@
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-radius: var(--_header-radius);
-  border: var(--_header-border);
+  /*border: var(--_header-border);*/
   box-shadow: var(--_header-shadow);
   pointer-events: none;
   z-index: 105;
@@ -252,14 +237,14 @@
   top: 0;
   left: 0;
   background-color: var(--_row-bg);
-  border: var(--_row-border);
+  /*border: var(--_row-border);*/
   box-sizing: content-box;
   pointer-events: none;
   border-radius: var(--_row-radius);
   z-index: 0;
   width: calc(100cqw);
-  height: calc(var(--_row-height) + 2 * 8px);
-  margin-bottom: -66px;
+  height: var(--_row-height);
+  margin-bottom: calc(-1 * (var(--_row-height) + var(--_row-gap)));
   margin-left: calc(-1 * 100cqw + 8px);
   transition: border-color 0.2s ease-in-out, background-color 0.2s ease-in-out;
 }
