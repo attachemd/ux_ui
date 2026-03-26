@@ -6,9 +6,11 @@ import { PatientDetailsComponent } from './components/patient/patient-item/patie
 import { MedicalHistoryComponent } from './components/patient/patient-item/medical-history/medical-history.component';
 import { PatientAddComponent } from './components/patient/patient-add/patient-add.component';
 import { MedicalHistoryStatusComponent } from './components/medical-history-status/medical-history-status.component';
+import { StudyListComponent } from './components/study/study-list/study-list.component';
 
 export const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'patient' }, // Default route
+  { path: 'studies', component: StudyListComponent },
   {
     path: 'patient', component: PatientComponent,
     children: [

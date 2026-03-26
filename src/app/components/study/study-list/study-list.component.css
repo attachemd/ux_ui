@@ -1,0 +1,127 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.study-list-container {
+  background-color: var(--ft-color-surface-level-100);
+  border-radius: var(--ft-radius-400);
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+  gap: var(--ft-unit-100);
+}
+
+.table-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  width: 100%;
+  min-height: 0;
+  padding: 0 var(--ft-unit-400);
+}
+
+.list-footer {
+  padding: var(--ft-unit-200) var(--ft-unit-400);
+  border-top: 1px solid var(--ft-color-border-200);
+  width: 100%;
+}
+
+/* Clinical Indicators */
+.gender-icon {
+  font-size: 20px;
+}
+
+.gender-m {
+  color: var(--color-blue-500);
+}
+
+.gender-f {
+  color: var(--color-pink-500);
+}
+
+.series-badge {
+  background-color: var(--color-blue-50);
+  color: var(--color-blue-600);
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: var(--ft-text-2xs);
+  font-weight: var(--font-weight-bold);
+  min-width: 24px;
+  text-align: center;
+}
+
+.study-date-time {
+  display: flex;
+  flex-direction: column;
+  line-height: var(--ft-line-height-tight);
+}
+
+.status-tag {
+  height: 20px;
+  padding: 0 16px;
+  border-radius: var(--ft-radius-pill);
+  font-size: var(--ft-text-3xs);
+  font-weight: var(--font-weight-medium);
+  text-transform: capitalize;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  white-space: nowrap;
+}
+
+.status-en-attente { background-color: var(--color-slate-100); color: var(--color-slate-600); }
+.status-en-cours { background-color: var(--color-blue-100); color: var(--color-blue-600); }
+.status-à-validé { background-color: var(--color-orange-100); color: var(--color-orange-600); }
+.status-à-signer { background-color: var(--color-violet-100); color: var(--color-violet-600); }
+.status-validé { background-color: var(--color-green-100); color: var(--color-green-600); }
+.status-signé { background-color: var(--color-emerald-100); color: var(--color-emerald-600); }
+
+/* Action Buttons */
+.study-actions {
+  display: flex;
+  gap: var(--ft-unit-100);
+}
+
+.action-btn {
+  color: var(--ft-color-on-surface-level-200);
+  transition: color 0.2s var(--ease-in-out);
+}
+
+.action-btn:hover {
+  color: var(--ft-color-primary);
+}
+
+.action-btn.delete:hover {
+  color: var(--ft-color-danger);
+}
+
+/* Expansion Content */
+.series-expansion {
+  padding: var(--ft-unit-400);
+  background-color: var(--ft-color-surface-level-100);
+  border-radius: var(--ft-radius-300);
+  margin: var(--ft-unit-200);
+}
+
+.series-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.series-table th {
+  text-align: left;
+  font-size: var(--ft-text-2xs);
+  color: var(--ft-color-on-surface-level-300);
+  padding: var(--ft-unit-200);
+  border-bottom: 1px solid var(--ft-color-border-100);
+}
+
+.series-table td {
+  padding: var(--ft-unit-200);
+  font-size: var(--ft-text-xs);
+  border-bottom: 1px solid var(--ft-color-border-50);
+}

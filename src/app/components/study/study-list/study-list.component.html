@@ -1,0 +1,122 @@
+<div class="study-list-container ft-panel">
+  <ft-table-header 
+    searchPlaceholder="Search studies by patient name, ID or description..."
+    [showViewsManager]="false"
+    [showFilterToggle]="true"
+    filter1Label="Statut" [filter1Options]="statusOptions" [(filter1Value)]="selectedStatuses"
+    filter2Label="Modalité" [filter2Options]="modalityOptions" [(filter2Value)]="selectedModalities"
+    filter3Label="Période" [filter3Options]="dateOptions" [(filter3Value)]="selectedDates"
+    (search)="onSearch($event)">
+    
+    <div slot="actions">
+      <!-- No Add Button as requested, but we could put global actions here -->
+    </div>
+  </ft-table-header>
+
+  <div class="table-container">
+    <ft-table 
+      [data]="paginatedStudies()" 
+      [columns]="columns()" 
+      [sortKey]="sortKey()"
+      [sortDirection]="sortDirection()"
+      [selection]="selectedStudyIds()"
+      [expandable]="true"
+      (sort)="onSort($event)"
+      (selectionChange)="onSelectionChange($event)">
+
+      <!-- Custom Template: Patient Name -->
+      <ng-template appTableCell="patientName" let-row>
+        <span class="content-sm--bold">{{ row.patientName }}</span>
+      </ng-template>
+
+      <!-- Custom Template: Gender -->
+      <ng-template appTableCell="gender" let-row>
+        <span class="material-symbols-rounded gender-icon" [class]="'gender-' + row.gender?.toLowerCase()">
+          {{ row.gender === 'M' ? 'male' : 'female' }}
+        </span>
+      </ng-template>
+
+      <!-- Custom Template: Birth Date -->
+      <ng-template appTableCell="birthDate" let-row>
+        {{ row.birthDate | date:'dd/MM/yyyy' }}
+      </ng-template>
+
+      <!-- Custom Template: Study Description -->
+      <ng-template appTableCell="studyDescription" let-row>
+        <span class="content-sm--bold">{{ row.studyDescription }}</span>
+      </ng-template>
+
+      <!-- Custom Template: Series Count -->
+      <ng-template appTableCell="seriesCount" let-row>
+        <span class="series-badge">{{ row.seriesCount }}</span>
+      </ng-template>
+
+      <!-- Custom Template: Date & Time -->
+      <ng-template appTableCell="studyDateTime" let-row>
+        <div class="study-date-time">
+          <span class="content-sm">{{ row.studyDate | date:'dd/MM/yyyy' }}</span>
+          <span class="content-xs opacity-70">{{ row.studyTime }}</span>
+        </div>
+      </ng-template>
+
+      <!-- Custom Template: Status -->
+      <ng-template appTableCell="status" let-row>
+        <span class="status-tag" [class]="'status-' + row.status.replace(' ', '-')">
+          {{ row.status }}
+        </span>
+      </ng-template>
+
+      <!-- Custom Template: Actions -->
+      <ng-template appTableCell="actions" let-row>
+        <div class="study-actions">
+          <ft-button variant="ghost" size="xs-size" prefixIconClass="edit_note" [isPrefixIconClass]="true" title="Note"></ft-button>
+          <ft-button variant="ghost" size="xs-size" prefixIconClass="print" [isPrefixIconClass]="true" title="Imprimer"></ft-button>
+          <ft-button variant="ghost" size="xs-size" prefixIconClass="download" [isPrefixIconClass]="true" title="Exporter"></ft-button>
+          <ft-button variant="ghost" size="xs-size" prefixIconClass="visibility" [isPrefixIconClass]="true" title="Viewer"></ft-button>
+          <ft-button variant="ghost" size="xs-size" prefixIconClass="more_vert" [isPrefixIconClass]="true"></ft-button>
+        </div>
+      </ng-template>
+
+      <!-- Custom Expansion Template: Series List -->
+      <ng-template #expansionTemplate let-row>
+        <div class="series-expansion">
+          <h4 class="content-sm--bold mb-2">Series List ({{ row.seriesCount }})</h4>
+          <table class="series-table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Modality</th>
+                <th>Description</th>
+                <th>Instances</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (series of getSeries(row.id); track series.id) {
+              <tr>
+                <td>{{ series.seriesNumber }}</td>
+                <td>{{ series.modality }}</td>
+                <td>{{ series.description }}</td>
+                <td>{{ series.instancesCount }}</td>
+                <td>
+                  <ft-button variant="ghost" size="xs-size" prefixIconClass="play_circle" [isPrefixIconClass]="true"></ft-button>
+                </td>
+              </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+      </ng-template>
+    </ft-table>
+  </div>
+
+  <div class="list-footer">
+    <ft-pagination 
+      [totalItems]="filteredStudies().length" 
+      [pageSize]="pageSize()" 
+      [currentPage]="currentPage()" 
+      (pageChange)="onPageChange($event)"
+      (pageSizeChange)="onPageSizeChange($event)">
+    </ft-pagination>
+  </div>
+</div>
