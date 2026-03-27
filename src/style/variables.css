@@ -303,37 +303,6 @@
     --ft-color-mauve-900: #130a2e;
     --ft-color-mauve-950: #0a0619;
 
-    /* --- Nord Palette Primitives --- */
-    --nord0: #2e3440;
-    --nord1: #3b4252;
-    --nord2: #434c5e;
-    --nord3: #4c566a;
-    --nord4: #d8dee9;
-    --nord5: #e5e9f0;
-    --nord6: #eceff4;
-    --nord7: #8fbcbb;
-    --nord8: #88c0d0;
-    --nord9: #81a1c1;
-    --nord10: #5e81ac;
-    --nord11: #bf616a;
-    --nord12: #d08770;
-    --nord13: #ebcb8b;
-    --nord14: #a3be8c;
-    --nord15: #b48ead;
-
-    /* --- Dracula Palette Primitives --- */
-    --drac-bg: #282a36;
-    --drac-fg: #f8f8f2;
-    --drac-curr: #44475a;
-    --drac-cmt: #6272a4;
-    --drac-cyan: #8be9fd;
-    --drac-green: #50fa7b;
-    --drac-orange: #ffb86c;
-    --drac-pink: #ff79c6;
-    --drac-purple: #bd93f9;
-    --drac-red: #ff5555;
-    --drac-yellow: #f1fa8c;
-
     /* --- Spacing & Units --- */
     --spacing: 0.25rem;
     /* 4px */
@@ -556,6 +525,17 @@
     --animate-ping: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
     --animate-pulse: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
     --animate-bounce: bounce 1s infinite;
+ 
+    /* --- Z-Index Scale --- */
+    --ft-z-index-base: 0;
+    --ft-z-index-docked: 10;      /* Sticky cells/elements within a scrolling row */
+    --ft-z-index-sticky: 100;     /* Components with sticky headers/footers (thead) */
+    --ft-z-index-side-nav: 500;   /* Sidebar/Side Navigation */
+    --ft-z-index-dropdown: 1000;  /* Select menus, button dropdowns, small popovers */
+    --ft-z-index-overlay: 2000;   /* Modals, dynamic dialogs, masks */
+    --ft-z-index-toast: 4000;     /* System notifications, alerts */
+    --ft-z-index-popover: 5000;   /* Tooltips, hover cards */
+    --ft-z-index-critical: 9999;  /* Full-screen loading, emergency UI */
 
     /*
      * ----------------------------------------------------------------------
