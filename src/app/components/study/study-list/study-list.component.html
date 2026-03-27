@@ -1,4 +1,4 @@
-<div class="study-list-container ft-panel">
+<div class="list-container">
   <ft-table-header 
     searchPlaceholder="Search studies by patient name, ID or description..."
     [showViewsManager]="false"
@@ -13,7 +13,8 @@
     </div>
   </ft-table-header>
 
-  <div class="table-container">
+  <div class="list-body">
+    <div class="table-container">
     <ft-table 
       [data]="paginatedStudies()" 
       [columns]="columns()" 
@@ -109,6 +110,7 @@
       </ng-template>
     </ft-table>
   </div>
+</div>
 
   <div class="list-footer">
     <ft-pagination 
