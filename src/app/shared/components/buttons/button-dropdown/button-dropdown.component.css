@@ -231,7 +231,7 @@
     position: absolute;
     top: calc(100% + var(--ft-unit-100));
     left: 0;
-    z-index: 1000;
+    z-index: var(--ft-z-index-dropdown);
     min-width: 160px; /* Sensible minimum width */
     width: max-content; /* Grow to content */
     max-width: 300px; /* Prevent excessive growth */
