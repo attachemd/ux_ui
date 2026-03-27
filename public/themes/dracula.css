@@ -6,6 +6,19 @@
 
 @layer app-variables {
   [data-theme='dracula'] {
+    /* --- Dracula Palette Primitives --- */
+    --drac-bg: #282a36;
+    --drac-fg: #f8f8f2;
+    --drac-curr: #44475a;
+    --drac-cmt: #6272a4;
+    --drac-cyan: #8be9fd;
+    --drac-green: #50fa7b;
+    --drac-orange: #ffb86c;
+    --drac-pink: #ff79c6;
+    --drac-purple: #bd93f9;
+    --drac-red: #ff5555;
+    --drac-yellow: #f1fa8c;
+
     --ft-color-primary: var(--drac-purple);
     --ft-color-secondary: var(--drac-pink);
     --ft-color-tertiary: var(--drac-cmt);
