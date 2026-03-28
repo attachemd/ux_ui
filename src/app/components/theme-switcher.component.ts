@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ThemeService, ThemePalette } from '../services/theme.service';
+import { ThemeService, ThemePalette, ThemeDensity } from '../services/theme.service';
 import { FtButtonComponent } from '../shared/components/buttons/button/button.component';
 import { FtSelectComponent, SelectOption } from '../shared/components/select/select/select.component';
 
@@ -32,15 +32,18 @@ import { FtSelectComponent, SelectOption } from '../shared/components/select/sel
       aria-label="Select theme palette">
     </ft-select>
 
-    <ft-button 
-      variant="ghost" 
-      [isLabel]="false" 
-      [isPrefixIconClass]="true" 
+    <ft-select
+      [options]="densityOptions"
+      [isLabel]="false"
+      [value]="themeService.density()"
+      variant="ghost"
+      radius="full-radius"
+      [isPrefixIconClass]="true"
       prefixIconClass="density_medium"
-      radius="full-radius" 
-      (click)="themeService.cycleDensity()"
-      aria-label="Cycle density">
-    </ft-button>
+      size="sm-size"
+      (valueChange)="onDensityChange($event)"
+      aria-label="Select layout density">
+    </ft-select>
   `
 })
 export class ThemeSwitcherComponent {
@@ -51,10 +54,20 @@ export class ThemeSwitcherComponent {
     { label: 'Minimalist', value: 'minimalist' }
   ];
 
+  densityOptions: SelectOption[] = [
+    { label: 'Compact', value: 'compact' },
+    { label: 'Comfortable', value: 'comfortable' },
+    { label: 'Loose', value: 'loose' }
+  ];
+
   constructor(public themeService: ThemeService) {}
 
   onPaletteChange(palette: ThemePalette): void {
     this.themeService.palette.set(palette);
+  }
+
+  onDensityChange(density: ThemeDensity): void {
+    this.themeService.density.set(density);
   }
 }
 
