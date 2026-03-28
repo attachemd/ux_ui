@@ -36,7 +36,7 @@
   --_field-padding: var(--ft-input-padding, 0 var(--ft-unit-400));
   --_field-gap: var(--ft-input-gap, var(--ft-unit-300));
   --_field-container-gap: var(--ft-unit-100);
-  --_field-icon-size: 20px;
+  --_field-icon-size: var(--ft-unit-500);
   --_field-content-gap: var(--ft-unit-100);
   --_field-font-size: var(--ft-text-xs);
   --_field-font-weight: 500;
@@ -203,7 +203,7 @@
     --_balanced_small_padding: var(--ft-unit-150);
     --_field-padding: 0 var(--ft-unit-200);
     --_field-gap: var(--ft-unit-200);
-    --_field-icon-size: 16px;
+    --_field-icon-size: var(--ft-unit-400);
     --_field-content-gap: var(--ft-unit-0);
     --_field-border-width: var(--ft-border-primary);
     --_field-font-size: var(--ft-text-2xs);
@@ -225,7 +225,7 @@
     --_balanced_small_padding: var(--ft-unit-200);
     --_field-padding: 0 var(--ft-unit-300);
     --_field-gap: var(--ft-unit-200);
-    --_field-icon-size: 16px;
+    --_field-icon-size: var(--ft-unit-400);
     --_field-content-gap: var(--ft-unit-50);
     --_field-font-size: var(--ft-text-xs);
 
@@ -248,7 +248,7 @@
     --_field-padding: 0 var(--ft-unit-300);
     --_field-gap: var(--ft-unit-200);
     --_field-container-gap: var(--ft-unit-200);
-    --_field-icon-size: 20px;
+    --_field-icon-size: var(--ft-unit-500);
     --_field-content-gap: var(--ft-unit-100);
     --_field-font-size: var(--ft-text-xs);
 
@@ -271,7 +271,7 @@
     --_field-padding: 0 var(--ft-unit-400);
     --_field-gap: var(--ft-unit-300);
     --_field-container-gap: var(--ft-unit-300);
-    --_field-icon-size: 20px;
+    --_field-icon-size: var(--ft-unit-500);
     --_field-content-gap: var(--ft-unit-150);
     --_field-font-size: var(--ft-text-xs);
 
@@ -328,7 +328,7 @@
 
   &.flat {
     --_field-bg: var(--_field-bg-100);
-    --_field-border-width: 0px;
+    --_field-border-width: var(--ft-unit-0);
 
     &:is(:hover, .hover) {
       --_field-bg: var(--_field-bg-200);
@@ -386,7 +386,7 @@
   }
 
   &.ghost {
-    --_field-border-width: 0px;
+    --_field-border-width: var(--ft-unit-0);
     --_field-bg: transparent;
 
     &:is(:hover, .hover) {
@@ -500,5 +500,5 @@
 
 
 body:has(.input-wrapper) {
-  background: #fff;
+  background: var(--ft-color-mix-a);
 }
