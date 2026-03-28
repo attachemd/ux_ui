@@ -134,9 +134,9 @@
   left: 0;
   top: var(--ft-unit-300);
   bottom: var(--ft-unit-300);
-  width: 4px;
+  width: var(--ft-unit-100);
   background-color: var(--ft-color-primary-500);
-  border-radius: 0 4px 4px 0;
+  border-radius: 0 var(--ft-radius-200) var(--ft-radius-200) 0;
   opacity: 0;
   transform: scaleY(0);
   transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -168,7 +168,7 @@
   opacity: 0;
   width: 0;
   /* Prevents push-out when collapsed */
-  transform: translateX(-12px);
+  transform: translateX(calc(-1 * var(--ft-unit-300)));
   transition:
     opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1),
     transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
@@ -191,8 +191,8 @@
 /* Tooltip logic */
 .tooltip {
   position: absolute;
-  left: calc(var(--sidebar-collapsed-width) - 10px);
-  transform: scale(0.8) translateX(-10px);
+  left: calc(var(--sidebar-collapsed-width) - var(--ft-unit-250, 10px));
+  transform: scale(0.8) translateX(calc(-1 * var(--ft-unit-250, 10px)));
   opacity: 0;
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   transform-origin: left;
@@ -268,5 +268,5 @@
 .nav-item:focus-visible,
 .menu-trigger:focus-visible,
 .help-btn:focus-visible {
-  box-shadow: 0 0 0 2px var(--ft-color-primary-200);
+  box-shadow: 0 0 0 var(--ft-unit-50) var(--ft-color-primary-200);
 }

@@ -1,60 +1,60 @@
 .all-case-container {
-    padding: 2rem;
+    padding: var(--ft-unit-800);
     display: flex;
     flex-direction: column;
-    gap: 3rem;
-    background-color: var(--ft-color-background, #f9f9f9);
+    gap: var(--ft-unit-1200);
+    background-color: var(--ft-color-surface-level-100);
     min-height: 100vh;
 }
 
 .showcase-title {
-    font-size: 2rem;
-    font-weight: 700;
-    color: var(--ft-color-on-surface, #1b1b1f);
-    margin-bottom: 1rem;
-    border-bottom: 2px solid var(--ft-color-primary, #6750a4);
-    padding-bottom: 0.5rem;
+    font-size: var(--text-3xl); /* or a custom unit if needed, but 2rem is not in standard text scale, 1.875rem is 3xl */
+    font-weight: var(--font-weight-bold);
+    color: var(--ft-color-on-surface-level-100);
+    margin-bottom: var(--ft-unit-400);
+    border-bottom: var(--ft-border-secondary) solid var(--ft-color-primary);
+    padding-bottom: var(--ft-unit-150);
 }
 
 .section {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: var(--ft-unit-600);
 }
 
 .section-title {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: var(--ft-color-on-surface-variant, #44474e);
+    font-size: var(--text-2xl);
+    font-weight: var(--font-weight-semibold);
+    color: var(--ft-color-on-surface-level-200);
     margin: 0;
 }
 
 .cases-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(var(--container-xs), 1fr));
+    gap: var(--ft-unit-800);
 }
 
 .sizes-row {
     display: flex;
     flex-wrap: wrap;
-    gap: 2rem;
+    gap: var(--ft-unit-800);
     align-items: flex-start;
 }
 
 .case {
-    background-color: white;
-    padding: 1.5rem;
-    border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-    border: 1px solid var(--ft-color-outline-variant, #c4c6cf);
+    background-color: var(--ft-color-mix-a);
+    padding: var(--ft-unit-600);
+    border-radius: var(--ft-radius-500);
+    box-shadow: var(--shadow-sm);
+    border: var(--ft-border-primary) solid var(--ft-color-border-100);
 }
 
 .case-label {
-    font-size: 0.875rem;
-    font-weight: 500;
-    color: var(--ft-color-on-surface-muted, #757780);
-    margin-bottom: 1rem;
+    font-size: var(--text-sm);
+    font-weight: var(--font-weight-medium);
+    color: var(--ft-color-on-surface-muted);
+    margin-bottom: var(--ft-unit-400);
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: var(--tracking-wide);
 }

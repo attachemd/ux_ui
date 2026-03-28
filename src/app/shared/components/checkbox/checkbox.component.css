@@ -53,7 +53,7 @@
 
                 .material-symbols-rounded {
                     font-size: var(--ft-unit-600);
-                    font-weight: 900;
+                    font-weight: var(--font-weight-black);
                 }
             }
         }
@@ -117,7 +117,7 @@
         &.indeterminate {
             --_field-control-bg: var(--ft-radio-muted);
             --_field-border-color: var(--ft-radio-muted);
-            --_field-border-width: 0;
+            --_field-border-width: var(--ft-unit-0);
         }
     }
 

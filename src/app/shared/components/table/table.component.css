@@ -72,11 +72,15 @@
   --_header-radius: var(--ft-table-header-radius, var(--ft-radius-400));
   --_row-radius: var(--ft-table-row-radius, var(--ft-radius-400));
 
+  /* --- Layout Scale --- */
+  /* Inherits from :root or is overridden by [data-density] on the host/wrapper */
+  --_density-scale: var(--_layout-scale, var(--ft-layout-scale-comfortable));
+
   /* --- Dimensions & Spacing --- */
-  --_header-height: var(--ft-table-header-height, var(--ft-unit-800));
-  --_row-height: var(--ft-table-row-height, var(--ft-unit-1000));
-  --_row-gap: var(--ft-table-row-gap, var(--ft-unit-200));
-  --_cell-padding: var(--ft-table-cell-padding, var(--ft-unit-200) var(--ft-unit-400));
+  --_header-height: calc(var(--ft-table-header-height, var(--ft-unit-800)) * var(--_density-scale));
+  --_row-height: calc(var(--ft-table-row-height, var(--ft-unit-1000)) * var(--_density-scale));
+  --_row-gap: calc(var(--ft-table-row-gap, var(--ft-unit-200)) * var(--_density-scale));
+  --_cell-padding: calc(var(--ft-unit-200) * var(--_density-scale)) calc(var(--ft-unit-400) * var(--_density-scale));
 
   /* --- Expansion --- */
   --_expansion-bg: var(--ft-table-expansion-bg, color-mix(in srgb, var(--ft-color-surface) 95%, var(--ft-color-primary)));

@@ -34,6 +34,7 @@ export class FtTableComponent implements AfterContentInit {
   readonly selection = input<Set<string>>(new Set());
   readonly expandable = input<boolean>(false);
   readonly variant = input<'default' | 'minimalist'>('default');
+  readonly density = input<'compact' | 'comfortable' | 'loose'>('comfortable');
 
   // Outputs
   readonly sort = output<{ key: string, direction: 'asc' | 'desc' }>();
