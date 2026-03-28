@@ -72,7 +72,7 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  padding: var(--ft-layout-table-padding, 12px 16px);
+  padding: var(--ft-layout-table-padding, var(--ft-unit-300) var(--ft-unit-400));
 }
 
 /* --- Sticky column offsets (specific to this table's layout) --- */
@@ -83,7 +83,7 @@
 }
 
 :host ::ng-deep .id.sticky-column {
-  left: calc(36px + 2 * var(--ft-unit-400));
+  left: calc(var(--ft-unit-900) + 2 * var(--ft-unit-400));
   /*
    * Offset calculation:
    * - 64px: Width of the checkbox (select) column
@@ -148,7 +148,7 @@
 .expansion-dialog {
   border: 1px solid var(--ft-color-border-100);
   border-radius: var(--ft-radius-lg);
-  box-shadow: 0 12px 32px -4px rgb(0 0 0 / 0.1), 0 4px 12px -2px rgb(0 0 0 / 0.05);
+  box-shadow: var(--shadow-xl);
   padding: 0;
   margin: 0;
   background: color-mix(in srgb, var(--ft-color-surface) 90%, transparent);
@@ -221,17 +221,17 @@
 
 .status-pill.anonyme {
   background-color: color-mix(in srgb, var(--ft-color-secondary) 15%, transparent);
-  color: color-mix(in srgb, var(--ft-color-secondary) 60%, var(--ft-color-mix-z, #000000));
+  color: color-mix(in srgb, var(--ft-color-secondary) 60%, var(--ft-color-mix-z));
 }
 
 .status-pill.confidentiel {
   background-color: color-mix(in srgb, var(--ft-color-warning) 15%, transparent);
-  color: color-mix(in srgb, var(--ft-color-warning) 50%, var(--ft-color-mix-z, #000000));
+  color: color-mix(in srgb, var(--ft-color-warning) 50%, var(--ft-color-mix-z));
 }
 
 .status-pill.vip {
   background-color: color-mix(in srgb, var(--ft-color-danger) 15%, transparent);
-  color: color-mix(in srgb, var(--ft-color-danger) 60%, var(--ft-color-mix-z, #000000));
+  color: color-mix(in srgb, var(--ft-color-danger) 60%, var(--ft-color-mix-z));
 }
 
 .full-text {
@@ -266,7 +266,7 @@
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(-4px);
+    transform: translateY(calc(-1 * var(--ft-unit-100)));
   }
 
   to {
@@ -305,14 +305,14 @@
 }
 
 .detail-icon {
-  font-size: 18px;
+  font-size: var(--ft-unit-450, 18px); /* 18px is not a standard unit, using fallback */
   color: var(--ft-color-on-surface-level-200);
 }
 
 .detail-label {
   font-weight: 600;
   color: var(--ft-color-on-surface-level-200);
-  min-width: 80px;
+  min-width: var(--ft-unit-2000);
 }
 
 .detail-value {

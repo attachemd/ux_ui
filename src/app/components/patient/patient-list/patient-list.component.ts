@@ -1,3 +1,24 @@
+/**
+ * Patient List Component
+ * 
+ * A comprehensive Angular component for displaying and managing patient data in a table format.
+ * Features include sorting, filtering, pagination, column visibility toggling, and expandable details.
+ * 
+ * Key Features:
+ * - Dynamic table with 30+ patient data columns
+ * - Real-time search and filtering
+ * - Multi-column sorting
+ * - Pagination with configurable page sizes
+ * - Column visibility management
+ * - Expandable dialogs for detailed information
+ * - Overflow detection for long content
+ * - Theme integration
+ * - Responsive design
+ * 
+ * @component
+ * @selector ft-patient-list
+ * @standalone true
+ */
 import { AfterViewInit, Component, ElementRef, signal, computed, viewChild, inject } from '@angular/core';
 import { ThemeService } from '../../../services/theme.service';
 import { OverflowDetectDirective } from '../../../directives/overflow-detect.directive';
@@ -16,31 +37,62 @@ import { FtTableExpansionDirective } from '../../../shared/components/table/tabl
 import { FtTableHeaderComponent } from '../../../shared/components/table/table-header/table-header.component';
 import { TableColumn } from '../../../shared/components/table/table-column.interface';
 
+/**
+ * Interface for view configuration options
+ */
 interface View {
   name: string;
   id: string;
 }
 
-/** Constants used to fill up our data base. */
+// --- DATA CONSTANTS ---
+// These constants provide mock data for demonstration and testing purposes
+
+/** Available patient statuses */
 const STATUSES: string[] = ['ANONYME', 'CONFIDENTIEL', 'VIP'];
+
+/** Available patient titles (courtesy titles) */
 const TITLES: string[] = ['M', 'Mme', 'Mlle', 'Enf', 'Autre'];
+
+/** Available gender options */
 const SEXES: string[] = ['MALE', 'FEMALE', 'OTHER'];
+
+/** Available countries (currently only Morocco) */
 const COUNTRIES: string[] = ['Maroc'];
+
+/** Cities mapped by country */
 const CITIES: { [key: string]: string[] } = {
   'Maroc': ['Casablanca', 'Rabat', 'Marrakech', 'Fès', 'Tanger', 'Agadir', 'Meknès', 'Oujda', 'Kenitra', 'Safi', 'El Jadida', 'Nador', 'Settat']
 };
+
+/** Common street names for address generation */
 const STREET_NAMES: string[] = [
   'Boulevard Zerktouni', 'Avenue Mohammed V', 'Rue Tarik Ibn Ziad', 'Boulevard d\'Anfa',
   'Rue de la Liberté', 'Avenue des FAR', 'Boulevard Hassan II', 'Rue Moussa Ibn Noussair'
 ];
+
+/** Available spoken languages */
 const LANGUAGES: string[] = ['Français', 'Anglais', 'Espagnol', 'Arabe', 'Berbère'];
+
+/** Marital status options */
 const MARITAL_STATUSES: string[] = ['SINGLE', 'MARRIED'];
+
+/** Ethnicity options */
 const ETHNICITIES: string[] = ['CAUCASIAN', 'ARAB', 'AFRICAN', 'OTHER'];
+
+/** Profession/occupation options */
 const PROFESSIONS: string[] = ['ENGINEER', 'DOCTOR', 'TEACHER', 'OTHER'];
 
+/** First names for random patient generation */
 const FIRST_NAMES: string[] = ['Anas', 'Hamza', 'Yassine', 'Amine', 'Omar', 'Youssef', 'Mehdi', 'Meriem', 'Salma', 'Fatine', 'Zineb', 'Khadija', 'Leila', 'Kenza', 'Ghita', 'Sofia', 'Adam', 'Rayane', 'Ines', 'Nour', 'Sara'];
+
+/** Last names for random patient generation */
 const LAST_NAMES: string[] = ['El Amrani', 'Bennani', 'Tazi', 'Mansouri', 'Alaoui', 'El Idrissi', 'Belkhayat', 'Chraibi', 'Guessous', 'Filali', 'Zahraoui', 'El Fassi', 'Berrada', 'Slaoui', 'Benjelloun', 'Mezouar', 'Haddad', 'El Mansouri'];
+
+/** Employer options */
 const EMPLOYERS: string[] = ['OCP Group', 'Maroc Telecom', 'Attijariwafa Bank', 'BCP', 'Royal Air Maroc', 'BMCE Bank', 'CDG', 'LabelVie', 'Cosumar', 'Auto Hall'];
+
+/** Insurance provider options */
 const INSURANCES: string[] = ['Saham Assurance', 'Wafa Assurance', 'RMA Watanya', 'AXA Assurance Maroc', 'Mutuelle Agricole Marocaine', 'AtlantaSanad'];
 
 @Component({
@@ -57,8 +109,21 @@ const INSURANCES: string[] = ['Saham Assurance', 'Wafa Assurance', 'RMA Watanya'
   styleUrl: './patient-list.component.css'
 })
 export class PatientListComponent {
+  /** Math object reference for template usage */
   protected readonly Math = Math;
 
+  // --- TABLE CONFIGURATION ---
+
+  /**
+   * Complete list of all available table columns with their configuration
+   * Each column defines:
+   * - key: Unique identifier for the column
+   * - label: Display name shown in header
+   * - type: Data type or special handling (checkbox, date, custom, actions)
+   * - width: Column width with optional min/max constraints
+   * - sticky: Whether column sticks to left/right edge when scrolling
+   * - sortable: Whether column can be sorted
+   */
   allTableColumns: TableColumn[] = [
     { key: 'select', label: '', type: 'checkbox', width: '32px', sticky: 'left', sortable: false },
     { key: 'id', label: 'ID', width: '100px', sticky: 'left', minWidth: '100px', maxWidth: '100px' },
@@ -94,6 +159,10 @@ export class PatientListComponent {
     { key: 'actions', label: 'Actions', type: 'actions', width: '100px', sticky: 'right', sortable: false }
   ];
 
+  /**
+   * Signal tracking which columns are currently visible
+   * Default includes all columns for comprehensive view
+   */
   visibleColumnKeys = signal<string[]>([
     'select', 'id', 'status', 'title', 'firstName', 'lastName', 'dateOfBirth', 'age', 'sexe',
     'email', 'primaryPhoneNumber', 'secondaryPhoneNumber', 'country', 'city', 'postalCode',
@@ -102,27 +171,52 @@ export class PatientListComponent {
     'socialSecurityNumber', 'insuranceProvider', 'insuranceNumber', 'otherField1', 'otherField2', 'actions'
   ]);
 
+  /**
+   * Computed property that filters allTableColumns to only include visible columns
+   * This ensures the table only renders columns the user wants to see
+   */
   columns = computed(() => {
     return this.allTableColumns.filter(col => this.visibleColumnKeys().includes(col.key));
   });
 
+  // --- DATA STATE MANAGEMENT ---
+
+  /** Signal containing the complete list of patients */
   users = signal<Patient[]>([]);
+  
+  /** Signal for the current search/filter text */
   filter = signal<string>('');
+  
+  /** Signal for the current column being sorted */
   sortKey = signal<keyof Patient>('id');
+  
+  /** Signal for the current sort direction (ascending/descending) */
   sortDirection = signal<'asc' | 'desc'>('asc');
 
+  /** Signal tracking selected patient IDs (for bulk operations) */
   selection = signal<Set<string>>(new Set());
 
+  // --- VIEW CONFIGURATION ---
+
+  /** Available view modes for the table */
   views: SelectOption[] = [
     { label: 'Vue standard', value: 'standard' },
     { label: 'Vue compacte', value: 'compact' },
     { label: 'Vue détaillée', value: 'detailed' }
   ];
+  
+  /** Form control for the currently selected view */
   selectedView = new FormControl('standard');
 
+  // --- PAGINATION STATE ---
+
+  /** Current page index (0-based) */
   currentPage = signal(0);
+  
+  /** Number of items per page */
   pageSize = signal(10);
 
+  /** Available page size options */
   pageSizeOptions: SelectOption[] = [
     { label: '5 par page', value: 5 },
     { label: '10 par page', value: 10 },
@@ -130,12 +224,15 @@ export class PatientListComponent {
     { label: '50 par page', value: 50 },
   ];
 
-  // Advanced Filter Options
+  // --- ADVANCED FILTER OPTIONS ---
+
+  /** City filter options (dynamically generated from CITIES constant) */
   cityOptions: SelectOption[] = [
     { value: 'all', label: 'Toutes' },
     ...CITIES['Maroc'].map(c => ({ value: c.toLowerCase(), label: c }))
   ];
 
+  /** Country filter options */
   countryOptions: SelectOption[] = [
     { value: 'all', label: 'Tous' },
     { value: 'maroc', label: 'Maroc' },
@@ -143,6 +240,7 @@ export class PatientListComponent {
     { value: 'belgique', label: 'Belgique' }
   ];
 
+  /** Gender filter options */
   genderOptions: SelectOption[] = [
     { value: 'all', label: 'Tous' },
     { value: 'male', label: 'Homme' },
@@ -150,28 +248,58 @@ export class PatientListComponent {
     { value: 'other', label: 'Autre' }
   ];
 
+  /** Currently selected cities for filtering */
   selectedCities = signal<string[]>(['all']);
+  
+  /** Currently selected countries for filtering */
   selectedCountries = signal<string[]>(['all']);
+  
+  /** Currently selected genders for filtering */
   selectedGenders = signal<string[]>(['all']);
 
+  // --- OVERFLOW DETECTION ---
+
+  /**
+   * Signal tracking which table cells have overflowing content
+   * Key format: `${rowId}:${columnKey}`
+   * Value: boolean indicating if content overflows
+   */
   overflowMap = signal<Map<string, boolean>>(new Map());
 
+  // --- THEME INTEGRATION ---
+
+  /** Injected theme service for styling consistency */
   themeService = inject(ThemeService);
 
-  // Helper to get component config
+  /** Computed property for accessing component theme configuration */
   compConfig = computed(() => this.themeService.config().components);
 
+  /**
+   * Helper method to get variant styling for components
+   * @param component - Component name to get variant for
+   * @returns The variant configuration object
+   */
   getVariant(component: string): any {
     return this.compConfig()[component]?.variant;
   }
 
+  // --- CONSTRUCTOR & INITIALIZATION ---
+
+  /**
+   * Component constructor - initializes with mock patient data
+   * Creates 100 random patients for demonstration purposes
+   */
   constructor() {
     const initialUsers = Array.from({ length: 100 }, (_, k) => createNewPatient(k + 1));
     this.users.set(initialUsers);
   }
 
-  // --- Computed Data ---
+  // --- COMPUTED DATA PROPERTIES ---
 
+  /**
+   * Computed property that filters and sorts patients based on current state
+   * Applies search filter and sorting to the complete patient list
+   */
   filteredUsers = computed(() => {
     const filterValue = this.filter().toLowerCase();
     const sorted = [...this.users()].filter(user =>
@@ -191,35 +319,63 @@ export class PatientListComponent {
     });
   });
 
+  /**
+   * Computed property that returns the current page of patients
+   * Applies pagination to the filtered and sorted list
+   */
   paginatedUsers = computed(() => {
     const startIndex = this.currentPage() * this.pageSize();
     return this.filteredUsers().slice(startIndex, startIndex + this.pageSize());
   });
 
+  /**
+   * Computed property that calculates total number of pages
+   * Based on filtered user count and current page size
+   */
   totalPages = computed(() => {
     return Math.ceil(this.filteredUsers().length / this.pageSize());
   });
 
-  // --- Event Handlers ---
+  // --- EVENT HANDLERS ---
 
+  /**
+   * Handles search input changes
+   * @param value - New search text
+   */
   onSearchChange(value: string) {
     this.filter.set(value);
-    this.currentPage.set(0);
+    this.currentPage.set(0); // Reset to first page when searching
   }
 
+  /**
+   * Handles column sorting changes
+   * @param event - Sorting event containing column key and direction
+   */
   onSortChange(event: { key: string, direction: 'asc' | 'desc' }) {
     this.sortKey.set(event.key as keyof Patient);
     this.sortDirection.set(event.direction);
   }
 
+  /**
+   * Handles patient selection changes
+   * @param newSelection - New set of selected patient IDs
+   */
   onSelectionChange(newSelection: Set<string>) {
     this.selection.set(newSelection);
   }
 
+  /**
+   * Handles view mode changes
+   * @param viewId - ID of the selected view mode
+   */
   onViewChange(viewId: string) {
     console.log('View changed to:', viewId);
   }
 
+  /**
+   * Toggles column visibility
+   * @param key - Column key to toggle
+   */
   toggleColumn(key: string) {
     const current = this.visibleColumnKeys();
     if (current.includes(key)) {
@@ -229,17 +385,31 @@ export class PatientListComponent {
     }
   }
 
+  /**
+   * Handles page navigation
+   * @param page - New page index (0-based)
+   */
   onPageChange(page: number) {
     this.currentPage.set(page);
   }
 
+  /**
+   * Handles page size changes
+   * @param size - New number of items per page
+   */
   onPageSizeChange(size: number) {
     this.pageSize.set(size);
-    this.currentPage.set(0);
+    this.currentPage.set(0); // Reset to first page when changing page size
   }
 
-  // --- Overflow & Custom Cell Logic ---
+  // --- OVERFLOW & CUSTOM CELL LOGIC ---
 
+  /**
+   * Handles overflow detection changes for table cells
+   * @param rowId - ID of the row
+   * @param column - Column key
+   * @param overflows - Whether content overflows
+   */
   onOverflowChange(rowId: string, column: string, overflows: boolean): void {
     const key = `${rowId}:${column}`;
     const current = this.overflowMap();
@@ -250,10 +420,22 @@ export class PatientListComponent {
     }
   }
 
+  /**
+   * Checks if a specific cell has overflowing content
+   * @param rowId - ID of the row
+   * @param column - Column key
+   * @returns Boolean indicating if content overflows
+   */
   isOverflowing(rowId: string, column: string): boolean {
     return this.overflowMap().get(`${rowId}:${column}`) ?? false;
   }
 
+  /**
+   * Normalizes status data to always return an array of strings
+   * Handles various status formats (array, comma-separated string, single value)
+   * @param status - Raw status data
+   * @returns Array of status strings
+   */
   getStatuses(status: any): string[] {
     if (!status) return [];
     if (Array.isArray(status)) return status;
@@ -261,13 +443,23 @@ export class PatientListComponent {
     return [status];
   }
 
-  // --- Dialog logic ---
+  // --- DIALOG MANAGEMENT ---
 
+  /** Currently active dialog type (status, address, or languages) */
   activeExpandType: 'status' | 'address' | 'languages' | null = null;
+  
+  /** Currently active patient row for dialog display */
   activeExpandRow: Patient | null = null;
 
+  /** Reference to the dialog element in the template */
   readonly expandDialog = viewChild.required<ElementRef<HTMLDialogElement>>('expandDialog');
 
+  /**
+   * Opens the expandable dialog for detailed information
+   * @param row - Patient data for the row
+   * @param col - Type of information to display (status, address, languages)
+   * @param event - Mouse event for positioning
+   */
   openDialog(row: Patient, col: 'status' | 'address' | 'languages', event: MouseEvent) {
     if (event) event.stopPropagation();
     this.activeExpandRow = row;
@@ -282,12 +474,14 @@ export class PatientListComponent {
         const rect = target.getBoundingClientRect();
         const dialogHeight = 200; // Estimated height if not measured yet
 
+        // Position dialog below the clicked element, or above if it would go off-screen
         let topPos = rect.bottom + 8;
         if (topPos + dialogHeight > window.innerHeight) {
           topPos = rect.top - dialogHeight - 8;
         }
         dialog.style.top = `${topPos}px`;
 
+        // Position dialog aligned with clicked element, adjusting if it would go off-screen
         let leftPos = rect.left;
         if (leftPos + 320 > window.innerWidth) {
           leftPos = window.innerWidth - 340;
@@ -299,6 +493,9 @@ export class PatientListComponent {
     }
   }
 
+  /**
+   * Closes the expandable dialog and resets state
+   */
   closeDialog() {
     const expandDialog = this.expandDialog();
     if (expandDialog) {
@@ -308,6 +505,10 @@ export class PatientListComponent {
     this.activeExpandType = null;
   }
 
+  /**
+   * Handles clicks outside the dialog to close it
+   * @param event - Mouse event
+   */
   onDialogClick(event: MouseEvent) {
     const expandDialog = this.expandDialog();
     if (!expandDialog) return;
@@ -321,7 +522,13 @@ export class PatientListComponent {
   }
 }
 
-/** Builds and returns a new Patient. */
+// --- UTILITY FUNCTIONS ---
+
+/**
+ * Creates a new random patient for demonstration purposes
+ * @param id - Patient ID number
+ * @returns A new Patient object with randomized data
+ */
 function createNewPatient(id: number): Patient {
   const firstName = FIRST_NAMES[Math.floor(Math.random() * FIRST_NAMES.length)];
   const lastName = LAST_NAMES[Math.floor(Math.random() * LAST_NAMES.length)];

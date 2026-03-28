@@ -130,18 +130,18 @@
 
 
 .body {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  line-height: 1.6;
-  padding: 20px;
+  font-family: var(--ft-font-family-base);
+  line-height: var(--leading-relaxed);
+  padding: var(--ft-unit-500);
   color: var(--color-gray-800);
   max-width: 1200px;
   margin: 0 auto;
 }
 
 .container {
-  background-color: white;
-  border-radius: 8px;
-  padding: 25px;
+  background-color: var(--ft-color-mix-a);
+  border-radius: var(--ft-radius-400);
+  padding: var(--ft-unit-600);
 }
 
 .status-title {
@@ -151,39 +151,39 @@
 }
 
 h2 {
-  margin-top: 30px;
+  margin-top: var(--ft-unit-700);
   color: var(--color-slate-800);
-  border-bottom: 1px solid var(--color-slate-200);
-  padding-bottom: 10px;
-  margin-bottom: 20px;
+  border-bottom: var(--ft-unit-25) solid var(--color-slate-200);
+  padding-bottom: var(--ft-unit-250, 10px);
+  margin-bottom: var(--ft-unit-500);
 }
 
 .tag-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 15px;
-  margin: 20px 0;
+  gap: var(--ft-unit-400);
+  margin: var(--ft-unit-500) 0;
 }
 
 .tag {
   display: inline-flex;
   align-items: center;
-  padding: 2px 16px;
-  border-radius: 16px;
-  font-size: 11px;
-  font-weight: 600;
+  padding: var(--ft-unit-50) var(--ft-unit-400);
+  border-radius: var(--ft-radius-pill);
+  font-size: var(--ft-text-3xs);
+  font-weight: var(--font-weight-semibold);
   cursor: pointer;
   transition: transform 0.2s ease;
 }
 
 .tag:hover {
-  transform: translateY(-2px);
+  transform: translateY(calc(-1 * var(--ft-unit-50)));
 }
 
 .section-description {
   color: var(--color-gray-600);
-  margin-bottom: 20px;
-  font-size: 15px;
+  margin-bottom: var(--ft-unit-500);
+  font-size: var(--ft-text-sm);
 }
 
 
