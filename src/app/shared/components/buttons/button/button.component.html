@@ -1,6 +1,7 @@
-<button class="button-container" [class]="size() + ' ' + variant() + ' ' + state() + ' ' + color()"
-  [disabled]="state() === 'disabled'" type="button">
-  <div class="button-wrapper" [class]="radiusClasses">
+<button [class]="'button-container ' + size() + ' ' + variant() + ' ' + state() + ' ' + color() + ' ' + radiusClasses()"
+  [disabled]="state() === 'disabled'" type="button"
+  [attr.popovertarget]="popovertarget()" [attr.popovertargetaction]="popovertargetaction()">
+  <div class="button-wrapper">
     @if (isPrefixIconClass() && prefixIconClass) {
       <div class="prefix-icon">
         <!--      <i [class]="prefixIconClass"></i>-->

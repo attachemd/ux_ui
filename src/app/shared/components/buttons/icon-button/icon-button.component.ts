@@ -1,8 +1,9 @@
-import { Component, ViewEncapsulation, input } from '@angular/core';
+import { Component, ViewEncapsulation, input, computed } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'ft-icon-button',
+  standalone: true,
   templateUrl: './icon-button.component.html',
   imports: [
     FormsModule
@@ -20,11 +21,17 @@ export class FtIconButtonComponent {
   readonly radius = input<'none-radius' | 'xs-radius' | 'sm-radius' | 'md-radius' | 'lg-radius' | 'full-radius'>('md-radius');
   readonly state = input<'rest' | 'hover' | 'press' | 'focus' | 'disabled'>('rest');
   readonly type = input<'button' | 'submit' | 'reset'>('button');
+  readonly popovertarget = input<string>();
+  readonly popovertargetaction = input<'toggle' | 'show' | 'hide'>('toggle');
 
   readonly iconClass = input('face');
 
-  get radiusClasses(): string {
-    const classes = {
+  /**
+   * Computed Tailwind radius classes based on the radius input signal.
+   * Maps design tokens (e.g. 'md-radius') to utility classes.
+   */
+  readonly radiusClasses = computed(() => {
+    const classes: Record<string, string> = {
       'none-radius': 'rounded-none',
       'xs-radius': 'rounded-sm',
       'sm-radius': 'rounded-md',
@@ -33,8 +40,6 @@ export class FtIconButtonComponent {
       'full-radius': 'rounded-full'
     };
     return classes[this.radius()] || 'rounded-md';
-  }
-
-
+  });
 }
 

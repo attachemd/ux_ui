@@ -51,6 +51,7 @@
     color: var(--_text);
     border: var(--ft-border-secondary) solid var(--_border-color);
     box-shadow: var(--_shadow);
+    border-radius: inherit;
 
 
     .suffix-icon .suffix,
@@ -123,6 +124,8 @@
   /* OUTLINED: Border changes on hover/press */
 
   &.outlined {
+    --_border-color: var(--_brand);
+
     &:is(:hover, .hover) {
       --_border-color: var(--_brand);
     }

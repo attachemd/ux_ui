@@ -1,6 +1,7 @@
-<button class="button-container" [class]="size() + ' ' + variant() + ' ' + state() + ' ' + color()"
-  [disabled]="state() === 'disabled'" [type]="type()">
-  <div class="icon-wrapper" [class]="radiusClasses">
+<button [class]="'button-container ' + size() + ' ' + variant() + ' ' + state() + ' ' + color() + ' ' + radiusClasses()"
+  [disabled]="state() === 'disabled'" [type]="type()"
+  [attr.popovertarget]="popovertarget()" [attr.popovertargetaction]="popovertargetaction()">
+  <div class="icon-wrapper">
     <span class="material-symbols-rounded">{{iconClass()}}</span>
   </div>
 </button>

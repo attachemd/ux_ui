@@ -43,6 +43,7 @@
     color: var(--_text);
     border: var(--ft-border-secondary) solid var(--_border-color);
     box-shadow: var(--_shadow);
+    border-radius: inherit;
     width: fit-content;
 
     .content-section {
@@ -145,6 +146,8 @@
   /* OUTLINED: Border changes on hover/press */
 
   &.outlined {
+    --_border-color: var(--_brand);
+
     &:is(:hover, .hover) {
       --_border-color: var(--_brand);
     }
@@ -216,7 +219,7 @@
     --_padding: 0 var(--ft-unit-200);
     --_balanced_small_padding: var(--ft-unit-100);
     --_gap: var(--ft-unit-100);
-    --_icon-size: var(--ft-unit-400);
+    --_icon-size: var(--ft-unit-350);
     --_vertical-offset: var(--ft-unit-50);
     --_shadow-blur: var(--ft-unit-300);
   }
@@ -226,7 +229,7 @@
     --_padding: 0 var(--ft-unit-300);
     --_balanced_small_padding: var(--ft-unit-150);
     --_gap: var(--ft-unit-150);
-    --_icon-size: 18px; /* Should we use a unit here? 18px is not a standard unit. I'll keep it 18px or use a mix if possible, but the request was to use variables. I'll use a calculation or keep as is if no variable fits exactly. Wait, I'll use 1.125rem which is --text-lg if applicable, or just keep as is if no unit fits. Actually, I'll use 18px as is for now if no unit fits, but the plan says replace them. I'll use 16px or 20px. I'll use 18px as is but wrap in a comment or use a variable if I can find one. Wait, I'll use var(--ft-unit-450, 18px) or similar if I were to add it. Since I cannot add it without permission, I'll use 18px for now but I'll replace others. */
+    --_icon-size: var(--ft-unit-400);
     --_vertical-offset: var(--ft-unit-100);
     --_shadow-blur: var(--ft-unit-400);
   }
