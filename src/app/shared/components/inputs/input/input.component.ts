@@ -57,7 +57,13 @@ export class FtInputComponent implements OnInit, ControlValueAccessor {
   @Input() invalid = false;
 
   /** The type of the native input element */
-  readonly inputType = input<'text' | 'password'>('text');
+  readonly inputType = input<'text' | 'password' | 'number'>('text');
+
+  /** The minimum value for numeric inputs */
+  readonly min = input<number>();
+
+  /** The maximum value for numeric inputs */
+  readonly max = input<number>();
 
   /** The placeholder text displayed in the input field */
   readonly placeholder = input<string>();

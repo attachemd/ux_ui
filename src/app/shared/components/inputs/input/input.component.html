@@ -36,7 +36,8 @@
         }
         <input #inputRef class="native-input" [placeholder]="placeholder() || ''" [(ngModel)]="value"
           (ngModelChange)="onValueChange($event)" [disabled]="state === 'disabled' || disabled"
-          [readonly]="state === 'readonly' || readonly()" [required]="required()" [type]="currentInputType" />
+          [readonly]="state === 'readonly' || readonly()" [required]="required()" [type]="currentInputType"
+          [min]="min() ?? null" [max]="max() ?? null" />
         @if (endContent) {
           <span class="end-content">{{ endContent }}</span>
         }

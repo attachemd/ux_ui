@@ -9,6 +9,18 @@
     /* Base Overrides */
     --_layout-scale: var(--ft-layout-scale-loose);
 
+    &[data-density="compact"] {
+      --_layout-scale: var(--ft-layout-scale-compact);
+    }
+
+    &[data-density="comfortable"] {
+      --_layout-scale: var(--ft-layout-scale-comfortable);
+    }
+
+    &[data-density="loose"] {
+      --_layout-scale: var(--ft-layout-scale-loose);
+    }
+
     /* 
     --ft-radius-100: 0px;
     --ft-radius-200: 0px;
@@ -77,7 +89,7 @@
       --ft-table-td-display: table-cell;
       --ft-table-collapse: separate;
       --ft-table-width: 100%;
-      --ft-table-layout: auto;
+      --ft-table-layout: fixed;
       --ft-table-use-pseudo-layers: none;
       --ft-table-thead-position: relative;
       --ft-table-thead-z-index: auto;
