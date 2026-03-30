@@ -125,7 +125,7 @@ export class PatientListComponent {
    * - sortable: Whether column can be sorted
    */
   allTableColumns: TableColumn[] = [
-    { key: 'select', label: '', type: 'checkbox', width: '32px', sticky: 'left', sortable: false },
+    { key: 'select', label: '', type: 'checkbox', width: 'var(--ft-unit-1600)', sticky: 'left', sortable: false },
     { key: 'id', label: 'ID', width: '100px', sticky: 'left', minWidth: '100px', maxWidth: '100px' },
     { key: 'status', label: 'Statut', type: 'custom', width: '160px', minWidth: '160px', maxWidth: '160px' },
     { key: 'title', label: 'Titre', width: '100px' },
@@ -183,13 +183,13 @@ export class PatientListComponent {
 
   /** Signal containing the complete list of patients */
   users = signal<Patient[]>([]);
-  
+
   /** Signal for the current search/filter text */
   filter = signal<string>('');
-  
+
   /** Signal for the current column being sorted */
   sortKey = signal<keyof Patient>('id');
-  
+
   /** Signal for the current sort direction (ascending/descending) */
   sortDirection = signal<'asc' | 'desc'>('asc');
 
@@ -204,7 +204,7 @@ export class PatientListComponent {
     { label: 'Vue compacte', value: 'compact' },
     { label: 'Vue détaillée', value: 'detailed' }
   ];
-  
+
   /** Form control for the currently selected view */
   selectedView = new FormControl('standard');
 
@@ -212,7 +212,7 @@ export class PatientListComponent {
 
   /** Current page index (0-based) */
   currentPage = signal(0);
-  
+
   /** Number of items per page */
   pageSize = signal(10);
 
@@ -250,10 +250,10 @@ export class PatientListComponent {
 
   /** Currently selected cities for filtering */
   selectedCities = signal<string[]>(['all']);
-  
+
   /** Currently selected countries for filtering */
   selectedCountries = signal<string[]>(['all']);
-  
+
   /** Currently selected genders for filtering */
   selectedGenders = signal<string[]>(['all']);
 
@@ -270,6 +270,20 @@ export class PatientListComponent {
 
   /** Injected theme service for styling consistency */
   themeService = inject(ThemeService);
+
+  /**
+   * Computed button size based on current interface density.
+   * Ensures that action buttons in the table scale correctly.
+   */
+  readonly buttonSize = computed(() => {
+    const density = this.themeService.density();
+    if (density === 'compact') return 'xs-size';
+    // User requested to keep icons at sm-size for loose density
+    return 'sm-size';
+  });
+
+  /** Current density level from theme service */
+  density = this.themeService.density;
 
   /** Computed property for accessing component theme configuration */
   compConfig = computed(() => this.themeService.config().components);
@@ -447,7 +461,7 @@ export class PatientListComponent {
 
   /** Currently active dialog type (status, address, or languages) */
   activeExpandType: 'status' | 'address' | 'languages' | null = null;
-  
+
   /** Currently active patient row for dialog display */
   activeExpandRow: Patient | null = null;
 

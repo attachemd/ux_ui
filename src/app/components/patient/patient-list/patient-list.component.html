@@ -1,11 +1,11 @@
 <div class="list-container">
   <ft-table-header [views]="views" [viewControl]="selectedView" searchPlaceholder="Rechercher les patients"
-    [activeFiltersCount]="2" [allColumns]="allTableColumns" [visibleColumns]="visibleColumnKeys()"
-    filter1Label="Ville" [filter1Options]="cityOptions" [(filter1Value)]="selectedCities"
-    filter2Label="Pays" [filter2Options]="countryOptions" [(filter2Value)]="selectedCountries"
-    filter3Label="Genre" [filter3Options]="genderOptions" [(filter3Value)]="selectedGenders"
-    (search)="onSearchChange($event)" (viewChange)="onViewChange($event)" (resetFilters)="filter.set('')"
-    (filter)="onSearchChange('')" (toggleColumn)="toggleColumn($event)">
+    [activeFiltersCount]="2" [allColumns]="allTableColumns" [visibleColumns]="visibleColumnKeys()" filter1Label="Ville"
+    [filter1Options]="cityOptions" [(filter1Value)]="selectedCities" filter2Label="Pays"
+    [filter2Options]="countryOptions" [(filter2Value)]="selectedCountries" filter3Label="Genre"
+    [filter3Options]="genderOptions" [(filter3Value)]="selectedGenders" (search)="onSearchChange($event)"
+    (viewChange)="onViewChange($event)" (resetFilters)="filter.set('')" (filter)="onSearchChange('')"
+    (toggleColumn)="toggleColumn($event)">
 
     <div slot="actions">
       <ft-button label="Nouveau" prefixIconClass="add"
@@ -17,97 +17,95 @@
 
   <div class="list-body">
     <div class="table-container">
-          <ft-table [data]="paginatedUsers()" [columns]="columns()" [sortKey]="sortKey()"
-            [sortDirection]="sortDirection()" [selection]="selection()" [expandable]="true"
-            [variant]="$any(getVariant('ft-table') || 'default')" (sort)="onSortChange($event)"
-            (selectionChange)="onSelectionChange($event)">
+      <ft-table [data]="paginatedUsers()" [columns]="columns()" [sortKey]="sortKey()" [sortDirection]="sortDirection()"
+        [selection]="selection()" [expandable]="true" [density]="density()"
+        [variant]="$any(getVariant('ft-table') || 'default')"
+        (sort)="onSortChange($event)" (selectionChange)="onSelectionChange($event)">
 
-            <!-- Custom Expansion Template -->
-            <ng-template ftTableExpansion let-row>
-              <div class="patient-details-grid">
-                <div class="detail-section">
-                  <h4 class="section-title">Informations de contact</h4>
-                  <div class="detail-row">
-                    <span class="material-symbols-rounded detail-icon">mail</span>
-                    <span class="detail-label">Email:</span>
-                    <span class="detail-value">{{ row.email }}</span>
-                  </div>
-                  <div class="detail-row">
-                    <span class="material-symbols-rounded detail-icon">call</span>
-                    <span class="detail-label">Téléphone:</span>
-                    <span class="detail-value">{{ row.primaryPhoneNumber }}</span>
-                  </div>
-                </div>
-
-                <div class="detail-section">
-                  <h4 class="section-title">Localisation</h4>
-                  <div class="detail-row">
-                    <span class="material-symbols-rounded detail-icon">location_on</span>
-                    <span class="detail-label">Adresse:</span>
-                    <span class="detail-value">{{ row.address }}, {{ row.city }}, {{ row.country }}</span>
-                  </div>
-                </div>
-
-                <div class="detail-section">
-                  <h4 class="section-title">Informations professionnelles</h4>
-                  <div class="detail-row">
-                    <span class="material-symbols-rounded detail-icon">work</span>
-                    <span class="detail-label">Profession:</span>
-                    <span class="detail-value">{{ row.occupation }}</span>
-                  </div>
-                  <div class="detail-row">
-                    <span class="material-symbols-rounded detail-icon">business</span>
-                    <span class="detail-label">Employeur:</span>
-                    <span class="detail-value">{{ row.employer }}</span>
-                  </div>
-                </div>
+        <!-- Custom Expansion Template -->
+        <ng-template ftTableExpansion let-row>
+          <div class="patient-details-grid">
+            <div class="detail-section">
+              <h4 class="section-title">Informations de contact</h4>
+              <div class="detail-row">
+                <span class="material-symbols-rounded detail-icon">mail</span>
+                <span class="detail-label">Email:</span>
+                <span class="detail-value">{{ row.email }}</span>
               </div>
-            </ng-template>
-
-            <!-- Custom Template: Status -->
-            <ng-template appTableCell="status" let-row>
-              <ft-status-pills [pills]="getStatuses(row.status)" (moreClick)="openDialog(row, 'status', $event)">
-              </ft-status-pills>
-            </ng-template>
-
-            <!-- Custom Template: Address -->
-            <ng-template appTableCell="address" let-row>
-              <div class="expandable-cell">
-                <span class="cell-text" appOverflowDetect
-                  (overflowChange)="onOverflowChange(row.id!, 'address', $event)">
-                  {{ row.address }}
-                </span>
-                @if (isOverflowing(row.id!, 'address')) {
-                <span class="more-link" (click)="openDialog(row, 'address', $event)">+ plus</span>
-                }
+              <div class="detail-row">
+                <span class="material-symbols-rounded detail-icon">call</span>
+                <span class="detail-label">Téléphone:</span>
+                <span class="detail-value">{{ row.primaryPhoneNumber }}</span>
               </div>
-            </ng-template>
+            </div>
 
-            <!-- Custom Template: Languages -->
-            <ng-template appTableCell="spokenLanguages" let-row>
-              <div class="expandable-cell">
-                <span class="cell-text" appOverflowDetect
-                  (overflowChange)="onOverflowChange(row.id!, 'languages', $event)">
-                  {{ row.spokenLanguages?.join(', ') }}
-                </span>
-                @if (isOverflowing(row.id!, 'languages')) {
-                <span class="more-link" (click)="openDialog(row, 'languages', $event)">
-                  +{{ (row.spokenLanguages?.length ?? 1) - 1 }}
-                </span>
-                }
+            <div class="detail-section">
+              <h4 class="section-title">Localisation</h4>
+              <div class="detail-row">
+                <span class="material-symbols-rounded detail-icon">location_on</span>
+                <span class="detail-label">Adresse:</span>
+                <span class="detail-value">{{ row.address }}, {{ row.city }}, {{ row.country }}</span>
               </div>
-            </ng-template>
+            </div>
 
-            <!-- Custom Template: Actions -->
-            <ng-template appTableCell="actions" let-row>
-              <div class="action-button-container" (click)="$event.stopPropagation()">
-                <ft-icon-button variant="ghost" iconClass="visibility" size="sm-size"></ft-icon-button>
-                <ft-icon-button variant="ghost" iconClass="edit" size="sm-size"></ft-icon-button>
-                <ft-icon-button variant="ghost" iconClass="more_vert" size="sm-size"></ft-icon-button>
+            <div class="detail-section">
+              <h4 class="section-title">Informations professionnelles</h4>
+              <div class="detail-row">
+                <span class="material-symbols-rounded detail-icon">work</span>
+                <span class="detail-label">Profession:</span>
+                <span class="detail-value">{{ row.occupation }}</span>
               </div>
-            </ng-template>
+              <div class="detail-row">
+                <span class="material-symbols-rounded detail-icon">business</span>
+                <span class="detail-label">Employeur:</span>
+                <span class="detail-value">{{ row.employer }}</span>
+              </div>
+            </div>
+          </div>
+        </ng-template>
 
-          </ft-table>
+        <!-- Custom Template: Status -->
+        <ng-template appTableCell="status" let-row>
+          <ft-status-pills [pills]="getStatuses(row.status)" (moreClick)="openDialog(row, 'status', $event)">
+          </ft-status-pills>
+        </ng-template>
+
+        <!-- Custom Template: Address -->
+        <ng-template appTableCell="address" let-row>
+          <div class="expandable-cell">
+            <span class="cell-text" appOverflowDetect (overflowChange)="onOverflowChange(row.id!, 'address', $event)">
+              {{ row.address }}
+            </span>
+            @if (isOverflowing(row.id!, 'address')) {
+            <span class="more-link" (click)="openDialog(row, 'address', $event)">+ plus</span>
+            }
+          </div>
+        </ng-template>
+
+        <!-- Custom Template: Languages -->
+        <ng-template appTableCell="spokenLanguages" let-row>
+          <div class="expandable-cell">
+            <span class="cell-text" appOverflowDetect (overflowChange)="onOverflowChange(row.id!, 'languages', $event)">
+              {{ row.spokenLanguages?.join(', ') }}
+            </span>
+            @if (isOverflowing(row.id!, 'languages')) {
+            <span class="more-link" (click)="openDialog(row, 'languages', $event)">
+              +{{ (row.spokenLanguages?.length ?? 1) - 1 }}
+            </span>
+            }
+          </div>
+        </ng-template>
+
+        <!-- Custom Template: Actions -->
+        <ng-template appTableCell="actions" let-row>
+          <div class="action-button-container" (click)="$event.stopPropagation()">
+            <ft-icon-button variant="ghost" iconClass="visibility" [size]="buttonSize()"></ft-icon-button>
+            <ft-icon-button variant="ghost" iconClass="edit" [size]="buttonSize()"></ft-icon-button>
+            <ft-icon-button variant="ghost" iconClass="more_vert" [size]="buttonSize()"></ft-icon-button>
+          </div>
+        </ng-template>
+
+      </ft-table>
     </div>
   </div>
 

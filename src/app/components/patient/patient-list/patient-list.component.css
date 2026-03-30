@@ -16,7 +16,7 @@
   height: 100%;
 
   /* Action Icon spacing */
-  --_actions-gap: var(--ft-unit-100);
+  --_actions-gap: var(--ft-unit-150);
 
   /* Scrollbar - used by the viewport */
   --_scrollbar-thumb: var(--ft-table-scrollbar-thumb, color-mix(in srgb, var(--ft-color-on-surface-level-200) 10%, transparent));
@@ -75,24 +75,7 @@
   padding: var(--ft-layout-table-padding, var(--ft-unit-300) var(--ft-unit-400));
 }
 
-/* --- Sticky column offsets (specific to this table's layout) --- */
-/* ::ng-deep needed because <td> elements are rendered inside app-table's template */
-:host ::ng-deep .ft-table thead.select.sticky-column {
-  left: 0;
-  z-index: 105;
-}
-
-:host ::ng-deep .id.sticky-column {
-  left: calc(var(--ft-unit-900) + 2 * var(--ft-unit-400));
-  /*
-   * Offset calculation:
-   * - 64px: Width of the checkbox (select) column
-   * - 2 * var(--ft-unit-400): Additional padding/spacing from the checkbox column and cell spacing
-   *
-   * This positions the ID column immediately to the right of the sticky checkbox column,
-   * ensuring both columns remain fixed during horizontal scroll without overlapping.
-   */
-}
+/* --- Sticky columns are now automatically handled by FtTableComponent logic --- */
 
 :host ::ng-deep .firstName,
 :host ::ng-deep .lastName {
@@ -146,18 +129,18 @@
    4. EXPANSION DIALOG (POPOVER)
    ========================================================================== */
 .expansion-dialog {
-  border: 1px solid var(--ft-color-border-100);
+  border: var(--ft-unit-25) solid var(--ft-color-border-100);
   border-radius: var(--ft-radius-lg);
   box-shadow: var(--shadow-xl);
-  padding: 0;
-  margin: 0;
-  background: color-mix(in srgb, var(--ft-color-surface) 90%, transparent);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  min-width: 240px;
-  max-width: 360px;
+  padding: var(--ft-unit-0);
+  margin: var(--ft-unit-0);
+  background: color-mix(in srgb, var(--ft-color-surface-level-100) 90%, transparent);
+  backdrop-filter: blur(var(--ft-unit-300));
+  -webkit-backdrop-filter: blur(var(--ft-unit-300));
+  min-width: var(--ft-unit-6000);
+  max-width: var(--container-xs);
   position: fixed;
-  z-index: 1000;
+  z-index: var(--ft-z-index-dropdown);
   overflow: hidden;
 }
 
@@ -171,20 +154,20 @@
 }
 
 .dialog-header {
-  padding: var(--ft-unit-300) var(--ft-unit-400);
+  padding: var(--ft-unit-100) var(--ft-unit-400);
   background: color-mix(in srgb, var(--ft-color-surface-level-100) 80%, transparent);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid var(--ft-color-border-100);
+  border-bottom: var(--ft-unit-25) solid var(--ft-color-border-100);
 }
 
 .dialog-header h3 {
-  margin: 0;
+  margin: var(--ft-unit-0);
   font-size: var(--ft-text-xs);
-  font-weight: 700;
+  font-weight: var(--font-weight-bold);
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: var(--tracking-wider);
   color: var(--ft-color-on-surface-level-200);
 }
 
@@ -213,9 +196,9 @@
   padding: var(--ft-unit-50) var(--ft-unit-300);
   border-radius: var(--ft-radius-400);
   font-size: var(--ft-text-2xs);
-  font-weight: 600;
+  font-weight: var(--font-weight-semibold);
   white-space: nowrap;
-  letter-spacing: 0.02em;
+  letter-spacing: var(--tracking-wide);
   text-transform: capitalize;
 }
 
@@ -236,8 +219,8 @@
 
 .full-text {
   font-size: var(--ft-text-sm);
-  line-height: 1.5;
-  margin: 0;
+  line-height: var(--leading-normal);
+  margin: var(--ft-unit-0);
 }
 
 .languages-list {
@@ -290,11 +273,11 @@
 
 .section-title {
   font-size: var(--ft-text-2xs);
-  font-weight: 700;
+  font-weight: var(--font-weight-bold);
   color: var(--ft-color-primary);
   margin-bottom: var(--ft-unit-100);
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: var(--tracking-widest);
 }
 
 .detail-row {
@@ -305,16 +288,16 @@
 }
 
 .detail-icon {
-  font-size: var(--ft-unit-450, 18px); /* 18px is not a standard unit, using fallback */
+  font-size: var(--text-lg);
   color: var(--ft-color-on-surface-level-200);
 }
 
 .detail-label {
-  font-weight: 600;
+  font-weight: var(--font-weight-semibold);
   color: var(--ft-color-on-surface-level-200);
   min-width: var(--ft-unit-2000);
 }
 
 .detail-value {
-  color: var(--ft-color-on-surface);
+  color: var(--ft-color-solid-on-surface);
 }
