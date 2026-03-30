@@ -9,6 +9,7 @@ import {
   output,
   ViewEncapsulation,
   signal,
+  computed,
   contentChildren,
   contentChild
 } from '@angular/core';
@@ -48,6 +49,42 @@ export class FtTableComponent implements AfterContentInit {
 
   // Signals & State
   expandedRows = signal<Set<string>>(new Set());
+
+  // Sticky Offsets Calculation
+  stickyOffsets = computed(() => {
+    const cols = this.columns();
+    const leftOffsets: { [key: string]: string } = {};
+    const rightOffsets: { [key: string]: string } = {};
+
+    let cumulativeLeft = '0px';
+    for (const col of cols) {
+      if (col.sticky === 'left') {
+        leftOffsets[col.key] = cumulativeLeft;
+        const colWidth = col.width || '0px';
+        // In border-box, offset is just the sum of previous total widths
+        cumulativeLeft = `calc(${cumulativeLeft} + ${colWidth})`;
+      }
+    }
+
+    let cumulativeRight = '0px';
+    for (let i = cols.length - 1; i >= 0; i--) {
+      const col = cols[i];
+      if (col.sticky === 'right') {
+        rightOffsets[col.key] = cumulativeRight;
+        const colWidth = col.width || '0px';
+        cumulativeRight = `calc(${cumulativeRight} + ${colWidth})`;
+      }
+    }
+
+    return { leftOffsets, rightOffsets };
+  });
+
+  checkboxSize = computed(() => {
+    switch (this.density()) {
+      case 'compact': return 'xs-size';
+      default: return 'sm-size';
+    }
+  });
 
   // Internal Properties
   columnTemplates: { [key: string]: TemplateRef<any> } = {};

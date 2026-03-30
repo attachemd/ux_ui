@@ -80,7 +80,8 @@
   --_header-height: calc(var(--ft-table-header-height, var(--ft-unit-800)) * var(--_density-scale));
   --_row-height: calc(var(--ft-table-row-height, var(--ft-unit-1000)) * var(--_density-scale));
   --_row-gap: calc(var(--ft-table-row-gap, var(--ft-unit-200)) * var(--_density-scale));
-  --_cell-padding: calc(var(--ft-unit-200) * var(--_density-scale)) calc(var(--ft-unit-400) * var(--_density-scale));
+  --_cell-padding-x: calc(var(--ft-unit-400) * var(--_density-scale));
+  --_cell-padding: calc(var(--ft-unit-200) * var(--_density-scale)) var(--_cell-padding-x);
 
   /* --- Expansion --- */
   --_expansion-bg: var(--ft-table-expansion-bg, color-mix(in srgb, var(--ft-color-surface) 95%, var(--ft-color-primary)));
@@ -120,8 +121,8 @@
    ========================================================================== */
 .ft-table {
   display: var(--_table-display);
-  table-layout: var(--_table-layout);
-  width: var(--_table-width);
+  table-layout: var(--_table-layout, fixed);
+  width: var(--_table-width, 100%);
   border-collapse: var(--_table-collapse);
   border-spacing: var(--ft-table-border-spacing, 0 var(--_row-gap));
   font-size: var(--ft-text-xs);
@@ -130,8 +131,10 @@
 
 .ft-table thead th,
 .ft-table tbody td {
+  box-sizing: border-box;
   text-align: left;
-  padding: 0 var(--ft-unit-400);
+  padding: 0;
+  vertical-align: middle;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -144,8 +147,6 @@
   z-index: var(--ft-z-index-sticky);
   border-bottom: var(--_header-border-bottom);
   background-color: var(--_header-bg);
-  backdrop-filter: var(--_backdrop-filter);
-  -webkit-backdrop-filter: var(--_backdrop-filter);
 }
 
 /* ==========================================================================
@@ -198,8 +199,6 @@
   font-weight: 600;
   font-size: var(--ft-text-xs);
   height: var(--_header-height);
-  padding-top: 0;
-  padding-bottom: 0;
   cursor: pointer;
   position: sticky;
   top: 0;
@@ -214,6 +213,18 @@
   gap: var(--ft-unit-100);
   position: relative;
   z-index: 106;
+  width: calc(100% - var(--_cell-padding-x));
+  height: 100%;
+}
+
+.th-label {
+  display: block;
+  flex: 1;
+  min-width: 0;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .ft-table thead th .material-symbols-rounded {
@@ -516,7 +527,19 @@
   display: flex;
   align-items: center;
   height: 100%;
+  width: calc(100% - var(--_cell-padding-x));
+  padding: 0;
+  /* Structural padding handled internally now */
+}
+
+.cell-label {
+  display: block;
+  flex: 1;
+  min-width: 0;
   width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 /* Checkbox specific */
@@ -524,6 +547,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 100%;
+  width: calc(100% - var(--_cell-padding-x));
 }
 
 .empty-state {

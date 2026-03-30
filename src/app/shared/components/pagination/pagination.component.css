@@ -133,33 +133,6 @@
   width: var(--_input-width);
 }
 
-.jump-input {
+.jump-input-comp {
   width: 100%;
-  height: var(--_btn-size);
-  border: 1px solid var(--_input-border);
-  border-radius: var(--_btn-radius);
-  padding: var(--_input-padding);
-  font-size: var(--_btn-font-size);
-  text-align: center;
-  outline: none;
-  background: var(--_input-bg);
-  transition: border-color 0.2s, background-color 0.2s;
-  appearance: none;
-}
-
-.jump-input:focus {
-  border-color: var(--_btn-active-border);
-  background: var(--_input-focus-bg);
-}
-
-/* Remove Arrows from number input */
-.jump-input::-webkit-outer-spin-button,
-.jump-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-.jump-input {
-  appearance: textfield;
-  -moz-appearance: textfield;
 }

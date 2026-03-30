@@ -5,18 +5,21 @@
         <thead>
           <tr class="header-row">
             @for (col of columns(); track col.key) {
-            <th [class]="col.key" [style.width]="col.width" [style.max-width]="col.maxWidth"
+            <th [class]="col.key" [style.width]="col.width" [style.max-width]="col.maxWidth || col.width"
               [style.min-width]="col.minWidth" [class.sticky-column]="col.sticky === 'left'"
-              [class.sticky-column-right]="col.sticky === 'right'" [class.sorted]="isSorted(col.key)"
+              [class.sticky-column-right]="col.sticky === 'right'" 
+              [style.left]="col.sticky === 'left' ? stickyOffsets().leftOffsets[col.key] : null"
+              [style.right]="col.sticky === 'right' ? stickyOffsets().rightOffsets[col.key] : null"
+              [class.sorted]="isSorted(col.key)"
               (click)="col.sortable !== false && onSort(col.key)">
 
               @if (col.type === 'checkbox') {
               <div class="checkbox-cell-content" (click)="$event.stopPropagation()">
-                <ft-checkbox [size]="'sm-size'" [value]="isAllSelected()" (valueChange)="toggleSelectAll()"></ft-checkbox>
+                <ft-checkbox [size]="checkboxSize()" [value]="isAllSelected()" (valueChange)="toggleSelectAll()"></ft-checkbox>
               </div>
               } @else {
               <div class="th-content">
-                {{ col.label }}
+                <span class="th-label">{{ col.label }}</span>
                 @if (col.sortable !== false) {
                 <span class="sort-icon material-symbols-rounded" [class.active]="isSorted(col.key)">
                   {{ getSortIcon(col.key) }}
@@ -33,31 +36,34 @@
           <tr [class.selected]="isSelected(row)" [class.expanded]="isExpanded(row.id)" (click)="toggleRow(row, $event)"
             class="clickable-row">
             @for (col of columns(); track col.key) {
-            <td [class]="col.key" [style.width]="col.width" [style.max-width]="col.maxWidth"
+            <td [class]="col.key" [style.width]="col.width" [style.max-width]="col.maxWidth || col.width"
               [style.min-width]="col.minWidth" [class.sticky-column]="col.sticky === 'left'"
-              [class.sticky-column-right]="col.sticky === 'right'">
+              [class.sticky-column-right]="col.sticky === 'right'"
+              [style.left]="col.sticky === 'left' ? stickyOffsets().leftOffsets[col.key] : null"
+              [style.right]="col.sticky === 'right' ? stickyOffsets().rightOffsets[col.key] : null">
 
+              @if (col.type === 'checkbox') {
+              <div class="checkbox-cell-content" (click)="$event.stopPropagation()">
+                <ft-checkbox [size]="checkboxSize()" [value]="isSelected(row)"
+                  (valueChange)="onCheckboxChange(row, $event)"></ft-checkbox>
+              </div>
+              } @else {
               <div class="cell-content">
                 @if (columnTemplates[col.key]) {
                 <ng-container
                   *ngTemplateOutlet="columnTemplates[col.key]; context: { $implicit: row, column: col }"></ng-container>
                 } @else {
                 @switch (col.type) {
-                @case ('checkbox') {
-                <div class="checkbox-cell-content" (click)="$event.stopPropagation()">
-                  <ft-checkbox [size]="'sm-size'" [value]="isSelected(row)"
-                    (valueChange)="onCheckboxChange(row, $event)"></ft-checkbox>
-                </div>
-                }
                 @case ('date') {
-                {{ row[col.key] | date:'dd/MM/yyyy' }}
+                <span class="cell-label">{{ row[col.key] | date:'dd/MM/yyyy' }}</span>
                 }
                 @default {
-                {{ row[col.key] }}
+                <span class="cell-label">{{ row[col.key] }}</span>
                 }
                 }
                 }
               </div>
+              }
             </td>
             }
           </tr>

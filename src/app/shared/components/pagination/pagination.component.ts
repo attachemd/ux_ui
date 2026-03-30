@@ -2,11 +2,12 @@ import { Component, Input, Output, EventEmitter, computed, signal, ViewEncapsula
 import { NgClass } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { FtSelectComponent, SelectOption } from '../select/select/select.component';
+import { FtInputComponent } from '../inputs/input/input.component';
 
 @Component({
   selector: 'ft-pagination',
   standalone: true,
-  imports: [FormsModule, FtSelectComponent],
+  imports: [FormsModule, FtSelectComponent, FtInputComponent],
   templateUrl: './pagination.component.html',
   styleUrls: ['./pagination.component.css'],
   encapsulation: ViewEncapsulation.Emulated
