@@ -6,6 +6,10 @@
 
 @layer app-variables {
   [data-theme="minimalist"] {
+    /* --- Minimalist Palette Primitives --- */
+    --min-light: #ffffff;
+    --min-dark: #000000;
+
     /* Base Overrides */
     --_layout-scale: var(--ft-layout-scale-loose);
 
@@ -51,25 +55,25 @@
 
     /* Mode Overrides */
     &[data-mode='light'] {
-      --ft-color-mix-a: #ffffff;
-      --ft-color-mix-z: #000000;
-      --ft-color-solid-surface: #ffffff;
-      --ft-color-solid-on-surface: #000000;
-      --ft-color-primary: #000000;
-      --ft-color-on-primary: #ffffff;
-      --ft-color-border-200: #000000;
+      --ft-color-mix-a: var(--min-light);
+      --ft-color-mix-z: var(--min-dark);
+      --ft-color-solid-surface: var(--min-light);
+      --ft-color-solid-on-surface: var(--min-dark);
+      --ft-color-primary: var(--min-dark);
+      --ft-color-on-primary: var(--min-light);
+      --ft-color-border-200: var(--min-dark);
       --ft-color-border-100: color-mix(in srgb, var(--ft-color-mix-z) 15%, transparent);
       --ft-color-border-solid: color-mix(in srgb, var(--ft-color-mix-z) 30%, transparent);
     }
 
     &[data-mode='dark'] {
-      --ft-color-mix-a: #000000;
-      --ft-color-mix-z: #ffffff;
-      --ft-color-solid-surface: #000000;
-      --ft-color-solid-on-surface: #ffffff;
-      --ft-color-primary: #ffffff;
-      --ft-color-on-primary: #000000;
-      --ft-color-border-200: #ffffff;
+      --ft-color-mix-a: var(--min-dark);
+      --ft-color-mix-z: var(--min-light);
+      --ft-color-solid-surface: var(--min-dark);
+      --ft-color-solid-on-surface: var(--min-light);
+      --ft-color-primary: var(--min-light);
+      --ft-color-on-primary: var(--min-dark);
+      --ft-color-border-200: var(--min-light);
       --ft-color-border-100: color-mix(in srgb, var(--ft-color-mix-z) 15%, transparent);
       --ft-color-border-solid: color-mix(in srgb, var(--ft-color-mix-z) 30%, transparent);
     }

@@ -234,9 +234,9 @@
   }
 
   .chip-color-info {
-    border: var(--ft-border-primary) solid #e4f2c4;
-    background-color: #edfccc;
-    color: rgb(76, 124, 23);
+    border: var(--ft-border-primary) solid var(--color-lime-100);
+    background-color: var(--color-lime-100);
+    color: var(--color-lime-700);
   }
 
   .chip-color-normal {
@@ -272,7 +272,7 @@
   /* ***************************************************************** */
 
   html {
-    background-color: #fff;
+    background-color: var(--ft-color-solid-surface);
   }
 
   html,
@@ -487,8 +487,8 @@
 
   /* Disabled state */
   button:disabled {
-    background-color: #cccccc;
-    color: #666666;
+    background-color: var(--ft-color-n-on-surface-15);
+    color: var(--ft-color-on-surface-level-300);
     cursor: not-allowed;
     opacity: 0.7;
     transform: none;
@@ -891,8 +891,8 @@
   #clickableDiv {
     cursor: pointer;
     padding: var(--ft-unit-400);
-    background-color: #4caf50;
-    color: white;
+    background-color: var(--ft-color-success);
+    color: var(--ft-color-on-success);
     text-align: center;
     width: 200px;
     margin: 50px auto;
@@ -908,7 +908,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: var(--ft-color-n-on-surface-50);
     z-index: 1000;
     backdrop-filter: blur(6px);
     -webkit-backdrop-filter: blur(6px);
@@ -922,7 +922,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: white;
+    background-color: var(--ft-color-solid-surface);
     padding: var(--ft-unit-600);
     border-radius: var(--radius-2xl);
     box-shadow: var(--box-shadow-dialog);
@@ -996,7 +996,7 @@
     left: 100px;
     width: 274px;
     height: 274px;
-    background-color: #6e99004d;
+    background-color: color-mix(in srgb, var(--color-lime-600) 30%, transparent);
     z-index: -1;
     filter: blur(57px);
   }
@@ -1022,8 +1022,8 @@
   /* Save button */
 
   #saveBtn {
-    background-color: #2f977b;
-    color: white;
+    background-color: var(--ft-color-success);
+    color: var(--ft-color-on-success);
     border: none;
     padding: 10px 15px;
     cursor: pointer;
@@ -1032,7 +1032,7 @@
   }
 
   #saveBtn:hover {
-    background-color: #45a049;
+    background-color: color-mix(in srgb, var(--ft-color-success) 85%, var(--ft-color-mix-z));
   }
 
   /** StoryBook **/

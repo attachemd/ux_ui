@@ -18,6 +18,8 @@
     --drac-purple: #bd93f9;
     --drac-red: #ff5555;
     --drac-yellow: #f1fa8c;
+    --drac-white: #ffffff;
+    --drac-surface: #343746;
 
     --ft-color-primary: var(--drac-purple);
     --ft-color-secondary: var(--drac-pink);
@@ -31,17 +33,17 @@
   }
 
   [data-theme='dracula'][data-mode='light'] {
-    --ft-color-mix-a: #f8f8f2;
-    --ft-color-mix-z: #282a36;
-    --ft-color-solid-surface: #ffffff;
-    --ft-color-solid-on-surface: #282a36;
+    --ft-color-mix-a: var(--drac-fg);
+    --ft-color-mix-z: var(--drac-bg);
+    --ft-color-solid-surface: var(--drac-white);
+    --ft-color-solid-on-surface: var(--drac-bg);
     --ft-color-background-image: none;
   }
 
   [data-theme='dracula'][data-mode='dark'] {
     --ft-color-mix-a: var(--drac-bg);
     --ft-color-mix-z: var(--drac-fg);
-    --ft-color-solid-surface: #343746;
+    --ft-color-solid-surface: var(--drac-surface);
     --ft-color-solid-on-surface: var(--drac-fg);
     --ft-color-background-image: none;
   }
