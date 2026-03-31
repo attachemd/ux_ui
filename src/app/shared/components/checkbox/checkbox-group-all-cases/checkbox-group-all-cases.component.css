@@ -3,16 +3,16 @@
     display: flex;
     flex-direction: column;
     gap: 3rem;
-    background-color: var(--ft-color-background, #f9f9f9);
+    background-color: var(--ft-color-background, var(--ft-color-solid-surface));
     min-height: 100vh;
 }
 
 .showcase-title {
     font-size: 2rem;
     font-weight: 700;
-    color: var(--ft-color-on-surface, #1b1b1f);
+    color: var(--ft-color-on-surface, var(--ft-color-on-surface-level-100));
     margin-bottom: 1rem;
-    border-bottom: 2px solid var(--ft-color-primary, #6750a4);
+    border-bottom: 2px solid var(--ft-color-primary);
     padding-bottom: 0.5rem;
 }
 
@@ -25,7 +25,7 @@
 .section-title {
     font-size: 1.5rem;
     font-weight: 600;
-    color: var(--ft-color-on-surface-variant, #44474e);
+    color: var(--ft-color-on-surface-variant, var(--ft-color-on-surface-level-200));
     margin: 0;
 }
 
@@ -43,17 +43,17 @@
 }
 
 .case {
-    background-color: white;
+    background-color: var(--ft-color-solid-surface);
     padding: 1.5rem;
     border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-    border: 1px solid var(--ft-color-outline-variant, #c4c6cf);
+    box-shadow: var(--shadow-xs);
+    border: 1px solid var(--ft-color-outline-variant, var(--ft-color-border-200));
 }
 
 .case-label {
     font-size: 0.875rem;
     font-weight: 500;
-    color: var(--ft-color-on-surface-muted, #757780);
+    color: var(--ft-color-on-surface-muted, var(--ft-color-on-surface-level-300));
     margin-bottom: 1rem;
     text-transform: uppercase;
     letter-spacing: 0.5px;
