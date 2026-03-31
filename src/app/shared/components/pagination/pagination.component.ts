@@ -14,7 +14,7 @@ import { FtInputComponent } from '../inputs/input/input.component';
 })
 export class FtPaginationComponent {
   totalItems = input(0);
-  pageSize = input(10);
+  pageSize = input(25);
   currentPage = input(0);
   pageSizeOptions = input<SelectOption[]>([
     { label: '5 / page', value: 5 },

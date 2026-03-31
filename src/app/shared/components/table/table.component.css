@@ -23,7 +23,7 @@
 
   /* --- Backgrounds --- */
   /*--_header-bg: var(--ft-table-header-bg, color-mix(in srgb, var(--ft-color-primary) 5%, var(--ft-color-mix-a)));*/
-  --_header-bg: var(--ft-table-header-bg, color-mix(in srgb, var(--ft-color-primary) 50%, transparent));
+  --_header-bg: var(--ft-table-header-bg, color-mix(in srgb, var(--ft-color-primary) 0%, var(--ft-color-n-surface-80)));
   --_backdrop-filter: var(--ft-table-backdrop-filter, blur(10px));
   --_sticky-header-bg: var(--ft-table-sticky-header-bg, transparent);
   --_sort-icon-color: var(--ft-table-sort-icon-color, var(--_header-text));
@@ -42,7 +42,7 @@
   --_sticky-bg-expanded: var(--ft-table-sticky-bg-expanded, var(--_row-bg-expanded));
 
   /* --- Text Colors --- */
-  --_header-text: var(--ft-table-header-text, var(--ft-color-on-primary));
+  --_header-text: var(--ft-table-header-text, var(--ft-color-on-surface-level-300));
   /*--_header-text: var(--ft-table-header-text, color-mix(in srgb, var(--_header-bg) , var(--ft-color-mix-z) 20%));*/
   /*--_header-text: var(--ft-table-header-text, hsl(from var(--_header-bg) h calc(s / 4) calc(l - 35)));*/
   --_row-text: var(--ft-table-row-text, inherit);
@@ -58,7 +58,7 @@
 
   --_header-border: var(--ft-table-header-border, none);
   --_header-border-bottom: var(--ft-table-header-border-bottom, none);
-  --_header-shadow: var(--ft-table-header-shadow, 0 1px 8px 0 rgb(0 0 0 / 0.08));
+  --_header-shadow: var(--ft-table-header-shadow, 0 1px 8px 0 var(--ft-color-n-on-surface-8));
   /* --_header-shadow: var(--ft-table-header-shadow, 0 0 8px 0 red); */
 
   --_row-border: var(--ft-table-row-border, none);
@@ -123,6 +123,7 @@
   display: var(--_table-display);
   table-layout: var(--_table-layout, fixed);
   width: var(--_table-width, 100%);
+  min-width: 100%;
   border-collapse: var(--_table-collapse);
   border-spacing: var(--ft-table-border-spacing, 0 var(--_row-gap));
   font-size: var(--ft-text-xs);

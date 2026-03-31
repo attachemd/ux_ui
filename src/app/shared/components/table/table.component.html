@@ -1,4 +1,5 @@
-<div class="ft-table-wrapper" [class.variant-default]="variant() === 'default'" [class.minimalist]="variant() === 'minimalist'" [attr.data-density]="density()">
+<div class="ft-table-wrapper" [class.variant-default]="variant() === 'default'"
+  [class.minimalist]="variant() === 'minimalist'" [attr.data-density]="density()">
   <div class="table-viewport">
     <div class="table-scroll-area">
       <table class="ft-table">
@@ -7,15 +8,15 @@
             @for (col of columns(); track col.key) {
             <th [class]="col.key" [style.width]="col.width" [style.max-width]="col.maxWidth || col.width"
               [style.min-width]="col.minWidth" [class.sticky-column]="col.sticky === 'left'"
-              [class.sticky-column-right]="col.sticky === 'right'" 
+              [class.sticky-column-right]="col.sticky === 'right'"
               [style.left]="col.sticky === 'left' ? stickyOffsets().leftOffsets[col.key] : null"
               [style.right]="col.sticky === 'right' ? stickyOffsets().rightOffsets[col.key] : null"
-              [class.sorted]="isSorted(col.key)"
-              (click)="col.sortable !== false && onSort(col.key)">
+              [class.sorted]="isSorted(col.key)" (click)="col.sortable !== false && onSort(col.key)">
 
               @if (col.type === 'checkbox') {
               <div class="checkbox-cell-content" (click)="$event.stopPropagation()">
-                <ft-checkbox [size]="checkboxSize()" [value]="isAllSelected()" (valueChange)="toggleSelectAll()"></ft-checkbox>
+                <ft-checkbox [size]="checkboxSize()" [value]="isAllSelected()"
+                  (valueChange)="toggleSelectAll()"></ft-checkbox>
               </div>
               } @else {
               <div class="th-content">
