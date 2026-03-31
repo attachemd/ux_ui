@@ -32,7 +32,7 @@
 .showcase-title {
     margin-bottom: 2rem;
     font-family: inherit;
-    color: var(--ft-text-primary, #111827);
+    color: var(--ft-text-primary, var(--ft-color-on-surface-level-100));
 }
 
 .cases-container {
@@ -43,7 +43,7 @@
 .case-row {
     display: flex;
     align-items: center;
-    border-bottom: 1px solid var(--ft-border-subtle, #e5e7eb);
+    border-bottom: 1px solid var(--ft-border-subtle, var(--ft-color-border-100));
 }
 
 .case-row:last-child {

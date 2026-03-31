@@ -2,7 +2,7 @@
     display: block;
     --_player-bg: var(--ft-audio-player-bg, var(--ft-color-primary-600));
     --_player-radius: var(--ft-audio-player-radius, var(--ft-radius-300));
-    --_player-shadow: var(--ft-audio-player-shadow, 0 20px 50px -12px rgba(81, 45, 168, 0.6));
+    --_player-shadow: var(--ft-audio-player-shadow, 0 20px 50px -12px color-mix(in srgb, var(--ft-color-primary) 60%, transparent));
     --_player-color: var(--ft-audio-player-color, var(--ft-color-n-surface-100));
     --_player-padding: var(--ft-unit-400);
 

@@ -4,7 +4,7 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.4);
+  background: var(--ft-color-n-on-surface-40);
   backdrop-filter: blur(4px);
   display: flex;
   align-items: center;

@@ -36,7 +36,7 @@
 
     /* Core Base Mixins */
     --_tabs-accent: var(--ft-color-primary);
-    --_tabs-bg-base: #fff;
+    --_tabs-bg-base: var(--ft-color-solid-surface);
 
     --_tabs-bg-50: color-mix(in srgb, var(--_tabs-bg-base) 2%, transparent);
     --_tabs-bg-100: color-mix(in srgb, var(--_tabs-bg-base) 4%, transparent);

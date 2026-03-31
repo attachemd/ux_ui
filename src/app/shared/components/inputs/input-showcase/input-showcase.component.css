@@ -7,7 +7,7 @@
 }
 
 .showcase-container h1 {
-  color: #1a202c;
+  color: var(--ft-color-on-surface-level-100);
   margin-bottom: 2rem;
   text-align: center;
   font-size: 2.5rem;
@@ -17,18 +17,18 @@
 .showcase-section {
   margin-bottom: 3rem;
   padding: 2rem;
-  background: white;
+  background: var(--ft-color-solid-surface);
   border-radius: 12px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  border: 1px solid #e2e8f0;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--ft-color-border-200);
 }
 
 .showcase-section h2 {
-  color: #2d3748;
+  color: var(--ft-color-on-surface-level-100);
   margin-bottom: 1.5rem;
   font-size: 1.5rem;
   font-weight: 600;
-  border-bottom: 2px solid #edf2f7;
+  border-bottom: 2px solid var(--ft-color-border-100);
   padding-bottom: 0.5rem;
 }
 
@@ -46,7 +46,7 @@
 }
 
 .example-item h3 {
-  color: #4a5568;
+  color: var(--ft-color-on-surface-level-200);
   font-size: 1rem;
   font-weight: 600;
   margin: 0;
@@ -54,8 +54,8 @@
 
 .value-display {
   font-size: 0.875rem;
-  color: #718096;
-  background: #f7fafc;
+  color: var(--ft-color-on-surface-level-300);
+  background: var(--color-gray-50);
   padding: 0.5rem;
   border-radius: 4px;
   margin: 0;
@@ -93,22 +93,22 @@
 }
 
 .btn-primary {
-  background: #4299e1;
-  color: white;
+  background: var(--ft-color-info);
+  color: var(--ft-color-solid-surface);
 }
 
 .btn-primary:hover {
-  background: #3182ce;
+  background: color-mix(in srgb, var(--ft-color-info) 85%, var(--ft-color-mix-z));
   transform: translateY(-1px);
 }
 
 .btn-secondary {
-  background: #e2e8f0;
-  color: #4a5568;
+  background: var(--color-gray-200);
+  color: var(--ft-color-on-surface-level-200);
 }
 
 .btn-secondary:hover {
-  background: #cbd5e0;
+  background: var(--color-gray-300);
   transform: translateY(-1px);
 }
 
@@ -140,18 +140,18 @@
 /* Dark mode support */
 @media (prefers-color-scheme: dark) {
   .showcase-section {
-    background: #2d3748;
-    border-color: #4a5568;
+    background: var(--ft-color-solid-surface);
+    border-color: var(--ft-color-border-200);
   }
 
   .showcase-container h1,
   .showcase-section h2,
   .example-item h3 {
-    color: #e2e8f0;
+    color: var(--ft-color-on-surface-level-100);
   }
 
   .value-display {
-    background: #4a5568;
-    color: #cbd5e0;
+    background: var(--ft-color-surface-level-200);
+    color: var(--ft-color-on-surface-level-200);
   }
 }

@@ -2,7 +2,7 @@
 :host {
   display: block;
   height: 100vh;
-  --sidebar-collapsed-width: var(--ft-unit-2000);
+  --sidebar-collapsed-width: var(--ft-unit-1400);
   --sidebar-expanded-width: var(--ft-unit-6400);
 }
 
