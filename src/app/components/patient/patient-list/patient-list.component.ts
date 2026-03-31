@@ -214,7 +214,7 @@ export class PatientListComponent {
   currentPage = signal(0);
 
   /** Number of items per page */
-  pageSize = signal(10);
+  pageSize = signal(25);
 
   /** Available page size options */
   pageSizeOptions: SelectOption[] = [

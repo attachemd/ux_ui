@@ -81,7 +81,7 @@ export class StudyListComponent {
   // UI State
   filter = signal('');
   currentPage = signal(0);
-  pageSize = signal(10);
+  pageSize = signal(25);
   sortKey = signal<string>('studyDate');
   sortDirection = signal<'asc' | 'desc'>('desc');
 
